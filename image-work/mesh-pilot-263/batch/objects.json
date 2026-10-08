@@ -592,5 +592,49 @@
  "75.023": {
   "title": "Unknown maker, German. *Writing Desk (Schreibtisch)*, ca. 1590. 45.1 × 60.6 × 33.3 cm.",
   "ended": "8 October: no call made. It is a rectangular box with flat marquetry faces; a generated mesh would add nothing a box with the museum's photographs on its faces does not have. What the census complains of, a plain brown back, is a matter of which photographs are on which faces in european_east_additions.gd"
+ },
+ "2017.74.17": {
+  "title": "Ralph Wood the younger; John Voyez, modeler. *Hudibras*. Earthenware with glaze. 28.9 × 22.3 × 12.4 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.17/front.jpg",
+  "prepare": "--height 0.289 --width 0.223 --depth 0.124",
+  "muse_first": {
+   "run": {
+    "id": "run_m176r7ekxnsetxp29kx88kqxbd8fx370",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "24f60e5637505448339df2239162c5e4847701b8cb27720755628faf41007b71"
+   },
+   "views": "front, left (the end view from behind the horse) and back, each a Muse clay view of the museum's photograph of that side",
+   "imported": {
+    "mesh": 209509,
+    "colour": 56502,
+    "total": 266011
+   },
+   "build": "SUF=-cut LIFT=none CUT=--keep-holes; colour from two flat Muse views as drawn"
+  }
+ },
+ "2017.74.16": {
+  "title": "Ralph Wood the younger. *The Flute Player*. Earthenware with glaze. 25.4 × 17.7 × 12.4 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.16/front.jpg",
+  "prepare": "--height 0.254 --width 0.177 --depth 0.124",
+  "muse_first": {
+   "run": {
+    "id": "run_m17ch6ett90rc521yzpyv9wgx18fwnfm",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as back, right, front (the frame turned half round: there is no left view)",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "baf63509a6715cffccb458a8400157746b7d669b01958845ebfd6942c953e49e"
+   },
+   "views": "front and right each a Muse clay view of the museum's photograph of that side; back inferred by Muse",
+   "imported": {
+    "mesh": 220976,
+    "colour": 51906,
+    "total": 272882
+   },
+   "build": "SUF=-cut LIFT=none CUT=--keep-holes; colour from two flat Muse views as drawn"
+  }
  }
 }

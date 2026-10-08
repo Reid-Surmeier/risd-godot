@@ -27,6 +27,7 @@
     },
     {
       "asset": "flute-player",
+      "mesh": "additions/rockefeller/flute-player-20177416.glb",
       "accession": "2017.74.16",
       "title": "The Flute Player",
       "size_m": [
@@ -50,6 +51,7 @@
     },
     {
       "asset": "hudibras",
+      "mesh": "additions/rockefeller/hudibras-20177417.glb",
       "accession": "2017.74.17",
       "title": "Hudibras",
       "size_m": [

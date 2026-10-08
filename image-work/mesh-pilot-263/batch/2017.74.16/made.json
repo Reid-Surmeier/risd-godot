@@ -1,0 +1,40 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.16/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.16/right.jpg"
+  ]
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.16/right.jpg",
+   "batch/2017.74.16/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.16/front.jpg"
+  ],
+  "note": "came out three-quarter, with the woman in view; not used for the mesh"
+ },
+ "clay-rightprofile": {
+  "from": "photograph of this direction",
+  "note": "drawn a second time as a strict profile, as the photograph has it",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.16/right.jpg",
+   "image-work/mesh-pilot-263/batch/2017.74.16/clay-front.png"
+  ]
+ },
+ "clay-back": {
+  "from": "inferred by Muse from the clay front and the first clay right; no photograph of the back exists",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.16/clay-front.png",
+   "image-work/mesh-pilot-263/batch/2017.74.16/clay-right.png"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.16/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.16/front.jpg"
+  ]
+ }
+}

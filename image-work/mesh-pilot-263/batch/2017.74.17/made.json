@@ -1,0 +1,40 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/back.jpg"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/back.jpg",
+   "batch/2017.74.17/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/front.jpg"
+  ]
+ },
+ "clay-side": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/side.jpg",
+   "batch/2017.74.17/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/front.jpg"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.17/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.17/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.17/back.jpg",
+   "batch/2017.74.17/flat-front.png"
+  ]
+ }
+}

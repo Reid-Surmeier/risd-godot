@@ -1,0 +1,23 @@
+{
+ "accession": "2017.74.16",
+ "page": "https://risdmuseum.org/art-design/collection/flute-player-20177416",
+ "photographs": 3,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.16/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front",
+  "right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.16/right.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  }
+ }
+}

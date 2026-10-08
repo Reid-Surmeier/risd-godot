@@ -338,7 +338,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/st-george.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:st-george.html (saved copy of https://risdmuseum.org/art-design/collection/st-george-and-dragon-20177414)"
   },
-  "flute-player": {
+  "2017.74.16": {
     "title": "The Flute Player",
     "maker": "Ralph Wood the younger",
     "date": "ca. 1770",
@@ -350,7 +350,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/flute-player.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:flute-player.html (saved copy of https://risdmuseum.org/art-design/collection/flute-player-20177416)"
   },
-  "hudibras": {
+  "2017.74.17": {
     "title": "Hudibras",
     "maker": "Ralph Wood the younger, maker; John Voyez, modeler",
     "date": "ca. 1770",
