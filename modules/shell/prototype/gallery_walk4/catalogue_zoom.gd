@@ -6,6 +6,7 @@ var _request: HTTPRequest
 var _path := ""
 var _texture: Texture2D
 var _picture: WeakRef
+var _objects: Variant
 
 
 func _ready() -> void:
@@ -13,6 +14,18 @@ func _ready() -> void:
 	_request.timeout = 30.0
 	add_child(_request)
 	_request.request_completed.connect(_completed)
+
+
+func zoom_path(tag: String, record: Dictionary) -> String:
+	if record.has("zoom_image"):
+		return str(record.zoom_image)
+	if _objects == null:
+		_objects = JSON.parse_string(
+			FileAccess.get_file_as_string("res://modules/shell/collection_rooms/objects.json")
+		)
+	if _objects is Dictionary:
+		return str(_objects.get(tag.get_slice("#", 0), {}).get("zoom_image", ""))
+	return ""
 
 
 func show_image(path: String, picture: TextureRect) -> void:

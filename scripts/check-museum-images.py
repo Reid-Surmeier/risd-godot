@@ -38,6 +38,9 @@ def check_images():
                         failures.append(f"{work['tag']} {role}: {size}, needs {required} px; original {source_long} px")
                     if hashlib.sha256(path.read_bytes()).hexdigest() != image['sha256']:
                         failures.append(f"{work['tag']} {role}: photograph hash differs from its source record")
+                    runtime_picture = role == 'zoom' or (role == 'detail' and registry.name == 'objects.json')
+                    if runtime_picture and work.get('image') != 'res://' + image['path']:
+                        failures.append(f"{work['tag']} zoom: runtime path differs from its source record")
                     if role == 'zoom_external':
                         if not (path.parent / '.gdignore').exists():
                             failures.append(f"{work['tag']} zoom: missing .gdignore; full photograph would enter the pack")

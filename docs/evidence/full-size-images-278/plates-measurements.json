@@ -1,0 +1,282 @@
+{
+  "before": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2016.62#131",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          157
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "2016.62#131",
+        "title": "Plate with Colebrooke Impaling Hudson Coat of Arms",
+        "title_shown": "Plate with Colebrooke Impaling Hudson Coat of Arms",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          344,
+          106,
+          8,
+          162
+        ],
+        "zoom_fit_px": [
+          682.0,
+          623.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3733.0
+        ],
+        "zoom_image_px": [
+          600,
+          548
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2016.102.2#132",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          348,
+          164
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "2016.102.2#132",
+        "title": "Plate with Elephant",
+        "title_shown": "Plate with Elephant",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          212,
+          182,
+          265,
+          10
+        ],
+        "zoom_fit_px": [
+          682.0,
+          507.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3038.0
+        ],
+        "zoom_image_px": [
+          600,
+          446
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "35.703#138",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          348,
+          155
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "35.703#138",
+        "title": "Plate",
+        "title_shown": "Plate",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          340,
+          106,
+          15,
+          162
+        ],
+        "zoom_fit_px": [
+          682.0,
+          654.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3924.0
+        ],
+        "zoom_image_px": [
+          600,
+          576
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "arch"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 3,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  },
+  "after": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2016.62#131",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          157
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "2016.62#131",
+        "title": "Plate with Colebrooke Impaling Hudson Coat of Arms",
+        "title_shown": "Plate with Colebrooke Impaling Hudson Coat of Arms",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          344,
+          106,
+          8,
+          162
+        ],
+        "zoom_fit_px": [
+          682.0,
+          622.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3731.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3730
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2016.102.2#132",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          348,
+          164
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "2016.102.2#132",
+        "title": "Plate with Elephant",
+        "title_shown": "Plate with Elephant",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          212,
+          182,
+          265,
+          10
+        ],
+        "zoom_fit_px": [
+          682.0,
+          507.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3038.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3037
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "35.703#138",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          348,
+          155
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "35.703#138",
+        "title": "Plate",
+        "title_shown": "Plate",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          340,
+          106,
+          15,
+          162
+        ],
+        "zoom_fit_px": [
+          682.0,
+          654.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3923.0
+        ],
+        "zoom_image_px": [
+          3967,
+          3807
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "arch"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 3,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  }
+}
