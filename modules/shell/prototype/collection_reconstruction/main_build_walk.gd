@@ -121,6 +121,23 @@ var _rooms_path := ""  # the room scene still to be built; empty once it is, or 
 var _wipe_space := ""  # the space the first doorway leads to, entered once the rooms exist
 var _wipe_wait := 0
 var _wipe_mark: Control
+var _wipe_spin := 0.0  # the mark turns a little between one build step and the next
+# The rooms build themselves a step at a time (#281): remodel_room.gd waits at each "build_gate"
+# for this signal. Steps run while the visitor stands still in the Hall, and in the black of
+# the wipe if a doorway is reached first.
+signal build_gate
+const ROOMS_AT_LAUNCH := false  # the fallback: the whole museum behind the loading screen
+const BUILD_AFTER := 2.0  # seconds the Hall is on screen before the rooms begin
+const BUILD_SHARE_MS := 60  # short steps share one frame up to this long
+const ARRIVAL_WALL := 6.0  # metres: a wall further off than this shows no works in the picture
+# The rooms' baked scene is 11.6 MB of text and the one step that cannot be cut up: 2 s in the
+# engine. Read behind the loading screen, it is already in memory when the build asks for it.
+const BAKE_AT_LAUNCH := false
+var _bake_held: Resource
+var _building: Node3D  # the room scene while it builds; hidden between steps
+var _build_clock := 0.0
+var _build_ms := 0  # what the steps have cost so far, and the longest of them
+var _build_longest := 0
 var _wipe_routed := false  # the change began on a clicked route, which keeps its own destination
 
 
@@ -135,8 +152,12 @@ func _build_test_room() -> void:
 				_build_stages()
 				# Headless nothing is drawn and there is no first picture to hurry: the checks
 				# that run there get the whole museum at once, as before.
-				if DisplayServer.get_name() == "headless":
+				if DisplayServer.get_name() == "headless" or ROOMS_AT_LAUNCH:
 					_attach_rooms(path)
+				elif BAKE_AT_LAUNCH:
+					var bake: String = str(path).get_base_dir().path_join("addition_baked/room.tscn")
+					if ResourceLoader.exists(bake):
+						_bake_held = load(bake)
 			return
 
 
@@ -207,14 +228,84 @@ func _skylight_step(p: Vector3) -> Vector3:
 	return p
 
 
+## The rooms, whole, before this returns: for the checks, for a visitor put straight into a
+## room, and for the launch when ROOMS_AT_LAUNCH. A build already under way is finished.
 func _attach_rooms(path: String) -> void:
 	var began := Time.get_ticks_msec()
+	if _building == null:
+		_building = load(path).instantiate()
+		_building.set_meta("main_build_host", true)
+		_vp.add_child(_building)  # no gate: built in this one call
+	else:
+		_building.visible = true
+		while not _building.has_meta("build_done"):
+			build_gate.emit()
+	_build_ms += Time.get_ticks_msec() - began
+	_install_rooms()
+
+
+# The first step of a build in steps. Between steps the half-built scene is hidden, so none of
+# it is seen from the Hall; it is shown again while a step runs, because the builders ask what
+# is visible. (A viewport of its own made every step slower: 13.7 s in all against 9.9 s.)
+func _begin_rooms() -> void:
+	var began := Time.get_ticks_msec()
+	_building = load(_rooms_path).instantiate()
+	_building.set_meta("main_build_host", true)
+	_building.set_meta("build_gate", build_gate)
+	_vp.add_child(_building)  # runs as far as the first gate
+	_building.set_physics_process(false)
+	_building.set_process(false)
+	_building.set_process_unhandled_key_input(false)
+	# Its sky would compete with the Hall's for as long as the build lasts.
+	for child in _building.get_children():
+		if child is WorldEnvironment:
+			child.free()
+	_building.visible = false
+	_build_ms += Time.get_ticks_msec() - began
+	_build_longest = Time.get_ticks_msec() - began
+
+
+# More steps, until one has taken the frame's share; then the rooms are put in place.
+# `shown` leaves the scene visible afterwards: under the wipe's black there is nothing to hide,
+# and showing and hiding this many nodes costs a third again on top of the build.
+func _pump_rooms(share_ms: int, shown := false) -> void:
+	var began := Time.get_ticks_msec()
+	_building.visible = true
+	while true:
+		if _building.has_meta("build_done"):
+			_build_ms += Time.get_ticks_msec() - began
+			_install_rooms()
+			return
+		var step := Time.get_ticks_msec()
+		build_gate.emit()
+		_build_longest = maxi(_build_longest, Time.get_ticks_msec() - step)
+		if Time.get_ticks_msec() - began >= share_ms:
+			break
+	_building.visible = shown
+	_build_ms += Time.get_ticks_msec() - began
+
+
+# Not walking, not on a route, not turning the view: a hitch now is least seen.
+func _standing_still() -> bool:
+	return (
+		_held.is_empty()
+		and _target == null
+		and _path.is_empty()
+		and _velocity.length() < 0.01
+		and absf(_view_turn_remaining) < 0.001
+		and not _orbit_dragged
+		and not _entrance_active
+		and _glide_t >= 1.0
+	)
+
+
+func _install_rooms() -> void:
+	var began := Time.get_ticks_msec()
 	_rooms_path = ""
-	_rooms = load(path).instantiate()
-	_rooms.set_meta("main_build_host", true)
+	_rooms = _building
+	_building = null
 	# The room scene builds itself in its own metres (its Hall-footprint tests are absolute),
 	# so it enters the tree at the origin and only then moves onto the real Hall.
-	_vp.add_child(_rooms)
 	_rooms.position = ATTACH
 	# walk4 owns the visitor, camera, environment and input.
 	_rooms.set_physics_process(false)
@@ -326,7 +417,12 @@ func _attach_rooms(path: String) -> void:
 	for wall in _walls:
 		wall["at"] = wall.room if wall.room >= 0 else _room_of(wall.box)
 	_grid = null  # a route planned in the Hall before now knew no furniture (#280)
-	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()), " ms=", Time.get_ticks_msec() - began)
+	_build_ms += Time.get_ticks_msec() - began
+	_build_longest = maxi(_build_longest, Time.get_ticks_msec() - began)
+	print(
+		"MAIN_BUILD_ROOMS ", JSON.stringify(state()), " ms=", _build_ms,
+		" longest_step_ms=", _build_longest
+	)
 
 
 ## What the checks read: counts only, no behaviour.
@@ -1276,6 +1372,15 @@ func _zoom_at(point: Vector2, factor: float) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	# The room change is walking the visitor: a press now would cancel its route (walk4 clears
+	# it on any press) and leave the visitor short of the room. Presses wait for the keys.
+	if (
+		event is InputEventMouseButton
+		and _wipe_t >= 0.0
+		and _wipe_t < WIPE_CLOSE + WIPE_HOLD + WIPE_BACK
+	):
+		accept_event()
+		return
 	if _inspect.is_empty() or not _open.is_empty():
 		super(event)
 		return
@@ -1428,6 +1533,15 @@ func _process(delta: float) -> void:
 		_wipe_step(delta)
 	else:
 		super(delta)
+	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and not _entrance_waiting:
+		# The Hall is on screen. The rooms begin a moment later and go on whenever the visitor
+		# stands still; a doorway reached first finishes them in the wipe's black (_wipe_step).
+		_build_clock += delta
+		if _build_clock >= BUILD_AFTER and _standing_still():
+			if _building == null:
+				_begin_rooms()
+			else:
+				_pump_rooms(BUILD_SHARE_MS)
 	if _rooms == null or not _open.is_empty() or _entrance_active:
 		return
 	if _space == "far" and _pos.z > -L and absf(_pos.x) < DOORS.far.size.x / 2.0:
@@ -1827,6 +1941,7 @@ func _update_camera(k: float) -> void:
 	var subject_heights: Array = [.5,1.5]
 	if here >= 0 and _plan[here].label in ["Skylight Gallery","Skylight Gallery reveal threshold"]:
 		subject_heights.append(1.85)  # #275: the casing above the lower visitor must clear its head too
+	var doorway := _in_a_doorway(here)
 	for wall in _walls:
 		var clear := true
 		if wall.room >= 0:
@@ -1847,7 +1962,14 @@ func _update_camera(k: float) -> void:
 		# sight line to the Seated Woman always passes through her own case).
 		var read = _inspect.get("node")
 		var holds: bool = read is Node and (wall.body == read or wall.body.is_ancestor_of(read))
-		if clear and wall.layers & shown and not low and not holds:
+		# A room's wall is not "in the way" of a visitor standing in its own doorway: off the
+		# doorway's centre line the sight line clips the wall beside the opening, and taking
+		# that wall away took the room's whole side with it (round 5, the deep reveals).
+		var foot := Rect2(wall.box.position.x, wall.box.position.z, wall.box.size.x, wall.box.size.z)
+		var in_its_doorway: bool = (
+			wall.room >= 0 and doorway and foot.grow(1.2).has_point(Vector2(_pos.x, _pos.z))
+		)
+		if clear and wall.layers & shown and not low and not holds and not in_its_doorway:
 			for offset in [-0.45, 0.0, 0.45]:
 				for height in subject_heights:
 					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
@@ -1903,6 +2025,28 @@ func _update_camera(k: float) -> void:
 	_seen_cam = _cam.global_transform
 	_seen_fov = _cam.fov
 	_seen_mask = _cam.cull_mask
+
+
+# Standing in a doorway: in the depth of a reveal, or within a metre of an opening and in
+# its span. The walls about a doorway are not cut away for a visitor who is in it.
+func _in_a_doorway(here: int) -> bool:
+	if here < 0:
+		return absf(_pos.x) <= 1.2 and (_pos.z > -1.0 or _pos.z < -L + 1.0)
+	var area: Dictionary = _plan[here]
+	if "reveal threshold" in str(area.label):
+		return true
+	var b: Array = area.b
+	for side in area.openings:
+		var door: Array = area.openings[side]
+		var along := _pos.z if side in ["west", "east"] else _pos.x
+		var gap: float = (
+			_pos.x - b[0]
+			if side == "west"
+			else b[1] - _pos.x if side == "east" else _pos.z - b[2] if side == "north" else b[3] - _pos.z
+		)
+		if along >= door[0] - 0.1 and along <= door[1] + 0.1 and gap < 1.0:
+			return true
+	return false
 
 
 func _stage_of(room: int) -> int:
@@ -1973,9 +2117,13 @@ void fragment() {
 	_wipe_mark.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_wipe_mark.draw.connect(
 		func() -> void:
-			var at := _wipe_mark.size - Vector2(46, 46)
-			_wipe_mark.draw_arc(at, 13.0, 0.0, TAU, 32, Color(1, 1, 1, 0.22), 3.0, true)
-			_wipe_mark.draw_arc(at, 13.0, -PI / 2.0, PI / 3.0, 16, Color(1, 1, 1, 0.9), 3.0, true)
+			# Middle of the picture, large and near white: round 5 missed a small grey ring
+			# in the corner.
+			var at := _wipe_mark.size / 2.0
+			_wipe_mark.draw_arc(at, 34.0, 0.0, TAU, 48, Color(1, 1, 1, 0.28), 7.0, true)
+			_wipe_mark.draw_arc(
+				at, 34.0, _wipe_spin - PI / 2.0, _wipe_spin + PI / 2.0, 24, Color(1, 1, 1, 0.97), 7.0, true
+			)
 	)
 	_wipe_mark.hide()
 	_wipe.add_child(_wipe_mark)
@@ -2067,14 +2215,25 @@ func _wipe_begin() -> void:
 func _wipe_step(delta: float) -> void:
 	delta = minf(delta, 0.05)  # the frame after a load is long; the wipe does not skip ahead
 	if _rooms == null and _rooms_path != "" and _wipe_t + delta >= WIPE_CLOSE:
-		# The hold stretches: two frames of black on screen, then the rooms are built in one go.
+		# The hold stretches while what is left of the rooms is built: black, then the mark,
+		# then one step a frame, so the mark is on screen through any long step and turns
+		# between them.
 		(_wipe.material as ShaderMaterial).set_shader_parameter("radius", 0.0)
-		_wipe_mark.show()
+		_wipe_mask = 0  # the picture is black: drawing the half-built rooms behind it doubled the wait
 		_wipe_wait += 1
-		if _wipe_wait < 3:
+		if _wipe_wait < 2:
 			return
-		_attach_rooms(_rooms_path)
-		_wipe_mark.hide()
+		_wipe_spin += 0.7
+		_wipe_mark.queue_redraw()
+		_wipe_mark.show()
+		if _wipe_wait < 4:
+			return
+		if _building == null:
+			_begin_rooms()
+			return
+		_pump_rooms(BUILD_SHARE_MS, true)  # the next steps, or the putting in place after the last
+		if _rooms == null:
+			return
 		_stage = -1  # the Hall is what the wipe closed on
 		_stage_pos = _pos
 		_enter_space(_wipe_space)
@@ -2087,9 +2246,12 @@ func _wipe_step(delta: float) -> void:
 		_relight()
 		_stage = _stage_of(_room_at(_pos))
 		_cut_state = 0
+		_arrival_view()
 		_update_camera(1.0)
-	if before < open_at and _wipe_t >= open_at and not _wipe_routed and _target == null:
-		_target = _clamp(_pos + _wipe_dir * 0.6)
+	if before < open_at and _wipe_t >= open_at:
+		_wipe_mark.hide()
+		if not _wipe_routed and _target == null:
+			_target = _clamp(_pos + _wipe_dir * 0.6)
 	var radius := 0.0
 	if _wipe_t < WIPE_CLOSE:
 		radius = WIPE_RADIUS * (1.0 - smoothstep(0.0, 1.0, _wipe_t / WIPE_CLOSE))
@@ -2099,6 +2261,39 @@ func _wipe_step(delta: float) -> void:
 	(_wipe.material as ShaderMaterial).set_shader_parameter("reach", size / (0.5 * size.length()))
 	if _wipe_t >= open_at + WIPE_OPEN:
 		_wipe_end()
+
+
+# The arrival picture should show the room. If the wall the view faces is too far off to be
+# in it (the Hall seen down its length is floor and a bench), the view turns, in the black, to
+# the wall within reach that has the most works on it. Keys act on the picture, as always.
+func _arrival_view() -> void:
+	if view_mode == 2:
+		return
+	var here := _room_at(_pos)
+	var b: Array = _plan[here].b if here >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+	var best := view_yaw
+	var most := -1
+	for turn in [0.0, PI / 2.0, -PI / 2.0, PI]:
+		var yaw := wrapf(view_yaw + turn, -PI, PI)
+		var ahead := Vector3(-sin(yaw), 0, -cos(yaw))
+		var to_wall: float = (
+			(b[1] - _pos.x if ahead.x > 0 else _pos.x - b[0])
+			if absf(ahead.x) > absf(ahead.z)
+			else (b[3] - _pos.z if ahead.z > 0 else _pos.z - b[2])
+		)
+		if turn == 0.0 and to_wall <= ARRIVAL_WALL:
+			return  # the wall it faces is in the picture already
+		if to_wall > ARRIVAL_WALL or to_wall < 1.5:
+			continue
+		var works := 0
+		for work in _objects if here >= 0 else _paintings:
+			if (here < 0 or work.room == here) and (work.normal as Vector3).dot(ahead) < -0.7:
+				works += 1
+		if works > most:
+			most = works
+			best = yaw
+	view_yaw = best
+	_view_turn_remaining = 0.0
 
 
 func _relight() -> void:
@@ -2114,7 +2309,9 @@ func _wipe_end() -> void:
 	if _wipe_t < 0.0:
 		return
 	_wipe_t = -1.0
+	_wipe_wait = 0
 	_relight()
+	_wipe_mark.hide()
 	_wipe.hide()
 
 

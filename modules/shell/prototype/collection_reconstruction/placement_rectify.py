@@ -21,7 +21,9 @@ allm = {}
 for key in keys:
     o = objs[key]
     p = max([p for p in o['parts'] if p[8] and 'frame' not in p[8]], key=lambda p: max(p[5], p[7]) * p[6])
-    a = cv2.imread(glob.glob(WT + '/**/' + p[8], recursive=True)[0], cv2.IMREAD_UNCHANGED)
+    found = glob.glob(WT + '/**/' + p[8], recursive=True)
+    if not found: print(key, 'no picture file', p[8]); continue
+    a = cv2.imread(found[0], cv2.IMREAD_UNCHANGED)
     if a.ndim == 3 and a.shape[2] == 4:
         a = (a[:, :, :3] * (a[:, :, 3:] / 255.0) + 128 * (1 - a[:, :, 3:] / 255.0)).astype(np.uint8)
     g = cv2.cvtColor(a, cv2.COLOR_BGR2GRAY); k = 800.0 / max(g.shape); g = cv2.resize(g, None, fx=k, fy=k)
