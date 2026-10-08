@@ -494,7 +494,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/agate-teapot.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:agate-teapot.html (saved copy of https://risdmuseum.org/art-design/collection/agateware-teapot-20177424ab)"
   },
-  "shepherd": {
+  "2017.74.23": {
     "title": "Figure of a Shepherd",
     "maker": "Ralph Wood the younger, maker; John Voyez, modeler",
     "date": "ca. 1770",
@@ -518,7 +518,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/candlestick.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:candlestick.html (saved copy of https://risdmuseum.org/art-design/collection/figural-candlestick-201774281)"
   },
-  "cow": {
+  "2017.74.29": {
     "title": "Model of a Cow",
     "maker": "Unknown Maker, English",
     "date": "ca. 1760",

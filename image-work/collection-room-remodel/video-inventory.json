@@ -328,6 +328,7 @@
     },
     {
       "asset": "shepherd",
+      "mesh": "additions/rockefeller/shepherd-20177423.glb",
       "accession": "2017.74.23",
       "title": "Figure of a Shepherd",
       "size_m": [
@@ -375,6 +376,7 @@
     },
     {
       "asset": "cow",
+      "mesh": "additions/rockefeller/cow-20177429.glb",
       "accession": "2017.74.29",
       "title": "Model of a Cow",
       "size_m": [
