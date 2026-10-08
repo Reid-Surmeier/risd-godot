@@ -85,7 +85,7 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Neptune 2017.74.31.1 | 0 | Multi-View from the museum's own photographs, 0.48 / 0.48 | a trial only: submitted minutes before the lead's stop on the photograph route reached me; built afterwards at no cost for its sheet; 260 KB; not in the game sources |
 | Amphitrite 2017.74.31.2 | 0 | the same, quoted 0.48, charged 0 | the run failed (the provider was overloaded); not resubmitted; she stays as she is |
 
-| Panel with Striding Lion 34.652 | 2 (0.02): clay front (accepted by Muse), flat front | single view from the clay front alone, 0.48 / 0.48 | 360 KB at 1024 px colour; sheet made; not placed yet |
+| Panel with Striding Lion 34.652 | 2 (0.02): clay front (accepted by Muse), flat front | single view from the clay front alone, 0.48 / 0.48 | 360 KB at 1024 px colour; not placed and staying so: less faithful than the real photograph on its slab, and the photograph projected onto the relief does not sit on its joints |
 
 | St. George and the Dragon 2017.74.14 | 10 (0.10): clay front, back, right; three flat views wasted on my own wrong colour description (a white horse) and a repeated view; flat front and back redone, mauve; redone once more, chestnut, as the photograph has it | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 276 KB; placed in the Rockefeller room source |
 

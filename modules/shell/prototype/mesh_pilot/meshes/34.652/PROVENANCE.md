@@ -18,3 +18,5 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `flat-front` | photograph of this direction |
 
 `34-652.glb` (`64030e49c413bcdb…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 360 KB (mesh 185, colour 174).
+
+Status, 8 October 2026: not placed, and it stays that way. The lead judged the Muse-coloured mesh less faithful than the real photograph on a slab, which the game has now: Muse regularised the bricks and tidied the lion, and none of the cracked glaze survives. One free test followed: the museum's own frontal photograph projected onto this relief (`SUF=-photo LIFT=none AO=0.3`, sheet `docs/evidence/mesh-pilot-263/batch/34.652-photograph-on-relief.jpg`). Measured, the 12 horizontal joints of the photograph sit within 0.7% of the panel height (7 mm) of the mesh's; the vertical joints and the lion's outline do not sit, because Muse redrew them, and they show as faint lines beside the photographed ones. That is no better than the flat photograph, so the game keeps the photograph on its slab.
