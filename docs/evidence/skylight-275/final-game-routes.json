@@ -1,0 +1,121 @@
+{
+  "actual_attached_room": {
+    "attached": true,
+    "blocks": 74,
+    "cutaway_bodies": 183,
+    "objects": 154,
+    "pending": false,
+    "rooms": 15,
+    "space": "far"
+  },
+  "failures": [],
+  "navigation_accepted": false,
+  "trials": [
+    {
+      "floor_m": 0.0,
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "trial": "grey_skylight_out"
+    },
+    {
+      "floor_m": 0.0,
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "trial": "grey_skylight_back"
+    },
+    {
+      "floor_m": 0.0,
+      "largest_step_m": 0.0200000405311584,
+      "passed": true,
+      "trial": "skylight_landing_east"
+    },
+    {
+      "floor_m": -0.708333313465118,
+      "largest_step_m": 0.0215762034058571,
+      "passed": true,
+      "trial": "skylight_upper_down"
+    },
+    {
+      "floor_m": -1.70000004768372,
+      "largest_step_m": 0.0221771206706762,
+      "passed": true,
+      "trial": "skylight_east_down"
+    },
+    {
+      "floor_m": -2.54999995231628,
+      "largest_step_m": 0.0222343914210796,
+      "passed": true,
+      "trial": "skylight_lower_down"
+    },
+    {
+      "floor_m": -2.54999995231628,
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "trial": "skylight_lower_aisle"
+    },
+    {
+      "floor_m": -2.54999995231628,
+      "largest_step_m": 0.0200000405311584,
+      "passed": true,
+      "trial": "skylight_lower_west"
+    },
+    {
+      "floor_m": -2.54999995231628,
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "trial": "skylight_lower_lift"
+    },
+    {
+      "floor_m": -1.70000004768372,
+      "largest_step_m": 0.0222343914210796,
+      "passed": true,
+      "trial": "skylight_lower_up"
+    },
+    {
+      "floor_m": -0.708333313465118,
+      "largest_step_m": 0.0221771206706762,
+      "passed": true,
+      "trial": "skylight_east_up"
+    },
+    {
+      "floor_m": -0.00404867762699723,
+      "largest_step_m": 0.0215762034058571,
+      "passed": true,
+      "trial": "skylight_upper_up"
+    },
+    {
+      "floor_m": 0.0,
+      "largest_step_m": 0.0200000107288361,
+      "passed": true,
+      "trial": "skylight_landing_back"
+    },
+    {
+      "floor_m": 0.0,
+      "largest_step_m": 0.0200004577636719,
+      "passed": true,
+      "trial": "skylight_front_guard"
+    },
+    {
+      "floor_m": 0.0,
+      "largest_step_m": 0.0199999809265137,
+      "passed": true,
+      "trial": "skylight_west_guard"
+    },
+    {
+      "floor_m": -2.54999995231628,
+      "largest_step_m": 0.0200004857033491,
+      "passed": true,
+      "trial": "skylight_piano_blocked"
+    },
+    {
+      "arrived": "(3.519321, -2.55, -8.310068)",
+      "click_route": "[(0.0, 0.0, -34.68), (-2.05, -2.55, -36.4)]",
+      "passed": true
+    },
+    {
+      "arrived": "(5.566326, 0.0, -6.581583)",
+      "click_route": "[(-2.05, -2.55, -36.4), (0.0, 0.0, -34.68)]",
+      "passed": true
+    }
+  ]
+}

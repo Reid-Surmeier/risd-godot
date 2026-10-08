@@ -32,7 +32,7 @@ grey gallery/entry level y = 0. Gallery oak floor y = −2.55 (revised below).
 | --- | --- | --- |
 | Plan | 9.50 × 5.00 m, ±0.60 / ±0.30 m | Inherited 9.55 / 5.04 m canvas-scaled fit; 6.5, 127, 154.5 s corroborate wall order and stair footprint |
 | Lower storey | **2.55 m, ±0.30 m** | New independent Diao / Feldman wall-plane checks at 127 / 54 s; initial inherited 3.30 m estimate rejected |
-| Landing to ceiling | 3.90 m, ±0.30 m; total 6.45 m | Canvas-to-cornice fit, checked at 40 / 127 / 154.5 s |
+| Landing to ceiling | 3.90 m, ±0.40 m; total 6.45 m, ±0.35 | New Diao wall-plane check at 127 s: floor-to-ceiling 6.457 m; 40 / 154.5 s corroborate |
 | Upper landing | 2.70 × 1.65 m, ±0.20 / ±0.15 m | Rail endpoints in earlier fit; 54, 127, 154.5, 170 s show front and west guards, stair departing east |
 | Entry | centre 5.20 m from west, ±0.40 m; current 2.00 m clear width retained, ±0.30 m | Camera route 170–182 s; reciprocal IMG_6380 0–14 s. Reveal 0.80 m is existing kit extent, not a new measured claim |
 | Stair well | 1.75 × 2.07 m, ±0.20 m | Earlier rail fit; 54 / 68 / 159.5 s corroborate U around east end |
@@ -58,11 +58,11 @@ label does not establish its identity.
 
 | Work | Wall / centre from west or north; centre above entry (above lower floor) | Evidence / error |
 | --- | --- | --- |
-| Diao 69.094 | west, 2.50 m from north; +1.64 m (+4.19) | Canvas triangulation inherited; new floor-plane check +4.109; 40 / 127 / 154.5 s; ±0.20 height, ±0.25 position |
-| Mangold 73.018 | north, 2.20 m from west; +1.75 (+4.30) | 132 / 154.5 s; ±0.25 height / ±0.30 position |
-| Feldman 2026.3 | north, 4.65 m; +2.00 (+4.55) | Over lower exit; new floor-plane check +4.528; 54 / 109.5 / 132 s; ±0.25 height / ±0.25 position |
-| Congdon 2000.17 | north, 7.63 m; +1.75 (+4.30) | East of exit, 6.5 / 54 / 144 s; ±0.25 height / ±0.30 position |
-| Walsh 2025.19 | east, 2.50 m from north; +1.90 (+4.45) | Over turn of stair, 6.5 / 159.5 s; ±0.30 height / ±0.30 position |
+| Diao 69.094 | west, 2.50 m from north; +1.56 m (+4.11) | Canvas triangulation inherited; new floor-plane check +4.109; 40 / 127 / 154.5 s; ±0.20 height, ±0.25 position |
+| Mangold 73.018 | north, 1.75 m from west; +1.75 (+4.30) | Seven-point wall-plane checks at 127 / 154.5 s; ±0.25 height / ±0.30 position |
+| Feldman 2026.3 | north, 4.65 m; +1.98 (+4.53) | Over lower exit; new floor-plane check +4.528; 54 / 109.5 / 132 s; ±0.25 height / ±0.25 position |
+| Congdon 2000.17 | north, 7.45 m; +1.75 (+4.30) | East of exit, 6.5 / 54 / 144 s; ±0.25 height / ±0.30 position |
+| Walsh 2025.19 | east, 2.10 m from north; +1.90 (+4.45) | Over turn of stair; 159.5 s wall-corner samples give 2.06–2.16 m; ±0.30 height / position |
 
 Light comes from the two diffuse laylights, with white cylindrical track
 heads on narrow tracks round their perimeter and on the dividing beam
@@ -290,3 +290,203 @@ camera. The track was diagnosed from its AABB and `grey_additions.gd` source;
 no lamp or ceiling geometry was edited. The latest runtime pictures show
 that stray white track removed. Existing same-stage laylights remain visible
 from inside the room.
+
+
+## 4. Hanging the five existing works
+
+The final Diao centre is +1.56 m relative to entry / 4.11 m above oak;
+Feldman is +1.98 / 4.53 m. Their small corrections of −0.08 / −0.02 m apply
+the independent wall-plane checks. Mangold / Congdon remain +1.75 / 4.30 m;
+Walsh remains +1.90 / 4.45 m, each with the positional uncertainty in the
+survey table. The image dimensions and shaped Mangold outline are retained.
+All five works now read as high works above a lower storey, with the existing
+wall order corroborated at 6.5 / 127 / 132 / 154.5 / 159.5 s. No artwork was
+added, no image regenerated, and no placement / metric acceptance flag set.
+
+`measure.py` also reproduces each blank label's wall-plane position, saved in
+`label-check.json`. Mangold uses seven corresponding outline points instead
+of treating the shaped canvas as a rectangle; its click fit is less precise.
+Pixel coordinates refer to the 960×1707 HLG-converted frames. These estimates
+include the uncertainty of the inherited canvas-centre height. They are
+measurements of label centres, not readings of their illegible wording.
+
+| Label | Along canvas local x from its centre | Above lower oak floor | Frame / estimated error |
+| --- | --- | --- | --- |
+| Diao | +1.01 m | 1.22 m | 127 s, ±0.20 m |
+| Mangold | +0.90 m | 1.00 m | 127 / 154.5 s, ±0.35 m |
+| Feldman | −0.02 m | 3.25 m | 54 s, ±0.20 m |
+| Congdon | +1.31 m | 2.05 m | 6.5 s, ±0.40 m; extreme oblique canvas |
+| Walsh | +1.48 m | 3.25 m | 159.5 s, ±0.30 m |
+
+The same Feldman plane gives the lower exit's clear width ~1.875 m from
+pixels `(224,780)` / `(564,785)`, and outer casing width ~2.179 m from
+`(190,750)` / `(594,761)`. Retained clear width 1.80 m is within the ±0.20 m
+estimate; the kit controls the moulding profile. This is independent of the
+upper entry's existing 2.00 m opening, which was not moved.
+
+Authored-record audit: `collection_rooms/representation.json` already has
+all five accessions as `flat` / `flat` in `Skylight Gallery`, and carries no
+position fields for them. `objects.json` has no entries for these five. The
+actual hanging positions belong to `skylight_additions.gd`'s `WORKS` rows and
+new `CARDS` positions. Therefore neither authored list needs a move, and no
+generated `collection_rooms/` file was edited. Source images are the three
+catalogue photographs plus the two **pre-existing** rectified artwork images
+for Feldman / Walsh, whose sources are documented in the existing Skylight
+`SOURCES.md`. The no-footage-texture rule is applied to architecture; these
+existing artwork images are the explicitly allowed art sources.
+
+
+The Diao plane at 127 s also checks the **upper storey**, independently of
+the typed-in height: ceiling / cove point `(435,230)` projects to 6.457 m
+above the oak-floor point `(435,935)`, giving +3.907 m above the chosen entry
+level. Cornice foot `(435,272)` gives +3.577 m; the moulding/cove fills the
+roughly 0.33 m band above that line. These points are recorded in
+`height-check.json`; uncertainty ±0.35–0.40 m includes cornice projection
+away from the wall plane and the lower-storey estimate. Thus the retained
++3.90 m ceiling is a checked estimate, not a claim of survey precision. The
+shared kit's cornice construction is unchanged; its final profile is #273's.
+
+
+### Lateral spacing checked again against the wall corners
+
+The first Mangold label clicks were too coarse. Its green outline was
+checked at all seven corners in **two** frames, 127 / 154.5 s, and the final
+clicks and plane fits are stored in `label-check.json`. Reprojection error
+is roughly 1–4 pixels. The label projects +0.802 / +0.981 m from the canvas
+centre and 0.832 / 1.133 m above the oak floor. Chosen final placement is
++0.90 m / 1.00 m, ±0.35 m. The cross-frame spread is included in the error;
+it does not justify a survey-precision claim.
+
+Intersecting each observed north-west wall corner line with the Mangold
+canvas-centre level gives its centre **1.660 / 1.808 m** from that corner.
+Chosen 1.75 m replaces the old 2.20 m, ±0.30 m. Using the same 154.5 s plane,
+Feldman's left edge at `(895,383)` / `(841,737)`, plus its half-width 0.765 m,
+puts its centre 4.576 / 4.597 m from west. The existing 4.65 m position is
+within the ±0.30 m combined error and is retained.
+
+At 159.5 s, four samples on the actual east/north wall crease `(18,0)`,
+`(78,380)`, `(110,575)`, `(162,767)` project to Walsh offsets 2.115 / 2.145 /
+2.158 / 2.058 m from north. Chosen **2.10 m** replaces the old 2.50 m,
+±0.30 m. This is a corner-plane measurement, not a guess from screen width.
+
+Congdon's left edge in Feldman's 54 s plane, `(749,631)` / `(760,540)` /
+`(823,112)`, gives centres 7.296 / 7.274 / 7.236 m from west when anchored
+to Feldman's retained 4.65 m. Its own extreme-oblique 6.5 s plane and north-
+east corner `(317,642)` give 1.722 m from the east corner. With the retained
+9.50 m inherited room width, that suggests 7.778 m from west. These checks
+have combined errors of ~0.30 / ~0.40 m respectively; chosen **7.45 m** lies
+in their overlap and replaces the old 7.63 m. The conflicting central values
+are recorded rather than hidden: the single-view corner and floor
+extrapolations have lens/cove errors. Room plan remains 9.50 × 5.00 m within
+its stated ±0.60 / ±0.30 m bounds, with `metric_accepted: false`.
+
+Diao / Feldman vertical changes and these three lateral changes are the
+final `WORKS` edits. Labels are blank physical cards; no text or overlays
+have been added to the game.
+
+
+### Final pictures, checks and handoff
+
+Final sanctioned draft #3 completed with `ARCHITECTURE_CHECK` / `failures: []`,
+21 casings (`final-architecture.json`). Its own additions file is byte-identical
+to the source file. Godot is `4.7.2.stable.official.ed1daf0bf`; pictures use GL
+Compatibility, not a bake / Web export. Looked at all thirteen final room-scene
+views and five final actual walking-camera views before choosing the images.
+The side-by-side pictures below have footage left / draft right, except the
+two runtime views in `16` and the keyboard and stacked bench / pedal views to the right of footage in
+`15`. All **19** evidence JPEGs are below 150 KB.
+
+| Picture | What was seen / census finding |
+| --- | --- |
+| [12-final-north-works.jpg](12-final-north-works.jpg) | 54 s: Feldman above the lower exit, centred label; Congdon high to its east; 9.3 / 9.5 |
+| [13-final-west-works.jpg](13-final-west-works.jpg) | 154.5 s: Diao / Mangold, piano below, landing scroll pattern / open corner posts; 9.1 / 9.3 / 9.4 |
+| [14-final-east-work.jpg](14-final-east-work.jpg) | 159.5 s: Walsh above the east quarter, separate card over the wall rail; 9.1 / 9.3 |
+| [15-final-piano.jpg](15-final-piano.jpg) | 13.5 s: closed curved rim / lid, 88 keys, three legs, lyre / pedals and padded bench; 9.4 |
+| [16-final-game-levels.jpg](16-final-game-levels.jpg) | Actual visitor on entry deck / lower oak, clear head and no neighbouring ceiling track; 9.1 |
+| [17-final-laylights.jpg](17-final-laylights.jpg) | 144 s: both gridded laylights and full-height room viewed upward; 9.2 |
+| [18-final-lower-features.jpg](18-final-lower-features.jpg) | 6.5 s: actual walking view of lift / screen / lower stair and pale oak; 9.5 / 9.7 |
+
+![Final works, landing ironwork and piano](13-final-west-works.jpg)
+
+![Final piano beside the footage](15-final-piano.jpg)
+
+![Actual visitor on both levels](16-final-game-levels.jpg)
+
+`final-game-routes.json` records all 16 movement / collision trials and both
+pulled click routes passing against the **final attached draft**; largest
+20 mm movement step including slope is 22.23 mm. No unsupported storey jump.
+The previous independent physical runner's 16 movement passes still apply:
+final hanging changes do not alter its floor / ramp / guard geometry. Its two
+flat-study camera limitations and manual y<−2 reset are recorded above;
+neither is used by the actual walking adapter.
+
+Final `scripts/check.sh` exits 1 at the unchanged installed representation
+failures: 37.114, 20.254, 59.131 declared mesh but absent `place_mesh()`.
+Image and museum-record checks and Godot import run before that stage without
+an error. This command does **not** print `checks passed`. The same failures
+were present before #275; no foreign generated / representation data was
+changed to hide them. Own GDScript check-only, measurement script and
+`git diff --check` pass. No source acceptance test, interface or error type
+was edited.
+
+Besides the two named source adapters above, `modules/shell/PROVENANCE.md`
+has one appended #275 record pointing to the local source / reference / art /
+evidence hashes in this directory. No other source file is changed. Room
+scene / runtime camera capture scripts are review harnesses in this evidence
+directory, with explicit output folders; they are not runtime dependencies.
+
+**Orchestrator next action:** integrate these source commits, bake / install,
+then run the owning museum playtest including `--only=doors` on that installed
+tree. The entry / reveal doors were not moved. Added lower north exit and
+under-platform vestibule are closed studies, not new route connections.
+The exact sixteen route names and all moved endpoints are listed above and
+in the self-contained `prepare_remodel.py` #275 block.
+
+Lighting / final cornice fidelity are #274 / #273. Their kit implementations
+are untouched. Screen glass has no invented map / text. The reused Hall sign
+is a direction pictogram; the footage's lettered EXIT legend is not recreated
+with new typed text. Walsh's identity and small ornament dimensions remain
+inferred; metric / placement / fine-fidelity flags remain false. No sixth
+filmed artwork without an existing repository image was found. Final baked
+light, doorway transitions, Web rendering and frame time are not verified
+by this draft.
+
+To reproduce the pictures, use the one sanctioned draft folder. For the
+actual walking harness only, copy the unchanged `modules/shell/character/`
+assets, tab-strip close icons, `objects.json` / `representation.json` into
+matching paths **inside the draft**, and copy `main_build_walk.gd` to its
+root as `skylight_main_walk.gd`. Import that disposable project with
+`timeout 120 godot --headless --editor --import --path <draft>/extension`.
+Then run `capture-room.gd` (960×960) or `capture-game.gd` (960×640) via
+`timeout 180 godot --path <draft>/extension --display-driver x11
+--rendering-method gl_compatibility --resolution <size> --script <absolute
+harness path> -- --out=<absolute scratch folder>`, after sourcing the GPU
+environment and exporting `DISPLAY=:99`. `check-walk.gd` uses the same draft
+with `--headless` and `--out=<absolute JSON path>`. This process changes no
+installed / generated repository room.
+
+
+### Exact route endpoints for the baked doorway check
+
+These are room-scene coordinates before the walking adapter’s `ATTACH` translation. Start points include the physical runner’s +0.25 m spawn offset; goals are floor / ramp heights.
+
+| Trial | Start | Goal | Expected |
+| --- | --- | --- | --- |
+| `grey_skylight_out` | `(5.550, 0.250, -4.160)` | `(5.550, 0.000, -6.580)` | reached |
+| `grey_skylight_back` | `(5.550, 0.250, -6.580)` | `(5.550, 0.000, -4.160)` | reached |
+| `skylight_landing_east` | `(5.550, 0.250, -6.580)` | `(6.900, 0.000, -6.580)` | reached |
+| `skylight_upper_down` | `(6.900, 0.250, -6.580)` | `(9.270, -0.708, -6.580)` | reached |
+| `skylight_east_down` | `(9.270, -0.458, -6.580)` | `(9.270, -1.700, -10.120)` | reached |
+| `skylight_lower_down` | `(9.270, -1.450, -10.120)` | `(6.300, -2.550, -10.120)` | reached |
+| `skylight_lower_aisle` | `(6.300, -2.300, -10.120)` | `(6.300, -2.550, -7.860)` | reached |
+| `skylight_lower_west` | `(6.300, -2.300, -7.860)` | `(3.500, -2.550, -7.860)` | reached |
+| `skylight_lower_lift` | `(3.500, -2.300, -7.860)` | `(3.500, -2.550, -6.360)` | reached |
+| `skylight_lower_up` | `(6.300, -2.300, -10.120)` | `(9.270, -1.700, -10.120)` | reached |
+| `skylight_east_up` | `(9.270, -1.450, -10.120)` | `(9.270, -0.708, -6.580)` | reached |
+| `skylight_upper_up` | `(9.270, -0.458, -6.580)` | `(6.900, 0.000, -6.580)` | reached |
+| `skylight_landing_back` | `(6.900, 0.250, -6.580)` | `(5.550, 0.000, -6.580)` | reached |
+| `skylight_front_guard` | `(5.550, 0.250, -6.580)` | `(5.550, 0.000, -8.110)` | blocked |
+| `skylight_west_guard` | `(4.850, 0.250, -6.580)` | `(3.550, 0.000, -6.580)` | blocked |
+| `skylight_piano_blocked` | `(2.700, -2.300, -8.160)` | `(1.200, -2.550, -9.760)` | blocked |
+
+The old grey-piano filter was already present and is unchanged. The three old flat-room Skylight trials are replaced at the end of the source with the sixteen rows above. No other room’s trial or doorway endpoint changes.

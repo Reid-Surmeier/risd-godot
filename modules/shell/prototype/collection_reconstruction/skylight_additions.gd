@@ -12,15 +12,24 @@ const MANGOLD := [[.2426, .0014], [.0013, .2972], [.0039, .6942], [.2407, .9935]
 # accession, title, maker, date, medium, dimensions, picture, width m, height m, wall, metres along
 # that wall to the centre, centre height, outline, edge colour, where the picture comes from
 const WORKS := [
-	["69.094", "Untitled", "David Diao", "1968", "Acrylic on canvas", "222.3 x 221 x 3.8 cm", "diao-untitled-69094.jpg", 2.21, 2.223, "west", 2.5, 1.64, RECT, "b89a6f", "catalogue"],
-	["73.018", "Distorted Circle within a Polygon II", "Robert Mangold", "1972", "Acrylic and graphite on shaped canvas", "224.2 x 203.8 cm", "mangold-distorted-circle-73018.jpg", 2.242, 2.038, "north", 2.2, 1.75, MANGOLD, "e9e7e0", "catalogue"],
-	["2026.3", "Foreign Sign", "Amy Feldman", "2016", "Acrylic on canvas", "152.4 x 153 cm", "feldman-foreign-sign-20263-footage.jpg", 1.53, 1.524, "north", 4.65, 2.0, RECT, "ececec", "footage IMG_6379 54.0s"],
-	["2000.17", "Pile", "Dennis Congdon", "2000", "Oil and acrylic on canvas", "221 x 188 cm", "congdon-pile-200017.jpg", 1.88, 2.21, "north", 7.63, 1.75, RECT, "c9c39a", "catalogue"],
-	["2025.19", "Spectrum II", "Dan Walsh", "1998", "Acrylic on canvas", "152.4 x 152.4 x 3.8 cm", "walsh-spectrum-ii-202519-footage.jpg", 1.524, 1.524, "east", 2.5, 1.9, RECT, "8fbf6a", "footage IMG_6379 52.5s"],
+	["69.094", "Untitled", "David Diao", "1968", "Acrylic on canvas", "222.3 x 221 x 3.8 cm", "diao-untitled-69094.jpg", 2.21, 2.223, "west", 2.5, 1.56, RECT, "b89a6f", "catalogue"],
+	["73.018", "Distorted Circle within a Polygon II", "Robert Mangold", "1972", "Acrylic and graphite on shaped canvas", "224.2 x 203.8 cm", "mangold-distorted-circle-73018.jpg", 2.242, 2.038, "north", 1.75, 1.75, MANGOLD, "e9e7e0", "catalogue"],
+	["2026.3", "Foreign Sign", "Amy Feldman", "2016", "Acrylic on canvas", "152.4 x 153 cm", "feldman-foreign-sign-20263-footage.jpg", 1.53, 1.524, "north", 4.65, 1.98, RECT, "ececec", "footage IMG_6379 54.0s"],
+	["2000.17", "Pile", "Dennis Congdon", "2000", "Oil and acrylic on canvas", "221 x 188 cm", "congdon-pile-200017.jpg", 1.88, 2.21, "north", 7.45, 1.75, RECT, "c9c39a", "catalogue"],
+	["2025.19", "Spectrum II", "Dan Walsh", "1998", "Acrylic on canvas", "152.4 x 152.4 x 3.8 cm", "walsh-spectrum-ii-202519-footage.jpg", 1.524, 1.524, "east", 2.10, 1.9, RECT, "8fbf6a", "footage IMG_6379 52.5s"],
 ]
 const YAW := {"north": 0.0, "south": PI, "west": PI / 2, "east": -PI / 2}
 const LOWER := -2.55
 const RAIL := .90
+# Blank labels: local horizontal offset from the canvas centre, then height
+# above the lower oak floor. Canvas-plane checks in NOTES.md / label-check.json.
+const CARDS := {
+	"69.094": Vector2(1.01, 1.22),       # 127s: beside the piano, well below Diao
+	"73.018": Vector2(.90, 1.00),       # 127 / 154.5s: below Mangold, left of the exit
+	"2026.3": Vector2(-.02, 3.25),      # 54s: centred below Feldman, above EXIT
+	"2000.17": Vector2(1.31, 2.05),     # 6.5s: right of Congdon, above the wall rail
+	"2025.19": Vector2(1.48, 3.25),     # 159.5s: right of Walsh, over the east quarter
+}
 
 
 func build(room) -> void:
@@ -92,7 +101,8 @@ func build(room) -> void:
 		# Blank card: the wording is legible for one label only (Feldman, 103.9s).
 		var card: Node3D = room.solid(Vector3.ZERO, Vector3(.15, .11, .003), room.look(Color("f3f2ed")))
 		card.reparent(art, false)
-		card.position = Vector3(row[7] / 2 + .25, 1.4 - row[11], -.017 / art.scale.z)
+		var hung_label: Vector2 = CARDS[row[0]]
+		card.position = Vector3(hung_label.x, LOWER + hung_label.y - row[11], -.017 / art.scale.z)
 		card.set_meta("artwork_label_proxy", true)
 		art.reparent(room.wall_body(ROOM, row[9], art.global_position))
 	room.inventory["skylight_gallery"] = {"works": WORKS.size(), "piano": true, "levels_built": 2, "levels_in_footage": 2, "lower_floor_m": LOWER, "entry_floor_m": 0.0, "ceiling_m": height, "stair_walkable": true, "metric_accepted": false, "placement_accepted": false}

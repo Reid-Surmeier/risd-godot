@@ -52,7 +52,18 @@
           -0.00019243131045846977,
           1.0
         ]
-      ]
+      ],
+      "ceiling_px": [
+        435,
+        230
+      ],
+      "cornice_foot_px": [
+        435,
+        272
+      ],
+      "lower_floor_to_ceiling_m": 6.457,
+      "entry_to_ceiling_m": 3.907,
+      "entry_to_cornice_foot_m": 3.577
     },
     {
       "frame": "IMG_6379 54.0s",
