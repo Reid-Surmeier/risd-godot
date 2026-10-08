@@ -175,14 +175,13 @@ func run() -> void:
 			casings += 1
 			var slim := room in ["grey French gallery", "purple elevator-5 connector", "Skylight Gallery"]
 			var expected := .10 if slim else .16
+			# The trim kit's casing: a left, a head and a right mesh, each the room's casing width.
 			var faces := 0
 			for child in node.get_children():
-				if child is MeshInstance3D and child.material_override is StandardMaterial3D:
-					var texture = child.material_override.albedo_texture
-					if texture != null and texture.resource_path.ends_with("/door-architrave.png"):
-						faces += 1
-						if not is_equal_approx(child.mesh.get_aabb().size.x, expected):
-							failures.append("Wrong casing geometry for " + room)
+				if child is MeshInstance3D and child.has_meta("door_casing"):
+					faces += 1
+					if not is_equal_approx(float(child.get_meta("door_casing")), expected) or child.mesh.get_faces().size() < 3 * 2 * 18:
+						failures.append("Wrong casing geometry for " + room)
 			if faces != 3 or not is_equal_approx(float(node.get_meta("source_casing_width")), expected):
 				failures.append("Casing width unsupported for " + room)
 		if node.has_meta("skylight_reveal_leaf"):

@@ -353,6 +353,77 @@ func place_mesh(path:String,at:Vector3,yaw:float,size_m:Vector3,accession:String
 	casings.append(node)
 	return node
 
+## The trim kit's paint: one white for every casing, skirting and cornice (the footage's trim is
+## white in every clip). Seen from both sides, because a door head is drawn from either room.
+var _trim_paint:StandardMaterial3D
+func trim_paint() -> StandardMaterial3D:
+	if _trim_paint==null:
+		_trim_paint=look(Color("f3f1ea"))
+		_trim_paint.cull_mode=BaseMaterial3D.CULL_DISABLED
+	return _trim_paint
+
+## The cased doorway's architrave in section, for a casing 0.16 m wide: [metres across from the
+## opening's edge, metres proud of the wall]. A bead at the opening, a flat fascia, an ogee, and a
+## raised back band with an eased edge (IMG_6385 1.0s, IMG_6383 62.5s). A narrower casing keeps the
+## projections and squeezes the widths.
+const ARCHITRAVE:=[[0,0],[0,.014],[.003,.019],[.009,.022],[.015,.019],[.018,.014],[.018,.010],[.084,.010],
+	[.088,.011],[.094,.016],[.100,.023],[.108,.028],[.116,.030],[.118,.030],[.118,.036],[.150,.036],[.156,.033],[.160,.026],[.160,0]]
+
+## One cased doorway on one room's side of a wall: the architrave swept up one jamb, across the
+## head and down the other with mitred corners, and the lining back to the plane the two rooms
+## share. Three meshes (left, head, right) under the door head, so the camera's cut-away tests
+## each and never the empty opening. `fixed` is the wall's plan line, `opening` its two edges
+## along the wall, `head` the clear height, `width` the casing's width.
+func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,width:float) -> void:
+	var vertical:bool=side in ["west","east"]
+	var face:float=1.0 if side in ["west","north"] else -1.0
+	# (along the wall, up, out of the wall face) -> room metres; the wall's face stands .061 in.
+	var at:=func(s:float,y:float,out:float) -> Vector3:
+		return Vector3(fixed+face*(.061+out),y,s) if vertical else Vector3(s,y,fixed+face*(.061+out))
+	var along:=Vector3(0,0,1) if vertical else Vector3(1,0,0)
+	var outward:=Vector3(face,0,0) if vertical else Vector3(0,0,face)
+	var lo:float=opening[0]
+	var hi:float=opening[1]
+	var section:Array=[]
+	for point in ARCHITRAVE:section.append(Vector2(point[0]*width/.16,point[1]))
+	# The facet normals of the section, eased together where the section curves.
+	var facets:Array=[]
+	for i in section.size()-1:
+		var run:Vector2=section[i+1]-section[i]
+		facets.append(Vector2(-run.y,run.x).normalized())
+	for part in ["left","head","right"]:
+		var st:=SurfaceTool.new()
+		st.begin(Mesh.PRIMITIVE_TRIANGLES)
+		# Which way "across the casing" points for this run, and its two ends for a given offset.
+		var across:Vector3=-along if part=="left" else along if part=="right" else Vector3.UP
+		var ends:=func(d:float,out:float) -> Array:
+			if part=="left":return [at.call(lo-d,0.0,out),at.call(lo-d,head+d,out)]
+			if part=="right":return [at.call(hi+d,head+d,out),at.call(hi+d,0.0,out)]
+			return [at.call(lo-d,head+d,out),at.call(hi+d,head+d,out)]
+		for i in section.size()-1:
+			var a:Array=ends.call(section[i].x,section[i].y)
+			var b:Array=ends.call(section[i+1].x,section[i+1].y)
+			var normals:Array=[]
+			for corner in [i,i+1]:
+				var n:Vector2=facets[i]
+				var other:int=i-1 if corner==i else i+1
+				if other>=0 and other<facets.size() and facets[other].dot(n)>.7:n=(n+facets[other]).normalized()
+				normals.append((across*n.x+outward*n.y).normalized())
+			for corner in [[a[0],normals[0]],[b[0],normals[1]],[b[1],normals[1]],[a[0],normals[0]],[b[1],normals[1]],[a[1],normals[0]]]:
+				st.set_normal(corner[1])
+				st.add_vertex(corner[0])
+		# The lining: from the wall's face back to the shared plane, facing into the opening.
+		var lining:Array=ends.call(0.0,0.0)+ends.call(0.0,-.061)
+		for corner in [0,2,3,0,3,1]:
+			st.set_normal(-across)
+			st.add_vertex(lining[corner])
+		var mesh:=MeshInstance3D.new()
+		mesh.mesh=st.commit()
+		mesh.material_override=trim_paint()
+		mesh.set_meta("door_casing",width)
+		add_child(mesh)
+		mesh.reparent(header)
+
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -468,21 +539,7 @@ func build_rooms() -> void:
 			if stone or side in area.get("column_sides",[]):continue
 			var casing_width:float=.10 if area.label in ["grey French gallery","purple elevator-5 connector","Skylight Gallery"] else .16
 			header.set_meta("source_casing_width",casing_width)
-			for edge in opening:
-				# Deep painted reveals are visible in both reciprocal doorway shots.
-				var jamb:=solid(Vector3(fixed,1.35,edge) if vertical else Vector3(edge,1.35,fixed),Vector3(.38,2.7,.08) if vertical else Vector3(.08,2.7,.38),ivory)
-				jamb.reparent(header)
-				for face in [1 if side in ["west","north"] else -1]:
-					var surround:=moulding(casing_width,2.7,"door-architrave",true)
-					surround.position=Vector3(fixed+face*.20,1.35,edge) if vertical else Vector3(edge,1.35,fixed+face*.20)
-					surround.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
-					surround.reparent(header)
-			for face in [1 if side in ["west","north"] else -1]:
-				var top:=moulding(casing_width,width+casing_width,"door-architrave",true)
-				top.rotation.z=PI/2
-				top.rotation.y=face*PI/2 if vertical else 0.0 if face==1 else PI
-				top.position=Vector3(fixed+face*.20,2.73,middle) if vertical else Vector3(middle,2.73,fixed+face*.20)
-				top.reparent(header)
+			door_casing(header,side,fixed,opening,minf(clear_height,2.74),casing_width)
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
