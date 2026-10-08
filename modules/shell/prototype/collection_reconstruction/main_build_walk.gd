@@ -2122,11 +2122,15 @@ func _update_camera(k: float) -> void:
 		# owns it: a doorway's reveal is the next room's and lines this one on both sides.
 		var lines: bool = own >= 0 and wall.room >= 0 and wall.room != own and foot.intersects(_room_rect(own).grow(0.4))
 		for i in range(1, body.get_child_count()):
-			var piece := body.get_child(i) as VisualInstance3D
-			if piece:
-				piece.visible = clear and not (
-					lines and _on_open_side(piece.global_transform * piece.get_aabb(), own, cut[own])
-				)
+			var piece := body.get_child(i) as Node3D
+			var drawn := clear
+			if drawn and lines:
+				# A work hung on the wall is a plain node: it is judged by where it hangs.
+				var where := AABB(piece.global_position, Vector3.ZERO)
+				if piece is VisualInstance3D:
+					where = piece.global_transform * (piece as VisualInstance3D).get_aabb()
+				drawn = not _on_open_side(where, own, cut[own])
+			piece.visible = drawn
 	# #275: an upper deck must not cover a visitor walking beside its lower
 	# enclosure. These are only this room's named floor / tread meshes.
 	_skylight_hidden_decks.clear()
