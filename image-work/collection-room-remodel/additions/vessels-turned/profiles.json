@@ -761,7 +761,7 @@
     {
       "asset": "agate-teapot",
       "accession": "2017.74.24.ab",
-      "size_m": [0.457, 0.133, 0.115],
+      "size_m": [0.190, 0.133, 0.115],
       "source": "res://modules/shell/collection_rooms/assets/details/agate-teapot.jpg; trial/agate-teapot-original.webp",
       "crop_px": [55, 389, 1345, 1063],
       "measurement_photo": "res://modules/shell/collection_rooms/assets/details/agate-teapot.jpg",
