@@ -58,9 +58,7 @@ func build(scene) -> void:
 	platform.set_meta("medieval_crucifix_platform", true)
 	_label(room.wall_point(ROOM, "south", 5.28, .153, FACE + .38), PI, platform, true)
 	platform.reparent(south)
-	var cross := _work("cross", 2.159, .18, Color("6f5b44"))
-	cross.position = room.wall_point(ROOM, "south", 5.28, 1.00 + 2.159 / 2, FACE + .03)
-	cross.rotation.y = PI
+	var cross := _mesh("cross", "cross-43195.glb", room.wall_point(ROOM, "south", 5.28, 1.00, FACE + .24), PI, Vector3(0, 2.159, 0))
 	cross.reparent(south)
 
 	# Christ in Majesty, a limestone relief slab standing on a rectangular pedestal (6382 34.5..36.5s).

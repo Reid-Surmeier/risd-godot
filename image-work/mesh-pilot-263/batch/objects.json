@@ -38,6 +38,22 @@
    "charged": 0.6,
    "sha256": "35df9abe6bc268027b6dfbe93e992b2cda7bd315953b0291009d6a2722e1772c",
    "view": "turn 90 deg, eye distance 1.7, silhouette IoU 0.843"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m171wfz14nkkk61drkzy7xyjyx8fwtg3",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "4a4af33b4b40043512be995d4d3b47bfbe7e61252f6a18ef6416a133c076b717"
+   },
+   "views": "front from the photograph; left inferred with two footage frames as references",
+   "imported": {
+    "mesh": 220021,
+    "colour": 270386,
+    "total": 490407
+   }
   }
  },
  "59.131": {

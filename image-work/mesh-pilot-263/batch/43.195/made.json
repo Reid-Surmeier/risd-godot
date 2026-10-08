@@ -1,0 +1,32 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/43.195/front.jpg",
+   "footage IMG_6382 41.5 s (reference only)"
+  ]
+ },
+ "clay-side": {
+  "from": "inferred by Muse from the front photograph and two footage frames (IMG_6382 38.5 s and 47.5 s, oblique)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/43.195/front.jpg",
+   "footage IMG_6382 38.5 s",
+   "footage IMG_6382 47.5 s"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/43.195/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/43.195/front.jpg"
+  ]
+ },
+ "flat-side": {
+  "from": "inferred by Muse from the other views",
+  "references": [
+   "batch/43.195/clay-side.png",
+   "~/risd-godot-ingestion/catalogue-masters/43.195/front.jpg",
+   "batch/43.195/flat-front.png"
+  ]
+ }
+}

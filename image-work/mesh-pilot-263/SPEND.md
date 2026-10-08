@@ -62,4 +62,6 @@ Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 
 Head of Christ rebuilt at 512 px colour: 303 KB (was 467 KB), no charge.
 
-**Batch so far: 2.23 USD. Whole effort: 9.35 USD charged.**
+| The Crucified Christ 43.195 | 4 (0.04) | 0.48 / 0.48 | accepted, 478 KB (1024 px colour: a 2.16 m piece) |
+
+**Batch so far: 2.75 USD. Whole effort: 9.87 USD charged.**
