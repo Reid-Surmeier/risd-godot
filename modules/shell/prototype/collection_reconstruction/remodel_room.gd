@@ -80,8 +80,12 @@ func wall_body(label:String,side:String,at:Vector3) -> Node3D:
 				best=wall
 	return best
 
+# With a "build_gate" signal in its metadata (main_build_walk.gd, #281) the build stops at each
+# gate until the host emits it, so the rooms are built a step at a time while the game runs.
+# Without one nothing waits: the bake tools and the checks get the whole build in one call.
 func _ready() -> void:
 	super._ready()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Keep the existing collision floors; their flat study colours are replaced.
 	for child in get_children():
 		if child is MeshInstance3D:
@@ -93,13 +97,17 @@ func _ready() -> void:
 		if child is DirectionalLight3D:
 			child.light_color = Color("fff1d9")
 			child.light_energy = .65
-	build_rooms()
+	await build_rooms()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	var first:=get_child_count()
 	build_bookcase()
 	build_mirrors()
 	build_displays()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_furniture()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_catalogue_objects()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Grey register (opus-grey-register-fit-20261001): Rockefeller and the secretary by its door
 	# move 2.2m with the room; the apostles and lion in the same catalogue file keep their z.
 	shift_new(first,Vector3(-1.95,0,2.2),1.0)
@@ -107,9 +115,11 @@ func _ready() -> void:
 	shift_new(first,Vector3(0,0,-hall_reveal.wall_m),1.8)
 	first=get_child_count()
 	build_adjacent_gallery()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	shift_new(first,Vector3(-1.95,0,0))
 	first=get_child_count()
-	build_sculpture_rooms()
+	await build_sculpture_rooms()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	shift_new(first,Vector3(0,0,9.25))
 	# The grille and its slats go with the north wall when that wall is cut away.
 	var north_header:Node3D
@@ -144,14 +154,18 @@ func _ready() -> void:
 				break
 		assert(art.get_parent().get_meta("room_wall", "") == "light Renaissance room:"+side)
 	build_grey_gallery()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_connected_hall()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_lion_modern_rooms()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Room additions (#238): one script per room, each adding only its own nodes with
 	# positions taken from the room's walls (room_bounds, wall_point), so a later change
 	# to a room's size carries them along.
 	for extra in ADDITIONS:
 		if ResourceLoader.exists("res://"+extra):
 			load("res://"+extra).new().build(self)
+		if has_meta("build_gate"):await get_meta("build_gate")
 	# placed_mesh_check.gd asks for its one fixture; no shipped room has it.
 	if "--placed-mesh-fixture" in OS.get_cmdline_user_args():
 		load("res://modules/shell/prototype/collection_reconstruction/placed_mesh_fixture.gd").new().build(self)
@@ -160,12 +174,17 @@ func _ready() -> void:
 		if not visitor.is_ancestor_of(surface):
 			surface.name="AuthoredSurface%03d"%index
 			index+=1
-	load_bake()
+			# Renaming is slow with this many siblings (2.2 s in all): a gate every 300.
+			if index%300==0 and has_meta("build_gate"):await get_meta("build_gate")
+	if has_meta("build_gate"):await get_meta("build_gate")
+	await load_bake()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_contact_shadow()
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.remodelInventory=" + JSON.stringify(inventory))
 	assert(not FileAccess.file_exists("res://points.bin"))
 	print("REMODEL_READY " + JSON.stringify(inventory))
+	if has_meta("build_gate"):set_meta("build_done",true)
 
 func shift_new(first:int,offset:Vector3,z_before:=INF) -> void:
 	# Nodes at or beyond z_before take the x shift only.
@@ -1029,6 +1048,7 @@ func build_rooms() -> void:
 			if DEEP_REVEALS.has(area.label+":"+side):
 				var reveal:Array=DEEP_REVEALS[area.label+":"+side]
 				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),reveal[0],reveal[1],reveal[2])
+		if has_meta("build_gate"):await get_meta("build_gate")
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
@@ -1417,7 +1437,10 @@ func load_bake() -> void:
 	if has_meta("bake_preparing"):return
 	if not ResourceLoader.exists("res://modules/shell/prototype/gallery_walk4/baked/room.lmbake"):
 		return
-	var bake=load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn").instantiate()
+	var saved=load("res://modules/shell/prototype/gallery_walk4/baked/room.tscn")
+	if has_meta("build_gate"):await get_meta("build_gate")
+	var bake=saved.instantiate()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Retain authored collision and cutaway ownership; reuse saved native UV2 meshes/materials.
 	var by_name={}
 	for mesh in find_children("*","MeshInstance3D",true,false):
@@ -1451,6 +1474,7 @@ func load_bake() -> void:
 	for key in shades:
 		if by_name.has(key):shade_from_bake(by_name[key],shades[key],bake.get_meta("shade_top",1.2),bake.get_meta("plain_tint",Color.WHITE))
 	camera.cull_mask=1
+	if has_meta("build_gate"):await get_meta("build_gate")
 	add_child(bake)
 	for child in get_children():
 		if child is DirectionalLight3D: child.hide()
@@ -1719,6 +1743,7 @@ func build_sculpture_rooms() -> void:
 			shaft.position=Vector3(.49+offset,1.125,22.515+side*.62)
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# The native close shots show exposed panel outlines on grey mounts, not added frames.
 	# Heights and the west pair's spacing are measured (#266): IMG_6382 65.5, 68.0 and 74.0 s, each wall
 	# rectified from the panel's own catalogue size. Centres 1.40 m (west) and 1.37 m (north), +-0.06;
@@ -1763,6 +1788,7 @@ func build_sculpture_rooms() -> void:
 	# IMG_6383 61.25..64.75s: the central bench, a grey tufted seat on a dark frame. Its length and
 	# width are the earlier builder's by-eye reading; nothing is measured.
 	bench(Vector3(-2.75,0,22.4),1.65,.55,.46,3,2)
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
 	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
@@ -1801,6 +1827,7 @@ func build_sculpture_rooms() -> void:
 	var triptych_case:=solid(triptych_at+Vector3(0,1.025,.24),Vector3(.92,.11,.48),white,true)
 	triptych_case.set_meta("triptych_wall_case",true)
 	_renaissance_triptych_case=triptych_case
+	if has_meta("build_gate"):await get_meta("build_gate")
 	var triptych:=Triptych.build()
 	add_child(triptych)
 	triptych.position=triptych_at+Vector3(0,1.18,0)
@@ -1843,6 +1870,7 @@ func build_sculpture_rooms() -> void:
 	wall_case_fittings(pieta_frame,.65,.38,.97,pieta_deck,1.97,[[0.0,.27]])
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
 	var platform:=plinth(Vector3(-3.10,0,24.415),Vector3(4.30,.16,.95))
 	platform.set_meta("renaissance_textile_platform",true)

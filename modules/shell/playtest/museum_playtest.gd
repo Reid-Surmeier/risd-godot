@@ -70,6 +70,10 @@ func _run() -> void:
 		)
 		walk.size = Vector2(root.size)
 		root.add_child(walk)
+		# The rooms would begin building themselves two seconds after the Hall shows (#281).
+		# The cases marked "at launch" want them not yet begun, so here they wait until the
+		# visitor is first put in one; stepped_build_check.gd covers the build in steps.
+		walk.set("_build_clock", -1.0e9)
 		for i in 240:
 			await process_frame
 	# The room scene is built the first time the visitor leaves the Hall (#281).
@@ -91,6 +95,7 @@ func _run() -> void:
 	report["state"] = walk.state()
 	report["summary"] = {
 		"doors": report.doors.size(),
+		"off_centre": (report.get("off_centre", []) as Array).size(),
 		"rooms": report.rooms.size(),
 		"views": report.views.size(),
 		"objects": report.objects.size(),
@@ -244,7 +249,6 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 	var steps := 0
 	var walked_clip := false
 	var before := walk._pos as Vector3
-	var yaw: float = walk.view_yaw
 	var dark := {"on": watch_void, "before": -1.0, "jump": 0.0, "at": 0.0, "from": 0.0}
 	var frame := 0
 	while clock < limit_s:
@@ -252,6 +256,7 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 		to.y = 0
 		if to.length() < 0.25:
 			break
+		var yaw: float = walk.view_yaw  # read each frame: an arrival may turn the view
 		var ahead := to.dot(Vector3(-sin(yaw), 0, -cos(yaw)))
 		var aside := to.dot(Vector3(cos(yaw), 0, -sin(yaw)))
 		var held := {}
@@ -300,6 +305,11 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 	}
 
 
+# The most the dark share of the picture may rise between two readings (every other frame).
+# The wipe itself and the camera's travel reach 0.09; a dropped room or wall is 0.2 and more.
+const DARK_STEP := 0.15
+
+
 func _doors() -> void:
 	for door in _doorways():
 		for way in [[door.from, door.to, door.a, door.b], [door.to, door.from, door.b, door.a]]:
@@ -325,8 +335,51 @@ func _doors() -> void:
 				_fail("door", name + ": the visitor jumped", leg)
 			elif not leg.walk_clip or leg.footsteps == 0:
 				_fail("door", name + ": walked without its walk animation or footsteps", leg)
-			elif leg.void_jump > 0.25:
+			elif leg.void_jump > DARK_STEP:
 				_fail("door", name + ": the room went dark in one step before the wipe had shut", leg)
+	await _doors_off_centre()
+
+
+# The deep doorways again, off their centre line (round 5): half a metre to each side, on a
+# diagonal from one side to the other, and standing in the doorway's depth stepping sideways.
+# The centre line misses a room dropped because the sight line clips the wall beside the opening.
+func _doors_off_centre() -> void:
+	report["off_centre"] = []
+	for door in _doorways():
+		if not ("reveal threshold" in str(door.a) or "reveal threshold" in str(door.b)):
+			continue
+		var axis: Vector3 = (door.to - door.from).normalized()
+		var side := Vector3(-axis.z, 0, axis.x)
+		var middle: Vector3 = (door.from + door.to) / 2.0
+		var cases := []
+		for way in [[door.from, door.to, door.a, door.b], [door.to, door.from, door.b, door.a]]:
+			# Out to the door's cheek and against it: that is where the room was dropped.
+			for shift in [-0.7, 0.7]:
+				cases.append(["%.1f m off centre" % shift, way[0] + side * shift, way[1] + side * shift, way])
+			cases.append(["on a diagonal into the cheek", way[0] - side * 0.6, way[1] + side * 1.0, way])
+			cases.append(["sidestep in the doorway", middle, middle + side * 1.0, way])
+			cases.append(["sidestep in the doorway, other way", middle, middle - side * 1.0, way])
+		for case in cases:
+			var way: Array = case[3]
+			var along: Vector3 = way[1] - way[0]
+			var yaw := (0.0 if along.z < 0 else PI) if absf(along.z) > absf(along.x) else (
+				-PI / 2.0 if along.x > 0 else PI / 2.0
+			)
+			_place(case[1], yaw)
+			for settle in 12:
+				await process_frame
+			var leg := await _walk_keys(case[2], 3.0, true)
+			leg["from"] = way[2]
+			leg["to"] = way[3]
+			leg["case"] = case[0]
+			report.off_centre.append(leg)
+			if leg.void_jump > DARK_STEP:
+				_fail(
+					"door",
+					"%s -> %s, %s: the room went dark in one step before the wipe had shut"
+					% [way[2], way[3], case[0]],
+					leg
+				)
 
 
 func _rooms() -> void:
@@ -1589,6 +1642,11 @@ func _other_wall_in_wipe() -> void:
 					break  # the change has finished
 				continue
 			entry.wipe_frames += 1
+			# In the black the arrival may turn the view to show the room (round 4); only a
+			# turn besides that one is the button's.
+			if walk._wipe_t >= walk.WIPE_CLOSE and not entry.has("arrival_yaw"):
+				entry["arrival_yaw"] = snappedf(walk.view_yaw, 0.01)
+				yaw = walk.view_yaw
 			entry.shown_frames += int(button.is_visible_in_tree())
 			if entry.wipe_frames == 12:
 				await _press(button.get_global_rect().get_center())
