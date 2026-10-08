@@ -184,8 +184,6 @@
   "41.012": {"room": "Impressionist gallery A", "form": "flat", "as": "flat"},
   "42.219": {"room": "Impressionist gallery A", "form": "flat", "as": "flat"},
   "44.541": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"},
-  "59.128": {"room": "light Renaissance room", "form": "volume", "as": "mesh"},
-  "21.398": {"room": "light Renaissance room", "form": "volume", "as": "mesh"},
   "15.108": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
   "40.002": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
   "52.002": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
