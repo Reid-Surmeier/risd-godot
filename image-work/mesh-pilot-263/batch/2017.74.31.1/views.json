@@ -1,0 +1,20 @@
+{
+ "accession": "2017.74.31.1",
+ "page": "https://risdmuseum.org/art-design/collection/neptune-river-deity-201774311",
+ "photographs": 5,
+ "nude": "Nude male figure. Muse refused this kind of picture twice (River God, 5 Oct) and the fireplace (7 Oct). Tripo accepted the photograph (8 Oct). Fallback: no Muse; Tripo H3.1 single view from the cut-out photograph, plain white glaze needs no colour pass.",
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.31.1/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    9364,
+    8708
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

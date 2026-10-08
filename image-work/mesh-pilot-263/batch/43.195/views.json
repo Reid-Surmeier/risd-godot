@@ -1,0 +1,20 @@
+{
+ "accession": "43.195",
+ "page": "https://risdmuseum.org/art-design/collection/crucified-christ-43195",
+ "photographs": 1,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/43.195/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    2626,
+    2811
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

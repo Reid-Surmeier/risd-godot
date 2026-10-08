@@ -1,0 +1,44 @@
+{
+ "accession": "37.114",
+ "page": "https://risdmuseum.org/art-design/collection/angel-annunciation-37114",
+ "photographs": 21,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.114/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    6132,
+    8176
+   ],
+   "alt": "A tall, weathered wooden statue of a robed figure with a serene expression, draped in green and red garments, standing upon an octagonal base."
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.114/back.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    6132,
+    8176
+   ],
+   "alt": "A wooden statue viewed from the rear, draped in a long, faded red robe with visible signs of age with cracks and missing paint."
+  },
+  "side": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.114/side.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    6132,
+    8176
+   ],
+   "alt": "A profile view of a weathered wooden statue of a figure with a solemn expression, with red and green drapery."
+  },
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.114/threequarter.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    6132,
+    8176
+   ],
+   "alt": "A weathered wooden statue viewed from behind at an angle, draped in a faded red cloak and looking downwards with visible signs of aging."
+  }
+ }
+}

@@ -1,0 +1,20 @@
+{
+ "accession": "23.005",
+ "page": "https://risdmuseum.org/art-design/collection/hand-god-23005",
+ "photographs": 14,
+ "nude": "The two small figures are nude. Tripo accepted the catalogue photograph of this piece on 8 Oct; Muse is untested. Try one clay view; if refused, use the fallback.",
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/23.005/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    4080,
+    4080
+   ],
+   "alt": "Marble sculpture depicting the thumb of a carved hand holding rock from which two emerging figures flow into each other,\nrising from a base of unworked stone. "
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

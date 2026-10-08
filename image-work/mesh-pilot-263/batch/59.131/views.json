@@ -1,0 +1,28 @@
+{
+ "accession": "59.131",
+ "page": "https://risdmuseum.org/art-design/collection/head-christ-or-saint-59131",
+ "photographs": 3,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/59.131/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3576,
+    4080
+   ],
+   "alt": ""
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/59.131/back.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3514,
+    4080
+   ],
+   "alt": ""
+  },
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

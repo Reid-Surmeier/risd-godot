@@ -1,0 +1,20 @@
+{
+ "accession": "2017.74.31.2",
+ "page": "https://risdmuseum.org/art-design/collection/amphitrite-river-deity-201774312",
+ "photographs": 4,
+ "nude": "Nude female figure. Muse refused this kind of picture twice (River God, 5 Oct) and the fireplace (7 Oct). Tripo also refused the photograph (content policy, 8 Oct). Fallback: Trellis from the cut-out photograph (made 8 Oct, soft, pits at the back), or leave as it is.",
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.31.2/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    9364,
+    8708
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

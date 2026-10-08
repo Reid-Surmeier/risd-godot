@@ -1,0 +1,20 @@
+{
+ "accession": "69.196",
+ "page": "https://risdmuseum.org/art-design/collection/christ-majesty-69196",
+ "photographs": 1,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/69.196/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3410,
+    4878
+   ],
+   "alt": "A weathered stone carving of a long-haired seated figure in robes, holding a tablet on one knee and raising the other hand upwards in a pointing gesture. "
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

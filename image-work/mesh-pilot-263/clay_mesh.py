@@ -1,20 +1,21 @@
 """A geometry-only mesh (Tripo, texture off) -> a game mesh with UVs, sized to the catalogue, ready for colour.
 
 blender --background --factory-startup --python clay_mesh.py -- RAW.glb OUT.glb --turn DEG --height M [--width M] [--depth M]
-        [--low N] [--maps PX] [--base R,G,B]
+        [--low N] [--maps PX] [--unshaded] [--base R,G,B]
 
 --turn brings the front round to glTF +Z (project_photo.py --view-only reports it). Height is the catalogue's; width
 and depth, when given, are set to the catalogue's too (each axis scaled alone: a generator invents depth).
 Without --low: the mesh as it came, unwrapped. With --low N: the mesh is kept as the high one, a copy is collapsed to
 about N triangles and unwrapped, and the high mesh's surface is baked onto it as a tangent normal map and an
-ambient-occlusion map (OUT.normal.png, OUT.ao.png, --maps px). The colour texture is a flat --base colour for now;
+ambient-occlusion map (OUT.normal.png, OUT.ao.png, --maps px). --unshaded bakes the occlusion only and writes no
+tangents: for works the rooms draw unshaded, where a normal map does nothing. The colour texture is a flat --base colour for now;
 project_photo.py paints it and set_texture.py puts it in. Writes OUT.json. Origin bottom centre."""
 import sys, json, math, struct, hashlib, argparse
 import bpy, bmesh
 from mathutils import Vector
 p = argparse.ArgumentParser(); p.add_argument("raw"); p.add_argument("out"); p.add_argument("--turn", type=float, default=0)
 p.add_argument("--height", type=float, required=True); p.add_argument("--width", type=float); p.add_argument("--depth", type=float)
-p.add_argument("--low", type=int); p.add_argument("--maps", type=int, default=1024); p.add_argument("--base", default="0.72,0.68,0.60")
+p.add_argument("--low", type=int); p.add_argument("--maps", type=int, default=1024); p.add_argument("--base", default="0.72,0.68,0.60"); p.add_argument("--unshaded", action="store_true")
 a = p.parse_args(sys.argv[sys.argv.index("--") + 1:]); log = {"raw_sha256": hashlib.sha256(open(a.raw, "rb").read()).hexdigest()}
 bpy.ops.wm.read_factory_settings(use_empty=True); bpy.ops.import_scene.gltf(filepath=a.raw, merge_vertices=True)
 ms = [o for o in bpy.context.scene.objects if o.type == "MESH"]
@@ -50,7 +51,7 @@ if a.low:
     unwrap(ob); me.materials.clear(); me.materials.append(mat)
     sc = bpy.context.scene; sc.render.engine = "CYCLES"; sc.cycles.device = "CPU"; sc.cycles.samples = 16
     out_maps = {}
-    for kind, name in (("NORMAL", "normal"), ("AO", "ao")):
+    for kind, name in ((("AO", "ao"),) if a.unshaded else (("NORMAL", "normal"), ("AO", "ao"))):  # drawn unshaded, a normal map does nothing
         img = bpy.data.images.new(name, a.maps, a.maps, alpha=False); img.colorspace_settings.name = "Non-Color"
         node = nt.nodes.new("ShaderNodeTexImage"); node.image = img; nt.nodes.active = node
         bpy.ops.object.select_all(action="DESELECT"); high.select_set(True); ob.select_set(True); bpy.context.view_layer.objects.active = ob
@@ -68,7 +69,7 @@ if a.low:
 else:
     unwrap(ob); me.materials.clear(); me.materials.append(mat)
 bpy.ops.object.select_all(action="DESELECT"); ob.select_set(True); ob.name = "Mesh"
-bpy.ops.export_scene.gltf(filepath=a.out, export_format="GLB", use_selection=True, export_yup=True, export_normals=True, export_tangents=bool(a.low), export_cameras=False, export_lights=False)
+bpy.ops.export_scene.gltf(filepath=a.out, export_format="GLB", use_selection=True, export_yup=True, export_normals=True, export_tangents=bool(a.low) and not a.unshaded, export_cameras=False, export_lights=False)
 b = open(a.out, "rb").read(); n = struct.unpack("<I", b[12:16])[0]; g = json.loads(b[20:20 + n]); pr = g["meshes"][0]["primitives"][0]; pos = g["accessors"][pr["attributes"]["POSITION"]]
 size = [round(h - l, 4) for l, h in zip(pos["min"], pos["max"])]
 assert abs(size[1] - a.height) < 0.003 and "TEXCOORD_0" in pr["attributes"] and "NORMAL" in pr["attributes"]

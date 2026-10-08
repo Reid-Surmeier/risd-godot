@@ -1,0 +1,20 @@
+{
+ "accession": "37.201",
+ "page": "https://risdmuseum.org/art-design/collection/bust-madame-recamier-37201",
+ "photographs": 3,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3430,
+    4013
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

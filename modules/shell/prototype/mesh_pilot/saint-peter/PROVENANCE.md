@@ -50,3 +50,9 @@ Measured and not kept: 15,000 triangles with a 512 px normal map, 829 KB.
 | `saint-peter-d10k-c512.glb` | 10,000 triangles, normal map 512 px, the same colour at 512 px | 513 KB (mesh 311, normal 81, colour 120) |
 
 Measured and not kept: 10,000 triangles, normal map 512 px, colour 1024 px: 704 KB (mesh 311, normal 81, colour 311).
+
+## Batch-size candidate (8 October, measured without spending)
+
+| File | What | In the pack |
+| --- | --- | --- |
+| `saint-peter-u10k.glb` | 10,000 triangles, no normal map, no tangents, flat colour x occlusion 0.35 at 512 px, lifted to the photograph's lit areas (gain 1.48 / 1.39 / 1.32); for drawing unshaded | 324 KB (mesh 204, colour 120) |

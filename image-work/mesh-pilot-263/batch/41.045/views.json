@@ -1,0 +1,20 @@
+{
+ "accession": "41.045",
+ "page": "https://risdmuseum.org/art-design/collection/apostle-41045",
+ "photographs": 2,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/41.045/front.jpg",
+   "px_wide": 2020,
+   "source_px": [
+    2020,
+    4012
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

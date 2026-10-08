@@ -1,0 +1,20 @@
+{
+ "accession": "83.152",
+ "page": "https://risdmuseum.org/art-design/collection/fireplace-surround-83152",
+ "photographs": 28,
+ "nude": "Two nude women carved on the arch. Muse refused it. Tripo accepted the photograph (8 Oct). Fallback: the Tripo mesh with the photograph over the front, already built; or ask Muse for clay views of a crop without the figures.",
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/83.152/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    10652,
+    14343
+   ],
+   "alt": "An ornate warm-toned wooden fireplace, featuring twisting vertical supports, carved figures, and floral turquoise panels, extending upward into a tall, polished structure over the mantel."
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}
