@@ -1,0 +1,63 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/back.jpg"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/back.jpg"
+  ],
+  "note": "first drawing rejected (clay-back-rejected.png, run-33f9ba8b24d9c72f5646ac15): Muse drew a different bird, standing free on a bell-shaped base. Redone once as key clay-back2 (run-bd2f51b78f7e31ae269b3e70, prompt clay-back2.prompt.txt) from the back photograph alone; that drawing is clay-back.png. The museum's photograph of this flank is turned a little towards the head, not square-on."
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/right.jpg",
+   "batch/2017.74.27.1/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/front.jpg"
+  ],
+  "note": "the head-on view: the bird's beak end is its own right side when the catalogue's first photograph is the front"
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.27.1/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.27.1/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/back.jpg",
+   "batch/2017.74.27.1/flat-front.png"
+  ]
+ },
+ "clay-threequarter": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/threequarter.jpg"
+  ],
+  "note": "the museum's second photograph, from behind and from the tail end; drawn from that photograph alone (run-d61cc5728cab2318191dd70f). Used for colour only: the mesh was already made from the front, back and right views"
+ },
+ "flat-threequarter": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.27.1/clay-threequarter.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/threequarter.jpg",
+   "batch/2017.74.27.1/flat-front.png"
+  ]
+ },
+ "clay-back-rejected": {
+  "from": "photograph of this direction; rejected and not used: a different bird (run-33f9ba8b24d9c72f5646ac15, prompt clay-back.prompt.txt)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/back.jpg",
+   "batch/2017.74.27.1/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.1/front.jpg"
+  ]
+ }
+}

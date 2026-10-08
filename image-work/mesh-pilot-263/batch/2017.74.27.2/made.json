@@ -1,0 +1,49 @@
+{
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.27.2/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.2/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.27.2/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.2/back.jpg",
+   "batch/2017.74.27.2/flat-front.png"
+  ]
+ },
+ "clay-front": {
+  "from": "photograph of this direction, of its pair 2017.74.27.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.27.1/clay-front.png"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction, of its pair 2017.74.27.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.27.1/clay-back.png"
+  ]
+ },
+ "clay-right": {
+  "from": "photograph of this direction, of its pair 2017.74.27.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.27.1/clay-right.png"
+  ]
+ },
+ "clay-threequarter": {
+  "from": "photograph of this direction, of its pair 2017.74.27.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.27.1/clay-threequarter.png"
+  ]
+ },
+ "flat-threequarter": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.27.2/clay-threequarter.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.27.2/threequarter.jpg",
+   "batch/2017.74.27.2/flat-front.png"
+  ]
+ }
+}

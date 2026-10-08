@@ -51,6 +51,7 @@ acc, name, d, tmp, dir_, scn, tex, charged, specs = sys.argv[1:10]; scn, tex = i
 font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 13); h = 300; fit = lambda im: im.resize((max(1, im.width * h // im.height), h), Image.LANCZOS)
 sz = json.load(open(f'{tmp}/low.json'))['size_m_width_height_depth']; wide = sz[0] > sz[1]  # a wide object needs wide crops
 CC, GC, SC = ((40, 400, 1400, 1360), (0, 60, 420, 360), (150, 150, 810, 600)) if wide else ((250, 100, 1190, 1660), (80, 10, 340, 410), (270, 30, 690, 610))
+if not wide and sz[0] > 0.8 * sz[1]: CC, GC = (40, 200, 1400, 1560), (0, 0, 420, 420)  # about as wide as tall: square crops
 views = json.load(open(f'{d}/views.json'))['views']; made = json.load(open(f'{d}/made.json')); order = os.environ.get('CLAY_VIEWS', '').split() or [s.split(':')[0] for s in specs.split()][::-1]  # CLAY_VIEWS: clay views to show when the mesh used more than the colour did
 cells = [('Catalogue photograph', fit(Image.open(os.path.expanduser(views['front']['file'])).convert('RGB')))]
 cells += [(f'Clay: {v}' + ('' if 'photograph' in made[f'clay-{v}']['from'] else ' (inferred)'), fit(Image.open(f'{d}/clay-{v}.png').convert('RGB').crop(CC))) for v in order if os.path.exists(f'{d}/clay-{v}.png')]
@@ -68,7 +69,7 @@ low = json.load(open(f'{tmp}/low.json')); o = json.load(open(f'{here}/batch/obje
 if os.path.exists(f'{tmp}/raw.sha256'): run['sha256'] = open(f'{tmp}/raw.sha256').read().strip()
 mf['imported'] = {'mesh': scn, 'colour': tex, 'total': scn + tex}; json.dump(o, open(f'{here}/batch/objects.json', 'w'), indent=1, ensure_ascii=False)
 rj = mf.get('rejected_run'); rejected = f"| Rejected mesh | {rj['model']}, run `{rj['id']}`; views {rj['views']}. {rj['why']} | quoted {rj['quote']:.2f}, charged {rj['charged']:.2f} USD |\n" if rj else ''
-n_muse = len([k for k in made if k.startswith(('clay-', 'flat-'))]); sha = hashlib.sha256(open(f'{dir_}/{name}.glb', 'rb').read()).hexdigest()
+n_muse = len([k for k in made if k.startswith(('clay-', 'flat-')) and 'of its pair' not in made[k]['from']]); sha = hashlib.sha256(open(f'{dir_}/{name}.glb', 'rb').read()).hexdigest()
 rows = '\n'.join(f"| `{k}` | {v['from']}{'; ' + v['note'] if v.get('note') else ''} |" for k, v in made.items())
 text = f"""# {acc} {o[acc]['title'].split('*')[1]}
 

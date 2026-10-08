@@ -446,7 +446,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/cream-jug.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:cream-jug.html (saved copy of https://risdmuseum.org/art-design/collection/cream-jug-20177425)"
   },
-  "parrot": {
+  "2017.74.27.1": {
     "title": "Parrot",
     "maker": "Unknown Maker, English",
     "date": "ca. 1820",
@@ -470,7 +470,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/fox.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:fox.html (saved copy of https://risdmuseum.org/art-design/collection/figure-fox-20177420)"
   },
-  "parrot-pair": {
+  "2017.74.27.2": {
     "title": "Parrot",
     "maker": "Unknown Maker, English",
     "date": "ca. 1820",
