@@ -1272,10 +1272,23 @@ func _objects() -> void:
 		_mouse(again, true)
 		_mouse(again, false)
 		clock = 0.0
-		while walk._open.is_empty() and clock < 4.0:
+		# A work whose catalogue row names no photograph has no zoom page: the second click
+		# leaves it being read (#272). By the row, not by a list of names.
+		var row: Dictionary = captions.get(tag.get_slice("#", 0), {})
+		var bare: bool = (
+			thing.has("object") and not row.is_empty() and str(row.get("image", "")) == ""
+		)
+		while walk._open.is_empty() and clock < (1.5 if bare else 4.0):
 			await process_frame
 			clock += root.get_process_delta_time()
-		if walk._open.is_empty():
+		entry["zoom_page"] = not bare
+		if bare:
+			if not walk._open.is_empty():
+				problems.append("a zoom page opened for a work with no photograph to show")
+				walk._close_detail()
+			elif walk._inspect.get("tag", "") != tag:
+				problems.append("the second click ended the reading of a work with no zoom page")
+		elif walk._open.is_empty():
 			problems.append("a second click did not open the zoom page")
 		else:
 			for settle in 20:
@@ -1355,8 +1368,21 @@ func _objects() -> void:
 			await process_frame
 		if walk._inspect_t > 0.01:
 			problems.append("the camera did not return")
+		else:
+			# Back in the room the visitor is in sight (#272, round 5: a pier stood before it):
+			# a ray from the lens to its chest and one to its head each meet nothing drawn.
+			var lost := {}
+			for height in [1.0, 1.5]:
+				var what := _drawn_between(walk._cam.global_position, walk._pos + Vector3(0, height, 0))
+				if what != "":
+					lost[what] = true
+			entry["visitor_behind"] = lost.keys()
+			if not lost.is_empty():
+				problems.append("after the inspection the visitor is behind " + ", ".join(lost.keys()))
 		entry["result"] = (
-			"inspected, zoomed and closed" if problems.is_empty() else ", ".join(problems)
+			("inspected; no photograph, so no zoom page" if bare else "inspected, zoomed and closed")
+			if problems.is_empty()
+			else ", ".join(problems)
 		)
 		report.objects.append(entry)
 		if not problems.is_empty():
@@ -1498,6 +1524,28 @@ func _other_wall_while_reading(when: String) -> void:
 
 # Every mesh of the room scene with its box in the room, listed once: {mesh, box}.
 var _meshes: Array = []
+
+
+# The first drawn part of the added rooms that the straight line between two points crosses,
+# by name, or "". A pane thinner than 5 cm is glass and is seen through.
+func _drawn_between(from: Vector3, to: Vector3) -> String:
+	var toward := (to - from).normalized()
+	for row in _room_meshes():
+		var box: AABB = row.box
+		if box.size[box.size.min_axis_index()] < 0.05 or box.intersects_segment(from, to) == null:
+			continue
+		var mesh: MeshInstance3D = row.mesh
+		if not mesh.is_visible_in_tree() or (walk._cam.cull_mask & mesh.layers) == 0:
+			continue
+		if not row.has("shape"):
+			row["shape"] = mesh.mesh.generate_triangle_mesh()
+			row["inward"] = mesh.global_transform.affine_inverse()
+		if row.shape == null:
+			continue
+		var hit: Dictionary = row.shape.intersect_ray(row.inward * from, (row.inward.basis * toward).normalized())
+		if not hit.is_empty() and from.distance_to(mesh.global_transform * hit.position) < from.distance_to(to):
+			return str(mesh.get_parent().name) + "/" + str(mesh.name)
+	return ""
 
 
 func _room_meshes() -> Array:

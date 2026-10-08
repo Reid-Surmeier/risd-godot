@@ -58,7 +58,11 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    visitor does not crowd the lens: its box takes no more than a tenth of the picture. And
    nothing else that is drawn stands before the work: at those five points no mesh is met more
    than 0.8 m before it, nor a thin pane more than 1.5 m before it (nearer is the glass of its
-   own case, and so is a pane with no floor between it and the work).
+   own case, and so is a pane with no floor between it and the work). A work whose catalogue
+   row names no photograph has no zoom page: the second click leaves it being read, and the
+   pass allows that for those rows only, never by a list of names. Once the inspection closes
+   and the camera is back, the visitor is in sight: a ray from the lens to its chest and one
+   to its head each meet nothing drawn (a pane thinner than 5 cm is glass).
 7. **The same hop at any frame rate.** The jump is run at 15, 30, 60 and 120 frames a second and
    must rise the same height within 3 cm. (`visitor174_check.gd`.)
 8. **No script errors.** The run's log must contain no `SCRIPT ERROR`; `build/run-playtest.sh`
