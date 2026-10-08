@@ -362,9 +362,10 @@
    },
    "imported": {
     "mesh": 217216,
-    "colour": 50322,
-    "total": 267538
-   }
+    "colour": 45722,
+    "total": 262938
+   },
+   "build": "TURN=270; colour PLAIN='1.6 0.6 mid photo': base from the middle third of the photograph (her lit face is blown pale there), shaded towards the photograph's amber shadow colour"
   }
  },
  "06.057": {
