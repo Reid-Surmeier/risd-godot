@@ -1648,7 +1648,9 @@ func build_sculpture_rooms() -> void:
 	var frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/perugino-frame-geometry.json"))
 	var perugino:=Painting.new()
 	add_child(perugino)
-	perugino.build_framed(load("res://assets/perugino-frame.png"),load("res://assets/painting-16.236.jpg"),Vector2(.391,.575),frame.margins_px)
+	perugino.build_framed(load("res://assets/perugino-frame.png"),load("res://assets/painting-16.236.jpg"),Vector2(.391,.575),frame.margins_px,
+		# The base shelf's underside is 0.12 m below the panel in footage (IMG_6383 38.25 s), built 0.085 (#266); sides and cornice as built.
+		[.060,.160,.060,.12])
 	perugino.position=Vector3(-.47,1.55,18.93)
 	inventory["renaissance_verified_paintings"]=1
 	# Reciprocal wides show a shallow horizontal ventilation grille above the north door.
