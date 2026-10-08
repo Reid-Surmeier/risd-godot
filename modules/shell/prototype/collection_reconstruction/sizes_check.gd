@@ -9,6 +9,8 @@
 ## figures in its plane. Where the catalogue does not say which horizontal figure faces the
 ## visitor, the closer pairing is taken, so a work turned a quarter turn is not caught here; a
 ## work shown leaning or on edge is flagged though its size may be right.
+## A photograph card that records its object's share of the photograph (meta object_fill) is held
+## by the object, not by the whole photograph.
 ## The Hall is measured on the nodes walk4.gd builds from works.json; what a visitor sees there
 ## is the saved bake of those nodes (gallery_walk4/baked/room.tscn).
 ## godot --headless --path . --script res://modules/shell/prototype/collection_reconstruction/sizes_check.gd -- out.md
@@ -128,6 +130,10 @@ func row(key: String, room: String, node: Node3D, all_parts: Array, dimensions: 
 	var cat := catalogue(dimensions)
 	var lower := dimensions.to_lower()
 	var held := outer if kind != "framed" or "frame" in lower else picture
+	if node.has_meta("object_fill"):
+		# A photograph card (european_east_additions.gd): the object is this share of the slab.
+		var fill: Vector2 = node.get_meta("object_fill")
+		held = Vector3(held.x * fill.x, held.y * fill.y, held.z) if held.y >= FLAT else Vector3(held.x * fill.x, held.y, held.z * fill.y)
 	if texture_file(sheets[0]).begins_with("framed-"):
 		kind = "photograph with its frame"
 		cat = []  # the sheet is the work in its frame; the catalogue's figure is the work alone

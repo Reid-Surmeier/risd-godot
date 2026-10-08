@@ -139,7 +139,7 @@ func south_wall() -> void:
 	var apollo := holder("south", 4.65, 1.20)
 	part(apollo, Vector3(0, -.05, .14), Vector3(.44, .10, .28), white)
 	hood(apollo, Vector3(0, .225, .14), Vector3(.40, .45, .26))
-	tag(cutout(apollo, "apollo-73.079", .21, Vector3(0, .105, .13), .02), "apollo-73.079")
+	tag(cutout(apollo, "apollo-73.079", .187, Vector3(0, .0935, .13), .02), "apollo-73.079")
 	label(apollo, -.38, .30)
 	attach(apollo, "south")
 	# Gilt tabernacle frame with a cornice and a base: nearest existing asset is the Perugino's.
