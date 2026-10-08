@@ -83,15 +83,17 @@ not looked at is not done. A stale bake hides an edit without any error: after t
    `room` is the room scene (`remodel_room.gd`). A relief or a volume is one line:
 
    ```gdscript
-   room.place_mesh(DIR + "head-59131.glb", room.wall_point(ROOM, "south", 8.62, 1.50, .43), PI, Vector3(.508, .813, .508), "59.131")
+   var head = room.place_mesh(DIR + "head-59131.glb", room.wall_point(ROOM, "south", 8.62, 1.50, .43), PI, Vector3(.508, .813, .508), "59.131")
+   head.reparent(head_base)  # when it stands on a pedestal or hangs on a wall body
    ```
 
    The file, the point its base centre stands on, its turn about the vertical, the catalogue
    width, height and depth in metres, the accession number. The mesh comes out at the catalogue
-   height, drawn at full brightness like every other work, casting in the bake, solid to walk
-   into, cut away with the camera and clickable. `medieval_additions.gd` shows it standing on a
-   pedestal. Flat works use the `Painting` helpers the room preloads; architecture, plinths and
-   plain cases use `solid()`, `panel()`, `moulding()` and `look()`.
+   height, drawn at full brightness like every other work, taken into the bake, solid to walk
+   into, cut away with the camera and clickable. `SRC/placed_mesh_fixture.gd` is a working call,
+   and `scripts/check.sh` proves it on that fixture every run. Flat works use the `Painting`
+   helpers the room preloads; architecture, plinths and plain cases use `solid()`, `panel()`,
+   `moulding()` and `look()`.
 2. Place from the walls, never with bare coordinates: `room.room_bounds(label)`,
    `room.wall_point(label, side, along, height, out)`, and re-parent wall-hung work to
    `room.wall_body(label, side, at)` so it leaves with the wall when the camera cuts it away.
@@ -127,8 +129,9 @@ side.
 
 ## Making a mesh
 
-How a mesh of an object is made (which pictures go in, which generator, how many tries) is ticket
-#263's recipe: follow its resolution. This guide starts where you hold a GLB.
+A mesh starts from a Muse pass, not from a catalogue photograph: that is the owner's ruling. The
+recipe is ticket #263's and is still being settled there; follow it. This guide starts where you
+hold a GLB.
 
 1. Blender, in one command: metallic 0, normals, decimate, catalogue size, base at the origin.
 
@@ -140,6 +143,9 @@ How a mesh of an object is made (which pictures go in, which generator, how many
    Give `--depth` for a relief or a work that stands against a wall. Name the file without dots
    apart from `.glb`. Render the result and look at it from all sides before placing it. It must
    bring its texture: a mesh without one is lit by the lightmap alone and reads dim.
+   The script keeps the mesh's own UV layout. Baking the texture afresh onto the reduced mesh
+   would hold detail at these budgets; the system Blender (4.0.2) bakes colour black, and the
+   newer one under `~/.local/opt/` is untested for it.
 2. Place it (the line above), declare it in `representation.json`, copy the script's last line
    into `PROVENANCE.md` with what the mesh cost, rebuild.
 3. After the install, in the new `.glb.import` set `meshes/generate_lods=false` and
@@ -166,7 +172,7 @@ costs from the prices above.
 ## Finish
 
 1. `scripts/rebuild_rooms.sh` (full, with bake) must print `BAKE_OK` and end with `installed`;
-   then `scripts/check.sh` must pass, which includes the floor.
+   then `scripts/check.sh` must pass, which includes the floor and the placed-mesh check.
 2. Put 6 to 12 before/after pictures, each beside its footage frame, in
    `docs/evidence/museum-238/<name>/` as JPEGs under 300 KB each, with a `NOTES.md`: what you built,
    what you measured and from which frame, what is provisional, what you could not do.

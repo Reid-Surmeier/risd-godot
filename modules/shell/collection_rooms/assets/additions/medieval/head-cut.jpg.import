@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://j4n12oh5btuf"
-path="res://.godot/imported/head-59131_albedo.jpg-ac830bf647d2bd44bc6b78bd3029abe4.ctex"
+uid="uid://cu7en2kg4cuat"
+path="res://.godot/imported/head-cut.jpg-6a3e4983cf7d1e2231661cd0cf10342e.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://modules/shell/collection_rooms/assets/additions/medieval/head-59131_albedo.jpg"
-dest_files=["res://.godot/imported/head-59131_albedo.jpg-ac830bf647d2bd44bc6b78bd3029abe4.ctex"]
+source_file="res://modules/shell/collection_rooms/assets/additions/medieval/head-cut.jpg"
+dest_files=["res://.godot/imported/head-cut.jpg-6a3e4983cf7d1e2231661cd0cf10342e.ctex"]
 
 [params]
 
@@ -23,7 +23,7 @@ compress/rdo_quality_loss=0.0
 compress/hdr_compression=1
 compress/normal_map=0
 compress/channel_pack=0
-mipmaps/generate=true
+mipmaps/generate=false
 mipmaps/limit=-1
 roughness/mode=0
 roughness/src_normal=""

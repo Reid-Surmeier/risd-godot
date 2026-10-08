@@ -76,10 +76,9 @@ func build(scene) -> void:
 
 	# Head of Christ or a Saint on an octagonal pedestal near the south-east corner (6382 28.5..32.5s).
 	var head_base := _octagon(room.wall_point(ROOM, "south", 8.62, 0, .43), .30, 1.36, .24, .14)
-	# Its own mesh, standing on the cap (1.36 + .14 m). The file is a stand-in, the museum's scan of
-	# another head, until this one's mesh is made: representation.json lists it as still owed.
-	var head: Node3D = room.place_mesh(DIR + "head-59131.glb", room.wall_point(ROOM, "south", 8.62, 1.50, .43), PI, Vector3(.508, .813, .508), "59.131")
-	_caption(head, "head")
+	var head := _work("head", .813, .35, Color("6e5235"))
+	head.position = room.wall_point(ROOM, "south", 8.62, 1.50 + .4065, .43 - .175)
+	head.rotation.y = PI
 	head.reparent(head_base)
 	_label(room.wall_point(ROOM, "south", 8.62, 1.0, .43 + .28), PI, head_base)
 	head_base.reparent(south)
@@ -97,6 +96,7 @@ func build(scene) -> void:
 
 ## One catalogued work: its photograph on a slab cut to its outline, local +z out of the wall.
 func _work(key: String, height: float, depth: float, edge: Color) -> Node3D:
+	var row: Array = WORKS[key]
 	var shape: Dictionary = shapes[key]
 	var art = room.Painting.new()
 	art.name = "Medieval" + key.capitalize()
@@ -104,12 +104,6 @@ func _work(key: String, height: float, depth: float, edge: Color) -> Node3D:
 	art.build_shaped(load(DIR + key + "-cut.jpg"), Vector2(height * shape.aspect, height), shape.outline, edge)
 	assert(art.get_child(0).mesh.get_faces().size() > 0, "Outline did not triangulate: " + key)
 	art.scale.z = depth / .05
-	_caption(art, key)
-	return art
-
-## The catalogue record a click shows, and the open placement flag.
-func _caption(art: Node3D, key: String) -> void:
-	var row: Array = WORKS[key]
 	art.set_meta("catalogue_accession", row[0])
 	art.set_meta("catalogue_title", row[1])
 	art.set_meta("catalogue_maker", row[2])
@@ -118,6 +112,7 @@ func _caption(art: Node3D, key: String) -> void:
 	art.set_meta("catalogue_dimensions", row[5])
 	art.set_meta("catalogue_image", DIR + row[0] + "-front.jpg")
 	art.set_meta("placement_accepted", false)
+	return art
 
 ## Rectangular pedestal standing on floor point `at`, with a narrower cap and a foot.
 func _pedestal(at: Vector3, size: Vector3, cap: Vector3) -> StaticBody3D:

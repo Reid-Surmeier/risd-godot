@@ -139,6 +139,9 @@ func _ready() -> void:
 	for extra in ADDITIONS:
 		if ResourceLoader.exists("res://modules/shell/collection_rooms/"+extra):
 			load("res://modules/shell/collection_rooms/"+extra).new().build(self)
+	# placed_mesh_check.gd asks for its one fixture; no shipped room has it.
+	if "--placed-mesh-fixture" in OS.get_cmdline_user_args():
+		load("res://modules/shell/prototype/collection_reconstruction/placed_mesh_fixture.gd").new().build(self)
 	var index:=0
 	for surface in find_children("*","MeshInstance3D",true,false):
 		if not visitor.is_ancestor_of(surface) and not surface.has_meta("retained_main_hall"):

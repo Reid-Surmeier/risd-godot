@@ -43,6 +43,10 @@ if [ -f project.godot ] && command -v godot >/dev/null 2>&1; then
   timeout 300 godot --headless --fixed-fps 60 --path . --script res://modules/shell/prototype/collection_reconstruction/representation_check.gd 2>&1 \
     | grep "REPRESENTATION_CHECK" | tee /tmp/godot-representation.log
   grep -q '"failures":\[\]' /tmp/godot-representation.log || { echo "the built museum and representation.json disagree"; fail=1; }
+  # place_mesh() still gives a drawn, solid, clickable work (no shipped room places one yet).
+  timeout 300 godot --headless --fixed-fps 60 --path . --script res://modules/shell/prototype/collection_reconstruction/placed_mesh_check.gd -- --placed-mesh-fixture 2>&1 \
+    | grep "PLACED_MESH_CHECK" | tee /tmp/godot-placed-mesh.log
+  grep -q '"failures":\[\]' /tmp/godot-placed-mesh.log || { echo "a mesh placed with place_mesh() is not drawn, solid or clickable"; fail=1; }
 fi
 
 [ "$fail" -eq 0 ] && echo "checks passed"
