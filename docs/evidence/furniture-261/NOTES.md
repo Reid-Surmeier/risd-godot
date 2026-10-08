@@ -17,3 +17,9 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    thin frame on the floor under the case. Both east cases use it; the works did not move.
    Not yet done: the Pietà and triptych wall cases, the hooded floor case, the textile platform,
    the window, the pedestals.
+3. `3-pieta-triptych-cases-footage-and-unbaked.jpg`: the Pietà case (west wall) and the triptych
+   case (north wall). Footage IMG_6383 17.0 s shows the Pietà case small, behind Saint Roch: a
+   white stepped body under a clear hood. Both cases keep the dark top rails and the label the
+   earlier builder read from the footage (IMG_6383 24.6/30.2 s) and take the kit's lower step
+   and floor frame only. The floor frames are below this picture's edge and were not seen.
+   Not yet done: the hooded floor case, the textile platform, the window, the pedestals.

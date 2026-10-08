@@ -655,8 +655,9 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 ## sloped label rail along the deck's front inside the hood, a recessed lower step under the deck,
 ## and the thin frame on the floor under the case. `display` is the case's own frame: x along the
 ## wall and centred, y up from the floor, z out of the wall. `under` and `deck` are the deck's
-## bottom and top, `top` the hood's.
-func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck:float,top:float) -> void:
+## bottom and top, `top` the hood's. A case that already has its own source-read top rails or
+## label passes `edges` or `label` false and takes the step and the floor frame only.
+func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck:float,top:float,edges:=true,label:=true) -> void:
 	var white:=look(Color("f0eeea"))
 	var edge_light:=look(Color("e6f1f2"),"",true)
 	var add:=func(at:Vector3,size:Vector3,m:Material) -> void:
@@ -664,12 +665,12 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 		piece.reparent(display,false)
 		piece.position=at
 	var t:=.007
-	for x in [-length/2,length/2]:
+	for x in ([-length/2,length/2] if edges else []):
 		for z in [0.0,depth]:
 			add.call(Vector3(x,(deck+top)/2,z),Vector3(t,top-deck,t),edge_light)
 		add.call(Vector3(x,top,depth/2),Vector3(t,t,depth),edge_light)
 		add.call(Vector3(x,deck+t/2,depth/2),Vector3(t,t,depth),edge_light)
-	for z in [0.0,depth]:
+	for z in ([0.0,depth] if edges else []):
 		add.call(Vector3(0,top,z),Vector3(length,t,t),edge_light)
 		add.call(Vector3(0,deck+t/2,z),Vector3(length,t,t),edge_light)
 	# The lower step, set back from the front and the ends.
@@ -677,6 +678,7 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	# The floor frame: the case's footprint as a low rail.
 	for x in [-length/2,length/2]:add.call(Vector3(x,.015,depth/2),Vector3(.02,.03,depth),white)
 	add.call(Vector3(0,.015,depth),Vector3(length,.03,.02),white)
+	if not label:return
 	# The label rail: a wedge rising from the deck's front edge toward the works.
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -1597,6 +1599,13 @@ func build_sculpture_rooms() -> void:
 	var triptych_label:=solid(triptych_at+Vector3(0,1.03,.485),Vector3(.20,.05,.005),look(Color("dedbd4")))
 	triptych_label.set_meta("artwork_label_proxy",true)
 	triptych_label.reparent(triptych_case)
+	# Its dark top rails and its label are read from the footage already; the kit adds the
+	# lower step and the floor frame (IMG_6383 17.0s).
+	var triptych_frame:=Node3D.new()
+	add_child(triptych_frame)
+	triptych_frame.position=triptych_at
+	triptych_frame.reparent(triptych_case)
+	wall_case_fittings(triptych_frame,.92,.48,.97,1.08,1.78,false,false)
 	inventory["renaissance_triptych"]={"accession":"2021.131","panels":3,"source_rear_observed":true,"placement_accepted":false,"case_metres_accepted":false,"fine_frame_fidelity_accepted":false}
 	#6383 24.6/62.0s: the shallow linden-wood Pietà hangs north of the shuttered window.
 	# ponytail: white shelf/hood offsets are by eye; unobserved sculpture sides stay provisional.
@@ -1616,6 +1625,12 @@ func build_sculpture_rooms() -> void:
 	pieta_label.rotation.z=-.3
 	pieta_label.set_meta("artwork_label_proxy",true)
 	pieta_label.reparent(pieta_case)
+	var pieta_frame:=Node3D.new()
+	add_child(pieta_frame)
+	pieta_frame.position=pieta_at+Vector3(-.19,0,0)
+	pieta_frame.rotation.y=PI/2
+	pieta_frame.reparent(pieta_case)
+	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.78,false,false)
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
 	# Original6383 24.6/30.2s: dark narrow top rails and corner seams, not a floor plinth.
