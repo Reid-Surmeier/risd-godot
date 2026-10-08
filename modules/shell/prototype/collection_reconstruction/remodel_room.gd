@@ -564,15 +564,16 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 			fitting.global_position=at.call(s,piece[0],piece[1])
 
 ## The furniture kit's gallery bench (IMG_6383 62.5s): an upholstered seat with rounded edges and
-## stitched tufts, `columns` by `rows` of them, on a dark frame of four tapered legs, an apron and
-## a low stretcher. `at` is the floor point under its middle; its length runs along x. The seat is
-## one surface, shaped and shaded in its seams, and the whole bench is one body to walk round.
+## stitched tufts, `columns` by `rows` of them, a third of the bench's height with its fabric side
+## showing, on a dark brown wooden base rail carried by four stout square legs. `at` is the floor
+## point under its middle; its length runs along x. The seat is one surface, shaped and shaded in
+## its seams, and the whole bench is one body to walk round.
 func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int) -> StaticBody3D:
 	var body:StaticBody3D=solid(at+Vector3(0,height/2,0),Vector3(length,height,width),look(Color("2a2623")),true)
 	body.get_child(1).mesh=ArrayMesh.new() # the box is only what a visitor walks round
 	body.set_meta("collision_only",true)
 	body.set_meta("furniture","bench")
-	var thick:=.12
+	var thick:=height/3
 	# The seat's top at a point of its plan: rounded down at the rim, drawn in along each seam,
 	# and pulled deeper where two seams cross.
 	var top:=func(u:float,w:float) -> float:
@@ -624,28 +625,29 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 	seat.material_override=cloth
 	body.add_child(seat)
 	seat.global_transform=Transform3D.IDENTITY
-	# The frame: an apron under the seat, four legs tapering to the floor, a stretcher low between them.
-	var wood:=look(Color("2a2623"))
-	var inset:=Vector2(length/2-.07,width/2-.07)
-	for spec in [[Vector3(0,height-thick-.03,inset.y),Vector3(length-.10,.06,.03)],[Vector3(0,height-thick-.03,-inset.y),Vector3(length-.10,.06,.03)],
-		[Vector3(inset.x,height-thick-.03,0),Vector3(.03,.06,width-.10)],[Vector3(-inset.x,height-thick-.03,0),Vector3(.03,.06,width-.10)],
-		[Vector3(inset.x,.10,0),Vector3(.025,.03,2*inset.y)],[Vector3(-inset.x,.10,0),Vector3(.025,.03,2*inset.y)],[Vector3(0,.10,0),Vector3(2*inset.x,.03,.025)]]:
+	# The frame: the base rail the seat sits on, and four stout square legs under its corners.
+	var wood:=look(Color("3b2a1e"))
+	var rail_h:=.06
+	var inset:=Vector2(length/2-.045,width/2-.045)
+	for spec in [[Vector3(0,height-thick-rail_h/2,inset.y),Vector3(length-.04,rail_h,.05)],[Vector3(0,height-thick-rail_h/2,-inset.y),Vector3(length-.04,rail_h,.05)],
+		[Vector3(inset.x,height-thick-rail_h/2,0),Vector3(.05,rail_h,width-.04)],[Vector3(-inset.x,height-thick-rail_h/2,0),Vector3(.05,rail_h,width-.04)]]:
 		var rail:=solid(at+spec[0],spec[1],wood)
 		rail.reparent(body)
-	for x in [-inset.x,inset.x]:
-		for z in [-inset.y,inset.y]:
+	var leg_h:=height-thick-rail_h
+	for x in [-inset.x+.01,inset.x-.01]:
+		for z in [-inset.y+.01,inset.y-.01]:
 			var leg:=MeshInstance3D.new()
-			var taper:=CylinderMesh.new()
-			taper.top_radius=.032
-			taper.bottom_radius=.026
-			taper.height=height-thick
-			taper.radial_segments=4
-			taper.rings=1
-			leg.mesh=taper
+			var post:=CylinderMesh.new()
+			post.top_radius=.05 # a square post about 7 cm a side
+			post.bottom_radius=.044
+			post.height=leg_h
+			post.radial_segments=4
+			post.rings=1
+			leg.mesh=post
 			leg.rotation.y=PI/4
 			leg.material_override=wood
 			body.add_child(leg)
-			leg.global_position=at+Vector3(x,(height-thick)/2,z)
+			leg.global_position=at+Vector3(x,leg_h/2,z)
 	return body
 
 ## What makes a wall case read as the footage's (IMG_6383 17.0/44.0/48.5s) once its deck, back
