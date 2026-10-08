@@ -23,6 +23,7 @@ const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"dfe3dd","Rockefeller":"d8e7e2",
 	"modern painting gallery":"e0e6e4","lion stair landing":"c8cbc7","grey French gallery":"e2e3da","Skylight Gallery":"d2d6ce",
 	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
+const MEDIEVAL_MOUNT:="4f5564" # the panels' mount boards: the dark medieval room's wall paint, a tenth lighter
 ## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
 ## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
 const OAK_TONE:="f5bf74"
@@ -1113,7 +1114,9 @@ func build_grey_gallery() -> void:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/"+spec[0]+"-frame-geometry.json"))
 		var painting:=Painting.new()
 		add_child(painting)
-		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px)
+		painting.build_framed(load("res://assets/"+spec[0]+"-frame.png"),load("res://assets/painting-"+spec[1]+".jpg"),Vector2(data.canvas_m[0],data.canvas_m[1]),data.margins_px,
+			# Courbet's side rails are 0.16 m in footage (IMG_6380 3.5 s; the audit read 0.16-0.17), built 0.132 and 0.117 (#266); top and bottom as built.
+			[.16,.147,.16,.168] if spec[0]=="courbet" else [])
 		painting.position=spec[2]
 		painting.rotation.y=spec[3]
 		var label:=solid(Vector3.ZERO,Vector3(.30,.17,.004),look(Color("e9e4d4")))
@@ -1717,7 +1720,9 @@ func build_sculpture_rooms() -> void:
 	var frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/perugino-frame-geometry.json"))
 	var perugino:=Painting.new()
 	add_child(perugino)
-	perugino.build_framed(load("res://assets/perugino-frame.png"),load("res://assets/painting-16.236.jpg"),Vector2(.391,.575),frame.margins_px)
+	perugino.build_framed(load("res://assets/perugino-frame.png"),load("res://assets/painting-16.236.jpg"),Vector2(.391,.575),frame.margins_px,
+		# The base shelf's underside is 0.12 m below the panel in footage (IMG_6383 38.25 s), built 0.085 (#266); sides and cornice as built.
+		[.060,.160,.060,.12])
 	perugino.position=Vector3(-.47,1.55,18.93)
 	inventory["renaissance_verified_paintings"]=1
 	# Reciprocal wides show a shallow horizontal ventilation grille above the north door.
@@ -1744,7 +1749,9 @@ func build_sculpture_rooms() -> void:
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
 	if has_meta("build_gate"):await get_meta("build_gate")
-	# The native close shots show exposed panel outlines on grey mounts, not added frames.
+	# The native close shots show exposed panel outlines on mounts, not added frames. The mounts are
+	# painted as the wall: IMG_6382 68.0, 70.5 and 75.0 s, mount against wall beside it, 1.13, 1.08 and
+	# 0.84 in linear luminance (#266): MEDIEVAL_MOUNT.
 	# Heights and the west pair's spacing are measured (#266): IMG_6382 65.5, 68.0 and 74.0 s, each wall
 	# rectified from the panel's own catalogue size. Centres 1.40 m (west) and 1.37 m (north), +-0.06;
 	# the west pair 0.87 m centre to centre, 57.301 0.70 m from the north-west corner.
@@ -1756,7 +1763,7 @@ func build_sculpture_rooms() -> void:
 		mount.rotation.y=spec[2]
 		add_child(mount)
 		var size:=Vector2(data.size_m[0],data.size_m[1])
-		var support:=solid(Vector3.ZERO,Vector3(size.x+.10,size.y+.10,.025),look(Color("959691")))
+		var support:=solid(Vector3.ZERO,Vector3(size.x+.10,size.y+.10,.025),look(Color(MEDIEVAL_MOUNT)))
 		support.reparent(mount,false)
 		var art:=Painting.new()
 		mount.add_child(art)
@@ -2260,7 +2267,7 @@ func build_gabled_frame() -> void:
 					var p:Array=data.points_px[i%count]
 					st.set_uv(Vector2(p[0]/data.source_size_px[0],p[1]/data.source_size_px[1]))
 					st.add_vertex(vertices[i]),Painting.mat(load("res://assets/magdalene-frame.png")) if group==front else look(Color("7c6038")))
-	var support:=solid(Vector3(1.18,1.37,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
+	var support:=solid(Vector3(1.18,1.37,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color(MEDIEVAL_MOUNT)))
 	support.name="MagdaleneGreySupport"
 	var art:=Painting.new()
 	frame.add_child(art)
