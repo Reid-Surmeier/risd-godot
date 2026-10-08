@@ -13,6 +13,7 @@ const TREAD := .35
 const FLIGHT := 1.6 # flight width; the two balustrade lines meet the two Ionic columns
 const STRAIGHT := 13 # steps in the first run, then 6 winders to the half-landing
 const SOFFIT := 3.745 # underside of the upper landing: the ceiling of the strip behind the columns
+static var _scroll_panel: ArrayMesh
 
 var room
 var x0: float
@@ -34,10 +35,21 @@ class Batch:
 	func _init() -> void:
 		st.begin(Mesh.PRIMITIVE_TRIANGLES)
 
+	## Primitive meshes have indices; swept faces do not. Keep the batch unindexed so
+	## adding a primitive cannot silently hide the hand-built curls, leaves or rail.
+	func append(mesh: Mesh, transform: Transform3D) -> void:
+		if mesh is ArrayMesh and mesh.surface_get_array_index_len(0) == 0:
+			st.append_from(mesh, 0, transform)
+			return
+		var source := SurfaceTool.new()
+		source.create_from(mesh, 0)
+		source.deindex()
+		st.append_from(source.commit(), 0, transform)
+
 	func box(at: Vector3, size: Vector3, basis := Basis.IDENTITY) -> void:
 		var cube := BoxMesh.new()
 		cube.size = size
-		st.append_from(cube, 0, Transform3D(basis, at))
+		append(cube, Transform3D(basis, at))
 		used = true
 
 	func ball(at: Vector3, radius: float, squash := Vector3.ONE) -> void:
@@ -46,7 +58,7 @@ class Batch:
 		sphere.height = radius * 2
 		sphere.radial_segments = 8
 		sphere.rings = 4
-		st.append_from(sphere, 0, Transform3D(Basis.from_scale(squash), at))
+		append(sphere, Transform3D(Basis.from_scale(squash), at))
 		used = true
 
 	func tube(at: Vector3, radius: float, height: float, basis := Basis.IDENTITY, sides := 10) -> void:
@@ -56,7 +68,7 @@ class Batch:
 		cylinder.height = height
 		cylinder.radial_segments = sides
 		cylinder.rings = 1
-		st.append_from(cylinder, 0, Transform3D(basis, at))
+		append(cylinder, Transform3D(basis, at))
 		used = true
 
 	## A bar between two points.
@@ -64,6 +76,40 @@ class Batch:
 		var along := c - a
 		var up := Vector3.UP if absf(along.normalized().y) < .99 else Vector3.RIGHT
 		box((a + c) / 2, Vector3(thick, thick if tall < 0 else tall, along.length()), Basis.looking_at(along.normalized(), up))
+
+	## A continuous elliptical section, including the rounded oak rail and its open volute.
+	func sweep(points: PackedVector3Array, wide: float, high: float, sides := 8, reference := Vector3.UP) -> void:
+		var rings: Array[PackedVector3Array] = []
+		var normals: Array[PackedVector3Array] = []
+		for i in points.size():
+			var tangent := (points[mini(i + 1, points.size() - 1)] - points[maxi(i - 1, 0)]).normalized()
+			var side := tangent.cross(reference).normalized()
+			if side.length_squared() < .001:
+				side = Vector3.RIGHT
+			var up := side.cross(tangent).normalized()
+			var ring := PackedVector3Array()
+			var normal := PackedVector3Array()
+			for j in sides:
+				var angle := j * TAU / sides
+				ring.append(points[i] + side * cos(angle) * wide / 2 + up * sin(angle) * high / 2)
+				normal.append((side * cos(angle) / wide + up * sin(angle) / high).normalized())
+			rings.append(ring)
+			normals.append(normal)
+		for i in points.size() - 1:
+			for j in sides:
+				var next := (j + 1) % sides
+				for pair in [Vector2i(i, j), Vector2i(i + 1, next), Vector2i(i + 1, j), Vector2i(i, j), Vector2i(i, next), Vector2i(i + 1, next)]:
+					st.set_normal(normals[pair.x][pair.y])
+					st.set_uv(Vector2(pair.x * .1, float(pair.y) / sides))
+					st.add_vertex(rings[pair.x][pair.y])
+		used = true
+
+
+	func panel(at: Vector3, along: Vector3, height: float, mesh: ArrayMesh) -> void:
+		var axis := Vector3(along.x, 0, along.z).normalized()
+		var basis := Basis(axis, Vector3.UP * height / .87, axis.cross(Vector3.UP))
+		append(mesh, Transform3D(basis, at))
+		used = true
 
 	## A vertical prism over a plan polygon (x, z), with its top and, if asked, its underside.
 	func prism(plan: PackedVector2Array, y0: float, y1: float, under := false) -> void:
@@ -100,6 +146,57 @@ class Batch:
 		if not local and node.is_inside_tree():
 			node.global_transform = Transform3D.IDENTITY
 		return node
+
+
+## IMG_6381 5.5 s: a narrow vertical spindle, paired end curls, a short oval and curled leaf tips.
+## One template is reused in both stair spaces; ornament never becomes a flat X/decal.
+static func scroll_panel_mesh() -> ArrayMesh:
+	if _scroll_panel != null:
+		return _scroll_panel
+	var panel := Batch.new()
+	panel.box(Vector3(0, .435, 0), Vector3(.014, .87, .014))
+	for level in [.055, .22, .435, .65, .815]:
+		panel.tube(Vector3(0, level, 0), .016, .016, Basis.IDENTITY, 8)
+	for level in [.10, .77]:
+		for hand in [-1.0, 1.0]:
+			var points := PackedVector3Array()
+			for i in 11:
+				var t := float(i) / 10
+				var angle := -PI / 2 + t * TAU * 1.12
+				var radius := lerpf(.035, .008, t)
+				points.append(Vector3(hand * (.021 + cos(angle) * radius), level + sin(angle) * radius, 0))
+			panel.sweep(points, .009, .012, 4, Vector3.BACK)
+	for hand in [-1.0, 1.0]:
+		var points := PackedVector3Array()
+		for i in 15:
+			var t := float(i) / 14
+			points.append(Vector3(hand * (.009 + sin(t * PI) * .037), .355 + t * .17, 0))
+		panel.sweep(points, .009, .012, 4, Vector3.BACK)
+		for level in [.235, .655]:
+			# A folded pointed leaf: front and back facets, not a card facing the camera.
+			var leaf := PackedVector3Array([Vector3(.008 * hand, level - .015, 0), Vector3(.030 * hand, level + .020, 0), Vector3(.053 * hand, level + .010, 0), Vector3(.041 * hand, level - .010, .012), Vector3(.025 * hand, level - .019, 0)])
+			for side in [-1.0, 1.0]:
+				for triangle in [[0, 1, 3], [1, 2, 3], [0, 3, 4]]:
+					var a: Vector3 = leaf[triangle[0]] * Vector3(1, 1, side)
+					var b: Vector3 = leaf[triangle[1]] * Vector3(1, 1, side)
+					var c: Vector3 = leaf[triangle[2]] * Vector3(1, 1, side)
+					panel.st.set_normal((c - a).cross(b - a).normalized())
+					for vertex in [a, b, c]:
+						panel.st.add_vertex(vertex)
+	_scroll_panel = panel.st.commit()
+	return _scroll_panel
+
+
+func guard(bars: Batch, rail: Batch, a: Vector3, b: Vector3, height := .92) -> void:
+	var along := b - a
+	var count := maxi(2, roundi(Vector2(along.x, along.z).length() / .175))
+	for i in count + 1:
+		var foot := a.lerp(b, float(i) / count)
+		if i % 2 == 0:
+			bars.panel(foot, along, height - .035, scroll_panel_mesh())
+		else:
+			bars.box(foot + Vector3.UP * (height - .035) / 2, Vector3(.014, height - .035, .014))
+	rail.sweep(PackedVector3Array([a + Vector3.UP * height, b + Vector3.UP * height]), .065, .050)
 
 
 func ceiling_height() -> float:
@@ -249,34 +346,68 @@ func inner_walls() -> void:
 func stair() -> void:
 	var marble: Material = room.look(Color("d3cfc5"))
 	var strip: Material = room.look(Color("4f4f52"))
-	var iron: Material = room.look(Color("2e2b29"))
-	var wood: Material = room.look(Color("6a4a2e"))
+	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
+	iron.metallic = .55
+	iron.roughness = .38
+	iron.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	var wood: StandardMaterial3D = room.look(Color("6a4a2e"))
+	wood.roughness = .30
+	wood.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
 	var solid := Batch.new()
 	var strips := Batch.new()
 	var bars := Batch.new()
 	var rail := Batch.new()
 	var first := xe - STRAIGHT * TREAD
-	# IMG_6380 45.5s, IMG_6381 83.0/83.5s: thirteen steps against the north wall, a curved first step.
+	var rail_start := Vector3(first + .15, RISER + .92, zn - .06)
+	var rail_end := Vector3(xe - .25, STRAIGHT * RISER + .92, zn - .06)
+	# IMG_6381 3.5/5.5 s: continuous bullnose around the open cage, no separate disc.
 	for k in range(1, STRAIGHT + 1):
 		var nose := first + (k - 1) * TREAD
-		solid.prism(rect(nose - (.18 if k == 1 else .0), xe, z0, zn), (k - 1) * RISER, k * RISER)
+		if k == 1:
+			var bottom := PackedVector2Array([Vector2(first - .35, z0), Vector2(xe, z0), Vector2(xe, zn - .05), Vector2(first + .45, zn - .05)])
+			for i in range(1, 25):
+				bottom.append(Vector2(first + .05, zn - .05) + Vector2.from_angle(i * PI / 24) * .40)
+			solid.prism(bottom, 0, RISER)
+		else:
+			solid.prism(rect(nose, xe, z0, zn), (k - 1) * RISER, k * RISER)
 		strips.box(Vector3(nose + .07, k * RISER + .003, (z0 + zn) / 2), Vector3(.05, .006, FLIGHT - .3))
 		for part in [.25, .75]:
 			var at := Vector3(nose + part * TREAD, k * RISER, zn - .06)
-			bars.box(at + Vector3(0, .43, 0), Vector3(.018, .86, .018))
-			if part == .25 and k % 2 == 0:
-				bars.box(at + Vector3(0, .45, 0), Vector3(.012, .22, .11), Basis(Vector3.BACK, PI / 4))
-				bars.box(at + Vector3(0, .45, 0), Vector3(.012, .22, .11), Basis(Vector3.BACK, -PI / 4))
-	var bull := PackedVector2Array()
-	for i in 12:
-		bull.append(Vector2(first + .05, zn - .02) + Vector2.from_angle(i * TAU / 12) * .4)
-	solid.prism(bull, 0, RISER)
-	for i in 6:
-		var around := Vector2(first + .05, zn - .02) + Vector2.from_angle(i * TAU / 6) * .16
-		bars.box(Vector3(around.x, RISER + .45, around.y), Vector3(.018, .9, .018))
-	rail.tube(Vector3(first + .05, RISER + .92, zn - .02), .2, .05)
-	rail.bar(Vector3(first + .1, RISER + .92, zn - .06), Vector3(xe, STRAIGHT * RISER + .92, zn - .06), .07, .06)
-	# IMG_6381 10.5..13.5s, 79.5..81.5s: six winders turn the corner to a landing under the window.
+			var rail_y := rail_start.lerp(rail_end, (at.x - rail_start.x) / (rail_end.x - rail_start.x)).y
+			var height := rail_y - at.y - .025
+			if part == .25:
+				bars.panel(at, Vector3.RIGHT, height, scroll_panel_mesh())
+			else:
+				bars.box(at + Vector3.UP * height / 2, Vector3(.014, height, .014))
+	# The oak scroll grows out to the sloping rail. The hole remains visibly open.
+	var centre := Vector2(first + .05, zn + .1225)
+	block(Vector3(centre.x, 1.0, centre.y), Vector3(.44, 2.0, .44))
+	var volute := PackedVector3Array()
+	for i in 49:
+		var t := float(i) / 48
+		var angle := -PI / 2 - TAU * 1.15 * (1 - t)
+		var radius := lerpf(.070, .1825, t)
+		var point := centre + Vector2.from_angle(angle) * radius
+		volute.append(Vector3(point.x, rail_start.y, point.y))
+	volute.append(rail_start)
+	volute.append(rail_end)
+	rail.sweep(volute, .065, .050)
+	# Eight open spindles, four ornamented, with thin iron hoops rather than a solid newel.
+	for i in 8:
+		var angle := i * TAU / 8
+		var point := centre + Vector2.from_angle(angle) * .155
+		var foot := Vector3(point.x, RISER + .025, point.y)
+		if i % 2 == 0:
+			bars.panel(foot, Vector3(cos(angle + PI / 2), 0, sin(angle + PI / 2)), .855, scroll_panel_mesh())
+		else:
+			bars.box(foot + Vector3.UP * .4275, Vector3(.014, .855, .014))
+	for level in [RISER + .06, rail_start.y - .05]:
+		var hoop := PackedVector3Array()
+		for i in 25:
+			var point := centre + Vector2.from_angle(i * TAU / 24) * .155
+			hoop.append(Vector3(point.x, level, point.y))
+		bars.sweep(hoop, .014, .014, 4)
+	# Six quarter-turn winders, retaining their count and the half-landing footprint.
 	var pivot := Vector2(xe, zn)
 	var outer := []
 	for i in 7:
@@ -286,20 +417,25 @@ func stair() -> void:
 		solid.prism(PackedVector2Array([pivot, outer[j - 1], outer[j]]), 0, (STRAIGHT + j) * RISER)
 		winder_strip(strips, pivot, outer[j - 1], outer[j], (STRAIGHT + j) * RISER)
 	solid.prism(rect(xe, x1, zn, zs), half - .25, half, true)
-	bars.box(Vector3(xe, (STRAIGHT * RISER + half + .92) / 2, zn), Vector3(.03, half + .92 - STRAIGHT * RISER, .03))
-	var along := zs - zn
-	for i in range(1, int(along / .2)):
-		bars.box(Vector3(xe + .04, half + .43, zn + i * .2), Vector3(.018, .86, .018))
-	rail.bar(Vector3(xe + .04, half + .92, zn), Vector3(xe + .04, half + .92, zs), .07, .06)
+	var turn := PackedVector3Array()
+	for i in 13:
+		var t := float(i) / 12
+		var point := Vector2(xe - .25, zn + .23) + Vector2.from_angle(-PI / 2 + t * PI / 2) * .29
+		var level := lerpf(STRAIGHT * RISER, half, t)
+		turn.append(Vector3(point.x, level + .92, point.y))
+		if i % 3 == 0:
+			bars.panel(Vector3(point.x, level, point.y), Vector3(cos(t * PI / 2), 0, sin(t * PI / 2)), .885, scroll_panel_mesh())
+	rail.sweep(turn, .065, .050)
+	guard(bars, rail, Vector3(xe + .04, half, zn + .23), Vector3(xe + .04, half, zs - .23))
 	var treads := solid.into(room, marble, "MarbleStairLower")
 	treads.set_meta("marble_hall_part", "first flight, winders and half-landing")
 	strips.into(room, strip, "MarbleStairStrips")
-	bars.into(room, iron, "MarbleStairBalusters")
+	var ironwork := bars.into(room, iron, "MarbleStairBalusters")
+	ironwork.set_meta("stair_ironwork", "repeated scroll and leaf mesh, open cage newel")
 	rail.into(room, wood, "MarbleStairHandrail")
-	# The wall rail of the first flight goes with the north wall.
 	var north: Node3D = room.wall_body(LABEL, "north", Vector3((first + xe) / 2, 1.5, z0))
 	var hand := Batch.new()
-	hand.bar(Vector3(first + .3, RISER + .9, z0 + .11), Vector3(xe, STRAIGHT * RISER + .9, z0 + .11), .05)
+	hand.sweep(PackedVector3Array([Vector3(first + .3, RISER + .9, z0 + .11), Vector3(xe - .25, STRAIGHT * RISER + .9, z0 + .11)]), .050, .042)
 	hand.into(north, wood, "MarbleStairWallRail")
 
 
@@ -315,8 +451,13 @@ func winder_strip(strips: Batch, pivot: Vector2, from: Vector2, to: Vector2, lev
 func upper_landing() -> void:
 	var marble: Material = room.look(Color("d3cfc5"))
 	var white: Material = room.look(Color("ecebe6"))
-	var iron: Material = room.look(Color("2e2b29"))
-	var wood: Material = room.look(Color("6a4a2e"))
+	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
+	iron.metallic = .55
+	iron.roughness = .38
+	iron.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	var wood: StandardMaterial3D = room.look(Color("6a4a2e"))
+	wood.roughness = .30
+	wood.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
 	var strip: Material = room.look(Color("4f4f52"))
 	var top := xe - 4 * TREAD
 	# IMG_6381 20.5/31.5s: the upper landing lies over the strip behind the columns, its white fascia
@@ -344,28 +485,29 @@ func upper_landing() -> void:
 		flight.prism(rect(xe - k * TREAD, xe - (k - 1) * TREAD, zs, z1), SOFFIT - .15, level, true)
 		strips.box(Vector3(xe - (k - 1) * TREAD - .07, level + .003, (zs + z1) / 2), Vector3(.05, .006, FLIGHT - .3))
 		for part in [.25, .75]:
-			bars.box(Vector3(xe - (k - 1 + part) * TREAD, level + .43, zs + .06), Vector3(.018, .86, .018))
-	bars.box(Vector3(xe, (half + upper) / 2 + .46, zs), Vector3(.03, upper - half + .92, .03))
-	rail.bar(Vector3(xe, half + 7 * RISER + .92, zs + .06), Vector3(top, upper + .92, zs + .06), .07, .06)
-	# Balustrades of the arm and of the landing's edge across the well, glass in front as filmed (20.5s).
-	var span := top - xf
-	for i in range(0, int(span / .2) + 1):
-		bars.box(Vector3(xf + i * .2, upper + .46, zs + .06), Vector3(.018, .92, .018))
-	rail.bar(Vector3(xf, upper + .95, zs + .06), Vector3(top, upper + .95, zs + .06), .07, .06)
+			var at := Vector3(xe - (k - 1 + part) * TREAD, level, zs + .06)
+			if part == .25:
+				bars.panel(at, Vector3.LEFT, .88, scroll_panel_mesh())
+			else:
+				bars.box(at + Vector3.UP * .44, Vector3(.014, .88, .014))
+	var curve := PackedVector3Array()
+	for i in 13:
+		var t := float(i) / 12
+		var point := Vector2(xe - .25, zs - .23) + Vector2.from_angle(t * PI / 2) * .29
+		var level := half + t * 7 * RISER
+		curve.append(Vector3(point.x, level + .92, point.y))
+		if i % 3 == 0:
+			bars.panel(Vector3(point.x, level, point.y), Vector3(-sin(t * PI / 2), 0, cos(t * PI / 2)), .885, scroll_panel_mesh())
+	rail.sweep(curve, .065, .050)
+	rail.sweep(PackedVector3Array([curve[-1], Vector3(top, upper + .92, zs + .06)]), .065, .050)
+	guard(bars, rail, Vector3(xf, upper, zs + .06), Vector3(top, upper, zs + .06), .95)
 	flight.into(arm, marble, "MarbleStairUpper")
 	strips.into(arm, strip, "MarbleStairUpperStrips")
 	bars.into(arm, iron, "MarbleStairUpperBalusters")
 	rail.into(arm, wood, "MarbleStairUpperHandrail")
 	var edge_bars := Batch.new()
 	var edge_rail := Batch.new()
-	var run := zs - z0
-	for i in range(0, int(run / .2) + 1):
-		var z := z0 + .1 + i * .2
-		edge_bars.box(Vector3(xf - .06, upper + .46, z), Vector3(.018, .92, .018))
-		if i % 5 == 2:
-			edge_bars.box(Vector3(xf - .06, upper + .5, z), Vector3(.11, .24, .012), Basis(Vector3.RIGHT, PI / 4))
-			edge_bars.box(Vector3(xf - .06, upper + .5, z), Vector3(.11, .24, .012), Basis(Vector3.RIGHT, -PI / 4))
-	edge_rail.bar(Vector3(xf - .06, upper + .95, z0 + .05), Vector3(xf - .06, upper + .95, zs + .06), .07, .06)
+	guard(edge_bars, edge_rail, Vector3(xf - .06, upper, z0 + .05), Vector3(xf - .06, upper, zs + .06), .95)
 	edge_bars.into(deck, iron, "UpperLandingBalusters")
 	edge_rail.into(deck, wood, "UpperLandingHandrail")
 	var floor_top := Batch.new()
