@@ -47,3 +47,31 @@ One work, one sheet (`lion-landing-north.jpg`).
 
 Only in footage: a cart of stacked black chairs by the stair rail (35 s); a label right of the
 medieval door (44 s). Neither is a work.
+
+## Modern painting gallery (IMG_6387 46–82 s, frames turned upright) — nothing moved
+
+Two sheets: `modern-west-north-south.jpg` (47–62 s) and `modern-east-north-west.jpg` (64.5–77 s).
+The clip pans the room clockwise from the entry door, so the order along every wall is filmed.
+
+| Wall | Work or piece | Footage | Draft | Agree |
+|---|---|---|---|---|
+| south | Braque 48.248, Villon 70.058 | 52, 54.5, 57 s: beyond the entry door, Braque then Villon, Villon near the window corner, a label between them, eye height | same order and corner; no label | yes |
+| east | window, Seated Woman 67.089 in its case, window | 62, 64.5, 67 s: the case on the pier between the windows, the figure turned to the room | same | yes |
+| north | doorway, Cézanne 43.255, Matisse 57.037 | 69.5, 72, 74.5, 49.5 s: the doorway by the north-east corner, then Cézanne, then Matisse about a picture's width from the north-west corner | same | yes |
+| west | Fauconnier 1995.043 | 47, 49.5, 77 s: fills the wall from the entry jamb, its foot under knee height | same | yes |
+| floor | bench | 49.5 s: mid-room, long side along the Fauconnier wall | same | yes |
+
+Not sure, left alone: where the Seated Woman's case stands between the two windows (64.5 s
+shows it hard by the south window's casing, from an oblique place; the draft has it 0.25 m
+north of the middle). `IMG_6343` 224–263 s, the second walk of this room, was not opened.
+
+## For whoever continues
+
+Rooms left, in order: the European gallery (`adjacent gallery`, IMG_6384, 6385, 6386),
+Rockefeller (6380 120–240 s), the grey French gallery (6380 0–50 and 80–118 s, 6343 0–82 s),
+the Light Renaissance room (6383). The draft at
+`~/risd-godot-ingestion/collection-expansion/rebuild-placement-eye/extension` matches this
+branch's sources. Per room: `list:<x0,x1,z0,z1>` with the room's bounds from
+`modules/shell/collection_rooms/geometry.json` names every work and its place; shots are
+`<out.png>:<camera>:<aim>:<fov>:<w>x<h>`. Do not un-hide what the build hides: the Hall's spare
+surfaces stand across the medieval room. A camera inside a case photographs grey.
