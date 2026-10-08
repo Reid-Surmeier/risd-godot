@@ -3,6 +3,8 @@
 ## source ~/promo-lab/gpu-env.sh; DISPLAY=:99 godot --fixed-fps 60 --path . \
 ##   --script res://modules/shell/playtest/room_change_record.gd \
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=res://build/room-change [--doors=0,3]
+## With --no-pictures and without --fixed-fps it times instead (#281): each leg's longest frame
+## in real milliseconds, which is what the first entry into a room costs.
 ## Door 0 is the Main Hall's stone portal into the dark medieval room; the rest follow _plan.
 extends SceneTree
 
@@ -11,6 +13,7 @@ const RUN_UP := 2.2  # metres walked on each side of the wall
 
 var walk
 var out := "res://build/room-change"
+var pictures := true
 
 
 func _initialize() -> void:
@@ -22,6 +25,8 @@ func _run() -> void:
 	for arg in OS.get_cmdline_user_args():
 		if arg.begins_with("--out-dir="):
 			out = arg.get_slice("=", 1)
+		if arg == "--no-pictures":
+			pictures = false
 		if arg.begins_with("--doors="):
 			only = Array(arg.get_slice("=", 1).split(","))
 	root.size = SIZE
@@ -84,6 +89,10 @@ func _leg(name: String, from: Vector3, to: Vector3) -> void:
 	var log := FileAccess.open(dir.path_join("log.csv"), FileAccess.WRITE)
 	log.store_line("frame,x,z,space,room")
 	var rest := 0
+	var longest := 0
+	var slow := 0
+	var tick := Time.get_ticks_msec()
+	var from_stage: int = walk._stage
 	while frame < 60 * 9 and rest < 48:
 		var left: Vector3 = to - walk._pos
 		var held := {}
@@ -96,7 +105,11 @@ func _leg(name: String, from: Vector3, to: Vector3) -> void:
 			rest += 1
 		walk._held = held
 		await process_frame
-		if frame % 6 == 0:
+		var now := Time.get_ticks_msec()
+		longest = maxi(longest, now - tick)
+		slow += int(now - tick > 50)
+		tick = now
+		if pictures and frame % 6 == 0:
 			await RenderingServer.frame_post_draw
 			var image: Image = root.get_texture().get_image()
 			image.resize(480, 320, Image.INTERPOLATE_BILINEAR)
@@ -107,4 +120,7 @@ func _leg(name: String, from: Vector3, to: Vector3) -> void:
 		)
 		frame += 1
 	walk._held = {}
-	print("ROOM_CHANGE_LEG ", name, " frames=", frame, " ended=", walk._pos)
+	print(
+		"ROOM_CHANGE_LEG ", name, " frames=", frame, " ended=", walk._pos, " stage ", from_stage,
+		" -> ", walk._stage, " longest_frame_ms=", longest, " frames_over_50ms=", slow
+	)
