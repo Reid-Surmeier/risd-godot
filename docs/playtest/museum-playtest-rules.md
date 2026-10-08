@@ -54,7 +54,8 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    lens leans at least 0.6 towards it, and the work is drawn in its own inspection. The
    visitor does not crowd the lens: its box takes no more than a tenth of the picture. And
    nothing else that is drawn stands before the work: at those five points no mesh is met more
-   than 0.8 m before it (nearer is the glass of its own case).
+   than 0.8 m before it, nor a thin pane more than 1.5 m before it (nearer is the glass of its
+   own case, and so is a pane with no floor between it and the work).
 7. **The same hop at any frame rate.** The jump is run at 15, 30, 60 and 120 frames a second and
    must rise the same height within 3 cm. (`visitor174_check.gd`.)
 8. **No script errors.** The run's log must contain no `SCRIPT ERROR`; `build/run-playtest.sh`

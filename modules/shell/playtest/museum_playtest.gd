@@ -26,7 +26,8 @@ const READ_COVERED := 0.02
 const READ_FACE := 0.6  # the least of a flat work's face that shows
 const READ_SQUARE := 0.6  # the least the lens leans to a work's face: 1 square on, 0 edge on
 const READ_VISITOR := 0.1  # the most of the picture the visitor's box may take
-const READ_CLEAR := 0.8  # metres before a work within which a drawn thing is its own case
+const READ_CLEAR := 0.8  # metres before a work within which a drawn thing is its own mount
+const READ_GLASS := 1.5  # and within which a thin pane is the glass of its own case
 const HALL := "Grand Gallery"
 
 var walk
@@ -1053,12 +1054,20 @@ func _objects() -> void:
 					var hit: Dictionary = row.shape.intersect_ray(
 						row.inward * from, (row.inward.basis * toward).normalized()
 					)
-					if (
-						not hit.is_empty()
-						and from.distance_to(mesh.global_transform * hit.position) < own - READ_CLEAR
-					):
-						met = true
-						by[str(mesh.get_parent().name) + "/" + str(mesh.name)] = true
+					if hit.is_empty():
+						continue
+					var struck: Vector3 = mesh.global_transform * hit.position
+					# A thin pane is glass: the front or side of the work's own case when it is
+					# within READ_GLASS of the work, or when no floor lies between the two
+					# however deep the case (the plates at the back of Rockefeller's).
+					var thin: bool = (row.box as AABB).size[(row.box as AABB).size.min_axis_index()] < 0.05
+					if from.distance_to(struck) >= own - (READ_GLASS if thin else READ_CLEAR):
+						continue
+					var between: Vector3 = struck.lerp(from + toward * own, 0.5)
+					if thin and not walk._free(Vector3(between.x, 0, between.z)):
+						continue
+					met = true
+					by[str(mesh.get_parent().name) + "/" + str(mesh.name)] = true
 				screened += int(met)
 			entry["points_screened"] = [screened, on_it]
 			if on_it > 0 and screened * 2 >= on_it:
