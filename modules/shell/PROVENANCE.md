@@ -1097,4 +1097,35 @@ Reused textures (existing provider/generation record retained; zero new spend):
 
 Room geometry is locally authored GDScript in `impressionist_additions.gd`: six-sided plinth/clear hood, rounded upholstered bench, panelled leaves, sash windows/roller shades/aprons, grilles and detector. Plain/procedural materials and the existing white trim/wood kit are reused; no new raster generation. Borrowed gilt frame textures are fitted to approximate filmed outer dimensions; fine ornament fidelity is unaccepted. Lamps and the bake remain #274/orchestrator work.
 
-Review-only fitted-plan diagram: source `docs/evidence/impressionist-277/fitted_plan.py` (SHA-256 `a4b1d724e61effb39b521aa0a9ca86a73ee27011d59395417da34feb581f71e4`), input the prepared `geometry.json`, output `docs/evidence/impressionist-277/fitted-plan.jpg` (SHA-256 `844fee359b3274309aa94687b5211bd1e28b64d2ec7f5d3eb7c42065e12e7bad`). Provider: local Python/Pillow; model: none; cost: USD0; no paid request. It is excluded from runtime exports and makes no calibrated-plan claim.
+Review-only fitted-plan diagram: source `docs/evidence/impressionist-277/fitted_plan.py` (SHA-256 `e8a91888b7f53903bc6cbd15fb5855eb78f97cde5f0e57c11fffe20a07992413`), input the prepared `geometry.json`, output `docs/evidence/impressionist-277/fitted-plan.jpg` (SHA-256 `e79e3fcfc422e58c58be437c1383ceb462251cd578366dd0175fe4588bc2b855`). Provider: local Python/Pillow; model: none; cost: USD0; no paid request. It is excluded from runtime exports and makes no calibrated-plan claim.
+
+#277 review-image evidence (no runtime dependency): source footage IMG_6343.MOV (SDR) and native unbaked Godot4.7.2 GL Compatibility views, with exact frame/checkpoint in NOTES.md. Provider: local ffmpeg/Godot/Pillow; model: none; count26 review JPEGs; total new spend: USD0. Close views use review-only.55 ambient, game insets retain actual zero unbaked far-room ambient. Diagram source/geometry are recorded above.
+
+| Review file | SHA-256 |
+| --- | --- |
+| `2-shell-A.jpg` | `491117e3c51ddc78793e084baf0c355e4b34a799504a703b4df2e71d7e6fa3da` |
+| `2-shell-modern.jpg` | `15838af175d9700ccd7ece25140dd4bd64c98a4f3f3daa2aef8574a1549bb4ad` |
+| `2-shell-stair.jpg` | `8e0c2b581a6052d9adb8fa1a1f2b5394c8d79e1148f2757959f42b05b366d1eb` |
+| `3-furnish-A-windows.jpg` | `b4037f1687b4f9c666445f303786f7cf726368d3d01b23497af0eca8fbddad3d` |
+| `3-furnish-A.jpg` | `a7881dd4ee34b78a970d5d87a26c461408859ba61e409293caa5fd7f540902e4` |
+| `3-furnish-B-windows.jpg` | `c01cfd88517ab7ced8eb699cfe3c3fd6cffcfe988c3cf4ebb97f8944f71b9478` |
+| `3-furnish-bench.jpg` | `d1e7880381054f7a317884d4f8fbc0fbb9dd52105dca157764bfd54616571bee` |
+| `3-furnish-case.jpg` | `4b1a6b94ff4f5a14232c77bf5518036f3e3efaeb00848d21226b4e1c38ab9f54` |
+| `3-furnish-modern.jpg` | `f2c1bca2d92778a36e5764bbbce66b46c742498e07748314e23d14bff0228c63` |
+| `3-furnish-passage.jpg` | `73ce6e21c580fd1021c1fff9ee998d50ff9733d1f7c25fe2a2c9f178c6bdb8ef` |
+| `4-room-A.jpg` | `f6890aad078931f55c4882d351452a681b8aebdcb9720a2c53e79db95099c5bc` |
+| `4-work-Basin.jpg` | `b686a6b6d23aec67d51b42aef4df430262819e044f84d7eaf0d0a2d43d6b30be` |
+| `4-work-Cezanne.jpg` | `d7b62715240032c0594dcaf61ebd6a7032e23d32b6d2db7463ea2561f4738e81` |
+| `4-work-Giverny.jpg` | `f9c6c4fd743de0c516b90164cd15cb271af790807e065399f2146561f73fabc7` |
+| `4-work-Monet.jpg` | `2601e9f81818d073ab465471a69518240771f65fec71b8b53a9d7f4d096fe8d1` |
+| `5-final-A-windows.jpg` | `ca17fa4c977d7258074f1d1bd312221bf765e50154b2621a3152527d41d19b20` |
+| `5-final-B-windows.jpg` | `bf89bbcc6489651bc7b332457ef5538da2be2a7ee3131bac88b38c6f80d9d58f` |
+| `5-final-passage-panels.jpg` | `735c44f47a209a610b4ef186d04da85e2f91c9c770a968069b8b3d69c7c58b94` |
+| `5-final-room-A.jpg` | `6a7410393608ba324aca437f44a348c059138f574883f8f38e7fc5cea55f30c4` |
+| `5-final-service.jpg` | `aaaf3d109e6f82fc5fdf629c0f9c13819b2016ec52a90f3d3aadc04de485ca06` |
+| `5-final-stair-surround.jpg` | `9154565c8cea9b6eb17da7b5aa11b0de6c6d74eaed28d13fcd6c01b3eb4b49ff` |
+| `6-north-wall.jpg` | `21684f477f21d0a9135b96bbaf1117f51c9c6b0b46342c7678c550c59a802a56` |
+| `fitted-plan.jpg` | `e79e3fcfc422e58c58be437c1383ceb462251cd578366dd0175fe4588bc2b855` |
+| `survey-0.jpg` | `3f695d9a05eaec535a75e574b30c5424b06aa6de8902e3353388ed6e924e02df` |
+| `survey-1.jpg` | `904cf3d42046c5f964c245c09db8839fd366cd36348a1828370bf2150de045b0` |
+| `survey-2.jpg` | `6c61319f8762f5eb6b97190a869fafc7f2570d0b25214e7c44e47d31cb22aefd` |

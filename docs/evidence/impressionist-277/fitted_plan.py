@@ -74,7 +74,7 @@ Longitudinal gap: 3.86 m
 Fit adds: passage +3.00 m,
 A +.06 m and B +.80 m.
 
-Extra lateral return: 4.70 m
+Extra lateral return: 8.90 m
 This is not observed in the clip.
 No adjoining room moves.
 

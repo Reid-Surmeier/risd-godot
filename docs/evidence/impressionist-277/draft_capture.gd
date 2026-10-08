@@ -10,6 +10,7 @@ const VIEWS := [
 	["stair-surround", Vector3(16.35, 0, -1.96), -PI / 2, Vector3(15.30, 1.60, -1.96), Vector3(17.85, 1.65, -1.96)],
 	["passage", Vector3(11.55, 0, 2.20), PI, Vector3(11.55, 1.65, 2.15), Vector3(13.25, 1.5, 11.9)],
 	["A-entry", Vector3(11.55, 0, 4.20), PI, Vector3(11.25, 1.65, 3.70), Vector3(13.5, 1.55, 12.70)],
+	["A-north", Vector3(13.60, 0, 7.0), 0.0, Vector3(13.60, 1.65, 8.50), Vector3(13.60, 1.55, 3.04)],
 	["A-windows", Vector3(13.0, 0, 7.50), -PI / 2, Vector3(11.85, 1.65, 6.3), Vector3(16.7, 1.6, 8.6)],
 	["A-end-door", Vector3(15.75, 0, 11.50), PI, Vector3(14.75, 1.65, 10.40), Vector3(15.75, 1.50, 13.8)],
 	["B-entry", Vector3(15.75, 0, 13.85), PI, Vector3(15.6, 1.65, 13.35), Vector3(12.65, 1.55, 21.5)],

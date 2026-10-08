@@ -1,5 +1,5 @@
 {
-  "checkpoint": "final room geometry and four existing artworks",
+  "checkpoint": "final northwestern entry and four existing artwork photographs",
   "baked": false,
   "arch": {
     "case_rails": 8,
@@ -212,12 +212,28 @@
       {
         "clear": true,
         "trial": "impressionist_route_13_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_14_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_14_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_15_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_15_back"
       }
     ]
   },
   "source_sha256": {
-    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "958d308c2b9099c03d5a637e5ed7d083a43e7860118ea1331d559cca63dfd3dd",
-    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "b786dab100a34da960df678d65aed3a6d8625060c9ef2a11903dc5a83370cac4",
+    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "3eef137c0bc996dab3dcc69aa8bc9540a18b0e541c10068084995796546756ab",
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "0341865e817589703c23fb8be80c03f915e732b3e8f841985a347eb2b0ccacd1",
     "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "316f3be37858ddd7c571edda2a8a5e952c62742ee5447695ce177bbb421a83ad",
     "modules/shell/prototype/collection_reconstruction/marble_hall_additions.gd": "55dd9d6bb554e31f4e632246a3060c1213543d6c62d399988409b6adbc25c3d0",
     "modules/shell/collection_rooms/objects.json": "ec73cc870e3ee7c4ebf9c1a0f2b1998536dbec5ef1ff9f970b7b6faf633a8ac4",
@@ -292,6 +308,23 @@
   },
   "official_final_draft": {
     "exit_code": 0,
+    "source_tip": "503144688befc2a05eb0bf16dcc859c7f51cacaa",
+    "architecture_failures": [],
+    "cased_door_sides": 29,
+    "plan_areas": 19,
+    "new_route_trials": 42,
+    "additions_and_four_photographs_match_source_bytes": true,
+    "shared_shell_has_only_expected_draft_substitutions": true,
+    "bake_run": false,
+    "import_exit_code": 0,
+    "native_capture_exit_code": 0,
+    "representation_exit_code": 0,
+    "uv2_preparation_exit_code": 0,
+    "root_check_exit_code": 1,
+    "completion_utc": "2026-10-08 20:40 UTC"
+  },
+  "official_pre_entry_draft": {
+    "exit_code": 0,
     "source_tip": "9b1e6e9fa38ae136ce4f98b60f77c96a1b27e877",
     "architecture_failures": [],
     "cased_door_sides": 29,
@@ -306,5 +339,13 @@
     "root_check_exit_code": 1,
     "completion_utc": "2026-10-08 20:21 UTC",
     "uv2_preparation_exit_code": 0
+  },
+  "parallel_representation_exit_cleanup": {
+    "exit_code": 0,
+    "acceptance_failures": [],
+    "message": "ERROR: 1 resources still in use at exit;2 ObjectDB instances leaked",
+    "serial_rerun_exit_code": 0,
+    "serial_rerun_errors": [],
+    "cause_unverified": true
   }
 }

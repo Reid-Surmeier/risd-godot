@@ -19,7 +19,7 @@ Wall directions and metres refer to the fitted plan in `NOTES.md`, not geographi
 | B-S2 | Chestnut Trees and Farm at Jas de Bouffan — Paul Cézanne — **33.053** | B south | 1.15 / 1.65 | .810 × .654; frame .97 × .81 ± .08 | 190–192, 214; [RISD](https://risdmuseum.org/art-design/collection/chestnut-trees-and-farm-jas-de-bouffan-33053) |
 | B-E1 | Iris in a Pitcher / Iris in a Vase — Marie Bracquemond — **2021.101** | B east | .93 / 1.64 | .235 × .330; frame .37 × .47 ± .05 | 200–203; [RISD](https://risdmuseum.org/art-design/collection/iris-pitcher-2021101); readable maker on 201.8 |
 | B-E2 | Child in a Red Apron — Berthe Morisot — **2010.57** | B east | 2.36 / 1.65 | .499 × .600; frame .71 × .81 ± .07 | 205–207; [RISD](https://risdmuseum.org/art-design/collection/child-red-apron-201057) |
-| B-E3 | View of Auvers-sur-Oise — Vincent van Gogh — **35.770** | B east | 3.78 / 1.65 | .421 × .340; frame .66 × .58 ± .07 | 210–212; [RISD](https://risdmuseum.org/art-design/collection/view-auvers-sur-oise-35770) |
+| B-E3 | View of Auvers-sur-Oise — Vincent van Gogh — **35.770** | B east | **3.40 fitted** / 1.65 (footage estimate3.78 ± .8) | .421 × .340; frame .66 × .58 ± .07 | 210–212; [RISD](https://risdmuseum.org/art-design/collection/view-auvers-sur-oise-35770) |
 | B-E4 | Simone in a Blue Bonnet — Mary Cassatt — **60.095** | B east, between windows | 6.80 / 1.65 | .521 × .610; frame .77 × .86 ± .07 | 216, 220–223; [RISD](https://risdmuseum.org/art-design/collection/simone-blue-bonnet-60095) |
 
 ## Existing images used by the source
@@ -45,3 +45,6 @@ The previously found framed IIIF copy of1998.107 is retained untouched but is no
 ## Follow-up certainty
 
 All 17 visible works have an inventory entry. Identities are visual/label matches to primary museum records; the dancer's exact cast remains inferred; the Carolus-Duran accession is resolved as 2007.68. New fetched images must be checked against these frames; do not treat an approximate matching title or a different Cézanne accession already in the modern room (43.255) as this painting.
+
+
+The corrected north entry is at A north along1.00m, west of both north-wall works. At the initial B-E3 estimate3.78m, the approximate van Gogh frame would overlap the first window's kit casing by.09m. Its proposed fitted centre is therefore3.40m (within the±.8m positional uncertainty), leaving room for the frame and its right-hand card. This is an inferred fit for the later approved-image installation, not a changed catalogue dimension; check the real frame/card extent when fetching. No missing work is hung now.
