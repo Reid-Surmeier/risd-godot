@@ -1,0 +1,23 @@
+{
+ "accession": "2017.74.20",
+ "page": "https://risdmuseum.org/art-design/collection/figure-fox-20177420",
+ "photographs": 3,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.20/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.20/threequarter.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "left": "no photograph: Muse turns it from the front"
+ },
+ "note": "The museum's first photograph is seen a little from the front and above; its third is square to the same flank and is the front here. Its second photograph is the underside. No photograph shows the other flank."
+}

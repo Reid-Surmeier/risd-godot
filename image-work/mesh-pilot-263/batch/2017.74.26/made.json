@@ -1,0 +1,80 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/front.jpg"
+  ],
+  "run": "run-a20e0b06f984c6f552ebe80f"
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/back.jpg",
+   "batch/2017.74.26/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/front.jpg"
+  ],
+  "run": "run-3c25e978cf7e24b25ac6b619",
+  "note": "the museum's photograph of this flank is turned a little towards the tail, not square-on"
+ },
+ "clay-right": {
+  "from": "inferred by Muse from the clay front and clay back",
+  "references": [
+   "batch/2017.74.26/clay-front.png",
+   "batch/2017.74.26/clay-back.png"
+  ],
+  "run": "run-b2e940cf09036349ee5c8746",
+  "note": "the head-on view, from the beak end: no photograph exists. The head came out turned a little; redrawn once as key clay-right2 (run-10b67cfdfccc45b9c5cf7152) asking for a square-on head, which gave the same drawing and is not used"
+ },
+ "clay-right2": {
+  "from": "inferred by Muse from the clay front and clay back; not used",
+  "references": [
+   "batch/2017.74.26/clay-front.png",
+   "batch/2017.74.26/clay-back.png"
+  ],
+  "run": "run-10b67cfdfccc45b9c5cf7152"
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.26/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/front.jpg"
+  ],
+  "run": "run-5996499f1d4d8ed7d153e0dd"
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.26/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/back.jpg",
+   "batch/2017.74.26/flat-front.png"
+  ],
+  "run": "run-4dbe2cc846f0120f64134744"
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front and clay back",
+  "references": [
+   "batch/2017.74.26/clay-front.png",
+   "batch/2017.74.26/clay-back.png"
+  ],
+  "run": "run-9e8e02a463e94e31dca65429",
+  "note": "the tail-end view, for colour only: no photograph exists and the mesh was already made without it"
+ },
+ "flat-left": {
+  "from": "the inferred tail-end clay view, coloured from the museum's photograph of the back flank",
+  "references": [
+   "batch/2017.74.26/clay-left.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/back.jpg",
+   "batch/2017.74.26/flat-back.png"
+  ],
+  "run": "run-01b96e4b8fe07b3c5cf6c8bc"
+ },
+ "flat-right": {
+  "from": "not used: asked for the head-on view in colour, Muse repeated the flat front (run-5fe629e245945b5c01bf1832)",
+  "references": [
+   "batch/2017.74.26/clay-right.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.26/front.jpg",
+   "batch/2017.74.26/flat-front.png"
+  ],
+  "run": "run-5fe629e245945b5c01bf1832"
+ }
+}

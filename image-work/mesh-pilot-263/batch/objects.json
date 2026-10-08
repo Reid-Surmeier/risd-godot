@@ -815,5 +815,69 @@
     "total": 293950
    }
   }
+ },
+ "2017.74.26": {
+  "title": "*Figure of a Parrot*. Earthenware with glaze. 15.6 × 17 × 7 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.26/front.jpg",
+  "prepare": "--height 0.156 --width 0.147 --depth 0.07",
+  "muse_first": {
+   "run": {
+    "id": "run_m17cwhvbtrz2w43rdpw3t5sfjh8fxgjg",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as back, right, front (the frame turned half round: there is no left view)",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "bc28aec230d3e91b2a654f5782fa0c917c3c96de485ac81a69e1a7c176ae9ef1"
+   },
+   "views": "front and back, each a Muse clay view of the museum's photograph of that flank, and a head-on view that Muse inferred from the two clay flanks (the museum has no photograph from the beak end)",
+   "imported": {
+    "mesh": 197332,
+    "colour": 116446,
+    "total": 313778
+   },
+   "size_note": "Height and depth are the catalogue's (15.6 and 7 cm; the generator made it 9.4 cm deep). The catalogue's 17 cm width is wider than the museum's own profile photograph shows (0.945 as wide as tall), so the width follows the photograph: 14.7 cm"
+  }
+ },
+ "2017.74.20": {
+  "title": "*Figure of a Fox*. Earthenware with glaze. 13.3 × 16.5 × 8 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.20/front.jpg",
+  "prepare": "--height 0.133 --width 0.165 --depth 0.08",
+  "muse_first": {
+   "run": {
+    "id": "not submitted",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as front, left, back",
+    "quote": 0.48
+   },
+   "views": "front, a Muse clay view of the museum's square-on photograph of the one flank it shows; the head-on view and the other flank are Muse's inference from that clay view (the museum has no photograph of them)"
+  }
+ },
+ "2017.74.19": {
+  "title": "*Horn-Player*. Earthenware with glaze. 16.2 × 7 × 5 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.19/front.jpg",
+  "prepare": "--height 0.162 --width 0.07 --depth 0.05",
+  "muse_first": {
+   "run": {
+    "id": "not submitted",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as front, left, back",
+    "quote": 0.48
+   },
+   "views": "front and back, each a Muse clay view of the museum's photograph of that side; the left profile is Muse's inference from the clay front, the clay back and the museum's part-turned photograph"
+  }
+ },
+ "2017.74.21": {
+  "title": "*Figure of a Bagpiper*. Earthenware with glaze. 15 × 7 × 6 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.21/front.jpg",
+  "prepare": "--height 0.15 --width 0.07 --depth 0.06",
+  "muse_first": {
+   "run": {
+    "id": "not submitted",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as front, left, back",
+    "quote": 0.48
+   },
+   "views": "front and left side, each a Muse clay view of the museum's photograph of that side; the back is Muse's inference from those two clay views (the museum has no photograph from behind)"
+  }
  }
 }

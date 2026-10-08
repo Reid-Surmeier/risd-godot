@@ -1,0 +1,70 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/front.jpg"
+  ],
+  "run": "run-a468b09663e279eeb0f5eb06",
+  "note": "key clay-square when made: the museum's third photograph, square to the flank"
+ },
+ "clay-threequarter": {
+  "from": "photograph of this direction; not used for the mesh",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/threequarter.jpg"
+  ],
+  "run": "run-37346fda366d70c1c09ba55e",
+  "note": "key clay-front when made: the museum's first photograph, seen a little from the front and above"
+ },
+ "clay-back-rejected": {
+  "from": "not used: asked for the museum's third photograph, Muse repeated the first view",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/front.jpg",
+   "batch/2017.74.20/clay-threequarter.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/threequarter.jpg"
+  ],
+  "run": "run-ee3f501f03b88eff166166e5"
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front and the clay three-quarter view",
+  "references": [
+   "batch/2017.74.20/clay-front.png",
+   "batch/2017.74.20/clay-threequarter.png"
+  ],
+  "run": "run-6fc06079affcf93272ef495e",
+  "note": "the head-on view: no photograph exists"
+ },
+ "clay-back": {
+  "from": "inferred by Muse from the clay front and the clay three-quarter view",
+  "references": [
+   "batch/2017.74.20/clay-front.png",
+   "batch/2017.74.20/clay-threequarter.png"
+  ],
+  "run": "run-006ba1aef79c4e7824470da1",
+  "note": "the other flank: no photograph exists"
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.20/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/front.jpg"
+  ],
+  "run": "run-a93e074da83ccc4383f7f473"
+ },
+ "flat-back": {
+  "from": "the inferred other-flank clay view, coloured from the museum's photograph of the first flank",
+  "references": [
+   "batch/2017.74.20/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/front.jpg",
+   "batch/2017.74.20/flat-front.png"
+  ],
+  "run": "run-484f285e50fdb340e83ff466"
+ },
+ "flat-left": {
+  "from": "not used: asked for the head-on view in colour, Muse drew the three-quarter view of the photograph",
+  "references": [
+   "batch/2017.74.20/clay-left.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.20/threequarter.jpg"
+  ],
+  "run": "run-70e9900222e02961b7d2df20"
+ }
+}

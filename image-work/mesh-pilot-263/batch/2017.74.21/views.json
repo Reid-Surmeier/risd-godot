@@ -1,0 +1,27 @@
+{
+ "accession": "2017.74.21",
+ "page": "https://risdmuseum.org/art-design/collection/figure-bagpiper-20177421",
+ "photographs": 4,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.21/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.21/side.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.21/threequarter.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  }
+ }
+}

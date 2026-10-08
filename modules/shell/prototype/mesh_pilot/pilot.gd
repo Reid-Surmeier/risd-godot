@@ -101,7 +101,7 @@ func _ready() -> void:
 		camera.position = centre + Vector3(0, 9.3 * sin(deg_to_rad(35)), 9.3 * cos(deg_to_rad(35)))
 		camera.look_at(centre)
 	else:  # a closer look round the object, level with it, same light and display
-		var yaw: float = {"front": 0.0, "threequarter": 50.0, "side": 88.0}[view]
+		var yaw: float = {"front": 0.0, "threequarter": 50.0, "side": 88.0, "back": 180.0, "farside": 272.0}[view]
 		var centre := bounds.get_center()
 		var reach := maxf(bounds.size.y, bounds.size.x) * 2.4 + .3
 		camera.position = centre + Vector3(sin(deg_to_rad(yaw)), .22, cos(deg_to_rad(yaw))).normalized() * reach

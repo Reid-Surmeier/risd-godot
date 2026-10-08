@@ -1,0 +1,53 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.21/front.jpg"
+  ],
+  "run": "run-d3d8be0e882af5d656480cf7"
+ },
+ "clay-side": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.21/side.jpg",
+   "batch/2017.74.21/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.21/front.jpg"
+  ],
+  "run": "run-0ed0038f56664d4be93aee55",
+  "note": "his left side"
+ },
+ "clay-back-rejected": {
+  "from": "not used: inferred back with the drones on the wrong shoulder (my prompt named the wrong one)",
+  "references": [
+   "batch/2017.74.21/clay-front.png",
+   "batch/2017.74.21/clay-side.png"
+  ],
+  "run": "run-d532e1c585fdedff07c63ea4"
+ },
+ "clay-back": {
+  "from": "inferred by Muse from the clay front and the clay side",
+  "references": [
+   "batch/2017.74.21/clay-front.png",
+   "batch/2017.74.21/clay-side.png"
+  ],
+  "run": "run-18d0025c40a979748cdd5026",
+  "note": "key clay-back2 when made: the back redrawn once with the drones beside his right shoulder"
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.21/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.21/front.jpg"
+  ],
+  "run": "run-e8dad4e00253c4c4a16be3be"
+ },
+ "flat-back": {
+  "from": "the inferred clay back, coloured from the museum's side photograph",
+  "references": [
+   "batch/2017.74.21/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.21/side.jpg",
+   "batch/2017.74.21/flat-front.png"
+  ],
+  "run": "run-550d887a9f35cb58a08aacf5"
+ }
+}

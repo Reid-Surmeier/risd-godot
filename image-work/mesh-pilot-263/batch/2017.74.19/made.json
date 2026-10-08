@@ -1,0 +1,45 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.19/front.jpg"
+  ],
+  "run": "run-1f9097c242595b7fa435f4aa"
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.19/back.jpg",
+   "batch/2017.74.19/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.19/front.jpg"
+  ],
+  "run": "run-8d43372b5e6bd6984d913780"
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front, the museum's part-turned photograph and the clay back",
+  "references": [
+   "batch/2017.74.19/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.19/threequarter.jpg",
+   "batch/2017.74.19/clay-back.png"
+  ],
+  "run": "run-eb7c234fd611757e656a5026",
+  "note": "key clay-right when made: my prompt asked for his right side but described him facing left, and the drawing is his left profile, used as the left view"
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.19/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.19/front.jpg"
+  ],
+  "run": "run-33de84f7bbe91d4b07484667"
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.19/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.19/back.jpg",
+   "batch/2017.74.19/flat-front.png"
+  ],
+  "run": "run-99eaf7c9a8516a6ec2ea416e"
+ }
+}

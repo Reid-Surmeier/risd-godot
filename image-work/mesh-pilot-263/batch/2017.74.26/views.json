@@ -1,0 +1,27 @@
+{
+ "accession": "2017.74.26",
+ "page": "https://risdmuseum.org/art-design/collection/figure-parrot-20177426",
+ "photographs": 3,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.26/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.26/back.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.26/threequarter.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  }
+ }
+}

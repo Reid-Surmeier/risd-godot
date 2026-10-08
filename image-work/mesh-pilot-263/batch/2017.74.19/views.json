@@ -1,0 +1,27 @@
+{
+ "accession": "2017.74.19",
+ "page": "https://risdmuseum.org/art-design/collection/horn-player-20177419",
+ "photographs": 4,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.19/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.19/back.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.19/threequarter.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  }
+ }
+}
