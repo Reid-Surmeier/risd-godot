@@ -77,7 +77,7 @@ func west_wall() -> void:
 	attach(scuola, "west")
 	# North group, by wall order from the Rockefeller door (IMG_6385): dress case, secretary on the
 	# same low platform, the Piranesi, then the Delacroix (moved in build_adjacent_gallery).
-	room.solid(room.wall_point(GALLERY, "west", 1.325, .065, .525), Vector3(1.05, .13, 2.65), white, true)
+	room.plinth(room.wall_point(GALLERY, "west", 1.325, 0, .525), Vector3(1.05, .13, 2.65))
 	dress_case(room.wall_point(GALLERY, "west", .62, .13, .55))
 	var egypt := matted("west", 3.30, 1.72, "piranesi-63.066.45", Vector2(.325, .238), Vector2(.72, .52), .025, Color("1c1b1b"))
 	label(egypt, .52, -.06)
@@ -90,7 +90,8 @@ func west_wall() -> void:
 
 func textile_and_case(along: float) -> void:
 	# 6386 24.5..28.5s: embroidered panel on a white board behind acrylic, over a white floor
-	# pedestal with an acrylic hood and five objects.
+	# pedestal with an acrylic hood and five objects. The objects stand on a riser sloped down
+	# to the hood's foot (its front slope carries the lettering in 26.5s), 8 cm by eye.
 	var board := holder("west", along, 1.96)
 	part(board, Vector3(0, 0, .012), Vector3(1.0, .80, .024), white)
 	var panel := Painting.new()
@@ -103,12 +104,14 @@ func textile_and_case(along: float) -> void:
 	label(board, .62, -.20)
 	attach(board, "west")
 	var at: Vector3 = room.wall_point(GALLERY, "west", along, 0, .061 + .225)
-	var pedestal: Node3D = room.solid(at + Vector3(0, .5, 0), Vector3(.45, 1.0, 1.0), white, true)
+	var pedestal: Node3D = room.plinth(at, Vector3(.45, .92, 1.0))
+	room.hood_edges(pedestal, at, .43, .98, .92, 1.45)
+	room.case_riser(pedestal, at, Vector2(.205, .48), .92, .08, .08)
 	var deck := Node3D.new()
 	room.add_child(deck)
 	deck.position = at + Vector3(0, 1.0, 0)
 	deck.rotation.y = PI / 2
-	hood(deck, Vector3(0, .225, 0), Vector3(.98, .45, .43), true)
+	hood(deck, Vector3(0, .185, 0), Vector3(.98, .53, .43), true)
 	for riser in [Vector3(-.17, .03, -.08), Vector3(.36, .03, -.10)]:
 		part(deck, riser, Vector3(.16, .06, .16), white)
 	# Left to right as filmed: jug, covered glass on a riser, crystal cup, blue bowl, owl on a riser.
@@ -126,8 +129,11 @@ func dress_case(at: Vector3) -> void:
 	hood(inside, Vector3(0, .875, 0), Vector3(.74, 1.75, .60), true)
 	part(inside, Vector3(0, 1.755, 0), Vector3(.76, .012, .62), room.look(Color("33353a")))
 	part(inside, Vector3(0, .01, 0), Vector3(.34, .02, .30), room.look(Color("3a3b40")))
-	tag(cutout(inside, "dress-2000.103.3", 1.50, Vector3(0, .77, -.015), .03), "dress-2000.103.3")
 	inside.reparent(base)
+	# A real mesh (#263) on the foot plate, 1.50 m tall as the cut-out was, facing the room as it did.
+	var dress: Node3D = room.place_mesh(DIR + "dress-20001033.glb", at + Vector3(0, .14, 0), PI / 2, Vector3(0, 1.50, 0), "2000.103.3")
+	tag(dress, "dress-2000.103.3")
+	dress.reparent(base)
 
 func south_wall() -> void:
 	# 6384 0..4s, 12..21s. East of the door: Apollo in a wall case, then the Previtali; west of it
@@ -136,7 +142,7 @@ func south_wall() -> void:
 	var apollo := holder("south", 4.65, 1.20)
 	part(apollo, Vector3(0, -.05, .14), Vector3(.44, .10, .28), white)
 	hood(apollo, Vector3(0, .225, .14), Vector3(.40, .45, .26))
-	tag(cutout(apollo, "apollo-73.079", .21, Vector3(0, .105, .13), .02), "apollo-73.079")
+	tag(cutout(apollo, "apollo-73.079", .187, Vector3(0, .0935, .13), .02), "apollo-73.079")
 	label(apollo, -.38, .30)
 	attach(apollo, "south")
 	# Gilt tabernacle frame with a cornice and a base: nearest existing asset is the Perugino's.
@@ -146,11 +152,9 @@ func south_wall() -> void:
 	attach(risen, "south")
 	var at: Vector3 = room.wall_point(GALLERY, "south", 1.20, 0, .061 + .17)
 	var pedestal: Node3D = room.solid(at + Vector3(0, .51, 0), Vector3(.80, 1.02, .32), room.look(Color("dcdad4")), true)
-	var relief := Node3D.new()
-	room.add_child(relief)
-	relief.position = at + Vector3(0, 1.02, .06)
-	relief.rotation.y = PI
-	tag(cutout(relief, "tabernacle-06.057", .508, Vector3(0, .254, 0), .15), "tabernacle-06.057")
+	# A real mesh (#263) on the pedestal's top, catalogue width and height; the photograph slab is no longer built.
+	var relief: Node3D = room.place_mesh(DIR + "tabernacle-06057.glb", at + Vector3(0, 1.02, 0), PI, Vector3(.737, .508, .18), "06.057")
+	tag(relief, "tabernacle-06.057")
 	relief.reparent(pedestal)
 	var card: Node3D = room.solid(room.wall_point(GALLERY, "south", 1.72, 1.20, FACE), Vector3(.12, .20, .004), room.look(Color("f3f2ed")))
 	card.set_meta("artwork_label_proxy", true)

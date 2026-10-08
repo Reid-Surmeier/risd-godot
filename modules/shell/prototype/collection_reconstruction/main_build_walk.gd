@@ -396,7 +396,8 @@ func _install_rooms() -> void:
 			continue
 		if not floors.has(material):
 			var limits = material.get_shader_parameter("floor_z_limits")
-			floors[material] = limits is Vector2
+			# ps1.gdshader carries the same limits and clips by them only where it draws plank seams.
+			floors[material] = limits is Vector2 and material.get_shader_parameter("plank_seams") != false
 			if limits is Vector2:
 				material.set_shader_parameter("floor_z_limits", limits + Vector2(ATTACH.z, ATTACH.z))
 		if floors[material]:
@@ -404,7 +405,7 @@ func _install_rooms() -> void:
 			var reach: AABB = mesh.global_transform * mesh.mesh.get_aabb()
 			assert(
 				reach.position.z >= clip.x - 0.01 and reach.end.z <= clip.y + 0.01,
-				"Added floor lies outside its clip limits after attachment"
+				"Added floor %s (z %.2f to %.2f) lies outside its clip limits %s after attachment" % [mesh.get_path(), reach.position.z, reach.end.z, clip]
 			)
 	for body in _rooms.get("casings"):
 		if (

@@ -36,3 +36,5 @@ Heights are the catalogue's. Widths follow each photograph's own outline (`shape
 `aspect`), which agrees with the catalogue width within 5 % for the five objects that have one.
 Depths are provisional: 16.243 is built 0.10 m deep on a 0.08 m backing (catalogue 22.2 cm
 overall), the others 0.12 to 0.35 m by eye.
+
+`37.114-front.jpg` was cropped on 8 October 2026 (#263) to the figure and its plinth, columns 180 to 1040 of the museum's 1200 px picture: the photograph has a white wedge in its top right corner and a pale strip down its left edge where the studio backdrop ends, and both fall outside the crop. Nothing else in the picture is changed.
