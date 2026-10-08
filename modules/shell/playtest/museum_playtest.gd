@@ -949,14 +949,32 @@ func _wall_clicks(areas: Array, when: String) -> void:
 			# so there the floor in the doorway is clicked.
 			var beyond: int = walk._room_at(sill + out * 0.3)
 			var joined: bool = beyond >= 0 and walk._stage_of(beyond) == walk._stage
+			# High in the opening too where it is dark: the ray's own ground point is then far
+			# off, which is what used to send the visitor rooms away.
 			at = _wall_pixel(sill + Vector3(0, 0.3 if joined else 1.0, 0))
+			var high = null if joined else _wall_pixel(sill + Vector3(0, 2.2, 0))
+			if high != null:
+				entry.doorways += 1
+				var far_goal = _click_goal(high)
+				if far_goal == null or (far_goal as Vector3 - sill).dot(out) <= 0.0:
+					entry.dead_doorways.append(name + ", high in the opening")
+				elif (far_goal as Vector3).distance_to(sill) > 3.0:
+					entry.dead_doorways.append(
+						"%s, high in the opening (sent %.1f m past the door)"
+						% [name, (far_goal as Vector3).distance_to(sill)]
+					)
 			if at == null:
 				entry.not_tried.append(name + " doorway")
 				continue
 			entry.doorways += 1
+			# Through the door and no further: beyond its plane, within three metres of its sill.
 			var goal = _click_goal(at)
 			if goal == null or (goal as Vector3 - sill).dot(out) <= 0.0:
 				entry.dead_doorways.append(name)
+			elif (goal as Vector3).distance_to(sill) > 3.0:
+				entry.dead_doorways.append(
+					"%s (sent %.1f m past the door)" % [name, (goal as Vector3).distance_to(sill)]
+				)
 	var problems := PackedStringArray()
 	if not entry.walked.is_empty():
 		problems.append("a click on a wall started a walk: " + "; ".join(entry.walked))

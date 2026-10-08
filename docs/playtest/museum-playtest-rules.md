@@ -68,7 +68,8 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
     the moment a room change starts until it has finished. Each case is run as at launch, when
     only the Hall is built, and again once the rooms are. A wall is not floor: in every room, facing
     each wall in turn, a click on the drawn wall starts no walk, and a click in a doorway of
-    that wall still walks through it. The work under the pointer is the one that opens: where
+    that wall, low or high in its dark, sends the visitor through that door and no further
+    than three metres past it. The work under the pointer is the one that opens: where
     two works' boxes overlap on screen (the carved diptych 22.201 and the book cover 34.016 in
     one case) a click on either selects that one, from both ends of the case.
 

@@ -566,9 +566,10 @@ func _drawn(node: Node3D) -> bool:
 	return false
 
 
-# The floor a click may walk to (#280): the drawn stage's own, or what a doorway in its edge
-# shows. walk4's ray alone runs on through a drawn wall, or over it, to the floor of whatever
-# room lies behind, and the visitor was sent there.
+# Where a click on the ground sends the visitor (#280): to the drawn stage's own floor under
+# the pointer, or, when the pointer is in a doorway of its edge, just through that door.
+# walk4's ray alone runs on through a drawn wall, or over it, or on through the dark of a
+# doorway, to the floor of whatever room lies behind, and the visitor was sent there.
 func _floor_at(pt: Vector2):
 	var spot = super(pt)
 	if spot == null or _plan.is_empty() or _on_stage(spot):
@@ -588,7 +589,13 @@ func _floor_at(pt: Vector2):
 				for box in wall.boxes:
 					if (box as AABB).intersects_segment(q.move_toward(eye, 0.5), spot) != null:
 						return null
-		return spot
+		# A doorway shows only the dark: one and a half metres through it, by the door's own
+		# axis, wherever the ray would have met the ground beyond.
+		var room := _room_at(Vector3(q.x, 0, q.z))
+		var b: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+		var gaps := [q.x - b[0], b[1] - q.x, q.z - b[2], b[3] - q.z]
+		var out: Vector3 = [Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK][gaps.find(gaps.min())]
+		return Vector3(q.x, 0, q.z) + out * 1.5
 	return null
 
 
