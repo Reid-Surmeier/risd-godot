@@ -494,6 +494,7 @@ func _light() -> void:
 			if room.label == area.label:
 				doors = room.openings
 		var bare := []  # [point on the wall, the way the wall faces]
+		var skirting := []  # the same for the skirting board: the room's white
 		for side in walk.SIDES:
 			var inward: Vector3 = -walk.SIDES[side]
 			var along_x: bool = side in ["north", "south"]
@@ -511,17 +512,25 @@ func _light() -> void:
 					Vector3(along, 1.5, fixed) if along_x else Vector3(fixed, 1.5, along)
 				) + inward * 0.01
 				var clear := true
+				var low := true  # nothing stands on the floor in front of the skirting here
 				for box in boxes:
 					var near: AABB = box.grow(1.0)
 					var foot := Rect2(near.position.x, near.position.z, near.size.x, near.size.z)
-					clear = clear and not foot.has_point(Vector2(on_wall.x, on_wall.z))
+					var covered: bool = foot.has_point(Vector2(on_wall.x, on_wall.z))
+					clear = clear and not covered
+					low = low and not (covered and box.position.y < 0.5)
 				for block in walk._blocks:
-					clear = clear and not block.grow(0.6).has_point(Vector2(on_wall.x, on_wall.z))
+					var blocked: bool = block.grow(0.6).has_point(Vector2(on_wall.x, on_wall.z))
+					clear = clear and not blocked
+					low = low and not blocked
 				if clear:
 					bare.append([on_wall, inward])
+				if low:
+					skirting.append([Vector3(on_wall.x, 0.09, on_wall.z) + inward * 0.07, inward])
 		var floor := []
 		var beside_works := []
 		var away := []
+		var trim := []
 		var picture := []
 		var seen := {}  # work tag -> brightness of each sample of it
 		for here in _stands(area):
@@ -554,6 +563,11 @@ func _light() -> void:
 						var value := _colour_at(image, spot[0], 4)
 						if value.a > 0.0:
 							away.append(value)
+				for spot in skirting:
+					if spot[1].dot((eye - spot[0]).normalized()) >= 0.5:
+						var value := _colour_at(image, spot[0], 1)
+						if value.a > 0.0:
+							trim.append(value)
 				for i in mine.size():
 					var thing: Dictionary = mine[i]
 					if thing.has("object") and not walk._drawn(thing.node):
@@ -608,11 +622,12 @@ func _light() -> void:
 			"floor": _mean_colour(floor),
 			"wall_beside_works": _mean_colour(beside_works),
 			"wall_away_from_works": _mean_colour(away),
+			"skirting": _mean_colour(trim),
 			"works": _mean(works),
 			"picture": _mean(picture),
 			"lamps": hung,
 			"works_without_a_lamp": dark,
-			"samples": [floor.size(), beside_works.size(), away.size(), works.size()]
+			"samples": [floor.size(), beside_works.size(), away.size(), trim.size(), works.size()]
 		}
 		report.light.append(row)
 		print("PLAYTEST_LIGHT ", JSON.stringify(row))

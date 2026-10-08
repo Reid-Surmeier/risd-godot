@@ -3,17 +3,29 @@ extends SceneTree
 
 ## #274: one light for every added room. The rule, in words, is in
 ## docs/playtest/room-builder-guide.md ("Light"); these are its numbers.
-const FILL_ENERGY:=.85 # a fill serving FILL_M2 of floor; less floor, less energy
+const FILL_ENERGY:=1.5 # the fill for FILL_M2 of floor in a room with no spots
 const FILL_M2:=25.0
+const SPILL:=.03 # of its spots' energy a room's fill gives up: they light the floor too
 const FILL_BAY:=5.0 # metres between fills, the Hall's bay
 const GROUP_M:=2.4 # works within this width of one wall share a spot
-const FILL_COLOR:="ffe1b2" # the Hall's fill
-const SPOT_COLOR:="ffd391" # the Hall's painting spot
+## What the rule leaves over, measured: the fill a room needs for its floor to read as the
+## Hall's (143 of 255, give or take ten) depends on its furniture and how low its spots aim, so
+## after a bake the light pass's floor number sets the room's trim here. A room not listed is 1.
+const FILL_TRIM:={"Rockefeller":.55,"grey French gallery":.5,"adjacent gallery":.75,"light Renaissance room":.85,
+	"modern painting gallery":.86,"Skylight Gallery":.25,"marble stair hall":.8,"purple elevator-5 connector":4.0,
+	"modern adjoining gallery threshold study limit":4.5,"Grand Gallery reveal threshold":1.8,
+	"Rockefeller reveal threshold":1.3,"white sculpture gallery threshold study limit":1.2}
+## The Hall's lamps are #ffe1b2 and #ffd391, but its daylight cools them: its white skirting
+## reads (195,174,155). Alone, those two colours turn white trim tan and grey paint olive, so
+## the rooms' lamps are the colours that make their trim read as the Hall's skirting does, and
+## the oak carries its honey in its own tone (remodel_room.gd, OAK_TONE).
+const FILL_COLOR:="ffeee8"
+const SPOT_COLOR:="ffe4c8"
 const SPOT_ENERGY_PER_M:=1.8 # the Hall's 6.8 at 3.8 m from its painting
 const SPOT_LEAN:=.7 # metres out from the work per metre above it: the Hall's 2.2 for 3.1
 const SPOT_DROP:=3.1 # a spot hangs at most this far above its work's middle
 const SHADE_FLOOR:=.45 # what a work's face turned away from its lamp keeps
-const PLAIN_TINT:="fff1dc" # on a work's parts that carry no picture
+const PLAIN_TINT:="fff6ea" # on a work's parts that carry no picture
 ## Daylight the footage shows; the only lamps not derived from the plan and the works.
 ## Room, from, to (room-scene metres), energy, cone, colour.
 const DAYLIGHT:=[["marble stair hall",Vector3(20.2,5.9,-1.96),Vector3(15.0,.5,-1.96),4.0,60.0,"eff5ff"]]
@@ -140,6 +152,14 @@ func shade_work(mesh:ArrayMesh,pose:Transform3D,work:Dictionary,multiply:bool) -
 	shaded.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
 	return shaded
 
+## How high a lamp can hang over a point: under whatever is built above it (a doorway's
+## header, a landing), else `top`.
+func headroom(covers:Array,x:float,z:float,top:float) -> float:
+	var clear:=top
+	for box in covers:
+		if box.position.y<clear and box.position.x<=x and box.end.x>=x and box.position.z<=z and box.end.z>=z:clear=box.position.y
+	return clear
+
 func prepare() -> void:
 	var walk=load("res://remodel_room.tscn").instantiate()
 	walk.set_meta("bake_preparing",true)
@@ -152,10 +172,19 @@ func prepare() -> void:
 	var only:String=OS.get_environment("ROOMS_LIGHT_ONLY")
 	if only!="":plan=plan.filter(func(area):return area.label==only)
 	var works:=find_works(walk,plan)
-	var lamps:=spots_for(works)
 	var work_of:={}
 	for work in works:
 		for part in work.parts:work_of[part]=work
+	# What is built overhead: everything drawn that starts above head height and is not a work.
+	var covers:=[]
+	for mesh in walk.find_children("*","MeshInstance3D",true,false):
+		if mesh.mesh==null or not mesh.is_visible_in_tree() or work_of.has(mesh) or walk.visitor.is_ancestor_of(mesh):continue
+		var over:AABB=mesh.global_transform*mesh.get_aabb()
+		if over.position.y>1.9:covers.append(over)
+	var lamps:=spots_for(works)
+	for lamp in lamps:
+		lamp.at.y=maxf(2.0,minf(lamp.at.y,headroom(covers,lamp.at.x,lamp.at.z,lamp.at.y+.2)-.1))
+		lamp.energy=SPOT_ENERGY_PER_M*lamp.at.distance_to(lamp.target)
 	var room:=Node3D.new()
 	room.name="BakedRoom"
 	var index:=0
@@ -257,14 +286,21 @@ func prepare() -> void:
 		var b:Array=area.bounds
 		var across:int=maxi(1,roundi((b[1]-b[0])/FILL_BAY))
 		var along:int=maxi(1,roundi((b[3]-b[2])/FILL_BAY))
-		var share:float=(b[1]-b[0])*(b[3]-b[2])/(across*along)/FILL_M2
+		# The floor is to read like the Hall's in every room, so the fill makes up what the room's
+		# spots do not already give: a room dense with works needs little, a bare stair needs it all.
+		var whole:float=FILL_ENERGY*(b[1]-b[0])*(b[3]-b[2])/FILL_M2
+		var spots:=0.0
+		for lamp in lamps:
+			if lamp.room==area.label:spots+=lamp.energy
+		var each:float=maxf(maxf(whole-SPILL*spots,whole*.25)/(across*along),FILL_ENERGY*.15)*float(FILL_TRIM.get(area.label,1.0))
 		for i in across:
 			for j in along:
-				# A wide lamp looking straight down: the floor and the lower walls take it, the ceiling
-				# and the wall tops only what bounces (an all-round lamp left a glow on the ceiling).
-				var hung:=Vector3(lerpf(b[0],b[1],(i+.5)/across),minf(float(area.get("height",3.5))-.3,5.5),lerpf(b[2],b[3],(j+.5)/along))
-				lamps.append({"room":area.label,"kind":"fill","at":hung,"target":Vector3(hung.x,0,hung.z),"cone":80.0,
-					"energy":FILL_ENERGY*clampf(share,.15,2.0),"color":FILL_COLOR})
+				# A lamp at the ceiling lighting everything below it: floor and walls take it, the
+				# ceiling only what bounces (an all-round lamp left a glow on the ceiling over it).
+				var hung:=Vector3(lerpf(b[0],b[1],(i+.5)/across),0,lerpf(b[2],b[3],(j+.5)/along))
+				hung.y=maxf(2.0,headroom(covers,hung.x,hung.z,minf(float(area.get("height",3.5)),5.8))-.3)
+				lamps.append({"room":area.label,"kind":"fill","at":hung,"target":Vector3(hung.x,0,hung.z),"cone":88.0,
+					"energy":each,"color":FILL_COLOR})
 		# The visitor takes the room's light from probes at body height.
 		for x in range(maxi(1,int((b[1]-b[0])/2.0))):
 			for z in range(maxi(1,int((b[3]-b[2])/2.0))):
@@ -285,7 +321,7 @@ func prepare() -> void:
 		if lamp.kind=="fill":
 			light.spot_range=lamp.at.y+4.0
 			light.spot_attenuation=.65 # the Hall's fills fall off this gently
-			light.spot_angle_attenuation=.5
+			light.spot_angle_attenuation=.35
 			light.light_size=.4
 		else:
 			light.spot_range=lamp.at.distance_to(lamp.target)+2.0

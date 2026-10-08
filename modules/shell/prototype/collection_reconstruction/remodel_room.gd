@@ -15,13 +15,17 @@ const Pieta := preload("res://pieta_asset.gd")
 const RenaissanceA := preload("res://renaissance_case_a_assets.gd")
 const RenaissanceB := preload("res://renaissance_case_b_assets.gd")
 const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
-## #274: wall paint by room ("" is every other area). The lamps are the Hall's and warm, so a
-## paint is bluer here than it reads in the room: each is chosen by rendering the room and
-## comparing its wall with the tone-mapped footage beside the white trim (the light pass prints
-## the wall's colour), never by eye from this table.
-const WALL_PAINT:={"":"b0c3d5","light Renaissance room":"9ba9ba","adjacent gallery":"b0c3d5","Rockefeller":"a8c7c8",
-	"modern painting gallery":"a8c0e7","lion stair landing":"a0aebb","grey French gallery":"a8bdd3","Skylight Gallery":"b3c8e1",
-	"marble stair hall":"d8e6ff","dark medieval room":"4a5479"}
+## #274: wall paint by room ("" is every other area). A wall reads grey when it has the hue of
+## the room's white trim and is darker than it: the lamps are warm, so both read warm, and the
+## eye takes the trim for white. These are greys in the trim's hue with a slight cool-green
+## cast, as the footage has beside its skirting (IMG_6343 78 and 252 s; IMG_6383 62.5 s;
+## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
+const WALL_PAINT:={"":"cfd5cf","light Renaissance room":"b2b8b3","adjacent gallery":"cfd5cf","Rockefeller":"cbd9d4",
+	"modern painting gallery":"d4dbe0","lion stair landing":"b5b8b5","grey French gallery":"dcdcd6","Skylight Gallery":"c2c6c2",
+	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
+## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
+## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
+const OAK_TONE:="f5bf74"
 func wall_paint(label:String) -> StandardMaterial3D:
 	return look(Color(WALL_PAINT.get(label,WALL_PAINT[""])),"res://presentation/neutral-plaster.png")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
@@ -912,6 +916,7 @@ func build_rooms() -> void:
 	var oak := ShaderMaterial.new()
 	oak.shader=load("res://presentation/floor_oak.gdshader")
 	oak.set_shader_parameter("oak",load("res://presentation/oak-board-atlas-168-v3.webp"))
+	oak.set_shader_parameter("ground_tone",Color(OAK_TONE))
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json"))
 	hall_reveal=data.hall_reveal
 	var floor_limits:=Vector2(INF,-INF)

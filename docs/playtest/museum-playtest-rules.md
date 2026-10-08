@@ -62,8 +62,8 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
 10. **Every room is lit, and lit the same way.** (Light pass, #274.) Each room's bake lists at
    least one lamp, every catalogued work in an added room has a spot aimed at it, and in the
    room's four dollhouse views the wall beside its works is brighter than the same walls a
-   metre or more from any work. The pass also prints, per room, the brightness of the floor,
-   the walls and the works as the picture shows them (0 to 255). Those are pictures, not
+   metre or more from any work. The pass also prints, per room, the colour and brightness of
+   the floor, the walls, the skirting and the works as the picture shows them (0 to 255). Those are pictures, not
    light: the Hall's floor reads about 143 and its paintings about 79, so "works brighter
    than the floor" is not a rule.
 

@@ -131,36 +131,50 @@ side.
 
 One rule lights every added room (#274). `SRC/remodel_bake.gd` applies it from `geometry.json`
 and from the works themselves, so a room script places no lamps and a new room or work is lit
-the day it is added. The numbers are the constants at the top of that file.
+the day it is added. The numbers are the constants at the top of that file. What it aims at:
+the floor reads as the Main Hall's does (about 143 of 255, give or take ten), the trim reads
+white, the walls read as their paint, and each work sits in a soft pool.
 
-1. **Fill.** One wide lamp looking straight down for every 5 m bay of floor (the Hall's own
-   spacing), and at least one in every area of the plan, stubs and thresholds too, hung at the
-   ceiling in the Hall's fill colour `#ffe1b2`. The floor and the lower walls take it; the
-   ceiling and the wall tops get only what bounces. No sun and no sky: a room is lit by its
-   own lamps, with or without a ceiling.
-2. **A spot for every work.** Everything a click opens gets a spot in the Hall's colour
-   `#ffd391`, hung the way the Hall's are (0.7 m out from the work for each metre above its
-   middle, at most 3.1 m up), as strong as its distance asks (1.8 a metre, which is the Hall's
-   6.8 at 3.8 m), its cone fitted to what it lights plus 35 cm. Works within 2.4 m of each
-   other on one wall, or in one case, share a spot: every lamp costs about 11 seconds of
-   bake, and the rebuild stops a bake at 28 minutes.
-3. **Works are drawn at their own colours, never through the lightmap.** Each vertex of a work
+1. **Fill.** One lamp for every 5 m bay of floor (the Hall's spacing), at least one in every
+   area of the plan, stubs and thresholds too, hung at the ceiling and lighting everything
+   below it. It makes up what the room's spots do not already put on the floor: 1.5 for
+   25 m², less 3% of the energy of the room's spots, never under a quarter. No sun and no
+   sky: a room is lit by its own lamps, with or without a ceiling. A lamp hangs under
+   whatever is built over it (a doorway's header, a landing).
+2. **A spot for every work.** Everything a click opens gets a spot, hung the way the Hall's
+   are (0.7 m out from the work for each metre above its middle, at most 3.1 m up), as strong
+   as its distance asks (1.8 a metre, the Hall's 6.8 at 3.8 m), its cone fitted to what it
+   lights plus 35 cm. Works within 2.4 m of each other on one wall, or standing together,
+   share a spot.
+3. **Lamp colour.** Near white (`#ffeee8` fill, `#ffe4c8` spot), not the Hall's `#ffe1b2` and
+   `#ffd391`: the Hall's daylight cools its lamps, so its white skirting reads (195,174,155),
+   and without daylight those two colours turn white trim tan and grey paint olive. The
+   floor's honey is in the oak's own tone (`OAK_TONE` in `SRC/remodel_room.gd`).
+4. **Works are drawn at their own colours, never through the lightmap.** Each vertex of a work
    is shaded once, at bake time, by the spot aimed at it: full colour on the face it shows the
    room, down to 45% on faces turned away. Lightmap texels are 14 cm, and a 20 cm object lit
-   by them came out dark and blotchy. A flat work on a wall casts no baked shadow, so nothing
-   is left on the wall when the camera hides it.
-4. **Walls, floor and furniture take the lightmap.** Wall paint is one table, `WALL_PAINT` in
-   `SRC/remodel_room.gd`. The lamps are warm, so a paint is bluer in the table than it reads
-   in the room: set it by baking, reading the wall's colour from the light pass, and putting
-   the picture beside a tone-mapped footage frame (never a survey frame).
-5. **Daylight** only where the footage has a window: the `DAYLIGHT` list.
+   by them came out dark and blotchy. A flat work on a wall is left out of the bake, so
+   nothing is left on the wall when the camera hides it; a work standing on the floor still
+   casts.
+5. **Walls, floor and furniture take the lightmap.** Wall paint is one table, `WALL_PAINT` in
+   `SRC/remodel_room.gd`: pale greys with a slight cool cast. Judge a paint by the wall
+   against the skirting in the same picture (the light pass prints both), beside a
+   tone-mapped footage frame, never a survey frame, and never by matching the footage's raw
+   pixels: its white balance is the camera's.
+6. **Daylight** only where the footage has a window: the `DAYLIGHT` list.
+7. **What is measured, not derived.** How much a room's spots light its floor depends on its
+   furniture, so after a bake the light pass's floor number sets that room's entry in
+   `FILL_TRIM`. A new room starts at 1; bake, read its floor, trim, bake again.
+
+Fills must stay spots. All-round lamps cost about 11 seconds of bake each (107 lamps took
+19 min 33 s, and 159 did not finish in the 28 minutes the rebuild allows); the same number
+as spots bake in one to seven minutes.
 
 To try one room, `ROOMS_LIGHT_ONLY="<room label>" scripts/rebuild_rooms.sh` bakes that room
-alone in a few minutes; the rest of the museum comes out unlit, so never keep that install.
-Measure with the playtest's light pass (`--only=light`, rule 10 of
-`docs/playtest/museum-playtest-rules.md`): it prints floor, wall beside works, wall away from
-works and works for every room, and fails a room with no lamp, a work with no spot, or no
-pool round its works.
+alone; the rest of the museum comes out unlit, so never keep that install. Measure with the
+playtest's light pass (`--only=light`, rule 10 of `docs/playtest/museum-playtest-rules.md`):
+it prints floor, wall beside works, wall away from works, skirting and works for every room,
+and fails a room with no lamp, a work with no spot, or no pool round its works.
 
 ## Making a mesh
 
