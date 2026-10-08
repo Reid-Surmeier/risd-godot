@@ -23,3 +23,59 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    earlier builder read from the footage (IMG_6383 24.6/30.2 s) and take the kit's lower step
    and floor frame only. The floor frames are below this picture's edge and were not seen.
    Not yet done: the hooded floor case, the textile platform, the window, the pedestals.
+
+## State for whoever continues (written at the tip, `bbad8bd2` plus this note)
+
+- The lead's two bench corrections (a cushion a third of the bench's height; stout dark-brown
+  square legs under a base rail) are IN, at commit `2265a6b7`. They are not in `25d271c2`.
+- Commits after `c289856c` on this branch: `2265a6b7` bench corrections, `f2536345` Pietà and
+  triptych cases, `bbad8bd2` a recut evidence picture. Start from the tip, not from `c289856c`.
+- Open notes from the lead on the wall case: the hood's edge lines are a little heavy and bright
+  against the footage's thin greenish edges (`edge_light` colour and `t` in
+  `wall_case_fittings()`); the label blocks should sit on the sloped rail inside the hood, not
+  on the body's front face (those grey rectangles are the earlier builder's, in
+  `build_renaissance_east_cases()`).
+- Not done: the hooded floor case (Saint Roch), the textile platform with its label blocks, the
+  window reveal and shade, the pedestals.
+
+## How the unbaked pictures are taken
+
+No bake and no wait on the rebuild lock. A draft room project is made once and then reused:
+
+```bash
+ROOMS_TRIAL=$HOME/risd-godot-ingestion/collection-expansion/rebuild-trim273 scripts/rebuild_rooms.sh --draft
+EXT=$HOME/risd-godot-ingestion/collection-expansion/rebuild-trim273/extension
+```
+
+After each edit to `remodel_room.gd`, copy it into that project with the two text changes the
+generator's extension step makes, instead of rebuilding:
+
+```bash
+python3 - <<'PY'
+from pathlib import Path
+import os
+src = Path('modules/shell/prototype/collection_reconstruction/remodel_room.gd').read_text()
+src = src.replace('if not visitor.is_ancestor_of(surface):',
+                  'if not visitor.is_ancestor_of(surface) and not surface.has_meta("retained_main_hall"):')
+src = src.replace('res://modules/shell/prototype/gallery_walk4/baked/', 'res://addition_baked/')
+Path(os.path.expanduser('~/risd-godot-ingestion/collection-expansion/rebuild-trim273/extension/remodel_room.gd')).write_text(src)
+PY
+```
+
+(An edited `*_additions.gd` is copied across unchanged.) Then check and photograph:
+
+```bash
+godot --headless --path $EXT --script $PWD/modules/shell/prototype/collection_reconstruction/architecture_check.gd
+source ~/promo-lab/gpu-env.sh; export DISPLAY=:99
+godot --path $EXT --display-driver x11 --rendering-method gl_compatibility \
+  --script $PWD/docs/evidence/furniture-261/draft_shot.gd -- <out dir> bench
+```
+
+The camera trick, in `draft_shot.gd`: instantiate `res://remodel_room.tscn`, wait ten frames,
+stop its physics process (which would otherwise cut walls away), make every node visible, find
+the piece by a metadata key (`furniture` = `bench`; use `renaissance_wall_case` = `A` or
+`has_meta("pieta_wall_case")` for the cases), then set `scene.camera.global_transform` to an
+offset from the piece looking at it, wait four frames and save `root.get_texture()`. A blank or
+flat picture means the offset put the camera inside a wall: change its sign. The draft draws
+every room at once and lights nothing by the bake, so it shows shape, not the final light or
+which room the game would draw.
