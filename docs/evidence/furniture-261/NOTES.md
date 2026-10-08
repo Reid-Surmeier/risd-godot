@@ -98,13 +98,30 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    Seen while here, not mine to change: the Madonna hangs about 10 cm from the casing; in
    61.0 s the gap is nearer half the window's width.
 
+9. `9-floor-case-proportions-footage-and-unbaked.jpg`: the room's pedestals. A listing of
+   everything standing on this room's floor in the draft gives the four wall cases, the bench,
+   the textile platform and Saint Roch's case: his plinth is the room's only pedestal. Panels:
+   IMG_6383 61.0 s (cropped); the unbaked case before this step; after it; 20.0 s; the unbaked
+   cap and riser after it. Measured in 61.0 s with the figure's catalogue height (1.054 m) as
+   the ruler: the cap is about 1.0 m wide and the body about 0.83 m, so the cap oversails the
+   body by about 9 cm a side; the build had a 0.78 m cap on a 0.70 m body. The hood is now
+   0.86 m square (was 0.70), the cap 0.98, the body 0.80. The picture pairs with picture 6,
+   which was taken before the widening.
+   NOT matched, and left for the lead: the plinth's height. The same frame puts the cap's top
+   at about 0.44 m, well under the window sill (0.63 m); the build's is 0.64 m, level with the
+   sill. Lowering it means lowering the figure by 0.20 m and the hood with it, and changing the
+   check, which pins the figure at 0.68 m and the lid at 2.09 m. The figure was not moved.
+   No base moulding was added: the frames show a plain body under an oversailing cap. The kick
+   stays a guess (see 6).
+
 The clip is at `~/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV`.
 
 ## State for whoever continues
 
-- Done: the bench, the four wall cases, the hooded floor case, the textile platform with its
-  label stands, the window (pictures 1 to 8).
-- Not done: the pedestals.
+- Done in the Renaissance room: the bench, the four wall cases, the hooded floor case and its
+  proportions, the textile platform with its label stands, the window (pictures 1 to 9).
+- Open, the lead's decision: lowering Saint Roch's plinth from 0.64 to about 0.44 m (see 9).
+- Not done: calling the same builders in the dark medieval room and the European gallery.
 
 ## How the unbaked pictures are taken
 

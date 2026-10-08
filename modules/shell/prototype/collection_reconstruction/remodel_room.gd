@@ -748,21 +748,22 @@ func label_stand(at:Vector3,yaw:float,width:=.38) -> Node3D:
 		plate.rotation.x=tilt
 	return stand
 
-## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0s): a white plinth on a recessed
-## kick, a cap slab that oversails it, a clear hood standing on the cap inside its edge with its
-## polished edges as pale lines, and inside the hood a low riser with sloped sides whose `front`
-## slope carries the blank label block. `at` is the floor point under its middle, `deck` the
-## cap's top and `top` the hood's; the work stands on the riser, at deck+.04. Returns the body
-## to walk round; its kick, cap and riser carry "floor_case_part".
+## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0/61.0s): a white plinth on a
+## recessed kick, a cap slab that oversails it by 9 cm, a clear hood standing on the cap 6 cm
+## inside its edge with its polished edges as pale lines, and inside the hood a low riser with
+## sloped sides whose `front` slope carries the blank label block. `at` is the floor point under
+## its middle, `width` and `depth` the hood's, `deck` the cap's top and `top` the hood's; the
+## work stands on the riser, at deck+.04. Returns the body to walk round; its kick, cap and
+## riser carry "floor_case_part".
 func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,front:Vector3) -> StaticBody3D:
 	var white:=look(Color("f0eeea"))
-	var body:=plinth(at,Vector3(width,deck-.04,depth))
+	var body:=plinth(at,Vector3(width-.06,deck-.04,depth-.06))
 	body.get_child(2).set_meta("floor_case_part","kick")
 	var add:=func(offset:Vector3,size:Vector3,m:Material) -> Node3D:
 		var piece:=solid(at+offset,size,m)
 		piece.reparent(body)
 		return piece
-	add.call(Vector3(0,deck-.02,0),Vector3(width+.08,.04,depth+.08),white).set_meta("floor_case_part","cap")
+	add.call(Vector3(0,deck-.02,0),Vector3(width+.12,.04,depth+.12),white).set_meta("floor_case_part","cap")
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
 	var edge:=look(Color("d5e0df"),"",true)
 	var t:=.004
@@ -1728,9 +1729,10 @@ func build_sculpture_rooms() -> void:
 		part.set_meta("wall_side","west")
 		_renaissance_wall_art.append(part)
 	# IMG_6383 18.3/62.0s: polychromed wood on a white floor plinth before this window.
-	# ponytail: plinth/hood metres and window-relative offset are by eye; replace after source fitting.
+	# 61.0s, with the figure's 1.054 m as the ruler: the cap is about 1.0 m wide, the body 0.83.
+	# The same frame puts the cap's top near 0.44 m; it stays 0.64 here because the figure is not moved.
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=hooded_floor_case(roch_at,.70,.70,.64,2.09,Vector3(1,0,0))
+	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,.64,2.09,Vector3(1,0,0))
 	roch_plinth.set_meta("saint_roch_installation",true)
 	for part in roch_plinth.get_children():
 		if part.has_meta("floor_case_part"):part.set_meta("saint_roch_plinth_step",part.get_meta("floor_case_part"))
