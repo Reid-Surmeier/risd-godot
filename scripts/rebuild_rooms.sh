@@ -30,7 +30,22 @@ if grep -q "panicked" "$T/prime.log"; then echo "the prime step crashed: $T/prim
 godot --path "$EXT" --headless --editor --import > /dev/null 2>&1
 cp "$EXT/project.godot" "$T/project.godot.original"
 printf '\n[editor_plugins]\nenabled=PackedStringArray("res://bake/plugin.cfg")\n' >> "$EXT/project.godot"
-timeout ${BAKE_LIMIT_S:-3000} $LVP godot --path "$EXT" --editor --accessibility disabled --rendering-method mobile > "$T/bake.log" 2>&1 || true
+# Vulkan inside WSL is lavapipe, a CPU renderer: the same bake that takes 18 s on the RTX ran past 15 minutes on it
+# (8 Oct). So the bake runs in the Windows build of this Godot on the host's own driver when that build is present
+# (BAKE_ON=cpu forces lavapipe). The prepared project is copied to C:, baked there, and its baked folder copied back.
+WIN_GODOT=${WIN_GODOT:-/mnt/c/Users/reidsurmeier2/godot-bake/bin/Godot_v4.7.2-stable_win64_console.exe}
+if [ "${BAKE_ON:-gpu}" = gpu ] && [ -x "$WIN_GODOT" ]; then
+  WORK=$(dirname "$(dirname "$WIN_GODOT")")/work/rooms-$$
+  mkdir -p "$WORK" && cp -r "$EXT" "$WORK/extension"
+  BAKE_T0=$(date +%s)
+  (cd /mnt/c && timeout ${BAKE_LIMIT_S:-600} "$WIN_GODOT" --path "$(wslpath -w "$WORK/extension")" --editor --accessibility disabled --rendering-method mobile) > "$T/bake.log" 2>&1 || true
+  echo "bake on the GPU (Windows Godot): $(( $(date +%s) - BAKE_T0 )) s; $(grep -m1 'Using Device' "$T/bake.log")"
+  rsync -a "$WORK/extension/addition_baked/" "$EXT/addition_baked/"
+  rm -rf "$WORK"
+else
+  echo "bake on the CPU (lavapipe): no Windows Godot at $WIN_GODOT, or BAKE_ON=cpu"
+  timeout ${BAKE_LIMIT_S:-3000} $LVP godot --path "$EXT" --editor --accessibility disabled --rendering-method mobile > "$T/bake.log" 2>&1 || true
+fi
 cp "$T/project.godot.original" "$EXT/project.godot"
 grep "BAKE_OK" "$T/bake.log" || { echo "bake failed: $T/bake.log"; exit 1; }
 /usr/bin/python3 "$SRC/relocate_rooms.py" "$EXT" "$T/collection_rooms"
