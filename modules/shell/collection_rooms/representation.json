@@ -195,7 +195,13 @@
   "2021.101": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"},
   "2010.57": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"},
   "35.770": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"},
-  "60.095": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"}
+  "60.095": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"},
+  "15.108": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
+  "40.002": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
+  "52.002": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
+  "1992.051": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
+  "30.011": {"room": "dark medieval room", "form": "volume", "as": "modelled"},
+  "2014.110": {"room": "dark medieval room", "form": "relief", "as": "modelled"}
  },
  "shortfalls": [
   "2017.74.31.1",

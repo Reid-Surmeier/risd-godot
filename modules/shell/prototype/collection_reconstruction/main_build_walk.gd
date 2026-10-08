@@ -643,7 +643,8 @@ func _collect_objects() -> void:
 						face = part
 		if canvas != null:
 			image = canvas  # the picture itself, not its frame
-		if first or image == null:
+		# A modelled work carries no picture; it is still a work when the catalogue has its row.
+		if first or (image == null and not captions.has(str(node.get_meta("catalogue_accession", "")))):
 			continue
 		if not (node.has_meta("catalogue_accession") or node.has_meta("catalogue_asset")):
 			if canvas == null:
@@ -703,6 +704,8 @@ func _collect_objects() -> void:
 			}
 			if ResourceLoader.exists(str(row.get("image", ""))):
 				picture = row.image
+			elif picture == "" and str(row.get("image", "")) == "":
+				image = null  # no photograph of it in the repo: a model's skin is not a zoom page
 		_objects.append(
 			{
 				"object": true,
@@ -1193,6 +1196,8 @@ func _open_detail(p: Dictionary) -> void:
 	if _inspect.get("tag", "") != p.tag:
 		_begin_inspect(p)
 		return
+	if p.has("object") and p.image == null and str(p.picture) == "":
+		return  # no photograph of it: the reading is all there is, a second click changes nothing
 	# Already looking at it: the zoom page comes forward over the room.
 	_end_inspect(true)
 	if str(p.get("picture", "")) != "":
