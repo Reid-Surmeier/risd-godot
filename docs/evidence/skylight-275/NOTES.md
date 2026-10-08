@@ -131,7 +131,7 @@ visual boards with pale oak at −2.55, adds the downward wall extensions and
 platform enclosure, and places the lift and existing piano on that floor.
 It reuses kit mouldings / casings; the kit's implementation is untouched.
 The lower EXIT is a wall feature with folded leaves / push bars and the
-existing Hall sign texture, closing after a 0.6 m doorway study. No new
+existing Hall sign texture, closing after a 0.95 m doorway study. No new
 gallery beyond it is implied.
 
 Outside `skylight_additions.gd`, source edits are:
@@ -151,7 +151,7 @@ Outside `skylight_additions.gd`, source edits are:
 
 Entry door / both reveal openings stay `[4.55,6.55]`, at y=0, with bounds
 `[4.55,6.55,-5.76,-4.96]`. Nothing moves in the grey gallery. Lower north EXIT
-is centred at x=5.00, z=−10.76, 1.80 m wide at y=−2.55; it is not a new
+is centred at x=5.00, z=−10.76, 1.80 m wide at y=−2.55, 2.40 m clear height; it is not a new
 room connection in `geometry.json`. No new room label was added.
 
 Route trials: `grey_skylight_out`, `grey_skylight_back` now stop on / depart
@@ -213,3 +213,80 @@ and the lower visitor. This is a camera limitation to resolve / inspect in
 the actual walking adapter during the detail pass, not a failed stair
 collision hidden by the pictures. Draft geometry was restored after selecting
 just these trials; no acceptance test source was edited.
+
+
+## 3. Iron, stair detail and piano
+
+Reference forms: 54 / 99 / 127 / 154.5 / 159.5 s. The rail shafts have mirrored
+rolled leaf / heart scrolls below the rail and above the tread, four collars,
+and an iron strip under the oval wood. Corner posts are open panels with five
+pairs of C scrolls. The lower newel is a cylindrical cage with four hoops,
+finished with the curled wood volute. The handrail bends continuously through
+the corners and changes slope at the actual quarter landings. Wall rails have
+metal brackets into their walls. Pitch ~0.14 m, motifs ~0.11 m across / 0.17 m
+high, rods 0.016 m diameter, wood ~0.074 × 0.050 m; all inferred ±15–25% from
+the frames. These are closed geometry, batched by material, with no video
+texture on architecture. Black treads have rounded noses; the bottom step
+curls 0.15 m round the newel. Collision remains on smooth supported ramps.
+
+The old L-shaped piano has been replaced by a closed curved grand case and
+a separate lid, cheek blocks, fallboard, 52 ivory / 36 black keys in the two /
+three grouping, folded music rack, three turned legs with caster wheels,
+pedal lyre / three pedals, padded bench with piping and button tufts / four
+legs. The small lid card seen at 13.5 s is blank. Maker and unreadable wording
+are omitted. Dimensions remain 1.75 × 1.48 × 0.98 m, ±0.20 / 0.20 / 0.10;
+case curve, feet and small details are inferred from 3 / 13.5 / 132 s.
+Materials reuse the room builder's iron / wood / plain paint construction and
+the kit white. The room's filmed smooth grey walls use plain grey paint.
+
+Census 9.5: lower north EXIT now has a 2.40 m clear opening / approximately
+2.50 m outer casing, consistent with the new 2.535 m wall-plane check at 54 s.
+Two open fire-door leaves have hinges, two moulded panels each and push bars.
+The existing Hall EXIT texture is reused. The short study closes 0.95 m behind
+it: it adds no destination / new room / route. Under the platform, a 1.20 m
+wide, 2.20 m high cased vestibule study closes after 0.40 m; a white cupboard
+fills the underside of the first run. The wayfinding screen faces west toward
+the lift, at x=4.07, y=−0.97, z=−6.43; 0.64 × 0.86 m, dark glass / metal.
+Its map and lettering are not invented. These feature dimensions / casing
+positions are inferred from 6.5 / 23 / 99 s, ±0.15–0.25 m.
+
+Draft #2 and the refreshed own additions passed `ARCHITECTURE_CHECK` with
+`failures: []`, 21 casings. The actual attached walking game now passes all
+16 movement / collision trials and both pulled click routes, entry to lower
+floor and back (`detail-game-routes.json`, review harness `check-walk.gd`).
+The physical draft runner independently passes all 16 movement trials, with
+floor height errors under 4 mm (`detail-physical-routes.json`). Its two
+flat-camera failures remain; it is not the runtime camera. The runtime hides
+obstructing Skylight decks / treads and tests the full visitor head. Source
+camera changes, beyond the first shell checkpoint, are named Skylight-only
+structure collection / visibility, floor-relative low-case handling, head
+clearance rays and clicks skipping hidden upper decks while retaining the
+existing through-door click rule. No shared kit / reveal / lamp code changed.
+
+For reproducible runtime review, the existing character / close-icon assets
+and authored captions were copied **only into the disposable draft**, with
+`main_build_walk.gd` copied as `skylight_main_walk.gd`. The repository character
+and generated rooms are untouched. The default draft presenter does not use
+the actual walking adapter and resets manual visitors below y=−2; the runner's
+QA mode bypasses that old reset. Actual adapter trials / pictures use y=−2.55.
+
+
+### Detail pictures and runtime camera
+
+Looked at the detail pass in both the room scene and the actual walking
+adapter. `07-detail-rail.jpg`, `08-detail-stair.jpg`, `09-detail-piano.jpg`
+and `10-detail-lower.jpg` compare footage on the left with the draft on the
+right. `11-game-two-levels.jpg` shows the runtime visitor on the upper deck
+and on the lower oak floor. These JPEGs are each under 150 KB. The keyboard,
+curved closed lid, bench, cage newel, scroll panels, rolled balusters, wall
+rail brackets and the lower cased openings are visible, not claimed from
+node counts alone.
+
+An extra camera edit in `main_build_walk.gd` follows the room scene's
+`update_baked_visibility()` call: **only while the current stage is Skylight**,
+it restores that stage's hiding of neighbouring ceiling details. The draft
+callback was reshowning a grey-gallery ceiling track across the lower room's
+camera. The track was diagnosed from its AABB and `grey_additions.gd` source;
+no lamp or ceiling geometry was edited. The latest runtime pictures show
+that stray white track removed. Existing same-stage laylights remain visible
+from inside the room.

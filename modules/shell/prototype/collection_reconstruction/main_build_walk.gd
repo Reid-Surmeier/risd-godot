@@ -50,6 +50,8 @@ var _rooms: Node3D
 var _plan: Array = []  # {label, b: [x0, x1, z0, z1] Hall-local, openings: {side: [lo, hi]}, far}
 var _blocks: Array[Rect2] = []  # furniture, cases, door leaves and floor voids, in x/z
 var _skylight_surfaces: Array = []  # #275: the same landing / ramps / lower-floor patches as the built room
+var _skylight_structure: Array = []  # #275: decks / treads that can cover the lower visitor
+var _skylight_hidden_decks: Array[String] = []
 var _walls: Array = []  # {body, box, boxes, layers, room, side}: what the camera may cut away
 var _parts: Array = []  # {node, room, side, shown}: everything else in the rooms; side set if it hangs on a wall
 var _cut_state := 0
@@ -164,7 +166,7 @@ func _read_plan(path: String) -> bool:
 		var rect := Rect2(a.x, a.z, 0, 0)
 		for vertex in vertices:
 			rect = rect.expand(Vector2(vertex.x, vertex.z))
-		_skylight_surfaces.append({"b": rect, "at": a, "normal": normal})
+		_skylight_surfaces.append({"b": rect, "at": a, "normal": normal, "label": patch.label})
 	for guard in plan.get("skylight_walk", {}).get("guards", []):
 		var a: Array = guard.ends[0]
 		var b: Array = guard.ends[1]
@@ -358,7 +360,11 @@ func _collect_parts() -> void:
 				if gap < nearest:
 					nearest = gap
 					side = name
-		_parts.append({"node": node, "room": room, "side": side, "shown": node.visible})
+		var part := {"node": node, "room": room, "side": side, "shown": node.visible}
+		_parts.append(part)
+		if node.has_meta("skylight_landing") or node.has_meta("skylight_stair_tread") or node.has_meta("skylight_step_nosing"):
+			part["box"] = box
+			_skylight_structure.append(part)
 
 
 # The room a thing reaches furthest into: a work on a shared wall belongs to the side it
@@ -607,6 +613,8 @@ func _floor_at(pt: Vector2):
 		var nearest := INF
 		var hit = null
 		for patch in _skylight_surfaces:
+			if str(patch.label) in _skylight_hidden_decks:
+				continue
 			var n: Vector3 = patch.normal
 			var denominator := n.dot(direction)
 			if absf(denominator) < .00001:
@@ -616,7 +624,9 @@ func _floor_at(pt: Vector2):
 			if distance > 0 and distance < nearest and patch.b.has_point(Vector2(q.x, q.z)):
 				nearest = distance
 				hit = q
-		return hit
+		if hit != null:
+			return hit
+		# A click through the upper reveal uses the existing adjacent-room rule.
 	var spot = super(pt)
 	if spot == null or _plan.is_empty() or _on_stage(spot):
 		return spot
@@ -1479,6 +1489,9 @@ func _update_camera(k: float) -> void:
 	# A wall also goes when it stands between the camera and the visitor, and its trim with it.
 	var across := _cam.global_transform.basis.x
 	across.y = 0.0
+	var subject_heights: Array = [.5,1.5]
+	if here >= 0 and _plan[here].label in ["Skylight Gallery","Skylight Gallery reveal threshold"]:
+		subject_heights.append(1.85)  # #275: the casing above the lower visitor must clear its head too
 	for wall in _walls:
 		var clear := true
 		if wall.room >= 0:
@@ -1489,10 +1502,15 @@ func _update_camera(k: float) -> void:
 		elif added and _stage_ids[wall.at] != _stage:
 			clear = false
 		# A low case stays: hiding it would bare the unlit floor and the shadow baked under it.
-		var low: bool = wall.room < 0 and (wall.box as AABB).end.y < 1.6
+		var low_top := 1.6
+		if wall.at >= 0 and _plan[wall.at].label == "Skylight Gallery":
+			var floor_y := _skylight_height(_pos)
+			if floor_y != -INF:
+				low_top = floor_y + 1.6  # #275: cases are low relative to the visitor's floor
+		var low: bool = wall.room < 0 and (wall.box as AABB).end.y < low_top
 		if clear and wall.layers & shown and not low:
 			for offset in [-0.45, 0.0, 0.45]:
-				for height in [0.5, 1.5]:
+				for height in subject_heights:
 					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
 					for section in wall.boxes:
 						if (section as AABB).intersects_segment(eye, subject) != null:
@@ -1505,10 +1523,33 @@ func _update_camera(k: float) -> void:
 		var body: Node = wall.body
 		for i in range(1, body.get_child_count()):
 			body.get_child(i).visible = clear
+	# #275: an upper deck must not cover a visitor walking beside its lower
+	# enclosure. These are only this room's named floor / tread meshes.
+	_skylight_hidden_decks.clear()
+	for part in _skylight_structure:
+		var rule = cut[part.room]
+		var clear: bool = part.shown and not (rule is bool or (part.side != "" and rule[part.side]))
+		var box: AABB = part.box
+		if clear and _pos.y < box.position.y - .15:
+			for offset in [-.45,0.0,.45]:
+				for height in subject_heights:
+					if box.intersects_segment(eye,_pos+across*offset+Vector3.UP*height) != null:
+						clear = false
+		part.node.visible = clear
+		if not clear and part.node.has_meta("skylight_landing"):
+			_skylight_hidden_decks.append(str(part.node.get_meta("skylight_landing")))
 	# The room scene's own rule for ceilings and baked copies, read from walk4's camera.
 	if _rooms.has_method("update_baked_visibility"):
 		_rooms.set("camera", _cam)
 		_rooms.update_baked_visibility()
+		if _stage >= 0 and _plan[_stage].label == "Skylight Gallery":
+			# #275: the draft ceiling callback can reshow adjacent-room tracks.
+			# Keep this stage's visibility after it; lamp geometry is unchanged.
+			for ceiling in _rooms.get("ceiling_details"):
+				if ceiling is GeometryInstance3D:
+					var owner := _room_of(ceiling.global_transform * ceiling.get_aabb())
+					if owner >= 0 and _stage_ids[owner] != _stage:
+						ceiling.hide()
 	if _glide_t < 1.0:
 		_cam.global_transform = _glide_from.interpolate_with(_cam.global_transform, _glide_t)
 		_cam.fov = lerpf(_glide_fov, _cam.fov, _glide_t)

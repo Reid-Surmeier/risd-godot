@@ -26,9 +26,9 @@ const RAIL := .90
 func build(room) -> void:
 	var b: Array = room.room_bounds(ROOM)
 	var height := 3.9
-	var white: StandardMaterial3D = room.look(Color("eeeae2"))
+	var white: StandardMaterial3D = room.trim_paint()
 	# IMG_6379 6.0/127.0s: pale blue-grey walls, not the ivory default.
-	var grey: StandardMaterial3D = room.look(Color("c5cad2"), "res://presentation/neutral-plaster.png")
+	var grey: StandardMaterial3D = room.look(Color("c5cad2"))
 	grey.cull_mode = BaseMaterial3D.CULL_BACK
 	for wall in room.casings:
 		if str(wall.get_meta("room_wall", "")).begins_with(ROOM + ":"):
@@ -102,7 +102,6 @@ func _levels(room, b: Array, grey: Material, white: Material) -> void:
 	var plan: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).skylight_walk
 	var landing: Array = plan.landing
 	var iron: Material = room.look(Color("25272a"))
-	var wood: Material = room.look(Color("8c6141"))
 	# Replace only this room's flat visual boards. Collision already comes from
 	# its lower floor / landing / ramp patches; the neighbouring reveal stays level.
 	var oak: ShaderMaterial
@@ -161,12 +160,9 @@ func _levels(room, b: Array, grey: Material, white: Material) -> void:
 	# A solid plaster enclosure below the entry deck, as filmed beside the
 	# lift / vestibule. Its two exposed faces keep the lower visitor out of
 	# the deck's footprint; nothing supports a walk on an invisible flat plane.
-	for spec in [
-		[Vector3(landing[0], LOWER / 2, (landing[2] + landing[3]) / 2), Vector3(.12, -LOWER, landing[3] - landing[2])],
-		[Vector3((landing[0] + landing[1]) / 2, LOWER / 2, landing[2]), Vector3(landing[1] - landing[0], -LOWER, .12)],
-	]:
-		var wall: StaticBody3D = room.solid(spec[0], spec[1], grey, true)
-		wall.set_meta("room_wall", ROOM + ":platform")
+	var west_deck: StaticBody3D = room.solid(Vector3(landing[0],LOWER/2,(landing[2]+landing[3])/2),Vector3(.12,-LOWER,landing[3]-landing[2]),grey,true)
+	west_deck.set_meta("room_wall",ROOM+":platform")
+	_platform_features(room, plan, grey, white, west_deck)
 	# Visible stair treads / risers above smooth collision ramps. The first
 	# run descends east, the second north, the third west onto the oak floor.
 	var count: int = 0
@@ -185,58 +181,348 @@ func _levels(room, b: Array, grey: Material, white: Material) -> void:
 		var c: Array = patch.vertices[2]
 		var slab: MeshInstance3D = room.solid(Vector3((a[0] + c[0]) / 2, a[1] - .09, (a[2] + c[2]) / 2), Vector3(absf(c[0] - a[0]), .18, absf(c[2] - a[2])), iron)
 		slab.set_meta("skylight_landing", patch.label)
-	for flight in flights:
+	for f in flights.size():
+		var flight: Array = flights[f]
 		var going: float = flight[3] / int(flight[5])
 		for i in int(flight[5]):
 			var p: Vector3 = flight[0] + flight[1] * ((i + .5) * going) + flight[2] * (flight[4] / 2)
 			p.y -= (i + 1) * rise + .09
 			var size := Vector3(going + .015, .18, flight[4]) if flight[1].x != 0 else Vector3(flight[4], .18, going + .015)
-			var step: MeshInstance3D = room.solid(p, size, iron)
+			var st := _surface()
+			var outline := _rounded_rectangle(Vector2(p.x - size.x / 2, p.z - size.z / 2), Vector2(size.x, size.z), .018)
+			if f == 2 and i == int(flight[5]) - 1:
+				# IMG_6379 72 / 79.5 / 132s: the first step curls around the cage newel.
+				outline = _rounded_rectangle(Vector2(p.x - size.x / 2 - .10, p.z - size.z / 2), Vector2(size.x + .10, size.z + .15), .14)
+			_prism(st, outline, p.y - .09, p.y + .09)
+			var step: MeshInstance3D = _mesh(room, st, iron, "skylight_stair_tread")
 			step.set_meta("skylight_stair_tread", true)
+			var nose := _surface()
+			var start: Vector3 = p - flight[1] * (going / 2) - flight[2] * (flight[4] / 2)
+			start.y = p.y + .082
+			_tube(nose, PackedVector3Array([start, start + flight[2] * flight[4]]), .012, 8)
+			_mesh(room, nose, iron, "skylight_step_nosing")
 			# Pale vertical riser / stringer outside the black walking surface.
 			var edge: Vector3 = p + flight[2] * (flight[4] / 2 + .005) - Vector3.UP * .12
 			room.solid(edge, Vector3(going + .018, .24, .045) if flight[1].x != 0 else Vector3(.045, .24, going + .018), white)
 	# Guards collide in the draft. Their named wall tag keeps them out of the
 	# adapter's furniture blocks; geometry.json supplies the same guard lines.
+	_balustrade(room, plan, b, iron)
 	for guard in plan.guards:
 		var a := Vector3(guard.ends[0][0], guard.ends[0][1], guard.ends[0][2])
 		var c := Vector3(guard.ends[1][0], guard.ends[1][1], guard.ends[1][2])
-		var length := Vector2(c.x - a.x, c.z - a.z).length()
-		var rail: MeshInstance3D = room.solid((a + c) / 2 + Vector3.UP * RAIL, Vector3(length, .06, .07), wood)
-		rail.rotation.z = atan2(c.y - a.y, length) if absf(c.x - a.x) > .01 else 0.0
-		if absf(c.z - a.z) > .01:
-			rail.rotation = Vector3(atan2(a.y - c.y, length), PI / 2, 0)
-		rail.set_meta("skylight_balustrade", true)
-		for i in int(ceil(length / .14)) + 1:
-			var p: Vector3 = a.lerp(c, float(i) / ceil(length / .14))
-			room.solid(p + Vector3.UP * (RAIL / 2), Vector3(.018, RAIL, .018), iron).set_meta("skylight_baluster", true)
 		var barrier: StaticBody3D = room.solid((a + c) / 2 + Vector3.UP * .45, Vector3(maxf(.05, absf(c.x - a.x)), absf(c.y - a.y) + .9, maxf(.05, absf(c.z - a.z))), iron, true)
 		barrier.get_child(1).mesh = ArrayMesh.new()
 		barrier.set_meta("room_wall", ROOM + ":rail_guard")
 
 
-func _lower_exit(room, b: Array, middle: float, width: float, grey: Material, white: Material) -> void:
-	var header: StaticBody3D = room.solid(Vector3(middle, (-LOWER + 2.20) / 2, b[2]), Vector3(width, -LOWER - 2.20, .12), grey, true)
-	header.set_meta("room_wall", ROOM + ":north:header")
-	# Reuse the kit, then place this door on the lower floor. No kit code changes.
-	room.door_casing(header, "north", b[2], [middle - width / 2, middle + width / 2], 2.20, .10)
-	header.set_meta("source_casing_width", .10)
+func _platform_features(room, plan: Dictionary, grey: Material, white: Material, west: Node3D) -> void:
+	# 6.5 / 23 / 99s: the screen faces the lift; an open cased vestibule is
+	# below the platform's front, and a white cupboard is below the first run.
+	var deck: Array = plan.landing
+	var mid: float = (deck[0]+deck[1])/2
+	var width := 1.20
+	for span in [[deck[0],mid-width/2],[mid+width/2,deck[1]]]:
+		var wall: StaticBody3D = room.solid(Vector3((span[0]+span[1])/2,LOWER/2,deck[2]),Vector3(span[1]-span[0],-LOWER,.12),grey,true)
+		wall.set_meta("room_wall",ROOM+":platform")
+	var header: StaticBody3D = room.solid(Vector3(mid,(-LOWER+2.20)/2,deck[2]),Vector3(width,-LOWER-2.20,.12),grey,true)
+	header.set_meta("room_wall",ROOM+":platform:header")
+	room.door_casing(header,"north",deck[2],[mid-width/2,mid+width/2],2.20,.10)
+	header.set_meta("source_casing_width",.10)
 	header.position.y += LOWER
-	# Short, closed study of the doorway beyond the surveyed room. It is not
-	# registered as a new walkable room or a route out of this gallery.
-	var back: Node3D = room.solid(Vector3(middle, LOWER + 1.10, b[2] - .60), Vector3(width, 2.20, .04), room.look(Color("262325")))
+	var back: Node3D = room.solid(Vector3(mid,LOWER+1.10,deck[2]+.40),Vector3(width,2.20,.04),room.look(Color("272829")),true)
+	back.set_meta("room_wall",ROOM+":platform")
 	back.reparent(header)
-	for side in [-1, 1]:
-		var leaf: Node3D = room.solid(Vector3(middle + side * (width / 2 - .08), LOWER + 1.08, b[2] - .29), Vector3(.06, 2.16, .56), white)
+	for side in [-1,1]:
+		var cheek: Node3D = room.solid(Vector3(mid+side*(width/2-.02),LOWER+1.10,deck[2]+.20),Vector3(.04,2.20,.40),white)
+		cheek.reparent(header)
+	var sill: Node3D = room.solid(Vector3(mid,LOWER+.007,deck[2]+.20),Vector3(width,.014,.40),room.look(Color("45464a")))
+	sill.reparent(header)
+	var leaf: Node3D = room.solid(Vector3(mid+width/2-.08,LOWER+1.08,deck[2]+.18),Vector3(.045,2.16,.48),white)
+	leaf.reparent(header)
+	# The display is dark glass and its actual metal frame, with no invented
+	# navigation labels or architecture painted into a screen texture.
+	var glass: StandardMaterial3D = room.look(Color("101a20"))
+	glass.roughness = .20
+	glass.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	for part in [
+		[Vector3(deck[0]-.095,LOWER+1.57,deck[3]-.67),Vector3(.07,.86,.64),room.look(Color("27282b"))],
+		[Vector3(deck[0]-.134,LOWER+1.58,deck[3]-.67),Vector3(.009,.78,.56),glass],
+		[Vector3(deck[0]-.071,LOWER+1.42,deck[3]-.67),Vector3(.08,.12,.16),room.look(Color("626465"))],
+	]:
+		var piece: Node3D = room.solid(part[0],part[1],part[2])
+		piece.reparent(west)
+	# Enclose just the first flight's underside; its white stringer still
+	# reads above the cupboard. This face does not consume lower well floor.
+	var closet_mid: float = (deck[1]+float(plan.turn_x))/2
+	var lower_face: StaticBody3D = room.solid(Vector3(closet_mid,LOWER+.78,deck[2]),Vector3(float(plan.turn_x)-deck[1],1.56,.08),grey,true)
+	lower_face.set_meta("room_wall",ROOM+":platform")
+	var fill := _surface()
+	_quad(fill,[Vector3(deck[1],LOWER+1.56,deck[2]),Vector3(plan.turn_x,LOWER+1.56,deck[2]),Vector3(plan.turn_x,float(plan.guards[2].ends[1][1])-.20,deck[2]),Vector3(deck[1],-.20,deck[2])],Vector3.FORWARD)
+	_mesh(room,fill,grey,"skylight_stair_enclosure").reparent(lower_face)
+	var cupboard: Node3D = room.solid(Vector3(closet_mid,LOWER+.78,deck[2]-.049),Vector3(1.14,1.56,.035),white)
+	cupboard.reparent(lower_face)
+	for x in [-.277,.277]:
+		for y in [.40,1.18]:
+			var panel: Node3D = room.solid(Vector3(closet_mid+x,LOWER+y,deck[2]-.073),Vector3(.42,.56,.016),room.look(Color("d9d9d1")))
+			panel.reparent(lower_face)
+		for z in [-.54,0,.54]:
+			var stile: Node3D = room.solid(Vector3(closet_mid+z,LOWER+.78,deck[2]-.081),Vector3(.032,1.60,.025),white)
+			stile.reparent(lower_face)
+	for y in [.04,.79,1.55]:
+		var rail: Node3D = room.solid(Vector3(closet_mid,LOWER+y,deck[2]-.081),Vector3(1.18,.045,.025),white)
+		rail.reparent(lower_face)
+
+
+func _balustrade(room, plan: Dictionary, b: Array, iron: Material) -> void:
+	# 154.5 / 99s: a slender shaft, two rolled leaves under the rail, two
+	# scrolls at the foot and collars; corner posts are open scroll panels.
+	var rods := _surface()
+	var scrolls := _surface()
+	var timber := _surface()
+	var rail_path := PackedVector3Array()
+	for index in plan.guards.size():
+		var guard: Dictionary = plan.guards[index]
+		var a := Vector3(guard.ends[0][0], guard.ends[0][1], guard.ends[0][2])
+		var c := Vector3(guard.ends[1][0], guard.ends[1][1], guard.ends[1][2])
+		var along := Vector3(c.x - a.x, 0, c.z - a.z).normalized()
+		var length := Vector2(c.x - a.x, c.z - a.z).length()
+		var intervals := int(round(length / .14))
+		if index == 0:
+			rail_path.append(a + Vector3.UP * RAIL)
+		rail_path.append(c + Vector3.UP * RAIL)
+		for i in range(1, intervals):
+			var p := a.lerp(c, float(i) / intervals)
+			# The sockets stand on each built tread, rather than hovering on the ramp.
+			if index >= 2:
+				var count: int = int(plan.risers[index - 2])
+				p.y = a.y + (c.y - a.y) * ceil(float(i) / intervals * count) / count
+			var top := a.lerp(c, float(i) / intervals).y + RAIL - .025
+			_tube(rods, PackedVector3Array([p, Vector3(p.x, top, p.z)]), .008, 6)
+			for y in [.04, .17, top - p.y - .20, top - p.y - .055]:
+				_tube(rods, PackedVector3Array([p + Vector3.UP * (y - .012), p + Vector3.UP * (y + .012)]), .015, 8)
+			for sign in [-1, 1]:
+				var upper := PackedVector3Array()
+				var lower := PackedVector3Array()
+				# The measured outlines are mirrored about the shaft. These are
+				# rolled iron rods, not alpha cards or a repeated video texture.
+				for uv in [[0,.0],[.018,.032],[.052,.105],[.052,.145],[.035,.167],[.018,.160],[.014,.142],[.024,.133],[.034,.144]]:
+					upper.append(Vector3(p.x, top - .18, p.z) + along * (float(uv[0]) * sign) + Vector3.UP * float(uv[1]))
+				for uv in [[0,0],[.022,.025],[.057,.100],[.056,.132],[.037,.145],[.019,.138],[.014,.120],[.024,.112],[.035,.123]]:
+					lower.append(p + along * (float(uv[0]) * sign) + Vector3.UP * (.025 + float(uv[1])))
+				_tube(scrolls, _smooth(upper), .0055, 6)
+				_tube(scrolls, _smooth(lower), .0055, 6)
+		# Rectangular corner posts with five paired C scrolls. The front / west
+		# landing post and both quarter-turn posts are visible in 99 / 154.5s.
+		if index < 4:
+			var p: Vector3 = c
+			for offset in [-.095, 0.0, .095]:
+				_tube(rods, PackedVector3Array([p + along * offset, p + along * offset + Vector3.UP * (RAIL - .035)]), .009 if offset == 0 else .006, 6)
+			for y in [.08, .26, .44, .62, .80]:
+				for sign in [-1, 1]:
+					var path := PackedVector3Array()
+					for i in 15:
+						var t: float = float(i) / 14 * TAU * .92
+						var radius: float = lerpf(.069, .018, float(i) / 14)
+						path.append(p + along * (sign * (.026 + sin(t) * radius)) + Vector3.UP * (y + cos(t) * radius))
+					_tube(scrolls, path, .0055, 6)
+			for y in [.02, .875]:
+				_tube(rods, PackedVector3Array([p - along * .12 + Vector3.UP * y, p + along * .12 + Vector3.UP * y]), .013, 8)
+	# Warm oval wood, continuous through the bends rather than independent bars
+	# with the wrong slope. Below it is the slim flat iron mounting strip.
+	var rounded := _smooth(rail_path, .12)
+	_tube(timber, rounded, .037, 12, .68)
+	var under := PackedVector3Array()
+	for p in rounded:
+		under.append(p - Vector3.UP * .03)
+	_tube(rods, under, .015, 6, .35)
+	# Cylindrical open cage at the stair foot and the spiral wood volute.
+	var foot := Vector3(plan.landing[1] + .06, LOWER, plan.turn_z + .075)
+	for i in 10:
+		var angle: float = TAU * i / 10
+		var p := foot + Vector3(cos(angle), 0, sin(angle)) * .105
+		_tube(rods, PackedVector3Array([p + Vector3.UP * .035, p + Vector3.UP * .865]), .008, 6)
+	for y in [.06, .18, .70, .85]:
+		var hoop := PackedVector3Array()
+		for i in 25:
+			var angle: float = TAU * i / 24
+			hoop.append(foot + Vector3(cos(angle) * .11, y, sin(angle) * .11))
+		_tube(rods, hoop, .009, 6)
+	var volute := PackedVector3Array([rounded[-1]])
+	for i in 31:
+		var t: float = float(i) / 30
+		var angle: float = -PI / 2 - t * TAU * 1.10
+		var radius: float = lerpf(.15, .025, t)
+		volute.append(foot + Vector3(cos(angle) * radius, RAIL, sin(angle) * radius))
+	_tube(timber, _smooth(volute, .035), .037, 12, .68)
+	# Wall rails / black brackets at the same stair levels (27.5 / 79.5s).
+	var wall_path := PackedVector3Array([
+		Vector3(plan.landing[1] + .05, .90, b[3] - .09),
+		Vector3(plan.turn_x, float(plan.guards[2].ends[1][1]) + .90, b[3] - .09),
+		Vector3(b[1] - .09, float(plan.guards[2].ends[1][1]) + .90, b[3] - .09),
+		Vector3(b[1] - .09, float(plan.guards[2].ends[1][1]) + .90, plan.landing[2]),
+		Vector3(b[1] - .09, float(plan.guards[3].ends[1][1]) + .90, plan.turn_z),
+		Vector3(b[1] - .09, float(plan.guards[3].ends[1][1]) + .90, b[2] + .09),
+		Vector3(plan.turn_x, float(plan.guards[3].ends[1][1]) + .90, b[2] + .09),
+		Vector3(plan.landing[1] - .10, LOWER + .90, b[2] + .09),
+	])
+	_tube(timber, _smooth(wall_path, .16), .025, 10, .80)
+	for i in range(wall_path.size() - 1):
+		var delta := wall_path[i+1]-wall_path[i]
+		var horizontal: bool = absf(delta.x)>absf(delta.z)
+		var brackets := int(ceil(Vector2(delta.x,delta.z).length()/.8))
+		for j in brackets:
+			var t: float = (float(j)+.5)/brackets
+			var p: Vector3 = wall_path[i].lerp(wall_path[i + 1], t)
+			var toward := Vector3(0,0,.065 if p.z>b[3]-.20 else -.065) if horizontal else Vector3(.065,0,0)
+			_tube(rods, PackedVector3Array([p - Vector3.UP * .055, p - Vector3.UP * .12, p - Vector3.UP * .12 + toward]), .008, 6)
+	_mesh(room, rods, iron, "skylight_balusters")
+	_mesh(room, scrolls, iron, "skylight_iron_scrolls")
+	var wood: StandardMaterial3D = room.look(Color("926744"))
+	wood.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	wood.roughness = .48
+	_mesh(room, timber, wood, "skylight_wood_handrails")
+
+
+# Local closed-mesh helpers: batch the repeated iron and piano parts by material.
+func _surface() -> SurfaceTool:
+	var st := SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	return st
+
+
+func _mesh(room, st: SurfaceTool, paint: Material, tag: String) -> MeshInstance3D:
+	var node := MeshInstance3D.new()
+	node.mesh = st.commit()
+	node.material_override = paint
+	node.set_meta(tag, true)
+	node.set_meta("fine_fidelity_accepted", false)
+	room.add_child(node)
+	return node
+
+
+func _quad(st: SurfaceTool, corners: Array, normal: Vector3) -> void:
+	var flip: bool = (corners[1] - corners[0]).cross(corners[2] - corners[0]).dot(normal) > 0
+	var indices := [0,2,1] if flip else [0,1,2]
+	if corners.size() == 4:
+		indices.append_array([0,3,2] if flip else [0,2,3])
+	for i in indices:
+		st.set_normal(normal)
+		st.add_vertex(corners[i])
+
+
+func _prism(st: SurfaceTool, outline: PackedVector2Array, low: float, high: float, at := Vector3.ZERO) -> void:
+	if Geometry2D.is_polygon_clockwise(outline):
+		outline.reverse()
+	var indices := Geometry2D.triangulate_polygon(outline)
+	for y in [low, high]:
+		var normal := Vector3.DOWN if y == low else Vector3.UP
+		for i in range(0, indices.size(), 3):
+			var corners := []
+			for j in 3:
+				var p := outline[indices[i + j]]
+				corners.append(at + Vector3(p.x, y, p.y))
+			_quad(st, corners, normal)
+	for i in outline.size():
+		var a := outline[i]
+		var b := outline[(i + 1) % outline.size()]
+		var normal := Vector3(b.y - a.y, 0, a.x - b.x).normalized()
+		_quad(st, [at + Vector3(a.x,low,a.y),at + Vector3(b.x,low,b.y),at + Vector3(b.x,high,b.y),at + Vector3(a.x,high,a.y)], normal)
+
+
+func _rounded_rectangle(at: Vector2, size: Vector2, radius: float) -> PackedVector2Array:
+	var out := PackedVector2Array()
+	for spec in [[at + Vector2(radius,radius),PI],[at + Vector2(size.x-radius,radius),-PI/2],[at + size - Vector2(radius,radius),0.0],[at + Vector2(radius,size.y-radius),PI/2]]:
+		for i in 5:
+			var angle: float = spec[1] + PI / 2 * i / 4
+			out.append(spec[0] + Vector2(cos(angle),sin(angle)) * radius)
+	return out
+
+
+func _smooth(points: PackedVector3Array, radius := .025) -> PackedVector3Array:
+	var out := PackedVector3Array([points[0]])
+	for i in range(1, points.size() - 1):
+		var p := points[i]
+		var a := p.move_toward(points[i - 1], minf(radius,p.distance_to(points[i - 1]) * .35))
+		var b := p.move_toward(points[i + 1], minf(radius,p.distance_to(points[i + 1]) * .35))
+		out.append(a)
+		for j in range(1, 5):
+			var t: float = float(j) / 4
+			out.append(a * pow(1-t,2) + p * 2*t*(1-t) + b * t*t)
+	out.append(points[-1])
+	return out
+
+
+func _tube(st: SurfaceTool, path: PackedVector3Array, radius: float, sides: int, flatten := 1.0) -> void:
+	var rings := []
+	for i in path.size():
+		var tangent := (path[min(i+1,path.size()-1)] - path[maxi(i-1,0)]).normalized()
+		var u := tangent.cross(Vector3.UP).normalized()
+		if u.length_squared() < .5:
+			u = tangent.cross(Vector3.FORWARD).normalized()
+		var v := u.cross(tangent).normalized()
+		var ring := PackedVector3Array()
+		for j in sides:
+			var angle: float = TAU * j / sides
+			ring.append(path[i] + (u * cos(angle) + v * sin(angle) * flatten) * radius)
+		rings.append(ring)
+	for i in range(path.size() - 1):
+		for j in sides:
+			var k: int = (j + 1) % sides
+			var n: Vector3 = ((rings[i][j] + rings[i][k]) / 2 - path[i]).normalized()
+			_quad(st, [rings[i][j],rings[i][k],rings[i+1][k],rings[i+1][j]], n)
+	for index in [0,path.size()-1]:
+		var n := (path[0]-path[1]).normalized() if index == 0 else (path[-1]-path[-2]).normalized()
+		for j in sides:
+			_quad(st, [path[index],rings[index][j],rings[index][(j+1)%sides]],n)
+
+
+func _lower_exit(room, b: Array, middle: float, width: float, grey: Material, white: Material) -> void:
+	# Feldman wall-plane fit (54s): casing top 2.535m above oak, ±.25m.
+	var head := 2.40
+	var header: StaticBody3D = room.solid(Vector3(middle,(-LOWER+head)/2,b[2]),Vector3(width,-LOWER-head,.12),grey,true)
+	header.set_meta("room_wall",ROOM+":north:header")
+	room.door_casing(header,"north",b[2],[middle-width/2,middle+width/2],head,.10)
+	header.set_meta("source_casing_width",.10)
+	header.position.y += LOWER
+	# Closed 0.95m doorway study; the footage does not establish a destination
+	# or a route beyond it. Folded fire-door leaves have their own hinges.
+	var back: Node3D = room.solid(Vector3(middle,LOWER+head/2,b[2]-.95),Vector3(width,head,.04),room.look(Color("262325")))
+	back.reparent(header)
+	var sill: Node3D = room.solid(Vector3(middle,LOWER+.004,b[2]-.475),Vector3(width,.008,.95),room.look(Color("605f55")))
+	sill.reparent(header)
+	var metal: Material = room.look(Color("303032"))
+	for side in [-1,1]:
+		var leaf := Node3D.new()
+		room.add_child(leaf)
+		leaf.position = Vector3(middle+side*(width/2-.03),LOWER,b[2]-.06)
+		leaf.rotation.y = -side*deg_to_rad(65)
 		leaf.reparent(header)
-		for level in [.42, 1.30, 1.91]:
-			var panel: Node3D = room.solid(Vector3(middle + side * (width / 2 - .04), LOWER + level, b[2] - .29), Vector3(.024, .30 if level != 1.30 else .63, .39), room.look(Color("d6d6d0")))
-			panel.reparent(header)
-		var push: Node3D = room.solid(Vector3(middle + side * (width / 2 - .02), LOWER + 1.02, b[2] - .29), Vector3(.025, .035, .43), room.look(Color("303032")))
-		push.reparent(header)
-	var sign: Node3D = room.solid(Vector3(middle, LOWER + 2.50, b[2] + .075), Vector3(.42, .20, .018), room.look(Color.WHITE, "res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg"))
+		var x: float = -side*(width/2-.04)/2
+		var door: Node3D = room.solid(Vector3.ZERO,Vector3(width/2-.04,head-.04,.055),white)
+		door.reparent(leaf,false)
+		door.position = Vector3(x,(head-.04)/2,0)
+		for face in [-1,1]:
+			for panel in [[.36,.48],[1.56,1.43]]:
+				var inset: Node3D = room.solid(Vector3.ZERO,Vector3(width/2-.22,panel[1],.012),room.look(Color("dadad3")))
+				inset.reparent(leaf,false)
+				inset.position = Vector3(x,panel[0],face*.034)
+				for edge in [-1,1]:
+					var stile: Node3D = room.solid(Vector3.ZERO,Vector3(.018,panel[1]+.025,.012),white)
+					stile.reparent(leaf,false)
+					stile.position = Vector3(x+edge*(width/2-.22)/2,panel[0],face*.044)
+					var rail: Node3D = room.solid(Vector3.ZERO,Vector3(width/2-.20,.018,.012),white)
+					rail.reparent(leaf,false)
+					rail.position = Vector3(x,panel[0]+edge*panel[1]/2,face*.044)
+			var push: Node3D = room.solid(Vector3.ZERO,Vector3(width/2-.16,.038,.038),metal)
+			push.reparent(leaf,false)
+			push.position = Vector3(x,1.00,face*.077)
+		for y in [.27,1.17,2.08]:
+			var hinge: Node3D = room.solid(Vector3.ZERO,Vector3(.05,.10,.07),metal)
+			hinge.reparent(leaf,false)
+			hinge.position = Vector3(0,y,0)
+	var sign: Node3D = room.solid(Vector3(middle,LOWER+2.68,b[2]+.075),Vector3(.42,.20,.018),room.look(Color.WHITE,"res://modules/shell/prototype/gallery_walk4/textures/exit-sign.svg"))
 	sign.reparent(header)
-	header.set_meta("skylight_lower_exit", true)
+	header.set_meta("skylight_lower_exit",true)
 
 
 func _entry_floor(room) -> void:
@@ -253,8 +539,7 @@ func _entry_floor(room) -> void:
 
 
 # Lift 4: cream doors in a purple reveal under the strip that names the room (IMG_6379 8.0..9.4s).
-# A closed wall feature, as lift 5 is in the connector. ponytail: it stands on the lower floor in
-# the footage, in the south wall west of the landing; here it is at the door's level.
+# A closed wall feature, as lift 5 is in the connector, on the lower floor west of the landing.
 func _lift(room, b: Array, white: Material) -> void:
 	var at: Vector3 = room.wall_point(ROOM, "south", 1.55, LOWER, 0)
 	var wall: Node3D = room.wall_body(ROOM, "south", at)
@@ -278,23 +563,115 @@ func _lift(room, b: Array, white: Material) -> void:
 
 
 # Black grand piano with its bench in the north-west corner, keyboard to the west wall, lid shut
-# (IMG_6379 3.0/13.5/132.0s). ponytail: maker unread; 1.75 x 1.48 m is a parlour grand by eye.
+# (IMG_6379 3.0/13.5/132.0s). Maker unread; 1.75 x 1.48 m is provisional.
 func _piano(room, b: Array) -> void:
 	var black: StandardMaterial3D = room.look(Color("121214"))
-	black.roughness = .35
+	black.roughness = .27
+	black.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
 	var at := Vector3(b[0] + .85, LOWER, b[2] + .35)  # keyboard end, spine side
-	var body: Node3D = room.solid(at + Vector3(.45, .79, .74), Vector3(.9, .38, 1.48), black, true)
+	var outline := PackedVector2Array([Vector2(.20,0),Vector2(1.35,0)])
+	for curve in [
+		[Vector2(1.35,0),Vector2(1.79,0),Vector2(1.91,.53),Vector2(1.58,.78)],
+		[Vector2(1.58,.78),Vector2(1.36,.94),Vector2(1.04,.78),Vector2(.83,1.02)],
+		[Vector2(.83,1.02),Vector2(.65,1.20),Vector2(.69,1.48),Vector2(.38,1.48)],
+	]:
+		for i in range(1,13):
+			var t: float = float(i)/12
+			outline.append(curve[0]*pow(1-t,3)+curve[1]*3*t*pow(1-t,2)+curve[2]*3*t*t*(1-t)+curve[3]*t*t*t)
+	outline.append(Vector2(.20,1.48))
+	# One conservative invisible collider; the visible rim is the closed curved
+	# outline, with a separate overhanging lid, cheek blocks and open key bed.
+	var center := Vector3(.875,.77,.74)
+	var body: StaticBody3D = room.solid(at + center, Vector3(1.75,.42,1.48), black, true)
 	body.set_meta("skylight_piano", true)
-	var tail: Node3D = room.solid(at + Vector3(1.325, .79, .5), Vector3(.85, .38, 1.0), black, true)
-	tail.set_meta("skylight_piano", true)
-	for part in [[Vector3(-.07, .70, .74), Vector3(.14, .03, 1.22), room.look(Color("f1efe8"))], [Vector3(-.08, .665, .74), Vector3(.18, .04, 1.4), black],
-			[Vector3(.1, .30, .1), Vector3(.09, .60, .09), black], [Vector3(.1, .30, 1.38), Vector3(.09, .60, .09), black], [Vector3(1.6, .30, .5), Vector3(.09, .60, .09), black],
-			[Vector3(.12, .28, .74), Vector3(.06, .44, .26), black], [Vector3(.9, 1.06, .6), Vector3(.02, .16, .1), black]]:
-		var piece: Node3D = room.solid(at + part[0], part[1], part[2])
-		piece.reparent(body)
-	var bench: Node3D = room.solid(at + Vector3(-.42, .47, .74), Vector3(.38, .08, .8), black, true)
+	var rim := _surface()
+	_prism(rim,outline,.58,.94)
+	var visible := body.get_child(1) as MeshInstance3D
+	visible.mesh = rim.commit()
+	visible.position = -center
+	var piano := _surface()
+	_prism(piano,outline,.953,.976,at)
+	_prism(piano,_rounded_rectangle(Vector2(-.17,.02),Vector2(.41,1.44),.018),.648,.685,at)
+	for z in [.0,1.36]:
+		_prism(piano,_rounded_rectangle(Vector2(-.08,z),Vector2(.32,.12),.022),.68,.94,at)
+	_prism(piano,_rounded_rectangle(Vector2(.133,.12),Vector2(.045,1.24),.008),.705,.947,at)
+	# Distinct long-lid seam, hinge knuckles and a low music rack. No maker
+	# name / invented lettering is added; the object is identified by its form.
+	var metal := _surface()
+	for x in [.38,.86,1.30]:
+		_tube(metal,PackedVector3Array([at+Vector3(x-.025,.96,.004),at+Vector3(x+.025,.96,.004)]),.007,8)
+	var seam := PackedVector3Array([at+Vector3(.37,.98,.02),at+Vector3(.37,.98,1.43)])
+	_tube(piano,seam,.0035,6)
+	_prism(piano,_rounded_rectangle(Vector2(.38,.32),Vector2(.22,.84),.012),.978,.992,at)
+	for z in [.36,1.12]:
+		_tube(piano,PackedVector3Array([at+Vector3(.40,.996,z),at+Vector3(.59,.996,z)]),.008,6)
+	_tube(piano,PackedVector3Array([at+Vector3(.59,.996,.36),at+Vector3(.59,.996,1.12)]),.008,6)
+	for z in [.48,.64,.80,.96]:
+		_tube(piano,PackedVector3Array([at+Vector3(.40,.996,z),at+Vector3(.59,.996,z)]),.005,6)
+	var card: Node3D = room.solid(at+Vector3(.90,1.045,.60),Vector3(.012,.14,.095),black)
+	card.reparent(body)  # The small lid card at 13.5s; its illegible wording is omitted.
+	# 52 ivory and 36 black keys; A to C, with the real two / three grouping.
+	var ivory := _surface()
+	var key_pitch := 1.20/52
+	for i in 52:
+		var z: float = .14+i*key_pitch
+		_prism(ivory,_rounded_rectangle(Vector2(-.13,z),Vector2(.25,key_pitch-.0012),.001),.686,.710,at)
+		if i < 51 and i%7 in [0,2,3,5,6]:
+			_prism(piano,_rounded_rectangle(Vector2(-.015,z+key_pitch-.0065),Vector2(.12,.013),.0015),.711,.738,at)
+	# Three tapered turned legs, caster forks / wheels and the pedal lyre.
+	for p in [Vector2(.26,.13),Vector2(.26,1.34),Vector2(1.50,.27)]:
+		_turned(piano,at+Vector3(p.x,0,p.y),[[.08,.030],[.16,.040],[.22,.038],[.27,.060],[.30,.060],[.33,.044],[.55,.065],[.58,.090],[.62,.090]],10)
+		_tube(metal,PackedVector3Array([at+Vector3(p.x,.045,p.y),at+Vector3(p.x,.105,p.y)]),.015,8)
+		_tube(piano,PackedVector3Array([at+Vector3(p.x,.041,p.y-.022),at+Vector3(p.x,.041,p.y+.022)]),.034,10)
+	for z in [.59,.89]:
+		_tube(piano,PackedVector3Array([at+Vector3(.30,.13,z),at+Vector3(.24,.61,z)]),.018,8)
+	_prism(piano,_rounded_rectangle(Vector2(.16,.55),Vector2(.23,.38),.035),.12,.18,at)
+	for z in [.62,.74,.86]:
+		_prism(metal,_rounded_rectangle(Vector2(-.045,z-.016),Vector2(.25,.032),.015),.082,.097,at)
+	_mesh(room,piano,black,"skylight_piano_details").reparent(body)
+	_mesh(room,ivory,room.look(Color("f2eee0")),"skylight_piano_keys").reparent(body)
+	var brass: StandardMaterial3D = room.look(Color("796746"))
+	brass.metallic = .70
+	brass.roughness = .35
+	brass.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	_mesh(room,metal,brass,"skylight_piano_hardware").reparent(body)
+	var bench: StaticBody3D = room.solid(at + Vector3(-.48,.47,.74),Vector3(.38,.08,.80),black,true)
 	bench.set_meta("skylight_piano_bench", true)
+	var leather: StandardMaterial3D = black.duplicate()
+	leather.roughness = .70
+	var cushion := _surface()
+	_prism(cushion,_rounded_rectangle(Vector2(-.67,.34),Vector2(.38,.80),.035),.45,.51,at)
+	var top := bench.get_child(1) as MeshInstance3D
+	top.mesh = cushion.commit()
+	top.position = -Vector3(-.48,.47,.74)
+	top.material_override = leather
+	var stool := _surface()
+	_prism(stool,_rounded_rectangle(Vector2(-.66,.35),Vector2(.36,.78),.025),.410,.45,at)
 	for x in [-.14, .14]:
 		for z in [-.34, .34]:
-			var leg: Node3D = room.solid(at + Vector3(-.42 + x, .215, .74 + z), Vector3(.05, .43, .05), black)
-			leg.reparent(bench)
+			_turned(stool,at+Vector3(-.48+x,0,.74+z),[[.025,.021],[.08,.027],[.14,.026],[.20,.034],[.25,.029],[.40,.040],[.43,.045]],8)
+	for x in [-.56,-.40]:
+		for z in [.49,.66,.83,1.0]:
+			_tube(stool,PackedVector3Array([at+Vector3(x,.509,z),at+Vector3(x,.511,z)]),.006,6)
+	var piping := PackedVector3Array()
+	for p in _rounded_rectangle(Vector2(-.671,.339),Vector2(.382,.802),.036):
+		piping.append(at+Vector3(p.x,.484,p.y))
+	piping.append(piping[0])
+	_tube(stool,piping,.004,6)
+	_mesh(room,stool,black,"skylight_piano_bench_details").reparent(bench)
+
+
+func _turned(st: SurfaceTool, at: Vector3, profile: Array, sides: int) -> void:
+	for i in range(profile.size()-1):
+		var a: Array = profile[i]
+		var b: Array = profile[i+1]
+		for j in sides:
+			var aa: float = TAU*j/sides
+			var bb: float = TAU*(j+1)/sides
+			var normal := Vector3(cos((aa+bb)/2),(float(a[1])-float(b[1]))/(float(b[0])-float(a[0])),sin((aa+bb)/2)).normalized()
+			_quad(st,[at+Vector3(cos(aa)*a[1],a[0],sin(aa)*a[1]),at+Vector3(cos(bb)*a[1],a[0],sin(bb)*a[1]),at+Vector3(cos(bb)*b[1],b[0],sin(bb)*b[1]),at+Vector3(cos(aa)*b[1],b[0],sin(aa)*b[1])],normal)
+	for row in [profile[0],profile[-1]]:
+		for j in sides:
+			var aa: float = TAU*j/sides
+			var bb: float = TAU*(j+1)/sides
+			_quad(st,[at+Vector3(0,row[0],0),at+Vector3(cos(aa)*row[1],row[0],sin(aa)*row[1]),at+Vector3(cos(bb)*row[1],row[0],sin(bb)*row[1])],Vector3.DOWN if row==profile[0] else Vector3.UP)
