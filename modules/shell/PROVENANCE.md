@@ -1151,3 +1151,26 @@ Reused textures (existing provider/generation record retained; zero new spend):
 Room geometry is locally authored GDScript in `impressionist_additions.gd`: six-sided plinth/clear hood, rounded upholstered bench, panelled leaves, sash windows/roller shades/aprons, grilles and detector. Plain/procedural materials and the existing white trim/wood kit are reused; no new raster generation. Borrowed gilt frame textures are fitted to approximate filmed outer dimensions; fine ornament fidelity is unaccepted. Lamps and the bake remain #274/orchestrator work.
 
 Review-only fitted-plan diagram: source `docs/evidence/impressionist-277/fitted_plan.py` (SHA-256 `a4b1d724e61effb39b521aa0a9ca86a73ee27011d59395417da34feb581f71e4`), input the prepared `geometry.json`, output `docs/evidence/impressionist-277/fitted-plan.jpg` (SHA-256 `844fee359b3274309aa94687b5211bd1e28b64d2ec7f5d3eb7c42065e12e7bad`). Provider: local Python/Pillow; model: none; cost: USD0; no paid request. It is excluded from runtime exports and makes no calibrated-plan claim.
+
+## Twelve Impressionist catalogue photographs — #277, 8 October 2026
+
+Provider: **RISD Museum** (its public catalogue, Picturepark downloads and Micrio IIIF viewer). Paid requests: **0**; cost: **USD 0**. Twelve museum photographs, visually matched to the owner’s SDR `IMG_6343` footage; no footage pixels become art, no generation or enlargement. Selected source JPEGs and native IIIF metadata remain outside git under `~/risd-godot-ingestion/catalogue-masters/impressionist-277/`.
+
+The complete source URLs, original/source pixel dimensions, source SHA-256, crops, and each of 36 output paths/pixel dimensions/SHA-256 are recorded in [`catalogue.json`](../../image-work/collection-room-remodel/additions/impressionist/catalogue.json). [`prepare_images.py`](../../image-work/collection-room-remodel/additions/impressionist/prepare_images.py) checks source hashes and recreates downsampled JPEGs without upscaling. Museum page text is retained in `docs/evidence/impressionist-images/catalogue-pages/`; records use exact maker links and tombstone title/date/medium/dimensions/credit. Bracquemond is oil on panel and retains the two printed titles.
+
+| Accession | Source photo | Wall | Fitted preview | External zoom |
+| --- | --- | --- | --- | --- |
+| 42.190 | 3535 × 2890 | 256 × 209 | 896 × 733 | 3535 × 2890 |
+| 2007.68 | 2900 × 3505 | 212 × 256 | 741 × 896 | 2900 × 3505 |
+| 57.236 | 4320 × 2821 | 384 × 251 | 896 × 585 | 4320 × 2821 |
+| 59.027 | 2260 × 3000 | 337 × 448 | 675 × 896 | 2260 × 3000 |
+| 23.072 | 2010 × 2712 | 190 × 256 | 664 × 896 | 2010 × 2712 |
+| 72.096 | 3665 × 3063 | 384 × 321 | 896 × 749 | 3665 × 3063 |
+| 1999.3 | 2859 × 3457 | 265 × 320 | 741 × 896 | 2859 × 3457 |
+| 33.053 | 3420 × 2772 | 384 × 311 | 896 × 726 | 3420 × 2772 |
+| 2021.101 | 3076 × 4320 | 137 × 192 | 638 × 896 | 3076 × 4320 |
+| 2010.57 | 3155 × 3786 | 267 × 320 | 747 × 896 | 3155 × 3786 |
+| 35.770 | 3000 × 2428 | 256 × 205 | 896 × 719 | 2922 × 2344 |
+| 60.095 | 3350 × 4007 | 266 × 320 | 745 × 896 | 3198 × 3847 |
+
+Packed copies: lossy Godot import at quality .8, mipmaps enabled, 2110686 imported bytes. External zooms: 33013634 bytes, under the Godot-ignored `modules/shell/assets/impressionist/zoom/`, copied beside the pack to `museum-images/` and fetched only on opening. Van Gogh and Cassatt have the documented native edge crops; all other photographs use the complete source. No ICC profiles or colour edits. Room frames continue to reuse existing frame textures; exact carving/finish and final baked light remain unaccepted. Measurements and verification are in [`image notes`](../../docs/evidence/impressionist-images/NOTES.md).

@@ -1,0 +1,89 @@
+# Twelve Impressionist catalogue paintings — #277
+
+Started 8 October 2026 at 20:52 UTC on `feat/impressionist-images-277`, baseline `1757c29c`. Work alone in the assigned worktree. No paid services, generation, bake or installation. The museum's own catalogue photographs are the only permitted new artwork sources. Masters remain outside git in `~/risd-godot-ingestion/catalogue-masters/`.
+
+## Measurements and plan, before implementation
+
+Adopt the fitted placements in `docs/evidence/impressionist-277/WORKS-NEEDED.md`; their metre positions are **INFERRED**, not a fresh calibrated survey. `along` starts at the north end of east/west walls and west end of north/south walls. Position error: ±.5 m on end walls, ±.8 m on long walls. Canvas-centre height error: ±.15 m (Manet ±.10 m). Canvas dimensions are catalogue values; frame extents are film estimates. Reference is ordinary SDR `IMG_6343.MOV`, never a runtime texture.
+
+| Accession | Gallery / wall | along / centre height, m | Canvas width × height, m | Estimated frame width × height, m | IMG_6343 seconds |
+| --- | --- | --- | --- | --- | --- |
+| 42.190 | A north | 4.95 / 1.62 | .460 × .378 | .64 × .55 ±.06 | 129, 131, 137 |
+| 2007.68 | A north | 2.80 / 1.65 | .454 × .635 | .68 × .87 ±.10 | 137.8–140 |
+| 57.236 | A west | 5.40 / 1.65 | .737 × .481 | .99 × .73 ±.08 | 103–105 |
+| 59.027 | A south | 2.25 / 1.59 | 1.140 × 1.502 | 1.47 × 1.83 ±.10 | 115, 117, 145, 147 |
+| 23.072 | A east | 5.20 / 1.64 | .464 × .629 | .70 × .87 ±.08 | 121–125, 143 |
+| 72.096 | B west | 5.15 / 1.64 | .656 × .543 | .94 × .82 ±.08 | 178–182 |
+| 1999.3 | B west | 7.95 / 1.64 | .546 × .648 | .74 × .85 ±.07 | 185–188 |
+| 33.053 | B south | 1.15 / 1.65 | .810 × .654 | .97 × .81 ±.08 | 190–192, 214 |
+| 2021.101 | B east | .93 / 1.64 | .235 × .330 | .37 × .47 ±.05 | 200–203 |
+| 2010.57 | B east | 2.36 / 1.65 | .499 × .600 | .71 × .81 ±.07 | 205–207 |
+| 35.770 | B east | 3.78 / 1.65 | .421 × .340 | .66 × .58 ±.07 | 210–212 |
+| 60.095 | B east | 6.80 / 1.65 | .521 × .610 | .77 × .86 ±.07 | 216, 220–223 |
+
+1. Read #278 and the image guard; fetch catalogue pages and photographs sequentially with pauses. Record source URLs, dimensions and SHA-256. Resize downward only for wall and fitted preview copies, using lossy imports at quality .8 with mipmaps. Keep external zoom JPEGs ignored by Godot and exported beside the pack. Push this image checkpoint.
+2. Add these works to `impressionist_additions.gd` using the existing `painting_asset.gd` builder and its optional measured moulding widths; inspect film colours and use existing frame assets. Add blank cards, no typed game text. Push the hanging checkpoint.
+3. Register exact catalogue text and representation/image records. Run both Python guards and the repository checks. Push the registration checkpoint.
+4. Rebuild only with `--draft`, inspect every wall against the footage, and commit one JPEG sheet per gallery below 300 KB plus smaller progress pictures below 150 KB. Record measured imported texture growth against the supplied approximately 218 MB pack / 260 MB limit. Actual export size and baked lighting remain the orchestrator's checks.
+
+## Census and scope
+
+This fills the bare painting walls in the rooms already supplied for census §8 finding 4 and §15 findings 1–3. The existing connected rooms, passage, windows and furniture are outside this image job. No doorway, room bounds, route trials, casings, deep reveals, skirtings, cornices, lamps, character or frozen module files will be changed. The bronze **23.315** is excluded: its six-sided case stays empty pending a mesh.
+
+`scripts/rebuild_rooms.sh` explicitly says `objects.json` and `representation.json` are authored and excludes them from generated-room installation. Those two records and their image detail inputs are required by this job; generated scenes/lightmaps/assets will not be edited or committed here.
+
+The supplied integration tree has stale installed rooms. Expected `REPRESENTATION_CHECK` mismatches do not stop a source-only push under the owner's explicit instruction. Exact baseline lines will be recorded once after the first check; no check will be weakened or called green if it fails.
+
+## Baseline after editor import
+
+`timeout 720 godot --headless --editor --import --path .` completed. The subsequent `scripts/check.sh` has no `ERROR` or `SCRIPT ERROR`; both Python guards pass (43 works / 129 images / zero image failures). It exits 1 at the installed-scene representation gate and does not print `checks passed`. These **16 existing failure lines**, recorded once below, are the integration tree’s stale installations/registrations, not edits from this job:
+
+```text
+st-george (Rockefeller) is in the build and not declared
+flute-player (Rockefeller) is in the build and not declared
+hudibras (Rockefeller) is in the build and not declared
+recamier (Rockefeller) is in the build and not declared
+2017.46 is declared as mesh but no place_mesh() put it there
+2000.103.3 is declared as mesh but no place_mesh() put it there
+06.057 is declared as mesh but no place_mesh() put it there
+83.152 is declared as mesh but no place_mesh() put it there
+2017.74.16 is declared and not in the build
+2017.74.17 is declared and not in the build
+37.201 is declared and not in the build
+2017.74.14 is declared and not in the build
+1998.107 is declared and not in the build
+41.012 is declared and not in the build
+42.219 is declared and not in the build
+44.541 is declared and not in the build
+```
+
+No doorways or route trials have changed. The first official `--draft` is waiting on the shared host lock. The initial notes were created before any artwork or geometry changes. Disk at preflight: 116 GB free on Linux, 22 GB on C:.
+
+## Catalogue photograph checkpoint
+
+**VERIFIED:** all twelve page responses were HTTP 200 through `~/.local/share/uv/tools/scrapling/bin/python` and `scrapling.fetchers.Fetcher.get`. Requests ran sequentially with two-second pauses. Catalogue pages are retained compressed beside these notes. Ten selected photographs use the museum’s Micrio IIIF service; Manet 59.027 and van Gogh 35.770 use the High-resolution JPEG link in the museum’s download dialog. Van Gogh’s first Micrio `QjAbU/info.json` returned 404, so the public catalogue download route was used; the missing endpoint was not retried. No catalogue painting was unavailable. All selected photos are marked public on their museum pages.
+
+**VERIFIED:** every photograph was visually matched against its filmed work. No video pixels, upscales, generated pictures, new paid calls or colour changes are in the art assets. Selected downloaded JPEGs/IIIF native metadata remain outside git at `~/risd-godot-ingestion/catalogue-masters/impressionist-277/`. No file contains an embedded ICC profile. Van Gogh’s grey photographic backdrop is removed with crop `[47,40,2969,2384]`; Cassatt’s outer canvas edge is removed with `[72,96,3270,3943]` (native source coordinates, visual edge-picking uncertainty ±8 px). Other photos use the complete rectangle. The museum source bytes remain unchanged.
+
+| Accession | Source photo | Wall | Fitted preview | External zoom |
+| --- | --- | --- | --- | --- |
+| 42.190 | 3535 × 2890 | 256 × 209 | 896 × 733 | 3535 × 2890 |
+| 2007.68 | 2900 × 3505 | 212 × 256 | 741 × 896 | 2900 × 3505 |
+| 57.236 | 4320 × 2821 | 384 × 251 | 896 × 585 | 4320 × 2821 |
+| 59.027 | 2260 × 3000 | 337 × 448 | 675 × 896 | 2260 × 3000 |
+| 23.072 | 2010 × 2712 | 190 × 256 | 664 × 896 | 2010 × 2712 |
+| 72.096 | 3665 × 3063 | 384 × 321 | 896 × 749 | 3665 × 3063 |
+| 1999.3 | 2859 × 3457 | 265 × 320 | 741 × 896 | 2859 × 3457 |
+| 33.053 | 3420 × 2772 | 384 × 311 | 896 × 726 | 3420 × 2772 |
+| 2021.101 | 3076 × 4320 | 137 × 192 | 638 × 896 | 3076 × 4320 |
+| 2010.57 | 3155 × 3786 | 267 × 320 | 747 × 896 | 3155 × 3786 |
+| 35.770 | 3000 × 2428 | 256 × 205 | 896 × 719 | 2922 × 2344 |
+| 60.095 | 3350 × 4007 | 266 × 320 | 745 × 896 | 3198 × 3847 |
+
+Every source URL, source size, source SHA-256, crop and derivative size/hash is in `image-work/collection-room-remodel/additions/impressionist/catalogue.json`; `prepare_images.py` reproduces derivatives from hash-checked local originals, with assertions against upscaling. Wall and preview imports use `compress/mode=1`, `compress/lossy_quality=0.8`, `mipmaps/generate=true`. These packed images live in `modules/shell/assets/impressionist/`, so their authored imports survive the later generated-room installation.
+
+Full zooms live under `modules/shell/assets/impressionist/zoom/.gdignore`; this avoids editing the prohibited `gallery_walk4/` folder. The one new `scripts/export-web.sh` copy line places them in `museum-images/` beside the pack. The existing catalogue zoom adapter resolves paths by accession and fetches by basename only when opened. **VERIFIED:** 24 imported wall/preview textures total **2110686 bytes (2.013 MiB)**; 12 external JPEGs total **33013634 bytes (31.484 MiB)**. **INFERRED:** the supplied approximately 218 MB pack grows by roughly 2 MB plus small script/record/geometry overhead, well inside 260 MB. Actual exported bytes remain unmeasured here.
+
+Outside the additions file, this checkpoint changes only the new photograph assets/imports, their preparation/metadata, Shell provenance, the export copy line, and a five-line **named Impressionist image block** in `prepare_remodel.py` that copies packed images and imports to their same module paths in the draft. It does not change room bounds, openings, floor patches or trials. The baseline draft printed `ARCHITECTURE_CHECK failures=[]` with 31 cased sides.
+
+The two `0-gallery-*-before.jpg` pictures (68,298 / 64,361 bytes) show footage beside the four-work baseline draft. **VERIFIED in the pictures:** A has a bare Manet end wall and empty dancer case; B has only the existing end-wall Monet. The larger geometry views use the documented review-only .55 ambient; the insets use the unbaked game camera. No lighting acceptance is implied. This baseline capture also samples all 40 existing reciprocal Impressionist/modern-door trials and reports zero failures; no trial changed.
