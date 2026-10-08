@@ -10,7 +10,11 @@ func run() -> void:
 	for i in 150:
 		await process_frame
 	var walk = app.find_child("GalleryWalk", true, false)
-	assert(walk != null and walk.state().attached)
+	assert(walk != null)
+	# The rooms are built at the first doorway (#281); this check wants them now.
+	if walk.state().get("pending", false):
+		walk._attach_rooms(walk._rooms_path)
+	assert(walk.state().attached)
 	walk.set_process(false)
 	var failures: Array = []
 	var leaves := 0
@@ -56,13 +60,29 @@ func run() -> void:
 		walk._update_camera(1.0)
 		if walk._baked_room.get_node("Lightmap").visible == fixture[2] or walk._rooms.get_node("BakedRoom/Lightmap").visible != fixture[2] or walk._white_capture.visible:
 			failures.append("Visitor must use only its room's probe field")
-	if (walk._cam.cull_mask & 1) == 0:
-		failures.append("Grey camera cannot see the Hall")
+	# One stage is drawn at a time (#260). From the grey gallery: none of the Hall's layers, and
+	# nothing that stands in another stage.
+	if (walk._cam.cull_mask & 63) != 0:
+		failures.append("Grey camera draws the Hall")
+	if (walk._cam.cull_mask & walk.FAR_LAYER) == 0:
+		failures.append("Grey camera does not draw its own rooms")
+	var strangers := 0
+	var own := 0
+	for part in walk._parts:
+		if walk._stage_ids[part.room] != walk._stage:
+			strangers += int(part.node.visible)
+		else:
+			own += int(part.node.visible)
+	if strangers != 0 or own == 0:
+		failures.append("Grey camera draws %d parts of other stages and %d of its own" % [strangers, own])
 	walk._pos = Vector3(0, 0, -24.5)
 	walk._space = "gallery"
 	walk._update_camera(1.0)
-	if (walk._cam.cull_mask & walk.FAR_LAYER) == 0:
-		failures.append("Hall camera cannot see the grey gallery")
+	# From the Hall: no added room at all.
+	if (walk._cam.cull_mask & (walk.NEAR_LAYER | walk.FAR_LAYER)) != 0:
+		failures.append("Hall camera draws an added room")
+	if (walk._cam.cull_mask & 1) == 0:
+		failures.append("Hall camera does not draw the Hall")
 	for room in walk._plan:
 		if not room.far:
 			continue
@@ -71,8 +91,10 @@ func run() -> void:
 		walk._pos = Vector3((room.b[0] + room.b[1]) / 2, 0, (room.b[2] + room.b[3]) / 2)
 		walk._cutaway_alpha[8] = 0.0 # Reproduce an earlier north-facing Hall cutaway.
 		walk._update_camera(1.0)
-		if (walk._cam.cull_mask & 1) == 0 or walk._cutaway_alpha[8] != 1.0:
-			failures.append("Far room loses the Hall or leaves its end wall faded: " + room.label)
+		if (walk._cam.cull_mask & 63) != 0:
+			failures.append("Far room draws the Hall: " + room.label)
+		if walk._cutaway_alpha[8] != 1.0:
+			failures.append("Far room leaves the Hall's end wall faded: " + room.label)
 		for entry in walk._cutaway_materials.get(8, []):
 			if entry.mesh.material_override != entry.original:
 				failures.append("Hall end wall still uses its faded material")

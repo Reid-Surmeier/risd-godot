@@ -44,7 +44,7 @@ func _mesh(build: Callable, m: Material) -> void:
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
 	build.call(st)
 	var mi := MeshInstance3D.new()
-	mi.mesh = st.commit()
+	mi.mesh = load("res://modules/shell/prototype/gallery_walk4/cpu_geometry.gd").commit(st)
 	mi.material_override = m
 	add_child(mi)
 

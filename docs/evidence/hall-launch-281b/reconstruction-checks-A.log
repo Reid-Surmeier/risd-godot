@@ -1,0 +1,5 @@
+click_route_check (A)
+CLICK_ROUTE_CHECK {"failures":["floor-pick-grey-hall"],"tests":16}
+ERROR: Parameter "lightmap" is null.
+main_build_check (A)
+MAIN_BUILD_CHECK {"failures":["Grey camera cannot see the Hall","Hall camera cannot see the grey gallery","Far room loses the Hall or leaves its end wall faded: Rockefeller","Far room loses the Hall or leaves its end wall faded: purple elevator-5 connector","Far room loses the Hall or leaves its end wall faded: grey French gallery","Far room loses the Hall or leaves its end wall faded: marble stair hall","Far room loses the Hall or leaves its end wall faded: Skylight Gallery","Far room loses the Hall or leaves its end wall faded: Grand Gallery reveal threshold","Far room loses the Hall or leaves its end wall faded: Rockefeller reveal threshold","Far room loses the Hall or leaves its end wall faded: Skylight Gallery reveal threshold"],"probes":430,"removed_demo_triangles":1298}

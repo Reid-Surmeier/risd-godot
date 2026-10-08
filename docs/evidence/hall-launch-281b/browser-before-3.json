@@ -1,0 +1,228 @@
+{
+  "phase": "before",
+  "run": 3,
+  "url": "https://windows-wsl.taile06c45.ts.net/museum-latest-75d82bf6/abf88585.html?qa-crt=1",
+  "renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "marks": [
+    {
+      "name": "downloads-done",
+      "t": 2125.600000023842
+    },
+    {
+      "name": "godot-ready",
+      "t": 3150.100000023842
+    },
+    {
+      "name": "pack-mounted",
+      "t": 3162.9000000953674
+    },
+    {
+      "name": "game-loaded",
+      "t": 3576.100000023842
+    },
+    {
+      "name": "game-instanced",
+      "t": 3741.2000000476837
+    },
+    {
+      "name": "warmup-start",
+      "t": 3741.3000000715256
+    },
+    {
+      "name": "engine-started",
+      "t": 4222.700000047684
+    },
+    {
+      "name": "launch-settled",
+      "t": 33591.200000047684
+    },
+    {
+      "name": "tab-0-start",
+      "t": 33591.200000047684
+    },
+    {
+      "name": "tab-0-selected",
+      "t": 34321.700000047684
+    },
+    {
+      "name": "tab-0-drawn",
+      "t": 34652.90000009537
+    },
+    {
+      "name": "tab-1-start",
+      "t": 34653
+    },
+    {
+      "name": "tab-1-selected",
+      "t": 35536
+    },
+    {
+      "name": "tab-1-drawn",
+      "t": 37124.300000071526
+    },
+    {
+      "name": "tab-2-start",
+      "t": 37124.40000009537
+    },
+    {
+      "name": "tab-2-selected",
+      "t": 37888.10000002384
+    },
+    {
+      "name": "tab-2-drawn",
+      "t": 38636.10000002384
+    },
+    {
+      "name": "tab-3-start",
+      "t": 38636.200000047684
+    },
+    {
+      "name": "tab-3-selected",
+      "t": 38854.800000071526
+    },
+    {
+      "name": "tab-3-drawn",
+      "t": 39087.40000009537
+    },
+    {
+      "name": "tab-5-start",
+      "t": 39087.5
+    },
+    {
+      "name": "tab-5-selected",
+      "t": 39396.300000071526
+    },
+    {
+      "name": "tab-5-drawn",
+      "t": 39703.60000002384
+    },
+    {
+      "name": "tab-4-start",
+      "t": 39703.800000071526
+    },
+    {
+      "name": "tab-4-selected",
+      "t": 39708
+    },
+    {
+      "name": "tab-4-drawn",
+      "t": 39953.40000009537
+    },
+    {
+      "name": "tabs-warm",
+      "t": 39953.5
+    },
+    {
+      "name": "game-shown",
+      "t": 41795.800000071526
+    }
+  ],
+  "readback_ms": 7860.441,
+  "profile_top": [
+    {
+      "name": "_godot_webgl2_glGetBufferSubData",
+      "ms": 7859.36
+    },
+    {
+      "name": "wasm-function[2238]",
+      "ms": 3012.971
+    },
+    {
+      "name": "_emscripten_glGetShaderiv",
+      "ms": 2955.473
+    },
+    {
+      "name": "_emscripten_glTexImage2D",
+      "ms": 2874.511
+    },
+    {
+      "name": "_emscripten_glGetProgramiv",
+      "ms": 2641.013
+    },
+    {
+      "name": "blitOffscreenFramebuffer",
+      "ms": 2146.714
+    },
+    {
+      "name": "(program)",
+      "ms": 1264.581
+    },
+    {
+      "name": "wasm-function[68092]",
+      "ms": 1122.761
+    },
+    {
+      "name": "wasm-function[67969]",
+      "ms": 957.404
+    },
+    {
+      "name": "(idle)",
+      "ms": 872.298
+    },
+    {
+      "name": "wasm-function[6877]",
+      "ms": 746.197
+    },
+    {
+      "name": "wasm-function[14681]",
+      "ms": 593.946
+    },
+    {
+      "name": "wasm-function[6878]",
+      "ms": 447.188
+    },
+    {
+      "name": "(anonymous)",
+      "ms": 441.234
+    },
+    {
+      "name": "wasm-function[37935]",
+      "ms": 424.766
+    }
+  ],
+  "tabs": [
+    {
+      "index": 0,
+      "key": "map",
+      "ms": 314.7999999523163,
+      "tenant": "ok"
+    },
+    {
+      "index": 1,
+      "key": "sketchbook",
+      "ms": 403.60000002384186,
+      "tenant": "ok"
+    },
+    {
+      "index": 2,
+      "key": "3d_viewer",
+      "ms": 417.6999999284744,
+      "tenant": "ok"
+    },
+    {
+      "index": 3,
+      "key": "video_player",
+      "ms": 411.10000002384186,
+      "tenant": "ok"
+    },
+    {
+      "index": 5,
+      "key": "playground",
+      "ms": 412.5,
+      "tenant": "ok"
+    },
+    {
+      "index": 6,
+      "key": "flowers",
+      "ms": 803.3999999761581,
+      "tenant": "ok"
+    },
+    {
+      "index": 4,
+      "key": "collection",
+      "ms": 285.2999999523163,
+      "tenant": "ok"
+    }
+  ],
+  "errors": []
+}

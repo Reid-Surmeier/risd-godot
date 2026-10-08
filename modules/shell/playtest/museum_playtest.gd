@@ -6,7 +6,10 @@
 ## 4 objects: every artwork is clicked with a real mouse event; the visitor must walk up,
 ##            a detail must open, and it must close again.
 ## 5 interaction: the faults a player found by playing (#280), each replayed with real
-##            pointer events: "Other wall" pressed while a work is being read.
+##            pointer events: "Other wall" pressed while a work is being read; a click on
+##            every room's walls (no walk) and in every doorway (a walk through); a click on
+##            a work whose box another work's box overlaps on screen; "Other wall" pressed
+##            while a room change is under way.
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
@@ -165,7 +168,7 @@ func _free_near(p: Vector3) -> Vector3:
 	return p
 
 
-func _place(p: Vector3) -> void:
+func _place(p: Vector3, yaw := 0.0) -> void:
 	var label := _area_at(p)
 	walk._new_action()
 	walk._target = null
@@ -178,15 +181,49 @@ func _place(p: Vector3) -> void:
 		if area.label == label:
 			walk._space = area.space
 	walk.view_mode = 0
-	walk.view_yaw = 0.0
-	walk._yaw = 0.0
+	walk.view_yaw = yaw
+	walk._yaw = yaw
 	walk._kid.position = p
 	walk._kid.reset_contacts()
+	# A room change still under way from the last leg ends here, and the stage is the one stood in.
+	if walk.has_method("_wipe_end"):
+		walk._wipe_end()
+		walk.set("_stage", walk.get("NO_STAGE"))
 	walk._update_camera(1.0)
 
 
-# Hold the keys a player would hold to reach `goal` in the north-facing dollhouse view.
-func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
+# The share of the picture that is the dark outside the rooms (or the wipe's black).
+func _void_share(image: Image) -> float:
+	var small: Image = image.duplicate()
+	small.resize(96, 64, Image.INTERPOLATE_BILINEAR)
+	var dark := 0
+	for y in 64:
+		for x in 96:
+			var c := small.get_pixel(x, y)
+			dark += int(maxf(c.r, maxf(c.g, c.b)) < 0.07)
+	return dark / 6144.0
+
+
+# One reading of the picture for the dark-share rule; stops for good once the wipe has shut,
+# because what is put up in the black is not on screen.
+func _watch_void(dark: Dictionary, clock: float) -> void:
+	if not dark.on:
+		return
+	if float(walk.get("_wipe_t")) >= float(walk.get("WIPE_CLOSE")):
+		dark.on = false
+		return
+	var share := _void_share(root.get_texture().get_image())
+	if dark.before >= 0.0 and share - dark.before > dark.jump:
+		dark.jump = share - dark.before
+		dark.at = clock
+		dark.from = dark.before
+	dark.before = share
+
+
+# Hold the keys a player would hold to reach `goal` in the dollhouse view as it is turned.
+# With `watch_void` the picture is read every other frame until the room-change wipe has shut:
+# the dark outside must grow smoothly, never in one step (a room dropped before the wipe hid it).
+func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionary:
 	var started := walk._pos as Vector3
 	var clock := 0.0
 	var stuck := 0.0
@@ -194,18 +231,26 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 	var steps := 0
 	var walked_clip := false
 	var before := walk._pos as Vector3
+	var yaw: float = walk.view_yaw
+	var dark := {"on": watch_void, "before": -1.0, "jump": 0.0, "at": 0.0, "from": 0.0}
+	var frame := 0
 	while clock < limit_s:
 		var to: Vector3 = goal - walk._pos
 		to.y = 0
 		if to.length() < 0.25:
 			break
+		var ahead := to.dot(Vector3(-sin(yaw), 0, -cos(yaw)))
+		var aside := to.dot(Vector3(cos(yaw), 0, -sin(yaw)))
 		var held := {}
-		if absf(to.z) > 0.12:
-			held["up" if to.z < 0 else "down"] = 1.0
-		if absf(to.x) > 0.12:
-			held["right" if to.x > 0 else "left"] = 1.0
+		if absf(ahead) > 0.12:
+			held["up" if ahead > 0 else "down"] = 1.0
+		if absf(aside) > 0.12:
+			held["right" if aside > 0 else "left"] = 1.0
 		walk._held = held
 		await process_frame
+		frame += 1
+		if frame % 2 == 0:
+			_watch_void(dark, clock)
 		var delta: float = root.get_process_delta_time()
 		clock += delta
 		var moved: float = (walk._pos as Vector3).distance_to(before)
@@ -217,8 +262,13 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 		if stuck > 2.5:
 			break
 	walk._held = {}
-	for settle in 20:
+	# Arrived, perhaps while the wipe is still closing: it is watched until it has shut.
+	for settle in 110:
+		if settle >= 20 and (not dark.on or float(walk.get("_wipe_t")) < 0.0):
+			break
 		await process_frame
+		if settle % 2 == 1:
+			_watch_void(dark, clock + (settle + 1) / 60.0)
 	var left: float = Vector3(goal.x - walk._pos.x, 0, goal.z - walk._pos.z).length()
 	return {
 		"arrived": left < 0.3,
@@ -228,6 +278,9 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 		"longest_step_m": snappedf(longest_step, 0.001),
 		"footsteps": steps,
 		"walk_clip": walked_clip,
+		"void_jump": snappedf(dark.jump, 0.01),
+		"void_jump_at_s": snappedf(dark.at, 0.01),
+		"void_before_jump": snappedf(dark.from, 0.01),
 		"idle_after": walk._kid._clip == "idle",
 		"ended_in": _area_at(walk._pos),
 		"ended_at": [snappedf(walk._pos.x, 0.01), snappedf(walk._pos.z, 0.01)]
@@ -237,10 +290,16 @@ func _walk_keys(goal: Vector3, limit_s: float) -> Dictionary:
 func _doors() -> void:
 	for door in _doorways():
 		for way in [[door.from, door.to, door.a, door.b], [door.to, door.from, door.b, door.a]]:
-			_place(way[0])
+			# Looking the way the visitor walks, so the camera stands over the room being left:
+			# the view in which a room dropped too early shows.
+			var along: Vector3 = way[1] - way[0]
+			var yaw := (0.0 if along.z < 0 else PI) if absf(along.z) > absf(along.x) else (
+				-PI / 2.0 if along.x > 0 else PI / 2.0
+			)
+			_place(way[0], yaw)
 			for settle in 6:
 				await process_frame
-			var leg := await _walk_keys(way[1], 12.0)
+			var leg := await _walk_keys(way[1], 12.0, true)
 			leg["from"] = way[2]
 			leg["to"] = way[3]
 			report.doors.append(leg)
@@ -253,6 +312,8 @@ func _doors() -> void:
 				_fail("door", name + ": the visitor jumped", leg)
 			elif not leg.walk_clip or leg.footsteps == 0:
 				_fail("door", name + ": walked without its walk animation or footsteps", leg)
+			elif leg.void_jump > 0.25:
+				_fail("door", name + ": the room went dark in one step before the wipe had shut", leg)
 
 
 func _rooms() -> void:
@@ -717,11 +778,38 @@ func _objects() -> void:
 				if fault != "":
 					problems.append("zoom page caption: " + fault)
 			entry["zoom_fit_px"] = [ceilf(pic.size.x), ceilf(pic.size.y)]
-			walk._zoom_at(walk.size / 2.0, 6.0)
+			# Magnified, the caption lies clear of the work or is put away (#280, round 4): one
+			# notch of the wheel over the picture, then as far as the page goes.
+			var wheel := InputEventMouseButton.new()
+			wheel.button_index = MOUSE_BUTTON_WHEEL_UP
+			wheel.pressed = true
+			wheel.position = walk.size / 2.0
+			wheel.global_position = wheel.position
+			walk._gui_input(wheel)
+			for step in 2:
+				if step == 1:
+					walk._zoom_at(walk.size / 2.0, 6.0)
+				await process_frame
+				var grown: Rect2 = picture.get_global_rect()
+				var border: Control = walk._zoom_root.get_node("Frame")
+				if border.visible:
+					grown = grown.merge(border.get_global_rect())
+				if (
+					walk.get("_caption") is Label
+					and walk._caption.is_visible_in_tree()
+					and grown.intersects(walk._caption.get_global_rect())
+				):
+					problems.append(
+						"zoom page caption lies across the picture magnified %.2f times" % walk._zoom
+					)
 			entry["zoom_full_px"] = [ceilf(pic.size.x * walk._zoom), ceilf(pic.size.y * walk._zoom)]
 			for settle in 4:
 				await process_frame
 			await _shot("zoom-full-%s.png" % slug)
+			walk._zoom_at(walk.size / 2.0, 1.0 / 6.0)
+			await process_frame
+			if walk.get("_caption") is Label and not walk._caption.is_visible_in_tree():
+				problems.append("the zoom page caption did not come back at the fitted size")
 			walk._close_detail()
 			for settle in 10:
 				await process_frame
@@ -755,8 +843,25 @@ func _press(at: Vector2) -> void:
 		await process_frame
 
 
-# Click a work from three metres in front of it and wait until it is being read.
-func _read(thing: Dictionary) -> void:
+# Whether a wall of the Hall stands in the lens: the camera is outside the Hall on a side
+# whose wall it is drawing. The dollhouse view cuts that wall away; an inspection may bring
+# it back only once the lens is inside.
+func _hall_wall_in_lens() -> bool:
+	if walk._space != "gallery":
+		return false
+	var eye: Vector3 = walk._cam.global_position
+	var mask: int = walk._cam.cull_mask
+	return (
+		(eye.x > 5.0 and (mask & walk.LAYER_EAST) != 0)
+		or (eye.x < -5.0 and (mask & walk.LAYER_WEST) != 0)
+		or (eye.z > 0.0 and (mask & 8) != 0)
+		or (eye.z < -walk.L and (mask & 16) != 0)
+	)
+
+
+# Click a work from three metres in front of it and wait until it is being read. Returns the
+# frames of the camera's glide in during which a Hall wall stood in the lens.
+func _read(thing: Dictionary) -> int:
 	_place(Vector3(thing.center.x, 0, thing.center.z) + thing.normal * 3.0)
 	walk.view_yaw = atan2(thing.normal.x, thing.normal.z)
 	for settle in 8:
@@ -768,19 +873,41 @@ func _read(thing: Dictionary) -> void:
 	while walk._inspect.is_empty() and clock < 20.0:
 		await process_frame
 		clock += root.get_process_delta_time()
+	var blocked := 0
 	for settle in 60:
 		await process_frame
+		blocked += int(_hall_wall_in_lens())
+	return blocked
 
 
+# Every case is run as a player meets it at launch, when only the Hall exists (#281 builds the
+# rooms at the first doorway), and again once the rooms are built.
 func _interaction() -> void:
-	# "Other wall" while a Hall painting is being read. The visitor may not walk off under an
-	# open caption: either the button does nothing, or the reading ends before the crossing.
+	var launch: bool = walk.state().get("pending", false)
+	await _other_wall_while_reading(", at launch" if launch else "")
+	if launch:
+		await _wall_clicks([_areas()[0]], ", at launch")
+	await _other_wall_in_wipe()  # out through the first doorway, which builds the rooms, and back
+	await _wall_clicks(_areas(), "")
+	if launch:
+		await _other_wall_while_reading(", rooms built")
+	await _overlapped_works()
+
+
+# "Other wall" while a Hall painting is being read. The visitor may not walk off under an open
+# caption: either the button does nothing, or the reading ends before the crossing.
+func _other_wall_while_reading(when: String) -> void:
 	var w2 := {}
 	for painting in walk._paintings:
 		if painting.tag == "W2":
 			w2 = painting
-	await _read(w2)
-	var entry := {"name": "other wall while reading", "read": walk._inspect.get("tag", "")}
+	var lens_blocked: int = await _read(w2)
+	var entry := {"name": "other wall while reading" + when, "read": walk._inspect.get("tag", "")}
+	# The reading is a camera shot of the work, not a caption over the walking view.
+	var off_shot := INF
+	if not walk._inspect.is_empty():
+		off_shot = walk._cam.global_position.distance_to(walk._inspect_shot(walk._inspect).origin)
+	entry["camera_off_shot_m"] = snappedf(off_shot, 0.01)
 	var started: Vector3 = walk._pos
 	var button: Button = walk.get_node("OtherWall")
 	entry["button_shown"] = button.is_visible_in_tree()
@@ -805,6 +932,8 @@ func _interaction() -> void:
 	var problems := PackedStringArray()
 	if entry.read != "W2":
 		problems.append("W2 did not open to begin with")
+	elif off_shot > 0.05:
+		problems.append("the camera is %.2f m from the inspection shot" % off_shot)
 	if walked_reading > 0.05:
 		problems.append("the visitor walked %.2f m while the caption stayed open" % walked_reading)
 	if entry.walked_m > 0.05 and entry.camera_on_work > 0.01:
@@ -815,6 +944,11 @@ func _interaction() -> void:
 	walk._end_inspect(false)
 	for settle in 60:
 		await process_frame
+		lens_blocked += int(_hall_wall_in_lens())
+	# The lens stays clear while the camera glides in and back (rounds 2 to 4).
+	entry["wall_in_lens_frames"] = lens_blocked
+	if lens_blocked > 0:
+		problems.append("a Hall wall stood in the lens for %d frames of the camera's glide" % lens_blocked)
 	entry["button_back"] = button.is_visible_in_tree()
 	if not entry.button_back:
 		problems.append("the button did not come back after the reading closed")
@@ -822,3 +956,233 @@ func _interaction() -> void:
 	report.interaction.append(entry)
 	if not problems.is_empty():
 		_fail("interaction", entry.name + ": " + entry.result, entry)
+
+
+
+# The pixel showing a point of a wall, or null when it is out of the picture or under a work.
+func _wall_pixel(point: Vector3):
+	if walk._cam.is_position_behind(point):
+		return null
+	var at: Vector2 = walk._to_screen(point)
+	if not Rect2(Vector2.ZERO, walk.size).grow(-8).has_point(at):
+		return null
+	return at if walk._painting_at(at).is_empty() else null
+
+
+# Click, say where the walk it started would end (null when it started none), and drop it.
+func _click_goal(at: Vector2):
+	_mouse(at, true)
+	_mouse(at, false)
+	var goal = walk._target
+	walk._new_action()
+	walk._target = null
+	return goal
+
+
+# A wall is not floor (#280). In every room, facing each of its walls in turn from the middle,
+# a click on the drawn wall starts no walk, and a click in a doorway of that wall still does.
+func _wall_clicks(areas: Array, when: String) -> void:
+	var entry := {
+		"name": "wall and doorway clicks" + when,
+		"walls": 0,
+		"doorways": 0,
+		"not_tried": [],
+		"walked": [],
+		"dead_doorways": []
+	}
+	for area in areas:
+		var b: Array = area.b
+		if b[1] - b[0] < 2.5 or b[3] - b[2] < 2.5:
+			continue  # a doorway's own thickness
+		var openings := {"north": [-0.95, 0.95], "south": [-0.95, 0.95]}  # the Hall's two doors
+		for room in walk._plan:
+			if room.label == area.label:
+				openings = room.openings
+		var middle_of := Vector3((b[0] + b[1]) / 2.0, 0, (b[2] + b[3]) / 2.0)
+		for side in walk.SIDES:
+			var out: Vector3 = walk.SIDES[side]
+			var along_z: bool = side in ["west", "east"]
+			var plane: float = b[["west", "east", "north", "south"].find(side)]
+			# From the middle, or four metres short of the wall in a long room.
+			var reach: float = absf(plane - (middle_of.x if along_z else middle_of.z))
+			var stand := _free_near(middle_of + out * maxf(0.0, reach - 4.0))
+			var door: Array = openings.get(side, [])
+			var spans := [[b[2], b[3]] if along_z else [b[0], b[1]]]
+			if not door.is_empty():
+				spans = [[spans[0][0], door[0]], [door[1], spans[0][1]]]
+			_place(stand)
+			walk.view_yaw = atan2(-out.x, -out.z)
+			for settle in 8:
+				await process_frame
+			var name := "%s, %s" % [area.label, side]
+			# The wall: the middle of each solid stretch, at three heights, until one shows.
+			var at = null
+			for span in spans:
+				for height in [1.5, 0.5, 2.5]:
+					var middle: float = (span[0] + span[1]) / 2.0
+					if at == null and span[1] - span[0] > 0.6:
+						at = _wall_pixel(
+							Vector3(plane, height, middle) if along_z else Vector3(middle, height, plane)
+						)
+			if at == null:
+				entry.not_tried.append(name + " wall")
+			else:
+				entry.walls += 1
+				if _click_goal(at) != null:
+					entry.walked.append(name)
+			if door.is_empty():
+				continue
+			var centre: float = (door[0] + door[1]) / 2.0
+			var sill := Vector3(plane, 0, centre) if along_z else Vector3(centre, 0, plane)
+			# A metre up, a doorway shows the dark beyond the stage. Where the area behind it is
+			# part of this stage (a wall's thickness, a stub) it shows that area's back wall,
+			# so there the floor in the doorway is clicked.
+			var beyond: int = walk._room_at(sill + out * 0.3)
+			var joined: bool = beyond >= 0 and walk._stage_of(beyond) == walk._stage
+			# High in the opening too where it is dark: the ray's own ground point is then far
+			# off, which is what used to send the visitor rooms away.
+			at = _wall_pixel(sill + Vector3(0, 0.3 if joined else 1.0, 0))
+			var high = null if joined else _wall_pixel(sill + Vector3(0, 2.2, 0))
+			if high != null:
+				entry.doorways += 1
+				var far_goal = _click_goal(high)
+				if far_goal == null or (far_goal as Vector3 - sill).dot(out) <= 0.0:
+					entry.dead_doorways.append(name + ", high in the opening")
+				elif (far_goal as Vector3).distance_to(sill) > 3.0:
+					entry.dead_doorways.append(
+						"%s, high in the opening (sent %.1f m past the door)"
+						% [name, (far_goal as Vector3).distance_to(sill)]
+					)
+			if at == null:
+				entry.not_tried.append(name + " doorway")
+				continue
+			entry.doorways += 1
+			# Through the door and no further: beyond its plane, within three metres of its sill.
+			var goal = _click_goal(at)
+			if goal == null or (goal as Vector3 - sill).dot(out) <= 0.0:
+				entry.dead_doorways.append(name)
+			elif (goal as Vector3).distance_to(sill) > 3.0:
+				entry.dead_doorways.append(
+					"%s (sent %.1f m past the door)" % [name, (goal as Vector3).distance_to(sill)]
+				)
+	var problems := PackedStringArray()
+	if not entry.walked.is_empty():
+		problems.append("a click on a wall started a walk: " + "; ".join(entry.walked))
+	if not entry.dead_doorways.is_empty():
+		problems.append(
+			"a click in a doorway did not walk through: " + "; ".join(entry.dead_doorways)
+		)
+	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+	report.interaction.append(entry)
+	if not problems.is_empty():
+		_fail("interaction", entry.name + ": " + entry.result, entry)
+
+
+# The work under the pointer is the one that answers (#280). In the Renaissance room's east
+# case the carved diptych 22.201 lies in front of the book cover 34.016 and their boxes overlap
+# on screen. Seen from either end of the case a click on the diptych selects the diptych, and
+# the book cover still answers a click on itself.
+func _overlapped_works() -> void:
+	var by := {}
+	for thing in walk._objects:
+		by[thing.tag.get_slice("#", 0)] = thing
+	var entry := {"name": "works whose boxes overlap", "picks": []}
+	var problems := PackedStringArray()
+	# [view yaw, where the visitor stands along the case, the works clicked]
+	for pose in [[0.0, 1.0, ["22.201", "34.016"]], [PI, 2.5, ["22.201"]]]:
+		_place(Vector3(-8.05, 0, pose[1]))
+		walk.view_yaw = pose[0]
+		for settle in 8:
+			await process_frame
+		for number in pose[2]:
+			if not by.has(number):
+				problems.append(number + " is not in the museum")
+				continue
+			var at := Vector2.ZERO
+			for corner in by[number].corners:
+				at += walk._to_screen(corner) / by[number].corners.size()
+			var picked: String = walk._painting_at(at).get("tag", "")
+			entry.picks.append(
+				{"clicked": number, "facing": "north" if pose[0] == 0.0 else "south", "picked": picked}
+			)
+			if picked.get_slice("#", 0) != number:
+				problems.append(
+					"a click on the middle of %s selects %s" % [number, picked if picked != "" else "nothing"]
+				)
+	# And with the mouse, from the first pose: the diptych's own caption opens.
+	if by.has("22.201"):
+		_place(Vector3(-8.05, 0, 1.0))
+		for settle in 8:
+			await process_frame
+		var at := Vector2.ZERO
+		for corner in by["22.201"].corners:
+			at += walk._to_screen(corner) / by["22.201"].corners.size()
+		_mouse(at, true)
+		_mouse(at, false)
+		var clock := 0.0
+		while walk._inspect.is_empty() and clock < 20.0:
+			await process_frame
+			clock += root.get_process_delta_time()
+		entry["opened"] = walk._inspect.get("tag", "")
+		if str(entry.opened).get_slice("#", 0) != "22.201":
+			problems.append(
+				"clicking 22.201 opened %s" % (entry.opened if entry.opened != "" else "nothing")
+			)
+		walk._end_inspect(false)
+		for settle in 50:
+			await process_frame
+	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+	report.interaction.append(entry)
+	if not problems.is_empty():
+		_fail("interaction", entry.name + ": " + entry.result, entry)
+
+
+# "Other wall" during a room change (#280, round 4). Walking out of the Hall into the medieval
+# room and back, the button may not show from the moment a wipe starts until it has finished,
+# and a press where it stands may not turn the view.
+func _other_wall_in_wipe() -> void:
+	var button: Button = walk.get_node("OtherWall")
+	# [from, the key that leads through the portal in the north-facing view]
+	for leg in [[Vector3(0, 0, -0.9), "down"], [Vector3(0, 0, walk.PORTAL_MOUTH + 0.9), "up"]]:
+		_place(leg[0])
+		for settle in 30:
+			await process_frame
+		var entry := {
+			"name": "other wall during a room change, from " + _area_at(leg[0]),
+			"shown_frames": 0,
+			"wipe_frames": 0,
+			"rooms_built_in_it": walk.state().get("pending", false)
+		}
+		var yaw: float = walk.view_yaw
+		var turned := false
+		for tick in 1800:
+			# The key is let go once the wipe starts: the change walks the visitor in itself,
+			# and a held key would refuse the button anyway.
+			walk._held = {leg[1]: 1.0} if entry.wipe_frames == 0 else {}
+			await process_frame
+			if walk._wipe_t < 0.0:
+				if entry.wipe_frames > 0:
+					break  # the change has finished
+				continue
+			entry.wipe_frames += 1
+			entry.shown_frames += int(button.is_visible_in_tree())
+			if entry.wipe_frames == 12:
+				await _press(button.get_global_rect().get_center())
+			turned = turned or absf(walk._view_turn_remaining) > 0.001
+		walk._held = {}
+		for settle in 60:
+			await process_frame
+			turned = turned or absf(walk._view_turn_remaining) > 0.001
+		entry["turned_rad"] = snappedf(absf(wrapf(walk.view_yaw - yaw, -PI, PI)), 0.01)
+		entry["ended_in"] = _area_at(walk._pos)
+		var problems := PackedStringArray()
+		if entry.wipe_frames == 0:
+			problems.append("no room change happened")
+		if entry.shown_frames > 0:
+			problems.append("the button showed for %d frames of the wipe" % entry.shown_frames)
+		if turned or entry.turned_rad > 0.01:
+			problems.append("a press during the wipe turned the view")
+		entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+		report.interaction.append(entry)
+		if not problems.is_empty():
+			_fail("interaction", entry.name + ": " + entry.result, entry)
