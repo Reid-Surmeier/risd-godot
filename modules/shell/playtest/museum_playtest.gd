@@ -5,10 +5,12 @@
 ##            view; a view the wall fills, or one that hides the visitor, is a failure.
 ## 4 objects: every artwork is clicked with a real mouse event; the visitor must walk up,
 ##            a detail must open, and it must close again.
+## 5 light:   every room has a lamp, every work a lamp aimed at it, and a pool round its works.
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
-## Options: --only=doors,rooms,views,objects; --room=<label>; --shell=true; --width/height=<px>.
+## Options: --only=doors,rooms,views,objects,light; --room=<label>; --shell=true;
+## --width/height=<px>.
 ## --fixed-fps makes every frame one sixtieth of a second of game time, so a run is repeatable.
 extends SceneTree
 
@@ -17,7 +19,7 @@ const HALL := "Grand Gallery"
 
 var walk
 var out := ""
-var report := {"doors": [], "rooms": [], "views": [], "objects": [], "failures": []}
+var report := {"doors": [], "rooms": [], "views": [], "objects": [], "light": [], "failures": []}
 
 
 func _initialize() -> void:
@@ -38,7 +40,7 @@ func _fail(kind: String, what: String, detail := {}) -> void:
 
 func _run() -> void:
 	out = _arg("out-dir", "res://build/museum-playtest")
-	var only := _arg("only", "doors,rooms,views,objects").split(",")
+	var only := _arg("only", "doors,rooms,views,objects,light").split(",")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
 	root.size = Vector2i(int(_arg("width", str(SIZE.x))), int(_arg("height", str(SIZE.y))))
 	if _arg("shell", "false") == "true":
@@ -66,12 +68,15 @@ func _run() -> void:
 		await _views()
 	if "objects" in only:
 		await _objects()
+	if "light" in only:
+		await _light()
 	report["state"] = walk.state()
 	report["summary"] = {
 		"doors": report.doors.size(),
 		"rooms": report.rooms.size(),
 		"views": report.views.size(),
 		"objects": report.objects.size(),
+		"light": report.light.size(),
 		"failures": report.failures.size()
 	}
 	var file := FileAccess.open(out.path_join("report.json"), FileAccess.WRITE)
@@ -316,33 +321,50 @@ func _flat_share(image: Image) -> float:
 	return most / 6144.0
 
 
+# Where an area is photographed from: one standpoint per seven metres of its long axis.
+func _stands(area: Dictionary) -> Array:
+	var b: Array = area.b
+	var long_z: bool = b[3] - b[2] > b[1] - b[0]
+	var span: float = (b[3] - b[2]) if long_z else (b[1] - b[0])
+	var count := maxi(1, roundi(span / 7.0))
+	var stands := []
+	for n in count:
+		var along := (n + 0.5) / count
+		stands.append(
+			Vector3(
+				(b[0] + b[1]) / 2.0 if long_z else lerpf(b[0], b[1], along),
+				0,
+				lerpf(b[2], b[3], along) if long_z else (b[2] + b[3]) / 2.0
+			)
+		)
+	return stands
+
+
+# Stand the visitor at `here` in one of the five standard views, with the game loop held still.
+func _face(here: Vector3, view: String) -> void:
+	_place(_free_near(here))  # never photographed from inside a case
+	var yaw: float = {"n": 0.0, "e": -PI / 2, "s": PI, "w": PI / 2, "follow": 0.0}[view]
+	walk.view_mode = 2 if view == "follow" else 0
+	walk.view_yaw = yaw
+	walk._yaw = yaw
+	walk.set_process(false)
+	walk._kid.pose(0.0, false, 0.0, Vector3(-sin(yaw), 0, -cos(yaw)), yaw)
+	for settle in 4:
+		walk._update_camera(1.0)
+		await process_frame
+
+
 func _views() -> void:
 	for area in _areas():
 		if _arg("room", "") != "" and area.label != _arg("room", ""):
 			continue
 		var slug: String = area.label.to_lower().replace(" ", "-")
 		var b: Array = area.b
-		var long_z: bool = b[3] - b[2] > b[1] - b[0]
-		var span: float = (b[3] - b[2]) if long_z else (b[1] - b[0])
-		var count := maxi(1, roundi(span / 7.0))
-		for n in count:
-			var along := (n + 0.5) / count
-			var here := Vector3(
-				(b[0] + b[1]) / 2.0 if long_z else lerpf(b[0], b[1], along),
-				0,
-				lerpf(b[2], b[3], along) if long_z else (b[2] + b[3]) / 2.0
-			)
+		var stands := _stands(area)
+		for n in stands.size():
+			var here: Vector3 = stands[n]
 			for view in ["n", "e", "s", "w", "follow"]:
-				_place(_free_near(here))  # never photographed from inside a case
-				var yaw: float = {"n": 0.0, "e": -PI / 2, "s": PI, "w": PI / 2, "follow": 0.0}[view]
-				walk.view_mode = 2 if view == "follow" else 0
-				walk.view_yaw = yaw
-				walk._yaw = yaw
-				walk.set_process(false)
-				walk._kid.pose(0.0, false, 0.0, Vector3(-sin(yaw), 0, -cos(yaw)), yaw)
-				for settle in 4:
-					walk._update_camera(1.0)
-					await process_frame
+				await _face(here, view)
 				var file := "%s-%d-%s.png" % [slug, n, view]
 				var with_visitor := await _shot(file)
 				walk._kid.hide()
@@ -378,6 +400,232 @@ func _views() -> void:
 					)
 				elif entry.visitor_pixels < 400:
 					_fail("view", "%s %s: the visitor cannot be seen" % [area.label, view], entry)
+
+
+# ---------------------------------------------------------------- light
+
+
+# The picture's colour round a point of the museum, 0 to 255 a channel; alpha 0 off the picture.
+func _colour_at(image: Image, point: Vector3, radius: int) -> Color:
+	if walk._cam.is_position_behind(point):
+		return Color(0, 0, 0, 0)
+	var at: Vector2 = walk._cam.unproject_position(point) / Vector2(walk._vp.size) * walk.size
+	var x := int(at.x)
+	var y := int(at.y)
+	if x < radius or y < radius or x >= image.get_width() - radius or y >= image.get_height() - radius:
+		return Color(0, 0, 0, 0)
+	var sum := Color(0, 0, 0, 0)
+	for dy in range(-radius, radius + 1):
+		for dx in range(-radius, radius + 1):
+			sum += image.get_pixel(x + dx, y + dy)
+	sum = sum * (255.0 / ((2 * radius + 1) * (2 * radius + 1)))
+	return Color(sum.r, sum.g, sum.b, 1.0)
+
+
+# Display brightness, 0 to 255, of the picture round a point; -1 off the picture.
+func _luma_at(image: Image, point: Vector3, radius: int) -> float:
+	var colour := _colour_at(image, point, radius)
+	return colour.get_luminance() if colour.a > 0.0 else -1.0
+
+
+func _mean(values: Array) -> float:
+	var sum := 0.0
+	for value in values:
+		sum += value
+	return snappedf(sum / values.size(), 0.1) if not values.is_empty() else -1.0
+
+
+# Mean colour as [red, green, blue, brightness], 0 to 255; [] when nothing was sampled.
+func _mean_colour(colours: Array) -> Array:
+	if colours.is_empty():
+		return []
+	var sum := Color(0, 0, 0, 0)
+	for colour in colours:
+		sum += colour
+	sum = sum / float(colours.size())
+	return [roundi(sum.r), roundi(sum.g), roundi(sum.b), snappedf(sum.get_luminance(), 0.1)]
+
+
+# The lamps a room's bake was given. The baked scenes keep no lamp nodes, so the bakes' own
+# lists are the record: the Hall's lamps.json and the added rooms' room-lamps.json.
+func _lamps() -> Array:
+	var lamps := []
+	var rooms_dir: String = walk.ROOM_SCENES[0].get_base_dir()
+	for source in [
+		[walk.DIR + "baked/lamps.json", HALL],
+		[rooms_dir.path_join("addition_baked/room-lamps.json"), ""]
+	]:
+		var rows = JSON.parse_string(FileAccess.get_file_as_string(source[0]))
+		if rows is Array:
+			for row in rows:
+				lamps.append({"room": row.get("room", source[1]), "works": row.get("works", [])})
+	return lamps
+
+
+# Each room from its four dollhouse views, the visitor hidden: the floor on a half-metre grid
+# clear of furniture, each work the camera faces over the middle of its front, the wall 20 cm
+# beyond each side of it, and the same walls a metre or more from any work. The numbers are
+# the picture's colour, 0 to 255 ([red, green, blue, brightness]), not light: a dark painting
+# under a strong lamp still reads dark, which is why the works are compared with nothing
+# here (the Hall's own floor is twice as bright as its paintings). A room fails without a lamp in its bake, with a work no lamp
+# is aimed at, and when the wall beside its works is no brighter than its wall away from them.
+func _light() -> void:
+	var lamps := _lamps()
+	var things: Array = walk._paintings.duplicate()
+	if walk.get("_objects") is Array:
+		things += walk._objects
+	for area in _areas():
+		if _arg("room", "") != "" and area.label != _arg("room", ""):
+			continue
+		var b: Array = area.b
+		var mine := things.filter(
+			func(thing: Dictionary) -> bool:
+				return (walk._plan[thing.room].label if thing.has("object") else HALL) == area.label
+		)
+		var boxes := []
+		for thing in mine:
+			var box := AABB(thing.corners[0], Vector3.ZERO)
+			for corner in thing.corners:
+				box = box.expand(corner)
+			boxes.append(box)
+		# Bare wall: chest height, a metre clear of every work and door, clear of furniture.
+		var doors: Dictionary = {"north": [-1.5, 1.5], "south": [-1.5, 1.5]}
+		for room in walk._plan:
+			if room.label == area.label:
+				doors = room.openings
+		var bare := []  # [point on the wall, the way the wall faces]
+		for side in walk.SIDES:
+			var inward: Vector3 = -walk.SIDES[side]
+			var along_x: bool = side in ["north", "south"]
+			var lo: float = b[0] if along_x else b[2]
+			var hi: float = b[1] if along_x else b[3]
+			for step in range(int((hi - lo - 1.0) / 0.5) + 1):
+				var along: float = lo + 0.5 + step * 0.5
+				var door: Array = doors.get(side, [])
+				if not door.is_empty() and along > door[0] - 0.4 and along < door[1] + 0.4:
+					continue
+				var fixed: float = (
+					b[2] if side == "north" else b[3] if side == "south" else b[0] if side == "west" else b[1]
+				)
+				var on_wall := (
+					Vector3(along, 1.5, fixed) if along_x else Vector3(fixed, 1.5, along)
+				) + inward * 0.01
+				var clear := true
+				for box in boxes:
+					var near: AABB = box.grow(1.0)
+					var foot := Rect2(near.position.x, near.position.z, near.size.x, near.size.z)
+					clear = clear and not foot.has_point(Vector2(on_wall.x, on_wall.z))
+				for block in walk._blocks:
+					clear = clear and not block.grow(0.6).has_point(Vector2(on_wall.x, on_wall.z))
+				if clear:
+					bare.append([on_wall, inward])
+		var floor := []
+		var beside_works := []
+		var away := []
+		var picture := []
+		var seen := {}  # work tag -> brightness of each sample of it
+		for here in _stands(area):
+			for view in ["n", "e", "s", "w"]:
+				await _face(here, view)
+				walk._kid.hide()
+				walk._shadow.hide()
+				await process_frame
+				var image := await _shot("")
+				walk._kid.show()
+				walk._shadow.show()
+				walk.set_process(true)
+				var small: Image = image.duplicate()
+				small.resize(48, 32, Image.INTERPOLATE_BILINEAR)
+				for y in 32:
+					for x in 48:
+						picture.append(small.get_pixel(x, y).get_luminance() * 255.0)
+				var eye: Vector3 = walk._cam.global_position
+				for x in range(int((b[1] - b[0] - 0.6) / 0.5) + 1):
+					for z in range(int((b[3] - b[2] - 0.6) / 0.5) + 1):
+						var on_floor := Vector3(b[0] + 0.3 + x * 0.5, 0.004, b[2] + 0.3 + z * 0.5)
+						var blocked := false
+						for block in walk._blocks:
+							blocked = blocked or block.grow(0.15).has_point(Vector2(on_floor.x, on_floor.z))
+						var value := Color(0, 0, 0, 0) if blocked else _colour_at(image, on_floor, 3)
+						if value.a > 0.0:
+							floor.append(value)
+				for spot in bare:
+					if spot[1].dot((eye - spot[0]).normalized()) >= 0.5:
+						var value := _colour_at(image, spot[0], 4)
+						if value.a > 0.0:
+							away.append(value)
+				for i in mine.size():
+					var thing: Dictionary = mine[i]
+					if thing.has("object") and not walk._drawn(thing.node):
+						continue
+					var normal: Vector3 = thing.normal
+					var centre: Vector3 = thing.center
+					if normal != Vector3.ZERO and normal.dot((eye - centre).normalized()) < 0.5:
+						continue  # on a wall the camera has cut away, or seen edge-on
+					var across: Vector3 = (
+						walk._cam.global_transform.basis.x if normal == Vector3.ZERO else Vector3.UP.cross(normal)
+					)
+					var front: Vector3 = centre + normal * (absf(boxes[i].size.dot(normal)) / 2.0 + 0.005)
+					for u in [-0.3, 0.0, 0.3]:
+						for v in [-0.3, 0.0, 0.3]:
+							var value := _luma_at(
+								image, front + across * u * thing.outer.x + Vector3.UP * v * thing.outer.y, 2
+							)
+							if value >= 0.0:
+								seen[thing.tag] = seen.get(thing.tag, []) + [value]
+					if normal == Vector3.ZERO:
+						continue
+					for side in [-1.0, 1.0]:
+						var beside: Vector3 = centre + across * side * (thing.outer.x / 2.0 + 0.2)
+						if absf(normal.x) > 0.5:
+							beside.x = (b[0] if normal.x > 0.0 else b[1]) + normal.x * 0.01
+						else:
+							beside.z = (b[2] if normal.z > 0.0 else b[3]) + normal.z * 0.01
+						var clear: bool = (
+							beside.x > b[0] and beside.x < b[1] and beside.z > b[2] and beside.z < b[3]
+						)
+						for box in boxes:
+							clear = clear and not box.grow(0.12).has_point(beside)
+						var value := _colour_at(image, beside, 4) if clear else Color(0, 0, 0, 0)
+						if value.a > 0.0:
+							beside_works.append(value)
+		var works := []
+		for tag in seen:
+			works.append(_mean(seen[tag]))
+		var hung := 0
+		var aimed := {}
+		for lamp in lamps:
+			if lamp.room == area.label:
+				hung += 1
+				for key in lamp.works:
+					aimed[key] = true
+		var dark := []
+		for thing in mine:
+			if thing.has("object") and not aimed.has(thing.tag.get_slice("#", 0)):
+				dark.append(thing.tag)
+		var row := {
+			"room": area.label,
+			"floor": _mean_colour(floor),
+			"wall_beside_works": _mean_colour(beside_works),
+			"wall_away_from_works": _mean_colour(away),
+			"works": _mean(works),
+			"picture": _mean(picture),
+			"lamps": hung,
+			"works_without_a_lamp": dark,
+			"samples": [floor.size(), beside_works.size(), away.size(), works.size()]
+		}
+		report.light.append(row)
+		print("PLAYTEST_LIGHT ", JSON.stringify(row))
+		if hung == 0:
+			_fail("light", area.label + ": no lamp hangs in this room", row)
+		elif not dark.is_empty():
+			_fail("light", area.label + ": works with no lamp aimed at them", row)
+		elif (
+			not beside_works.is_empty()
+			and not away.is_empty()
+			and row.wall_beside_works[3] <= row.wall_away_from_works[3]
+		):
+			_fail("light", area.label + ": no pool on the wall beside its works", row)
 
 
 # ---------------------------------------------------------------- reading

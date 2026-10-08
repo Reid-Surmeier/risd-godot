@@ -15,6 +15,15 @@ const Pieta := preload("res://pieta_asset.gd")
 const RenaissanceA := preload("res://renaissance_case_a_assets.gd")
 const RenaissanceB := preload("res://renaissance_case_b_assets.gd")
 const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
+## #274: wall paint by room ("" is every other area). The lamps are the Hall's and warm, so a
+## paint is bluer here than it reads in the room: each is chosen by rendering the room and
+## comparing its wall with the tone-mapped footage beside the white trim (the light pass prints
+## the wall's colour), never by eye from this table.
+const WALL_PAINT:={"":"babee2","light Renaissance room":"a6a5c4","adjacent gallery":"babee2","Rockefeller":"b2bcd1",
+	"modern painting gallery":"b2bcec","lion stair landing":"a9aac6","grey French gallery":"b2b8e0","Skylight Gallery":"c2caf8",
+	"marble stair hall":"d8e6ff","dark medieval room":"4a5479"}
+func wall_paint(label:String) -> StandardMaterial3D:
+	return look(Color(WALL_PAINT.get(label,WALL_PAINT[""])),"res://presentation/neutral-plaster.png")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
@@ -913,13 +922,9 @@ func build_rooms() -> void:
 	oak.set_shader_parameter("floor_z_limits",floor_limits)
 	for area in data.rooms:
 		var b:Array=area.bounds
-		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://presentation/wall-plaster.png")
-		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://presentation/neutral-plaster.png")
+		var wall:=look(Color.WHITE,"res://presentation/purple-plaster.png") if area.label.begins_with("purple") else wall_paint(area.label)
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
 		if area.label.begins_with("Grand Gallery"):wall=look(Color.WHITE,"res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp")
-		if area.label in ["lion stair landing","modern painting gallery"]:wall=look(Color.WHITE,"res://presentation/landing-plaster.png")
-		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
-		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
 		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery","adjacent gallery","Rockefeller","grey French gallery"]:
 			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight. The European gallery
@@ -1641,7 +1646,7 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 		if q.all(func(p):return int(p[2])==1):front.append(q)
 		elif q.all(func(p):return int(p[2])==0):back.append(q)
 		else:sides.append(q)
-	for spec in [[front,look(Color("53545b"),"res://presentation/neutral-plaster.png") if kind=="romanesque-portal" else look(Color("e3e2de"),"res://presentation/neutral-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
+	for spec in [[front,wall_paint("dark medieval room") if kind=="romanesque-portal" else wall_paint("light Renaissance room")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
 		var fill:=MeshInstance3D.new()
 		fill.mesh=stone_mesh(data,spec[0],.13)
 		fill.material_override=spec[1]
@@ -1701,7 +1706,7 @@ func build_sculpture_rooms() -> void:
 		art.build_shaped(load("res://assets/painting-"+spec[0]+".jpg"),size,data.outline,Color("674d29"))
 		assert(art.get_child_count()==2 and art.outer==size)
 	# North-wall display projection and vents are visible in6382 85.25..87.25s.
-	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),look(Color("53545b")))
+	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),wall_paint("dark medieval room"))
 	var screen:=solid(Vector3(3.05,2.8,19.104),Vector3(.44,.90,.015),look(Color("0a0a0b")))
 	screen.reparent(projection)
 	for spec in [[Vector3(1.75,3.82,19.06),Vector2(1.35,.16)],[Vector3(1.46,.45,19.06),Vector2(.48,.24)]]:

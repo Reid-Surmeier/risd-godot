@@ -16,7 +16,7 @@ godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playt
 
 `--fixed-fps 60` makes each frame one sixtieth of a second of game time, so two runs of the same
 commit give the same result. The run writes `report.json`, one picture per view and one per opened
-object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects` runs part of it.
+object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects,light` runs part of it.
 `--objects=E1,21.482` drives only the named works (by tag, or by the accession before its `#`).
 
 ## The rules
@@ -58,6 +58,14 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    a blank rectangle, and its caption lies clear of the picture. A run that fails only on "drew
    as solid blocks" or "did not draw" is run again before it is believed: one capture on
    7 October drew 19 captions that way and no later run of the same build has.
+
+10. **Every room is lit, and lit the same way.** (Light pass, #274.) Each room's bake lists at
+   least one lamp, every catalogued work in an added room has a spot aimed at it, and in the
+   room's four dollhouse views the wall beside its works is brighter than the same walls a
+   metre or more from any work. The pass also prints, per room, the brightness of the floor,
+   the walls and the works as the picture shows them (0 to 255). Those are pictures, not
+   light: the Hall's floor reads about 143 and its paintings about 79, so "works brighter
+   than the floor" is not a rule.
 
 Round 1's reviewer asked for four more that the harness does not have yet; until it does, the
 reviewer checks them by hand and says so:
