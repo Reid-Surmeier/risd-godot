@@ -2392,5 +2392,98 @@
         201
       ]
     }
+  },
+  "59.128": {
+    "title": "Pietà",
+    "maker": "Tilman Riemenschneider",
+    "date": "ca. 1515-1525",
+    "medium": "Linden wood",
+    "dimensions": "45.7 x 38.1 x 13.2 cm (18 x 15 x 5 3/16 inches)",
+    "accession": "59.128",
+    "credit": "Museum Works of Art Fund",
+    "identified": true,
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/pieta-59128.html.gz (saved copy of https://risdmuseum.org/art-design/collection/pieta-59128); title, maker, date, medium, dimensions and credit as that page prints them. The date is the page's and the case label's; the catalogue API record saved beside it (api/onview-pieta.json, id 1312736) gives the years 1480 to 1510"
+  },
+  "21.398": {
+    "title": "Saint Roch",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1500",
+    "medium": "Wood with polychromy (colored paint)",
+    "dimensions": "Height: 105.4 cm (41 1/2 inches)",
+    "accession": "21.398",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398.html.gz (saved copy of https://risdmuseum.org/art-design/collection/saint-roch-21398); title, maker, date, medium, dimensions and credit as that page prints them. The catalogue API record (api/cached-records.json, id 1273471) gives the years 1475 to 1525"
+  },
+  "15.108": {
+    "title": "Virgin and Child",
+    "maker": "Unknown Maker, Netherlandish",
+    "date": "ca. 1490-1500",
+    "medium": "Wood with polychrome and gilding",
+    "dimensions": "Height: 39.4 cm (15 1/2 inches)",
+    "accession": "15.108",
+    "credit": "Gift of Mrs. Gustav Radeke",
+    "identified": true,
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/virgin-and-child-15108.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-and-child-15108); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "40.002": {
+    "title": "Monstrance",
+    "maker": "Unknown Maker, Spanish",
+    "date": "ca. 1525",
+    "medium": "Silver with gilding",
+    "dimensions": "Height: 46.4 cm (18 1/4 inches)",
+    "accession": "40.002",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records this object as matched to the record",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/monstrance-40002.html.gz (saved copy of https://risdmuseum.org/art-design/collection/monstrance-40002); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "52.002": {
+    "title": "Pax",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1510",
+    "medium": "Shell and silver",
+    "dimensions": "12.1 x 8.9 x 2.2 cm (4 3/4 x 3 1/2 x 7/8 inches) without handle",
+    "accession": "52.002",
+    "credit": "Museum Works of Art Fund",
+    "identified": true,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records this object as matched to the record",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/pax-52002.html.gz (saved copy of https://risdmuseum.org/art-design/collection/pax-52002); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "1992.051": {
+    "title": "Communion Beaker",
+    "maker": "Unknown Maker, Dutch",
+    "date": "ca. 1660",
+    "medium": "silver",
+    "dimensions": "Height: 14 cm (5 1/2 inches)",
+    "accession": "1992.051",
+    "credit": "Anonymous gift in honor of Dr. and Mrs. Franklin W. Robinson",
+    "identified": false,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records the match of the object in the case to this record as probable, not confirmed",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/communion-beaker-1992051.html.gz (saved copy of https://risdmuseum.org/art-design/collection/communion-beaker-1992051); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "30.011": {
+    "title": "Pyx",
+    "maker": "Unknown Maker, French",
+    "date": "1200s",
+    "medium": "Enamel and copper with gilding",
+    "dimensions": "Height: 8.9 cm (3 1/2 inches)",
+    "accession": "30.011",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": false,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records the match of the object in the case to this record as probable, not confirmed",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/pyx-30011.html.gz (saved copy of https://risdmuseum.org/art-design/collection/pyx-30011); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "2014.110": {
+    "title": "Christ in Majesty",
+    "maker": "Unknown Maker, Spanish",
+    "date": "ca. 1100-1200",
+    "medium": "ivory",
+    "dimensions": "15.9 x 6.4 cm (6 1/4 x 2 1/2 inches)",
+    "accession": "2014.110",
+    "credit": "Gift of Angela Brown Fischer from the Collection of John Nicholas Brown",
+    "identified": false,
+    "identification_basis": "modules/shell/collection_rooms/medieval_ceramic_ivory_assets.gd records the match of the object in the case to this record as probable, not confirmed",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/christ-majesty-2014110.html.gz (saved copy of https://risdmuseum.org/art-design/collection/christ-majesty-2014110); title, maker, date, medium, dimensions and credit as that page prints them"
   }
 }

@@ -750,6 +750,27 @@ func _viewing(p: Dictionary) -> Dictionary:
 					"above": flat.y != 0.0
 				}
 	if best.is_empty():
+		# No floor within reach before the work: it hangs over the Skylight Gallery's lower
+		# storey (#275). The nearest floor of its own room that is before its face, then.
+		var grid := _route_grid()
+		var home: Vector3 = foot + normals[0] * out
+		var least := INF
+		for dx in range(-32, 33):
+			for dz in range(-32, 33):
+				var cell := Vector2i(roundi(home.x / GRID) + dx, roundi(home.z / GRID) + dz)
+				if not grid.is_in_boundsv(cell) or grid.is_point_solid(cell):
+					continue
+				var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+				if (stand - foot).dot(normals[0]) < 0.5 or stand.distance_to(home) >= least:
+					continue
+				if _stage_of(_room_at(stand)) != _stage_of(p.get("room", -1)):
+					continue
+				least = stand.distance_to(home)
+				var across: Vector3 = normals[0].cross(Vector3.UP)
+				best = {
+					"normal": normals[0], "along": across, "stand": stand, "small": small,
+					"side": 1.0 if (stand - foot).dot(across) >= 0.0 else -1.0, "above": flat.y != 0.0
+				}
 		return best
 	# The visitor stands beside the work and clear of the lens (#272). Where the usual spot
 	# would fill more than CROWD of the picture (a hat across a quarter of it, at the Apostles)
@@ -758,6 +779,23 @@ func _viewing(p: Dictionary) -> Dictionary:
 	var lens_was := _inspect_fov
 	p["view"] = best
 	var shot := _inspect_shot(p)
+	# Nothing drawn stands between the lens and the work (#272, round 5: Christ in Majesty was
+	# read through the glass case that stands before it). Square on first; then from either
+	# side, then nearer, taking the first place in the work's own room with a clear sight.
+	if p.has("object") and _lens_blocked(p, shot.origin):
+		for place in [[0.4, 1.0], [-0.4, 1.0], [0.65, 1.0], [-0.65, 1.0], [0.0, 0.6], [0.0, 0.4]]:
+			best["lens"] = place
+			var tried := _inspect_shot(p)
+			var under := Vector3(tried.origin.x, 0, tried.origin.z)
+			# In the work's own room, with the work still whole in the widest lens, and clear.
+			if (
+				_stage_of(_room_at(under)) == _stage_of(p.room)
+				and _inspect_fov < 64.9
+				and not _lens_blocked(p, tried.origin)
+			):
+				shot = tried
+				break
+			best.erase("lens")
 	var lens := _inspect_fov
 	for more in [1.0, 1.5, 2.0, 2.6, 3.3]:
 		var wanted: Vector3 = foot + best.normal * out + best.along * best.side * aside * more
@@ -776,6 +814,44 @@ func _viewing(p: Dictionary) -> Dictionary:
 	else:
 		p["view"] = kept
 	return best
+
+
+# Whether something drawn stands between a lens at `eye` and a work: another work's box, or the
+# drawn hull of a case, plinth or pier that is not the work's own (one that holds the work, or
+# whose hull its middle is inside). Room walls are the cut-away's to open. Three sight lines:
+# to the work's middle and to a third of its width either side.
+func _lens_blocked(p: Dictionary, eye: Vector3) -> bool:
+	var across := Vector3(p.center.x - eye.x, 0, p.center.z - eye.z).normalized().cross(Vector3.UP)
+	var marks: Array = [p.center, p.center + across * p.outer.x / 3.0, p.center - across * p.outer.x / 3.0]
+	for other in _objects:
+		if other.tag == p.tag or other.room != p.room:
+			continue
+		var box := AABB(other.corners[0], other.corners[7] - other.corners[0])
+		if box.has_point(p.center):
+			continue
+		for mark in marks:
+			if box.intersects_segment(eye, mark) != null:
+				return true
+	for wall in _walls:
+		var body: Node3D = wall.body
+		if wall.room >= 0 or body == p.node or body.is_ancestor_of(p.node):
+			continue
+		if not wall.has("hull"):
+			# Its drawn parts, each by its own box: the collision box is only the plinth.
+			var parts: Array[AABB] = []
+			var hull := AABB(wall.box)
+			for part in body.find_children("*", "GeometryInstance3D", true, false):
+				parts.append(part.global_transform * part.get_aabb())
+				hull = hull.merge(parts[-1])
+			wall["hull"] = hull
+			wall["parts"] = parts
+		if (wall.hull as AABB).has_point(p.center):
+			continue
+		for part in wall.parts:
+			for mark in marks:
+				if (part as AABB).intersects_segment(eye, mark) != null:
+					return true
+	return false
 
 
 # The share of the picture the visitor's body takes, standing at `at`, through a lens at `shot`:
@@ -1047,7 +1123,11 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	if view.is_empty():
 		view = _viewing(p)
 		p["view"] = view
-	var normal: Vector3 = view.normal
+	# The lens stands square before the work unless something is in its way there (_viewing):
+	# then turned about the work by lens[0] radians, or brought nearer by the share lens[1].
+	var lens: Array = view.get("lens", [0.0, 1.0])
+	var normal: Vector3 = (view.normal as Vector3).rotated(Vector3.UP, lens[0])
+	var along: Vector3 = (view.along as Vector3).rotated(Vector3.UP, lens[0])
 	var height: float = maxf(p.outer.y, 0.05)
 	# The work stands in the band above the caption panel (#272): its top four hundredths of
 	# the picture under the picture's, its foot three hundredths above the panel. A tall work
@@ -1077,16 +1157,16 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	var room := _room_at(foot + normal * 0.6)
 	var bounds: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
 	var extent: float = absf(normal.x) * (bounds[1] - bounds[0]) + absf(normal.z) * (bounds[3] - bounds[2])
-	back = minf(back, maxf(1.4, extent - 0.6))
+	back = maxf(1.4, minf(back, maxf(1.4, extent - 0.6)) * lens[1])
 	var shift: float = -view.side * 0.35 if view.small else 0.0  # over the shoulder away from the visitor
 	# The visitor never covers the work. Where furniture squeezed the viewing spot in front
 	# of it, the visitor steps out of this one picture rather than the lens losing the work.
 	var rel := Vector3(_pos.x, 0, _pos.z) - foot
 	var depth := rel.dot(normal)
-	var gap := absf(rel.dot(view.along) - shift * depth / back)
+	var gap := absf(rel.dot(along) - shift * depth / back)
 	p["covered"] = depth > 0.0 and depth < back and gap < 0.35 + p.outer.x / 2.0 * (1.0 - depth / back)
 	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 65.0)
-	var eye: Vector3 = foot + normal * back + view.along * shift
+	var eye: Vector3 = foot + normal * back + along * shift
 	# The work's centre sits 40% down the picture, a tenth of the lens above its axis; higher
 	# where it must be for the work's foot to clear the panel.
 	var shown: float = height / (2.0 * back * tan(deg_to_rad(_inspect_fov) / 2.0))

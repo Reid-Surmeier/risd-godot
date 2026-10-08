@@ -26,6 +26,7 @@ const READ_COVERED := 0.02
 const READ_FACE := 0.6  # the least of a flat work's face that shows
 const READ_SQUARE := 0.6  # the least the lens leans to a work's face: 1 square on, 0 edge on
 const READ_VISITOR := 0.1  # the most of the picture the visitor's box may take
+const READ_CLEAR := 0.8  # metres before a work within which a drawn thing is its own case
 const HALL := "Grand Gallery"
 
 var walk
@@ -1021,6 +1022,49 @@ func _objects() -> void:
 				problems.append(
 					"%d of %d points of the work are behind %s" % [hidden, on_it, ", ".join(before.keys())]
 				)
+			# Nor does anything else that is drawn (#272, round 5: a glass case standing before
+			# Christ in Majesty, the stair before the fireplace). The glass of a work's own case
+			# is not in its way: only what is met more than READ_CLEAR metres before the work.
+			var screened := 0
+			var by := {}
+			for spot in [Vector2(0.5, 0.5), Vector2(0.3, 0.3), Vector2(0.7, 0.3), Vector2(0.3, 0.7), Vector2(0.7, 0.7)]:
+				var pixel: Vector2 = (work.position + work.size * spot) / walk.size * Vector2(walk._vp.size)
+				var from: Vector3 = walk._cam.project_ray_origin(pixel)
+				var toward: Vector3 = walk._cam.project_ray_normal(pixel)
+				var own: float = walk._ray_reach(thing.node, from, toward)
+				if own == INF:
+					continue
+				var met := false
+				var until: Vector3 = from + toward * (own - READ_CLEAR)
+				for row in _room_meshes():
+					# Only what the stretch from the lens to READ_CLEAR before the work crosses.
+					if (row.box as AABB).intersects_segment(from, until) == null:
+						continue
+					var mesh: MeshInstance3D = row.mesh
+					if not mesh.is_visible_in_tree() or (walk._cam.cull_mask & mesh.layers) == 0:
+						continue
+					if thing.node == mesh or thing.node.is_ancestor_of(mesh):
+						continue
+					if not row.has("shape"):
+						row["shape"] = mesh.mesh.generate_triangle_mesh()
+						row["inward"] = mesh.global_transform.affine_inverse()
+					if row.shape == null:
+						continue
+					var hit: Dictionary = row.shape.intersect_ray(
+						row.inward * from, (row.inward.basis * toward).normalized()
+					)
+					if (
+						not hit.is_empty()
+						and from.distance_to(mesh.global_transform * hit.position) < own - READ_CLEAR
+					):
+						met = true
+						by[str(mesh.get_parent().name) + "/" + str(mesh.name)] = true
+				screened += int(met)
+			entry["points_screened"] = [screened, on_it]
+			if on_it > 0 and screened * 2 >= on_it:
+				problems.append(
+					"%d of %d points of the work are behind %s" % [screened, on_it, ", ".join(by.keys().slice(0, 3))]
+				)
 		# The caption panel stands under the work, not over it (#272).
 		var under := 0.0
 		if panel.is_visible_in_tree() and work.has_area():
@@ -1311,6 +1355,18 @@ func _other_wall_while_reading(when: String) -> void:
 	if not problems.is_empty():
 		_fail("interaction", entry.name + ": " + entry.result, entry)
 
+
+
+# Every mesh of the room scene with its box in the room, listed once: {mesh, box}.
+var _meshes: Array = []
+
+
+func _room_meshes() -> Array:
+	if _meshes.is_empty() and walk._rooms != null:
+		for mesh in walk._rooms.find_children("*", "MeshInstance3D", true, false):
+			if mesh.mesh != null:
+				_meshes.append({"mesh": mesh, "box": mesh.global_transform * mesh.get_aabb()})
+	return _meshes
 
 
 # The pixel showing a point of a wall, or null when it is out of the picture or under a work.
