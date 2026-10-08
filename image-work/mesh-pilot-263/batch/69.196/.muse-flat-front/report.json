@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/wt-marble-hall/image-work/mesh-pilot-263/batch/69.196/.muse-flat-front/references/ref-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/wt-marble-hall/image-work/mesh-pilot-263/batch/69.196/.muse-flat-front/references/ref-2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/wt-marble-hall/image-work/mesh-pilot-263/batch/69.196/.muse-flat-front/artifacts/image-generation/runs/run-15127dc4175a0cd37cb76f82/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "626c920bfc7d0fb2d8f70dc4e8072edeeae10040843d9154ab16b8e8a3263265"
+    }
+  ],
+  "changesRequested": "Reference 1 is a grey clay maquette of a sculpture. Reference 2 is the museum's photograph of the real sculpture. Repaint reference 1 exactly as it is drawn, with the same outline, the same viewpoint, the same size and place in the frame and every carved line where it is, as a flat colour map of the real material of reference 2: pale buff limestone, with its own colour only. Keep its real markings: paint traces, stains, chips. Light it perfectly evenly from every side, as in a light tent, so that there is no shading at all: no shadows, no dark creases, no darkening in grooves, hair or hollows, no highlights. Matte. Plain seamless white background, no cast shadow, no plinth, no text.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-15127dc4175a0cd37cb76f82",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/wt-marble-hall/image-work/mesh-pilot-263/batch/69.196/.muse-flat-front/artifacts/image-generation/runs/run-15127dc4175a0cd37cb76f82"
+}

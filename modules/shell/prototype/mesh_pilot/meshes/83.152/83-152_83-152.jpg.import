@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://ba44at4jskkl2"
-path="res://.godot/imported/83-152_83-152.jpg-1a93985f9d4230ac4d3faab18dfc74f0.ctex"
+path="res://.godot/imported/83-152_83-152.jpg-58956b790392d7ada697129d6821f6df.ctex"
 metadata={
 "vram_texture": false
 }
@@ -14,7 +14,7 @@ generator_parameters={
 [deps]
 
 source_file="res://modules/shell/prototype/mesh_pilot/meshes/83.152/83-152_83-152.jpg"
-dest_files=["res://.godot/imported/83-152_83-152.jpg-1a93985f9d4230ac4d3faab18dfc74f0.ctex"]
+dest_files=["res://.godot/imported/83-152_83-152.jpg-58956b790392d7ada697129d6821f6df.ctex"]
 
 [params]
 

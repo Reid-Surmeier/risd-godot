@@ -153,19 +153,30 @@
   },
   "muse_first": {
    "run": {
+    "id": "run_m177qvnergbrevp0g6e3zeh2qs8fxp9x",
+    "model": "Tripo H3.1 (`i3d-tripo-h3-1-i3d`), single view",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "724569f9f999ac37b15000e43ecb2d95646b660373c0bebbcda6e8b834ecffb1"
+   },
+   "views": "the clay front alone (the rule for reliefs)",
+   "imported": {
+    "mesh": 206854,
+    "colour": 57392,
+    "total": 264246
+   },
+   "rejected_run": {
     "id": "run_m1761kq1n3p2x6cgdke92mthzd8fxbn6",
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000",
     "quote": 0.48,
     "charged": 0.48,
-    "sha256": "69745e758ceee299b4fc39dc21ec43667b8e54d30734ffeef0e7220ab4078cb6"
+    "sha256": "69745e758ceee299b4fc39dc21ec43667b8e54d30734ffeef0e7220ab4078cb6",
+    "why": "rejected 8 October: the side view Muse inferred gave the figure a second arm and a 0.46 m deep block; not kept",
+    "views": "front from the photograph; left inferred by Muse (mirrored from the right profile it drew)"
    },
-   "views": "front from the photograph; left inferred by Muse (mirrored from the right profile it drew)",
-   "imported": {
-    "mesh": 201322,
-    "colour": 88626,
-    "total": 289948
-   }
+   "build": "clay_mesh.py --upright (a 9.78 degree lean rotated out) --depth 0.20 (the catalogue gives no depth; 0.20 m is an estimate from the photograph, the generator made 0.31 m)"
   }
  },
  "23.005": {
@@ -194,9 +205,9 @@
    },
    "views": "front, left, back, right, each from the museum's photograph of that side",
    "imported": {
-    "mesh": 194588,
-    "colour": 42492,
-    "total": 237080
+    "mesh": 194586,
+    "colour": 44078,
+    "total": 238664
    }
   }
  },

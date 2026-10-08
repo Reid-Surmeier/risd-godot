@@ -1,7 +1,7 @@
 """A geometry-only mesh (Tripo, texture off) -> a game mesh with UVs, sized to the catalogue, ready for colour.
 
 blender --background --factory-startup --python clay_mesh.py -- RAW.glb OUT.glb --turn DEG --height M [--width M] [--depth M]
-        [--low N] [--maps PX] [--unshaded] [--base R,G,B]
+        [--low N] [--maps PX] [--unshaded] [--base R,G,B] [--upright]
 
 --turn brings the front round to glTF +Z (project_photo.py --view-only reports it). Height is the catalogue's; width
 and depth, when given, are set to the catalogue's too (each axis scaled alone: a generator invents depth).
@@ -9,13 +9,15 @@ Without --low: the mesh as it came, unwrapped. With --low N: the mesh is kept as
 about N triangles and unwrapped, and the high mesh's surface is baked onto it as a tangent normal map and an
 ambient-occlusion map (OUT.normal.png, OUT.ao.png, --maps px). --unshaded bakes the occlusion only and writes no
 tangents: for works the rooms draw unshaded, where a normal map does nothing. The colour texture is a flat --base colour for now;
-project_photo.py paints it and set_texture.py puts it in. Writes OUT.json. Origin bottom centre."""
+project_photo.py paints it and set_texture.py puts it in.
+--upright is for a relief slab that came leaning: its flat back is turned square to the depth axis before sizing, so
+the lean is taken out by a rotation and not squashed out by the depth scale. Writes OUT.json. Origin bottom centre."""
 import sys, json, math, struct, hashlib, argparse
 import bpy, bmesh
 from mathutils import Vector
 p = argparse.ArgumentParser(); p.add_argument("raw"); p.add_argument("out"); p.add_argument("--turn", type=float, default=0)
 p.add_argument("--height", type=float, required=True); p.add_argument("--width", type=float); p.add_argument("--depth", type=float)
-p.add_argument("--low", type=int); p.add_argument("--maps", type=int, default=1024); p.add_argument("--base", default="0.72,0.68,0.60"); p.add_argument("--unshaded", action="store_true")
+p.add_argument("--low", type=int); p.add_argument("--maps", type=int, default=1024); p.add_argument("--base", default="0.72,0.68,0.60"); p.add_argument("--unshaded", action="store_true"); p.add_argument("--upright", action="store_true")
 a = p.parse_args(sys.argv[sys.argv.index("--") + 1:]); log = {"raw_sha256": hashlib.sha256(open(a.raw, "rb").read()).hexdigest()}
 bpy.ops.wm.read_factory_settings(use_empty=True); bpy.ops.import_scene.gltf(filepath=a.raw, merge_vertices=True)
 ms = [o for o in bpy.context.scene.objects if o.type == "MESH"]
@@ -26,6 +28,13 @@ ob = bpy.context.object; bpy.ops.object.transform_apply(location=True, rotation=
 log["raw_triangles"] = sum(len(f.vertices) - 2 for f in me.polygons)
 c, s = math.cos(math.radians(a.turn)), math.sin(math.radians(a.turn))
 for v in me.vertices: v.co = Vector((c * v.co.x + s * v.co.y, -s * v.co.x + c * v.co.y, v.co.z))
+if a.upright:  # the back is Blender +Y after the turn: the area-weighted normal of the faces that look that way is the slab's own back
+    me.update(); n = Vector((0, 0, 0))
+    for f in me.polygons:
+        if f.normal.y > 0.85: n += f.normal * f.area
+    q = n.normalized().rotation_difference(Vector((0, 1, 0)))
+    for v in me.vertices: v.co = q @ v.co
+    log["lean_removed_deg"] = round(math.degrees(q.angle), 2)
 lo = [min(v.co[i] for v in me.vertices) for i in range(3)]; hi_ = [max(v.co[i] for v in me.vertices) for i in range(3)]
 made = [hi_[i] - lo[i] for i in range(3)]; k = a.height / made[2]
 kx = a.width / made[0] if a.width else k; ky = a.depth / made[1] if a.depth else k

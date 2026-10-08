@@ -3,7 +3,7 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://dahfblg16seni"
-path="res://.godot/imported/2017-74-31-1_Color_d4364059-c98b-49d3-bb3c-e5acca9b4d45.jpg-110058514b1ba787ba8f60b7007c8e7f.ctex"
+path="res://.godot/imported/2017-74-31-1_Color_d4364059-c98b-49d3-bb3c-e5acca9b4d45.jpg-a254aa165ed247fb84add8dbbf37eb67.ctex"
 metadata={
 "vram_texture": false
 }
@@ -14,7 +14,7 @@ generator_parameters={
 [deps]
 
 source_file="res://modules/shell/prototype/mesh_pilot/meshes/2017.74.31.1/2017-74-31-1_Color_d4364059-c98b-49d3-bb3c-e5acca9b4d45.jpg"
-dest_files=["res://.godot/imported/2017-74-31-1_Color_d4364059-c98b-49d3-bb3c-e5acca9b4d45.jpg-110058514b1ba787ba8f60b7007c8e7f.ctex"]
+dest_files=["res://.godot/imported/2017-74-31-1_Color_d4364059-c98b-49d3-bb3c-e5acca9b4d45.jpg-a254aa165ed247fb84add8dbbf37eb67.ctex"]
 
 [params]
 

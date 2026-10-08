@@ -8,7 +8,7 @@
  },
  "clay-side": {
   "from": "inferred by Muse from the clay front alone; no photograph or usable footage of the side",
-  "note": "Muse drew the right profile; mirrored to serve as the left view",
+  "note": "Muse drew the right profile; mirrored to serve as the left view; not used for the mesh: the multi-view run it fed was rejected",
   "references": [
    "image-work/mesh-pilot-263/batch/69.196/clay-front.png"
   ]

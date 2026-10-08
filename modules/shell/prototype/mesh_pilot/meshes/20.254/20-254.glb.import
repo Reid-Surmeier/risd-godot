@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://dibi11mtnxqlb"
-path="res://.godot/imported/20-254.glb-7e811c44e9619df3a6fba46ee965c54a.scn"
+path="res://.godot/imported/20-254.glb-1b5e581b4435fb2c1ea62026adfed151.scn"
 
 [deps]
 
 source_file="res://modules/shell/prototype/mesh_pilot/meshes/20.254/20-254.glb"
-dest_files=["res://.godot/imported/20-254.glb-7e811c44e9619df3a6fba46ee965c54a.scn"]
+dest_files=["res://.godot/imported/20-254.glb-1b5e581b4435fb2c1ea62026adfed151.scn"]
 
 [params]
 

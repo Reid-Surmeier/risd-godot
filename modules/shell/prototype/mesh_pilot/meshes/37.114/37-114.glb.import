@@ -4,12 +4,12 @@ importer="scene"
 importer_version=1
 type="PackedScene"
 uid="uid://vfggktml4gs7"
-path="res://.godot/imported/37-114.glb-07e416bb5671ec63ef335288ebd26827.scn"
+path="res://.godot/imported/37-114.glb-7f9d57ffd4f36d65d896508c7cc19376.scn"
 
 [deps]
 
 source_file="res://modules/shell/prototype/mesh_pilot/meshes/37.114/37-114.glb"
-dest_files=["res://.godot/imported/37-114.glb-07e416bb5671ec63ef335288ebd26827.scn"]
+dest_files=["res://.godot/imported/37-114.glb-7f9d57ffd4f36d65d896508c7cc19376.scn"]
 
 [params]
 
