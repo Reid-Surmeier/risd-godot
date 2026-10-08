@@ -575,10 +575,10 @@ geometry['rooms'] += [
      'boards_across':True,'openings':{'west':[-2.51,-1.41],'south':[19.75,21.15]},
      'clear_heights':{'west':2.47,'south':2.74}},
     {'label':'Impressionist gallery A','bounds':[10.55,16.70,3.04,12.70],'height':3.69,
-     'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.20,16.30]},
+     'boards_across':True,'openings':{'north':[10.90,12.20],'south':[15.20,16.30]},
      'clear_heights':{'north':2.74,'south':2.47}},
-    {'label':'Impressionist passage return','bounds':[14.75,21.45,1.04,3.04],'height':3.2,
-     'boards_across':True,'openings':{'north':[19.75,21.15],'south':[15.10,16.40]},
+    {'label':'Impressionist passage return','bounds':[10.55,21.45,1.04,3.04],'height':3.2,
+     'boards_across':True,'openings':{'north':[19.75,21.15],'south':[10.90,12.20]},
      'clear_heights':{'north':2.74,'south':2.74}}
 ]
 for a,side,b,other in [(8,'east',13,'west'),(13,'south',15,'north'),(15,'south',14,'north'),(14,'south',12,'north')]:
@@ -587,7 +587,8 @@ geometry['impressionist_fit']={'source':'IMG_6343 84..228s; docs/evidence/impres
     'fixed_stair_door':[17.85,-1.96],'fixed_modern_door':[15.75,22.30],
     'estimated_depths_m':[2.0,9.6,8.8],'longitudinal_residual_m':3.86,
     'fitted_depths_m':[5.0,9.66,9.60],'passage_elbow_inferred':True,
-    'passage_return_m':4.7,'windows_side':'east','first_draft_mirror_corrected':True,
+    'passage_return_m':8.9,'windows_side':'east','first_draft_mirror_corrected':True,
+    'entry_northwest_corrected':True,
     'metric_accepted':False,'lighting_owned_by':'#274','missing_works':'WORKS-NEEDED.md'}
 assert sum(geometry['rooms'][3]['openings']['west'])==sum(geometry['rooms'][3]['openings']['east'])
 for a,side,b,other in [(3,'east',5,'west'),(5,'north',10,'south'),(5,'east',11,'west'),(10,'north',12,'south')]:
@@ -607,13 +608,14 @@ for name,a,b in [
     ('impressionist_stair_inner',[16.85,-1.96],[19.05,-1.96]),
     ('impressionist_stair_outer',[19.05,-1.96],[20.45,-1.96]),
     ('impressionist_passage_return',[20.45,.40],[20.45,1.80]),
-    ('impressionist_return_A',[15.75,2.25],[15.75,3.85]),
+    ('impressionist_return_A',[11.55,2.25],[11.55,3.85]),
     ('impressionist_A_B',[15.75,11.85],[15.75,13.55])
 ]:
     geometry['trials'] += [[name+'_out',[a[0],.25,a[1]],[b[0],0,b[1]],False],
                           [name+'_back',[b[0],.25,b[1]],[a[0],0,a[1]],False]]
 impressionist_route=[[20.45,-1.96],[20.45,.40],[20.45,2.04],[18.25,2.04],
-    [15.75,2.04],[15.75,3.85],[14.85,6.20],[14.85,9.20],[15.75,11.85],
+    [15.00,2.04],[11.75,2.04],[11.55,3.85],[13.55,5.20],
+    [14.85,6.20],[14.85,9.20],[15.75,11.85],
     [15.75,13.55],[13.25,15.70],[13.25,18.70],[13.25,20.65],[15.75,21.45],[15.75,23.25]]
 for i,(a,b) in enumerate(zip(impressionist_route,impressionist_route[1:])):
     assert sum((x-y)**2 for x,y in zip(a,b))**.5<=3.5

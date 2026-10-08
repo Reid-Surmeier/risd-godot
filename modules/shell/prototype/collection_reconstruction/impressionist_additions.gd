@@ -209,7 +209,7 @@ func passage_details() -> void:
 		folded.reparent(head)
 	for side in [-1, 1]:
 		var folded := leaf(.62, 2.74)
-		folded.position = Vector3(15.75 + side * .67, 1.37, 2.70)
+		folded.position = Vector3(11.55 + side * .67, 1.37, 2.70)
 		folded.rotation.y = -side * PI / 2
 		folded.reparent(room.wall_body(RETURN, "south", folded.position))
 
