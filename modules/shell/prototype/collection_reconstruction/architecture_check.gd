@@ -54,7 +54,8 @@ func run() -> void:
 				if key=="velvet_23307x" and mesh.get_meta("velvet_hood_pane",false):continue
 				for vertex in mesh.mesh.get_faces():bottom=minf(bottom,(mesh.global_transform*vertex).y)
 			var gap:float=bottom-.16
-			var expected:float=.41 if key=="velvet_23307x" else .43 if key=="woodcutters_29280" else .55
+			# madonna_58196 (#266): panel bottom 1.07 m at 6383 15.0s (427 matches) and 1.075 m in the 1 Oct audit, so the frame's foot is .99, not the first fit's .71.
+			var expected:float=.41 if key=="velvet_23307x" else .43 if key=="woodcutters_29280" else .83 if key=="madonna_58196" else .55
 			if absf(gap-expected)>.06:failures.append("Wall artwork height disagrees with source-plane fit: "+key)
 		if node.has_meta("velvet_hood_pane"):hood_panes+=1
 		if node.has_meta("renaissance_textile_label"):textile_labels+=1
