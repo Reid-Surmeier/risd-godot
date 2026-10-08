@@ -1,6 +1,7 @@
 """Free isolate: cut the object out of its catalogue photograph (OpenCV GrabCut), no generation.
 usage: cut_photo.py PHOTO OUT.png x,y,w,h [--key-sat N --outline OUTLINE.json] [--under R,G,B] [--open-below FRACTION[:KERNEL]]
 --key-sat: a coloured object against a pale wall and floor (keeps saturation > N inside the measured outline).\n--outline FILE [--key NAME] alone: the outline is the cut (medieval/shapes.json with the matching <name>-cut.jpg).
+--key-backdrop N: a pale object on a smooth studio backdrop (the backdrop is fitted from the border; keeps what differs by more than N).
 --open-below: drop thin slivers of cast shadow in the bottom strip of the picture.
 Writes an RGBA PNG (the photograph's own pixels, alpha = the cut) padded to a square, and OUT-preview.jpg on magenta.
 The colour under the transparent pixels is a hedge: if a service drops alpha, the object still stands on a contrasting ground."""
@@ -8,7 +9,7 @@ import sys, json, argparse
 import numpy as np, cv2
 from PIL import Image
 p = argparse.ArgumentParser(); p.add_argument('photo'); p.add_argument('out'); p.add_argument('rect')
-p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--key-white', type=int); p.add_argument('--keep-holes', action='store_true'); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
+p.add_argument('--outline'); p.add_argument('--key'); p.add_argument('--key-lum', type=int); p.add_argument('--key-white', type=int); p.add_argument('--keep-holes', action='store_true'); p.add_argument('--key-backdrop', type=int); p.add_argument('--iters', type=int, default=8); p.add_argument('--floor', type=float); p.add_argument('--under', default='255,255,255'); p.add_argument('--open-below'); p.add_argument('--key-sat', type=int)
 a = p.parse_args()
 im = cv2.imread(a.photo); h, w = im.shape[:2]
 mask = np.zeros((h, w), np.uint8); bg = np.zeros((1, 65)); fg = np.zeros((1, 65))
@@ -24,6 +25,17 @@ elif a.key_sat:
         poly = np.zeros((h, w), np.uint8); cv2.fillPoly(poly, [pts], 1); m &= cv2.dilate(poly, np.ones((31, 31), np.uint8))
 elif a.key_lum:  # a pale object against a dark studio ground: keep what is brighter than N
     m = cv2.morphologyEx((cv2.cvtColor(im, cv2.COLOR_BGR2GRAY) > a.key_lum).astype('uint8'), cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8))
+elif a.key_backdrop:  # a pale object on a studio backdrop that is a smooth gradient: fit the backdrop from the picture's
+    # border (a quadratic surface per channel) and keep what differs from it by more than N. No fixed brightness works here.
+    f = im.astype(np.float32); yy, xx = np.mgrid[0:h, 0:w].astype(np.float32); yy /= h; xx /= w; b = max(8, min(h, w) // 25)
+    ring = np.ones((h, w), bool); ring[b:h - b, b:w - b] = False  # all four borders: the backdrop runs seamlessly into the floor
+    A = np.stack([np.ones_like(xx), xx, yy, xx * xx, yy * yy, xx * yy, yy ** 3, yy ** 4], -1); diff = np.zeros((h, w), np.float32)
+    for ch in range(3):
+        coef, *_ = np.linalg.lstsq(A[ring], f[..., ch][ring], rcond=None); diff = np.maximum(diff, np.abs(f[..., ch] - A @ coef))
+    keep = diff > a.key_backdrop; y0 = h - int(h * .22); lum = f.mean(-1); floor = np.median(np.concatenate([lum[y0:, :b], lum[y0:, w - b:]], 1), 1)
+    rough = cv2.GaussianBlur((lum - cv2.GaussianBlur(lum, (0, 0), 6)) ** 2, (0, 0), 6) ** .5  # local roughness
+    keep[y0:] &= ~((lum[y0:] < floor[:, None] - 4) & (rough[y0:] < 6.0))  # bottom strip: darker than the floor beside it and smooth is the cast shadow
+    m = cv2.morphologyEx(keep.astype('uint8'), cv2.MORPH_CLOSE, np.ones((9, 9), np.uint8)); m = cv2.morphologyEx(m, cv2.MORPH_OPEN, np.ones((5, 5), np.uint8))
 elif a.outline:  # an outline already cut and checked by eye for this picture: use it as it is
     o = json.load(open(a.outline)); o = o[a.key] if a.key else o
     m = np.zeros((h, w), np.uint8); cv2.fillPoly(m, [(np.array(o['outline']) * [w, h]).astype(np.int32)], 1)

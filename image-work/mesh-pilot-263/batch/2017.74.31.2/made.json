@@ -1,0 +1,20 @@
+{
+ "photo-front": {
+  "from": "photograph of this direction, cut out by its difference from the studio backdrop and given to the mesh generator as it is (no Muse view)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.31.2/p01.jpg"
+  ]
+ },
+ "photo-left": {
+  "from": "photograph of this direction, cut out by its difference from the studio backdrop and given to the mesh generator as it is (no Muse view)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.31.2/p04.jpg"
+  ]
+ },
+ "photo-back": {
+  "from": "photograph of this direction, cut out by its difference from the studio backdrop and given to the mesh generator as it is (no Muse view)",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.31.2/p02-back.jpg"
+  ]
+ }
+}

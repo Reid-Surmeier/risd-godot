@@ -22,6 +22,18 @@
    "quote": 0.36,
    "error": "GENERATION_PROMPT_MODERATED: blocked by the provider's content policy",
    "charged": 0.0
+  },
+  "muse_refusals": "not tried: a nude female figure; the lead set one multi-view attempt from the photographs",
+  "muse_first": {
+   "run": {
+    "id": "run_m17bqh6aa2fdpyw6c17zjabcs98fwnm3",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; input the museum's photographs themselves, cut out",
+    "quote": 0.48,
+    "charged": null
+   },
+   "views": "front, left and back, each the museum's own photograph of that side (no Muse view)",
+   "held": "HELD, 8 October: submitted before the lead's stop reached me. The photograph route is withdrawn (a refused Muse step is a stop; #262 item 20). Not downloaded, not built, not resubmitted."
   }
  },
  "43.195": {
@@ -307,7 +319,8 @@
     "colour": 31434,
     "total": 230208
    },
-   "build": "AO=0.1 (the photographs carry their own light), CUT=--keep-holes; height only: the catalogue's 43.5 and 31.8 cm run the other way round to this front (the mesh is 35.5 wide and 43.2 deep at the catalogue height)"
+   "build": "AO=0.1 (the photographs carry their own light), CUT=--keep-holes; height only: the catalogue's 43.5 and 31.8 cm run the other way round to this front (the mesh is 35.5 wide and 43.2 deep at the catalogue height)",
+   "held": "Built before the stop; kept as a trial outside the game sources (commit 31095703)."
   }
  },
  "37.201": {
@@ -453,5 +466,23 @@
    "build": "TURN=90 --upright (0.0 degrees: the back came square), 1024 px colour from the flat front alone"
   },
   "cut": "the pilot's frontal cut-out: batch/83.152/cut.png is a copy of image-work/mesh-pilot-263/fireplace/trellis-input.png (not added to git a second time)"
+ },
+ "2017.74.31.1": {
+  "title": "Vincennes Porcelain Manufactory. *Neptune as River Deity*, 1745–1750. Soft-paste porcelain. 29.8 × 27 × 24 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.31.1/p03-front.jpg",
+  "prepare": "--height 0.298",
+  "muse_refusals": "not tried: a nude male figure, the kind Muse refused for the River God three times and the fireplace once; the lead set the photograph route for it",
+  "muse_first": {
+   "run": {
+    "id": "run_m179gbf1q3yg9307gepqavkgb18fw28k",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; input the museum's photographs themselves, cut out",
+    "quote": 0.48,
+    "charged": null,
+    "status": "completed 8 October; charge read back later"
+   },
+   "views": "front, left and back, each the museum's own photograph of that side (no Muse view)",
+   "held": "HELD, 8 October: submitted before the lead's stop reached me. The photograph route is withdrawn (a refused Muse step is a stop; #262 item 20). Not downloaded, not built, not resubmitted."
+  }
  }
 }
