@@ -1040,6 +1040,7 @@
     },
     {
       "asset": "apostle-41046",
+      "mesh": "additions/medieval/apostle-41046.glb",
       "accession": "41.046",
       "title": "Apostle",
       "size_m": [
