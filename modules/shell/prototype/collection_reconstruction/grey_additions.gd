@@ -129,10 +129,14 @@ func rodin(room) -> void:
 			door = area.openings.west
 	var at := Vector3(b[1] - 2.35, 0, (door[0] + door[1]) / 2)
 	var plinth: Node3D = room.solid(at + Vector3(0, .25, 0), Vector3(1.0, .5, 1.0), room.look(Color("eeeae2")), true)
+	plinth.set_meta("grey_rodin_plinth", true)
+	# IMG_6380 16.5s: the plinth stands on a projecting base band, about a third of its height.
+	var band: Node3D = room.solid(at + Vector3(0, .08, 0), Vector3(1.06, .16, 1.06), room.look(Color("eeeae2")))
+	band.reparent(plinth)
 	var hand: Node3D = room.place_mesh(DIR + "hand-23005.glb", at + Vector3(0, .5, 0), -PI / 2, Vector3(.826, 1.003, .68), "23.005")  # the photographed front faces the connector door
 	describe(hand, {"accession": "23.005", "title": "The Hand of God", "maker": "Auguste Rodin", "date": "1873-1923",
 		"medium": "Marble", "dimensions": "100.3 x 82.6 x 68 cm", "image": DIR + "rodin-23.005.jpg"})
-	card(room, plinth, Vector3(-.502, .12, .3), -PI / 2)
+	card(room, plinth, Vector3(-.502, .27, .3), -PI / 2)
 
 
 func fixtures(room) -> void:

@@ -130,7 +130,7 @@ func build_wall() -> void:
 ## The white platform at the north end: the display panel with the Indian cover, and the Cressent commode.
 func build_platform() -> void:
 	var k: float = (b[3] - b[2]) / REAL.y
-	var deck: Node3D = room.solid(at(16.95, .65, .07), Vector3(1.3, .14, 4.9 * k), white, true)
+	var deck: Node3D = room.plinth(at(16.95, .65), Vector3(1.3, .14, 4.9 * k))
 	deck.set_meta("european_east_platform", true)
 	# Panel: about 2.7 m wide, to 10 cm under the ceiling, 0.31 m deep as in the footage.
 	var panel: Node3D = room.solid(at(16.0, .155, 1.795), Vector3(.31, 3.31, 2.7), room.look(Color.WHITE, "res://presentation/wall-plaster.png"), true)
@@ -141,9 +141,7 @@ func build_platform() -> void:
 	cover.scale.z = .1
 	tag(cover, "indian-cover", ["37.009", "Cover", "Unknown Maker, Indian", "ca. 1700-1800", "Painted, mordant-printed and resist-dyed cotton", "Length 133.4 cm"], "textile-37.009.jpg")
 	cover.reparent(panel)
-	var stand: Node3D = room.solid(at(15.2, 1.1, .29), Vector3(.17, .30, .30), room.look(Color("e9e4d4")))
-	stand.set_meta("artwork_label_proxy", true)
-	stand.reparent(deck)
+	room.label_stand(at(15.2, 1.1, .14), -PI / 2).reparent(deck)
 	# Commode: a closed box at catalogue size carrying the record's front photograph; marble slab on top.
 	var size := Vector3(.648, .864, 1.448)
 	var body: Node3D = room.solid(at(18.5, .40, .14 + .40), Vector3(size.x * .9, .70, size.z * .92), room.look(Color("6b3a1f")), true)
@@ -168,20 +166,28 @@ func build_platform() -> void:
 	var hood: Node3D = room.solid(at(18.5, .40, .14 + .864 + .29), Vector3(.30, .58, .62), glass)
 	hood.reparent(body)
 
-func display_case(s: float, e: float, foot: Vector2, base_h: float, glass_h: float, base_look: Material) -> Node3D:
+## A floor case as filmed (IMG_6385 33.0s, IMG_6386 7.0/41.2s, IMG_6384 40.0s): a white base on a
+## recessed kick, a cap, a clear hood with pale edges, and inside the hood a riser sloped down to
+## the cap all round. The works stand on the riser's top, at base_h + .04 where they always
+## stood; the cap and the hood's foot are the riser's 8 cm (by eye) lower.
+func display_case(s: float, e: float, foot: Vector2, base_h: float, glass_h: float) -> Node3D:
 	# foot.x across the room, foot.y along it
 	var c := at(s, e)
-	var base: Node3D = room.solid(c + Vector3(0, base_h / 2, 0), Vector3(foot.x, base_h, foot.y), base_look, true)
-	var cap: Node3D = room.solid(c + Vector3(0, base_h + .02, 0), Vector3(foot.x + .06, .04, foot.y + .06), white)
+	var rise := .08
+	var low: float = base_h + .04 - rise
+	var top: float = base_h + .04 + glass_h
+	var base: Node3D = room.plinth(c, Vector3(foot.x, low - .04, foot.y))
+	var cap: Node3D = room.solid(c + Vector3(0, low - .02, 0), Vector3(foot.x + .06, .04, foot.y + .06), white)
 	cap.reparent(base)
-	var y: float = base_h + .04 + glass_h / 2
 	for side in [-1, 1]:
-		var pane: Node3D = room.solid(c + Vector3(side * foot.x / 2, y, 0), Vector3(.012, glass_h, foot.y), glass)
+		var pane: Node3D = room.solid(c + Vector3(side * foot.x / 2, (low + top) / 2, 0), Vector3(.012, top - low, foot.y), glass)
 		pane.reparent(base)
-		pane = room.solid(c + Vector3(0, y, side * foot.y / 2), Vector3(foot.x, glass_h, .012), glass)
+		pane = room.solid(c + Vector3(0, (low + top) / 2, side * foot.y / 2), Vector3(foot.x, top - low, .012), glass)
 		pane.reparent(base)
-	var lid: Node3D = room.solid(c + Vector3(0, base_h + .04 + glass_h, 0), Vector3(foot.x, .012, foot.y), glass)
+	var lid: Node3D = room.solid(c + Vector3(0, top, 0), Vector3(foot.x, .012, foot.y), glass)
 	lid.reparent(base)
+	room.hood_edges(base, c, foot.x, foot.y, low, top)
+	room.case_riser(base, c, foot / 2 - Vector2(.01, .01), low, rise, rise)
 	return base
 
 ## One case object as the record's photograph on a thin card (both faces), or flat on the deck.
@@ -204,13 +210,12 @@ func plain(base: Node3D, key: String, title: String, size: Vector3, pos: Vector3
 	block.reparent(base)
 
 func build_floor() -> void:
-	var grey: Material = room.look(Color("b9b8b3"))
 	var round_plate: Array = []
 	for i in 32:
 		round_plate.append([.5 + .47 * cos(i * TAU / 32), .5 + .47 * sin(i * TAU / 32)])
 	# 1. Silver and porcelain, north end (IMG_6385 30.5-37 s, IMG_6386 57.25 s).
 	var c := at(15.2, 4.0)
-	var silver := display_case(15.2, 4.0, Vector2(1.3, 1.6), .85, .60, white)
+	var silver := display_case(15.2, 4.0, Vector2(1.3, 1.6), .85, .60)
 	silver.set_meta("european_east_case", "silver")
 	var deck := .89
 	var riser: Node3D = room.solid(c + Vector3(.15, deck + .15, -.35), Vector3(.36, .30, .36), white)
@@ -224,16 +229,19 @@ func build_floor() -> void:
 	plain(silver, "figure-turkish-man", "Porcelain figure of a man in a turban beside a covered pot", Vector3(.08, .175, .08), c + Vector3(.07, deck + .30, -.35), Color("ece6c9"), "37.087")
 	plain(silver, "figure-turkish-woman", "Porcelain figure of a woman in pink beside a covered pot", Vector3(.08, .162, .08), c + Vector3(.23, deck + .30, -.35), Color("e7c3d2"), "37.086")
 	plain(silver, "pineapple-teapot", "Small green and yellow moulded teapot", Vector3(.12, .10, .09), c + Vector3(.42, deck, -.25), Color("a9b25a"))
-	# 2. Bench (IMG_6386 42-43.5 s): black slab top on splayed legs; sizes by eye.
+	# 2. Bench (IMG_6386 42-43.5 s): black slab top on two black leg frames, each a loop with a
+	# rail on the floor; sizes by eye.
 	var seat: Node3D = room.solid(at(10.3, 2.6, .43), Vector3(.45, .05, 2.0), room.look(Color("1c1b1b")), true)
 	seat.set_meta("european_east_bench", true)
 	for z in [-.8, .8]:
 		for x in [-.17, .17]:
 			var leg: Node3D = room.solid(at(10.3, 2.6, .205) + Vector3(x, 0, z), Vector3(.05, .41, .05), room.look(Color("1c1b1b")))
 			leg.reparent(seat)
+		var rail: Node3D = room.solid(at(10.3, 2.6, .02) + Vector3(0, 0, z), Vector3(.39, .04, .05), room.look(Color("1c1b1b")))
+		rail.reparent(seat)
 	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch as a closed box with its front photograph.
 	c = at(8.3, 3.0)
-	var cabinet_case := display_case(8.3, 3.0, Vector2(.85, 1.05), .80, .70, grey)
+	var cabinet_case := display_case(8.3, 3.0, Vector2(.85, 1.05), .80, .70)
 	cabinet_case.set_meta("european_east_case", "cabinet")
 	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, 0), Vector3(.333, .451, .606), room.look(Color("7a3a16")))
 	tag(box, "schreibtisch", ["75.023", "Writing Desk (Schreibtisch)", "Unknown Maker, German", "ca. 1590", "Walnut, burled walnut, ebonized walnut", "45.1 x 60.6 x 33.3 cm"], "cabinet-75.023.jpg")
@@ -246,7 +254,7 @@ func build_floor() -> void:
 		face.reparent(box)
 	# 4. Majolica case by the west wall, south end (IMG_6386 0.5-14.5 s, IMG_6384 30.5-32.5 s).
 	c = at(4.9, 4.5)
-	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60, white)
+	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60)
 	majolica.set_meta("european_east_case", "majolica")
 	card(majolica, "mortar", ["54.147.9", "Mortar (with Pestle 54.147.20)", "Unknown Maker, Italian", "1680", "Bronze", "Height 17.6 cm"], "mortar-54.147.9.jpg", Vector2(.24, .228), c + Vector3(.10, deck, .90), -PI / 2)
 	card(majolica, "embriachi-casket", ["85.075.8", "Casket", "Baldessare degli Imbriachi", "ca. 1400", "Bone, wood and horn", "Base 31.8 x 22.9 cm"], "casket-85.075.8.jpg", Vector2(.32, .24), c + Vector3(.25, deck + .04, .50), -PI / 2)
@@ -262,8 +270,8 @@ func build_floor() -> void:
 		plain(majolica, "small-metal-%d" % i, "Small metal object", Vector3(.04, .02, .04), c + Vector3(0, deck + .04, -.98 + i * .06), Color("8f8a80"))
 	# 5. Giambologna's River God in its hooded case, south end (IMG_6384 34.5-40.5 s).
 	c = at(2.8, 2.5)
-	var god_case := display_case(2.8, 2.5, Vector2(.75, .75), 1.0, .95, grey)
+	var god_case := display_case(2.8, 2.5, Vector2(.75, .75), 1.0, .95)
 	god_case.set_meta("european_east_case", "river-god")
-	var skirt: Node3D = room.solid(c + Vector3(0, .09, 0), Vector3(.83, .18, .83), grey)
+	var skirt: Node3D = room.solid(c + Vector3(0, .09, 0), Vector3(.83, .18, .83), white)
 	skirt.reparent(god_case)
 	card(god_case, "river-god", ["44.674", "River God (The Virile Age; The Euphrates)", "Giambologna", "ca. 1575", "Terracotta", "48.3 x 43.5 x 31.8 cm"], "rivergod-44.674.jpg", Vector2(.39, .483), c + Vector3(0, 1.04, 0), -PI / 4)
