@@ -586,6 +586,10 @@ for patch in geometry['patches']:
 # The central guard is 4.115m from the lion wall; its west ear supports the existing folded leaf.
 lion_west_edge = max(32.215, lion_landing['openings']['west'][1] + .05)
 lion_west_inner = lion_landing['bounds'][0] + .061 + 1.06
+# The walking adapter blocks two rectangles, leaving the west floor ear walkable.
+lion_landing['floor_voids'] = [
+    [10.55, lion_west_inner, lion_west_edge, 36.115],
+    [lion_west_inner, 16.15, 32.215, 36.115]]
 if lion_west_edge > 32.216:
     geometry['patches'].append({'label': 'lion west landing ear', 'color': '81735c',
         'vertices': [[10.55, 0, 32.215], [lion_west_inner, 0, 32.215],
