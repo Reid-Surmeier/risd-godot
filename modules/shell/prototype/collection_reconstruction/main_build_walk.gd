@@ -2402,9 +2402,11 @@ func _shade_walls() -> void:
 		if not surface is MeshInstance3D:
 			continue
 		# A baked surface stands for one authored mesh, or for several merged into it.
-		var up: Node = surface.get_meta("live_cutaway", null)
+		var up: Node = null
 		var merged: Array = surface.get_meta("source_paths", [])
-		if up == null and not merged.is_empty():
+		if surface.has_meta("live_cutaway"):
+			up = surface.get_meta("live_cutaway")
+		elif not merged.is_empty():
 			up = _rooms.find_child(str(merged[0]), true, false)
 		var wall := false
 		while up != null and up != _rooms:
