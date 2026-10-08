@@ -1114,3 +1114,26 @@ remain approximate. Source/control/evidence hashes and sizes are in
 [`docs/evidence/vessels-turned/SHA256.json`](../../docs/evidence/vessels-turned/SHA256.json),
 with inspected draft pictures, dimensions, faults and inherited check failures
 in [`NOTES.md`](../../docs/evidence/vessels-turned/NOTES.md).
+
+## Remaining Rockefeller turned vessels (8 October 2026)
+
+The same private ring-profile builder now also replaces `pink-small-tureen`,
+`gold-tureen`, `gold-ecuelle-clean`, `pink-compote`, `agate-teapot`, `cream-jug`,
+`gold-cup-a`, `gold-cup-b` and `pink-ladle`. Each has its own photographed
+outline/control rows at the catalogue whole dimensions, plus its required
+small handle/spout/foot/lid pieces. The ladle's bowl is turned; its handle is a
+thin extrusion of its measured front silhouette. The same already saved Muse
+RGB isolates supply colour, with the original generation receipts preserved.
+New provider: local Godot 4.7.2 and Python/Pillow/OpenCV; model: none; requests:
+0; new API cost: USD 0. No production bake/install, no generated room asset
+commit, no changed instance placement. Catalogue conflicts for the teapot's
+45.7 cm width and the tall pink tureens are visible and explicitly unresolved.
+The ten existing-photo hashes, receipts, measured controls, derived RGB hashes,
+source files and small JPEG evidence are in
+[`SHA256.json`](../../docs/evidence/vessels-turned/SHA256.json), which preserves
+the exemplar's original source hashes at its standalone commit. Full dimensions,
+old drawn width corrections, exact source edits, draft checks and remaining
+fidelity limits are in
+[`NOTES.md`](../../docs/evidence/vessels-turned/NOTES.md). The 22 figural blobs
+are unchanged and named in
+[`LIST.md`](../../docs/evidence/vessels-turned/LIST.md).

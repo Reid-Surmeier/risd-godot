@@ -48,11 +48,27 @@ func run() -> void:
 		assert(actual.size.distance_to(expected) < .0001, "Catalogue size differs: " + work.asset)
 		var old := old_blob(catalogue.meshes[work.asset], load("res://assets/" + work.asset + "-volume.png"))
 		scene.add_child(old)
-		old.global_transform = vessel.global_transform
+		# Recreate the original transform from its records and the existing room shifts.
+		var placement: Dictionary
+		for row in catalogue.instances:
+			if row.asset == work.asset:
+				placement = row
+		old.position = Vector3(placement.position[0], placement.position[1], placement.position[2])
+		old.position.x -= 1.95
+		if old.position.z < 1.0:
+			old.position.z += 2.2
+		if old.position.z < 1.8:
+			old.position.z -= scene.hall_reveal.wall_m
+		old.rotation = Vector3(placement.get("pitch", 0.0), placement.get("yaw", 0.0), 0)
+		assert(old.global_transform.is_equal_approx(vessel.global_transform), "A vessel's placement may not change")
 		old.hide()
+		var old_actual := old.mesh.get_aabb()
 		measurements.append({"asset": work.asset, "origin_m": [vessel.position.x, vessel.position.y, vessel.position.z],
 			"catalogue_size_m": work.size_m, "measured_local_size_m": [actual.size.x, actual.size.y, actual.size.z],
-			"old_size_m": catalogue.meshes[work.asset].size_m, "parts": vessel.get_child_count()})
+			"old_size_m": catalogue.meshes[work.asset].size_m,
+			"old_measured_local_size_m": [old_actual.size.x, old_actual.size.y, old_actual.size.z],
+			"rotation_radians": [vessel.rotation.x, vessel.rotation.y, vessel.rotation.z],
+			"placement_equals_old": true, "parts": vessel.get_child_count()})
 		var face := vessel.global_transform.basis.z.normalized()
 		var right := vessel.global_transform.basis.x.normalized()
 		var target := box.get_center()
@@ -62,9 +78,18 @@ func run() -> void:
 		# The close pair uses the same lens, target and eye for both geometries.
 		for view in [["front", face], ["three-quarter", (face * .83 - right * .56).normalized()]]:
 			var distance: float = maxf(expected.x, expected.y) * 2.25
+			var elevation := .10
+			if work.asset in ["gold-cup-a", "gold-cup-b", "pink-compote", "gold-ecuelle-clean"]:
+				elevation = .35
+			# Look over the neighbouring cup, without moving any displayed work.
+			if work.asset == "gold-ecuelle-clean" and view[0] == "three-quarter":
+				view[1] = (face * .83 + right * .56).normalized()
 			scene.camera.fov = 36
-			scene.camera.position = target + view[1] * distance + Vector3(0, distance * .10, 0)
-			scene.camera.look_at(target)
+			scene.camera.position = target + view[1] * distance + Vector3(0, distance * elevation, 0)
+			# The unchanged ladle pitch presents its front upward, so its own Y
+			# is the camera-up direction instead of the collinear room Y.
+			var up := vessel.global_transform.basis.y.normalized() if work.asset == "pink-ladle" else Vector3.UP
+			scene.camera.look_at(target, up)
 			await take(work.asset + "-" + view[0] + "-after")
 			vessel.hide()
 			old.show()
