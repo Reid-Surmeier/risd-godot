@@ -439,10 +439,13 @@ func exit_sign(at:Vector3,yaw:float) -> Node3D:
 	sign.set_meta("exit_sign",true)
 	return sign
 
-## Doorways with the footage's deep panelled reveal: "<room>:<side>" -> depth in metres.
-const DEEP_REVEALS:={"light Renaissance room:north":.8}
-## A folded leaf's panels on a reveal cheek, as fractions of its height from the top (IMG_6385 1.0s).
-const LEAF_PANELS:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
+## A folded leaf's panels on a reveal cheek, as fractions of its height from the top: the
+## five-panel leaf of IMG_6385 1.0s, and the two unequal panels of IMG_6386 102.75s.
+const LEAF_FIVE:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
+const LEAF_TWO:=[[.066,.672],[.734,.953]]
+## Doorways with the footage's deep panelled reveal: "<room>:<side>" -> [depth in metres, the
+## leaf folded against each cheek]. One doorway is two entries, one for each room it joins.
+const DEEP_REVEALS:={"light Renaissance room:north":[.8,LEAF_TWO],"adjacent gallery:south":[.8,LEAF_TWO]}
 
 ## The reveal of a cased doorway as a stage flat: two panelled cheeks, a panelled soffit and a
 ## threshold, standing `depth` metres beyond the wall plane where the next room would be, and
@@ -452,7 +455,7 @@ const LEAF_PANELS:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
 ## shared-wall rule from drawing it in the room it reaches into. Its faces show from inside the
 ## opening only. It carries its own tones and stays out of the bake, so it throws no shadow on
 ## the neighbour's floor.
-func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float) -> void:
+func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float,leaf:Array) -> void:
 	var vertical:bool=side in ["west","east"]
 	var face:float=1.0 if side in ["west","north"] else -1.0
 	# (along the wall, up, metres beyond the wall plane) -> room metres.
@@ -476,7 +479,7 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 	var into:=Vector3(0,0,1) if vertical else Vector3(1,0,0) # along the wall
 	var beyond:Vector3=at.call(0.0,0.0,1.0)-at.call(0.0,0.0,0.0)
 	var cheek:Array=[]
-	for span in LEAF_PANELS:cheek.append(Rect2(.09,head*(1.0-span[1]),depth-.18,head*(span[1]-span[0])))
+	for span in leaf:cheek.append(Rect2(.09,head*(1.0-span[1]),depth-.18,head*(span[1]-span[0])))
 	for spec in [
 		[at.call(lo,head,0.0),into,beyond,Vector3.DOWN,hi-lo,depth,[Rect2(.10,.10,hi-lo-.20,depth-.20)],Color("efe9da")],
 		[at.call(lo,0.0,0.0),beyond,Vector3.UP,into,depth,head,cheek,Color("efe9da")],
@@ -529,6 +532,19 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 		mesh.visible=not has_meta("bake_preparing")
 		body.add_child(mesh)
 		mesh.global_transform=Transform3D.IDENTITY
+	# Each folded leaf's knob, at its free edge deep in the reveal.
+	for s in [lo+.03,hi-.03]:
+		var knob:=MeshInstance3D.new()
+		var ball:=SphereMesh.new()
+		ball.radius=.025
+		ball.height=.05
+		ball.radial_segments=8
+		ball.rings=4
+		knob.mesh=ball
+		knob.material_override=look(Color("3a3323"),"",true)
+		knob.visible=not has_meta("bake_preparing")
+		body.add_child(knob)
+		knob.global_position=at.call(s,.95,depth-.08)
 
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
@@ -650,7 +666,8 @@ func build_rooms() -> void:
 			header.set_meta("source_casing_width",casing_width)
 			door_casing(header,side,fixed,opening,minf(clear_height,2.74),casing_width)
 			if DEEP_REVEALS.has(area.label+":"+side):
-				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),DEEP_REVEALS[area.label+":"+side])
+				var reveal:Array=DEEP_REVEALS[area.label+":"+side]
+				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),reveal[0],reveal[1])
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
@@ -1227,37 +1244,11 @@ func build_adjacent_gallery() -> void:
 	# platform, which european_east_additions.gd builds. The two full-height piers once built here
 	# were a misreading of that panel and are gone.
 	inventory["gallery_piers"]=0
-	# IMG_6386 102.75/104.75s: two unequal panels, leaves swing into Renaissance.
-	# ponytail: right-angle swing and leaf dimensions remain provisional; wall relationship is observed.
-	for x in [-1.59,.49]:
-		var ivory:=look(Color("eee9de"))
-		var leaf:=solid(Vector3(x,1.38,28.58),Vector3(.07,2.7,.96),ivory,true)
-		for index in 2:
-			var y:float=[1.73,.43][index]
-			var height:float=[1.66,.60][index]
-			for side in [-1,1]:
-				var face:float=x+side*.042
-				panel(leaf,[Vector3(face-x,y-height/2-1.38,-.36),Vector3(face-x,y-height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,-.36)],
-					[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/european-two-panel-door-%d.png"%index))
-				for edge in [-1,1]:
-					var stile:=solid(Vector3(x+side*.050,y,28.58+edge*.36),Vector3(.014,height+.03,.03),ivory)
-					stile.reparent(leaf)
-					var rail:=solid(Vector3(x+side*.050,y+edge*height/2,28.58),Vector3(.014,.03,.75),ivory)
-					rail.reparent(leaf)
-		for side in [-1,1]:
-			var knob:=MeshInstance3D.new()
-			var sphere:=SphereMesh.new()
-			sphere.radius=.025
-			sphere.height=.05
-			sphere.radial_segments=8
-			sphere.rings=4
-			knob.mesh=sphere
-			knob.material_override=look(Color("514831"))
-			knob.position=Vector3(x+side*.070,.88,28.99)
-			add_child(knob)
-			knob.reparent(leaf)
+	# IMG_6386 102.75/104.75s, IMG_6383 62.5s: each leaf has two unequal panels and lies folded flat
+	# in the doorway's reveal. deep_reveal() draws them as the reveal's cheeks (DEEP_REVEALS), so
+	# no leaf stands in the room.
 	inventory["european_door_panels_per_leaf"]=2
-	inventory["european_door_swing_into_renaissance"]=true
+	inventory["european_door_folded_into_reveal"]=true
 	inventory["far_doorway_threshold"]=1
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/goltzius-frame-geometry.json"))
 	var goltzius:=Painting.new()

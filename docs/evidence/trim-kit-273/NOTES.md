@@ -45,3 +45,10 @@ lit by the bake. The baked, in-game look is still to be judged from the integrat
 To check in the baked game: the reveal is drawn only from its own room and never from the
 European gallery; the 38 door crossings still pass and the wipe still triggers; the three new
 ceilings close those rooms to the bake's daylight, so their lamps need setting for a ceiling (#274).
+
+`reveal-unbaked-renaissance-european-both-sides.jpg` (later): the same doorway from the
+Renaissance room (top) and from the European gallery (bottom), each with its own reveal. The
+leaf is this door's own, two unequal panels (IMG_6386 102.75 s), folded flat on each cheek with
+its knob (IMG_6383 62.5 s); the two leaves that stood open in the Renaissance room are gone.
+In this draft view the other room's reveal also shows at the foot of the jambs, because the
+draft draws every room; the game draws one.
