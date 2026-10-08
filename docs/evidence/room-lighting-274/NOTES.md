@@ -1,3 +1,74 @@
+# Update, 8 Oct evening: the warm rule, and what the day's bake trouble was
+
+Everything below this heading supersedes the lamp colours, levels and bake times in the
+sections under it, which describe the afternoon's near-white rule (`a25c1a24`). The method
+(the light pass, wall against skirting) and the costs of drawing works still hold.
+
+## The owner's words, 17:35, playing the live build `10f7c0b9` (old lamps)
+
+"generally also lighting is so bad. you don't have spotlights on objects warm glow." "the
+lighting should be warm in the medieval room." So the rule turned: a warm spot on every work
+(`#ffb870`, 3.6 a metre), a low faintly warm fill (`#fff0e0`, 1.0 for 25 m2), works warmed
+by their spot and shaded harder from its side. The rule in words is the "Light" section of
+`docs/playtest/room-builder-guide.md`.
+
+## The medieval room, first (VERIFIED)
+
+`5-dark-medieval-room-warm.jpg`: the owner's two screenshots, the build before, this branch,
+the Main Hall. Baked on the RTX ("bake on the GPU (Windows Godot): 49 s", BAKE_OK
+users=1761, 139 lamps), rendered at the game camera on opengl3.
+
+| Dark medieval room | Floor | Wall beside works | Wall away from works | Skirting | Works |
+| --- | --- | --- | --- | --- | --- |
+| before (`cb8a272e`) | 122,106,82 (107) | 44,43,44 (43) | 31,29,30 (30) | not sampled | 108 |
+| this branch | 121,90,55 (94) | 84,62,45 (66) | 27,23,21 (24) | 93,67,46 (71) | 88 |
+
+The pool is 2.8 times the wall away from it (before 1.4); floor and walls are warm where
+they were grey. No wall reads black (24 of 255 at the dimmest). Works read 88 against 108
+before because the placed meshes (heads, the crucifix, the angel) are now shaded from their
+lamp's side instead of drawn at one flat brightness.
+
+Only this room has been looked at under the warm rule. The other rooms are baked with it
+and unjudged; their `FILL_TRIM` values are still the afternoon's.
+
+## What the bake trouble was
+
+1. Every bake until 17:55 ran on lavapipe, the CPU Vulkan device inside WSL. On it the whole
+   cost is the lamps' shadow rays: with 139 lamps the bake did not finish in 7 minutes; the
+   same with shadows off on every lamp took 1:37; with probes off, bounces off or the
+   denoiser off it still did not finish. Triangle counts, texels, lamp ranges and other
+   agents' load, each of which I named as the cause during the afternoon, were not it.
+2. `scripts/rebuild_rooms.sh` now bakes in the Windows build of Godot on the NVIDIA driver:
+   18.7 s for the same 139 lamps.
+3. Kept from the hunt because they are worth having anyway: works and any mesh over 30,000
+   triangles are not written into `addition_baked/room.tscn` (16 MB; 35 MB with thirteen
+   placed meshes and one ironwork inline), and BAKE_PREPARE prints what each room puts in
+   the bake.
+
+## A fault I pushed and fixed
+
+`3ebf64bc` and `4fe71f99` stopped the rooms installing in any rendered debug run (0 works,
+0 cut-away walls): duplicating a work's shader material copied `floor_z_limits` into it.
+Fixed in `aea45e34`. It did not show in `scripts/check.sh`, which runs headless.
+
+## Also fixed on the way
+
+Floors were merged under whichever floor material came last, so once the Skylight Gallery
+brought its own paler oak every room's floor took that tone. Floors are merged per material.
+
+## Not done, and not known (evening)
+
+1. Every room but the medieval one under the warm rule: unjudged. The Renaissance window
+   shade, the Impressionist rooms, the stairs and the two-storey Skylight Gallery have not
+   been looked at with their lamps at all.
+2. The black slabs and doorways in the pictures are the cut-away and the room-change, not
+   the bake; another branch replaces them.
+3. Whether a statue's box shadow reads wrong: not seen wrong on the medieval heads or the
+   crucifix in these views; not looked at close.
+4. The Web export was not run.
+
+---
+
 # One lighting for every room (#274)
 
 Branch `feat/room-lighting-274`, on `origin/feat/trim-kit-273`. The owner, 7 Oct: "doesn't

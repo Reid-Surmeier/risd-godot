@@ -141,6 +141,8 @@
   "51.105": {"room": "light Renaissance room", "form": "relief", "as": "profile"},
   "57.302": {"room": "light Renaissance room", "form": "volume", "as": "profile"},
   "58.196": {"room": "light Renaissance room", "form": "flat", "as": "flat"},
+  "59.128": {"room": "light Renaissance room", "form": "volume", "as": "mesh"},
+  "21.398": {"room": "light Renaissance room", "form": "volume", "as": "mesh"},
   "16.243": {"room": "dark medieval room", "form": "flat", "as": "extruded_photo"},
   "20.207": {"room": "dark medieval room", "form": "flat", "as": "flat"},
   "20.254": {"room": "dark medieval room", "form": "volume", "as": "mesh"},
