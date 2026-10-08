@@ -424,6 +424,21 @@ func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,
 		add_child(mesh)
 		mesh.reparent(header)
 
+## The lit green sign over a door, lettered with the game's own font: `at` is its centre, `yaw`
+## turns its face (+Z) into the room. Hang it on the wall it belongs to with reparent().
+func exit_sign(at:Vector3,yaw:float) -> Node3D:
+	var sign:=solid(at,Vector3(.42,.20,.05),look(Color("2c5a3c")))
+	sign.rotation.y=yaw
+	var lettering:=Label3D.new()
+	lettering.text="EXIT"
+	lettering.font_size=48
+	lettering.pixel_size=.0026
+	lettering.modulate=Color("8dfab4")
+	lettering.position=Vector3(0,0,.027)
+	sign.add_child(lettering)
+	sign.set_meta("exit_sign",true)
+	return sign
+
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -465,8 +480,10 @@ func build_rooms() -> void:
 		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://presentation/neutral-plaster.png")
 		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
-		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery"]:
-			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight.
+		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery","adjacent gallery","Rockefeller","grey French gallery"]:
+			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight. The European gallery
+			# (IMG_6386 74.5s), Rockefeller (IMG_6380 223.5s) and the grey gallery (IMG_6380 16.5s) have the
+			# same flat white ceiling over their tracks; it hides with the camera as the others do.
 			var ceiling:=solid(Vector3((b[0]+b[1])/2,height+.02,(b[2]+b[3])/2),Vector3(b[1]-b[0],.04,b[3]-b[2]),look(Color("ebe9e3"),"res://presentation/neutral-plaster.png"))
 			ceiling.set_meta("opaque_ceiling",area.label)
 			ceiling_details.append(ceiling)
@@ -1113,16 +1130,10 @@ func build_adjacent_gallery() -> void:
 	angels.position=Vector3(-3.485,1.8,16.96)
 	angels.rotation.y=PI/2
 	angels.set_meta("catalogue_accession","36.003")
-	# IMG_6386 44.25/67.75s: opposite-wall piers project into the gallery.
-	# ponytail: wall relationships observed; pier depth and spacing await metric fitting.
-	# #258: this wall (x 2.50 here) is the Main Hall's own west wall, a sheet with no thickness.
-	# The piers stop 2 cm short of it: a face on that plane flickers through the Hall wall, and
-	# the foot used to reach 2.5 cm into the Hall. Their fronts are where they were.
-	for z in [3.65,8.4]:
-		var pier:=solid(Vector3(2.27,1.75,z),Vector3(.42,3.5,.9),look(Color.WHITE,"res://presentation/wall-plaster.png"),true)
-		var foot:=solid(Vector3(2.2275,.065,z),Vector3(.505,.13,1.06),look(Color("f1ede2")))
-		foot.reparent(pier)
-	inventory["gallery_piers"]=2
+	# IMG_6386 44.5/67.5s: nothing stands out of this wall but the one white display panel on the
+	# platform, which european_east_additions.gd builds. The two full-height piers once built here
+	# were a misreading of that panel and are gone.
+	inventory["gallery_piers"]=0
 	# IMG_6386 102.75/104.75s: two unequal panels, leaves swing into Renaissance.
 	# ponytail: right-angle swing and leaf dimensions remain provisional; wall relationship is observed.
 	for x in [-1.59,.49]:
