@@ -31,7 +31,8 @@ Stopped-route runs that were already queued; downloaded outside git (`~/risd-god
 | River God 44.674 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
 | Apostle 41.045 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
 | Apostle 41.046 | Tripo H3.1, 10k faces | 0.36 | 0.36 |
-| Récamier 37.201, Tabernacle 06.057 | Tripo H3.1, 10k faces | 0.36 each | still queued |
+| Récamier 37.201 | Tripo H3.1, 10k faces | 0.36 | 0.36 (finished; left on Flora, not downloaded) |
+| Tabernacle 06.057 | Tripo H3.1, 10k faces | 0.36 | 0.36 (finished; left on Flora, not downloaded) |
 
 Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 
@@ -39,7 +40,8 @@ Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 | --- | --- | --- |
 | Muse, 4 clay views (OpenRouter, `meta/muse-image`) | 0.04 | 0.04 (reported cost 0.01 each) |
 | Muse, 4 colour views | 0.04 | 0.04 |
-| Tripo H3.1 Multi-View, geometry detailed, no texture, 20,000 faces (RISD EDU) | 0.48 | queued |
-| Tripo H3.1 Multi-View, geometry detailed, no texture, 500,000 faces (RISD EDU) | 0.48 | queued |
+| Muse, 3 matched clay views | 0.03 | 0.03 |
+| Tripo H3.1 Multi-View, geometry detailed, no texture, 20,000 faces (RISD EDU) | 0.48 | 0.48 |
+| Tripo H3.1 Multi-View, geometry detailed, no texture, 500,000 faces (RISD EDU) | 0.48 | 0.48 |
 
-**Charged so far: 5.00 USD** (3.12 above, 1.80 stopped-route, 0.08 Muse).
+**Charged so far: 6.71 USD**: 3.12 above, 2.52 stopped-route, 1.07 Saint Peter Muse-first (0.11 Muse, 0.96 Tripo).

@@ -28,9 +28,9 @@ s.render.engine = "CYCLES"; s.cycles.device = "CPU"; s.cycles.samples = 24; s.cy
 s.render.resolution_x = s.render.resolution_y = size; s.render.image_settings.file_format = "PNG"
 s.view_settings.view_transform = "Standard"
 s.world = bpy.data.worlds.new("w"); s.world.use_nodes = True
-s.world.node_tree.nodes["Background"].inputs[0].default_value = (0.93, 0.93, 0.93, 1) if os.environ.get("CLAY") else (0.75, 0.75, 0.75, 1); s.world.node_tree.nodes["Background"].inputs[1].default_value = 0.8 if os.environ.get("CLAY") else 0.6
+s.world.node_tree.nodes["Background"].inputs[0].default_value = (0.93, 0.93, 0.93, 1) if os.environ.get("CLAY") else (0.75, 0.75, 0.75, 1); s.world.node_tree.nodes["Background"].inputs[1].default_value = 0.45 if os.environ.get("CLAY") else 0.6
 cam = bpy.data.objects.new("cam", bpy.data.cameras.new("cam")); s.collection.objects.link(cam); s.camera = cam; cam.data.lens = 85
-sun = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sun.data.energy = 3.0; sun.data.angle = 0.3; s.collection.objects.link(sun)
+sun = bpy.data.objects.new("sun", bpy.data.lights.new("sun", "SUN")); sun.data.energy = 1.6 if os.environ.get("CLAY") else 3.0; sun.data.angle = 0.3; s.collection.objects.link(sun)
 dist = span * 3.2
 for yaw in yaws:
     a = math.radians(yaw - 90)

@@ -1,0 +1,22 @@
+{
+ "raw_sha256": "a11dc4864c96bfe88e4f795cdb78a14dfa72e3ca7d0dcf1c8c88465e05f6de1b",
+ "raw_triangles": 19760,
+ "as_made_m_at_catalogue_height": {
+  "width": 0.4008,
+  "depth": 0.3273
+ },
+ "scale": {
+  "height": 0.77711,
+  "width_against_height": 1.0777,
+  "depth_against_height": 0.8921
+ },
+ "triangles": 19760,
+ "size_m_width_height_depth": [
+  0.432,
+  0.762,
+  0.292
+ ],
+ "glb_bytes": 717528,
+ "images": 1,
+ "blender": "5.2.2 LTS"
+}
