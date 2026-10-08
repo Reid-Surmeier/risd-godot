@@ -1,0 +1,290 @@
+{
+  "architecture": {
+    "case_rails": 16,
+    "casings": 31,
+    "east_cases": 2,
+    "east_objects": {
+      "albarello": 1,
+      "bookcover": 1,
+      "cleric": 1,
+      "diptych": 1,
+      "emblem": 1,
+      "glass_201729": 1,
+      "plaque_34024": 1,
+      "plate_46391": 1,
+      "plate_57302": 1,
+      "roundel_51105": 1,
+      "woman": 1
+    },
+    "failures": [],
+    "grilles": 1,
+    "hall_reveal_leaves": 2,
+    "leaf": 2,
+    "lift_features": 3,
+    "pieta_cases": 1,
+    "rockefeller_linings": 2,
+    "saint_roch": 1,
+    "triptych_panels": 3
+  },
+  "routes": {
+    "failures": [],
+    "trials": [
+      {
+        "clear": true,
+        "trial": "modern_far_opening_out"
+      },
+      {
+        "clear": true,
+        "trial": "modern_far_opening_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_inner_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_inner_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_outer_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_outer_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_passage_return_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_passage_return_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_return_A_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_return_A_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_A_B_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_A_B_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_00_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_00_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_01_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_01_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_02_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_02_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_03_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_03_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_04_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_04_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_05_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_05_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_06_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_06_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_07_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_07_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_08_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_08_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_09_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_09_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_10_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_10_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_11_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_11_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_12_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_12_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_13_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_13_back"
+      }
+    ]
+  },
+  "source_representation": {
+    "built": 195,
+    "declared": 193,
+    "failures": [
+      "59.128 (light Renaissance room) is in the build and not declared",
+      "21.398 (light Renaissance room) is in the build and not declared"
+    ],
+    "unregistered": [
+      "15.108",
+      "1992.051",
+      "2014.110",
+      "30.011",
+      "40.002",
+      "52.002",
+      "european-east-figure-turkish-man",
+      "european-east-figure-turkish-woman",
+      "european-east-pineapple-teapot",
+      "european-east-small-dish",
+      "european-east-small-metal-0",
+      "european-east-small-metal-1",
+      "european-east-small-metal-2"
+    ]
+  },
+  "installed_representation": {
+    "built": 177,
+    "declared": 193,
+    "failures": [
+      "st-george (Rockefeller) is in the build and not declared",
+      "flute-player (Rockefeller) is in the build and not declared",
+      "hudibras (Rockefeller) is in the build and not declared",
+      "recamier (Rockefeller) is in the build and not declared",
+      "2017.46 is declared as mesh but no place_mesh() put it there",
+      "2000.103.3 is declared as mesh but no place_mesh() put it there",
+      "06.057 is declared as mesh but no place_mesh() put it there",
+      "83.152 is declared as mesh but no place_mesh() put it there",
+      "2017.74.16 is declared and not in the build",
+      "2017.74.17 is declared and not in the build",
+      "37.201 is declared and not in the build",
+      "2017.74.14 is declared and not in the build",
+      "1998.107 is declared and not in the build",
+      "41.012 is declared and not in the build",
+      "42.219 is declared and not in the build",
+      "44.541 is declared and not in the build",
+      "42.190 is declared and not in the build",
+      "2007.68 is declared and not in the build",
+      "57.236 is declared and not in the build",
+      "59.027 is declared and not in the build",
+      "23.072 is declared and not in the build",
+      "72.096 is declared and not in the build",
+      "1999.3 is declared and not in the build",
+      "33.053 is declared and not in the build",
+      "2021.101 is declared and not in the build",
+      "2010.57 is declared and not in the build",
+      "35.770 is declared and not in the build",
+      "60.095 is declared and not in the build"
+    ],
+    "unregistered": [
+      "15.108",
+      "1992.051",
+      "2014.110",
+      "21.398",
+      "30.011",
+      "40.002",
+      "52.002",
+      "59.128",
+      "european-east-figure-turkish-man",
+      "european-east-figure-turkish-woman",
+      "european-east-pineapple-teapot",
+      "european-east-small-dish",
+      "european-east-small-metal-0",
+      "european-east-small-metal-1",
+      "european-east-small-metal-2"
+    ]
+  },
+  "pack": {
+    "wall_preview_imported_bytes": 2110686,
+    "frame_palette_imported_bytes": 220784,
+    "total_imported_bytes": 2331470,
+    "external_zoom_bytes": 33013634,
+    "game_pack_bytes": 232113540,
+    "game_pack_MiB": 221.36072158813477,
+    "budget_MiB": 260,
+    "new_imports_in_pack": 26,
+    "new_external_zoom_files_in_pack": 0,
+    "installed_rooms_stale": true
+  },
+  "photo_guard": {
+    "works": 55,
+    "images": 165,
+    "failures": 0
+  },
+  "records_guard": {
+    "works": 193,
+    "shortfalls": 53,
+    "failures": 0
+  }
+}

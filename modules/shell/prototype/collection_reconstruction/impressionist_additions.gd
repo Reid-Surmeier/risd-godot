@@ -468,14 +468,6 @@ func hang_existing_works() -> void:
 func hang_catalogue_works() -> void:
 	var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://assets/additions/impressionist/catalogue.json"))
 	var works: Array = JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/prototype/gallery_walk4/works.json"))
-	# The silver Pissarro/van Gogh and rose-brown Gauguin mouldings retain the
-	# kit carving with reduced gilt chroma. The art photograph is never processed.
-	var pale_frame := Shader.new()
-	var kit_shader: Shader = load("res://modules/shell/prototype/gallery_walk4/ps1.gdshader")
-	assert(kit_shader.code.contains("c *= tint;"))
-	pale_frame.code = kit_shader.code.replace("shader_type spatial;",
-		"shader_type spatial; uniform float frame_lift = 0.0;").replace("c *= tint;",
-		"c.rgb = mix(vec3(dot(c.rgb, vec3(0.2126, 0.7152, 0.0722))), c.rgb, 0.08); c.rgb = mix(c.rgb, vec3(0.5), frame_lift); c *= tint;")
 	# accession, wall, along, centre height, canvas, frame, moulding metres L/T/R/B,
 	# room, frame-only colour multiplier, card side (+1 is to the viewer's right).
 	for spec in [
@@ -501,15 +493,16 @@ func hang_catalogue_works() -> void:
 		var painting = room.Painting.new()
 		room.add_child(painting)
 		painting.name = "Impressionist_" + str(spec[0]).replace(".", "_")
+		var frame_path: String = "res://modules/shell/prototype/gallery_walk4/frames/" + spec[5] + ".png"
+		# Palette copies preserve the kit carving/alpha and use the stock bake material.
+		if spec[0] in ["72.096", "35.770", "1999.3"]:
+			frame_path = "res://modules/shell/assets/impressionist/frame-W7-" + ("rose" if spec[0] == "1999.3" else "pale") + ".png"
 		painting.build_framed(
-			load("res://modules/shell/prototype/gallery_walk4/frames/" + spec[5] + ".png"),
+			load(frame_path),
 			load("res://" + str(record.image_resolution.images.wall.path)), spec[4], margins, spec[6])
 		# Only the three frame surfaces are tinted. The museum canvas stays unchanged.
 		for i in 3:
 			var material: ShaderMaterial = painting.get_child(i).material_override
-			if spec[0] in ["72.096", "35.770", "1999.3"]:
-				material.shader = pale_frame
-				material.set_shader_parameter("frame_lift", .02 if spec[0] == "1999.3" else .16)
 			var shade: Color = material.get_shader_parameter("tint")
 			material.set_shader_parameter("tint", shade * spec[8])
 		painting.position = room.wall_point(spec[7], spec[1], spec[2], spec[3], .067)

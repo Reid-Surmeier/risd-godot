@@ -197,3 +197,59 @@ The 44 unchanged capture dependencies were restored and imported successfully. T
 The last full `scripts/check.sh` run exits1 on **exactly the same seven installed-scene mismatches**, and does **not** print `checks passed`: three unrelated stale medieval mesh placements plus the four new paintings absent from the old installed scene. Image and record checks pass; no gate or declaration was weakened. `git diff --check` is clean. Baked `museum_playtest.gd --only=doors` remains for the orchestrator after installation. Its six door planes and38 new/two retained trials are specified in§7; no old trial or door moves.
 
 The measured artwork positions/window/door relationships and fitted dimensions retain the uncertainty in§1–2 and `WORKS-NEEDED.md`. Exact physical museum geometry, final daylight/track pools, borrowed frame ornament and incomplete bench elevation remain **INFERRED / unaccepted**. Twelve paintings and the bronze need approved assets; their positions remain bare/empty. The existing modern-room Venetian blinds, the marble hall's other census faults, and the stale generated medieval scene are outside #277. No merge, issue closure, bake, generated-room installation, paid request or copyright-hold image was made. The private draft is left for the orchestrator at the named extension path.
+
+## 14. Twelve original catalogue photographs, image follow-up for #277 (8 October)
+
+**VERIFIED in the final source draft:** five new paintings in A (Manet 42.190, Carolus-Duran 2007.68, Monet 57.236, Manet 59.027 on the end wall, Degas 23.072); seven in B (Pissarro 72.096, Gauguin 1999.3, Cézanne 33.053, Bracquemond 2021.101, Morisot 2010.57, van Gogh 35.770, Cassatt 60.095). The four previously hung works remain, giving 16 paintings. Every new work has its catalogue-sized canvas, built frame front/sides/reveal at the list's estimated moulding width, and a plain blank label card. No world text is added. This addresses the bare painting walls within census§8 finding 4 and§15 findings 1–3; it does not claim the other agents' architecture or lighting.
+
+`6-gallery-A-catalogue-before-after.jpg` and `6-gallery-B-catalogue-before-after.jpg` show footage on the left, the populated unbaked GL Compatibility draft on the right. A covers north/west/south/east; B covers north/west/south and both east spans. The source never supplies a full B north-face view: that row is explicitly labelled and shows the shared doorway's opposite face at 154 s, not a claim of a filmed elevation. Close views use the existing review-only .55 ambient, not baked lighting. Native game inspection/full-zoom evidence is in `../impressionist-images/3-catalogue-59.027.jpg` and `4-catalogue-35.770.jpg`.
+
+All twelve public photographs were fetched sequentially, with 2-second pauses, through the working Scrapling route documented by#180/#278. Ten use museum Micrio IIIF;59.027 and 35.770 use the museum catalogue's High-resolution JPEG download link. Every selected photograph was matched visually to its filmed painting. The van Gogh Micrio endpoint returned 404 once; the public catalogue download was used without retrying that missing endpoint. No missing photograph remains. Original downloaded bytes are outside git under `~/risd-godot-ingestion/catalogue-masters/impressionist-277/`. Only these twelve paintings were fetched. There is no video-frame art, upscaling, AI image generation or paid call.
+
+Exact complete printed title/maker/date/medium/dimensions/credit fields, including nationality/life dates in the maker line, are checked against the saved museum pages. `image-work/collection-room-remodel/additions/impressionist/catalogue.json` and the twelve new `objects.json` rows hold those fields, source page/read date, source URL/size/hash, crop and derivative sizes/hashes. `../impressionist-images/catalogue-fields-checks.json` records the complete-field comparisons. Twelve flat/flat declarations are added to `representation.json`, with every old row and all 53 shortfalls unchanged. The existing image guard reads the new records without a code change.
+
+| Accession | Source pixels | Wall pixels | Preview pixels | External zoom pixels |
+| --- | --- | --- | --- | --- |
+| 42.190 | 3535 × 2890 | 256 × 209 | 896 × 733 | 3535 × 2890 |
+| 2007.68 | 2900 × 3505 | 212 × 256 | 741 × 896 | 2900 × 3505 |
+| 57.236 | 4320 × 2821 | 384 × 251 | 896 × 585 | 4320 × 2821 |
+| 59.027 | 2260 × 3000 | 337 × 448 | 675 × 896 | 2260 × 3000 |
+| 23.072 | 2010 × 2712 | 190 × 256 | 664 × 896 | 2010 × 2712 |
+| 72.096 | 3665 × 3063 | 384 × 321 | 896 × 749 | 3665 × 3063 |
+| 1999.3 | 2859 × 3457 | 265 × 320 | 741 × 896 | 2859 × 3457 |
+| 33.053 | 3420 × 2772 | 384 × 311 | 896 × 726 | 3420 × 2772 |
+| 2021.101 | 3076 × 4320 | 137 × 192 | 638 × 896 | 3076 × 4320 |
+| 2010.57 | 3155 × 3786 | 267 × 320 | 747 × 896 | 3155 × 3786 |
+| 35.770 | 3000 × 2428 | 256 × 205 | 896 × 719 | 2922 × 2344 |
+| 60.095 | 3350 × 4007 | 266 × 320 | 745 × 896 | 3198 × 3847 |
+
+Van Gogh's photographic backdrop crop is `[47,40,2969,2384]`; Cassatt's outer support-edge crop is `[72,96,3270,3943]`, visual edge uncertainty±8 source pixels. Other paintings keep their full rectangles. The source bytes and all art colours are unchanged; derivatives only crop, resize downward and encode. Wall/preview images keep their authored imports under `modules/shell/assets/impressionist/`: mode 1, quality.8, mipmaps on, force-added ignored imports. Full zooms are under its `zoom/.gdignore`, outside the pack, copied into `museum-images/` beside the Web pack and requested only when opened.
+
+**INFERRED placement:** ten listed offsets and all centre heights are retained. Two wall-fit corrections are explicit:42.190 at A north along 4.00 m instead of 4.95 m, because 4.55–5.85 m is the existing door opening;35.770 at B east along 3.66 m instead of 3.78 m, because its listed frame overlaps the window casing beginning at 4.02 m. Each frame now clears its casing by roughly 3 cm. The .95 m Manet correction is outside the list's±.5 m end-wall error; this requires physical-layout review, rather than being passed off as a calibrated measure. Van Gogh's .12 m shift is within the±.8 m long-wall estimate. Their blank cards are on the left to stay on painted wall. No doorway or window moves.
+
+Frame widths derive from `(estimated outer size − catalogue canvas size) / 2`. Existing E7/E9/E3/W7/W3 carving is borrowed; exact carving and absolute colour calibration remain unaccepted. Two numerical palette copies of existing W7 preserve its 1361× 966 dimensions and complete alpha channel: pale silver/cream for Pissarro/van Gogh and rose-brown for Gauguin. Source/output hashes and the reproducible linear-colour recipe are in `frame-palettes.json`; new spend USD 0. These copies use the unchanged stock PS1 shader, so the existing bake adapter converts and shades them. The initial custom shader variation was replaced before handoff because it bypassed that conversion. Art materials are never tinted.
+
+At the actual 695× 465 game view, native picking, first inspection and full photograph opening pass for all twelve, with zero premature full-zoom loads. The 48 new frame/canvas surfaces unwrap at.14 m and all use the stock bake material. `../impressionist-images/catalogue-checks.json` preserves the measured sizes; the display measurements have roughly±1 px raster uncertainty, not physical-museum accuracy.
+
+| Accession | Inspected canvas pixels (±1 px) | Required wall long side | Frame width × height, m |
+| --- | --- | --- | --- |
+| 42.190 | 128 × 106 | 256 | 0.640 × 0.550 |
+| 2007.68 | 105 × 146 | 256 | 0.680 × 0.870 |
+| 57.236 | 188 × 122 | 384 | 0.990 × 0.730 |
+| 59.027 | 156 × 204 | 448 | 1.470 × 1.830 |
+| 23.072 | 107 × 145 | 256 | 0.700 × 0.870 |
+| 72.096 | 161 × 132 | 384 | 0.940 × 0.820 |
+| 1999.3 | 129 × 152 | 320 | 0.740 × 0.850 |
+| 33.053 | 202 × 162 | 384 | 0.970 × 0.810 |
+| 2021.101 | 76 × 108 | 192 | 0.370 × 0.470 |
+| 2010.57 | 124 × 148 | 320 | 0.710 × 0.810 |
+| 35.770 | 111 × 90 | 256 | 0.660 × 0.580 |
+| 60.095 | 122 × 142 | 320 | 0.770 × 0.860 |
+
+Imported wall/preview textures total **2,110,686 bytes (2.013 MiB)**; the two palette textures add **220,784 bytes**, giving **2,331,470 bytes (2.223 MiB)** of new imported textures. The **33,013,634 bytes (31.484 MiB)** of full zooms stay external. **INFERRED final growth:** about 2.224 MiB plus small geometry/script/record overhead, leaving substantial space within 260 MiB from the supplied approximately 218 MB baseline. **VERIFIED pack-only export of the current installed tree:** 232,113,540 bytes (221.361 MiB),26 new imports and zero new external-zoom files in the pack. This is not a final rebaked export.
+
+Final official `scripts/rebuild_rooms.sh --draft` completed, with 31 cased sides and **ARCHITECTURE_CHECK failures=[]**. The native GL capture reports 40 existing reciprocal trials and zero failures; none was added or moved. Both Python guards pass (193 declarations/53 unchanged shortfalls;55 works/165 photographs). `git diff --check` is clean. The source representation check's only failures are the two existing undeclared Renaissance works 59.128 and 21.398. The full repository check still exits 1 without `checks passed`: the 16 baseline installed mismatches, listed once in `../impressionist-images/NOTES.md`, plus the 12 new paintings absent from stale installed rooms. No check or acceptance flag is weakened. No engine errors occur in these final runs. Baked Web visibility/lighting, final installed pack size and the orchestrator's post-install door playtest remain unverified here.
+
+Edits outside `impressionist_additions.gd`: the own-module photo/palette/import/zoom assets; source catalogue/palette records and preparation helper; exactly twelve authored object/representation rows; a five-line named photo-copy block in `prepare_remodel.py`; one external-zoom copy line in `scripts/export-web.sh`; Shell provenance; and review-only evidence/capture helpers. No edit to `remodel_room.gd`, `main_build_walk.gd`, room bounds/openings/floor patches/route trials, shared lamps/casings/reveals/skirtings/cornices, generated scenes/lightmaps, character, playtest or frozen interfaces/errors.
+
+**Left:** bronze 23.315 needs a mesh and its existing six-sided case remains empty; physical fitted offsets, borrowed carving and final baked light still need judgment. Existing modern-gallery Venetian blinds and the inherited installed/source registration faults are outside this job. No merge, issue closure, installation or bake was made. The one private unbaked project remains at `~/risd-godot-ingestion/collection-expansion/rebuild-impressionist-images/extension/`.

@@ -1,0 +1,118 @@
+{
+  "outputs": [
+    {
+      "path": "docs/evidence/impressionist-277/6-gallery-A-catalogue-before-after.jpg",
+      "pixels": [
+        1200,
+        1408
+      ],
+      "bytes": 185144,
+      "sha256": "5101bc2195d752b471ae128b29bc0080fb9836e982ff11e12d5b4d393bb28e47",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-277/6-gallery-B-catalogue-before-after.jpg",
+      "pixels": [
+        1200,
+        1738
+      ],
+      "bytes": 233078,
+      "sha256": "867e2b7990082002b6c5995888adac8f720469bb51e59350c8571104b5e3aa8f",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/0-gallery-A-before.jpg",
+      "pixels": [
+        1100,
+        740
+      ],
+      "bytes": 68298,
+      "sha256": "9bb203ef6103d672dee02c16e266dd2d99b555affd6c14a1b62534e142723427",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/0-gallery-B-before.jpg",
+      "pixels": [
+        1100,
+        740
+      ],
+      "bytes": 64361,
+      "sha256": "e79dd9baed01739fcad8c68dee879594d233bd5498034e6b9c994c25c7b2e21b",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/1-gallery-A-hung.jpg",
+      "pixels": [
+        1100,
+        540
+      ],
+      "bytes": 60235,
+      "sha256": "bb4d520c9c634081e87b99cf4e34a04cf55c5609325246d930a3eb943984f20e",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/1-gallery-B-hung.jpg",
+      "pixels": [
+        1100,
+        540
+      ],
+      "bytes": 62112,
+      "sha256": "f728a27a2a7a82fe8f2d9ccf43899aac172cd659e46e6dc0b26879ef7963ae12",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/2-frame-colours.jpg",
+      "pixels": [
+        1200,
+        520
+      ],
+      "bytes": 53898,
+      "sha256": "5869593d763410e4c40ce34e8b4a845ebd4114a03ed9b2c382b6ffb38dc1a477",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/3-catalogue-59.027.jpg",
+      "pixels": [
+        1180,
+        460
+      ],
+      "bytes": 63795,
+      "sha256": "f47599d1b4cb3a78d1e1fac6d1ab7eecf381054be5cd38f18bedd2fef7de9bb9",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    },
+    {
+      "path": "docs/evidence/impressionist-images/4-catalogue-35.770.jpg",
+      "pixels": [
+        1180,
+        460
+      ],
+      "bytes": 91656,
+      "sha256": "c7c7952fd0599da3a2e6c7a84e567b2e7e7ab47e2d94973427e40b2dadd5c976",
+      "source": "IMG_6343.MOV ordinary SDR and native GL Compatibility draft captures; review only",
+      "provider": "Local ffmpeg/Pillow/Godot export; no AI generation",
+      "cost_usd": 0
+    }
+  ],
+  "capture_source_sha256": {
+    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "d7f2b0bff092d4d3862c63d39934915286dd3c8fa004672937c2e7f8111e37ef",
+    "docs/evidence/impressionist-images/draft_capture.gd": "1e0729330e0bce7eb35e043f02ed489c98943cae8f7ef9a9b9f18eea0c2e7cb1",
+    "docs/evidence/impressionist-images/catalogue_capture.gd": "57fdbf9f12898eae94cb6b6bb578b99c6e37f89922ab527a5c9229e09f1f36d5",
+    "docs/evidence/impressionist-images/make_sheets.py": "5b5d72859bb1ea1d227feba394f589f1f7a48959c97295ded9d4747a1fbc33f6"
+  }
+}
