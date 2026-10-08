@@ -5,24 +5,26 @@
  "nude": null,
  "views": {
   "front": {
-   "file": "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
-   "px_wide": 2400,
-   "source_px": [
-    3430,
-    4013
-   ],
-   "alt": ""
-  },
-  "back": "no photograph: Muse turns it from the front",
-  "side": "no photograph: Muse turns it from the front",
-  "threequarter": {
    "file": "~/risd-godot-ingestion/catalogue-masters/37.201/threequarter.jpg",
    "px_wide": 2400,
    "source_px": [
     3430,
     4013
    ],
-   "alt": ""
-  }
+   "alt": "",
+   "note": "the true frontal photograph"
+  },
+  "right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3430,
+    4013
+   ],
+   "alt": "",
+   "note": "a view from her right side and a little behind; first taken for the front by mistake"
+  },
+  "back": "no photograph: Muse turns it from the front and the right",
+  "side": "no photograph; the Muse call for the left profile failed (HTTP 502) and was not resubmitted"
  }
 }

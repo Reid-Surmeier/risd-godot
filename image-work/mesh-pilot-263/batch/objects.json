@@ -293,12 +293,12 @@
   }
  },
  "37.201": {
-  "title": "*Bust of Madame Récamier*. Marble. Height 61 cm with its socle.",
+  "title": "Joseph Chinard. *Bust of Madame Récamier*. Marble. 60.6 × 33.7 × 23.5 cm with its socle.",
   "source": "modules/shell/collection_rooms/assets/details/recamier.jpg",
   "cut": "saturation and brightness key, museum plinth cut off below",
   "photo": false,
   "size": 1024,
-  "prepare": "--height 0.606",
+  "prepare": "--height 0.606 --width 0.337 --depth 0.235",
   "run": {
    "id": "run_m17f3gpazfvwttb8zs87250hxd8fw64s",
    "params": "face limit 10,000, texture on, PBR off",
@@ -306,18 +306,33 @@
   },
   "muse_first": {
    "run": {
+    "id": "run_m176j6j9xvqh2cgavbw9hhmpm58fx6dm",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as back, right, front (the frame turned half round, because the left view failed)",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "2f59f0c41cc4bae9ee7074fa1c84e319192ca5c43e4a4e52561c9e4b75b92071"
+   },
+   "views": "front and right each from the museum's photograph of that side; back inferred by Muse; no left view (the Muse call failed with HTTP 502 and was not resubmitted)",
+   "rejected_run": {
     "id": "run_m171mq2jvy2r4gkzr2qzg9bdvs8fx0jw",
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000",
     "quote": 0.48,
     "charged": 0.48,
-    "sha256": "02e7e0d10fe523511e39654103707b2ee1f57e605ede480c5b048abb6b684480"
+    "sha256": "02e7e0d10fe523511e39654103707b2ee1f57e605ede480c5b048abb6b684480",
+    "views": "front from the photograph; left and back inferred (Muse drew the right profile, mirrored)",
+    "why": "Rejected 8 October: the photograph taken as the front is a view from her right side, Muse drew a round lump for the square stepped socle, and the colour had invented veining and dark hair; mesh kept outside git"
    },
-   "views": "front from the photograph; left and back inferred (Muse drew the right profile, mirrored)",
-   "imported": {
+   "rejected_imported": {
     "mesh": 219401,
     "colour": 326994,
     "total": 546395
+   },
+   "imported": {
+    "mesh": 217216,
+    "colour": 50322,
+    "total": 267538
    }
   }
  },

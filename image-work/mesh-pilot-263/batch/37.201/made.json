@@ -2,48 +2,25 @@
  "clay-front": {
   "from": "photograph of this direction",
   "references": [
-   "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/threequarter.jpg"
+   "~/risd-godot-ingestion/catalogue-masters/37.201/threequarter.jpg (the true frontal photograph, despite its file name)",
+   "~/risd-godot-ingestion/catalogue-masters/37.201/other-03.jpg (detail: the socle)",
+   "~/risd-godot-ingestion/catalogue-masters/37.201/other-02.jpg"
+  ]
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "note": "the photograph is from her right and a little behind; Muse turned it to a strict profile",
+  "references": [
+   "image-work/mesh-pilot-263/batch/37.201/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg (a right-side view, despite its file name)"
   ]
  },
  "clay-back": {
-  "from": "inferred by Muse from the other views",
+  "from": "inferred by Muse from the clay front, the clay right and the right-side photograph; no photograph or footage of the back exists",
   "references": [
-   "batch/37.201/clay-front.png",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/threequarter.jpg"
-  ]
- },
- "clay-side": {
-  "from": "inferred by Muse from the other views",
-  "references": [
-   "batch/37.201/clay-front.png",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/threequarter.jpg"
-  ],
-  "note": "Muse drew the right profile; mirrored to serve as the left view"
- },
- "flat-front": {
-  "from": "photograph of this direction",
-  "references": [
-   "batch/37.201/clay-front.png",
+   "image-work/mesh-pilot-263/batch/37.201/clay-front.png",
+   "image-work/mesh-pilot-263/batch/37.201/clay-right.png",
    "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg"
-  ]
- },
- "flat-back": {
-  "from": "inferred by Muse from the other views",
-  "references": [
-   "batch/37.201/clay-back.png",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
-   "batch/37.201/flat-front.png"
-  ]
- },
- "flat-side": {
-  "from": "inferred by Muse from the other views",
-  "references": [
-   "batch/37.201/clay-side.png",
-   "~/risd-godot-ingestion/catalogue-masters/37.201/front.jpg",
-   "batch/37.201/flat-front.png"
   ]
  }
 }

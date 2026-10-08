@@ -29,7 +29,7 @@ place() {  # put a GLB in the mesh folder and import it clean with the lean sett
 }
 shot() { timeout 120 "$godot" --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- "res://$dir/$name.glb" "$setting" "$1" "$tmp/$1.png" unshaded 2>&1 | grep -E "ERROR|SCRIPT" | head -2 || true; }
 if [ -n "${PLAIN:-}" ]; then  # plain white marble or porcelain: PLAIN="strength blur", no projected views
-  [ -f "$tmp/front.png" ] && [ ! -f "$tmp/front-projected.png" ] && cp "$tmp/front.png" "$tmp/front-projected.png"
+  [ -f "$tmp/pre.colour.png" ] && [ -f "$tmp/front.png" ] && [ ! -f "$tmp/front-projected.png" ] && cp "$tmp/front.png" "$tmp/front-projected.png"  # only when a projected colour was really built first
   python3 "$here/plain_colour.py" "$d/cut.png" "$tmp/low.ao.png" "$tmp/final.colour.png" "$size" $PLAIN
 else
   POSE=$(python3 -c "import json,sys; l=json.load(open(sys.argv[1])); s=l['scale']; print(f\"{s['width_against_height']},{s['depth_against_height']},{l['lean_removed_deg']}\" if 'lean_removed_deg' in l else '')" "$tmp/low.json"); export POSE
