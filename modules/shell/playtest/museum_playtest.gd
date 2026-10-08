@@ -1035,14 +1035,28 @@ func _objects() -> void:
 				if own == INF:
 					continue
 				var met := false
-				for mesh in _room_meshes():
+				var until: Vector3 = from + toward * (own - READ_CLEAR)
+				for row in _room_meshes():
+					# Only what the stretch from the lens to READ_CLEAR before the work crosses.
+					if (row.box as AABB).intersects_segment(from, until) == null:
+						continue
+					var mesh: MeshInstance3D = row.mesh
 					if not mesh.is_visible_in_tree() or (walk._cam.cull_mask & mesh.layers) == 0:
 						continue
 					if thing.node == mesh or thing.node.is_ancestor_of(mesh):
 						continue
-					if (mesh.global_transform * mesh.get_aabb()).intersects_ray(from, toward) == null:
+					if not row.has("shape"):
+						row["shape"] = mesh.mesh.generate_triangle_mesh()
+						row["inward"] = mesh.global_transform.affine_inverse()
+					if row.shape == null:
 						continue
-					if walk._ray_reach(mesh, from, toward) < own - READ_CLEAR:
+					var hit: Dictionary = row.shape.intersect_ray(
+						row.inward * from, (row.inward.basis * toward).normalized()
+					)
+					if (
+						not hit.is_empty()
+						and from.distance_to(mesh.global_transform * hit.position) < own - READ_CLEAR
+					):
 						met = true
 						by[str(mesh.get_parent().name) + "/" + str(mesh.name)] = true
 				screened += int(met)
@@ -1343,15 +1357,15 @@ func _other_wall_while_reading(when: String) -> void:
 
 
 
-# Every mesh of the room scene, listed once.
+# Every mesh of the room scene with its box in the room, listed once: {mesh, box}.
 var _meshes: Array = []
 
 
 func _room_meshes() -> Array:
 	if _meshes.is_empty() and walk._rooms != null:
-		_meshes = walk._rooms.find_children("*", "MeshInstance3D", true, false).filter(
-			func(mesh: MeshInstance3D) -> bool: return mesh.mesh != null
-		)
+		for mesh in walk._rooms.find_children("*", "MeshInstance3D", true, false):
+			if mesh.mesh != null:
+				_meshes.append({"mesh": mesh, "box": mesh.global_transform * mesh.get_aabb()})
 	return _meshes
 
 
