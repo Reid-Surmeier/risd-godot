@@ -18,7 +18,7 @@ func build(room) -> void:
 	for area in room._plan_rooms:
 		if area.label == ROOM:
 			door = area.openings.east
-	var sign: Node3D = room.solid(room.wall_point(ROOM, "east", (door[0] + door[1]) / 2 - b[2], 3.02, .09), Vector3(.05, .2, .36), room.look(Color("86e39a"), "", true))
+	var sign: Node3D = room.exit_sign(room.wall_point(ROOM, "east", (door[0] + door[1]) / 2 - b[2], 3.02, .09), -PI / 2)
 	sign.reparent(room.wall_body(ROOM, "east", sign.position))
 	room.inventory["rockefeller_additions"] = {"vincennes_pair": true, "smirke_watercolours": 2, "silk_length": true, "placement_accepted": false}
 

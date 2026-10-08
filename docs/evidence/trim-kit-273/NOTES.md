@@ -25,3 +25,23 @@ Still plain:
 
 Checks on the rebuilt tree: architecture check no failures; playtest doors 38 crossings and views
 110 pictures, 0 failures; `scripts/check.sh` passes.
+
+## 2 to 5 and the deep reveal: seen unbaked only
+
+These were looked at in the draft room project, where every room is drawn at once and nothing is
+lit by the bake. The baked, in-game look is still to be judged from the integration rebuild.
+
+- `2-4-unbaked-trim-exit-signs.jpg`: grey gallery north door, Rockefeller east door, European
+  gallery north door: white casings and skirting; the two signs that were blank green boxes are
+  lettered.
+- `2-5-unbaked-piers-ceilings.jpg`: the European gallery's east wall with only the white display
+  panel that IMG_6386 44.5/67.5 s shows (the two piers are gone); the new ceilings over the
+  European gallery and Rockefeller. The grey gallery's ceiling is the same code and was not
+  photographed.
+- `reveal-unbaked-renaissance-north.jpg`: the Renaissance room's north door with the deep reveal:
+  panelled cheeks, panelled soffit, threshold, fading to dark. In the game the far end is black;
+  here the next room shows through.
+
+To check in the baked game: the reveal is drawn only from its own room and never from the
+European gallery; the 38 door crossings still pass and the wipe still triggers; the three new
+ceilings close those rooms to the bake's daylight, so their lamps need setting for a ceiling (#274).

@@ -143,7 +143,7 @@ func fixtures(room) -> void:
 	var b: Array = room.room_bounds(GREY)
 	var white: Material = room.look(Color("eeeae2"))
 	# IMG_6380 14.5s: green exit sign over the piano door.
-	var sign: Node3D = room.solid(room.wall_point(GREY, "north", 1.7, 3.02, .09), Vector3(.36, .2, .05), room.look(Color("86e39a"), "", true))
+	var sign: Node3D = room.exit_sign(room.wall_point(GREY, "north", 1.7, 3.02, .09), 0.0)
 	sign.reparent(room.wall_body(GREY, "north", sign.position))
 	# IMG_6380 85.5..87.5s: square-grid return low under the Villeneuve; IMG_6379 172.3s: slot high on the same wall.
 	var low: Node3D = room.solid(room.wall_point(GREY, "south", 5.88, .52, .07), Vector3(.60, .42, .02), room.look(Color("5b5a55")))
