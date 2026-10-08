@@ -232,7 +232,7 @@
   "acc": "56.177",
   "title": "Christ at the Column (c.1635)",
   "artist": "Matthias Stom",
-  "canvas_w": 1.101,
+  "canvas_w": 1.145,
   "canvas_h": 1.829,
   "hang": "centre \u2248 1.90 m",
   "margins_px": [
@@ -308,8 +308,8 @@
   "acc": "62.019",
   "title": "The Resurrection of Christ (c.1640)",
   "artist": "Benjamin Gerritsz. Cuyp",
-  "canvas_w": 0.669,
-  "canvas_h": 0.911,
+  "canvas_w": 0.7020000000000001,
+  "canvas_h": 0.9209999999999999,
   "hang": "centre \u2248 1.78 m",
   "margins_px": [
    190,
@@ -460,8 +460,8 @@
   "acc": "57.157",
   "title": "Charity (c.1550)",
   "artist": "School of Fontainebleau",
-  "canvas_w": 1.3,
-  "canvas_h": 1.623,
+  "canvas_w": 1.334,
+  "canvas_h": 1.581,
   "hang": "centre \u2248 1.72 m",
   "margins_px": [
    120,
@@ -536,8 +536,8 @@
   "acc": "32.246",
   "title": "The Angel of Fame (c.1750)",
   "artist": "Giovanni Battista Tiepolo",
-  "canvas_w": 2.06,
-  "canvas_h": 3.46,
+  "canvas_w": 1.98,
+  "canvas_h": 3.31,
   "hang": "bottom \u2248 0.82 m",
   "outline": [
    [
@@ -866,7 +866,7 @@
   "title": "A Musical Group (c.1730)",
   "artist": "Pier Leone Ghezzi",
   "canvas_w": 1.705,
-  "canvas_h": 1.111,
+  "canvas_h": 1.222,
   "hang": "centre \u2248 1.71 m",
   "margins_px": [
    149,
@@ -1321,8 +1321,8 @@
   "acc": "63.061",
   "title": "Arsenal in a Ruined Basilica (c.1715)",
   "artist": "Alessandro Magnasco",
-  "canvas_w": 2.069,
-  "canvas_h": 1.467,
+  "canvas_w": 2.146,
+  "canvas_h": 1.4669999999999999,
   "hang": "centre \u2248 1.76 m",
   "margins_px": [
    109,
@@ -1853,8 +1853,8 @@
   "acc": "62.064",
   "title": "Portrait of a Cavalier with his Hunting Dogs (c.1575)",
   "artist": "Bartolomeo Passarotti",
-  "canvas_w": 1.138,
-  "canvas_h": 2.104,
+  "canvas_w": 1.149,
+  "canvas_h": 1.975,
   "hang": "centre \u2248 1.88 m",
   "margins_px": [
    109,

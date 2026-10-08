@@ -98,3 +98,28 @@ for view, bs in sorted(boxes.items()):
         exp = b['y'] - b['y_old']; got = best / b['pxm']; worst = max(worst, abs(got - exp))
         print(f"| {b['tag']} | {exp:+.3f} | {got:+.3f} | {got - exp:+.3f} | {res:.4f} | {1 / b['pxm']:.3f} |")
 print('worst difference %.3f m' % worst)
+
+# measured size: the before picture's frame box stretched in width and height (2 % steps) and slid; the best fit is the size now
+import cv2
+print('\n| work | best-fit width x height against before | move at that fit (m) | expected move (m) |'); print('|---|---|---|---|')
+off = 0
+for view, bs in sorted(boxes.items()):
+    b_img, a_img = rgb(f'{B}/{view}.png').astype(np.float32), rgb(f'{A}/{view}.png').astype(np.float32)
+    b_img, a_img = cv2.GaussianBlur(b_img, (0, 0), 2.0), cv2.GaussianBlur(a_img, (0, 0), 2.0)  # so a resampled template is not favoured for being smoother
+    for b in sorted(bs, key=lambda q: q['u0']):
+        u0, u1, v0, v1 = int(round(b['u0'])), int(round(b['u1'])), int(round(b['vo'][0])), int(round(b['vo'][1]))
+        t = b_img[v0:v1, u0:u1]; cu, cv_ = (u0 + u1) / 2, (v0 + v1) / 2
+        best = (9, 1, 1, 0)
+        for sx in np.arange(0.92, 1.081, 0.02):
+            for sy in np.arange(0.92, 1.081, 0.02):
+                w, h = max(int(round(t.shape[1] * sx)), 2), max(int(round(t.shape[0] * sy)), 2)
+                ts = cv2.resize(t, (w, h), interpolation=cv2.INTER_AREA)
+                x0 = int(round(cu - w / 2))
+                for d in range(-int(0.6 * b['pxm']), int(0.6 * b['pxm']) + 1):
+                    y0 = int(round(cv_ - h / 2)) - d
+                    if y0 < 0 or y0 + h > a_img.shape[0] or x0 < 0 or x0 + w > a_img.shape[1]: continue
+                    r = float(np.abs(a_img[y0:y0 + h, x0:x0 + w] - ts).mean())
+                    if r < best[0]: best = (r, sx, sy, d)
+        off += abs(best[1] - 1) > 0.011 or abs(best[2] - 1) > 0.011
+        print(f"| {b['tag']} | {best[1]:.2f} x {best[2]:.2f} | {best[3] / b['pxm']:+.3f} | {b['y'] - b['y_old']:+.3f} |")
+print('works whose best fit is not 1.00 x 1.00: %d' % off)
