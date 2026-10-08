@@ -129,8 +129,11 @@ func dress_case(at: Vector3) -> void:
 	hood(inside, Vector3(0, .875, 0), Vector3(.74, 1.75, .60), true)
 	part(inside, Vector3(0, 1.755, 0), Vector3(.76, .012, .62), room.look(Color("33353a")))
 	part(inside, Vector3(0, .01, 0), Vector3(.34, .02, .30), room.look(Color("3a3b40")))
-	tag(cutout(inside, "dress-2000.103.3", 1.50, Vector3(0, .77, -.015), .03), "dress-2000.103.3")
 	inside.reparent(base)
+	# A real mesh (#263) on the foot plate, 1.50 m tall as the cut-out was, facing the room as it did.
+	var dress: Node3D = room.place_mesh(DIR + "dress-20001033.glb", at + Vector3(0, .14, 0), PI / 2, Vector3(0, 1.50, 0), "2000.103.3")
+	tag(dress, "dress-2000.103.3")
+	dress.reparent(base)
 
 func south_wall() -> void:
 	# 6384 0..4s, 12..21s. East of the door: Apollo in a wall case, then the Previtali; west of it

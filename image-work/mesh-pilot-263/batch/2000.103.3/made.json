@@ -4,5 +4,18 @@
   "references": [
    "~/risd-godot-ingestion/catalogue-masters/2000.103.3/front.jpg"
   ]
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front; the museum has one photograph of this dress",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2000.103.3/clay-front.png"
+  ]
+ },
+ "clay-back": {
+  "from": "inferred by Muse from the clay front and the clay left; the button closure and gathers at the back are Muse's, not seen",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2000.103.3/clay-front.png",
+   "image-work/mesh-pilot-263/batch/2000.103.3/clay-left.png"
+  ]
  }
 }

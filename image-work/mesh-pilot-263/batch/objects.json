@@ -566,9 +566,28 @@
   "cut": "saturation key 60 on the catalogue front photograph; cut.png is not in git"
  },
  "2000.103.3": {
-  "title": "*Dress*. Cotton muslin.",
+  "title": "*Dress*, English or American, early 1800s. Cotton muslin. Shown 1.50 m tall on its form.",
   "source": "~/risd-godot-ingestion/catalogue-masters/2000.103.3/front.jpg",
-  "ended": "8 October: the clay front call failed with HTTP 502 (provider error), charge unknown, not resubmitted; the object stops here unless the lead allows one more call"
+  "prepare": "--height 1.50",
+  "note": "the first clay call failed with HTTP 502 and was not resubmitted until the lead allowed one retry; a second attempt died in the secrets runner before any call was made (Bitwarden 503, no run record); the third call succeeded",
+  "muse_first": {
+   "run": {
+    "id": "run_m170qzbabkecm4sa2gmchz8jqx8fxfrv",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "96f1c7efa5b0e597b219e839ca3472c86676f45a0731025d05f9d2baf7ee710d"
+   },
+   "views": "front from the museum's one photograph; left and back inferred by Muse",
+   "imported": {
+    "mesh": 214910,
+    "colour": 52854,
+    "total": 267764
+   },
+   "build": "PLAIN='0.55 0.8 bright grey': white muslin from the photograph's lit cloth, shaded neutral grey; the form's neck, hands and stand, dark in the photograph, come out white too"
+  },
+  "cut": "brightness key 180 on the catalogue photograph (the dress only), reduced to 1400 px"
  },
  "75.023": {
   "title": "Unknown maker, German. *Writing Desk (Schreibtisch)*, ca. 1590. 45.1 × 60.6 × 33.3 cm.",
