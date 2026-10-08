@@ -1348,6 +1348,11 @@ func _wall_clicks(areas: Array, when: String) -> void:
 			# From the middle, or four metres short of the wall in a long room.
 			var reach: float = absf(plane - (middle_of.x if along_z else middle_of.z))
 			var stand := _free_near(middle_of + out * maxf(0.0, reach - 4.0))
+			if not walk._free(stand):
+				# No floor there to stand on (the Skylight Gallery's middle is open to its
+				# lower storey): this wall is not tried from here.
+				entry.not_tried.append("%s, %s (no floor at the standpoint)" % [area.label, side])
+				continue
 			var door: Array = openings.get(side, [])
 			var spans := [[b[2], b[3]] if along_z else [b[0], b[1]]]
 			if not door.is_empty():
