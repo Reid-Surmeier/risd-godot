@@ -978,3 +978,13 @@ Every replaced runtime file (the work key joins to its source above):
 | E9 | wall: `prototype/gallery_walk4/canvas/E9.jpg` | 320 × 248 | `61ad878cbb819e8644a3185016496a37ca53b2b3a3c33eaac3dabb02de1a627d` |
 | E9 | detail: `prototype/gallery_walk4/detail/E9.jpg` | 896 × 695 | `45047810e6e1eda82d33f8fb17e8d23a199f3ac5a7680d19398d596f840b9ada` |
 | E9 | zoom_external: `prototype/gallery_walk4/zoom/E9.jpg` | 3242 × 2513 | `881d5ebdc2f1cfbeb0abc5d6ddaaa42f2e73103f171ea9b56320f11a8dae92d1` |
+
+### 2026-10-08 — Rooms rebuilt for place_mesh(); no placed mesh ships (#264)
+
+`scripts/rebuild_rooms.sh` on the merged tree: 1554 surfaces, 430 probes, no generation, USD 0.
+`collection_rooms/addition_baked/room.exr` is byte-identical to the #258 bake
+(`f3bf79f555332076928ee7339b4673113966a9cbb4842f192ce214e1714ee264`): nothing a visitor sees changed.
+The proof pictures in `docs/evidence/mesh-placing-264/` were taken at commit `2432986c` with a
+6,000-triangle copy of the owner's scan of Portrait of Hadrian (59.050) standing in for the Head of
+Christ (59.131). That copy is not in the build. The check's fixture is the visitor's own model,
+`character/walk.glb`, placed only when the check asks.

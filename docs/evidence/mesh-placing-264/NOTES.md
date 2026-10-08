@@ -1,36 +1,39 @@
 # Mesh placing (#264): evidence
 
-Tree: `feat/mesh-placing-264`, rooms rebuilt from it on 8 Oct 2026 (`BAKE_OK users=1553`, 430 probes).
+## The build ships no placed mesh
 
-## Pictures
+`place_mesh()` is in the room code and proved, but no shipped room calls it yet. The Head of
+Christ (59.131) is the photograph slab it was, and still on the floor's shortfall list.
 
-Each pair is the same camera before and after (`capture.gd` in this folder: fixed points in
-Hall-local metres, 45 degree lens). Before is the build at `3ab5c2c4`.
+## Pictures: a mesh in a real room, at commit `2432986c`
+
+For the proof a 6,000-triangle copy of the museum scan of Portrait of Hadrian (59.050) stood where
+the Head of Christ belongs, in the medieval room, through a full rebuild (`BAKE_OK users=1553`,
+430 probes). It was a different object from its caption, so it was taken out again. Each pair is
+the same camera before and after (`capture.gd` here: fixed points in Hall-local metres, 45 degree
+lens); before is the build at `3ab5c2c4`.
 
 1. `1-front-before-after.jpg`: from the room, facing the south wall.
 2. `2-oblique-before-after.jpg`: the slab's extruded brown side against a head with a profile.
 3. `3-side-before-after.jpg`: from the west along the wall. Before, a brown plank; after, a head.
    The scan has no back: its flat cut and a few red texture faults show from here.
-4. `4-playtest-inspect-zoom-room.jpg`: the playtest's own pictures after: the work clicked and
-   inspected, its zoom page, the room's south view.
+4. `4-playtest-inspect-zoom-room.jpg`: the playtest's pictures at that commit: the mesh clicked
+   and inspected, its zoom page, the room's south view.
 
-The mesh is a stand-in: the museum's scan of Portrait of Hadrian (59.050) stands where the Head
-of Christ or a Saint (59.131) belongs, so the caption and zoom page describe a different object
-from the one drawn. It is listed as `stand_in_mesh`, below the floor.
+At that commit: `check.sh` passed, `main_build_check.gd` and `click_route_check.gd` had no
+failures (166 cut-away bodies, one more than before: the mesh), and the playtest's views and
+objects passes for the medieval room gave 5 views, 13 objects, 0 failures. The same objects pass
+without the cut-away fix failed with `59.131#47: the work is not drawn in its own inspection`.
 
-## What was run on this tree
+Measured cost of that mesh in the pack: imported scene 128 KB, texture 197 KB, baked copy in
+`room.tscn` +394 KB, lightmap +87 KB: 806 KB for 6,000 triangles and a 1024 px texture.
 
-| Check | Result |
-| --- | --- |
-| `scripts/check.sh` | `checks passed`; floor: 177 works, 69 shortfalls; scene: 177 built, 177 declared, no failures |
-| `main_build_check.gd` | no failures, 430 probes, 166 cut-away bodies (was 165: the mesh) |
-| `click_route_check.gd` | 16 tests, no failures |
-| `museum_playtest.gd --only=views,objects --rooms=dark-medieval-room` | 5 views, 13 objects, 0 failures |
-| The same objects pass before the cut-away fix | fails: `59.131#47: the work is not drawn in its own inspection` |
+## What proves it now
 
-## What the mesh costs in the pack (measured in this tree)
-
-Imported scene 128 KB, texture 197 KB, baked copy in `room.tscn` +394 KB, lightmap +87 KB: 806 KB
-for 6,000 triangles and a 1024 px texture. Other sizes were measured in a scratch project with the
-same steps: 1,000 triangles 28 KB as a scene; textures 21 KB at 256 px, 64 KB at 512 px.
+`placed_mesh_check.gd`, run by `scripts/check.sh`: the rooms are built with one fixture mesh (the
+visitor's own model, 1.8 m, on clear floor in the grey French gallery) only when the run asks for
+it. The check asserts it stands at its catalogue height, is drawn with its own texture unshaded
+like the rooms' other works, has a collider, blocks walking, is a cut-away body, is registered as
+a work, is still drawn when a visitor walks up and opens it, and is gone from another room's
+stage. With the cut-away fix removed it fails: `the mesh is not drawn in its own inspection`.
 The Web export was not run here.
