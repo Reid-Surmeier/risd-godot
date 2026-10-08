@@ -120,6 +120,7 @@ signal build_gate
 const ROOMS_AT_LAUNCH := false  # the fallback: the whole museum behind the loading screen
 const BUILD_AFTER := 2.0  # seconds the Hall is on screen before the rooms begin
 const BUILD_SHARE_MS := 60  # short steps share one frame up to this long
+const ARRIVAL_WALL := 6.0  # metres: a wall further off than this shows no works in the picture
 # The rooms' baked scene is 11.6 MB of text and the one step that cannot be cut up: 2 s in the
 # engine. Read behind the loading screen, it is already in memory when the build asks for it.
 const BAKE_AT_LAUNCH := false
@@ -1013,6 +1014,15 @@ func _zoom_at(point: Vector2, factor: float) -> void:
 
 
 func _gui_input(event: InputEvent) -> void:
+	# The room change is walking the visitor: a press now would cancel its route (walk4 clears
+	# it on any press) and leave the visitor short of the room. Presses wait for the keys.
+	if (
+		event is InputEventMouseButton
+		and _wipe_t >= 0.0
+		and _wipe_t < WIPE_CLOSE + WIPE_HOLD + WIPE_BACK
+	):
+		accept_event()
+		return
 	if _inspect.is_empty() or not _open.is_empty():
 		super(event)
 		return
@@ -1775,6 +1785,7 @@ func _wipe_step(delta: float) -> void:
 		# then one step a frame, so the mark is on screen through any long step and turns
 		# between them.
 		(_wipe.material as ShaderMaterial).set_shader_parameter("radius", 0.0)
+		_wipe_mask = 0  # the picture is black: drawing the half-built rooms behind it doubled the wait
 		_wipe_wait += 1
 		if _wipe_wait < 2:
 			return
@@ -1786,7 +1797,7 @@ func _wipe_step(delta: float) -> void:
 		if _building == null:
 			_begin_rooms()
 			return
-		_pump_rooms(0, true)  # one step, or the putting in place once the last is done
+		_pump_rooms(BUILD_SHARE_MS, true)  # the next steps, or the putting in place after the last
 		if _rooms == null:
 			return
 		_stage = -1  # the Hall is what the wipe closed on
@@ -1801,6 +1812,7 @@ func _wipe_step(delta: float) -> void:
 		_relight()
 		_stage = _stage_of(_room_at(_pos))
 		_cut_state = 0
+		_arrival_view()
 		_update_camera(1.0)
 	if before < open_at and _wipe_t >= open_at:
 		_wipe_mark.hide()
@@ -1815,6 +1827,39 @@ func _wipe_step(delta: float) -> void:
 	(_wipe.material as ShaderMaterial).set_shader_parameter("reach", size / (0.5 * size.length()))
 	if _wipe_t >= open_at + WIPE_OPEN:
 		_wipe_end()
+
+
+# The arrival picture should show the room. If the wall the view faces is too far off to be
+# in it (the Hall seen down its length is floor and a bench), the view turns, in the black, to
+# the wall within reach that has the most works on it. Keys act on the picture, as always.
+func _arrival_view() -> void:
+	if view_mode == 2:
+		return
+	var here := _room_at(_pos)
+	var b: Array = _plan[here].b if here >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+	var best := view_yaw
+	var most := -1
+	for turn in [0.0, PI / 2.0, -PI / 2.0, PI]:
+		var yaw := wrapf(view_yaw + turn, -PI, PI)
+		var ahead := Vector3(-sin(yaw), 0, -cos(yaw))
+		var to_wall: float = (
+			(b[1] - _pos.x if ahead.x > 0 else _pos.x - b[0])
+			if absf(ahead.x) > absf(ahead.z)
+			else (b[3] - _pos.z if ahead.z > 0 else _pos.z - b[2])
+		)
+		if turn == 0.0 and to_wall <= ARRIVAL_WALL:
+			return  # the wall it faces is in the picture already
+		if to_wall > ARRIVAL_WALL or to_wall < 1.5:
+			continue
+		var works := 0
+		for work in _objects if here >= 0 else _paintings:
+			if (here < 0 or work.room == here) and (work.normal as Vector3).dot(ahead) < -0.7:
+				works += 1
+		if works > most:
+			most = works
+			best = yaw
+	view_yaw = best
+	_view_turn_remaining = 0.0
 
 
 func _relight() -> void:

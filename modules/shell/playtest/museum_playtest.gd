@@ -231,7 +231,6 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 	var steps := 0
 	var walked_clip := false
 	var before := walk._pos as Vector3
-	var yaw: float = walk.view_yaw
 	var dark := {"on": watch_void, "before": -1.0, "jump": 0.0, "at": 0.0, "from": 0.0}
 	var frame := 0
 	while clock < limit_s:
@@ -239,6 +238,7 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 		to.y = 0
 		if to.length() < 0.25:
 			break
+		var yaw: float = walk.view_yaw  # read each frame: an arrival may turn the view
 		var ahead := to.dot(Vector3(-sin(yaw), 0, -cos(yaw)))
 		var aside := to.dot(Vector3(cos(yaw), 0, -sin(yaw)))
 		var held := {}
@@ -1165,6 +1165,11 @@ func _other_wall_in_wipe() -> void:
 					break  # the change has finished
 				continue
 			entry.wipe_frames += 1
+			# In the black the arrival may turn the view to show the room (round 4); only a
+			# turn besides that one is the button's.
+			if walk._wipe_t >= walk.WIPE_CLOSE and not entry.has("arrival_yaw"):
+				entry["arrival_yaw"] = snappedf(walk.view_yaw, 0.01)
+				yaw = walk.view_yaw
 			entry.shown_frames += int(button.is_visible_in_tree())
 			if entry.wipe_frames == 12:
 				await _press(button.get_global_rect().get_center())
