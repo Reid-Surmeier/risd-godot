@@ -69,7 +69,7 @@ At every push: `scripts/check.sh` must report `checks passed`, `git diff --check
 
 ## 5. Baseline gate defect (before source edits)
 
-The initial import completed. `scripts/check.sh` now gets through import but `REPRESENTATION_CHECK` fails on **37.114, 20.254, 59.131**: each is declared a mesh but the shipped generated room scene still places the previous photograph slab. The authored `medieval_additions.gd` already places the new GLBs; the generated copy/bake is older. This is unrelated to #277. No generated files or medieval source/records were changed to suppress it. A push is held until the required check genuinely passes or the owner gives a scoped exception. The architecture draft is still waiting on `/tmp/risd-rebuild-rooms.lock`.
+The initial import completed. `scripts/check.sh` now gets through import but `REPRESENTATION_CHECK` fails on **37.114, 20.254, 59.131**: each is declared a mesh but the shipped generated room scene still places the previous photograph slab. The authored `medieval_additions.gd` already places the new GLBs; the generated copy/bake is older. This is unrelated to #277. No generated files or medieval source/records were changed to suppress it. A push is held until the required check genuinely passes or the owner gives a scoped exception. The source draft subsequently passed `ARCHITECTURE_CHECK` with 28 cased door sides. The final furnishing rebuild is queued behind other bakes on `/tmp/risd-rebuild-rooms.lock`.
 
 ## 6. Survey picture index
 
@@ -107,3 +107,34 @@ The **28** `impressionist_route_00..13_out/back` trials follow:
 Close draft photographs use the room draft's .55 ambient fill and show adjacent rooms for geometry review. Game photographs retain the actual walking adapter's zero far-room ambient and its stage masking. The adapter expects a bake; a black ceiling in that unbaked game view is not proof of missing ceiling geometry. No runtime light setting is changed by the capture script.
 
 The private draft capture copies tracked `modules/shell/character/` files, the two existing tab-close icons and the two authored catalogue records into the draft unchanged, then imports it. This only supplies dependencies omitted by the room-only draft; none of those character/tab files is edited or committed.
+
+## 8. Furnishing checkpoint and lamp handoff (8 Oct)
+
+The room-specific source now adds four east-wall window recesses, with white kit surrounds, sash/meeting rails, oatmeal roller shades, painted panelled aprons and built metal grilles. A centres are z6.04/10.64; B z17.68/21.14, all at x16.70, sill .55, glass head 3.10 m. Outside scenery is not invented or photographed. The exterior wall collision remains closed. High vents: A west along8.70/y3.28; B south along3.15/y3.12. Passage low grille and six-panel service leaf are relocated to the fitted return; this side-wall arrangement is inferred, not an exact copy of the short filmed passage.
+
+A: one grey six-sided stepped plinth at (14.10,0,10.55), pale bevelled deck y.95 and transparent rectangular hood to y1.85. It is empty: 23.315 is listed for the orchestrator and is not registered as a displayed object. B: one 1.80 × .75 × .45 m charcoal bench at (12.0,0,17.70), rounded upholstered rim, eight real button depressions, dark rails and four slender legs. Existing Main Hall cloth is reused; no new generated texture. No A bench is invented. Ceiling material is plain pale plaster; no facet texture. The stone band over the fitted under-stair leg is .008 m thick, not a raised plinth.
+
+### #274 placement notes (no lamp code)
+
+All coordinates below are **INFERRED fits** of the observed tracks/pools, not a calibrated lamp survey:
+
+| Area | Track / pool locations in fitted room-scene metres | Evidence |
+| --- | --- | --- |
+| A | outer inset rectangle approximately x[11.3,15.95], z[3.8,11.95], y3.64; inner runs approximately x[12.3,14.95], z[4.8,10.8] | 143/147: two dark inset rectangular runs; small white adjustable heads |
+| A picture pools | west canvas centres (10.55,1.65,5.49/8.44/11.09); south Manet (12.80,1.59,12.70); east Degas (16.70,1.64,8.24) and Cézanne (16.70,1.62,4.39) | 98–149: broad warm pools around each gilt frame |
+| A case | separate warm pool on the case at x14.10/z10.55, object level around y1.15 | 145/147/152 |
+| A daylight | cool floor patches inside the east windows, around z6.04 and10.64, spread about 1.5 m into the room | 143/149/151 |
+| B | outer runs roughly .7 m inside the room; y3.45. Warm painting pools on both long walls and south end, especially Monet 44.541 | 214/216; full track layout not surveyed |
+| B daylight | cool floor patches inside east windows z17.68/21.14 | 216/218/225 |
+
+A has a small ceiling detector visible in147; its round built form is included, with an inferred fitted position. B's full ceiling equipment was not recorded. Neither gallery has source-authored lamps here, and their finished baked brightness/pools are not verified.
+
+### Furnishing draft evidence
+
+**VERIFIED by looking at `3-furnish-*.jpg`:** the folded panelled leaves at the stair exit/A entry, service leaf and grilles; two shaded sash windows in each gallery; smooth grey plaster, white kit trims, crosswise oak and flat pale ceiling; A's six-sided stepped plinth/clear case; B's rounded upholstered bench on four legs; the continuous B–modern door and blank name-plate form. Existing modern-gallery Venetian blinds visible through that door are outside #277 and differ from its source roller shades.
+
+**INFERRED:** the absolute furnishing offsets, passage service-wall placement, window recess depth, bench dimensions/button arrangement, detector position and borrowed kit profile fidelity. Finished lighting is unverified. `3-furnish-bench.jpg` deliberately shows the limited bench evidence (corner/leg at214s); no complete bench elevation is claimed.
+
+Native draft capture after the final room-owned detail changes reported **40 trials, zero route failures**, and no `ERROR` / `SCRIPT ERROR`. The unchanged architecture checker reported **28 cased door sides, failures=[]**. The final official rebuild has been queued; the previous official furnishing draft also passed with28. The full repository `scripts/check.sh` still exits1 on only the baseline three stale mesh declarations in§5; image/record checks pass. `git diff --check` is clean. Colliding bench/case proxies have an empty visual mesh, so revealing children for a cutaway cannot display a box over the built shape.
+
+Room-owned additions call the kit for trims/leaf beads and reuse existing cloth; no shared lamp, casing, skirting, cornice or reveal implementation changed at this checkpoint. A detector is geometry, not a lamp. Native close photographs use the review fill described in§7; brightness is not a baked-lighting acceptance claim.
