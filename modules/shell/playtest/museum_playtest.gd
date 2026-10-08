@@ -7,7 +7,8 @@
 ##            a detail must open, and it must close again.
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
-##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir> [--only=doors,rooms,views,objects]
+##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
+## Options: --only=doors,rooms,views,objects; --room=<label>; --shell=true; --width/height=<px>.
 ## --fixed-fps makes every frame one sixtieth of a second of game time, so a run is repeatable.
 extends SceneTree
 
@@ -39,12 +40,21 @@ func _run() -> void:
 	out = _arg("out-dir", "res://build/museum-playtest")
 	var only := _arg("only", "doors,rooms,views,objects").split(",")
 	DirAccess.make_dir_recursive_absolute(ProjectSettings.globalize_path(out))
-	root.size = SIZE
-	walk = load("res://modules/shell/prototype/collection_reconstruction/main_build_walk.gd").new()
-	walk.size = Vector2(SIZE)
-	root.add_child(walk)
-	for i in 240:
-		await process_frame
+	root.size = Vector2i(int(_arg("width", str(SIZE.x))), int(_arg("height", str(SIZE.y))))
+	if _arg("shell", "false") == "true":
+		var demo = load("res://modules/shell/demo.tscn").instantiate()
+		root.add_child(demo)
+		for i in 240:
+			await process_frame
+		walk = demo.find_child("GalleryWalk", true, false)
+	else:
+		walk = (
+			load("res://modules/shell/prototype/collection_reconstruction/main_build_walk.gd").new()
+		)
+		walk.size = Vector2(root.size)
+		root.add_child(walk)
+		for i in 240:
+			await process_frame
 	if not walk.state().attached:
 		_fail("setup", "the room scene did not attach")
 	walk._new_action()
@@ -239,7 +249,9 @@ func _rooms() -> void:
 		var b: Array = area.b
 		var middle := _free_near(Vector3((b[0] + b[1]) / 2.0, 0, (b[2] + b[3]) / 2.0))
 		for door in doors:
-			var start = door.from if door.a == area.label else (door.to if door.b == area.label else null)
+			var start = (
+				door.from if door.a == area.label else (door.to if door.b == area.label else null)
+			)
 			if start == null:
 				continue
 			_place(start)
@@ -268,7 +280,11 @@ func _rooms() -> void:
 			}
 			report.rooms.append(leg)
 			if not leg.arrived:
-				_fail("room", area.label + ": a click on its middle did not bring the visitor there", leg)
+				_fail(
+					"room",
+					area.label + ": a click on its middle did not bring the visitor there",
+					leg
+				)
 			elif leg.longest_step_m > 0.25:
 				_fail("room", area.label + ": the visitor jumped on the way to its middle", leg)
 
@@ -302,6 +318,8 @@ func _flat_share(image: Image) -> float:
 
 func _views() -> void:
 	for area in _areas():
+		if _arg("room", "") != "" and area.label != _arg("room", ""):
+			continue
 		var slug: String = area.label.to_lower().replace(" ", "-")
 		var b: Array = area.b
 		var long_z: bool = b[3] - b[2] > b[1] - b[0]
@@ -336,8 +354,8 @@ func _views() -> void:
 				walk.set_process(true)
 				# How much of the picture the visitor changes: none means it is hidden.
 				var changed := 0
-				for y in range(0, SIZE.y, 4):
-					for x in range(0, SIZE.x, 4):
+				for y in range(0, root.size.y, 4):
+					for x in range(0, root.size.x, 4):
 						var a := with_visitor.get_pixel(x, y)
 						var c := without.get_pixel(x, y)
 						if absf(a.r - c.r) + absf(a.g - c.g) + absf(a.b - c.b) > 0.08:
@@ -353,7 +371,11 @@ func _views() -> void:
 				report.views.append(entry)
 				# A doorway-sized stub cannot be photographed without a wall in the lens.
 				if entry.flat_share > 0.45 and minf(b[1] - b[0], b[3] - b[2]) >= 2.2:
-					_fail("view", "%s %s: one flat surface fills the picture" % [area.label, view], entry)
+					_fail(
+						"view",
+						"%s %s: one flat surface fills the picture" % [area.label, view],
+						entry
+					)
 				elif entry.visitor_pixels < 400:
 					_fail("view", "%s %s: the visitor cannot be seen" % [area.label, view], entry)
 
@@ -376,7 +398,9 @@ func _on_screen(points: Array) -> Rect2:
 	for i in points.size():
 		if walk._cam.is_position_behind(points[i]):
 			return Rect2()
-		var at: Vector2 = walk._cam.unproject_position(points[i]) / Vector2(walk._vp.size) * walk.size
+		var at: Vector2 = (
+			walk._cam.unproject_position(points[i]) / Vector2(walk._vp.size) * walk.size
+		)
 		box = Rect2(at, Vector2.ZERO) if i == 0 else box.expand(at)
 	return box
 
@@ -392,18 +416,28 @@ func _objects() -> void:
 			"title": str(thing.rec.get("title", "")),
 			"room": walk._plan[thing.room].label if thing.has("object") else HALL
 		}
+		if _arg("room", "") != "" and entry.room != _arg("room", ""):
+			continue
+		if _arg("tags", "") != "" and tag.get_slice("#", 0) not in _arg("tags", "").split(","):
+			continue
 		# Stand in front of it and face it, as a visitor would before clicking: nearer or
 		# further until it is on screen. A free-standing work is viewed from the room's middle.
 		var facing: Vector3 = thing.normal
 		if facing == Vector3.ZERO:
 			var room: Array = walk._plan[thing.room].b
-			facing = Vector3((room[0] + room[1]) / 2.0 - thing.center.x, 0, (room[2] + room[3]) / 2.0 - thing.center.z)
+			facing = Vector3(
+				(room[0] + room[1]) / 2.0 - thing.center.x,
+				0,
+				(room[2] + room[3]) / 2.0 - thing.center.z
+			)
 			facing = facing.normalized() if facing.length() > 0.3 else Vector3.BACK
 		var at := Vector2.ZERO
 		var picked := ""
 		# Dollhouse view first; a work hung above its frame (a chandelier) from the follow view.
 		for distance in [3.0, 2.0, 4.5, 6.0, 1.4, 8.0, -4.5, -7.0]:
-			var stand: Vector3 = _free_near(Vector3(thing.center.x, 0, thing.center.z) + facing * absf(distance))
+			var stand: Vector3 = _free_near(
+				Vector3(thing.center.x, 0, thing.center.z) + facing * absf(distance)
+			)
 			if not walk._free(stand):
 				continue
 			_place(stand)
@@ -421,7 +455,9 @@ func _objects() -> void:
 			var centre := at
 			var tries := [centre]
 			for corner in thing.corners:
-				var edge: Vector2 = walk._cam.unproject_position(corner) / Vector2(walk._vp.size) * walk.size
+				var edge: Vector2 = (
+					walk._cam.unproject_position(corner) / Vector2(walk._vp.size) * walk.size
+				)
 				tries.append(centre.lerp(edge, 0.75))
 			picked = ""
 			for point in tries:
@@ -478,10 +514,37 @@ func _objects() -> void:
 		var work := _on_screen(thing.corners)
 		var body: Array = []
 		for i in 8:
-			body.append(walk._pos + Vector3(0.4 if i & 1 else -0.4, 1.7 if i & 2 else 0.0, 0.4 if i & 4 else -0.4))
-		entry["work_on_screen"] = [roundi(work.position.x), roundi(work.position.y), roundi(work.size.x), roundi(work.size.y)]
+			body.append(
+				(
+					walk._pos
+					+ Vector3(0.4 if i & 1 else -0.4, 1.7 if i & 2 else 0.0, 0.4 if i & 4 else -0.4)
+				)
+			)
+		entry["work_on_screen"] = [
+			roundi(work.position.x),
+			roundi(work.position.y),
+			roundi(work.size.x),
+			roundi(work.size.y)
+		]
 		if not Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work):
 			problems.append("the work is not wholly in the inspection picture")
+		entry["render_size"] = [walk._vp.size.x, walk._vp.size.y]
+		if thing.rec.has("canvas_w"):
+			var canvas_points: Array = []
+			var right: Vector3 = Vector3.UP.cross(thing.normal)
+			for corner in [Vector2(-1, -1), Vector2(1, -1), Vector2(1, 1), Vector2(-1, 1)]:
+				canvas_points.append(
+					(
+						thing.center
+						+ right * corner.x * thing.rec.canvas_w / 2.0
+						+ Vector3.UP * corner.y * thing.rec.canvas_h / 2.0
+						+ thing.normal * 0.055
+					)
+				)
+			var canvas_box := _on_screen(canvas_points)
+			var rendered: Vector2 = canvas_box.size / walk.size * Vector2(walk._vp.size)
+			entry["canvas_screen_px"] = [ceilf(canvas_box.size.x), ceilf(canvas_box.size.y)]
+			entry["canvas_render_px"] = [ceilf(rendered.x), ceilf(rendered.y)]
 		entry["visitor_stepped_out"] = not walk._kid.visible
 		if walk._kid.visible and work.intersects(_on_screen(body)):
 			problems.append("the visitor covers the work")
@@ -502,6 +565,22 @@ func _objects() -> void:
 			for settle in 20:
 				await process_frame
 			await _shot("zoom-%s.png" % slug)
+			var pic: TextureRect = walk._zoom_root.get_node("Painting")
+			entry["zoom_image_px"] = [pic.texture.get_width(), pic.texture.get_height()]
+			if thing.rec.has("image_resolution"):
+				var images: Dictionary = thing.rec.image_resolution.images
+				var wanted: Dictionary = images.get("zoom_external", images.get("detail", {}))
+				if (
+					maxf(pic.texture.get_width(), pic.texture.get_height())
+					< wanted.get("required_long_side", 0)
+				):
+					problems.append("the zoom picture is smaller than its recorded requirement")
+			entry["zoom_fit_px"] = [ceilf(pic.size.x), ceilf(pic.size.y)]
+			walk._zoom_at(walk.size / 2.0, 6.0)
+			entry["zoom_full_px"] = [ceilf(pic.size.x * walk._zoom), ceilf(pic.size.y * walk._zoom)]
+			for settle in 4:
+				await process_frame
+			await _shot("zoom-full-%s.png" % slug)
 			walk._close_detail()
 			for settle in 10:
 				await process_frame
@@ -512,7 +591,9 @@ func _objects() -> void:
 			await process_frame
 		if walk._inspect_t > 0.01:
 			problems.append("the camera did not return")
-		entry["result"] = "inspected, zoomed and closed" if problems.is_empty() else ", ".join(problems)
+		entry["result"] = (
+			"inspected, zoomed and closed" if problems.is_empty() else ", ".join(problems)
+		)
 		report.objects.append(entry)
 		if not problems.is_empty():
 			_fail("object", tag + ": " + entry.result, entry)
