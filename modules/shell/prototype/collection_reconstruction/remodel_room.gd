@@ -974,6 +974,9 @@ func build_catalogue_objects() -> void:
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/catalogue-objects.json"))
 	for row in data.instances:
 		var asset:Dictionary=data.meshes[row.asset]
+		if row.has("mesh"): # a real mesh (#263) at the row's own position, yaw and catalogue size
+			place_mesh("res://assets/"+row.mesh,vec(row.position),row.get("yaw",0.0),vec(row.size_m),row.accession).set_meta("catalogue_asset",row.asset)
+			continue
 		if row.get("shape","") in ["cabinet","table"]:
 			build_front_furniture(row,asset)
 			continue

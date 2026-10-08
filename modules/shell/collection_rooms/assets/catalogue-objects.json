@@ -189762,13 +189762,9 @@
     },
     {
       "asset": "apostle-41045",
-      "accession": "41.045",
+      "mesh": "meshes/41.045/41-045.glb", "accession": "41.045",
       "title": "Apostle",
-      "size_m": [
-        0.254,
-        0.864,
-        0.12
-      ],
+      "size_m": [0.2625, 0.86, 0.14],
       "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
       "position": [
         12.33,
