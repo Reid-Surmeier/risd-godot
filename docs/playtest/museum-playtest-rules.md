@@ -36,7 +36,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    must close again. The opened detail is photographed.
 5. **Movement.** Walk, sprint (Shift) and jump (Space) are exercised by
    `modules/shell/playtest/visitor174_check.gd`: clip choice, step cadence, floor contact, jump
-   height, no footsteps in the air.
+   height, no footsteps in the air; one stride carried through every change of gait, a landing
+   after every jump that hands back to the gait the keys ask for, and a sprint thrown into
+   reverse that skids at once and only once (#259).
 6. **Inspection shows the work.** When a work opens, the work that opened is the one clicked, all
    of it is inside the picture, and the visitor's body does not overlap it on screen. A second
    click on it opens its zoom page from wherever the visitor ended up standing, including just
@@ -56,6 +58,8 @@ reviewer checks them by hand and says so:
 - Shift held through reading, zoom, focus loss and a tab change still sprints or stops correctly.
 - Turns, view changes and doorway crossings are recorded as continuous frames: no cut, no camera
   inside the visitor's head, no shadow left behind by a hidden painting.
+  `modules/shell/playtest/locomotion_record.gd` records the movement itself this way: real keys,
+  one picture and one log row (clip, clip phase, speed, jump state) per frame.
 
 ## What a person or reviewer still has to do
 

@@ -1,0 +1,28 @@
+ERROR: the stride jumped from 0.06 to 0.03 going from run to dash
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.63 to 0.03 going from dash to run
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.11 to 0.03 going from run to walk
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.72 to 0.03 going from walk to run
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.25 to 0.03 going from dash to run
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.85 to 0.03 going from run to dash
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: landing from a walk stood still for 15 ticks while sliding
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.09 to 0.03 going from walk to run
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the stride jumped from 0.08 to 0.03 going from run to dash
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: landing from a dash stood still for 15 ticks while sliding
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: a sprint from a stand skidded
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: reversing a sprint did not skid at once: walk
+   at: push_error (core/variant/variant_utility.cpp:1023)
+ERROR: the visitor skidded while sprinting away
+   at: push_error (core/variant/variant_utility.cpp:1023)
+FAIL #259: 13 locomotion faults
+exit 1
