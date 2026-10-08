@@ -650,42 +650,49 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 			leg.global_position=at+Vector3(x,leg_h/2,z)
 	return body
 
-## What makes a wall case read as the footage's (IMG_6383 17.0/44.0/48.5s) once its deck, back
-## board and clear hood exist: the hood's polished edges as bright lines on all twelve edges, a
-## sloped label rail along the deck's front inside the hood, a recessed lower step under the deck,
-## and the thin frame on the floor under the case. `display` is the case's own frame: x along the
+## What makes a wall case read as the footage's (IMG_6383 24.6/30.2/44.0/62.0s) once its deck, back
+## board and clear hood exist. The hood's polished edges: the four top ones as narrow dark rails
+## (seen from below against the white board they read slate-dark in every frame), the other eight
+## as thinner mid grey-green lines, darker than the board and lighter than the room. A sloped
+## label rail along the deck's front inside the hood, carrying one blank block per `labels` row
+## ([centre along the case, width]). A recessed lower step under the deck. On the floor under the
+## case, a thin dark strip round its footprint. `display` is the case's own frame: x along the
 ## wall and centred, y up from the floor, z out of the wall. `under` and `deck` are the deck's
-## bottom and top, `top` the hood's. A case that already has its own source-read top rails or
-## label passes `edges` or `label` false and takes the step and the floor frame only.
-func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck:float,top:float,edges:=true,label:=true) -> void:
+## bottom and top, `top` the hood's.
+func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck:float,top:float,labels:=[]) -> void:
 	var white:=look(Color("f0eeea"))
-	var edge_light:=look(Color("e6f1f2"),"",true)
-	var add:=func(at:Vector3,size:Vector3,m:Material) -> void:
+	var edge:=look(Color("8a9a98"),"",true)
+	var dark:=look(Color("434b52"),"",true)
+	var add:=func(at:Vector3,size:Vector3,m:Material) -> Node3D:
 		var piece:=solid(Vector3.ZERO,size,m)
 		piece.reparent(display,false)
 		piece.position=at
-	var t:=.007
-	for x in ([-length/2,length/2] if edges else []):
+		return piece
+	var t:=.004
+	var rails:=[]
+	for x in [-length/2,length/2]:
 		for z in [0.0,depth]:
-			add.call(Vector3(x,(deck+top)/2,z),Vector3(t,top-deck,t),edge_light)
-		add.call(Vector3(x,top,depth/2),Vector3(t,t,depth),edge_light)
-		add.call(Vector3(x,deck+t/2,depth/2),Vector3(t,t,depth),edge_light)
-	for z in ([0.0,depth] if edges else []):
-		add.call(Vector3(0,top,z),Vector3(length,t,t),edge_light)
-		add.call(Vector3(0,deck+t/2,z),Vector3(length,t,t),edge_light)
+			add.call(Vector3(x,(deck+top)/2,z),Vector3(t,top-deck,t),edge)
+		add.call(Vector3(x,deck+t/2,depth/2),Vector3(t,t,depth),edge)
+		rails.append(add.call(Vector3(x,top,depth/2),Vector3(.008,.008,depth),dark))
+	for z in [0.0,depth]:
+		add.call(Vector3(0,deck+t/2,z),Vector3(length,t,t),edge)
+		rails.append(add.call(Vector3(0,top,z),Vector3(length,.008,.008),dark))
+	for rail in rails:rail.set_meta("wall_case_top_rail",true)
 	# The lower step, set back from the front and the ends.
 	add.call(Vector3(0,under-.06,(depth-.07)/2),Vector3(length-.12,.12,depth-.07),white)
-	# The floor frame: the case's footprint as a low rail.
-	for x in [-length/2,length/2]:add.call(Vector3(x,.015,depth/2),Vector3(.02,.03,depth),white)
-	add.call(Vector3(0,.015,depth),Vector3(length,.03,.02),white)
-	if not label:return
+	# The floor strip: the case's footprint drawn on the boards, darker than the oak (62.0s).
+	var strip:=look(Color("83623f"))
+	for x in [-length/2,length/2]:add.call(Vector3(x,.004,depth/2+.03),Vector3(.02,.008,depth-.06),strip)
+	for z in [.06,depth]:add.call(Vector3(0,.004,z),Vector3(length+.02,.008,.02),strip)
 	# The label rail: a wedge rising from the deck's front edge toward the works.
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var run:=minf(.14,depth*.26)
 	var front:=depth-.02
-	var back:=depth-.16
-	var rise:=.07
-	var slope:=Vector3(0,front-back,rise).normalized()
+	var back:=front-run
+	var rise:=run/2
+	var slope:=Vector3(0,run,rise).normalized()
 	for quad in [[[Vector3(-1,deck,front),Vector3(1,deck,front),Vector3(1,deck+rise,back),Vector3(-1,deck+rise,back)],slope],
 		[[Vector3(-1,deck+rise,back),Vector3(1,deck+rise,back),Vector3(1,deck,back),Vector3(-1,deck,back)],Vector3(0,0,-1)]]:
 		for i in [0,1,2,0,2,3]:
@@ -702,6 +709,11 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	rail.material_override=card
 	rail.set_meta("artwork_label_proxy",true)
 	display.add_child(rail)
+	# The labels lie on the rail's slope. Blank blocks: the game carries no typed text.
+	for spec in labels:
+		var block:Node3D=add.call(Vector3(spec[0],deck+rise/2,(front+back)/2)+slope*.002,Vector3(spec[1],.003,run*.86),look(Color("dedbd4")))
+		block.rotation.x=atan2(rise,run)
+		block.set_meta("artwork_label_proxy",true)
 
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
@@ -1596,16 +1608,12 @@ func build_sculpture_rooms() -> void:
 	for spec in [[Vector3(-.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(0,1.50,.48),Vector3(.92,.84,.012)],[Vector3(0,1.50,0),Vector3(.92,.84,.012)],[Vector3(0,1.92,.24),Vector3(.92,.012,.48)]]:
 		var pane:=solid(triptych_at+spec[0],spec[1],roch_glass)
 		pane.reparent(triptych_case)
-	var triptych_label:=solid(triptych_at+Vector3(0,1.03,.485),Vector3(.20,.05,.005),look(Color("dedbd4")))
-	triptych_label.set_meta("artwork_label_proxy",true)
-	triptych_label.reparent(triptych_case)
-	# Its dark top rails and its label are read from the footage already; the kit adds the
-	# lower step and the floor frame (IMG_6383 17.0s).
+	# IMG_6383 30.2s: dark top rails, grey corner lines, one label about half the rail's length.
 	var triptych_frame:=Node3D.new()
 	add_child(triptych_frame)
 	triptych_frame.position=triptych_at
 	triptych_frame.reparent(triptych_case)
-	wall_case_fittings(triptych_frame,.92,.48,.97,1.08,1.78,false,false)
+	wall_case_fittings(triptych_frame,.92,.48,.97,1.08,1.92,[[0.0,.50]])
 	inventory["renaissance_triptych"]={"accession":"2021.131","panels":3,"source_rear_observed":true,"placement_accepted":false,"case_metres_accepted":false,"fine_frame_fidelity_accepted":false}
 	#6383 24.6/62.0s: the shallow linden-wood Pietà hangs north of the shuttered window.
 	# ponytail: white shelf/hood offsets are by eye; unobserved sculpture sides stay provisional.
@@ -1621,29 +1629,15 @@ func build_sculpture_rooms() -> void:
 	for spec in [[Vector3(-.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(0,1.43,-.325),Vector3(.38,.70,.012)],[Vector3(0,1.43,.325),Vector3(.38,.70,.012)],[Vector3(0,1.78,0),Vector3(.38,.012,.65)]]:
 		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)
 		pane.reparent(pieta_case)
-	var pieta_label:=solid(pieta_at+Vector3(.195,1.025,0),Vector3(.005,.06,.30),look(Color("dedbd4")))
-	pieta_label.rotation.z=-.3
-	pieta_label.set_meta("artwork_label_proxy",true)
-	pieta_label.reparent(pieta_case)
+	# IMG_6383 24.6s: the same hood and rail; the label under the work, about 0.27 m.
 	var pieta_frame:=Node3D.new()
 	add_child(pieta_frame)
 	pieta_frame.position=pieta_at+Vector3(-.19,0,0)
 	pieta_frame.rotation.y=PI/2
 	pieta_frame.reparent(pieta_case)
-	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.78,false,false)
+	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.78,[[0.0,.27]])
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
-	# Original6383 24.6/30.2s: dark narrow top rails and corner seams, not a floor plinth.
-	for spec in [[triptych_case,triptych_at+Vector3(0,0,.24),Vector2(.92,.48),1.92],[pieta_case,pieta_at,Vector2(.38,.65),1.78]]:
-		var centre:Vector3=spec[1]
-		var size:Vector2=spec[2]
-		var top:float=spec[3]
-		for side in [-1,1]:
-			for rail in [[Vector3(side*size.x/2,top,0),Vector3(.008,.008,size.y)],[Vector3(0,top,side*size.y/2),Vector3(size.x,.008,.008)]]:
-				var edge:=solid(centre+rail[0],rail[1],look(Color("3c3a35")))
-				edge.set_meta("wall_case_top_rail",true)
-				edge.reparent(spec[0])
-
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
 	var platform:=solid(Vector3(-3.10,.08,24.415),Vector3(4.30,.16,.95),white,true)
 	platform.set_meta("renaissance_textile_platform",true)
@@ -2071,7 +2065,7 @@ func build_renaissance_east_cases() -> void:
 		var backing:=solid(Vector3.ZERO,Vector3(1.19,.90,.012),white)
 		backing.reparent(display,false)
 		backing.position=Vector3(0,1.53,.018)
-		wall_case_fittings(display,1.20,.56,.97,1.08,1.98)
+		wall_case_fittings(display,1.20,.56,.97,1.08,1.98,[[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]])
 		if row[0]=="A":
 			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.08,.32)],["bookcover",Vector3(-.16,1.08,.35)],["emblem",Vector3(.12,1.08,.30)],["albarello",Vector3(.45,1.08,.30)]]:
 				var art:=RenaissanceA.on_display(spec[0],images,Painting.mat)
@@ -2092,12 +2086,6 @@ func build_renaissance_east_cases() -> void:
 					mount.reparent(display,false)
 					mount.position=Vector3(spec[1].x,1.09,.34)
 					mount.rotation.x=-.28
-		for spec in [[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]]:
-			var label:=solid(Vector3.ZERO,Vector3(spec[1],.06,.005),look(Color("dedbd4")))
-			label.reparent(display,false)
-			label.position=Vector3(spec[0],1.025,.565)
-			label.rotation.x=.25
-			label.set_meta("artwork_label_proxy",true)
 	inventory["renaissance_case_objects"]={"case_a":6,"case_b":5,"probable":["34.024"],"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 
 #6383 reciprocal wides: velvet east and tapestry west on south wall, framed Madonna south of west window.

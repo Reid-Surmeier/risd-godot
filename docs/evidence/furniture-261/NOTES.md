@@ -24,26 +24,50 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    and floor frame only. The floor frames are below this picture's edge and were not seen.
    Not yet done: the hooded floor case, the textile platform, the window, the pedestals.
 
-## State for whoever continues (written at the tip, `bbad8bd2` plus this note)
+4. `4-wall-case-edges-and-labels-footage-and-unbaked.jpg`: the four wall cases after the lead's
+   notes. Pairs, footage then unbaked: east case A (IMG_6383 44.0 s), the Pietà case (24.6 s),
+   the triptych case (30.2 s).
+   - Hood edges. In all three frames the hood's top edges read as narrow dark slate lines against
+     the white board, and the upright edges as thinner grey ones; none is a bright line. So all
+     four cases now take the same edges from `wall_case_fittings()`: four dark top rails 8 mm
+     thick, eight mid grey-green lines 4 mm thick (they were 7 mm and near white).
+   - Pietà and triptych hoods: dark top rails, kept. Settled by 24.6 s (a dark bar across the
+     hood's top front edge, grey uprights) and 30.2 s (dark top front and rear edges, dark
+     uprights). 17.0 s shows the Pietà case too small and blurred to settle anything. 44.0 s
+     shows the east cases have the same dark top edges, so they are now built the same way.
+   - The check: `architecture_check.gd` counted the Pietà and triptych rails (8). The kit now
+     makes the top rails of all four cases, so the check expects 16 and accepts a rail owned by
+     any of the four cases. That is the only change to the check.
+   - Labels. The grey blocks were on the body's front face in all four cases. They now lie on
+     the sloped rail inside the hood, as filmed; the Pietà and triptych cases take the rail too
+     (24.6/30.2 s show a label on a sloped white face in front of the work). Blocks only, no text.
 
-- The lead's two bench corrections (a cushion a third of the bench's height; stout dark-brown
-  square legs under a base rail) are IN, at commit `2265a6b7`. They are not in `25d271c2`.
-- Commits after `c289856c` on this branch: `2265a6b7` bench corrections, `f2536345` Pietà and
-  triptych cases, `bbad8bd2` a recut evidence picture. Start from the tip, not from `c289856c`.
-- Open notes from the lead on the wall case: the hood's edge lines are a little heavy and bright
-  against the footage's thin greenish edges (`edge_light` colour and `t` in
-  `wall_case_fittings()`); the label blocks should sit on the sloped rail inside the hood, not
-  on the body's front face (those grey rectangles are the earlier builder's, in
-  `build_renaissance_east_cases()`).
+   Guessed, not measured: the rail's slope (1 in 2) and depth (14 cm, less in the shallow Pietà
+   case so it clears the work); in the footage the rail's face is taller and the works stand on a
+   raised floor behind it. The works were not moved, so the floor was not raised.
+5. `5-wall-case-floor-strips-footage-and-unbaked.jpg`: the floor under the wall cases. Footage
+   IMG_6383 62.0 s (cropped): under the Pietà and triptych cases a thin brown rectangle on the
+   boards, darker than the oak. Unbaked: the same corner from 0.9 m up, and east case A from
+   0.5 m up. The strips were white rails 3 cm high; they are now flat brown strips 2 cm wide
+   round the case's footprint. Guessed: that the strip is flat (it could be a low rail), its
+   exact colour (the frame is motion-blurred), and that the east cases have one (no frame I
+   opened shows the floor under them; the census says all four do).
+
+The clip is at `~/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV`.
+
+## State for whoever continues
+
+- Done: the bench, the four wall cases (pictures 1 to 5).
 - Not done: the hooded floor case (Saint Roch), the textile platform with its label blocks, the
   window reveal and shade, the pedestals.
 
 ## How the unbaked pictures are taken
 
-No bake and no wait on the rebuild lock. A draft room project is made once and then reused:
+A draft room project is made once (it waits on the host's rebuild lock) and then reused:
 
 ```bash
-ROOMS_TRIAL=$HOME/risd-godot-ingestion/collection-expansion/rebuild-trim273 scripts/rebuild_rooms.sh --draft
+source ~/promo-lab/gpu-env.sh; export DISPLAY=:99
+ROOMS_TRIAL=$HOME/risd-godot-ingestion/collection-expansion/rebuild-trim273 timeout 40m scripts/rebuild_rooms.sh --draft
 EXT=$HOME/risd-godot-ingestion/collection-expansion/rebuild-trim273/extension
 ```
 
@@ -51,7 +75,7 @@ After each edit to `remodel_room.gd`, copy it into that project with the two tex
 generator's extension step makes, instead of rebuilding:
 
 ```bash
-python3 - <<'PY'
+python3 - <<'EOF'
 from pathlib import Path
 import os
 src = Path('modules/shell/prototype/collection_reconstruction/remodel_room.gd').read_text()
@@ -59,23 +83,28 @@ src = src.replace('if not visitor.is_ancestor_of(surface):',
                   'if not visitor.is_ancestor_of(surface) and not surface.has_meta("retained_main_hall"):')
 src = src.replace('res://modules/shell/prototype/gallery_walk4/baked/', 'res://addition_baked/')
 Path(os.path.expanduser('~/risd-godot-ingestion/collection-expansion/rebuild-trim273/extension/remodel_room.gd')).write_text(src)
-PY
+EOF
 ```
 
 (An edited `*_additions.gd` is copied across unchanged.) Then check and photograph:
 
 ```bash
 godot --headless --path $EXT --script $PWD/modules/shell/prototype/collection_reconstruction/architecture_check.gd
-source ~/promo-lab/gpu-env.sh; export DISPLAY=:99
 godot --path $EXT --display-driver x11 --rendering-method gl_compatibility \
-  --script $PWD/docs/evidence/furniture-261/draft_shot.gd -- <out dir> bench
+  --script $PWD/docs/evidence/furniture-261/draft_shot.gd -- \
+  renaissance_wall_case=A "/tmp/a.png:-1.05,.42,.12:0,.40,.30"
 ```
 
-The camera trick, in `draft_shot.gd`: instantiate `res://remodel_room.tscn`, wait ten frames,
-stop its physics process (which would otherwise cut walls away), make every node visible, find
-the piece by a metadata key (`furniture` = `bench`; use `renaissance_wall_case` = `A` or
-`has_meta("pieta_wall_case")` for the cases), then set `scene.camera.global_transform` to an
-offset from the piece looking at it, wait four frames and save `root.get_texture()`. A blank or
-flat picture means the offset put the camera inside a wall: change its sign. The draft draws
-every room at once and lights nothing by the bake, so it shows shape, not the final light or
-which room the game would draw.
+`draft_shot.gd` finds the piece by a metadata key (`furniture=bench`, `renaissance_wall_case=A`,
+`pieta_wall_case`, `triptych_wall_case`, `saint_roch_installation`,
+`renaissance_textile_platform`, `renaissance_west_blind`) and takes one picture per shot argument:
+`<out.png>:<camera offset>:<aim offset>[:<fov>[:<width>x<height>]]`, offsets in metres from the
+piece's origin in the room's axes (x east, y up, z south). It stops the room's physics process
+(which would cut walls away), shows every node and hides the on-screen help. Default 540 x 960,
+upright like the footage, 70 degrees. The shots in pictures 4 and 5:
+east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà case
+`1.0,.40,.12:0,.25,0` and the corner `2.3,-.1,1.4:.4,-.5,-.7:60`; triptych case
+`.05,.42,1.3:0,.36,0`. A blank or flat picture means the camera is inside a wall: change the
+offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
+shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
+file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.
