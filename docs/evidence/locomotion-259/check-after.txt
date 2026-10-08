@@ -1,0 +1,2 @@
+PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, 90/180-degree turns, floor contact and step cadence, gestures disabled; #259: one stride through gait changes, landings, sprint reversal skid
+exit 0
