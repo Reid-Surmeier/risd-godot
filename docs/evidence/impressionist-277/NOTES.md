@@ -4,7 +4,7 @@ Branch `feat/impressionist-277`; source baseline `ecfda16e`. Work alone, source 
 
 ## 1. Footage, dimensions and finishes
 
-Coordinates name the **fitted build plan**, not geographic compass directions. Look south from A's entrance towards Le Repos: windows west, three Monets east, Manet south, two portraits/sketches north. Distances along west/east walls start at the north corner; along north/south walls start at the west corner. Hanging heights are canvas centres above the floor. See `WORKS-NEEDED.md` for the complete 17-work inventory and bare positions.
+Coordinates name the **fitted build plan**, not geographic compass directions. Look south from A's entrance towards Le Repos: windows east (screen left), three Monets west (screen right), Manet south, two portraits/sketches north. Distances along west/east walls start at the north corner; along north/south walls start at the west corner. Hanging heights are canvas centres above the floor. See `WORKS-NEEDED.md` for the complete 17-work inventory and bare positions.
 
 | Element | Estimate and error | Frame / scale |
 | --- | --- | --- |
@@ -16,26 +16,26 @@ Coordinates name the **fitted build plan**, not geographic compass directions. L
 | A width | **6.25 ± .60 m** | 147; rectified end wall, Le Repos canvas 1.140 × 1.502 m |
 | A depth | **9.6 ± 1.5 m**, inferred | 94, 143, 147; canvas angular width and assumed 50–60° portrait horizontal field of view; optics uncalibrated |
 | A height | **3.69 ± .35 m** | 147; same-plane ceiling/floor corners and Manet |
-| A entry | north wall, centre about 5.35 ± .45 m from west corner; 1.4 ± .2 m clear | 141, 147; door/Manet scale, position weaker than end wall |
-| A → B door | south wall, centre .95 ± .20 m from west corner; 1.04 ± .15 m clear, head **2.47 ± .20 m** | 147; Manet-plane homography; floor inside B is behind plane, so use A end-wall floor line |
+| A entry | north wall, centre about 5.30 ± .45 m from west corner; 1.4 ± .2 m clear | 141, 147; door/Manet scale, position weaker than end wall |
+| A → B door | south wall, centre .95 ± .20 m from east corner; 1.04 ± .15 m clear, head **2.47 ± .20 m** | 147; Manet-plane homography; floor inside B is behind plane, so use A end-wall floor line |
 | A finishes | cool grey painted walls; white skirting/casings/cornice; honey oak straight boards across the room; pale flat ceiling | 98, 121, 145, 147 |
-| A window 1 | west wall, centre 3.0 ± .6 m from north; outer width 1.6 ± .2 m, sill .55 ± .12 m, head 3.15 ± .25 m | 143, 149; Degas canvas .464 × .629 m |
-| A window 2 | west wall, centre 7.6 ± .8 m from north; same size ± .2 m | 143, 147, 151; same-plane Degas/door cross-check |
+| A window 1 | east wall, centre 3.0 ± .6 m from north; outer width 1.6 ± .2 m, sill .55 ± .12 m, head 3.15 ± .25 m | 143, 149; Degas canvas .464 × .629 m |
+| A window 2 | east wall, centre 7.6 ± .8 m from north; same size ± .2 m | 143, 147, 151; same-plane Degas/door cross-check |
 | A windows | white sash and deep inner lining, two panes below the meeting rail; oatmeal roller shades cover upper roughly 55%; panelled aprons with low horizontal grilles | 121, 143, 149, 151 |
 | A case | grey **six-sided** plinth: 1.1 ± .2 m across × .95 ± .12 m high; stepped foot, bevelled pale deck; rectangular clear hood about .85 × .65 × .90 m (± .15 m) | 145, 147, 152; Degas bronze catalogue height .422 m / Manet; hood dimensions inferred |
 | A furniture | no bench seen in the full pan | 91–154 |
 | B width/depth | **6.3 ± .7 m × 8.8 ± 1.8 m**, inferred | 178, 214, 216; Monet 44.541 canvas .927 × .648 m, doors; extent partly out of frame, uncalibrated optics |
 | B height | **3.5 ± .35 m** | 214, 225; existing tall cased door and catalogue canvas |
-| B modern exit | south wall near west window, centre about .65 ± .2 m from west corner; 1.3 ± .15 m clear, head 2.7 ± .2 m | 216, 225, 226; same plane as jamb / window |
-| B window 1 | west wall, centre about 5.6 ± .8 m from north; width 1.55 ± .2 m; sill .55 ± .12 m, head 3.1 ± .25 m | 216, 218, 220; Cassatt .521 × .610 m |
-| B window 2 | west wall, centre about 9.5 ± 1.0 m in the fitted room; same size ± .2 m | 216, 218, 225; modern door; offset fitted rather than independently surveyed |
+| B modern exit | south wall near east window, centre about .65 ± .2 m from east corner; 1.3 ± .15 m clear, head 2.7 ± .2 m | 216, 225, 226; same plane as jamb / window |
+| B window 1 | east wall, centre about 4.98 ± .8 m from north; width 1.55 ± .2 m; sill .55 ± .12 m, head 3.1 ± .25 m | 216, 218, 220; Cassatt .521 × .610 m |
+| B window 2 | east wall, centre about 8.44 ± 1.0 m in the fitted room; same size ± .2 m | 216, 218, 225; modern door; offset fitted rather than independently surveyed |
 | B furniture/finishes | one low charcoal tufted bench near centre, about 1.8 × .75 × .45 m (± .2/.12/.08 m); oak boards, cool grey walls, white trim and ceiling | 214, 216; canvas / floor cross-check; length partly out of frame |
 
 `plane-measurement.json` retains A's manually picked canvas corners, homography and wall coordinates. The earlier 5.5 × 7 m estimate was superseded by this scale fit. The doorway sill visible behind A's opening is not on the end-wall plane: treating it as such would incorrectly give a 2.21 m door. The corrected head uses the wall/floor junction and is 2.47 m.
 
 ### Lamps for #274 (record only)
 
-A: 147 shows two inset rectangular dark track runs, long sides parallel to the room; nearest loop about .7 m off the walls, a second run inside it. Small white heads aim at each east-wall canvas, Le Repos and Degas; the case has its own bright pool. Window daylight makes a cool pool on the west floor and warm lamps make overlapping broad pools at paintings. A high rectangular ventilation grille is on the east wall near the south end; a small ceiling detector sits near the central track. B: 214 shows a high long wall grille above Monet 44.541, wall-directed heads and a warm oval pool under each picture; 226 shows the modern room's rectangular track beyond the exit. No lamp or track code is in this ticket.
+A: 147 shows two inset rectangular dark track runs, long sides parallel to the room; nearest loop about .7 m off the walls, a second run inside it. Small white heads aim at each west-wall canvas, Le Repos and Degas; the case has its own bright pool. Window daylight makes a cool pool on the east floor and warm lamps make overlapping broad pools at paintings. A high rectangular ventilation grille is on the west wall near the south end; a small ceiling detector sits near the central track. B: 214 shows a high long wall grille above Monet 44.541, wall-directed heads and a warm oval pool under each picture; 226 shows the modern room's rectangular track beyond the exit. No lamp or track code is in this ticket.
 
 ## 2. Fixed ends, closure and fitted plan
 
@@ -46,12 +46,13 @@ The footage does **not** establish a calibrated global camera pose. Adding the e
 | New area | Fitted bounds [x0, x1, z0, z1] | Height | Openings |
 | --- | --- | --- | --- |
 | Impressionist passage | [19.45, 21.45, -2.86, 1.04] | 3.2 | west z[-2.51,-1.41]; south x[19.75,21.15] |
-| Impressionist gallery A | [15.10, 21.45, 1.04, 11.50] | 3.69 | north x[19.75,21.15]; south x[15.10,16.40] |
-| Impressionist gallery B | [15.10, 21.45, 11.50, 22.30] | 3.5 | north x[15.10,16.40]; south x[15.10,16.40] |
+| Impressionist passage return | [14.75, 21.45, 1.04, 3.04] | 3.2 | north x[19.75,21.15]; south x[15.10,16.40] |
+| Impressionist gallery A | [10.55, 16.70, 3.04, 12.70] | 3.69 | north/south x[15.10,16.40] |
+| Impressionist gallery B | [10.55, 16.70, 12.70, 22.30] | 3.5 | north/south x[15.10,16.40] |
 
-A's depth is stretched **.86 m**, B's **2.00 m**, and the passage adds **1.00 m** of southward travel (3.00 m from the stair centre to A entry instead of the 2.00 m filmed estimate). Widths differ from estimates by .10/.05 m. Doorways between A/B use the build's retained 1.30 m clear width, .26 m wider than A's 1.04 m measured opening; no adjoining room moves. The under-stair internal leg x17.85–19.45 is already within the marble hall and will have its obstruction opened. The passage's extra elbow/depth, room depths, and hanging positions remain **INFERRED**. Their deviations are deliberately visible here, not presented as survey fidelity.
+A's depth is stretched **.06 m**, B's **.80 m**, and the passage adds **3.00 m** of southward travel (5.00 m from stair centre to A entry instead of the 2.00 m filmed estimate). This totals the required **3.86 m** longitudinal fit. Both gallery widths are **6.15 m**, .10/.15 m narrower than the estimates. The passage return also adds **4.70 m of lateral travel** between x20.45 and x15.75; that return is a build fit, **not observed in the clip**. No existing adjoining room moves. The under-stair internal leg x17.85–19.45 is already inside the hall and has its obstruction opened.
 
-The three new rectangles do not overlap any existing room, and A/B and B/modern share identical opening intervals and planes. Source assertions and draft route checks will verify this; exact physical museum plan closure is **not accepted**.
+The first draft exposed a mirror error: looking towards +z, screen left is world **east**, and the filmed windows and end door are both on that side. The fit was corrected before the shell checkpoint. A/B now lie west of the passage and have east-side doors and windows; this preserves the filmed relationship and reduces gallery-depth distortion. The four new rectangles do not overlap any existing room. Their opening intervals match pairwise, including the retained modern far door. Source assertions and draft route samples check closure in the build. The passage return, room depths and wall offsets remain **INFERRED**; the exact physical museum plan is **not accepted**.
 
 ## 3. Census checklist
 
@@ -78,13 +79,13 @@ The initial import completed. `scripts/check.sh` now gets through import but `RE
 
 ## 7. Shell checkpoint (source changes, 8 Oct)
 
-Draft command from the brief completed in the one `rebuild-impressionist-277` folder: **ARCHITECTURE_CHECK failures=[]**, 26 cased door sides. Full `scripts/check.sh` still fails only on the three baseline medieval mesh declarations in §5; `git diff --check` is clean. `python3 -m py_compile prepare_remodel.py` passes. No generated room files are edited or staged. The scoped push exception was asked in chat because the user explicitly requires the full check to pass; it is still pending.
+The first preliminary (mirrored) draft command completed in the one `rebuild-impressionist-277` folder: **ARCHITECTURE_CHECK failures=[]**, 26 cased door sides. Its layout was corrected as §2 records; the corrected draft subsequently completed with **ARCHITECTURE_CHECK failures=[]**, **28 cased door sides**, at about 18:03 UTC. The walking adapter sampled **40 reciprocal trials** (38 new, 2 retained) at 41 points per leg: **zero failures**. `2-shell-stair.jpg`, `2-shell-A.jpg` and `2-shell-modern.jpg` show the corrected plain shell beside the source frames. **VERIFIED in those draft pictures:** open stair doorway, A/B end-door relationships, continuous floors, grey walls, white kit trim and flat ceilings. Dimensions and the extra passage return remain **INFERRED**. Full `scripts/check.sh` still fails only on the three baseline medieval mesh declarations in §5; `git diff --check` is clean. `python3 -m py_compile prepare_remodel.py` passes. No generated room files are edited or staged. The scoped push exception was asked in chat because the user explicitly requires the full check to pass; it is still pending.
 
 ### Edits outside `impressionist_additions.gd`
 
-1. `prepare_remodel.py`: replace only room index12's modern stub with B; add separate passage/A entries; add the marble hall's outer east opening and its head height; keep every old bounds/door fixed; append fit metadata, shared-opening assertions and route trials. The existing floor-patch loop includes the new areas. No other room entry is moved.
+1. `prepare_remodel.py`: replace only room index12's modern stub with B; add separate passage/return/A entries; add the marble hall's outer east opening and its head height; keep every old bounds/door fixed; append fit metadata, shared-opening assertions and route trials. The existing floor-patch loop includes the new areas. No other room entry is moved.
 2. `remodel_room.gd`: one `ADDITIONS` list entry, after the marble hall. No lamp, casing, deep reveal, skirting or cornice implementation is changed.
-3. `main_build_walk.gd`: add three names to `FAR_ROOMS`; replace the obsolete modern-stub join with passage → A in `JOINED`. A and B get distinct stages from the existing automatic stage builder. Room names/doorways otherwise come from `geometry.json`; there are no literal Renaissance-room registrations to copy in this adapter.
+3. `main_build_walk.gd`: add four names to `FAR_ROOMS`; replace the obsolete modern-stub join with both passage areas directly joined to A in `JOINED`. A and B get distinct stages from the existing automatic stage builder. Room names/doorways otherwise come from `geometry.json`; there are no literal Renaissance-room registrations to copy in this adapter.
 4. `marble_hall_additions.gd`, `inner_walls()` only: replace the single closed exit wall/leaf batch with two piers and a header; call the existing shared casing kit; retain the existing EXIT sign. Cut the old continuous base at that opening (no profile change). Split the invisible obstruction behind the landing into north/south blocks to admit only the passage. Flights, other doors, lamps and cornice are untouched.
 
 ### Door planes for the orchestrator's baked `--only=doors` check
@@ -93,11 +94,16 @@ Draft command from the brief completed in the one `rebuild-impressionist-277` fo
 | --- | --- | --- | --- | --- |
 | stair hall internal exit | x17.85 | z[-2.51,-1.41] | 2.47 | closed double leaf / solid wall removed |
 | stair hall outer east ↔ passage west | x19.45 | z[-2.51,-1.41] | 2.47 | new paired opening |
-| passage south ↔ A north | z1.04 | x[19.75,21.15] | 2.74 | new paired opening |
-| A south ↔ B north | z11.50 | x[15.10,16.40] | 2.47 | new paired opening |
+| passage south ↔ return north | z1.04 | x[19.75,21.15] | 2.74 | new paired opening |
+| return south ↔ A north | z3.04 | x[15.10,16.40] | 2.74 | new paired opening |
+| A south ↔ B north | z12.70 | x[15.10,16.40] | 2.47 | new paired opening |
 | B south ↔ modern north | z22.30 | x[15.10,16.40] | 2.74 | modern opening retained, stub replaced by B |
 
-New reciprocal doorway trials (x,z, room-scene metres): `impressionist_stair_inner` (16.85,-1.96) ↔ (19.05,-1.96); `impressionist_stair_outer` (19.05,-1.96) ↔ (20.45,-1.96); `impressionist_passage_A` (20.45,.40) ↔ (20.45,1.80); `impressionist_A_B` (15.75,10.65) ↔ (15.75,12.35). Each has `_out` and `_back`.
+New reciprocal doorway trials (x,z, room-scene metres): `impressionist_stair_inner` (16.85,-1.96) ↔ (19.05,-1.96); `impressionist_stair_outer` (19.05,-1.96) ↔ (20.45,-1.96); `impressionist_passage_return` (20.45,.40) ↔ (20.45,1.80); `impressionist_return_A` (15.75,2.25) ↔ (15.75,3.85); `impressionist_A_B` (15.75,11.85) ↔ (15.75,13.55). Each has `_out` and `_back`.
 
-The **26** `impressionist_route_00..12_out/back` trials follow:
-`(20.45,-1.96) → (20.45,.40) → (20.45,1.80) → (19.20,4.20) → (19.20,7.20) → (19.20,9.70) → (16.50,9.70) → (15.75,10.65) → (15.75,12.35) → (17.75,14.50) → (17.75,17.50) → (17.75,20.50) → (15.75,21.45) → (15.75,23.25)`, each segment ≤3.5 m. The existing `modern_far_opening_out/back` retain their coordinates (15.75,23.25) ↔ (15.75,21.45). **34 added trials; none moved**. Baked playtest has not been run on a draft.
+The **28** `impressionist_route_00..13_out/back` trials follow:
+`(20.45,-1.96) → (20.45,.40) → (20.45,2.04) → (18.25,2.04) → (15.75,2.04) → (15.75,3.85) → (14.85,6.20) → (14.85,9.20) → (15.75,11.85) → (15.75,13.55) → (13.25,15.70) → (13.25,18.70) → (13.25,20.65) → (15.75,21.45) → (15.75,23.25)`, each segment ≤3.5 m. The existing `modern_far_opening_out/back` retain their coordinates (15.75,23.25) ↔ (15.75,21.45). **38 added trials; no pre-existing trial moved**. Baked playtest has not been run on a draft.
+
+Close draft photographs use the room draft's .55 ambient fill and show adjacent rooms for geometry review. Game photographs retain the actual walking adapter's zero far-room ambient and its stage masking. The adapter expects a bake; a black ceiling in that unbaked game view is not proof of missing ceiling geometry. No runtime light setting is changed by the capture script.
+
+The private draft capture copies tracked `modules/shell/character/` files, the two existing tab-close icons and the two authored catalogue records into the draft unchanged, then imports it. This only supplies dependencies omitted by the room-only draft; none of those character/tab files is edited or committed.

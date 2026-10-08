@@ -561,6 +561,34 @@ geometry['rooms'] += [
     {'label':'white sculpture gallery threshold study limit','bounds':[16.15,17.65,29.5,31.5],'openings':{'west':[29.5,31.5]}},
     {'label':'modern adjoining gallery threshold study limit','bounds':[15.10,16.40,20.70,22.30],'openings':{'south':[15.10,16.40]}}
 ]
+# #277: fit the filmed Impressionist sequence to the two retained museum doors.
+# A's end wall is scaled by Le Repos (6343 147s); longitudinal closure needs +3.86m.
+# The passage elbow and stretched depths are explicit in impressionist-277/NOTES.md.
+# No existing room moves. Index12 replaces only the old modern-adjoining study stub.
+geometry['rooms'][8]['openings']['east']=[-2.51,-1.41]
+geometry['rooms'][8].setdefault('clear_heights',{})['east']=2.47
+geometry['rooms'][12]={'label':'Impressionist gallery B','bounds':[10.55,16.70,12.70,22.30],
+    'height':3.5,'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.10,16.40]},
+    'clear_heights':{'north':2.47,'south':2.74}}
+geometry['rooms'] += [
+    {'label':'Impressionist passage','bounds':[19.45,21.45,-2.86,1.04],'height':3.2,
+     'boards_across':True,'openings':{'west':[-2.51,-1.41],'south':[19.75,21.15]},
+     'clear_heights':{'west':2.47,'south':2.74}},
+    {'label':'Impressionist gallery A','bounds':[10.55,16.70,3.04,12.70],'height':3.69,
+     'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.10,16.40]},
+     'clear_heights':{'north':2.74,'south':2.47}},
+    {'label':'Impressionist passage return','bounds':[14.75,21.45,1.04,3.04],'height':3.2,
+     'boards_across':True,'openings':{'north':[19.75,21.15],'south':[15.10,16.40]},
+     'clear_heights':{'north':2.74,'south':2.74}}
+]
+for a,side,b,other in [(8,'east',13,'west'),(13,'south',15,'north'),(15,'south',14,'north'),(14,'south',12,'north')]:
+    assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
+geometry['impressionist_fit']={'source':'IMG_6343 84..228s; docs/evidence/impressionist-277/NOTES.md',
+    'fixed_stair_door':[17.85,-1.96],'fixed_modern_door':[15.75,22.30],
+    'estimated_depths_m':[2.0,9.6,8.8],'longitudinal_residual_m':3.86,
+    'fitted_depths_m':[5.0,9.66,9.60],'passage_elbow_inferred':True,
+    'passage_return_m':4.7,'windows_side':'east','first_draft_mirror_corrected':True,
+    'metric_accepted':False,'lighting_owned_by':'#274','missing_works':'WORKS-NEEDED.md'}
 assert sum(geometry['rooms'][3]['openings']['west'])==sum(geometry['rooms'][3]['openings']['east'])
 for a,side,b,other in [(3,'east',5,'west'),(5,'north',10,'south'),(5,'east',11,'west'),(10,'north',12,'south')]:
     assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
@@ -574,6 +602,25 @@ for label,b in [('landing north floor',[10.55,16.15,28.1,33.715])]+[(r['label'],
     geometry['patches'].append({'label':label,'color':'81735c','vertices':[[b[0],0,b[2]],[b[1],0,b[2]],[b[1],0,b[3]],[b[0],0,b[3]]]})
 geometry['lion_modern_layout']={'source':'IMG_6387 native2.25..84.25s; reciprocal6382 stair view','stair_block':'Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement','door_order':'Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south','modern_wall_groups':'Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east','source_review':'docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001','entry_reveal_depth_modelled':False,'metric_accepted':False,'stair_curve_and_destinations_complete':False,'white_sculpture_room_interior_complete':False,'adjoining_room_interior_complete':False}
 geometry['trials'] += [['landing_to_modern',[11.85,.25,29.75],[11.85,0,26.55],False],['modern_to_landing',[11.85,.25,26.55],[11.85,0,29.75],False],['landing_white_out',[14.95,.25,30.5],[17.0,0,30.5],False],['landing_white_back',[17.0,.25,30.5],[14.95,0,30.5],False],['modern_far_opening_out',[15.75,.25,23.25],[15.75,0,21.45],False],['modern_far_opening_back',[15.75,.25,21.45],[15.75,0,23.25],False],['modern_bench_blocked',[15.1,.25,25.35],[12.4,0,25.35],True],['landing_guard_blocked',[13.35,.25,32.7],[13.35,0,34.6],True],['landing_stair_foot_blocked',[11.15,.25,32.9],[11.15,0,34.6],True],['landing_flight_down_blocked',[15.55,.25,32.9],[15.55,0,34.6],True]]
+# #277: reciprocal doors and the complete clear route; each leg is within the 3.5m trial reach.
+for name,a,b in [
+    ('impressionist_stair_inner',[16.85,-1.96],[19.05,-1.96]),
+    ('impressionist_stair_outer',[19.05,-1.96],[20.45,-1.96]),
+    ('impressionist_passage_return',[20.45,.40],[20.45,1.80]),
+    ('impressionist_return_A',[15.75,2.25],[15.75,3.85]),
+    ('impressionist_A_B',[15.75,11.85],[15.75,13.55])
+]:
+    geometry['trials'] += [[name+'_out',[a[0],.25,a[1]],[b[0],0,b[1]],False],
+                          [name+'_back',[b[0],.25,b[1]],[a[0],0,a[1]],False]]
+impressionist_route=[[20.45,-1.96],[20.45,.40],[20.45,2.04],[18.25,2.04],
+    [15.75,2.04],[15.75,3.85],[14.85,6.20],[14.85,9.20],[15.75,11.85],
+    [15.75,13.55],[13.25,15.70],[13.25,18.70],[13.25,20.65],[15.75,21.45],[15.75,23.25]]
+for i,(a,b) in enumerate(zip(impressionist_route,impressionist_route[1:])):
+    assert sum((x-y)**2 for x,y in zip(a,b))**.5<=3.5
+    for direction,start,end in [('out',a,b),('back',b,a)]:
+        geometry['trials'].append([f'impressionist_route_{i:02d}_{direction}',
+            [start[0],.25,start[1]],[end[0],0,end[1]],False])
+geometry['impressionist_route_waypoints']=impressionist_route
 geometry['trials']=[t for t in geometry['trials'] if not t[0].startswith('grey_piano')]+[['grey_skylight_out',[5.55,.25,-4.16],[5.55,0,-7.2],False],['grey_skylight_back',[5.55,.25,-7.2],[5.55,0,-4.16],False],['skylight_piano_blocked',[2.6,.25,-8.4],[1.2,0,-9.9],True]]
 
 # The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.
