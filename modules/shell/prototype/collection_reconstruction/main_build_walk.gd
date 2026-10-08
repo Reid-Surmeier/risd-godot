@@ -676,14 +676,33 @@ func _floor_at(pt: Vector2):
 				for box in wall.boxes:
 					if (box as AABB).intersects_segment(q.move_toward(eye, 0.5), spot) != null:
 						return null
-		# A doorway shows only the dark: one and a half metres through it, by the door's own
-		# axis, wherever the ray would have met the ground beyond.
+		# A doorway shows only the dark: the visitor is sent through it by the door's own axis,
+		# wherever the ray would have met the ground beyond, and a metre and a half past the far
+		# side of the doorway's thickness, as far in as the keys carry it. Stopped on the
+		# threshold, the room opened on a black band (round 5).
 		var room := _room_at(Vector3(q.x, 0, q.z))
 		var b: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
 		var gaps := [q.x - b[0], b[1] - q.x, q.z - b[2], b[3] - q.z]
 		var out: Vector3 = [Vector3.LEFT, Vector3.RIGHT, Vector3.FORWARD, Vector3.BACK][gaps.find(gaps.min())]
-		return Vector3(q.x, 0, q.z) + out * 1.5
+		var sill := Vector3(q.x, 0, q.z)
+		for tenth in range(1, 41):
+			var p: Vector3 = sill + out * tenth * 0.1
+			if _free(p) and not _in_thickness(p):
+				return p + out * 1.5
+		return sill + out * 1.5
 	return null
+
+
+# Whether a floor point is still inside a doorway's thickness: the stone portal's passage, an
+# area of the plan narrower than 1.2 m (a wall's reveal), or the Hall's own door strips.
+func _in_thickness(p: Vector3) -> bool:
+	if absf(p.x) < PORTAL_SIDE and p.z > -0.55 and p.z < PORTAL_MOUTH:
+		return true
+	var room := _room_at(p)
+	if room >= 0:
+		var b: Array = _plan[room].b
+		return minf(b[1] - b[0], b[3] - b[2]) < 1.2
+	return p.z > -0.55 or p.z < -L + 0.55
 
 
 # Whether a floor point belongs to the stage being drawn: its areas, or the Hall itself.
@@ -1426,7 +1445,9 @@ func _process(delta: float) -> void:
 # A floor target in the adjoining room uses the real doorway, then the Hall's own bench planner.
 # ponytail: only the evidenced Hall/grey-gallery connection; other rooms still use their existing planner.
 func _walk_to(p: Vector3) -> void:
-	if _rooms == null:
+	# The plan is enough to route by: a doorway clicked from the Hall before the rooms are built
+	# (#281) is walked through like any other, not stopped at walk4's own door strip (#280).
+	if _plan.is_empty():
 		super(p)
 		return
 	var from_hall := _space == "gallery" and p.z < -L
