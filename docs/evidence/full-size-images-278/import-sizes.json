@@ -1,0 +1,518 @@
+[
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/S1.jpg",
+    "before_bytes": 77674,
+    "after_bytes": 10372,
+    "delta_bytes": -67302
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/S1.jpg",
+    "before_bytes": 52890,
+    "after_bytes": 48828,
+    "delta_bytes": -4062
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/S2.jpg",
+    "before_bytes": 66754,
+    "after_bytes": 10586,
+    "delta_bytes": -56168
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/S2.jpg",
+    "before_bytes": 41458,
+    "after_bytes": 37696,
+    "delta_bytes": -3762
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W1.jpg",
+    "before_bytes": 77494,
+    "after_bytes": 10584,
+    "delta_bytes": -66910
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W1.jpg",
+    "before_bytes": 56104,
+    "after_bytes": 51472,
+    "delta_bytes": -4632
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W2.jpg",
+    "before_bytes": 60054,
+    "after_bytes": 9346,
+    "delta_bytes": -50708
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W2.jpg",
+    "before_bytes": 57616,
+    "after_bytes": 48964,
+    "delta_bytes": -8652
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W3.jpg",
+    "before_bytes": 82384,
+    "after_bytes": 8228,
+    "delta_bytes": -74156
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W3.jpg",
+    "before_bytes": 98324,
+    "after_bytes": 86298,
+    "delta_bytes": -12026
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W4.jpg",
+    "before_bytes": 46198,
+    "after_bytes": 3364,
+    "delta_bytes": -42834
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W4.jpg",
+    "before_bytes": 156304,
+    "after_bytes": 27190,
+    "delta_bytes": -129114
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W5.jpg",
+    "before_bytes": 95978,
+    "after_bytes": 14652,
+    "delta_bytes": -81326
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W5.jpg",
+    "before_bytes": 81456,
+    "after_bytes": 65458,
+    "delta_bytes": -15998
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/frames/W6-shaped.png",
+    "before_bytes": 103104,
+    "after_bytes": 26132,
+    "delta_bytes": -76972
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W6.jpg",
+    "before_bytes": 72728,
+    "after_bytes": 62208,
+    "delta_bytes": -10520
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W7.jpg",
+    "before_bytes": 75764,
+    "after_bytes": 11680,
+    "delta_bytes": -64084
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W7.jpg",
+    "before_bytes": 82116,
+    "after_bytes": 59138,
+    "delta_bytes": -22978
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W8.jpg",
+    "before_bytes": 59352,
+    "after_bytes": 9504,
+    "delta_bytes": -49848
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W8.jpg",
+    "before_bytes": 57946,
+    "after_bytes": 52428,
+    "delta_bytes": -5518
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W9.jpg",
+    "before_bytes": 91936,
+    "after_bytes": 23506,
+    "delta_bytes": -68430
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W9.jpg",
+    "before_bytes": 132748,
+    "after_bytes": 93374,
+    "delta_bytes": -39374
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/W10.jpg",
+    "before_bytes": 99382,
+    "after_bytes": 18806,
+    "delta_bytes": -80576
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/W10.jpg",
+    "before_bytes": 113880,
+    "after_bytes": 102814,
+    "delta_bytes": -11066
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/N1.jpg",
+    "before_bytes": 80102,
+    "after_bytes": 16680,
+    "delta_bytes": -63422
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/N1.jpg",
+    "before_bytes": 132042,
+    "after_bytes": 110872,
+    "delta_bytes": -21170
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/N2.jpg",
+    "before_bytes": 62822,
+    "after_bytes": 9240,
+    "delta_bytes": -53582
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/N2.jpg",
+    "before_bytes": 61964,
+    "after_bytes": 44378,
+    "delta_bytes": -17586
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E1.jpg",
+    "before_bytes": 67124,
+    "after_bytes": 10744,
+    "delta_bytes": -56380
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E1.jpg",
+    "before_bytes": 65882,
+    "after_bytes": 47756,
+    "delta_bytes": -18126
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E2.jpg",
+    "before_bytes": 77678,
+    "after_bytes": 5962,
+    "delta_bytes": -71716
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E2.jpg",
+    "before_bytes": 68120,
+    "after_bytes": 40456,
+    "delta_bytes": -27664
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E3.jpg",
+    "before_bytes": 97374,
+    "after_bytes": 11212,
+    "delta_bytes": -86162
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E3.jpg",
+    "before_bytes": 130426,
+    "after_bytes": 109084,
+    "delta_bytes": -21342
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E4.jpg",
+    "before_bytes": 66690,
+    "after_bytes": 7278,
+    "delta_bytes": -59412
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E4.jpg",
+    "before_bytes": 45262,
+    "after_bytes": 39786,
+    "delta_bytes": -5476
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E5.jpg",
+    "before_bytes": 100366,
+    "after_bytes": 17610,
+    "delta_bytes": -82756
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E5.jpg",
+    "before_bytes": 96884,
+    "after_bytes": 89004,
+    "delta_bytes": -7880
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E6.jpg",
+    "before_bytes": 100862,
+    "after_bytes": 17086,
+    "delta_bytes": -83776
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E6.jpg",
+    "before_bytes": 124890,
+    "after_bytes": 106594,
+    "delta_bytes": -18296
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E7.jpg",
+    "before_bytes": 66286,
+    "after_bytes": 8914,
+    "delta_bytes": -57372
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E7.jpg",
+    "before_bytes": 78386,
+    "after_bytes": 65402,
+    "delta_bytes": -12984
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E8.jpg",
+    "before_bytes": 51850,
+    "after_bytes": 9190,
+    "delta_bytes": -42660
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E8.jpg",
+    "before_bytes": 42282,
+    "after_bytes": 39208,
+    "delta_bytes": -3074
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/canvas/E9.jpg",
+    "before_bytes": 89442,
+    "after_bytes": 15470,
+    "delta_bytes": -73972
+  },
+  {
+    "source": "modules/shell/prototype/gallery_walk4/detail/E9.jpg",
+    "before_bytes": 128626,
+    "after_bytes": 109140,
+    "delta_bytes": -19486
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/renaissance-case-a/textures/bookcover-board.png",
+    "before_bytes": 188772,
+    "after_bytes": 17134,
+    "delta_bytes": -171638
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/34.016-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 52882,
+    "delta_bytes": 52882
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/print-84.198.1032.jpg",
+    "before_bytes": 182174,
+    "after_bytes": 16052,
+    "delta_bytes": -166122
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/84.198.1032-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 190992,
+    "delta_bytes": 190992
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/basket-2016.124.jpg",
+    "before_bytes": 130792,
+    "after_bytes": 9468,
+    "delta_bytes": -121324
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/2016.124-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 78940,
+    "delta_bytes": 78940
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/cabinet-75.023.jpg",
+    "before_bytes": 36014,
+    "after_bytes": 14002,
+    "delta_bytes": -22012
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/75.023-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 120612,
+    "delta_bytes": 120612
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/painting-54.186.jpg",
+    "before_bytes": 25550,
+    "after_bytes": 11588,
+    "delta_bytes": -13962
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/54.186-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 60610,
+    "delta_bytes": 60610
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/commode-2017.46.jpg",
+    "before_bytes": 38490,
+    "after_bytes": 19534,
+    "delta_bytes": -18956
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/2017.46-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 107062,
+    "delta_bytes": 107062
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/plate-2016.62.jpg",
+    "before_bytes": 31738,
+    "after_bytes": 9190,
+    "delta_bytes": -22548
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/2016.62-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 70794,
+    "delta_bytes": 70794
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/plate-2016.102.2.jpg",
+    "before_bytes": 155284,
+    "after_bytes": 13208,
+    "delta_bytes": -142076
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/2016.102.2-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 51490,
+    "delta_bytes": 51490
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/plate-35.703.jpg",
+    "before_bytes": 51398,
+    "after_bytes": 14220,
+    "delta_bytes": -37178
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/35.703-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 122448,
+    "delta_bytes": 122448
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/painting-57.167.jpg",
+    "before_bytes": 59884,
+    "after_bytes": 11798,
+    "delta_bytes": -48086
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/57.167-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 93460,
+    "delta_bytes": 93460
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/painting-69.197.jpg",
+    "before_bytes": 98558,
+    "after_bytes": 25514,
+    "delta_bytes": -73044
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/69.197-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 147344,
+    "delta_bytes": 147344
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/painting-34.1371.jpg",
+    "before_bytes": 27874,
+    "after_bytes": 5828,
+    "delta_bytes": -22046
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/34.1371-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 55440,
+    "delta_bytes": 55440
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/painting-57.281.jpg",
+    "before_bytes": 23910,
+    "after_bytes": 7340,
+    "delta_bytes": -16570
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/57.281-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 30118,
+    "delta_bytes": 30118
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/european-east/painting-53.349.jpg",
+    "before_bytes": 63702,
+    "after_bytes": 11910,
+    "delta_bytes": -51792
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/53.349-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 109264,
+    "delta_bytes": 109264
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/grey/gericault-43.539.jpg",
+    "before_bytes": 121580,
+    "after_bytes": 9406,
+    "delta_bytes": -112174
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/43.539-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 69258,
+    "delta_bytes": 69258
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/grey/bannister-2023.53.jpg",
+    "before_bytes": 189448,
+    "after_bytes": 3948,
+    "delta_bytes": -185500
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/2023.53-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 87438,
+    "delta_bytes": 87438
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/grey/daubigny-73.120.jpg",
+    "before_bytes": 130244,
+    "after_bytes": 10572,
+    "delta_bytes": -119672
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/73.120-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 70130,
+    "delta_bytes": 70130
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/grey/eastlake-56.099.jpg",
+    "before_bytes": 168842,
+    "after_bytes": 9088,
+    "delta_bytes": -159754
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/56.099-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 91882,
+    "delta_bytes": 91882
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/grey/pannini-56.094.jpg",
+    "before_bytes": 94796,
+    "after_bytes": 6370,
+    "delta_bytes": -88426
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/56.094-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 53368,
+    "delta_bytes": 53368
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/additions/grey/villeneuve-1998.35.jpg",
+    "before_bytes": 106046,
+    "after_bytes": 4458,
+    "delta_bytes": -101588
+  },
+  {
+    "source": "modules/shell/collection_rooms/assets/details/1998.35-preview.jpg",
+    "before_bytes": 0,
+    "after_bytes": 59288,
+    "delta_bytes": 59288
+  }
+]

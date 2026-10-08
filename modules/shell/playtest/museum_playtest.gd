@@ -61,8 +61,9 @@ func _run() -> void:
 		root.add_child(walk)
 		for i in 240:
 			await process_frame
-	if not walk.state().attached:
-		_fail("setup", "the room scene did not attach")
+	# The room scene is built the first time the visitor leaves the Hall (#281).
+	if not walk.state().attached and not walk.state().get("pending", false):
+		_fail("setup", "the room scene is neither attached nor waiting to be")
 	walk._new_action()
 	if "doors" in only:
 		await _doors()
@@ -111,6 +112,10 @@ func _area_at(p: Vector3) -> String:
 
 # Every doorway once: {a, b: area labels, from, to: points 0.9 m inside each side}.
 func _doorways() -> Array:
+	# Where a visitor can stand beside a door depends on the furniture, which exists only once
+	# the rooms are built: step into the medieval room first.
+	if not walk.state().attached:
+		_place(Vector3(0, 0, walk.PORTAL_MOUTH + 0.9))
 	var doors := [
 		{"a": HALL, "from": Vector3(0, 0, -walk.L + 0.9), "to": Vector3(0, 0, -walk.L - 1.3)},
 		{"a": HALL, "from": Vector3(0, 0, -0.9), "to": Vector3(0, 0, walk.PORTAL_MOUTH + 0.9)},
@@ -472,6 +477,16 @@ func _on_screen(points: Array) -> Rect2:
 
 
 func _objects() -> void:
+	# A work in a room not yet entered exists only once the visitor has gone there.
+	if not walk.state().attached:
+		_place(Vector3(0, 0, walk.PORTAL_MOUTH + 0.9))
+		for settle in 6:
+			await process_frame
+		if not walk.state().attached:
+			_fail("setup", "walking into an added room did not build the rooms")
+	var captions: Dictionary = JSON.parse_string(
+		FileAccess.get_file_as_string("res://modules/shell/collection_rooms/objects.json")
+	)
 	var things: Array = walk._paintings.duplicate()
 	if walk.get("_objects") is Array:
 		things += walk._objects
@@ -631,6 +646,28 @@ func _objects() -> void:
 			entry["canvas_screen_px"] = [ceilf(canvas_box.size.x), ceilf(canvas_box.size.y)]
 			entry["canvas_render_px"] = [ceilf(rendered.x), ceilf(rendered.y)]
 		entry["visitor_stepped_out"] = not walk._kid.visible
+		if thing.has("object"):
+			var record: Dictionary = captions.get(tag.get_slice("#", 0), {})
+			var policy: Dictionary = record.get("image_resolution", {})
+			var wall_path: String = policy.get("images", {}).get("wall", {}).get("path", "")
+			for part in thing.node.find_children("*", "MeshInstance3D", true, false):
+				var material: Material = part.material_override
+				if material == null:
+					continue
+				var texture: Texture2D = (
+					material.albedo_texture
+					if material is BaseMaterial3D
+					else material.get_shader_parameter("albedo")
+				)
+				if texture == null or texture.resource_path != "res://" + wall_path:
+					continue
+				var face_points := []
+				for i in 8:
+					face_points.append(part.to_global(part.get_aabb().get_endpoint(i)))
+				var face_box := _on_screen(face_points)
+				var pixels: Vector2 = face_box.size / walk.size * Vector2(walk._vp.size)
+				entry["canvas_render_px"] = [ceilf(pixels.x), ceilf(pixels.y)]
+				break
 		if walk._kid.visible and work.intersects(_on_screen(body)):
 			problems.append("the visitor covers the work")
 		# A second click on the work: the zoom page, which must close again.
@@ -652,9 +689,14 @@ func _objects() -> void:
 			var zoomed := await _shot("zoom-%s.png" % slug)
 			var pic: TextureRect = walk._zoom_root.get_node("Painting")
 			entry["zoom_image_px"] = [pic.texture.get_width(), pic.texture.get_height()]
-			if thing.rec.has("image_resolution"):
-				var images: Dictionary = thing.rec.image_resolution.images
-				var need: Dictionary = images.get("zoom_external", images.get("detail", {}))
+			var resolution: Dictionary = thing.rec.get("image_resolution", {})
+			if resolution.is_empty() and thing.has("object"):
+				resolution = captions.get(tag.get_slice("#", 0), {}).get("image_resolution", {})
+			if not resolution.is_empty():
+				var images: Dictionary = resolution.images
+				var need: Dictionary = images.get(
+					"zoom_external", images.get("zoom", images.get("detail", {}))
+				)
 				if (
 					maxf(pic.texture.get_width(), pic.texture.get_height())
 					< need.get("required_long_side", 0)

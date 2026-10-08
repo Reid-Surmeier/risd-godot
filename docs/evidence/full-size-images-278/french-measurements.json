@@ -1,0 +1,540 @@
+{
+  "before": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "flat_share": 0.352,
+        "picked": "43.539#51",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          347,
+          106
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "43.539#51",
+        "title": "A Cart Loaded with Kegs (Le Haquet)",
+        "title_shown": "A Cart Loaded with Kegs (Le Haquet)",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          192,
+          86,
+          310,
+          201
+        ],
+        "zoom_fit_px": [
+          682.0,
+          555.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3328.0
+        ],
+        "zoom_image_px": [
+          1324,
+          1078
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2023.53#52",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          98
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "2023.53#52",
+        "title": "Landscape with shepherdess, sheep and cows",
+        "title_shown": "Landscape with shepherdess, sheep and cows",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          183,
+          108,
+          329,
+          158
+        ],
+        "zoom_fit_px": [
+          682.0,
+          505.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3025.0
+        ],
+        "zoom_image_px": [
+          1324,
+          980
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "73.120#53",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          96
+        ],
+        "seconds_to_open": 1.9,
+        "tag": "73.120#53",
+        "title": "Landscape",
+        "title_shown": "Landscape",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          165,
+          108,
+          362,
+          157
+        ],
+        "zoom_fit_px": [
+          682.0,
+          384.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          2303.0
+        ],
+        "zoom_image_px": [
+          1299,
+          732
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "56.099#54",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          100
+        ],
+        "seconds_to_open": 2.6,
+        "tag": "56.099#54",
+        "title": "The Celian Hill from the Palatine",
+        "title_shown": "The Celian Hill from the Palatine",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          255,
+          108,
+          187,
+          156
+        ],
+        "zoom_fit_px": [
+          682.0,
+          504.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3019.0
+        ],
+        "zoom_image_px": [
+          1324,
+          978
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "56.094#55",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          101
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "56.094#55",
+        "title": "The Colosseum",
+        "title_shown": "The Colosseum",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          177,
+          106,
+          341,
+          161
+        ],
+        "zoom_fit_px": [
+          682.0,
+          370.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          2220.0
+        ],
+        "zoom_image_px": [
+          1324,
+          719
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "1998.35#56",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          101
+        ],
+        "seconds_to_open": 2.6,
+        "tag": "1998.35#56",
+        "title": "View of a Roman Aqueduct, near Tivoli",
+        "title_shown": "View of a Roman Aqueduct, near Tivoli",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          194,
+          108,
+          308,
+          157
+        ],
+        "zoom_fit_px": [
+          682.0,
+          514.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3083.0
+        ],
+        "zoom_image_px": [
+          1233,
+          930
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "far"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 6,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  },
+  "after": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          163.0,
+          131.0
+        ],
+        "flat_share": 0.352,
+        "picked": "43.539#51",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          347,
+          106
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "43.539#51",
+        "title": "A Cart Loaded with Kegs (Le Haquet)",
+        "title_shown": "A Cart Loaded with Kegs (Le Haquet)",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          192,
+          86,
+          310,
+          201
+        ],
+        "zoom_fit_px": [
+          682.0,
+          555.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3326.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3326
+        ]
+      },
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          126.0,
+          95.0
+        ],
+        "flat_share": 0.353,
+        "picked": "2023.53#52",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          98
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "2023.53#52",
+        "title": "Landscape with shepherdess, sheep and cows",
+        "title_shown": "Landscape with shepherdess, sheep and cows",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          183,
+          108,
+          329,
+          158
+        ],
+        "zoom_fit_px": [
+          682.0,
+          504.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3024.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3023
+        ]
+      },
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          211.0,
+          120.0
+        ],
+        "flat_share": 0.353,
+        "picked": "73.120#53",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          96
+        ],
+        "seconds_to_open": 1.9,
+        "tag": "73.120#53",
+        "title": "Landscape",
+        "title_shown": "Landscape",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          165,
+          108,
+          362,
+          157
+        ],
+        "zoom_fit_px": [
+          682.0,
+          384.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          2304.0
+        ],
+        "zoom_image_px": [
+          4087,
+          2303
+        ]
+      },
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          158.0,
+          120.0
+        ],
+        "flat_share": 0.353,
+        "picked": "56.099#54",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          100
+        ],
+        "seconds_to_open": 2.6,
+        "tag": "56.099#54",
+        "title": "The Celian Hill from the Palatine",
+        "title_shown": "The Celian Hill from the Palatine",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          255,
+          108,
+          187,
+          156
+        ],
+        "zoom_fit_px": [
+          682.0,
+          504.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3020.0
+        ],
+        "zoom_image_px": [
+          3720,
+          2747
+        ]
+      },
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          191.0,
+          105.0
+        ],
+        "flat_share": 0.353,
+        "picked": "56.094#55",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          101
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "56.094#55",
+        "title": "The Colosseum",
+        "title_shown": "The Colosseum",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          177,
+          106,
+          341,
+          161
+        ],
+        "zoom_fit_px": [
+          682.0,
+          370.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          2217.0
+        ],
+        "zoom_image_px": [
+          3803,
+          2064
+        ]
+      },
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          131.0,
+          101.0
+        ],
+        "flat_share": 0.353,
+        "picked": "1998.35#56",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "grey French gallery",
+        "screen": [
+          348,
+          101
+        ],
+        "seconds_to_open": 2.6,
+        "tag": "1998.35#56",
+        "title": "View of a Roman Aqueduct, near Tivoli",
+        "title_shown": "View of a Roman Aqueduct, near Tivoli",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          194,
+          108,
+          308,
+          157
+        ],
+        "zoom_fit_px": [
+          682.0,
+          514.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3084.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3084
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "far"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 6,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  }
+}

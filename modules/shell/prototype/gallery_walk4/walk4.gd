@@ -2686,8 +2686,10 @@ func _fit_detail() -> void:
 
 
 func _refresh_zoom_image() -> void:
-	if not _open.is_empty() and _open.rec.has("zoom_image"):
-		_catalogue_zoom.show_image(_open.rec.zoom_image, _zoom_root.get_node("Painting"))
+	if not _open.is_empty():
+		var path: String = _catalogue_zoom.zoom_path(_open.tag, _open.rec)
+		if not path.is_empty():
+			_catalogue_zoom.show_image(path, _zoom_root.get_node("Painting"))
 
 
 func _close_detail() -> void:
