@@ -42,6 +42,7 @@ const GRID := 0.25  # click-route search cell, metres
 # The lowest wall top in geometry.json's rooms: a sight line above it at a stage's edge has gone
 # over a wall, not through a door (no door head is higher except the portal's, which is walk4's).
 const DOOR_TOP := 3.5
+const CROWD := 0.08  # the most of an inspection picture the visitor's body may take
 const SIDES := {
 	"west": Vector3.LEFT, "east": Vector3.RIGHT, "north": Vector3.FORWARD, "south": Vector3.BACK
 }
@@ -748,7 +749,55 @@ func _viewing(p: Dictionary) -> Dictionary:
 					"normal": normal, "along": along, "side": side, "stand": stand, "small": small,
 					"above": flat.y != 0.0
 				}
+	if best.is_empty():
+		return best
+	# The visitor stands beside the work and clear of the lens (#272). Where the usual spot
+	# would fill more than CROWD of the picture (a hat across a quarter of it, at the Apostles)
+	# it stands further aside, as far as the floor of the work's own room lets it.
+	var kept = p.get("view")
+	var lens_was := _inspect_fov
+	p["view"] = best
+	var shot := _inspect_shot(p)
+	var lens := _inspect_fov
+	for more in [1.0, 1.5, 2.0, 2.6, 3.3]:
+		var wanted: Vector3 = foot + best.normal * out + best.along * best.side * aside * more
+		var cell := _cell(wanted)
+		if not _route_grid().is_in_boundsv(cell):
+			continue
+		var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+		if stand.distance_to(wanted) > 0.4 or _stage_of(_room_at(stand)) != _stage_of(p.get("room", -1)):
+			continue
+		if _visitor_fills(shot, lens, stand) <= CROWD:
+			best.stand = stand
+			break
+	_inspect_fov = lens_was
+	if kept == null:
+		p.erase("view")
+	else:
+		p["view"] = kept
 	return best
+
+
+# The share of the picture the visitor's body takes, standing at `at`, through a lens at `shot`:
+# 0 out of the picture or behind the lens, 1 when the lens is inside it.
+func _visitor_fills(shot: Transform3D, lens: float, at: Vector3) -> float:
+	var inward := shot.affine_inverse()
+	var up := tan(deg_to_rad(lens) / 2.0)
+	var wide: float = up * size.x / maxf(size.y, 1.0)
+	var low := Vector2(INF, INF)
+	var high := Vector2(-INF, -INF)
+	var behind := 0
+	for i in 8:
+		var q: Vector3 = inward * (at + Vector3(0.4 if i & 1 else -0.4, 1.7 if i & 2 else 0.0, 0.4 if i & 4 else -0.4))
+		if q.z > -0.1:
+			behind += 1
+			continue
+		var on := Vector2(q.x / (-q.z * wide), q.y / (-q.z * up))
+		low = low.min(on)
+		high = high.max(on)
+	if behind > 0:
+		return 0.0 if behind == 8 else 1.0
+	return Rect2(low, high - low).intersection(Rect2(-1, -1, 2, 2)).get_area() / 4.0
 
 
 # How much of a work's face, seen from the side its normal points to, another work in its
@@ -1046,7 +1095,12 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	eye.y = p.center.y + back * tan(tilt - above)
 	var aim := Vector3(p.center.x, eye.y, p.center.z) - eye
 	var sight := (aim.normalized() * cos(tilt) + Vector3.DOWN * sin(tilt)).normalized()
-	return Transform3D(Basis.looking_at(sight, Vector3.UP), eye)
+	var shot := Transform3D(Basis.looking_at(sight, Vector3.UP), eye)
+	# Nor does the visitor crowd the lens: where the floor left it no spot clear of the frame
+	# it steps out of this one picture too.
+	if _visitor_fills(shot, _inspect_fov, _pos) > CROWD:
+		p["covered"] = true
+	return shot
 
 
 func _fit_detail() -> void:
