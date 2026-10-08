@@ -30,7 +30,8 @@
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000; input the museum's photographs themselves, cut out",
     "quote": 0.48,
-    "charged": null
+    "charged": 0.0,
+    "status": "failed 8 October: GENERATION_DOWNSTREAM_SERVICE_ERROR (the model provider was overloaded); no charge shown; not resubmitted"
    },
    "views": "front, left and back, each the museum's own photograph of that side (no Muse view)",
    "held": "HELD, 8 October: submitted before the lead's stop reached me. The photograph route is withdrawn (a refused Muse step is a stop; #262 item 20). Not downloaded, not built, not resubmitted."
@@ -480,8 +481,8 @@
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000; input the museum's photographs themselves, cut out",
     "quote": 0.48,
-    "charged": null,
-    "status": "completed 8 October; charge read back later"
+    "charged": 0.48,
+    "status": "completed 8 October, charged 0.48 USD; not downloaded"
    },
    "views": "front, left and back, each the museum's own photograph of that side (no Muse view)",
    "held": "HELD, 8 October: submitted before the lead's stop reached me. The photograph route is withdrawn (a refused Muse step is a stop; #262 item 20). Not downloaded, not built, not resubmitted."
