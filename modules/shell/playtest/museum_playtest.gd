@@ -385,8 +385,12 @@ func _objects() -> void:
 	var things: Array = walk._paintings.duplicate()
 	if walk.get("_objects") is Array:
 		things += walk._objects
+	# --objects=E1,21.482 drives only those works (by tag, or by the accession before its #).
+	var wanted := _arg("objects", "").split(",", false)
 	for thing in things:
 		var tag: String = thing.tag
+		if not wanted.is_empty() and not (tag in wanted or tag.get_slice("#", 0) in wanted):
+			continue
 		var entry := {
 			"tag": tag,
 			"title": str(thing.rec.get("title", "")),
