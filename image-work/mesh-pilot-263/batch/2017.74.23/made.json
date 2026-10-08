@@ -1,0 +1,41 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/back.jpg"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/back.jpg",
+   "batch/2017.74.23/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/front.jpg"
+  ],
+  "note": "the museum's photograph is from his left side and a little behind, not square from behind: on the finished mesh it registers at about 105 degrees. It was given to the mesh generator as the back view; the sheet's label 'back' means this view"
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/right.jpg",
+   "batch/2017.74.23/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/front.jpg"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.23/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.23/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.23/back.jpg",
+   "batch/2017.74.23/flat-front.png"
+  ]
+ }
+}

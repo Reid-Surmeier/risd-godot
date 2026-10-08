@@ -725,5 +725,49 @@
    },
    "build": "its pair's reduced mesh, recoloured from its own flat front and back (SUF=-cut LIFT=none)"
   }
+ },
+ "2017.74.23": {
+  "title": "*Figure of a Shepherd*. Earthenware with glaze. Height 21.3 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.23/front.jpg",
+  "prepare": "--height 0.213",
+  "muse_first": {
+   "run": {
+    "id": "run_m175cpat7av74rmdw8et1eeqr18fx1cc",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as back, right, front (the frame turned half round: there is no left view)",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "0c85ad86afd03279fc0e447e42400163c07c1961622af8cb3f2e624a2d1ad246"
+   },
+   "views": "front, back and right, each a Muse clay view of the museum's photograph nearest that side (the back and side photographs are not square-on)",
+   "imported": {
+    "mesh": 206193,
+    "colour": 63030,
+    "total": 269223
+   },
+   "build": "SUF=-cut LIFT=none CUT=--keep-holes; colour from the flat front and the flat 'back' view, whose direction (105 degrees) was found by its silhouette"
+  }
+ },
+ "2017.74.29": {
+  "title": "*Model of a Cow*. Earthenware with glaze. 13 × 21 × 8 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.29/front.jpg",
+  "prepare": "--height 0.13 --width 0.21 --depth 0.08",
+  "muse_first": {
+   "run": {
+    "id": "run_m174t7kmegmsykj2fet6p11k2x8fxkv4",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "9518ebe5e8b984b7a37e819dce69af949c96b31ee956f86279cbe50fe002ac87"
+   },
+   "views": "front and back each a Muse clay view of the museum's photograph of that flank; the left (the head end) inferred by Muse",
+   "imported": {
+    "mesh": 165788,
+    "colour": 58680,
+    "total": 224468
+   },
+   "build": "SUF=-cut LIFT=none CUT=--keep-holes; colour from flat front and back"
+  }
  }
 }
