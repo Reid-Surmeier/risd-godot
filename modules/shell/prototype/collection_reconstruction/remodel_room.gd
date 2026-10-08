@@ -1327,23 +1327,32 @@ func build_mirrors() -> void:
 
 func display_case(at:Vector3,size:Vector3,pedestal:=false) -> void:
 	var ivory:=look(Color("eeeae2"))
-	# IMG_6380: gold service has a solid base; pink Worcester has a tray on legs.
+	# IMG_6380 166.5s: the gold service's case stands on a solid white base. 125.0s: the pink
+	# Worcester case hangs on the south wall, a tray on a cleat, with no legs. Both have a clear
+	# hood with a lid and a blank label panel sloped out from the front edge.
+	var base:Node3D
 	if pedestal:
-		var base:=solid(at+Vector3(0,.55,0),Vector3(size.x,1.1,size.z),ivory,true)
-		assert(is_equal_approx(base.position.y- base.get_child(0).shape.size.y/2,at.y))
+		base=plinth(at,Vector3(size.x,1.1,size.z))
 	else:
-		solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
-		for x in [-size.x*.4,size.x*.4]:
-			for z in [-size.z*.36,size.z*.36]:
-				solid(at+Vector3(x,.49,z),Vector3(.025,.98,.025),ivory,true)
+		base=solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
+		solid(at+Vector3(0,.86,size.z/2-.09),Vector3(size.x-.3,.24,.18),ivory).reparent(base)
+	base.set_meta("rockefeller_case","gold" if pedestal else "pink")
 	var glass:=look(Color(.78,.88,.89,.12),"",true)
 	for z in [-size.z/2,size.z/2]:solid(at+Vector3(0,1.5,z),Vector3(size.x,.8,.012),glass)
 	for x in [-size.x/2,size.x/2]:solid(at+Vector3(x,1.5,0),Vector3(.012,.8,size.z),glass)
+	solid(at+Vector3(0,1.9,0),Vector3(size.x,.012,size.z),glass)
+	hood_edges(base,at,size.x,size.z,1.1,1.9)
+	var front:=Vector3(-1,0,0) if pedestal else Vector3(0,0,-1)
+	var along:=Vector3(0,0,-1) if pedestal else Vector3(-1,0,0)
+	var card:=solid(at+front*((size.x if pedestal else size.z)/2+.035)+along*.55+Vector3(0,1.02,0),Vector3(.45,.14,.004),look(Color("f6f4ee")))
+	card.rotation=Vector3(-.5,-PI/2 if pedestal else PI,0)
+	card.set_meta("artwork_label_proxy",true)
+	card.reparent(base)
 
 func build_displays() -> void:
 	var ivory:=look(Color("eeeae2"))
-	solid(Vector3(.45,.065,-6.73),Vector3(5.8,.13,.95),ivory,true)
-	solid(Vector3(-2.23,.065,-4.075),Vector3(.85,.13,6.25),ivory,true)
+	plinth(Vector3(.45,0,-6.73),Vector3(5.8,.13,.95))
+	plinth(Vector3(-2.23,0,-4.075),Vector3(.85,.13,6.25))
 	# Pink Worcester left of the gallery door; gold export service beside the purple door.
 	# #238: the pink case hangs on the wall and is about .6 deep (6380 123..128s, 176..178.5s). At .88 and
 	# clear of the wall it reached within .23m of the east door's axis and stopped a visitor walking in.
@@ -1352,7 +1361,7 @@ func build_displays() -> void:
 	# Raised central stand for the gold tureen, visible in the reference video.
 	solid(Vector3(3.32,1.15,-3.8),Vector3(.32,.1,.40),ivory)
 	# The Vincennes pair occupies its own central pedestal.
-	solid(Vector3(.45,.55,-3.85),Vector3(1.1,1.1,.65),ivory,true)
+	plinth(Vector3(.45,0,-3.85),Vector3(1.1,1.1,.65))
 	# The photographed bust keeps its separate white plinth and black-and-white socle.
 	solid(Vector3(-2.2,.63,-5.87),Vector3(.48,1.0,.48),ivory,true)
 	solid(Vector3(-2.2,1.15,-5.87),Vector3(.34,.18,.34),look(Color("343332")))

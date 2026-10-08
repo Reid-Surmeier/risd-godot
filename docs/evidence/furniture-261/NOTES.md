@@ -240,6 +240,23 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    has no bench or case in its source, and none in the frames I opened (16.5, 37.5 s).
    IMG_6381 plays upside down, like IMG_6382.
 
+17. `17-rockefeller-cases-pedestal-footage-and-unbaked.jpg`: Rockefeller. Pairs, footage then
+   unbaked: IMG_6380 166.5 s (the gold service's case), 125.0 s (the pink Worcester case),
+   223.5 s (the central pedestal, the platforms behind). NO WORK MOVED.
+   - The pink case hangs on the wall in 125.0 s: a white tray with nothing under its front. The
+     build stood it on four thin legs; they are gone and a cleat under the tray's back carries
+     it. The tray still stops a visitor walking through it.
+   - Both cases: a lid on the hood (there was none), the kit's `hood_edges()`, and a blank label
+     panel sloped out from the front edge (166.5 s lower left, 125.0 s right end).
+   - The gold case's base, the central pedestal and the two wall platforms are the kit's
+     `plinth()`: same sizes, white on a recessed kick.
+   Guessed: the cleat (125.0 s shows the tray's underside tapering back to the wall; built as a
+   plain block), the label panels' size and place along the front, the kicks. Not done: the
+   label sheets lying on the west platform's top (136.0 s shows three; I could not place them
+   against the furniture), the gold case's deck oversailing its base (166.5 s), the bust's
+   plinth (223.5 s shows it plain white, as built). The central pedestal reads light grey with
+   a white top in 223.5 s; it is built white.
+
 The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
 up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
@@ -254,7 +271,9 @@ up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip`
 - Done in the European gallery: the four floor cases and the west pedestal case (picture 14),
   both platforms, the label stand and the bench (picture 15).
 - Done in the grey French gallery: the base band of Rodin's plinth (picture 16).
-- Not done: Rockefeller.
+- Done in Rockefeller: both cases, the central pedestal and the platforms (picture 17).
+- Left, by room, in each item's "Not done" line: label sheets on Rockefeller's west platform,
+  the European dress case's dark edges and north-wall shelf case, the Pietà case's depth.
 
 ## How the unbaked pictures are taken
 
@@ -306,7 +325,8 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
 with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
 `2.82,1.32,-1.89:3.39,.82,-.12`; picture 11: `renaissance_west_blind`
-`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 16, `grey_rodin_plinth`: `-1.5,1.3,.7:.2,.25,0` and `-1.6,.5,1.5:0,.1,0:55`; pictures 14 and 15: `european_east_case=silver` `-1.4,.9,-1.4:0,.42,0` and (the north-west
+`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 17, `rockefeller_case=gold`: `-1.3,.95,-.5:0,.55,-.2`, (the pink case)
+`-3.0,.9,1.3:-1.2,.45,3.0`, (the pedestal) `-1.6,1.0,2.6:-2.6,.2,-1.5`; picture 16, `grey_rodin_plinth`: `-1.5,1.3,.7:.2,.25,0` and `-1.6,.5,1.5:0,.1,0:55`; pictures 14 and 15: `european_east_case=silver` `-1.4,.9,-1.4:0,.42,0` and (the north-west
 platform) `.9,1.25,-3.4:-1.4,.2,-6.2`, `european_east_case=majolica` `-1.0,.9,1.7:0,.42,.3`,
 `european_east_case=river-god` `-1.3,1.1,1.3:0,.5,0`, `european_east_platform`
 `-3.6,1.5,3.4:0,.6,-.4`, `european_east_bench` `.9,1.1,2.5:0,-.25,0`; picture 13: `renaissance_wall_case=A` `-1.05,.65,.12:0,.25,.30`, `pieta_wall_case`
