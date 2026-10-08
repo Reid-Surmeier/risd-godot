@@ -9,6 +9,7 @@ parts.json is placement_dump.gd's output. Frames: ffmpeg -ss T -t N -i clip.MOV 
 import sys, json, glob, os, numpy as np, cv2
 WT = os.path.join(os.path.dirname(os.path.abspath(__file__)), '../../collection_rooms/assets')
 frames_glob, room, keys, parts, S = sys.argv[1], sys.argv[2], sys.argv[3].split(','), sys.argv[4], sys.argv[5]
+os.makedirs(S, exist_ok=True)
 objs = {o['key']: o for o in json.load(open(parts))['objects'] if o['room'] == room}
 sift = cv2.SIFT_create(6000); bf = cv2.BFMatcher()
 fr = {}
@@ -48,6 +49,7 @@ for key in keys:
     XR, YU, YD = 3.0, 1.6, 2.6
     M = np.array([[PX, 0, XR * PX], [0, -PX, YU * PX], [0, 0, 1]]) @ T @ np.linalg.inv(Hm)
     out = cv2.warpPerspective(fr[f][0], M, (int(2 * XR * PX), int((YU + YD) * PX)))
+    cv2.imwrite(S + '/plain-%s.png' % key, out)  # the same drawing without the grid, for reading edges by number
     for i in range(int(2 * XR * 2) + 1):
         x = int(i * 50); cv2.line(out, (x, 0), (x, out.shape[0]), (0, 255, 255) if i % 2 == 0 else (90, 160, 160), 1)
     for j in range(int((YU + YD) * 2) + 1):
@@ -65,4 +67,4 @@ for f, d in sorted(allm.items()):
             T = np.array([[Wa / wa, 0, -Wa / 2], [0, -Ha_m / ha, Ha_m / 2], [0, 0, 1]])
             m = cv2.perspectiveTransform(cb, T @ np.linalg.inv(Ha))[0]
             print('PAIR', f, a, '->', b, 'centre dx %.3f dy %.3f bottom dy %.3f' % (m[0][0], m[0][1], m[1][1]), 'inl', ia, ib)
-json.dump(res, open(S + '/rect-%s.json' % room.split()[1], 'w'))
+json.dump(res, open(S + '/rect-%s.json' % room.split()[-1], 'w'))

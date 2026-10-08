@@ -1394,13 +1394,13 @@ func build_displays() -> void:
 	inventory["central_pedestals"]=1
 	# Arabesque Wallpaper 34.912: diamond/birds/garlands match IMG_6380 210.25s.
 	# The catalogue paper size is measured; the white conservation mount is provisional.
-	solid(Vector3(3.59,2.10,-5.4),Vector3(.018,1.345,.76),ivory)
+	solid(Vector3(3.59,1.52,-5.4),Vector3(.018,1.345,.76),ivory)
 	var paper:=Painting.new()
 	add_child(paper)
 	paper.build_shaped(load("res://assets/wallpaper-34.912.jpg"),Vector2(.56,1.145),[[0,0],[1,0],[1,1],[0,1]],Color("e7dfcd"))
-	paper.position=Vector3(3.575,2.10,-5.4)
+	paper.position=Vector3(3.575,1.52,-5.4)
 	paper.rotation.y=-PI/2
-	for z in [-5.70,-5.10]:solid(Vector3(3.55,2.75,z),Vector3(.025,.025,.025),look(Color("b4b4ad")))
+	for z in [-5.70,-5.10]:solid(Vector3(3.55,2.17,z),Vector3(.025,.025,.025),look(Color("b4b4ad")))
 	inventory["verified_wallpaper_panels"]=1
 
 func _physics_process(delta: float) -> void:
@@ -1596,7 +1596,7 @@ func build_adjacent_gallery() -> void:
 	# kept as authored and stays unaccepted until the gallery is fitted.
 	# #238: the dress case and the secretary take the corner first (6385 2..21s), then the Piranesi;
 	# the Delacroix follows them. By wall order and catalogue widths, not measured.
-	painting.position=Vector3(-3.485,1.75,6.85)
+	painting.position=Vector3(-3.485,1.60,6.85)
 	painting.rotation.y=PI/2
 	painting.set_meta("catalogue_accession","35.786")
 	# The secretary (catalogue data, already in the room) clears the dress case in the corner.
@@ -1605,10 +1605,10 @@ func build_adjacent_gallery() -> void:
 	var fetti:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/fetti-frame-geometry.json"))
 	var angels:=Painting.new()
 	add_child(angels)
-	angels.build_framed(load("res://assets/fetti-frame.png"),load("res://assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px)
+	angels.build_framed(load("res://assets/fetti-frame.png"),load("res://assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px,[.105,.105,.105,.105])
 	# #238: 11.1m from the south wall, was 19.3m (camera solve of 6384..6386 scaled by this frame
 	# and the Tironi's; docs/evidence/museum-238/european-west/NOTES.md). Provisional.
-	angels.position=Vector3(-3.485,1.8,16.96)
+	angels.position=Vector3(-3.485,1.53,16.96)
 	angels.rotation.y=PI/2
 	angels.set_meta("catalogue_accession","36.003")
 	# IMG_6386 44.5/67.5s: nothing stands out of this wall but the one white display panel on the
@@ -1626,7 +1626,7 @@ func build_adjacent_gallery() -> void:
 	add_child(goltzius)
 	goltzius.build_framed(load("res://assets/goltzius-frame.png"),load("res://assets/painting-61.006.jpg"),Vector2(.345,.510),data.margins_px)
 	# #238: 6.1m from the south wall, was 13.4m (same solve). Provisional.
-	goltzius.position=Vector3(-3.485,1.75,22.01)
+	goltzius.position=Vector3(-3.485,1.64,22.01)
 	goltzius.rotation.y=PI/2
 	goltzius.set_meta("catalogue_accession","61.006")
 	inventory["verified_paintings"]=5
@@ -2003,13 +2003,13 @@ func build_lion_modern_rooms() -> void:
 	var pumpkin:=Painting.new()
 	add_child(pumpkin)
 	var pumpkin_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/matisse-frame-geometry.json"))
-	pumpkin.build_framed(load("res://assets/matisse-frame.png"),load("res://assets/painting-57.037.jpg"),Vector2(.645,.800),pumpkin_frame.margins_px)
-	pumpkin.position=Vector3(12.0,1.65,22.38)
+	pumpkin.build_framed(load("res://assets/matisse-frame.png"),load("res://assets/painting-57.037.jpg"),Vector2(.645,.800),pumpkin_frame.margins_px,[.135,.135,.135,.135])
+	pumpkin.position=Vector3(12.0,1.54,22.38)
 	pumpkin.set_meta("catalogue_accession","57.037")
 	var landscape:=Painting.new()
 	add_child(landscape)
 	var landscape_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/cezanne-frame-geometry.json"))
-	landscape.build_framed(load("res://assets/cezanne-frame.png"),load("res://assets/painting-43.255.jpg"),Vector2(.737,.610),landscape_frame.margins_px)
+	landscape.build_framed(load("res://assets/cezanne-frame.png"),load("res://assets/painting-43.255.jpg"),Vector2(.737,.610),landscape_frame.margins_px,[.14,.14,.14,.14])
 	landscape.position=Vector3(13.65,1.65,22.38)
 	landscape.set_meta("catalogue_accession","43.255")
 	var villon:=Painting.new()
