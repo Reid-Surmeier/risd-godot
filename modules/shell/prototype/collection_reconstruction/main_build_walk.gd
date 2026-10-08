@@ -40,6 +40,7 @@ const PORTAL_SIDE := 2.4  # in x: the stone's sides end at 2.09 (Surface004), pl
 # ponytail: clearances tuned to root's 0.22 m capsule trials, not surveyed. Recheck after a room fit.
 const WALL_CLEAR := 0.35
 const DOOR_CLEAR := 0.25
+const LENS_CLEAR := 0.25  # the follow lens this near a wall of the visitor's room: the wall goes
 const BODY_CLEAR := 0.3
 const SWAP_DEPTH := 0.3  # how far into the other room group before the space changes
 const GRID := 0.25  # click-route search cell, metres
@@ -1975,20 +1976,10 @@ func _update_camera(k: float) -> void:
 		# walk4's follow camera is boxed into its stand-in rooms; in an added room it just follows.
 		var forward := _fwd()
 		_cam.fov = 58.0
-		var head := _pos + Vector3(0, 1.3, 0)
-		var want := _pos - forward * 3.1 + Vector3(0, 2.45, 0)
-		# Like the Hall's own follow camera, it stays in the visitor's room: pulled in along
-		# the line from the head until it is clear of the walls. Doorway-sized rooms are let be.
-		var room := _room_rect(here).grow(-0.25)
-		if room.size.x > 0.9 and room.size.y > 0.9:
-			var reach := 1.0
-			for axis in [[head.x, want.x, room.position.x, room.end.x], [head.z, want.z, room.position.y, room.end.y]]:
-				if axis[1] < axis[2] and axis[0] > axis[2]:
-					reach = minf(reach, (axis[2] - axis[0]) / (axis[1] - axis[0]))
-				elif axis[1] > axis[3] and axis[0] < axis[3]:
-					reach = minf(reach, (axis[3] - axis[0]) / (axis[1] - axis[0]))
-			want = head + (want - head) * maxf(reach, 0.15)
-		_cam.position = want
+		# It keeps its distance whatever the room's size. Pulled in to stay inside the visitor's
+		# room, in a passage it closed to within half a metre of the head, which filled the
+		# picture; the room is opened on the lens's side instead (below).
+		_cam.position = _pos - forward * 3.1 + Vector3(0, 2.45, 0)
 		_cam.look_at(_pos + forward * 2.0 + Vector3(0, 1.1, 0))
 	var inspecting := _inspect_camera()
 	var shown: int = NEAR_LAYER | FAR_LAYER # Both adjoining room interiors are visible through their doors.
@@ -2032,6 +2023,11 @@ func _update_camera(k: float) -> void:
 	# Only the dollhouse views open the set. The follow view and an inspection stand inside
 	# the room, where every wall belongs in the picture.
 	var open_set := view_mode != 2 and not inspecting
+	# The follow lens, 3.1 m behind the visitor, is often outside the visitor's room: that one
+	# room is opened on the lens's side all the same, from LENS_CLEAR before the lens reaches
+	# the wall. The other rooms keep their walls: the lens follows through their doorways.
+	# A work read from there is glided to from outside, so the side stays open until the lens is in.
+	var own := here if view_mode == 2 and added else -1
 	for i in _plan.size():
 		var area := _room_rect(i)
 		if added and _stage_ids[i] != _stage:
@@ -2043,11 +2039,13 @@ func _update_camera(k: float) -> void:
 			cut[i] = true
 			continue
 		var b: Array = _plan[i].b
+		var opens := open_set or i == own
+		var near := LENS_CLEAR if i == own and not inspecting else 0.0
 		cut[i] = {
-			"west": open_set and eye.x < b[0],
-			"east": open_set and eye.x > b[1],
-			"north": open_set and eye.z < b[2],
-			"south": open_set and eye.z > b[3]
+			"west": opens and eye.x < b[0] + near,
+			"east": opens and eye.x > b[1] - near,
+			"north": opens and eye.z < b[2] + near,
+			"south": opens and eye.z > b[3] - near
 		}
 	if open_set and added and (hall.has_point(flat_eye) or _overlap(lens, hall.grow(-0.15))):
 		_cam.cull_mask &= ~63
@@ -2120,8 +2118,15 @@ func _update_camera(k: float) -> void:
 					if (section as AABB).intersects_segment(eye, _inspect.center + _inspect.normal * 0.15) != null:
 						clear = false
 		var body: Node = wall.body
+		# The follow view's opened side takes what stands on it, piece by piece, whichever room
+		# owns it: a doorway's reveal is the next room's and lines this one on both sides.
+		var lines: bool = own >= 0 and wall.room >= 0 and wall.room != own and foot.intersects(_room_rect(own).grow(0.4))
 		for i in range(1, body.get_child_count()):
-			body.get_child(i).visible = clear
+			var piece := body.get_child(i) as VisualInstance3D
+			if piece:
+				piece.visible = clear and not (
+					lines and _on_open_side(piece.global_transform * piece.get_aabb(), own, cut[own])
+				)
 	# #275: an upper deck must not cover a visitor walking beside its lower
 	# enclosure. These are only this room's named floor / tread meshes.
 	_skylight_hidden_decks.clear()
@@ -2212,6 +2217,18 @@ func _edge_wall(box: AABB, eye: Vector3, open_set: bool) -> bool:
 			if absf(c.y - b[3]) < 0.35:
 				return not (open_set and eye.z > b[3])
 	return false
+
+
+# Whether a piece of wall stands on a side of room `i` that `rule`, its entry in the cut, has opened.
+func _on_open_side(box: AABB, i: int, rule: Dictionary) -> bool:
+	var b: Array = _plan[i].b
+	var c := box.get_center()
+	var in_x: bool = c.x > b[0] - 0.1 and c.x < b[1] + 0.1
+	var in_z: bool = c.z > b[2] - 0.1 and c.z < b[3] + 0.1
+	return (
+		in_z and (rule.west and absf(c.x - b[0]) < 0.35 or rule.east and absf(c.x - b[1]) < 0.35)
+		or in_x and (rule.north and absf(c.z - b[2]) < 0.35 or rule.south and absf(c.z - b[3]) < 0.35)
+	)
 
 
 func _build_stages() -> void:

@@ -30,6 +30,9 @@ const READ_CLEAR := 0.8  # metres before a work within which a drawn thing is it
 const READ_GLASS := 1.5  # and within which a thin pane is the glass of its own case
 const READ_IN := 1.4  # a clicked doorway carries the visitor at least this far past its sill
 const READ_THROUGH := 3.8  # and no further than this
+# The follow view: the most of the picture's height the visitor may stand. It stands 0.41 in
+# the middle of a large room; pressed against a wall the lens used to close in on its head.
+const FOLLOW_TALL := 0.5
 const HALL := "Grand Gallery"
 
 var walk
@@ -592,6 +595,17 @@ func _stands(area: Dictionary) -> Array:
 	return stands
 
 
+# The visitor's height in the picture as a share of the picture's height, by its 1.7 m box;
+# 9 when the lens is on it or inside it.
+func _visitor_tall() -> float:
+	var inward: Transform3D = walk._cam.global_transform.affine_inverse()
+	var foot: Vector3 = inward * (walk._pos as Vector3)
+	var top: Vector3 = inward * (walk._pos + Vector3(0, 1.7, 0))
+	if foot.z > -0.1 or top.z > -0.1:
+		return 9.0
+	return (top.y / -top.z - foot.y / -foot.z) / (2.0 * tan(deg_to_rad(walk._cam.fov) / 2.0))
+
+
 # Stand the visitor at `here` in one of the five standard views, with the game loop held still.
 func _face(here: Vector3, view: String) -> void:
 	_place(_free_near(here))  # never photographed from inside a case
@@ -642,6 +656,11 @@ func _views() -> void:
 					"flat_share": snappedf(_flat_share(with_visitor), 0.001),
 					"visitor_pixels": changed * 16
 				}
+				if view == "follow":
+					entry["visitor_tall"] = snappedf(_visitor_tall(), 0.001)
+					entry["void_share"] = snappedf(_void_share(with_visitor), 0.001)
+					if entry.visitor_tall > FOLLOW_TALL:
+						_fail("view", area.label + " follow: the lens is pressed up to the visitor", entry)
 				report.views.append(entry)
 				# A doorway-sized stub cannot be photographed without a wall in the lens.
 				if entry.flat_share > 0.45 and minf(b[1] - b[0], b[3] - b[2]) >= 2.2:
