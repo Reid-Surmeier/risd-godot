@@ -111,6 +111,7 @@ var _wipe_fade: Tween
 var _rooms_path := ""  # the room scene still to be built; empty once it is, or when there is none
 var _wipe_space := ""  # the space the first doorway leads to, entered once the rooms exist
 var _wipe_wait := 0
+var _wipe_mark: Control
 var _wipe_routed := false  # the change began on a clicked route, which keeps its own destination
 
 
@@ -1337,8 +1338,11 @@ func _update_camera(k: float) -> void:
 	var other_wall := get_node_or_null("OtherWall") as Button
 	if other_wall:
 		other_wall.visible = _space == "gallery" and _open.is_empty() and _other_wall_free()
-	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
-		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
+	# Put straight into an added room, with no wipe to hide behind. Clear of the Hall's own
+	# edge: a walking visitor can land exactly on a doorway's line a frame before the wipe starts.
+	var outside := _pos.z > 0.05 or _pos.z < -L - 0.05 or absf(_pos.x) > W / 2.0 + 0.05
+	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and outside and _room_at(_pos) >= 0:
+		_attach_rooms(_rooms_path)
 	if _rooms == null:
 		# Only the Hall exists until the first doorway (#281); its paintings are read all the same.
 		if _rooms_path != "" and _inspect_camera():
@@ -1560,6 +1564,19 @@ void fragment() {
 	_wipe.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
 	_wipe.hide()
 	add_child(_wipe)
+	# What the long first hold shows: one still mark, lower right, as nothing can move while
+	# the rooms are being built.
+	_wipe_mark = Control.new()
+	_wipe_mark.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_wipe_mark.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_wipe_mark.draw.connect(
+		func() -> void:
+			var at := _wipe_mark.size - Vector2(46, 46)
+			_wipe_mark.draw_arc(at, 13.0, 0.0, TAU, 32, Color(1, 1, 1, 0.22), 3.0, true)
+			_wipe_mark.draw_arc(at, 13.0, -PI / 2.0, PI / 3.0, 16, Color(1, 1, 1, 0.9), 3.0, true)
+	)
+	_wipe_mark.hide()
+	_wipe.add_child(_wipe_mark)
 
 
 # The floor is one mesh under every room. Black quads lie over all of it outside the stage,
@@ -1644,10 +1661,12 @@ func _wipe_step(delta: float) -> void:
 	if _rooms == null and _rooms_path != "" and _wipe_t + delta >= WIPE_CLOSE:
 		# The hold stretches: two frames of black on screen, then the rooms are built in one go.
 		(_wipe.material as ShaderMaterial).set_shader_parameter("radius", 0.0)
+		_wipe_mark.show()
 		_wipe_wait += 1
 		if _wipe_wait < 3:
 			return
 		_attach_rooms(_rooms_path)
+		_wipe_mark.hide()
 		_stage = -1  # the Hall is what the wipe closed on
 		_stage_pos = _pos
 		_enter_space(_wipe_space)
