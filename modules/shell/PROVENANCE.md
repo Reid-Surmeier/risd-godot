@@ -866,3 +866,208 @@ Collection prototype Issues #178/#182 only. Added a narrow `_walk_to` override f
 ### Collection viewer export and west-wall source fit — 2026-10-01
 
 Original IMG_6383 60.60/61.00/62.00s reviewed; native lossless CPU-decoded frames and intake-matched video SHA recorded in `docs/evidence/collection-reconstruction/west-wall-source-fit-20261001/measurements.json`. Wall spans remain source-relative; global metre and visual placement acceptance false. No paid generation ($0). Optional native proof writes now tolerate read-only packaged resources; topology assertions retained. Web export preserves both baked room scenes and lightmap data byte-for-byte; hashes in `docs/evidence/collection-reconstruction/viewer-export-20261001/`. Browser rendering/publication unverified: HTTP sockets and browser approval blocked; tailscaled unavailable. Main Hall/3D Viewer unchanged.
+
+## Catalogue photographs at measured game sizes (#278, 2026-10-08)
+
+Provider: RISD Museum catalogue / museum-linked Micrio image service. No generation, video frames or upscaling. Cost: USD 0. Originals are retained outside git at `~/risd-godot-ingestion/catalogue-masters/`.
+
+Measured in the mounted 1080×1080 Shell: the framed 3D view renders at 695×465; Hall painting long sides in the closest inspection shot are 158–319 native pixels. Wall copies are rounded to 64 px above 1.25× that coverage (256–448 px). Fitted zoom pictures cover at most 702 px; 896 px packed copies include the same filtering headroom. At 6× zoom the picture covers 4087–4210 logical pixels; full copies reach that size or the museum original’s canvas crop, whichever is smaller.
+
+All full zoom photographs are in `prototype/gallery_walk4/zoom/` with `.gdignore`; `scripts/export-web.sh` copies them to `museum-images/` beside the pack. The private catalogue adapter requests one photograph on opening, retains the packed copy until it arrives, and cancels on close. The added rooms use the same ignored directory and beside-pack adapter; captions are looked up by work key because room records normalize their fields. Packed copies fit the initial page; full zooms are fetched individually.
+
+Derivative recipe: crop the stated rectangle of the fetched photograph, preserve aspect, resize down with Pillow Lanczos; JPEG quality 90 for packed source files, quality 80 for external zoom JPEGs. Godot import: mode 1, lossy quality 0.8. Embedded Adobe RGB TIFF profiles are converted to sRGB before resizing. W6 wall crop is fitted to its existing 1024:1751 UV extent and clipped by the official silhouette (largest filled contour of grey <150) plus the retained mesh outline; its zoom uses the complete museum photograph. No room geometry, lightmap, bake, or frozen interface changes.
+
+Source photograph URLs, downloaded pixel sizes and hashes:
+
+| Work | Source URL | Downloaded pixels | Crop (left, top, right, bottom) | Source SHA-256 |
+| --- | --- | --- | --- | --- |
+| S1 / 56.096 | https://iiif.micr.io/pYSwJ/full/!4320,4320/0/default.jpg | 3326 × 4320 | [0, 4, 3326, 4310] | `c96c19e4113cb329ef111febf247a2467a9c1a39a3a387bfe16fc1f570ce9343` |
+| S2 / 57.227 | https://iiif.micr.io/gSjbS/full/!3640,3640/0/default.jpg | 2518 × 3640 | [0, 0, 2518, 3640] | `98571d91e17b5e77279c2113bed9455b5bb4c922960a12344e755ba61cf7a4e3` |
+| W1 / 23.332 | https://iiif.micr.io/KdQCn/full/!4080,4080/0/default.jpg | 4080 × 3357 | [124, 177, 3913, 3131] | `83c087a2eda36ee4e38ea29cf5520d874d7d076517713f076b8fc84ec591ae17` |
+| W2 / 56.177 | https://iiif.micr.io/UePLq/full/!3200,3200/0/default.jpg | 1884 × 3200 | [0, 0, 1884, 3200] | `596a15f588daa8b829b4d83ed37f5800795ee7b62bc3ce72073530b8cd47cec7` |
+| W3 / 62.019 | https://iiif.micr.io/YMave/full/!3354,3354/0/default.jpg | 2516 × 3354 | [7, 0, 2507, 3354] | `f0d37f047a382b7f60b9361aa414d6411ba20bed4deff20cf3285aa2c5558ccf` |
+| W4 / 60.009 | https://iiif.micr.io/rHtZH/full/!3552,3552/0/default.jpg | 3071 × 3552 | [0, 0, 3071, 3552] | `82cbe01bc6d27ae6189eb977a3ed4c0c0eff2221d3bb1cff59b35bac58699d0b` |
+| W5 / 57.157 | https://iiif.micr.io/FHmCS/pct:2.77,1.782,94.87,96.088/!4210,4210/0/default.jpg | 3373 × 4210 | [0, 0, 3373, 4210] | `12db9a048eed27a11c01a84d4bcd2931330b938ac7e5fefcd68481728e7eba28` |
+| W6 / 32.246 | https://iiif.micr.io/fpRoz/full/!4320,4320/0/default.jpg | 2695 × 4320 | [142, 86, 2594, 4104] | `2a20cd1512457945b704f6aca18e1e8a653a44b6af9b7f46975bfddfd446ccbd` |
+| W7 / 44.161 | https://iiif.micr.io/YUKcR/full/!3524,3524/0/default.jpg | 3524 × 2295 | [0, 9, 3524, 2295] | `c9d8a78f2dd8985f3242e91fb42d375cfd8088bd13209e4e13b9e5a0fb321ab1` |
+| W8 / 55.152 | https://iiif.micr.io/TZjOv/full/!4320,4320/0/default.jpg | 2364 × 4320 | [0, 0, 2364, 4320] | `3317881e91d5b6383994250e99700551aca1b400fa3cdfa2cae6dba8f1f0dfbf` |
+| W9 / 62.058 | https://iiif.micr.io/REqmU/full/!3480,3480/0/default.jpg | 3480 × 2246 | [0, 0, 3470, 2246] | `c4fed4134b3a3520070f61d35da81e0ca1da937876ff17189d6f83a5a1053a27` |
+| W10 / 60.107 | https://iiif.micr.io/vyQLy/full/!3478,3478/0/default.jpg | 3478 × 2586 | [0, 0, 3478, 2586] | `fd40de43cd4aa9c6ffaa3e49320536a37f9c758a0a6b47fd15cf6145d33f3fe3` |
+| N1 / 42.283 | https://iiif.micr.io/mUJpR/full/!3708,3708/0/default.jpg | 2238 × 3708 | [61, 66, 2169, 3653] | `d043bf6da1356fe3c8f72f1badaeff5fda446e9116c99e8e75c18d6cf915e352` |
+| N2 / 60.039 | https://iiif.micr.io/cutDc/full/!3668,3668/0/default.jpg | 2207 × 3668 | [0, 0, 2207, 3668] | `63a19bacaf8f3e14eddc51747fda732013520e99069a15896c896d852ca148b9` |
+| E1 / 63.061 | https://iiif.micr.io/ArtoN/full/!3715,3715/0/default.jpg | 3715 × 2626 | [3, 7, 3715, 2626] | `04f9475641062fa800b19586c9b50587d9d6d378c0e92e99fc3da4f711c1504f` |
+| E2 / 18.264 | https://risdmuseum.cdn.picturepark.com/d/XwkGLpUY/ | 8192 × 10321 | [93, 62, 8144, 10225] | `66b4875e79f8b0086a60b2154789daf01de14ef8b4f69c3962e7eda258d1601b` |
+| E3 / 51.506 | https://iiif.micr.io/wWpds/full/!3250,3250/0/default.jpg | 3250 × 2664 | [0, 0, 3250, 2664] | `5b87f3ee58afb0704a026a822254c6cd2d98eff0878742e0da8c66448c1add81` |
+| E4 / 1987.056 | https://iiif.micr.io/gCgVB/full/!3618,3618/0/default.jpg | 3618 × 2730 | [2, 2, 3617, 2730] | `cd742b44ae6e158ebb0d2233675e34e5933534ce75a6bc2951f5fbc63d5f799a` |
+| E5 / 2003.105 | https://iiif.micr.io/khjbX/full/!4260,4260/0/default.jpg | 3314 × 4260 | [0, 0, 3296, 4257] | `7ab1f1013659f8b73598c5a7aade65e40e5cc14c3b6fa76fb0d84de173e0e70f` |
+| E6 / 37.104 | https://iiif.micr.io/KACyN/full/!4320,4320/0/default.jpg | 4320 × 3380 | [0, 0, 4317, 3377] | `92a4e39d2eeb24402fa00d3447c32ef55a55f55fba8c535f5240f3a3cd340f5e` |
+| E7 / 33.204 | https://iiif.micr.io/RTosR/full/!3297,3297/0/default.jpg | 3297 × 2230 | [14, 15, 3292, 2230] | `606bc7c914438ef0ad9f6a71ad4f8392aa0b3dd7211dc42a54bbe017ac8b98fe` |
+| E8 / 62.064 | https://iiif.micr.io/yVNUh/full/!4320,4320/0/default.jpg | 2388 × 4320 | [0, 0, 2388, 4320] | `265076bfa5a414ada98184d64b4386c3c8f379df610f35349d17cba7bac3cafa` |
+| E9 / 18.096 | https://iiif.micr.io/qqLJy/full/!3245,3245/0/default.jpg | 3245 × 2513 | [0, 0, 3242, 2513] | `4d33cf7597d27fe7ca325be495638000a86fba4a42300daf5a2359f8f325da3b` |
+| 34.016 / 34.016 | https://iiif.micr.io/twNLL/full/!4064,4064/0/default.jpg | 4064 × 3068 | [0, 0, 4064, 3068] | `6f46132e90e6de6a872c5c60806fadb78c442bfb157abf33f6faca30a9cf0b35` |
+| 84.198.1032 / 84.198.1032 | https://risdmuseum.cdn.picturepark.com/d/EJ98DUcc/ | 8176 × 6132 | [955, 410, 6980, 5330] | `b3ea57d4dd3529af3656f15d4c84dfc1d96b601870190acd678cf95f66d70d88` |
+| 2016.124 / 2016.124 | https://iiif.micr.io/HCHvB/554,256,3900,3655/3900,/0/default.jpg | 3900 × 3655 | [0, 0, 3900, 3655] | `aee953cf3e33a67147c2a146e4b6f9f5a78eccf8a7f25f2f3afb020a8a00005e` |
+| 75.023 / 75.023 | https://risdmuseum.cdn.picturepark.com/d/9SdyghEI/ | 4954 × 4081 | [422, 455, 4485, 3695] | `5bbbc6e960c16b203ec2825b622caeba219b9db145ae3c0cdf732372116d9eaa` |
+| 54.186 / 54.186 | https://iiif.micr.io/TpFJT/full/!4320,4320/0/default.jpg | 4320 × 3256 | [1, 0, 4314, 3251] | `a08e7d2fa9df32e4ca39aec92cb6c652755abec44f4974da4ef7cdfcb7f51258` |
+| 2017.46 / 2017.46 | https://iiif.micr.io/AanBB/296,516,4932,3372/4087,/0/default.jpg | 4087 × 2794 | [0, 0, 4087, 2794] | `2b27cc22caa3cb1c82fb08202d75b1baff4bf0eec1f5c114e61f5e2811675057` |
+| 2016.62 / 2016.62 | https://iiif.micr.io/WbOow/full/!4204,4204/0/default.jpg | 4204 × 3837 | [1, 1, 4198, 3831] | `e44a886153117b350bbb363f38a630c91c5487701ef0283a0be82198fbfcdd0b` |
+| 2016.102.2 / 2016.102.2 | https://iiif.micr.io/OrxRm/full/!4320,4320/0/default.jpg | 4320 × 3209 | [3, 0, 4315, 3204] | `1bcfd64036f01ecb21b77476be5a4838e96d305005017ab2fc42b8f544307594` |
+| 35.703 / 35.703 | https://iiif.micr.io/FFpLf/full/!3974,3974/0/default.jpg | 3974 × 3814 | [1, 1, 3968, 3808] | `d83f297a8c110b5c3218d0d0c0f9528af49b1da677728d0bd05cc34775349e73` |
+| 57.167 / 57.167 | https://risdmuseum.cdn.picturepark.com/d/4riJdlMT/ | 2841 × 3750 | [0, 0, 2837, 3746] | `b0296a1c87c76938736729e33aab910e890a3f5cfb768ad23e519d5632abe64f` |
+| 69.197 / 69.197 | https://risdmuseum.cdn.picturepark.com/d/ONg27DnH/ | 3432 × 4080 | [323, 271, 3120, 3898] | `df0081b6c544606baadb3c627500050e53c078d814b430d843f18f05bf5dc1b0` |
+| 34.1371 / 34.1371 | https://risdmuseum.cdn.picturepark.com/d/7LKFoHBR/ | 2672 × 3258 | [0, 0, 2667, 3254] | `a11820e548b6a90853945c2561669f55c41359cc8710b820ebb01ce15570b8c2` |
+| 57.281 / 57.281 | https://iiif.micr.io/ydRVU/full/!4320,4320/0/default.jpg | 3184 × 4320 | [0, 1, 3179, 4315] | `47f34934bc55484caa9079d9e7a7de13c0f765c49c068ad1bfe230ce86c1f778` |
+| 53.349 / 53.349 | https://iiif.micr.io/gystV/full/!4320,4320/0/default.jpg | 3292 × 4320 | [0, 0, 3287, 4316] | `146b1c03c69db175c786f25c9a37a2c0d326620a10ec95cf48bdec228e3572df` |
+| 43.539 / 43.539 | https://risdmuseum.cdn.picturepark.com/d/O2HkOSxN/ | 6054 × 4927 | [0, 0, 6049, 4923] | `a3a44c9d8c6f79f5b78de06fc9f33d96a7b438465926c96e7f7c2365df835ad6` |
+| 2023.53 / 2023.53 | https://iiif.micr.io/XTtXT/full/!4320,4320/0/default.jpg | 4320 × 3196 | [0, 0, 4317, 3193] | `8c0acc53c13a3a80b856b8c664387ba6247c795ac61f09b95b1fc8a74f868e6d` |
+| 73.120 / 73.120 | https://iiif.micr.io/fBwZF/full/!4320,4320/0/default.jpg | 4320 × 2491 | [42, 55, 4278, 2442] | `d26502b0547b5ecd5a902352035cbd658532a10c3cf5bc9cb5f72121c033beb5` |
+| 56.099 / 56.099 | https://iiif.micr.io/QfFha/full/!3723,3723/0/default.jpg | 3723 × 2750 | [0, 0, 3720, 2747] | `6d76cadd28158270b748d63c65149b38fcf38bc6f0bfb805c0d0f9c587d19338` |
+| 56.094 / 56.094 | https://iiif.micr.io/joeAV/full/!3806,3806/0/default.jpg | 3806 × 2067 | [0, 0, 3803, 2064] | `a38169129bbc62a09e4cae5f7c004861690b4d8872e9000d96c3f7617f65df02` |
+| 1998.35 / 1998.35 | https://iiif.micr.io/kphad/200,134,5032,3797/4087,/0/default.jpg | 4087 × 3084 | [0, 0, 4087, 3084] | `8700e9d6ca1fc12fc299e42e6ada9029099ddfbf69ec0cae3259ceed7dc4cd5c` |
+
+Every replaced runtime file (the work key joins to its source above):
+
+| Work | Role / file (relative to Shell) | Pixels | SHA-256 |
+| --- | --- | --- | --- |
+| S1 | wall: `prototype/gallery_walk4/canvas/S1.jpg` | 247 × 320 | `4fb79815a94f568fb5e7d8c5c034822c8ce3a05ab36f23809b423bc3a155c847` |
+| S1 | detail: `prototype/gallery_walk4/detail/S1.jpg` | 692 × 896 | `09796c7154f0b0757136d768b7374b5d046951f82da54ef0872a15bed085edfe` |
+| S1 | zoom_external: `prototype/gallery_walk4/zoom/S1.jpg` | 3252 × 4210 | `c8558fe615b17545bf74c07f0fa21c561047cb332b9b1b4795586d2ac98d72db` |
+| S2 | wall: `prototype/gallery_walk4/canvas/S2.jpg` | 266 × 384 | `563aa9b24367e078a82b8a593d225e51c2df13b606a6a28e680878b356eb070e` |
+| S2 | detail: `prototype/gallery_walk4/detail/S2.jpg` | 620 × 896 | `0027d6dd5d69a24fb1967580f9c523e1d64918f231651c2a1669679e7c3b18f8` |
+| S2 | zoom_external: `prototype/gallery_walk4/zoom/S2.jpg` | 2518 × 3640 | `9946983bde2c5f8d7d23f6e969509e4f19d3447899385e04339a524d067485c9` |
+| W1 | wall: `prototype/gallery_walk4/canvas/W1.jpg` | 320 × 249 | `a6fe3dfbe2001868a1e4462e864581eb28dd32bb832e0bbc42a312a0a81fdfb8` |
+| W1 | detail: `prototype/gallery_walk4/detail/W1.jpg` | 896 × 699 | `bafd353fea83212f1656984013b3f15595a3a41031c80fd8ef58ac75ecac15e3` |
+| W1 | zoom_external: `prototype/gallery_walk4/zoom/W1.jpg` | 3789 × 2954 | `8ceb5fc73dac3f28318cd2822c7d83320df64d74278803f601c44fad8b42dd61` |
+| W2 | wall: `prototype/gallery_walk4/canvas/W2.jpg` | 188 × 320 | `5d399706a01da3e61a81d8b9720e2c21c581828dbf5669107a221b7f4c28b5d5` |
+| W2 | detail: `prototype/gallery_walk4/detail/W2.jpg` | 528 × 896 | `b00ccfaa5efe7fe2bce494d7b9f82acb4cdf9db97a264ed09251154f905e5423` |
+| W2 | zoom_external: `prototype/gallery_walk4/zoom/W2.jpg` | 1884 × 3200 | `89981679da4a66a41a6737f628e38e6460294c75c63c9488aefa0dc1789c7ed4` |
+| W3 | wall: `prototype/gallery_walk4/canvas/W3.jpg` | 191 × 256 | `4165788609b145dca3a38702601d763fec4747e00d1518b0e7fc873b255180cf` |
+| W3 | detail: `prototype/gallery_walk4/detail/W3.jpg` | 668 × 896 | `828ef8ba640a24d4321c011cb2af765fbbead103d0e6c84c4a61d250a2b8a3ff` |
+| W3 | zoom_external: `prototype/gallery_walk4/zoom/W3.jpg` | 2500 × 3354 | `300179fb51ffc081c8a9db4a4483ea79fef130647b5670054c7cbb5da129161b` |
+| W4 | wall: `prototype/gallery_walk4/canvas/W4.jpg` | 221 × 256 | `6839232005e984bebce325dc73b1033954cbb9453ce7c9cba9486bd049cde291` |
+| W4 | detail: `prototype/gallery_walk4/detail/W4.jpg` | 775 × 896 | `1c2a4e8f0eab6459f0297c5b3535e703f07f9b8e8d5caf729a1d3c047c1b7188` |
+| W4 | zoom_external: `prototype/gallery_walk4/zoom/W4.jpg` | 3071 × 3552 | `63227a32ba9502df67ac62373d3dcb0cecd41c5c5ac4231db7fb27a3c37b04cf` |
+| W5 | wall: `prototype/gallery_walk4/canvas/W5.jpg` | 256 × 320 | `c500edfa69565351a0fd995ca381b0451f79405ba0f4192fd7ac98207e7c30e9` |
+| W5 | detail: `prototype/gallery_walk4/detail/W5.jpg` | 718 × 896 | `138cd98f3ad3e12a508fd9659f936a8f1541852b34b709487775abcc80652d04` |
+| W5 | zoom_external: `prototype/gallery_walk4/zoom/W5.jpg` | 3373 × 4210 | `5e5bf0ddd2578f16ca8361fcbfce7925ff323bf13cc5d6c66a9de10aa980d189` |
+| W6 | wall: `prototype/gallery_walk4/frames/W6-shaped.png` | 262 × 448 | `bb8dac4dedc81068d54bf8ecaeb0e096d9db6e7b47970acd1175ec1366c09435` |
+| W6 | detail: `prototype/gallery_walk4/detail/W6.jpg` | 559 × 896 | `d391795aa73ccb3c1d6ff830f2b1984347da995429370fb5c590934397b08580` |
+| W6 | zoom_external: `prototype/gallery_walk4/zoom/W6.jpg` | 2626 × 4210 | `6f2d666413af871f1bda139e11488ddd454c584740b61430641e492d7b674307` |
+| W7 | wall: `prototype/gallery_walk4/canvas/W7.jpg` | 320 × 208 | `bc60b155dfd733b1d107554acd71fe775934f241d3764a03e2d0161eeb5adc47` |
+| W7 | detail: `prototype/gallery_walk4/detail/W7.jpg` | 896 × 581 | `df068d3b409ea7732459b34a3228c106a9c22aed9657ed593e1ecf3a9a1de5dd` |
+| W7 | zoom_external: `prototype/gallery_walk4/zoom/W7.jpg` | 3524 × 2286 | `07816131bf7401edf78fe722c4e9ad8590942eade116922afe53655ce3ecbcb6` |
+| W8 | wall: `prototype/gallery_walk4/canvas/W8.jpg` | 175 × 320 | `fe14a274dc4536d8387df5b19e2ca6dedb236a70ed7a88db8d8b107876c43098` |
+| W8 | detail: `prototype/gallery_walk4/detail/W8.jpg` | 490 × 896 | `284aed39ec3f6694d3d5a4ff05aa9dd5516ad22505bdffc1475ff32b0bac4676` |
+| W8 | zoom_external: `prototype/gallery_walk4/zoom/W8.jpg` | 2304 × 4210 | `4f0bdfaeacff6cf1a4355e37460e3a16697ea4d5ca052ad89ef50985b564d47a` |
+| W9 | wall: `prototype/gallery_walk4/canvas/W9.jpg` | 384 × 249 | `f61721b5775253a61c4e770a0993596e1e1771b0b0c113008700dc2355dde5a5` |
+| W9 | detail: `prototype/gallery_walk4/detail/W9.jpg` | 896 × 580 | `99eb91c64fc2877c29d1409a70cd1a87065b9fdd88667c163de814e11ab8b7a8` |
+| W9 | zoom_external: `prototype/gallery_walk4/zoom/W9.jpg` | 3470 × 2246 | `a3a5622a44fe590d4d6bf624ae8a215829abe4204f4b3ffc880c81d6add83092` |
+| W10 | wall: `prototype/gallery_walk4/canvas/W10.jpg` | 320 × 238 | `f224a06f9e8394259329d491cfa4ddebdc3726286d758f9f0d9fb26123709af2` |
+| W10 | detail: `prototype/gallery_walk4/detail/W10.jpg` | 896 × 666 | `73b10c2defa2d7574ef41ae86b062bcd65175857b1b82f6b0655910703ed8be6` |
+| W10 | zoom_external: `prototype/gallery_walk4/zoom/W10.jpg` | 3478 × 2586 | `e97356fc3a33161c03b4db510e61949256a85796c048aa19e2f728fe64dd15fc` |
+| N1 | wall: `prototype/gallery_walk4/canvas/N1.jpg` | 188 × 320 | `e836f738157db9e20916c4d0372988c1a619730d938e20a62c76195f30c18cb7` |
+| N1 | detail: `prototype/gallery_walk4/detail/N1.jpg` | 527 × 896 | `828cdfd27dc01c399e78781f413b35db1aba3fefbd1e22d2cb67748c03bb548b` |
+| N1 | zoom_external: `prototype/gallery_walk4/zoom/N1.jpg` | 2108 × 3587 | `50f96a06d132147be210c296e44055cf5db732e0be47245d602e5d3721d494ae` |
+| N2 | wall: `prototype/gallery_walk4/canvas/N2.jpg` | 193 × 320 | `7645301bf419a427b2e2f064fd66522affd5e2294ad58f45f7af280a4fe2b007` |
+| N2 | detail: `prototype/gallery_walk4/detail/N2.jpg` | 539 × 896 | `4b93a5e9f8e9bd5ea9322c17cdcd1f1be52cdcd47deaceb6cbb1ffbd96762433` |
+| N2 | zoom_external: `prototype/gallery_walk4/zoom/N2.jpg` | 2207 × 3668 | `9182219352a929d9587c54469c5bf58d4e773e52a0ab65bb87d7cb143baec4db` |
+| E1 | wall: `prototype/gallery_walk4/canvas/E1.jpg` | 384 × 271 | `de8f1a49779281c5152fb5f26858c8d513a787d62e8a583dffa081a9e4321e0c` |
+| E1 | detail: `prototype/gallery_walk4/detail/E1.jpg` | 896 × 632 | `c91f128fc6fe4c8611b4a0e105268cd54e6358a00e4bf7fbf94f87bd8666b98d` |
+| E1 | zoom_external: `prototype/gallery_walk4/zoom/E1.jpg` | 3712 × 2619 | `f59fc887274cd8b7bd1281eeccc58d32575f7b6d49a33622af2e6eb9c363d630` |
+| E2 | wall: `prototype/gallery_walk4/canvas/E2.jpg` | 203 × 256 | `a58b10cf000900c18cf76d94492dcf56fdd15a059dbd880ba0febd6a62bdb2ee` |
+| E2 | detail: `prototype/gallery_walk4/detail/E2.jpg` | 710 × 896 | `30365436fe8681a6dc7669a0e24c93a03bd5fe0638d076d7045d64a6b96f9635` |
+| E2 | zoom_external: `prototype/gallery_walk4/zoom/E2.jpg` | 3335 × 4210 | `6545a2e182ba0f26c4dbef4c32b867789de5badf9c52d71814d770e7cb95ad48` |
+| E3 | wall: `prototype/gallery_walk4/canvas/E3.jpg` | 256 × 210 | `65ad136a213568dc8b9cb987d435947750a46c6198f242c3e4fceb56e049bb12` |
+| E3 | detail: `prototype/gallery_walk4/detail/E3.jpg` | 896 × 734 | `63ebc5f29f6096b53e8bf9798373b50a44a2acb58e88da568a5efa7035c001b9` |
+| E3 | zoom_external: `prototype/gallery_walk4/zoom/E3.jpg` | 3250 × 2664 | `dd5771a305350f6c81c11c5a4d8a3effc5cf3225f828df018d08dd3246d43607` |
+| E4 | wall: `prototype/gallery_walk4/canvas/E4.jpg` | 320 × 241 | `7240080bbcf297da2e67da785dff2b7e49e20ae7de2d320eb4c945c8ddb1e251` |
+| E4 | detail: `prototype/gallery_walk4/detail/E4.jpg` | 896 × 676 | `de0c488108dbcee44d1b633a5920c435cd5267b7c3051e94386ce9ad83ea97f4` |
+| E4 | zoom_external: `prototype/gallery_walk4/zoom/E4.jpg` | 3615 × 2728 | `cd62baefa086e556a6203a26bee645ce5abba3eaf50cd7d09363fd1611328f46` |
+| E5 | wall: `prototype/gallery_walk4/canvas/E5.jpg` | 248 × 320 | `3c05c0f9adb09fbfbe1e289a1d75d63662867dd9dbdefa19c520d4a360b59d42` |
+| E5 | detail: `prototype/gallery_walk4/detail/E5.jpg` | 694 × 896 | `55633ce0b5c8414ff4eac1dcc6a24a9de8396ad119d4b93f95a45436062c5f43` |
+| E5 | zoom_external: `prototype/gallery_walk4/zoom/E5.jpg` | 3260 × 4210 | `d79a27a86e6655e3a2969f4ac4266e74eda73332492a9d25a8f5ff9353aa5d09` |
+| E6 | wall: `prototype/gallery_walk4/canvas/E6.jpg` | 320 × 250 | `1c07ebd43f334da8c2e97525e51486a2d2957dca636c1a68ece44563d71a995a` |
+| E6 | detail: `prototype/gallery_walk4/detail/E6.jpg` | 896 × 701 | `a4cdfbe184fb170b4a82366bbec47ab9a92e7c1e9ad8082f629db2e380ac93c5` |
+| E6 | zoom_external: `prototype/gallery_walk4/zoom/E6.jpg` | 4087 × 3197 | `ff78243256f13bb0003fbf57b965e8af0dd2f8af01a36c8d0a05f9333f130ce6` |
+| E7 | wall: `prototype/gallery_walk4/canvas/E7.jpg` | 320 × 216 | `1e07c0b6558a12364c2859d195ccf2baf84355c7eda254cb5e86b19e7311c211` |
+| E7 | detail: `prototype/gallery_walk4/detail/E7.jpg` | 896 × 605 | `50835afb3e4e93aa5f619d97044f0b5e7fc89cef8ee4ef3b7893043ae50fbf76` |
+| E7 | zoom_external: `prototype/gallery_walk4/zoom/E7.jpg` | 3278 × 2215 | `28bfb6c7c3e51c43da25073f5708eb8ce56be5548f7551be137e7b2d0861f98f` |
+| E8 | wall: `prototype/gallery_walk4/canvas/E8.jpg` | 177 × 320 | `64efc4c0c561d79372699c5ece6008e313d3ae350d0721d09f3efd46cb1cdac1` |
+| E8 | detail: `prototype/gallery_walk4/detail/E8.jpg` | 495 × 896 | `234d930af8641f25183e085a50bdde623213df82a785afb31f243284a6eabbf5` |
+| E8 | zoom_external: `prototype/gallery_walk4/zoom/E8.jpg` | 2327 × 4210 | `f8444bfee2935f824c417d8e369743e837ddc0e3a8502cbca2c60538201a3822` |
+| E9 | wall: `prototype/gallery_walk4/canvas/E9.jpg` | 320 × 248 | `61ad878cbb819e8644a3185016496a37ca53b2b3a3c33eaac3dabb02de1a627d` |
+| E9 | detail: `prototype/gallery_walk4/detail/E9.jpg` | 896 × 695 | `45047810e6e1eda82d33f8fb17e8d23a199f3ac5a7680d19398d596f840b9ada` |
+| E9 | zoom_external: `prototype/gallery_walk4/zoom/E9.jpg` | 3242 × 2513 | `881d5ebdc2f1cfbeb0abc5d6ddaaa42f2e73103f171ea9b56320f11a8dae92d1` |
+| 34.016 | wall rectification quad in source pixels: [[1289.1839599609375, 1395.93994140625], [1927.637939453125, 622.8040161132812], [3692.592041015625, 1509.4560546875], [3115.528076171875, 2377.699951171875]] | transform | n/a |
+| 34.016 | wall: `collection_rooms/assets/renaissance-case-a/textures/bookcover-board.png` | 157 × 256 | `5bebcc82a2ec4842e69f6ee55727f86a225ab0de15717e027c8a08ea22e3c90d` |
+| 34.016 | detail: `collection_rooms/assets/details/34.016-preview.jpg` | 896 × 676 | `453b077ba5dd77de93c9d121b8a9ca34b4ab248b998c047f1b6adda05bc68aea` |
+| 34.016 | zoom_external: `prototype/gallery_walk4/zoom/34.016.jpg` | 4064 × 3068 | `cd3c72481a895bd8f08b86a1f2f27e8afb6de2ca17ea16b8573661519b5c481b` |
+| 84.198.1032 | wall: `collection_rooms/assets/additions/european-east/print-84.198.1032.jpg` | 256 × 209 | `f5ef9670d7e541d7501191ba048597bdd80f5666386c37572bb857ed010a60d0` |
+| 84.198.1032 | detail: `collection_rooms/assets/details/84.198.1032-preview.jpg` | 896 × 732 | `d15d5fc598c572b80b014079458f376a037d8247b57608b7ccb660ea23a77204` |
+| 84.198.1032 | zoom_external: `prototype/gallery_walk4/zoom/84.198.1032.jpg` | 4087 × 3337 | `a244fc418a95ef7ee47121d7e97f7f73dc4c9e20330ebb82933afdacf2e88c87` |
+| 2016.124 | wall: `collection_rooms/assets/additions/european-east/basket-2016.124.jpg` | 256 × 240 | `a08333c9f1c749ed0a3fe217a00dea3308b1c3ca801638ccf7300c2c68ea93ed` |
+| 2016.124 | detail: `collection_rooms/assets/details/2016.124-preview.jpg` | 896 × 840 | `1574f8888da509b39b188b8f9d0fa1603afd17b8bdcd7c9666c4d1a9d08eb173` |
+| 2016.124 | zoom_external: `prototype/gallery_walk4/zoom/2016.124.jpg` | 3900 × 3655 | `e4cf6ac918fe8270eea96870b47eadcfe65dde7b7cb8779150aec9f1c5a5a504` |
+| 75.023 | wall: `collection_rooms/assets/additions/european-east/cabinet-75.023.jpg` | 256 × 204 | `8c5446e639449bf3cbcbef89d66d956458e72d15dbbb64dc0c64218d3ee262fd` |
+| 75.023 | detail: `collection_rooms/assets/details/75.023-preview.jpg` | 896 × 715 | `9aac3aed9bc88a7d2d6b99d66680a441e8d89243000aa7166eac807df6a309bc` |
+| 75.023 | zoom_external: `prototype/gallery_walk4/zoom/75.023.jpg` | 4063 × 3240 | `5b0047f3aa25ef9f143d90821e5bc84a7260f90408afa9c184564abaab2a1292` |
+| 54.186 | wall: `collection_rooms/assets/additions/european-east/painting-54.186.jpg` | 320 × 241 | `0d1e9d8709c4a0c4505db5ca66730f1d7636ae8b1755974f4000f6274b20646d` |
+| 54.186 | detail: `collection_rooms/assets/details/54.186-preview.jpg` | 896 × 675 | `74730c18acdd7d3e48568db0cd2330d2a38f9cce39f832a7d1a553835e405ac5` |
+| 54.186 | zoom_external: `prototype/gallery_walk4/zoom/54.186.jpg` | 4087 × 3081 | `8da20430cacb3be665c8dfef57a7c175130a533ca16a16d9eb103fc6a5c9f73a` |
+| 2017.46 | wall: `collection_rooms/assets/additions/european-east/commode-2017.46.jpg` | 320 × 219 | `e5c279606310d8331c6ec3c02467729c2be246381588dca8f76f5db4f106da7b` |
+| 2017.46 | detail: `collection_rooms/assets/details/2017.46-preview.jpg` | 896 × 613 | `443734fd1d2ad31fbbd958d1b6694a073dc1ebe96ef028fdea962e69322ac249` |
+| 2017.46 | zoom_external: `prototype/gallery_walk4/zoom/2017.46.jpg` | 4087 × 2794 | `c10e358c0ee7265360ba97d98a289dcce076a58909387e2a5042ac7148c73e47` |
+| 2016.62 | wall: `collection_rooms/assets/additions/european-east/plate-2016.62.jpg` | 256 × 234 | `db097e9826f0b08ea5f6ba32bbcb8beed29b7e1c298c35f93f95555c58b5a771` |
+| 2016.62 | detail: `collection_rooms/assets/details/2016.62-preview.jpg` | 896 × 818 | `3ae7686e75996aee4dc70eafcb8e48236b2a188dd62c0b8f912cb58cc28810d0` |
+| 2016.62 | zoom_external: `prototype/gallery_walk4/zoom/2016.62.jpg` | 4087 × 3730 | `d01562f23b393a92afc1c7d58e173cc91085b8c42187b0d08660ea9a765c97a9` |
+| 2016.102.2 | wall: `collection_rooms/assets/additions/european-east/plate-2016.102.2.jpg` | 384 × 285 | `cc2cff3e1ca50014a3b7d28d8a64989afc292fc4b9b440c2c561efc7942d94be` |
+| 2016.102.2 | detail: `collection_rooms/assets/details/2016.102.2-preview.jpg` | 896 × 666 | `e7ecb786aafdabbd131985776e9a0d30da436bb460fd4b919030cf2b59d4d858` |
+| 2016.102.2 | zoom_external: `prototype/gallery_walk4/zoom/2016.102.2.jpg` | 4087 × 3037 | `e354cd87ba3702d155920c6a7cb2504617b08d832faf0ca8269eee61764eaed9` |
+| 35.703 | wall: `collection_rooms/assets/additions/european-east/plate-35.703.jpg` | 256 × 246 | `73b92df624b7221f91d442b723dccaa0c176799fcfc6d5bcb1b38d142c4548f2` |
+| 35.703 | detail: `collection_rooms/assets/details/35.703-preview.jpg` | 896 × 860 | `809d7d63589a034b1f36f133ca00e871dfdd456b62c0b5a4962c6527f3bc79c8` |
+| 35.703 | zoom_external: `prototype/gallery_walk4/zoom/35.703.jpg` | 3967 × 3807 | `e0087ab9a8b77b9e23e155daec845ba75f579c775bc4a22bc72faa22c5719590` |
+| 57.167 | wall: `collection_rooms/assets/additions/european-east/painting-57.167.jpg` | 194 × 256 | `d37bceef30ebe3648571d50626d37e7843047078e6b7ef6d1a40c7b364edccd7` |
+| 57.167 | detail: `collection_rooms/assets/details/57.167-preview.jpg` | 679 × 896 | `d9fc4b45913e4667400d6edee5458863fe45bbd4f1edd3930e988a3f7db1bf48` |
+| 57.167 | zoom_external: `prototype/gallery_walk4/zoom/57.167.jpg` | 2837 × 3746 | `c9b22aef746f9ed3866bd62d796b02e7fec24cdc4f004eb1ab21be61709cc103` |
+| 69.197 | wall: `collection_rooms/assets/additions/european-east/painting-69.197.jpg` | 247 × 320 | `ed787c3a5eae762449fe556fad914180750e0c984d9566f5dab660b7761d3097` |
+| 69.197 | detail: `collection_rooms/assets/details/69.197-preview.jpg` | 691 × 896 | `898bc66c1d9753afb7a2169b8df9bbf72bc4a8ba64c93165e9681bfdb8d6123c` |
+| 69.197 | zoom_external: `prototype/gallery_walk4/zoom/69.197.jpg` | 2797 × 3627 | `731bd48ca5b151463832f559766ba8ae608d002f5102717af048d91d1abb58f3` |
+| 34.1371 | wall: `collection_rooms/assets/additions/european-east/painting-34.1371.jpg` | 210 × 256 | `f3ba00a12762f299328146e5f36e08325649a515734de5caf64ff0f871650865` |
+| 34.1371 | detail: `collection_rooms/assets/details/34.1371-preview.jpg` | 734 × 896 | `16aa32894e7ce1042b85d0e45142a7c7174d558c416c04ce5e324640445eaf04` |
+| 34.1371 | zoom_external: `prototype/gallery_walk4/zoom/34.1371.jpg` | 2667 × 3254 | `0fa4b5b3bd2e0e9685945ec432f3cee4464f2308e67d9e83ba73dbe21e0c68db` |
+| 57.281 | wall: `collection_rooms/assets/additions/european-east/painting-57.281.jpg` | 236 × 320 | `463c0d844edef3512d3f49e804b64fefedce689667277e680f5da89cab65c04b` |
+| 57.281 | detail: `collection_rooms/assets/details/57.281-preview.jpg` | 660 × 896 | `b671076abccf92772af16461fedf9d4a111d7ce17e46a12bd167952eb240ce8f` |
+| 57.281 | zoom_external: `prototype/gallery_walk4/zoom/57.281.jpg` | 3102 × 4210 | `5e4c04f0788f0187e9615cff8ea33308e679bb2026e4ce047a82d15ce9dcabbd` |
+| 53.349 | wall: `collection_rooms/assets/additions/european-east/painting-53.349.jpg` | 195 × 256 | `9798270fa905b82a9bce7f40dd43a76ed161e6ac2dcd4ff1de48969b9c0ae41f` |
+| 53.349 | detail: `collection_rooms/assets/details/53.349-preview.jpg` | 682 × 896 | `4ea59ba1d1266724c9febef1e63da2470dd750d133c4fb389cf13cd72cde1486` |
+| 53.349 | zoom_external: `prototype/gallery_walk4/zoom/53.349.jpg` | 3206 × 4210 | `80a3d730303ab39a28cc0fc372cd7557a04f53cb91e85e7d0ebe12506f0ac109` |
+| 43.539 | wall: `collection_rooms/assets/additions/grey/gericault-43.539.jpg` | 256 × 208 | `69e970a8b3b5f1e31ec22a793bcdc798207d72016572afc22c5cb610387ed904` |
+| 43.539 | detail: `collection_rooms/assets/details/43.539-preview.jpg` | 896 × 729 | `1469680c579b462fa818f612eb9165f8359dcbacb54f1375ec5d2eaf93c13e4b` |
+| 43.539 | zoom_external: `prototype/gallery_walk4/zoom/43.539.jpg` | 4087 × 3326 | `8f6f8e2443b4c98d966449a15b2fe999907d719091529b2bd6827aefa15231fa` |
+| 2023.53 | wall: `collection_rooms/assets/additions/grey/bannister-2023.53.jpg` | 192 × 142 | `c9eaed194c9b7eea7dd7f71ba6cac49147b8f863b2298e46a0f97727b2518d74` |
+| 2023.53 | detail: `collection_rooms/assets/details/2023.53-preview.jpg` | 896 × 663 | `f4cb49119007507dbbb5adb91e699eabec9afd5feaadff5093e2b56fa21677a5` |
+| 2023.53 | zoom_external: `prototype/gallery_walk4/zoom/2023.53.jpg` | 4087 × 3023 | `4f5a83cdde94b8fc9c383d107326b0b49799feb1b8467148a2ec94c6d229a35f` |
+| 73.120 | wall: `collection_rooms/assets/additions/grey/daubigny-73.120.jpg` | 320 × 180 | `8aec12616703aa220e4756fc48e74e626f1029e92a0d60b839052d755fb39d2e` |
+| 73.120 | detail: `collection_rooms/assets/details/73.120-preview.jpg` | 896 × 505 | `499f9b65b5dd47d6bec9d76149f8c450f60308d6b1c786fe3b2d6c4aca455f2e` |
+| 73.120 | zoom_external: `prototype/gallery_walk4/zoom/73.120.jpg` | 4087 × 2303 | `5a24f697f6c9ed260b72394cefcc6206ce8fe0696c89b9a860161878b817fa42` |
+| 56.099 | wall: `collection_rooms/assets/additions/grey/eastlake-56.099.jpg` | 256 × 189 | `5bbd0476d49a9767e6a3b95b9c483317a1779c5f270de078d1b13f72656d6b13` |
+| 56.099 | detail: `collection_rooms/assets/details/56.099-preview.jpg` | 896 × 662 | `d100f7f49b991985b176b183999fea3b3bd45d8b8cb94e17b13bac5ca2fab74e` |
+| 56.099 | zoom_external: `prototype/gallery_walk4/zoom/56.099.jpg` | 3720 × 2747 | `61d43cffe5c03231ea01fb31d5f12a49e8125aebfd7e36acf01d9309c6f0d484` |
+| 56.094 | wall: `collection_rooms/assets/additions/grey/pannini-56.094.jpg` | 256 × 139 | `a3f5386c8249007a795ab0d8fd0c0585d58f455f2371625e41e867c5c272f3c9` |
+| 56.094 | detail: `collection_rooms/assets/details/56.094-preview.jpg` | 896 × 486 | `afc407f2d6e73ce9bca968ec281f6341e136f21ec4f4cef44aecec99dd0aa568` |
+| 56.094 | zoom_external: `prototype/gallery_walk4/zoom/56.094.jpg` | 3803 × 2064 | `6775afcfa50021af7437bbb8ed9a019a4bd94d660448e15463bc18add132c570` |
+| 1998.35 | wall: `collection_rooms/assets/additions/grey/villeneuve-1998.35.jpg` | 192 × 145 | `83c8ebda7ff40b5905b0d0157249fa4e977b358fbe880cadb967de1c7bc379be` |
+| 1998.35 | detail: `collection_rooms/assets/details/1998.35-preview.jpg` | 896 × 676 | `158d2a69da93c7cd2d03de1b2cb3a243c95181ad8f8f845bcbf4388669d0fcae` |
+| 1998.35 | zoom_external: `prototype/gallery_walk4/zoom/1998.35.jpg` | 4087 × 3084 | `2871e1e86148acd2cc7c0c4c49acf236244bd064daf07a9e141753fe161630b4` |
+
+#278 final measurement note: six French canvases cover 126–211 native pixels in the mounted Shell and use 192–320 px wall copies. These are measured on the mesh carrying the wall photograph, excluding its frame and blank label. Other added-room `work_render_px` values are conservative complete-work extents where current camera orientation prevents a face-on canvas measurement. All full zoom files are external, and all fitted previews are 896 px.
+
+### 2026-10-08 — Rooms rebuilt for place_mesh(); no placed mesh ships (#264)
+
+`scripts/rebuild_rooms.sh` on the merged tree: 1554 surfaces, 430 probes, no generation, USD 0.
+`collection_rooms/addition_baked/room.exr` is byte-identical to the #258 bake
+(`f3bf79f555332076928ee7339b4673113966a9cbb4842f192ce214e1714ee264`): nothing a visitor sees changed.
+The proof pictures in `docs/evidence/mesh-placing-264/` were taken at commit `2432986c` with a
+6,000-triangle copy of the owner's scan of Portrait of Hadrian (59.050) standing in for the Head of
+Christ (59.131). That copy is not in the build. The check's fixture is the visitor's own model,
+`character/walk.glb`, placed only when the check asks.

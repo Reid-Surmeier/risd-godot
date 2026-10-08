@@ -1,6 +1,8 @@
 extends SceneTree
 
 var _faults := []
+var _last_foot := -1
+var _since_step := 99
 
 
 func _initialize() -> void:
@@ -48,7 +50,7 @@ func _run() -> void:
 		"REST_HEIGHT no longer matches walk.glb: %s" % (rest_height / visitor.model.scale.y)
 	)
 	# LANDINGS must be where the walk clip really puts each foot down after its high lift.
-	for gait in ["walk", "run", "dash"]:
+	for gait in ["walk", "dash"]:
 		visitor.player.play(gait)
 		var clip_length: float = visitor.player.get_animation(gait).length
 		var lifted := [false, false]
@@ -143,7 +145,8 @@ func _run() -> void:
 		peaks.append(peak)
 	assert(peaks.max() - peaks.min() < 0.03, "jump height depends on the frame rate: %s" % [peaks])
 	# #259: one stride carries through every gait change. Shift pressed and released
-	# mid-stride, and a sprint that slows through a turn, may not restart the cycle.
+	# mid-stride, and a sprint that slows through a turn, may not restart the cycle, and
+	# each foot sounds in turn: never the same one twice, never two within a fifth of a second.
 	visitor.reset()
 	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
 	for leg in [[1.2, 100], [3.0, 90], [1.2, 90], [3.0, 45], [2.2, 30], [3.0, 45]]:
@@ -153,6 +156,7 @@ func _run() -> void:
 	for case in [[0.0, "idle"], [1.2, "walk"], [3.0, "dash"]]:
 		visitor.reset()
 		visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
+		_last_foot = -1  # a stride from a stand may open on either foot
 		_travel(visitor, case[0], 90)
 		visitor.jump()
 		var landing_ticks := 0
@@ -224,6 +228,57 @@ func _run() -> void:
 	_key(gallery, KEY_A, false)
 	_shift(false)
 	await create_timer(0.5).timeout
+	# #280: a floor click made while a movement key is held gives way to the key. The visitor
+	# keeps its one walking speed (never the key's travel plus the route's) and the route is
+	# dropped, whether the key leads towards the clicked floor (W) or away from it (S).
+	gallery.size = Vector2(960, 640)
+	await process_frame
+	for code in [KEY_W, KEY_S]:
+		gallery._new_action()
+		gallery._target = null
+		gallery._pos = Vector3(-2.6, 0, -13.0)
+		gallery._last_pos = gallery._pos
+		gallery._update_camera(1.0)
+		_key(gallery, code, true)
+		await create_timer(0.5).timeout
+		var up_screen := Vector3(-sin(gallery.view_yaw), 0, -cos(gallery.view_yaw))
+		var spot: Vector2 = gallery._to_screen(gallery._pos + up_screen * 4.0)
+		assert(
+			(
+				Rect2(Vector2.ZERO, gallery.size).has_point(spot)
+				and gallery._painting_at(spot).is_empty()
+			),
+			"the #280 floor click is not on visible floor: %s" % spot
+		)
+		for pressed in [true, false]:
+			var click := InputEventMouseButton.new()
+			click.button_index = MOUSE_BUTTON_LEFT
+			click.pressed = pressed
+			click.position = spot
+			gallery._gui_input(click)
+		await process_frame  # timers fire after the frame's movement: start on a frame edge
+		var slowest := INF
+		var fastest := 0.0
+		for _tick in 60:
+			var from: Vector3 = gallery._pos
+			await process_frame
+			var mps: float = gallery._pos.distance_to(from) / root.get_process_delta_time()
+			slowest = minf(slowest, mps)
+			fastest = maxf(fastest, mps)
+		var held_key := "W" if code == KEY_W else "S"
+		_expect(
+			fastest < gallery.WALK_MPS * 1.05 and slowest > gallery.WALK_MPS * 0.95,
+			(
+				"%s held through a floor click walked at %.2f to %.2f m/s, not %.2f"
+				% [held_key, slowest, fastest, gallery.WALK_MPS]
+			)
+		)
+		_expect(
+			gallery._target == null and gallery._path.is_empty(),
+			"a click route survived the held %s key" % held_key
+		)
+		_key(gallery, code, false)
+		await create_timer(0.5).timeout
 	gallery._set_view(2)
 	await process_frame
 	var turn_start: float = gallery._kid.rotation.y
@@ -258,14 +313,15 @@ func _run() -> void:
 	if not _faults.is_empty():
 		for fault in _faults:
 			push_error(fault)
-		print("FAIL #259: %d locomotion faults" % _faults.size())
+		print("FAIL #259/#280: %d locomotion faults" % _faults.size())
 		quit(1)
 		return
 	print(
 		(
 			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, "
 			+ "90/180-degree turns, floor contact and step cadence, gestures disabled; "
-			+ "#259: one stride through gait changes, landings, sprint reversal skid"
+			+ "#259: one stride through gait changes, landings, sprint reversal skid; "
+			+ "#280: a held key outranks a floor click, one walking speed"
 		)
 	)
 	quit()
@@ -276,15 +332,22 @@ func _expect(ok: bool, fault: String) -> void:
 		_faults.append(fault)
 
 
-# How far through its cycle the gait clip is; -1 outside walk, run and dash, which are
-# authored on one cycle (their poses are closest at the same share of the clip).
+# Share of a stride since the left foot landed, the same in every gait; -1 outside them.
 func _stride(visitor: Node3D) -> float:
-	if not visitor.LANDINGS.has(visitor.player.current_animation):
+	var clip: String = visitor.player.current_animation
+	if not visitor.LANDINGS.has(clip):
 		return -1.0
-	return visitor.player.current_animation_position / visitor.player.current_animation_length
+	return fposmod(
+		(
+			visitor.player.current_animation_position / visitor.player.current_animation_length
+			- visitor.LANDINGS[clip][0]
+		),
+		1.0
+	)
 
 
-# Travel at `speed` for `ticks`. The stride runs on: no restart and no step backwards.
+# Travel at `speed` for `ticks`. The stride runs on, with no restart and no step backwards,
+# and the feet sound in turn.
 func _travel(visitor: Node3D, speed: float, ticks: int) -> void:
 	for _tick in ticks:
 		var before := _stride(visitor)
@@ -292,6 +355,19 @@ func _travel(visitor: Node3D, speed: float, ticks: int) -> void:
 		visitor.position.z -= speed / 60.0
 		visitor.pose(1.0 / 60.0, speed > 0.0, 0.0, Vector3.FORWARD, 0.0)
 		var after := _stride(visitor)
+		_since_step += 1
+		if visitor.contacts > 0:
+			# The right foot lands 0.48 of a stride after the left in both gaits.
+			var foot := int(after > 0.24 and after < 0.74)
+			_expect(
+				visitor.contacts == 1 and foot != _last_foot and _since_step >= 12,
+				(
+					"%d steps sounded %d ticks after the last, in %s"
+					% [visitor.contacts, _since_step, visitor.player.current_animation]
+				)
+			)
+			_last_foot = foot
+			_since_step = 0
 		_expect(
 			before < 0.0 or after < 0.0 or fposmod(after - before, 1.0) < 0.06,
 			(

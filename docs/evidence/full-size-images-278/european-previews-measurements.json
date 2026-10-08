@@ -1,0 +1,366 @@
+{
+  "before": {
+    "doors": [],
+    "failures": [
+      {
+        "detail": {
+          "picked": "",
+          "result": "not clickable from in front of it",
+          "room": "marble stair hall",
+          "screen": [
+            348,
+            -114
+          ],
+          "tag": "2011.60#153",
+          "title": "Gilded Frost and Jet Chandelier",
+          "view": "follow"
+        },
+        "kind": "object",
+        "what": "2011.60#153: a click on it does not select it"
+      }
+    ],
+    "objects": [
+      {
+        "camera_glided": true,
+        "flat_share": 0.352,
+        "picked": "54.186#14",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          113
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "54.186#14",
+        "title": "Venus and Adonis",
+        "title_shown": "Venus and Adonis",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          226,
+          86,
+          243,
+          201
+        ],
+        "zoom_fit_px": [
+          682.0,
+          514.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3079.0
+        ],
+        "zoom_image_px": [
+          600,
+          452
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2017.46#127",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          166
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "2017.46#127",
+        "title": "Commode",
+        "title_shown": "Commode",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          225,
+          68,
+          244,
+          240
+        ],
+        "zoom_fit_px": [
+          682.0,
+          467.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          2799.0
+        ],
+        "zoom_image_px": [
+          536,
+          367
+        ]
+      },
+      {
+        "picked": "",
+        "result": "not clickable from in front of it",
+        "room": "marble stair hall",
+        "screen": [
+          348,
+          -114
+        ],
+        "tag": "2011.60#153",
+        "title": "Gilded Frost and Jet Chandelier",
+        "view": "follow"
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "far"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 1,
+      "objects": 3,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  },
+  "after": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          194.0,
+          319.0
+        ],
+        "canvas_screen_px": [
+          194.0,
+          319.0
+        ],
+        "flat_share": 0.353,
+        "picked": "W6",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "Grand Gallery",
+        "screen": [
+          287,
+          111
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "W6",
+        "title": "The Angel of Fame (c.1750)",
+        "title_shown": "The Angel of Fame (c.1750)",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          250,
+          25,
+          195,
+          319
+        ],
+        "zoom_fit_px": [
+          438.0,
+          702.0
+        ],
+        "zoom_full_px": [
+          2627.0,
+          4210.0
+        ],
+        "zoom_image_px": [
+          2626,
+          4210
+        ]
+      },
+      {
+        "camera_glided": true,
+        "canvas_render_px": [
+          199.0,
+          254.0
+        ],
+        "canvas_screen_px": [
+          199.0,
+          254.0
+        ],
+        "flat_share": 0.353,
+        "picked": "S1",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "Grand Gallery",
+        "screen": [
+          348,
+          85
+        ],
+        "seconds_to_open": 2.0,
+        "tag": "S1",
+        "title": "Wisdom and Strength (c.1572)",
+        "title_shown": "Wisdom and Strength (c.1572)",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          234,
+          44,
+          227,
+          282
+        ],
+        "zoom_fit_px": [
+          542.0,
+          702.0
+        ],
+        "zoom_full_px": [
+          3251.0,
+          4210.0
+        ],
+        "zoom_image_px": [
+          3252,
+          4210
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "54.186#14",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          113
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "54.186#14",
+        "title": "Venus and Adonis",
+        "title_shown": "Venus and Adonis",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          226,
+          86,
+          243,
+          201
+        ],
+        "zoom_fit_px": [
+          682.0,
+          514.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3079.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3081
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "84.198.1032#21",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          339,
+          122
+        ],
+        "seconds_to_open": 1.8,
+        "tag": "84.198.1032#21",
+        "title": "River Landscape with Mercury Abducting Psyche",
+        "title_shown": "River Landscape with Mercury Abducting Psyche",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          252,
+          109,
+          188,
+          154
+        ],
+        "zoom_fit_px": [
+          682.0,
+          557.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3337.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3337
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.354,
+        "picked": "2017.46#127",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          166
+        ],
+        "seconds_to_open": 2.2,
+        "tag": "2017.46#127",
+        "title": "Commode",
+        "title_shown": "Commode",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          225,
+          68,
+          244,
+          240
+        ],
+        "zoom_fit_px": [
+          682.0,
+          466.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          2796.0
+        ],
+        "zoom_image_px": [
+          4087,
+          2794
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "arch"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 5,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  }
+}

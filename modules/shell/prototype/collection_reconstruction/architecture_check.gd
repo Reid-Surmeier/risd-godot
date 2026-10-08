@@ -46,7 +46,7 @@ func run() -> void:
 			if node.get_parent().get_meta("room_wall", "") != "light Renaissance room:"+str(node.get_meta("wall_side")):
 				failures.append("Wall artwork lost its cutaway owner: "+key)
 			for flag in ["placement_accepted","metric_accepted","frame_accepted","fine_fidelity_accepted","whole_room_accepted"]:
-				if node.get_meta(flag,true):failures.append("Wall artwork prematurely accepted: "+key)
+				if not node.has_meta(flag):failures.append("Wall artwork lost its acceptance flag: "+key+"."+flag)
 			# Independent Opus source-plane fits: native6383 6.1/68.4/68.5/15.1s, ±6cm.
 			var bottom:=INF
 			for mesh in node.get_children():
@@ -72,8 +72,6 @@ func run() -> void:
 			var owner:Node=node.get_parent()
 			while owner!=null and not owner.has_meta("renaissance_wall_case"):owner=owner.get_parent()
 			if owner==null:failures.append("Renaissance object lost case owner: "+key)
-			for flag in ["placement_accepted","fine_fidelity_accepted","metric_accepted","whole_room_complete"]:
-				if node.get_meta(flag,false):failures.append("Renaissance object prematurely accepted: "+key)
 		if node.has_meta("wall_case_top_rail"):
 			case_rails += 1
 			if not (node.get_parent().has_meta("pieta_wall_case") or node.get_parent().has_meta("triptych_wall_case")):
@@ -87,7 +85,7 @@ func run() -> void:
 				failures.append("Pietà lost its catalogue bounds or window-relative placement")
 			if figure != null:
 				for flag in ["visual_fidelity_accepted","rear_fidelity_accepted","placement_accepted","survey_metres_accepted","whole_room_complete"]:
-					if figure.get_meta(flag,true):failures.append("Pietà prematurely accepted: "+flag)
+					if not figure.has_meta(flag):failures.append("Pietà lost its acceptance flag: "+flag)
 		if node.has_meta("triptych_wall_case"):
 			if node.get_parent().get_meta("room_wall", "") != "light Renaissance room:north":
 				failures.append("Triptych case lost its north-wall cutaway owner")
@@ -110,8 +108,8 @@ func run() -> void:
 			if edges.is_empty() or not edges.values().all(func(n):return n==2):
 				failures.append("Triptych panel has an open edge: "+str(node.get_meta("triptych_panel")))
 			for flag in ["placement_accepted","metric_accepted","fine_fidelity_accepted"]:
-				if node.get_parent().get_meta(flag,true):
-					failures.append("Triptych prematurely accepted: "+flag)
+				if not node.get_parent().has_meta(flag):
+					failures.append("Triptych lost its acceptance flag: "+flag)
 		if node.has_meta("renaissance_north_grille"):
 			grilles += 1
 			if node.get_parent().get_meta("room_wall", "") != "light Renaissance room:north:header" or not node.global_position.is_equal_approx(Vector3(-2.5,3.20,28.19)) or node.get_child_count()!=5:
@@ -135,8 +133,8 @@ func run() -> void:
 			for n in spec.risers:
 				count += int(n)
 			var well: Array = scene.room_bounds("lion stair landing")
-			if not is_equal_approx(spec.storey_m, spec.rise_m * count) or absf(reach.position.y + spec.storey_m) > .3 or reach.size.x < well[1] - well[0] - .2 or reach.end.z < well[3] - .1 or spec.metric_accepted:
-				failures.append("Landing stair does not fill its well, reach the floor below, or is prematurely accepted")
+			if not is_equal_approx(spec.storey_m, spec.rise_m * count) or absf(reach.position.y + spec.storey_m) > .3 or reach.size.x < well[1] - well[0] - .2 or reach.end.z < well[3] - .1 or not spec.has("metric_accepted"):
+				failures.append("Landing stair does not fill its well, reach the floor below, or lost its acceptance flag")
 		if node.has_meta("saint_roch_installation"):
 			roch += 1
 			var figure = node.find_child("SaintRoch21398", true, false)
@@ -146,8 +144,8 @@ func run() -> void:
 				failures.append("Saint Roch lost its catalogue height or provisional window placement")
 			if figure != null:
 				for flag in ["visual_fidelity_accepted", "rear_fidelity_accepted", "placement_accepted", "survey_metres_accepted"]:
-					if figure.get_meta(flag, true):
-						failures.append("Saint Roch prematurely accepted: " + flag)
+					if not figure.has_meta(flag):
+						failures.append("Saint Roch lost its acceptance flag: " + flag)
 			var hood := 0
 			for pane in node.get_children():
 				if pane is MeshInstance3D and pane.material_override is StandardMaterial3D and pane.material_override.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA:
@@ -193,9 +191,12 @@ func run() -> void:
 				failures.append("Skylight door leaf lost its reveal owner or collision")
 	if lifts != 3 or leaves != 2 or casings < 10 or roch != 1 or grilles != 1 or hall_leaves != 2 or linings != 2:
 		failures.append("Missing lift, leaf, reveal or casing coverage")
-	for flag in ["depth_measured", "opening_metres_accepted", "leaf_fidelity_accepted", "rockefeller_leaf_built"]:
+	for flag in ["depth_measured", "rockefeller_leaf_built"]:
 		if scene.inventory.hall_reveal.get(flag, true):
-			failures.append("Hall reveal prematurely accepted: " + flag)
+			failures.append("Hall reveal claims what is not built or measured: " + flag)
+	for flag in ["opening_metres_accepted", "leaf_fidelity_accepted"]:
+		if not scene.inventory.hall_reveal.has(flag):
+			failures.append("Hall reveal lost its acceptance flag: " + flag)
 	if landing_stairs != 1 or landing_guards != 1:
 		failures.append("Landing needs one open-well stair and one guard across its edge")
 	if triptych_panels!=3:failures.append("Triptych needs three closed source panels")
@@ -207,5 +208,46 @@ func run() -> void:
 	if west_blinds!=1 or west_sills!=1:failures.append("Renaissance west window missing")
 	print("RENAISSANCE_WALL_CHECK ",JSON.stringify({"objects":wall_objects,"hood_panes":hood_panes,"platforms":textile_platforms,"label_stands":textile_labels}))
 	if case_rails!=8:failures.append("Pietà and triptych need their eight narrow source top rails")
+	# Acceptance: a flag ending in _accepted may be true only with a record in acceptance.json
+	# under "<subject>.<flag>" (what was measured, from what, the evidence file, the reviewer and
+	# the commit; scripts/check_museum_records.py checks the record itself). A record whose flag
+	# is not true is stale.
+	var flags := {}
+	_flags_in("inventory", scene.inventory, flags)
+	for node in scene.find_children("*", "Node", true, false):
+		var subject := str(node.name)
+		for key in ["renaissance_case_object", "renaissance_wall_object", "catalogue_asset", "catalogue_accession"]:
+			if node.has_meta(key):
+				subject = str(node.get_meta(key))
+		for meta in node.get_meta_list():
+			var value = node.get_meta(meta)
+			if str(meta).ends_with("_accepted"):
+				flags[subject + "." + meta] = flags.get(subject + "." + meta, false) or value == true
+			elif value is Dictionary:
+				_flags_in(subject + "." + meta, value, flags)
+	var records: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://acceptance.json")).records
+	var accepted: Array = []
+	for key in flags:
+		if not flags[key]:
+			continue
+		accepted.append(key)
+		if key.begins_with("@"):
+			failures.append("Accepted on an unnamed node; name it or give it an accession first: " + key)
+		elif not records.has(key):
+			failures.append("Accepted without a record in acceptance.json: " + key)
+	for key in records:
+		if not flags.get(key, false):
+			failures.append("Acceptance record without a true flag in the room code: " + key)
+	accepted.sort()
+	print("ACCEPTANCE_CHECK ", JSON.stringify({"flags": flags.size(), "accepted": accepted, "records": records.size()}))
 	print("ARCHITECTURE_CHECK ", JSON.stringify({"lift_features": lifts, "leaf": leaves, "hall_reveal_leaves": hall_leaves, "rockefeller_linings": linings, "casings": casings, "saint_roch": roch, "grilles": grilles, "triptych_panels": triptych_panels, "pieta_cases": pieta_cases, "case_rails":case_rails,"east_cases":east_cases,"east_objects":east_objects, "failures": failures}))
 	quit(0 if failures.is_empty() else 1)
+
+## Every key ending in _accepted inside `data`, however deep, as "<prefix>.<key>" -> is it true.
+func _flags_in(prefix: String, data: Dictionary, flags: Dictionary) -> void:
+	for key in data:
+		var value = data[key]
+		if value is Dictionary:
+			_flags_in(prefix + "." + str(key), value, flags)
+		elif str(key).ends_with("_accepted"):
+			flags[prefix + "." + str(key)] = flags.get(prefix + "." + str(key), false) or value == true

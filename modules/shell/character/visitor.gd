@@ -1,7 +1,7 @@
 extends Node3D
 ## #236 Collection visitor: the accepted #235 character behind the surface walk4.gd drives.
 ## The museum owns position, collision and camera; this node only faces, animates and sounds.
-## Walk, run, dash, skid and jump come from the package; tools and doors stay in the playtest.
+## Walk, dash, skid and jump come from the package; its run, tools and doors stay in the playtest.
 const HOME := "res://modules/shell/character/"
 const Demo := preload("res://modules/shell/character/demo.gd")
 # Skinned rest height of walk.glb in metres, horns included; visitor174_check.gd re-measures it.
@@ -9,8 +9,7 @@ const REST_HEIGHT := 1.877
 # Where in each gait clip a foot lands after its high lift, as a share of the clip
 # (Left, Right), measured at 480 samples. Steps sound when playback crosses these, so they
 # stay in time with the visible landing at any frame rate. visitor174_check.gd re-measures.
-# In the run both feet leave the floor; its right foot dips at 0.43 before landing at 0.57.
-const LANDINGS := {"walk": [0.823, 0.304], "run": [0.079, 0.567], "dash": [0.842, 0.323]}
+const LANDINGS := {"walk": [0.823, 0.304], "dash": [0.842, 0.323]}
 # The museum's sprint is faster than this many metres a second; its walk is slower.
 const SPRINT_FROM := 2.5
 # The accepted playtest's hop: 0.05 s crouch, 3.6 m/s launch, 0.23 s landing.
@@ -60,9 +59,9 @@ var _timing := false  # ?qa-sound in the page address: each step's time is publi
 var _previous := Vector3.ZERO
 var _has_previous := false
 var _clip := ""
-# How far through its cycle the gait is, as a share of the clip. Walk, run and dash are
-# authored on one cycle (their poses are closest at the same share), so each is entered
-# where the last had got to and a change of gait never restarts the stride (#259).
+# Share of a stride since the left foot landed. Walk and dash are entered where the stride
+# had got to, so a change of gait never restarts the cycle and each foot still sounds once,
+# on its landing (#259). Their poses agree at that share to within 0.03 of a cycle.
 var _stride := 0.0
 var _asked := 0.0  # the yaw last asked for: a skid answers a change in it, not the body's lag
 
@@ -95,12 +94,12 @@ func _ready() -> void:
 					else reference.lerp(value, 0.5)
 				)
 			)
-	for gait in ["run", "dash", "skid"]:
+	for gait in ["dash", "skid"]:
 		var source: Node3D = load(HOME + gait + ".glb").instantiate()
 		var clips: AnimationPlayer = source.find_children("*", "AnimationPlayer", true, false)[0]
 		library.add_animation(gait, clips.get_animation("walk").duplicate())
 		source.free()
-	for clip in ["idle", "walk", "run", "dash"]:
+	for clip in ["idle", "walk", "dash"]:
 		library.get_animation(clip).loop_mode = Animation.LOOP_LINEAR
 	player.callback_mode_process = AnimationMixer.ANIMATION_CALLBACK_MODE_PROCESS_MANUAL
 	player.play("idle")
@@ -260,14 +259,21 @@ func pose(
 		if _skid <= 0.0:
 			_clip = ""
 	else:
-		clip = {"Idle": "idle", "Walk": "walk", "Run": "run", "Dash": "dash"}.get(
-			movement.gait, "idle"
-		)
+		# The museum moves at two speeds, so the package's run clip only ever flashed past
+		# between them, and its feet land a quarter of a cycle later than the walk's and the
+		# dash's (0.079, 0.567): steps doubled or went silent around it (#259). Here a sprint
+		# is the dash and anything slower the walk.
+		clip = {
+			"Idle": "idle", "Walk": "walk", "Run": "dash" if sprint else "walk", "Dash": "dash"
+		}.get(movement.gait, "idle")
 		if clip != _clip:
 			_clip = clip
 			player.play(clip, 0.167 if delta > 0 else 0.0)
 			if clip != "idle":
-				player.seek(_stride * player.current_animation_length, false)
+				player.seek(
+					fposmod(_stride + LANDINGS[clip][0], 1.0) * player.current_animation_length,
+					false
+				)
 		player.speed_scale = (
 			1.0
 			if clip == "idle"
@@ -276,11 +282,12 @@ func pose(
 		var before := player.current_animation_position
 		player.advance(delta)
 		# A walk from a stand opens on the clip's first frame, as it always has.
-		_stride = (
-			0.0
-			if clip == "idle"
-			else player.current_animation_position / player.current_animation_length
-		)
+		_stride = -LANDINGS["walk"][0]
+		if clip != "idle":
+			_stride = (
+				player.current_animation_position / player.current_animation_length
+				- LANDINGS[clip][0]
+			)
 		if clip != "idle" and speed > 0.08:
 			var length := player.current_animation_length
 			var after := player.current_animation_position
@@ -336,7 +343,7 @@ func _hop(delta: float, moving: bool) -> void:
 		if _landed >= (JUMP_SQUASH if moving else JUMP_LANDING):
 			_air = -1.0
 			_clip = ""  # the next pose blends back into the gait
-			_stride = 0.0  # stride out as from a stand
+			_stride = -LANDINGS["walk"][0]  # stride out as from a stand
 			return
 	elif _air >= JUMP_CROUCH:
 		if not _launched:

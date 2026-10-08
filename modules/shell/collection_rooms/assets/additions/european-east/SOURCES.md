@@ -1,6 +1,6 @@
 # Sources: European gallery, east wall and floor pieces (#238)
 
-Every picture here is the RISD Museum catalogue record's own photograph (600 px preview from the record page), cropped where noted in the build notes. Records and pages were read on 2026-10-01 through the museum's collection API (`https://risdmuseum.org/api/v1/collection`) and object pages, using the Scrapling fetcher. Each record lists "European Galleries" as its current exhibition. The catalogue marks every image below `public` (public domain / CC0) unless the row says otherwise.
+Every picture here is the RISD Museum catalogue record's own photograph (initially a 600 px preview from the record page), cropped where noted in the build notes. Records and pages were read on 2026-10-01 through the museum's collection API (`https://risdmuseum.org/api/v1/collection`) and object pages, using the Scrapling fetcher. Each record lists "European Galleries" as its current exhibition. The catalogue marks every image below `public` (public domain / CC0) unless the row says otherwise.
 
 | File | Accession | Maker, title, date | Catalogue dimensions | Credit line | Record | Image |
 | --- | --- | --- | --- | --- | --- | --- |
@@ -36,3 +36,11 @@ Every picture here is the RISD Museum catalogue record's own photograph (600 px 
 | `cabinet-75.023.jpg` | 75.023 | Unknown Maker, German, *Writing Desk (Schreibtisch)*, ca. 1590 | 45.1 x 60.6 x 33.3 cm (17 3/4 x 23 7/8 x 13 1/8 inches) | Anonymous gift | https://risdmuseum.org/art-design/collection/writing-desk-schreibtisch-75023 | https://risdmuseum.cdn.picturepark.com/v/cCLV8e5r/ (public) |
 
 Not used as pictures but named in the build as candidates: Johann Joachim Kändler, *Turkish Man with Basket* 37.087 and *Turkish Woman with Basket* 37.086 (Meissen; on view; record photographs not compared with the footage).
+
+#278 (2026-10-08): the Bruegel print, Cake Basket and Writing Desk now derive from the museum high-resolution originals, using the same crop as the prior catalogue preview. Their wall copies are 256 px; separate zoom copies are 4087, 3900 and 4063 px respectively, capped by native source pixels. See Shell `PROVENANCE.md` and `collection_rooms/objects.json` for source URLs, hashes and crop rectangles.
+
+#278 follow-up: Poussin 54.186 and Cressent 2017.46 now use 320 px wall photographs, 896 px fitted previews and 4087 px full zooms copied beside the Web pack. Their primary sources are https://iiif.micr.io/TpFJT/full/!4320,4320/0/default.jpg and https://iiif.micr.io/AanBB/296,516,4932,3372/4087,/0/default.jpg; full hashes and crop information are in Shell `PROVENANCE.md`.
+
+#278 ceramic follow-up: 2016.62, 2016.102.2 and 35.703 now have measured 256–384 px wall copies, 896 px fitted previews and source-capped 3967–4087 px full catalogue zooms beside the pack. URLs, crops and hashes are in Shell `PROVENANCE.md`.
+
+#278 final European wall batch: 57.167, 69.197, 34.1371, 57.281 and 53.349 use catalogue originals, measured 256–320 px wall copies, 896 px fitted previews and source-capped 3254–4210 px full zoom photographs. TIFF native dimensions were checked for the three smaller sources. All new full zooms, including the earlier seven, now sit beside the pack; see Shell `PROVENANCE.md` for exact URLs, source pixels and hashes.

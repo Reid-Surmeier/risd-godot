@@ -67,23 +67,67 @@ var _inspect_fov := 23.0
 var _glide_from := Transform3D()
 var _glide_fov := 23.0
 var _glide_t := 1.0  # 0 the camera before a view change, 1 the new view
+# PROTOTYPE (#260): one stage is drawn at a time and a doorway changes it under a round wipe,
+# timed from docs/research/2026-10-08-acnh-room-change-and-landing.md. A stage is one area of
+# geometry.json plus the wall thicknesses and stubs JOINED to it; the Hall is stage -1.
+const WIPE_CLOSE := 1.333  # radius 1.19 half-diagonals -> 0; the last 0.93 s is on screen
+const WIPE_HOLD := 0.5
+const WIPE_OPEN := 0.889
+const WIPE_BACK := 0.6  # into the opening, the keys come back
+const WIPE_RADIUS := 1.19
+const VOID := Color(0.03, 0.03, 0.04)  # what a doorway and the floor beyond the stage show
+const PORTAL_LAYER := 8192  # the stone portal stands in the medieval room but is the Hall's mesh
+const PORTAL_ROOM := "dark medieval room"
+const NO_STAGE := -2
+const JOINED := {
+	"Grand Gallery reveal threshold": "grey French gallery",
+	"purple elevator-5 connector": "grey French gallery",
+	"marble stair hall": "grey French gallery",  # open to it along its whole side
+	"Rockefeller reveal threshold": "Rockefeller",
+	"Skylight Gallery reveal threshold": "Skylight Gallery",
+	"white sculpture gallery threshold study limit": "lion stair landing",
+	"modern adjoining gallery threshold study limit": "modern painting gallery",
+}
+var _stage := NO_STAGE  # the stage drawn
+var _stage_ids: Array[int] = []  # _plan index -> its stage
+var _stage_pos := Vector3.ZERO  # the visitor at the last camera update; a jump means it was placed
+var _floor_mask: MeshInstance3D
+var _floor_mask_stage := NO_STAGE
+var _wipe: ColorRect
+var _wipe_t := -1.0  # seconds into a change; negative when none is under way
+var _wipe_dir := Vector3.ZERO
+var _wipe_cam := Transform3D()  # the view held while the wipe closes
+var _wipe_fov := 23.0
+var _wipe_mask := 0
+var _seen_cam := Transform3D()  # the last view drawn
+var _seen_fov := 23.0
+var _seen_mask := 0
+var _wipe_fill := 0.65
+var _wipe_fade: Tween
+var _rooms_path := ""  # the room scene still to be built; empty once it is, or when there is none
+var _wipe_space := ""  # the space the first doorway leads to, entered once the rooms exist
+var _wipe_wait := 0
 
 
+# The launch reads only the plan (#281). The room scene itself, half the launch's work, is
+# built the first time the visitor leaves the Hall, behind the room-change wipe's black.
 func _build_test_room() -> void:
 	super()
 	for path in ROOM_SCENES:
 		if ResourceLoader.exists(path):
-			_attach_rooms(path)
+			if _read_plan(path):
+				_rooms_path = path
+				_build_stages()
 			return
 
 
-func _attach_rooms(path: String) -> void:
+func _read_plan(path: String) -> bool:
 	var plan = JSON.parse_string(
 		FileAccess.get_file_as_string(path.get_base_dir().path_join("geometry.json"))
 	)
 	if not (plan is Dictionary and plan.has("rooms")):
 		push_error("Collection rooms: geometry.json missing beside " + path)
-		return
+		return false
 	for area in plan.rooms:
 		if area.label == HALL_ROOM:
 			continue
@@ -103,6 +147,12 @@ func _attach_rooms(path: String) -> void:
 		if area.has("floor_void"):
 			var v: Array = area.floor_void
 			_blocks.append(Rect2(v[0] + ATTACH.x, v[2] + ATTACH.z, v[1] - v[0], v[3] - v[2]))
+	return true
+
+
+func _attach_rooms(path: String) -> void:
+	var began := Time.get_ticks_msec()
+	_rooms_path = ""
 	_rooms = load(path).instantiate()
 	_rooms.set_meta("main_build_host", true)
 	# The room scene builds itself in its own metres (its Hall-footprint tests are absolute),
@@ -216,13 +266,16 @@ func _attach_rooms(path: String) -> void:
 			child.hide()
 	_collect_objects()
 	_collect_parts()
-	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()))
+	for wall in _walls:
+		wall["at"] = wall.room if wall.room >= 0 else _room_of(wall.box)
+	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()), " ms=", Time.get_ticks_msec() - began)
 
 
 ## What the checks read: counts only, no behaviour.
 func state() -> Dictionary:
 	return {
 		"attached": _rooms != null,
+		"pending": _rooms_path != "",
 		"rooms": _plan.size(),
 		"blocks": _blocks.size(),
 		"cutaway_bodies": _walls.size(),
@@ -372,7 +425,8 @@ func _collect_objects() -> void:
 				)
 			),
 			"medium": str(node.get_meta("catalogue_medium", "")),
-			"dimensions": str(node.get_meta("catalogue_dimensions", ""))
+			"dimensions": str(node.get_meta("catalogue_dimensions", "")),
+			"identified": bool(node.get_meta("catalogue_identified", true))
 		}
 		if ResourceLoader.exists(str(node.get_meta("catalogue_image", ""))):
 			image = load(node.get_meta("catalogue_image"))
@@ -387,7 +441,8 @@ func _collect_objects() -> void:
 					)
 				),
 				"medium": str(row.get("medium", "")),
-				"dimensions": str(row.get("dimensions", ""))
+				"dimensions": str(row.get("dimensions", "")),
+				"identified": bool(row.get("identified", true))
 			}
 			if ResourceLoader.exists(str(row.get("image", ""))):
 				image = load(row.image)
@@ -689,6 +744,7 @@ func _fit_detail() -> void:
 	if _caption == null:
 		_caption = Label.new()
 		_caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
+		_caption.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 		_caption.mouse_filter = Control.MOUSE_FILTER_IGNORE
 		_caption.add_theme_color_override("font_color", Color("2a2622"))
 		_detail.add_child(_caption)
@@ -700,9 +756,32 @@ func _fit_detail() -> void:
 	if str(rec.get("acc", "")) != "":
 		lines.append("RISD Museum " + str(rec.acc))
 	_caption.text = "\n".join(lines)
-	_caption.size = Vector2(size.x, 0)
-	# Along the foot of the panel: a framed Hall painting reaches below its own picture.
-	_caption.position = Vector2(0, size.y - 22.0 * lines.size() - 12.0)
+	_caption.size = Vector2(size.x * 0.9, 0)
+	_caption.size.y = _caption.get_minimum_size().y
+	# The caption reads under the work, never across it (#271): the work, frame and all, is
+	# made as much smaller as it takes for the two to share the page.
+	var pic: TextureRect = _zoom_root.get_node("Painting")
+	var frame: NinePatchRect = _zoom_root.get_node("Frame")
+	var work := Rect2(Vector2.ZERO, pic.size)
+	if frame.visible:
+		work = work.merge(Rect2(frame.position, frame.size * frame.scale))
+	var gap := 14.0
+	var k := minf(1.0, (size.y - _caption.size.y - gap * 3.0) / work.size.y)
+	pic.size *= k
+	frame.scale *= k
+	frame.position *= k
+	_zoom_root.size *= k
+	work = Rect2(work.position * k, work.size * k)
+	var top := (size.y - work.size.y - gap - _caption.size.y) / 2.0
+	_zoom_root.position = Vector2((size.x - _zoom_root.size.x) / 2.0, top - work.position.y)
+	_caption.position = Vector2(size.x * 0.05, top + work.size.y + gap)
+
+
+# Zoomed back out, the page is laid out again: walk4 alone would centre the picture on the caption.
+func _zoom_at(point: Vector2, factor: float) -> void:
+	super(point, factor)
+	if is_equal_approx(_zoom, 1.0):
+		_fit_detail()
 
 
 func _gui_input(event: InputEvent) -> void:
@@ -761,7 +840,7 @@ func _layers_of(item: GeometryInstance3D) -> int:
 
 func _set_lighting(enabled: bool) -> void:
 	super(enabled)
-	if _rooms == null:
+	if _rooms == null and _rooms_path == "":
 		return
 	# The stand-in room behind the portal gives way to the authored medieval room: hidden at
 	# runtime, never edited. Everything that reaches past the portal front; the portal stays.
@@ -817,6 +896,12 @@ func _set_lighting(enabled: bool) -> void:
 
 
 func _enter_space(next: String) -> void:
+	if _rooms == null and _rooms_path != "":
+		# The first doorway out of the Hall: the wipe closes here and the rooms are built in its black.
+		if next != "gallery" and _wipe_t < 0.0:
+			_wipe_space = next
+			_wipe_begin()
+		return
 	if _rooms == null:
 		super(next)
 		return
@@ -832,7 +917,7 @@ func _enter_space(next: String) -> void:
 		get_node("OtherWall").visible = next == "gallery"
 		for node in _vp.get_children():
 			if node is WorldEnvironment:
-				node.environment.background_color = Color("#20242a")
+				node.environment.background_color = VOID
 				node.environment.ambient_light_energy = 0.6 if next != "far" and not _baked_lighting else 0.0
 		_update_camera(1.0)
 		print("NAV_SPACE ", previous, " -> ", next)
@@ -842,7 +927,16 @@ func _enter_space(next: String) -> void:
 
 
 func _process(delta: float) -> void:
-	super(delta)
+	if _wipe_t >= 0.0:
+		# The change walks the visitor itself; held keys wait until the room has opened.
+		var kept := _held
+		if _wipe_t < WIPE_CLOSE + WIPE_HOLD + WIPE_BACK:
+			_held = {}
+		super(delta)
+		_held = kept
+		_wipe_step(delta)
+	else:
+		super(delta)
 	if _rooms == null or not _open.is_empty() or _entrance_active:
 		return
 	if _space == "far" and _pos.z > -L and absf(_pos.x) < DOORS.far.size.x / 2.0:
@@ -1112,11 +1206,23 @@ func _walkable(p: Vector3) -> bool:
 
 func _update_camera(k: float) -> void:
 	super(k)
+	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
+		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
 	if _rooms == null:
 		return
 	var here := _room_at(_pos)
-	var added := here >= 0
-	($OtherWall as Button).visible = _space == "gallery"
+	var placed := _pos.distance_to(_stage_pos) > 0.6
+	_stage_pos = _pos
+	if _stage == NO_STAGE or placed or _entrance_active or not _open.is_empty():
+		_wipe_end()
+		_stage = _stage_of(here)
+	elif _stage_of(here) != _stage and _wipe_t < 0.0:
+		_wipe_begin()
+	var closing := _wipe_t >= 0.0 and _wipe_t < WIPE_CLOSE
+	var added := _stage >= 0
+	# Not while a work is being read, nor while the camera glides back from it (#280): the
+	# button walks the visitor across and swings the view round, and the shot follows neither.
+	($OtherWall as Button).visible = _space == "gallery" and _inspect.is_empty() and _inspect_t <= 0.0
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = not added
 	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
@@ -1161,6 +1267,12 @@ func _update_camera(k: float) -> void:
 	_shadow.layers |= VISITOR_LAYER
 	for patch in _sole_shadows:
 		patch.layers |= VISITOR_LAYER
+	if closing:
+		# The old stage stays as it was drawn until the wipe has shut on it.
+		_cam.global_transform = _wipe_cam
+		_cam.fov = _wipe_fov
+		_cam.cull_mask = _wipe_mask
+		return
 	if _space == "gallery":
 		_cam.cull_mask |= FAR_LAYER
 		if inspecting:
@@ -1193,6 +1305,9 @@ func _update_camera(k: float) -> void:
 	var open_set := view_mode != 2 and not inspecting
 	for i in _plan.size():
 		var area := _room_rect(i)
+		if added and _stage_ids[i] != _stage:
+			cut[i] = true  # another stage
+			continue
 		if open_set and i != here and (area.has_point(flat_eye) or _overlap(lens, area.grow(-0.15))):
 			cut[i] = true
 			continue
@@ -1219,6 +1334,10 @@ func _update_camera(k: float) -> void:
 		if wall.room >= 0:
 			var rule = cut[wall.room]
 			clear = not (rule is bool or rule[wall.side])
+			if added and _stage_ids[wall.room] != _stage:
+				clear = _edge_wall(wall.box, eye, open_set)
+		elif added and _stage_ids[wall.at] != _stage:
+			clear = false
 		# A low case stays: hiding it would bare the unlit floor and the shadow baked under it.
 		var low: bool = wall.room < 0 and (wall.box as AABB).end.y < 1.6
 		if clear and wall.layers & shown and not low:
@@ -1228,7 +1347,8 @@ func _update_camera(k: float) -> void:
 					for section in wall.boxes:
 						if (section as AABB).intersects_segment(eye, subject) != null:
 							clear = false
-			if not _inspect.is_empty():
+			# A placed mesh is its own cut-away body: the work being read never hides itself.
+			if not _inspect.is_empty() and wall.body != _inspect.get("node"):
 				for section in wall.boxes:
 					if (section as AABB).intersects_segment(eye, _inspect.center + _inspect.normal * 0.15) != null:
 						clear = false
@@ -1242,6 +1362,217 @@ func _update_camera(k: float) -> void:
 	if _glide_t < 1.0:
 		_cam.global_transform = _glide_from.interpolate_with(_cam.global_transform, _glide_t)
 		_cam.fov = lerpf(_glide_fov, _cam.fov, _glide_t)
+	# Only the stage: no added room from the Hall, no Hall from an added room.
+	if _stage < 0:
+		_cam.cull_mask &= ~(NEAR_LAYER | FAR_LAYER)
+	else:
+		_cam.cull_mask &= ~(63 | PORTAL_LAYER)
+		if _plan[_stage].label == PORTAL_ROOM and float(_cutaway_alpha.get(8, 1.0)) > 0.0:
+			_cam.cull_mask |= PORTAL_LAYER
+	if _floor_mask_stage != _stage:
+		_mask_floor()
+	_seen_cam = _cam.global_transform
+	_seen_fov = _cam.fov
+	_seen_mask = _cam.cull_mask
+
+
+func _stage_of(room: int) -> int:
+	return -1 if room < 0 else _stage_ids[room]
+
+
+# A wall two rooms share belongs to one of them. Standing on this stage's edge it is this
+# stage's wall as well, and goes only when it is on the camera's side.
+func _edge_wall(box: AABB, eye: Vector3, open_set: bool) -> bool:
+	var c := Vector2(box.get_center().x, box.get_center().z)
+	for i in _plan.size():
+		if _stage_ids[i] != _stage:
+			continue
+		var b: Array = _plan[i].b
+		if c.y > b[2] - 0.1 and c.y < b[3] + 0.1:
+			if absf(c.x - b[0]) < 0.35:
+				return not (open_set and eye.x < b[0])
+			if absf(c.x - b[1]) < 0.35:
+				return not (open_set and eye.x > b[1])
+		if c.x > b[0] - 0.1 and c.x < b[1] + 0.1:
+			if absf(c.y - b[2]) < 0.35:
+				return not (open_set and eye.z < b[2])
+			if absf(c.y - b[3]) < 0.35:
+				return not (open_set and eye.z > b[3])
+	return false
+
+
+func _build_stages() -> void:
+	for i in _plan.size():
+		var id := i
+		for j in _plan.size():
+			if _plan[j].label == JOINED.get(_plan[i].label, ""):
+				id = j
+		_stage_ids.append(id)
+	for node in _vp.get_children():
+		if node is WorldEnvironment:
+			node.environment.background_color = VOID
+	var black := StandardMaterial3D.new()
+	black.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+	black.albedo_color = VOID
+	black.cull_mode = BaseMaterial3D.CULL_DISABLED
+	_floor_mask = MeshInstance3D.new()
+	_floor_mask.material_override = black
+	_floor_mask.layers = NEAR_LAYER | FAR_LAYER
+	_floor_mask.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+	_vp.add_child(_floor_mask)
+	var shader := Shader.new()
+	shader.code = """shader_type canvas_item;
+uniform float radius = 2.0; // in half-diagonals of the picture
+uniform vec2 reach = vec2(1.0);
+void fragment() {
+	float d = length((UV - 0.5) * reach);
+	float edge = fwidth(d);
+	COLOR = vec4(0.0, 0.0, 0.0, smoothstep(radius - edge, radius + edge, d));
+}"""
+	_wipe = ColorRect.new()
+	_wipe.material = ShaderMaterial.new()
+	_wipe.material.shader = shader
+	_wipe.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	_wipe.z_index = 50  # over the view buttons, which are added after the rooms
+	_wipe.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	_wipe.hide()
+	add_child(_wipe)
+
+
+# The floor is one mesh under every room. Black quads lie over all of it outside the stage,
+# so its edge is a flat dark cut and a doorway shows nothing beyond.
+func _mask_floor() -> void:
+	_floor_mask_stage = _stage
+	_floor_mask.visible = _stage >= 0
+	if _stage < 0:
+		return
+	# The Hall's layers are not drawn from an added room; the visitor's own lamp must still be.
+	var fill = _kid.get("_fill")
+	if fill is Light3D:
+		fill.layers |= VISITOR_LAYER
+	for mesh in _vp.find_children("*", "GeometryInstance3D", true, false):
+		if (
+			mesh.layers & 8
+			and not _rooms.is_ancestor_of(mesh)
+			and (mesh.global_transform * mesh.get_aabb()).position.z >= -0.01
+		):
+			mesh.layers |= PORTAL_LAYER
+	var keep: Array[Rect2] = []
+	var xs := [-80.0, 80.0]
+	var zs := [-100.0, 80.0]
+	for i in _plan.size():
+		if _stage_ids[i] == _stage:
+			var rect := _room_rect(i)
+			keep.append(rect)
+			xs.append_array([rect.position.x, rect.end.x])
+			zs.append_array([rect.position.y, rect.end.y])
+	xs.sort()
+	zs.sort()
+	var tool := SurfaceTool.new()
+	tool.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for a in xs.size() - 1:
+		for b in zs.size() - 1:
+			var cell := Rect2(xs[a], zs[b], xs[a + 1] - xs[a], zs[b + 1] - zs[b])
+			var inside := cell.size.x < 0.001 or cell.size.y < 0.001
+			for rect in keep:
+				inside = inside or rect.grow(0.01).has_point(cell.get_center())
+			if inside:
+				continue
+			for corner in [[0, 0], [1, 0], [1, 1], [0, 0], [1, 1], [0, 1]]:
+				tool.add_vertex(
+					Vector3(
+						cell.position.x + cell.size.x * corner[0],
+						0.004,
+						cell.position.y + cell.size.y * corner[1]
+					)
+				)
+	_floor_mask.mesh = tool.commit()
+
+
+func _wipe_begin() -> void:
+	_wipe_t = 0.0
+	_wipe_cam = _seen_cam
+	_wipe_fov = _seen_fov
+	_wipe_mask = _seen_mask if _rooms != null else _cam.cull_mask
+	_velocity = Vector3.ZERO
+	# Straight in from the wall just crossed: the nearest edge of the area now stood in.
+	var here := _room_at(_pos)
+	var b: Array = _plan[here].b if here >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
+	var gaps := [_pos.x - b[0], b[1] - _pos.x, _pos.z - b[2], b[3] - _pos.z]
+	_wipe_dir = [Vector3.RIGHT, Vector3.LEFT, Vector3.BACK, Vector3.FORWARD][gaps.find(gaps.min())]
+	# A clicked route carries on through the door; held keys become a short walk straight in.
+	if _path.is_empty() and _target == null:
+		_target = _clamp(_pos + _wipe_dir * 1.0)
+	var fill = _kid.get("_fill")
+	if fill is Light3D:
+		_wipe_fill = fill.light_energy
+		_wipe_fade = create_tween()
+		_wipe_fade.tween_property(fill, "light_energy", 0.0, 0.35)
+	_wipe.show()
+	print("ROOM_CHANGE ", _stage, " -> ", _stage_of(_room_at(_pos)))
+
+
+func _wipe_step(delta: float) -> void:
+	delta = minf(delta, 0.05)  # the frame after a load is long; the wipe does not skip ahead
+	if _rooms == null and _rooms_path != "" and _wipe_t + delta >= WIPE_CLOSE:
+		# The hold stretches: two frames of black on screen, then the rooms are built in one go.
+		(_wipe.material as ShaderMaterial).set_shader_parameter("radius", 0.0)
+		_wipe_wait += 1
+		if _wipe_wait < 3:
+			return
+		_attach_rooms(_rooms_path)
+		_stage = -1  # the Hall is what the wipe closed on
+		_stage_pos = _pos
+		_enter_space(_wipe_space)
+		_wipe_t = WIPE_CLOSE - delta
+	var before := _wipe_t
+	var open_at := WIPE_CLOSE + WIPE_HOLD
+	_wipe_t += delta
+	if before < WIPE_CLOSE and _wipe_t >= WIPE_CLOSE:
+		# Black: the next stage is put up, lit, with the camera already settled.
+		_relight()
+		_stage = _stage_of(_room_at(_pos))
+		_cut_state = 0
+		_update_camera(1.0)
+	if before < open_at and _wipe_t >= open_at and _path.is_empty() and _target == null:
+		_target = _clamp(_pos + _wipe_dir * 0.6)
+	var radius := 0.0
+	if _wipe_t < WIPE_CLOSE:
+		radius = WIPE_RADIUS * (1.0 - smoothstep(0.0, 1.0, _wipe_t / WIPE_CLOSE))
+	elif _wipe_t >= open_at:
+		radius = WIPE_RADIUS * smoothstep(0.0, 1.0, (_wipe_t - open_at) / WIPE_OPEN)
+	(_wipe.material as ShaderMaterial).set_shader_parameter("radius", radius)
+	(_wipe.material as ShaderMaterial).set_shader_parameter("reach", size / (0.5 * size.length()))
+	if _wipe_t >= open_at + WIPE_OPEN:
+		_wipe_end()
+
+
+func _relight() -> void:
+	if _wipe_fade:
+		_wipe_fade.kill()
+		_wipe_fade = null
+		var fill = _kid.get("_fill")
+		if fill is Light3D:
+			fill.light_energy = _wipe_fill
+
+
+func _wipe_end() -> void:
+	if _wipe_t < 0.0:
+		return
+	_wipe_t = -1.0
+	_relight()
+	_wipe.hide()
+
+
+func _cutaway_mask(target: int, blend: float) -> int:
+	if _wipe_t >= 0.0 and _wipe_t < WIPE_CLOSE:
+		return _wipe_mask  # the Hall's walls keep their fade while the wipe closes
+	return super(target, blend)
+
+
+func _click(pt: Vector2) -> void:
+	if _wipe_t < 0.0:
+		super(pt)
 
 
 # A change of view glides from where the camera was instead of cutting.

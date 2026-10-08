@@ -443,7 +443,7 @@ Three more things to know:
 
 1. **Fourteen paintings carry none of these.** Edwards, Romany, the wallpaper, Delacroix, Fetti, Goltzius, Courbet, Corot, Bertin, Perugino and the four medieval panels are built with `Painting.build_framed` or `build_shaped` and only show their accession in the texture file name (`assets/painting-<accession>.jpg`). Code that finds artworks by metadata misses them.
 2. `room_wall` (94 bodies, value `<room label>:<side>` or `...:header`) marks walls. The camera cut-away and the adapter's room grouping depend on it; wall-hung work is re-parented to its wall body so it disappears with the wall.
-3. `artwork_label_proxy` (18) marks blank label stand-ins. Keys ending in `_accepted` are acceptance flags; they are all false and `architecture_check.gd` fails if one turns true.
+3. `artwork_label_proxy` (18) marks blank label stand-ins. Keys ending in `_accepted` are acceptance flags. One may be true only with a record in `acceptance.json` beside the room sources (`<subject>.<flag>`: value, what it was measured from, an evidence file, the reviewer, the commit); `architecture_check.gd` prints the keys and fails a true flag without its record. Added 8 Oct 2026 (#264); none is accepted yet.
 
 ## 9. Known traps
 
