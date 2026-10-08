@@ -23,6 +23,9 @@ server {
         try_files /index.html =404;
     }
     location = /week-3 { absolute_redirect off; return 301 /week-3/; }
+    # Week 4 is static files beside the homepage: a page, an image and a large Blender file.
+    location = /week-4 { absolute_redirect off; return 301 /week-4/; }
+    location /week-4/ { root /srv/sites/homework.reidsurmeier.wtf/homepage/current; try_files $uri $uri/index.html =404; }
     location = /week-3/ { try_files /index.html =404; }
 
     location ~ ^/api/portrait(?:/status)?$ {

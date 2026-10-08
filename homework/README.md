@@ -7,6 +7,7 @@ Live homepage: https://homework.reidsurmeier.wtf/
 - Week 1: https://shader.reidsurmeier.wtf/
 - Week 2 (Loading dots): https://ctchomework.reidsurmeier.wtf/
 - Week 3: https://homework.reidsurmeier.wtf/week-3/
+- Week 4 (Otani room): https://homework.reidsurmeier.wtf/week-4/ ([Issue 248](https://github.com/Reid-Surmeier/risd-godot/issues/248))
 
 `index.html` is plain HTML with three native blue links; no CSS, build step or dependencies. `homework.nginx` preserves the existing Booth static root and portrait adapter and adds the root homepage and Week 3 prefix. Requests beneath `/week-3/` reuse the existing static/API routes; the bare week URL redirects with a relative Location so public HTTPS stays HTTPS. Existing engine, tracking and root API URLs remain compatible.
 
@@ -23,3 +24,9 @@ Run `node homework/check.mjs` for public links, absence of CSS, keyboard focus a
 Run the existing `webcam-booth/deploy/check.mjs` from the `webcam-booth-195` worktree with `https://homework.reidsurmeier.wtf/week-3/` and `BOOTH_DEPLOY_EVIDENCE=/tmp/homework-review/week-3`. It intercepts generation and uses a synthetic camera. The full camera → portrait → explosion → camera loop passed: 12,869 ms cold startup at 10 Mbps, compressed engine 10,084,286 bytes; zero paid requests. Prefixed invalid capture returned 400, unknown status 404, foreign origin 403. WASM returned 200 with application/wasm. Physical webcam fidelity was not tested.
 
 `scripts/check.sh` and `git diff --check` passed on the build tree. See `docs/evidence/homework-234/` for inspected public screenshots and the Booth check receipt. Rollback is a reversible nginx routing change: restore the prior site configuration from the existing Booth deployment source, validate and reload nginx. The original Booth release and state are unchanged.
+
+## Week 4
+
+`week-4/index.html` is a plain page with a download link for `otani-room.blend`. It first carried a comparison image; the owner had it removed the same day. The Blender file is 416 MB and has a purchased texture pack packed inside, so it is copied to the host by hand and is never committed; it comes from the `otani-clay-room` repository (`save_blend` in its scene description).
+
+Deployed on 2026-10-07 to the CM3588 (`ssh cm3588`), which replaced the droplet named above: release `homepage/releases/bff56ebb420d` (named after the first 12 hex digits of the homepage's SHA-256), holding `index.html`, `week-4/` and `homework.nginx.before` (the live site file as it was). The live site file there listens on `127.0.0.1:8088` behind the Cloudflare tunnel, not on the ports in this folder's `homework.nginx`; only the two `week-4` lines were added to it. Rollback: point `homepage/current` back at `releases/f2bc0a61a04e` and restore `homework.nginx.before`, then `nginx -t` and reload.
