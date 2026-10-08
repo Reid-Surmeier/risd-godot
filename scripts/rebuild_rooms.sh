@@ -30,7 +30,7 @@ if grep -q "panicked" "$T/prime.log"; then echo "the prime step crashed: $T/prim
 godot --path "$EXT" --headless --editor --import > /dev/null 2>&1
 cp "$EXT/project.godot" "$T/project.godot.original"
 printf '\n[editor_plugins]\nenabled=PackedStringArray("res://bake/plugin.cfg")\n' >> "$EXT/project.godot"
-timeout 1700 $LVP godot --path "$EXT" --editor --accessibility disabled --rendering-method mobile > "$T/bake.log" 2>&1 || true
+timeout ${BAKE_LIMIT_S:-3000} $LVP godot --path "$EXT" --editor --accessibility disabled --rendering-method mobile > "$T/bake.log" 2>&1 || true
 cp "$T/project.godot.original" "$EXT/project.godot"
 grep "BAKE_OK" "$T/bake.log" || { echo "bake failed: $T/bake.log"; exit 1; }
 /usr/bin/python3 "$SRC/relocate_rooms.py" "$EXT" "$T/collection_rooms"
