@@ -17,7 +17,6 @@ godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playt
 `--fixed-fps 60` makes each frame one sixtieth of a second of game time, so two runs of the same
 commit give the same result. The run writes `report.json`, one picture per view and one per opened
 object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects` runs part of it.
-`--objects=E1,21.482` drives only the named works (by tag, or by the accession before its `#`).
 
 ## The rules
 

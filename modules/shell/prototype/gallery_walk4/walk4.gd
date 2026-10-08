@@ -137,6 +137,7 @@ var _paintings: Array = []  # {tag, rec, node, center, normal, corners(world)}
 var _held := {}
 var _open := {}
 var _detail: Control
+var _catalogue_zoom: Node
 var _zoom_root: Control
 var _zoom := 1.0
 var _drag_from = null
@@ -183,6 +184,7 @@ func _ready() -> void:
 	_vp.add_child(_cam)
 	_build_detail()
 	resized.connect(_fit_detail)
+	resized.connect(_refresh_zoom_image)
 	_build_sounds()
 	_build_view_controls()
 	_pos = Vector3(0, 0, -0.35)
@@ -2603,6 +2605,8 @@ func _build_detail() -> void:
 	_zoom_root = Control.new()
 	_zoom_root.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_detail.add_child(_zoom_root)
+	_catalogue_zoom = load(DIR + "catalogue_zoom.gd").new()
+	_detail.add_child(_catalogue_zoom)
 	var pic := TextureRect.new()
 	pic.name = "Painting"
 	pic.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -2641,6 +2645,7 @@ func _open_detail(p: Dictionary) -> void:
 	_detail.modulate.a = 1.0
 	detail_changed.emit(true)
 	_fit_detail()
+	_refresh_zoom_image()
 	_detail.get_node("Close").grab_focus()
 	_play("menu_open")
 
@@ -2652,10 +2657,8 @@ func _fit_detail() -> void:
 	var rec: Dictionary = p.rec
 	var pic: TextureRect = _zoom_root.get_node("Painting")
 	var frame: NinePatchRect = _zoom_root.get_node("Frame")
-	# one master: the shaped work shows its own keyed cut-out, as in the room, on white
-	var tex: Texture2D = load(
-		DIR + ("frames/W6-shaped.png" if p.tag == "W6" else "detail/%s.jpg" % p.tag)
-	)
+	# The fitted view is packed; the larger catalogue photograph loads on demand.
+	var tex: Texture2D = load(DIR + "detail/%s.jpg" % p.tag)
 	pic.texture = tex
 	var aspect := float(tex.get_width()) / tex.get_height()
 	var ph := minf(size.y * 0.74, size.x * 0.66 / aspect)
@@ -2681,9 +2684,15 @@ func _fit_detail() -> void:
 	_zoom_root.position = (size - Vector2(pw, ph)) / 2.0
 
 
+func _refresh_zoom_image() -> void:
+	if not _open.is_empty() and _open.rec.has("zoom_image"):
+		_catalogue_zoom.show_image(_open.rec.zoom_image, _zoom_root.get_node("Painting"))
+
+
 func _close_detail() -> void:
 	if _open.is_empty():
 		return
+	_catalogue_zoom.clear()
 	_view_panel.hide()
 	_play("menu_close")
 	_open = {}
