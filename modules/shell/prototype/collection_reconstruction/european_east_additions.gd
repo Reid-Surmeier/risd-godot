@@ -266,10 +266,4 @@ func build_floor() -> void:
 	god_case.set_meta("european_east_case", "river-god")
 	var skirt: Node3D = room.solid(c + Vector3(0, .09, 0), Vector3(.83, .18, .83), grey)
 	skirt.reparent(god_case)
-	# A real mesh (#263) where the photograph card stood, same point, turn and catalogue height.
-	var god: Node3D = room.place_mesh(DIR + "rivergod-44674.glb", c + Vector3(0, 1.04, 0), -PI / 4, Vector3(0, .483, 0), "44.674")
-	tag(god, "river-god", ["44.674", "River God (The Virile Age; The Euphrates)", "Giambologna", "ca. 1575", "Terracotta", "48.3 x 43.5 x 31.8 cm"], "rivergod-44.674.jpg")
-	god.reparent(god_case)
-	var god_note: Node3D = room.solid(c + Vector3(0, 1.046, .30), Vector3(.09, .004, .05), room.look(Color("e9e4d4")))
-	god_note.set_meta("artwork_label_proxy", true)
-	god_note.reparent(god_case)
+	card(god_case, "river-god", ["44.674", "River God (The Virile Age; The Euphrates)", "Giambologna", "ca. 1575", "Terracotta", "48.3 x 43.5 x 31.8 cm"], "rivergod-44.674.jpg", Vector2(.39, .483), c + Vector3(0, 1.04, 0), -PI / 4)

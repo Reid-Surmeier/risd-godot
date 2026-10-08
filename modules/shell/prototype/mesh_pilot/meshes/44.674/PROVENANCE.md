@@ -19,3 +19,5 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `photo-back` | photograph of this direction, cut out and given to the mesh generator and used for the colour as it is (no Muse view: Muse refused this object three times) |
 
 `44-674.glb` (`a8435ea8c61e2d63…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 224 KB (mesh 194, colour 30).
+
+Status, 8 October 2026: a trial only. It is not in the game sources. The lead withdrew the route that made it (the museum's photographs straight to the mesh generator after Muse refused): the owner's rule is that a mesh starts from a Muse pass and that a refused step is a stop, not a substitution. The question is with the owner as item 20 on #262.
