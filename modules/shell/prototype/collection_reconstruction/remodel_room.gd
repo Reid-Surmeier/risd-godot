@@ -748,6 +748,19 @@ func label_stand(at:Vector3,yaw:float,width:=.38) -> Node3D:
 		plate.rotation.x=tilt
 	return stand
 
+## The furniture kit's hood edges: the twelve polished edges of a clear hood as thin pale lines
+## (IMG_6383 18.3s, IMG_6382 79.0s). `at` is the floor point under the hood's middle, `deck` its
+## foot and `top` its lid; the lines hang from `body`.
+func hood_edges(body:Node3D,at:Vector3,width:float,depth:float,deck:float,top:float) -> void:
+	var edge:=look(Color("d5e0df"),"",true)
+	var t:=.004
+	var mid:=(deck+top)/2
+	for side in [-1,1]:
+		for spec in [[Vector3(side*width/2,deck+t/2,0),Vector3(t,t,depth)],[Vector3(side*width/2,top,0),Vector3(t,t,depth)],
+			[Vector3(0,deck+t/2,side*depth/2),Vector3(width,t,t)],[Vector3(0,top,side*depth/2),Vector3(width,t,t)],
+			[Vector3(side*width/2,mid,-depth/2),Vector3(t,top-deck,t)],[Vector3(side*width/2,mid,depth/2),Vector3(t,top-deck,t)]]:
+			solid(at+spec[0],spec[1],edge).reparent(body)
+
 ## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0/61.0s): a white plinth on a
 ## recessed kick, a cap slab that oversails it by 9 cm, a clear hood standing on the cap 6 cm
 ## inside its edge with its polished edges as pale lines, and inside the hood a low riser with
@@ -765,17 +778,12 @@ func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,f
 		return piece
 	add.call(Vector3(0,deck-.02,0),Vector3(width+.12,.04,depth+.12),white).set_meta("floor_case_part","cap")
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
-	var edge:=look(Color("d5e0df"),"",true)
-	var t:=.004
 	var mid:=(deck+top)/2
 	for side in [-1,1]:
 		add.call(Vector3(side*width/2,mid,0),Vector3(.012,top-deck,depth),glass)
 		add.call(Vector3(0,mid,side*depth/2),Vector3(width,top-deck,.012),glass)
-		for y in [deck+t/2,top]:
-			add.call(Vector3(side*width/2,y,0),Vector3(t,t,depth),edge)
-			add.call(Vector3(0,y,side*depth/2),Vector3(width,t,t),edge)
-		for z in [-depth/2,depth/2]:add.call(Vector3(side*width/2,mid,z),Vector3(t,top-deck,t),edge)
 	add.call(Vector3(0,top,0),Vector3(width,.012,depth),glass)
+	hood_edges(body,at,width,depth,deck,top)
 	# The riser: a flat top for the work, sloped down to the cap all round.
 	var run:=.10
 	var rise:=.04
@@ -1801,7 +1809,9 @@ func build_sculpture_rooms() -> void:
 	# Reciprocal IMG_6382 78.25/88.75s: broad low case west of the tall stair-side case.
 	#6387 13.0/44.0s,6383 66.5s: stair door, tall case and tracery doorway on one axis.
 	# ponytail: source-relative arrangement only; replace metric offsets after wide-view fitting.
-	var grey:=look(Color("666763"))
+	# IMG_6382 77.5/79.0s: the bases are the pedestals' slate grey, on a projecting base band; the
+	# hoods' edges show as thin pale lines.
+	var grey:=look(Color("6b6d73"))
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
 	for case_spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],
 		[Vector3(8.05,0,22.515),Vector2(1.05,.90),.88,1.05]]:
@@ -1822,6 +1832,9 @@ func build_sculpture_rooms() -> void:
 			pane.reparent(base)
 		var lid:=solid(at+Vector3(0,base_height+.05+glass_height,0),Vector3(footprint.x,.012,footprint.y),glass)
 		lid.reparent(base)
+		hood_edges(base,at,footprint.x,footprint.y,base_height+.05,base_height+.05+glass_height)
+		var band:=solid(at+Vector3(0,.05,0),Vector3(footprint.x+.04,.10,footprint.y+.04),grey)
+		band.reparent(base)
 		# ponytail: by-eye deck positions; catalogue heights fixed, mounts/spacing await source fitting.
 		if footprint.x<1.5:
 			for spec in [[Vector3(-.32,1.025,.13),Vector3(.28,.19,.30)],

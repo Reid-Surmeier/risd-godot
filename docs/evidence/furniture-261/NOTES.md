@@ -114,14 +114,31 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    No base moulding was added: the frames show a plain body under an oversailing cap. The kick
    stays a guess (see 6).
 
-The clip is at `~/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV`.
+10. `10-medieval-cases-and-pedestals-footage-and-unbaked.jpg`: the dark medieval room. Pairs,
+   footage then unbaked: IMG_6382 79.0 s (the two glass cases), 60.5 s (the angel's octagonal
+   pedestal), 30.0 s (the head's). In this room the filmed base detail is a projecting band at
+   the floor, not a recessed kick, so `plinth()` is not used here. The two glass cases take the
+   kit's `hood_edges()` (split out of `hooded_floor_case()`), a base band 10 cm high standing
+   2 cm proud, and the pedestals' slate grey (they were a neutral dark grey). The octagonal
+   pedestals take a base band, and the angel's a band round its head (60.5 s). The two
+   rectangular pedestals already had a foot and a narrower cap and are unchanged.
+   Not done here: the labels (the footage's are dark maroon cards; the build's are the finish
+   spec's off-white cards), the crucifix platform (a plain low white box in 46.0/49.0 s, as
+   built), the iron grille's platform. The unbaked greys read darker than the footage because
+   the draft has no light on them.
+
+The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
+up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
 ## State for whoever continues
 
 - Done in the Renaissance room: the bench, the four wall cases, the hooded floor case and its
   proportions, the textile platform with its label stands, the window (pictures 1 to 9).
 - Open, the lead's decision: lowering Saint Roch's plinth from 0.64 to about 0.44 m (see 9).
-- Not done: calling the same builders in the dark medieval room and the European gallery.
+- Done in the dark medieval room: the two glass cases and the octagonal pedestals (picture 10).
+- Not done: the European gallery (`european_east_additions.gd`, `european_west_additions.gd`;
+  footage IMG_6384, 6385, 6386). Its platforms and case bases are the white kind: start from
+  `plinth()`, `hood_edges()` and `label_stand()`, after reading the footage for each piece.
 
 ## How the unbaked pictures are taken
 
@@ -170,7 +187,9 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `1.15,1.25,.15:0,.35,0`, `1.5,.05,.8:0,-.1,0:50`; picture 7, `renaissance_textile_platform`:
 `1.75,1.55,-2.3:1.75,.55,0`, `1.0,1.4,-1.2:-.7,.75,.25`, `2.6,1.3,-1.6:-.6,.2,-.2`; picture 8,
 `renaissance_west_blind`: `3.9,-.35,.3:.3,-.35,0:55`, `1.5,-.25,2.1:0,-.75,.2`,
-`.9,-.9,.95:0,-1.2,.62:45`. A blank or flat picture means the camera is inside a wall: change the
+`.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
+with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
+`2.82,1.32,-1.89:3.39,.82,-.12`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
 file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.

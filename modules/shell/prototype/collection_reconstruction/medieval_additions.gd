@@ -122,7 +122,8 @@ func _pedestal(at: Vector3, size: Vector3, cap: Vector3) -> StaticBody3D:
 		part.reparent(body)
 	return body
 
-## Octagonal pedestal on floor point `at`; an optional narrower octagonal cap on top.
+## Octagonal pedestal on floor point `at`, on a projecting base band (6382 30.0/60.5s); an
+## optional narrower octagonal cap on top, or without one a projecting band round its head.
 func _octagon(at: Vector3, radius: float, height: float, cap_radius: float, cap_height: float) -> StaticBody3D:
 	var body := StaticBody3D.new()
 	body.position = at + Vector3(0, height / 2, 0)
@@ -131,7 +132,10 @@ func _octagon(at: Vector3, radius: float, height: float, cap_radius: float, cap_
 	box.size = Vector3(radius * 1.85, height, radius * 1.85)
 	collider.shape = box
 	body.add_child(collider)
-	for spec in [[radius, height, 0.0], [cap_radius, cap_height, height / 2 + cap_height / 2]]:
+	var bands := [[radius + .02, .10, -height / 2 + .05]]
+	if cap_radius <= 0:
+		bands.append([radius + .015, .08, height / 2 - .04])
+	for spec in [[radius, height, 0.0], [cap_radius, cap_height, height / 2 + cap_height / 2]] + bands:
 		if spec[1] <= 0:
 			continue
 		var visual := MeshInstance3D.new()
