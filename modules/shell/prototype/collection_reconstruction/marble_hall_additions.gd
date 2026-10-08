@@ -227,6 +227,7 @@ func build(scene) -> void:
 	inner_walls()
 	stair()
 	upper_landing()
+	rounded_corners()
 	shell()
 	fireplace()
 	chandelier()
@@ -302,26 +303,7 @@ func marble_floor() -> void:
 				child.free()
 	# IMG_6381 90.5s, 71.0s; IMG_6380 49.0s: large squares on the diagonal in two pale marbles,
 	# a grey band under the columns. The .76m square is read against the fireplace and the columns.
-	var size := .76
-	var turn := Transform2D(PI / 4, Vector2((x0 + x1) / 2, (z0 + z1) / 2))
-	var edge := rect(x0, x1, z0, z1)
-	var tones := [Batch.new(), Batch.new()]
-	var reach := int(ceil((x1 - x0 + z1 - z0) / size / 1.4)) + 1
-	for i in range(-reach, reach + 1):
-		for j in range(-reach, reach + 1):
-			var tile := PackedVector2Array()
-			for corner in [Vector2(i, j), Vector2(i + 1, j), Vector2(i + 1, j + 1), Vector2(i, j + 1)]:
-				tile.append(turn * (corner * size))
-			for piece in Geometry2D.intersect_polygons(tile, edge):
-				for visible in Geometry2D.clip_polygons(piece, rect(xf + .065, xf + 2.25, (zs + z1) / 2 + .05 - .50, (zs + z1) / 2 + .05 + .50)):
-					var batch: Batch = tones[posmod(i + j, 2)]
-					batch.st.set_normal(Vector3.UP)
-					for index in Geometry2D.triangulate_polygon(visible):
-						batch.st.set_uv(visible[index])
-						batch.st.add_vertex(Vector3(visible[index].x, .004, visible[index].y))
-					batch.used = true
-	tones[0].into(room, marble_material(Color("e9e7e1")), "MarbleFloorLight")
-	tones[1].into(room, marble_material(Color("d9d9d4"), 1.7), "MarbleFloorGrey")
+	marble_tiles(room, rect(x0, x1, z0, z1), .004)
 	var band := Batch.new()
 	band.prism(rect(x0, x0 + .30, z0, z1), .004, .008)
 	band.into(room, marble_material(Color("b6b6b1"), 3.2), "MarbleThresholdBand")
@@ -337,6 +319,7 @@ func marble_floor() -> void:
 	reflection.position = Vector3((x0 + x1) / 2, ceiling_height() / 2, (z0 + z1) / 2)
 	reflection.size = Vector3(x1 - x0, ceiling_height(), z1 - z0)
 	reflection.origin_offset = Vector3(0, 2.6 - ceiling_height() / 2, 0)
+	reflection.intensity = 2.0
 	reflection.box_projection = true
 	reflection.interior = true
 	reflection.ambient_mode = ReflectionProbe.AMBIENT_DISABLED
@@ -344,8 +327,31 @@ func marble_floor() -> void:
 	room.add_child(reflection)
 
 
+func marble_tiles(parent: Node3D, edge: PackedVector2Array, level: float) -> void:
+	var size := .76
+	var turn := Transform2D(PI / 4, Vector2((x0 + x1) / 2, (z0 + z1) / 2))
+	var tones := [Batch.new(), Batch.new()]
+	var reach := int(ceil((x1 - x0 + z1 - z0) / size / 1.4)) + 1
+	for i in range(-reach, reach + 1):
+		for j in range(-reach, reach + 1):
+			var tile := PackedVector2Array()
+			for corner in [Vector2(i, j), Vector2(i + 1, j), Vector2(i + 1, j + 1), Vector2(i, j + 1)]:
+				tile.append(turn * (corner * size))
+			for piece in Geometry2D.intersect_polygons(tile, edge):
+				var pieces: Array = Geometry2D.clip_polygons(piece, rect(xf + .065, xf + 2.25, (zs + z1) / 2 + .05 - .50, (zs + z1) / 2 + .05 + .50)) if level < .02 else [piece]
+				for visible in pieces:
+					var batch: Batch = tones[posmod(i + j, 2)]
+					batch.st.set_normal(Vector3.UP)
+					for index in Geometry2D.triangulate_polygon(visible):
+						batch.st.set_uv(visible[index])
+						batch.st.add_vertex(Vector3(visible[index].x, level, visible[index].y))
+					batch.used = true
+	tones[0].into(parent, marble_material(Color("e9e7e1")), "MarbleFloorLight")
+	tones[1].into(parent, marble_material(Color("d9d9d4"), 1.7), "MarbleFloorGrey")
+
+
 func inner_walls() -> void:
-	var plaster: Material = room.look(Color("e2dfd6"), "res://presentation/neutral-plaster.png")
+	var plaster: Material = room.trim_paint()
 	var grey: Material = room.look(Color("a9a8a3"), "res://presentation/neutral-plaster.png")
 	var skirting: Material = marble_material(Color("b6b6b1"), 3.2)
 	# IMG_6380 47.0/65.0s and the 83.152 photographs: the fireplace wall carries the upper flight's string.
@@ -353,7 +359,7 @@ func inner_walls() -> void:
 	chimney.set_meta("marble_hall_part", "chimneypiece wall")
 	var base: MeshInstance3D = room.solid(Vector3((xf + xe) / 2, .09, zs - .07), Vector3(xe - xf, .18, .02), skirting)
 	base.reparent(chimney)
-	service_niche(grey)
+	service_niche(plaster)
 	# IMG_6381 1.25..3.0s, 71.0s: the wall under the half-landing's edge, exit doorway in its middle.
 	var exit := wall("east:landing", Vector3(xe, (half - .25) / 2, (zn + zs) / 2), Vector3(.12, half - .25, zs - zn), plaster)
 	var white: Material = room.look(Color("eeeae2"))
@@ -518,7 +524,7 @@ func stair() -> void:
 	var outer := []
 	for i in 7:
 		var a := deg_to_rad(i * 15.0)
-		outer.append(Vector2(xe + FLIGHT * tan(a), z0) if i <= 3 else Vector2(x1, zn - FLIGHT * tan(PI / 2 - a)))
+		outer.append(pivot + Vector2.from_angle(-PI / 2 + a) * FLIGHT)
 	for j in range(1, 7):
 		solid.prism(PackedVector2Array([pivot, outer[j - 1], outer[j]]), 0, (STRAIGHT + j) * RISER)
 		winder_strip(strips, pivot, outer[j - 1], outer[j], (STRAIGHT + j) * RISER)
@@ -556,7 +562,7 @@ func winder_strip(strips: Batch, pivot: Vector2, from: Vector2, to: Vector2, lev
 
 func upper_landing() -> void:
 	var marble: Material = marble_material(Color("ddd9d0"), 2.4)
-	var white: Material = room.look(Color("ecebe6"))
+	var white: Material = room.trim_paint()
 	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
 	iron.metallic = .55
 	iron.roughness = .38
@@ -582,7 +588,7 @@ func upper_landing() -> void:
 	var outer := []
 	for i in 7:
 		var a := deg_to_rad(i * 15.0)
-		outer.append(Vector2(x1, zs + FLIGHT * tan(a)) if i <= 3 else Vector2(xe + FLIGHT * tan(PI / 2 - a), z1))
+		outer.append(pivot + Vector2.from_angle(a) * FLIGHT)
 	for j in range(1, 7):
 		flight.prism(PackedVector2Array([pivot, outer[j - 1], outer[j]]), half - .25, half + j * RISER, true)
 		winder_strip(strips, pivot, outer[j - 1], outer[j], half + j * RISER)
@@ -616,9 +622,16 @@ func upper_landing() -> void:
 	guard(edge_bars, edge_rail, Vector3(xf - .06, upper, z0 + .05), Vector3(xf - .06, upper, zs + .06), .95)
 	edge_bars.into(deck, iron, "UpperLandingBalusters")
 	edge_rail.into(deck, wood, "UpperLandingHandrail")
-	var floor_top := Batch.new()
-	floor_top.prism(rect(x0 + .2, xf - .12, z0 + .1, z1 - .1), upper, upper + .004)
-	floor_top.into(deck, marble, "UpperLandingFloor")
+	marble_tiles(deck, rect(x0 + .12, xf - .12, z0 + .12, z1 - .12), upper + .004)
+	marble_tiles(arm, rect(xf, top, zs + .10, z1 - .10), upper + .004)
+	var arm_border := Batch.new()
+	for span in [rect(xf, top, zs, zs + .10), rect(xf, top, z1 - .10, z1)]:
+		arm_border.prism(span, upper, upper + .005)
+	arm_border.into(arm, marble_material(Color("b6b6b1"), 3.2), "UpperLandingArmBorder")
+	var border := Batch.new()
+	for span in [rect(x0, x0 + .12, z0, z1), rect(xf - .12, xf, z0, z1), rect(x0, xf, z0, z0 + .12), rect(x0, xf, z1 - .12, z1)]:
+		border.prism(span, upper, upper + .005)
+	border.into(deck, marble_material(Color("b6b6b1"), 3.2), "UpperLandingMarbleBorder")
 	# Three closed doors of the floor above (IMG_6381 31.5/42.25/61.25s), seen from below across the well.
 	var doors := Batch.new()
 	for spec in [[Vector3(x0 + .20, upper, (z0 + z1) / 2), false], [Vector3(x0 + 1.5, upper, z0 + .08), true], [Vector3(xf + 1.0, upper, z1 - .08), true]]:
@@ -648,35 +661,98 @@ func shell() -> void:
 	for spec in [[Vector3((x0 + x1) / 2, height - .12, z0 + .1), Vector3(x1 - x0, .24, .16)], [Vector3((x0 + x1) / 2, height - .12, z1 - .1), Vector3(x1 - x0, .24, .16)], [Vector3(x1 - .1, height - .12, (z0 + z1) / 2), Vector3(.16, .24, z1 - z0)], [Vector3(x0 + .16, height - .12, (z0 + z1) / 2), Vector3(.16, .24, z1 - z0)]]:
 		cornice.box(spec[0], spec[1])
 	room.ceiling_details.append(cornice.into(room, room.look(Color("f1efe9")), "MarbleHallCornice"))
-	# IMG_6381 24.25..28.75s and the 2011.60 photographs: a three-part window over the half-landing,
-	# arched in the middle, columns between the lights, a panelled apron and a grille under the sill.
-	var east: Node3D = room.wall_body(LABEL, "east", Vector3(x1, 4.0, (z0 + z1) / 2))
+	window()
+
+
+## The filmed stair turns follow quarter-round wall faces within the existing footprint.
+func rounded_corners() -> void:
+	var white: Material = room.trim_paint()
+	for spec in [[Vector2(xe, zn), -PI / 2, Vector2(x1, z0), "north"], [Vector2(xe, zs), 0.0, Vector2(x1, z1), "south"]]:
+		var outline := PackedVector2Array()
+		for i in 25:
+			outline.append(spec[0] + Vector2.from_angle(spec[1] + i * PI / 48) * FLIGHT)
+		outline.append(spec[2])
+		var curve := Batch.new()
+		curve.prism(outline, 0, ceiling_height(), true)
+		var owner: Node3D = room.wall_body(LABEL, spec[3], Vector3(xe, 3.5, z0 if spec[3] == "north" else z1))
+		curve.into(owner, white, "RoundedStairCorner")
+	# White stringers follow the curve of the guard, then meet the straight flights.
+	var stringer := Batch.new()
+	for lower in [true, false]:
+		var path := PackedVector3Array()
+		for i in 13:
+			var t := float(i) / 12
+			var centre := Vector2(xe - .25, zn + .23 if lower else zs - .23)
+			var angle := -PI / 2 + t * PI / 2 if lower else t * PI / 2
+			var point := centre + Vector2.from_angle(angle) * .29
+			var level := lerpf(STRAIGHT * RISER, half, t) if lower else half + t * 7 * RISER
+			path.append(Vector3(point.x, level - .11, point.y))
+		stringer.sweep(path, .09, .22)
+	stringer.into(room, white, "CurvedMarbleStairStringers")
+
+
+## IMG_6381 28.5 s: tall centre arch, two tall side lights, four engaged columns,
+## deep profiled sill, stepped bases/capitals, glazing bars and louvred sill grilles.
+func window() -> void:
+	var white: Material = room.trim_paint()
+	for body in room.casings:
+		var tag: String = body.get_meta("room_wall", "")
+		if tag in [LABEL + ":north", LABEL + ":east", LABEL + ":south"]:
+			body.get_child(1).material_override = white
 	var middle := (z0 + z1) / 2
 	var sill := half + .95
-	var light: Material = room.look(Color("eef2f4"), "", true)
+	var spring := sill + 2.90
+	var east: Node3D = room.wall_body(LABEL, "east", Vector3(x1, 4.0, middle))
+	var glow: StandardMaterial3D = room.look(Color("eef2f4"), "", true)
+	glow.emission_enabled = true
+	glow.emission = Color("eef2f4")
+	glow.emission_energy_multiplier = 4.0
 	var glass := Batch.new()
-	glass.box(Vector3(x1 - .07, sill + 1.45, middle), Vector3(.012, 2.9, 1.25))
-	glass.tube(Vector3(x1 - .07, sill + 2.9, middle), .625, .012, Basis(Vector3.BACK, PI / 2), 16)
-	for side in [-1, 1]:
-		glass.box(Vector3(x1 - .07, sill + 1.1, middle + side * 1.05), Vector3(.012, 2.2, .5))
-	var panes := glass.into(east, light, "MarbleHallWindowLight")
-	panes.set_meta("marble_hall_window", true)
+	glass.box(Vector3(x1 - .071, sill + 1.45, middle), Vector3(.015, 2.90, 1.34))
+	glass.tube(Vector3(x1 - .071, spring, middle), .67, .015, Basis(Vector3.BACK, PI / 2), 32)
+	for hand in [-1, 1]:
+		glass.box(Vector3(x1 - .071, sill + 1.40, middle + hand * 1.13), Vector3(.015, 2.80, .60))
+	glass.into(east, glow, "MarbleHallWindowLight").set_meta("marble_hall_window", true)
 	var frame := Batch.new()
-	for side in [-1, 1]:
-		frame.tube(Vector3(x1 - .16, sill + 1.1, middle + side * .72), .07, 2.2)
-		frame.tube(Vector3(x1 - .16, sill + 1.1, middle + side * 1.38), .07, 2.2)
-		frame.box(Vector3(x1 - .10, sill + 2.28, middle + side * 1.05), Vector3(.14, .16, .86))
-		for row in 4:
-			frame.box(Vector3(x1 - .085, sill + .5 + row * .55, middle + side * 1.05), Vector3(.02, .025, .5))
-	for column in [-.21, .21]:
-		frame.box(Vector3(x1 - .085, sill + 1.45, middle + column), Vector3(.02, 2.9, .03))
-	for row in 5:
-		frame.box(Vector3(x1 - .085, sill + .55 + row * .55, middle), Vector3(.02, .03, 1.25))
-	frame.box(Vector3(x1 - .16, sill - .04, middle), Vector3(.30, .08, 3.0))
-	frame.box(Vector3(x1 - .09, sill - .5, middle), Vector3(.05, .84, 2.9))
-	frame.into(east, room.look(Color("f1efe9")), "MarbleHallWindowFrame")
-	var grille: MeshInstance3D = room.solid(Vector3(x1 - .2, sill + .003, middle), Vector3(.14, .006, 2.4), room.look(Color("8d8c88")))
-	grille.reparent(east)
+	for hand in [-1, 1]:
+		for column in [.77, 1.52]:
+			var z: float = middle + hand * column
+			var radius := .095 if column == .77 else .060
+			frame.box(Vector3(x1 - .18, sill + .065, z), Vector3(.26, .13, radius * 3))
+			for band in [[.14, radius * 1.45, .045], [.19, radius * 1.18, .045], [2.70, radius * 1.16, .05], [2.76, radius * 1.4, .06]]:
+				frame.tube(Vector3(x1 - .18, sill + band[0], z), band[1], band[2], Basis.IDENTITY, 16)
+			frame.tube(Vector3(x1 - .18, sill + 1.45, z), radius, 2.48, Basis.IDENTITY, 16)
+			frame.box(Vector3(x1 - .18, sill + 2.84, z), Vector3(.25, .10, radius * 3))
+		frame.box(Vector3(x1 - .16, spring + .03, middle + hand * 1.13), Vector3(.26, .12, .84))
+		for row in 5:
+			frame.box(Vector3(x1 - .102, sill + .45 + row * .48, middle + hand * 1.13), Vector3(.025, .023, .60))
+	for column in [-.225, .225]:
+		frame.box(Vector3(x1 - .102, sill + 1.45, middle + column), Vector3(.028, 2.90, .03))
+	for row in 6:
+		frame.box(Vector3(x1 - .102, sill + .44 + row * .48, middle), Vector3(.028, .025, 1.34))
+	for radius in [.705, .755]:
+		var arch := PackedVector3Array()
+		for i in 33:
+			var angle := i * PI / 32
+			arch.append(Vector3(x1 - .18, spring + sin(angle) * radius, middle + cos(angle) * radius))
+		frame.sweep(arch, .085, .042, 8, Vector3.RIGHT)
+	frame.box(Vector3(x1 - .19, sill - .04, middle), Vector3(.36, .08, 3.18))
+	frame.box(Vector3(x1 - .12, sill - .13, middle), Vector3(.18, .10, 3.05))
+	for hand in [-1, 1]:
+		frame.box(Vector3(x1 - .10, sill - .53, middle + hand * 1.09), Vector3(.08, .70, .70))
+		frame.box(Vector3(x1 - .14, sill - .53, middle + hand * 1.09), Vector3(.025, .59, .59))
+	frame.box(Vector3(x1 - .10, sill - .53, middle), Vector3(.08, .70, 1.25))
+	frame.box(Vector3(x1 - .14, sill - .53, middle), Vector3(.025, .59, 1.13))
+	frame.into(east, white, "MarbleHallWindowFrame")
+	var grille := Batch.new()
+	for hand in [-1, 1]:
+		grille.box(Vector3(x1 - .22, sill + .004, middle + hand * 1.12), Vector3(.15, .009, .62))
+	var slots := Batch.new()
+	for hand in [-1, 1]:
+		for i in 15:
+			slots.box(Vector3(x1 - .22, sill + .010, middle + hand * 1.12 - .28 + i * .04), Vector3(.14, .008, .008))
+	grille.into(east, room.look(Color("7f817c")), "WindowSillGrilles")
+	slots.into(east, room.look(Color("343936")), "WindowSillGrilleSlots")
 
 
 func fireplace() -> void:

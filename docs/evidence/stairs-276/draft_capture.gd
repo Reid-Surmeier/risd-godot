@@ -58,7 +58,8 @@ func capture() -> void:
 		"window": [
 			["window", Vector3(x1 - 3.8, 4.2, middle - 1.35), Vector3(x1 - .1, 5.1, middle)],
 			["hall-wide", Vector3(x0 + .55, 2.8, middle), Vector3(x1 - .2, 4.0, middle)],
-			["landing-finish", Vector3(x1 - 2.7, 5.6, middle), Vector3(x0 + 2.2, 4.9, middle)]
+			["landing-finish", Vector3(x1 - 2.7, 5.6, middle), Vector3(x0 + 2.2, 4.9, middle)],
+			["landing-arm", Vector3(x1 - 3.6, 6.4, middle), Vector3(x0 + 3.4, 4.50, z1 - .8)]
 		],
 		"lion": [
 			["lion-shaft", Vector3(13.35, 1.7, 29.3), Vector3(13.35, .7, 35.9)],

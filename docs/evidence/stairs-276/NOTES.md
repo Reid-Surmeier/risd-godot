@@ -57,7 +57,7 @@ casings, DEEP_REVEALS, skirting/cornice kit, frozen seams and playtests are outs
 
 Reference frames inspected: IMG_6381 3.5, 5.5, 28.5, 59.5, 97.5;
 IMG_6387 15, 27; IMG_6380 35.5, 44.5, 70.5; IMG_6343 84, 87 s.
-No draft verification or final-bake claim yet.
+No final-bake claim. The checkpoints below record draft comparisons.
 
 
 ## Part 1 preflight
@@ -225,3 +225,37 @@ medieval declarations; it does not print `checks passed`.
 
 Production change remains solely `marble_hall_additions.gd`. No doorway or
 route trial added/moved, no east-plan change, no under-stair exit-leaf edit.
+
+
+## Part 4 checkpoint — census 8.5–7
+
+**VERIFIED in the corrected GL draft:** tall centre arch and two side lights,
+four engaged columns with stepped bases/small capitals, glazing bars, paired
+arch profiles, deep sill with two louvred grilles, near-white wall finishes,
+rounded stair-wall corners and curved stringers. The existing cornice and
+ceiling/lighting builders were retained. The upper floor and its arm have
+pale veined tiles and grey borders; their plaster faces use the kit white.
+
+![IMG_6381 28.5 s beside the half-landing window](04-window.jpg)
+![IMG_6343 84 s beside the visible draft window reflection](04-floor-reflection.jpg)
+![IMG_6381 97.5 s ground-floor finish beside the upper arm's matching finish](04-upper-finish.jpg)
+
+The window grid now appears in the ground-floor reflection, **VERIFIED**.
+Probe intensity is 2.0; roughness/specular remain the part 2 material.
+**INFERRED**: final daylight balance, baked shadows/reflections, and the
+unsurveyed upper-room destinations. The draft's inherited lighting is warm.
+The physical upper-floor fascia remains plain near-white plaster, rather
+than deleting the floor it supports.
+
+Review caught and corrected two tile-helper mistakes: upper tiles retaining
+ground height, and the niche cut also cutting the upper arm. That cut now
+applies only below 0.02 m. A trial per-probe resolution assignment was
+unsupported by 4.7.2 and was removed; its capture began before import ended
+and is discarded. The final capture used the completed import and current
+source (SHA-256 `275d40431e3fd134afa473ee89d81d5157068296ce8ef0737e7ff02737e98bc5`).
+
+`part4-draft-corrected.log`: exit 0, ARCHITECTURE_CHECK `failures: []`.
+Seven final review views: exit 0, no script/shader errors. Whitespace passes.
+The push check still fails on the same three inherited medieval declarations;
+no `checks passed` claim. Only the marble additions changed in production.
+No doorway, room-plan or route-trial change; #277's opening/east plan remains.
