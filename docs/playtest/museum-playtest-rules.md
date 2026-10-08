@@ -16,7 +16,7 @@ godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playt
 
 `--fixed-fps 60` makes each frame one sixtieth of a second of game time, so two runs of the same
 commit give the same result. The run writes `report.json`, one picture per view and one per opened
-object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects` runs part of it.
+object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects,interaction` runs part of it.
 `--objects=E1,21.482` drives only the named works (by tag, or by the accession before its `#`).
 
 ## The rules
@@ -39,7 +39,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    `modules/shell/playtest/visitor174_check.gd`: clip choice, step cadence, floor contact, jump
    height, no footsteps in the air; one stride carried through every change of gait with each foot sounding in turn, a landing
    after every jump that hands back to the gait the keys ask for, and a sprint thrown into
-   reverse that skids at once and only once (#259).
+   reverse that skids at once and only once (#259). A floor click made while a movement key is
+   held gives way to the key: one walking speed on every frame, never the key's travel added to
+   a click route (#280).
 6. **Inspection shows the work.** When a work opens, the work that opened is the one clicked, it
    is drawn (the camera's cut-away has not hidden it), all of it is inside the picture, and the
    visitor's body does not overlap it on screen. A second
@@ -58,6 +60,10 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    a blank rectangle, and its caption lies clear of the picture. A run that fails only on "drew
    as solid blocks" or "did not draw" is run again before it is believed: one capture on
    7 October drew 19 captions that way and no later run of the same build has.
+10. **What a player found by playing stays fixed.** (Interaction pass, #280.) Each fault is
+    replayed with real pointer events. "Other wall" is not offered while a work is being read or
+    while the camera glides back from it, so the visitor never walks off under an open caption;
+    the button is back once the reading has closed.
 
 Round 1's reviewer asked for four more that the harness does not have yet; until it does, the
 reviewer checks them by hand and says so:
