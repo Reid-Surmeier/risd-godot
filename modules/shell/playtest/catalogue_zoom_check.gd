@@ -17,6 +17,14 @@ func _require(value: bool, message: String) -> void:
 func _run() -> void:
 	var adapter = load("res://modules/shell/prototype/gallery_walk4/catalogue_zoom.gd").new()
 	root.add_child(adapter)
+	_require(
+		adapter.zoom_path("S1", {"zoom_image": "hall.jpg"}) == "hall.jpg", "Hall path was lost"
+	)
+	_require(
+		adapter.zoom_path("54.186#14", {}).ends_with("54.186.jpg"),
+		"object catalogue path was lost when the room normalized its caption"
+	)
+	_require(adapter.zoom_path("missing#0", {}).is_empty(), "unknown work gained a zoom path")
 	var picture := TextureRect.new()
 	root.add_child(picture)
 	var fallback: Texture2D = load("res://modules/shell/prototype/gallery_walk4/detail/S1.jpg")

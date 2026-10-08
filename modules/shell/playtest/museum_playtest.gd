@@ -482,6 +482,9 @@ func _objects() -> void:
 			await process_frame
 		if not walk.state().attached:
 			_fail("setup", "walking into an added room did not build the rooms")
+	var captions: Dictionary = JSON.parse_string(
+		FileAccess.get_file_as_string("res://modules/shell/collection_rooms/objects.json")
+	)
 	var things: Array = walk._paintings.duplicate()
 	if walk.get("_objects") is Array:
 		things += walk._objects
@@ -641,6 +644,28 @@ func _objects() -> void:
 			entry["canvas_screen_px"] = [ceilf(canvas_box.size.x), ceilf(canvas_box.size.y)]
 			entry["canvas_render_px"] = [ceilf(rendered.x), ceilf(rendered.y)]
 		entry["visitor_stepped_out"] = not walk._kid.visible
+		if thing.has("object"):
+			var record: Dictionary = captions.get(tag.get_slice("#", 0), {})
+			var policy: Dictionary = record.get("image_resolution", {})
+			var wall_path: String = policy.get("images", {}).get("wall", {}).get("path", "")
+			for part in thing.node.find_children("*", "MeshInstance3D", true, false):
+				var material: Material = part.material_override
+				if material == null:
+					continue
+				var texture: Texture2D = (
+					material.albedo_texture
+					if material is BaseMaterial3D
+					else material.get_shader_parameter("albedo")
+				)
+				if texture == null or texture.resource_path != "res://" + wall_path:
+					continue
+				var face_points := []
+				for i in 8:
+					face_points.append(part.to_global(part.get_aabb().get_endpoint(i)))
+				var face_box := _on_screen(face_points)
+				var pixels: Vector2 = face_box.size / walk.size * Vector2(walk._vp.size)
+				entry["canvas_render_px"] = [ceilf(pixels.x), ceilf(pixels.y)]
+				break
 		if walk._kid.visible and work.intersects(_on_screen(body)):
 			problems.append("the visitor covers the work")
 		# A second click on the work: the zoom page, which must close again.
@@ -662,9 +687,14 @@ func _objects() -> void:
 			var zoomed := await _shot("zoom-%s.png" % slug)
 			var pic: TextureRect = walk._zoom_root.get_node("Painting")
 			entry["zoom_image_px"] = [pic.texture.get_width(), pic.texture.get_height()]
-			if thing.rec.has("image_resolution"):
-				var images: Dictionary = thing.rec.image_resolution.images
-				var need: Dictionary = images.get("zoom_external", images.get("detail", {}))
+			var resolution: Dictionary = thing.rec.get("image_resolution", {})
+			if resolution.is_empty() and thing.has("object"):
+				resolution = captions.get(tag.get_slice("#", 0), {}).get("image_resolution", {})
+			if not resolution.is_empty():
+				var images: Dictionary = resolution.images
+				var need: Dictionary = images.get(
+					"zoom_external", images.get("zoom", images.get("detail", {}))
+				)
 				if (
 					maxf(pic.texture.get_width(), pic.texture.get_height())
 					< need.get("required_long_side", 0)

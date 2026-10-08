@@ -1,0 +1,360 @@
+{
+  "before": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "84.198.1032#21",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          339,
+          122
+        ],
+        "seconds_to_open": 1.8,
+        "tag": "84.198.1032#21",
+        "title": "River Landscape with Mercury Abducting Psyche",
+        "title_shown": "River Landscape with Mercury Abducting Psyche",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          252,
+          109,
+          188,
+          154
+        ],
+        "zoom_fit_px": [
+          682.0,
+          557.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3340.0
+        ],
+        "zoom_image_px": [
+          443,
+          362
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "34.016#31",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "light Renaissance room",
+        "screen": [
+          347,
+          143
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "34.016#31",
+        "title": "Book cover",
+        "title_shown": "Book cover",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          296,
+          108,
+          106,
+          157
+        ],
+        "zoom_fit_px": [
+          682.0,
+          515.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3087.0
+        ],
+        "zoom_image_px": [
+          1324,
+          1000
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2016.124#128",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          154
+        ],
+        "seconds_to_open": 2.0,
+        "tag": "2016.124#128",
+        "title": "Cake Basket",
+        "title_shown": "Cake Basket",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          310,
+          106,
+          71,
+          162
+        ],
+        "zoom_fit_px": [
+          682.0,
+          638.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3828.0
+        ],
+        "zoom_image_px": [
+          473,
+          443
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "75.023#134",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          329,
+          156
+        ],
+        "seconds_to_open": 4.0,
+        "tag": "75.023#134",
+        "title": "Writing Desk (Schreibtisch)",
+        "title_shown": "Writing Desk (Schreibtisch)",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          267,
+          103,
+          149,
+          169
+        ],
+        "zoom_fit_px": [
+          682.0,
+          543.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3258.0
+        ],
+        "zoom_image_px": [
+          493,
+          393
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "arch"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 4,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  },
+  "after": {
+    "doors": [],
+    "failures": [],
+    "objects": [
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "84.198.1032#21",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          339,
+          122
+        ],
+        "seconds_to_open": 1.8,
+        "tag": "84.198.1032#21",
+        "title": "River Landscape with Mercury Abducting Psyche",
+        "title_shown": "River Landscape with Mercury Abducting Psyche",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          252,
+          109,
+          188,
+          154
+        ],
+        "zoom_fit_px": [
+          682.0,
+          557.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3337.0
+        ],
+        "zoom_image_px": [
+          4087,
+          3337
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "34.016#31",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "light Renaissance room",
+        "screen": [
+          347,
+          143
+        ],
+        "seconds_to_open": 2.1,
+        "tag": "34.016#31",
+        "title": "Book cover",
+        "title_shown": "Book cover",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          296,
+          108,
+          106,
+          157
+        ],
+        "zoom_fit_px": [
+          682.0,
+          515.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3086.0
+        ],
+        "zoom_image_px": [
+          4064,
+          3068
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "2016.124#128",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          347,
+          154
+        ],
+        "seconds_to_open": 2.0,
+        "tag": "2016.124#128",
+        "title": "Cake Basket",
+        "title_shown": "Cake Basket",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          310,
+          106,
+          71,
+          162
+        ],
+        "zoom_fit_px": [
+          682.0,
+          639.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3830.0
+        ],
+        "zoom_image_px": [
+          3900,
+          3655
+        ]
+      },
+      {
+        "camera_glided": true,
+        "flat_share": 0.353,
+        "picked": "75.023#134",
+        "render_size": [
+          695,
+          465
+        ],
+        "result": "inspected, zoomed and closed",
+        "room": "adjacent gallery",
+        "screen": [
+          329,
+          156
+        ],
+        "seconds_to_open": 4.0,
+        "tag": "75.023#134",
+        "title": "Writing Desk (Schreibtisch)",
+        "title_shown": "Writing Desk (Schreibtisch)",
+        "view": "dollhouse",
+        "visitor_stepped_out": false,
+        "work_on_screen": [
+          267,
+          103,
+          149,
+          169
+        ],
+        "zoom_fit_px": [
+          682.0,
+          544.0
+        ],
+        "zoom_full_px": [
+          4087.0,
+          3259.0
+        ],
+        "zoom_image_px": [
+          4063,
+          3240
+        ]
+      }
+    ],
+    "rooms": [],
+    "state": {
+      "attached": true,
+      "blocks": 71,
+      "cutaway_bodies": 165,
+      "objects": 154,
+      "rooms": 15,
+      "space": "arch"
+    },
+    "summary": {
+      "doors": 0,
+      "failures": 0,
+      "objects": 4,
+      "rooms": 0,
+      "views": 0
+    },
+    "views": []
+  }
+}
