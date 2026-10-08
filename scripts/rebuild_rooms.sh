@@ -5,6 +5,8 @@
 #        unbaked room project for looking at; nothing in the repo changes.
 # Needs gallery_walk4 committed (the Hall snapshot is taken from HEAD), DISPLAY=:99, about 2 GB.
 set -euo pipefail
+# One rebuild on the host at a time: the bake is CPU-only under WSL, and eight at once took the load to 81 (2 Oct).
+exec 9>/tmp/risd-rebuild-rooms.lock; flock 9
 cd "$(dirname "$0")/.."
 CK=$PWD
 SRC=$CK/modules/shell/prototype/collection_reconstruction
