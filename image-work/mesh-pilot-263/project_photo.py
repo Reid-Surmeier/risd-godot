@@ -18,7 +18,7 @@ import numpy as np, cv2
 from PIL import Image
 
 p = argparse.ArgumentParser(); p.add_argument("glb"); p.add_argument("cutout"); p.add_argument("out")
-p.add_argument("--size", type=int, default=2048); p.add_argument("--turns", default="0,90,180,270"); p.add_argument("--atlas"); p.add_argument("--view-only", action="store_true"); p.add_argument("--no-flow", action="store_true"); p.add_argument("--debug")
+p.add_argument("--size", type=int, default=2048); p.add_argument("--turns", default="0,90,180,270"); p.add_argument("--atlas"); p.add_argument("--view-only", action="store_true"); p.add_argument("--layer"); p.add_argument("--ramp", default="0.15,0.35"); p.add_argument("--no-flow", action="store_true"); p.add_argument("--debug")
 a = p.parse_args()
 
 # --- the mesh: positions, UVs, triangles, texture
@@ -136,7 +136,8 @@ visible = deep >= depth[iy, ix] - 0.012
 sx2, sy2 = sx + shift[iy, ix, 0], sy + shift[iy, ix, 1]
 core = cv2.erode(alpha.astype(np.uint8), np.ones((7, 7), np.uint8)) > 0  # not the cut-out's fringe, before or after the nudge
 inside = core[iy, ix] & core[np.clip(sy2, 0, H - 1).astype(int), np.clip(sx2, 0, W - 1).astype(int)]
-weight = np.clip((facing[tf] - 0.15) / 0.35, 0, 1) * visible * inside
+r0, r1 = (float(x) for x in a.ramp.split(","))  # how squarely a surface must face the view to take its colour: from r0, full at r0 + r1
+weight = np.clip((facing[tf] - r0) / r1, 0, 1) * visible * inside
 sx2, sy2 = np.clip(sx2, 0, W - 1.001), np.clip(sy2, 0, H - 1.001); jx, jy = sx2.astype(int), sy2.astype(int); fx, fy = (sx2 - jx)[:, None], (sy2 - jy)[:, None]
 colour = (photo[jy, jx] * (1 - fx) + photo[jy, jx + 1] * fx) * (1 - fy) + (photo[jy + 1, jx] * (1 - fx) + photo[jy + 1, jx + 1] * fx) * fy
 wmap = np.zeros((S, S), np.float32); wmap[ty, tx] = weight; wmap = cv2.GaussianBlur(wmap, (0, 0), 1.5)  # soften the edge of what was seen
@@ -147,6 +148,10 @@ painted = np.zeros((S, S), np.uint8); painted[ty, tx] = 1; result = out.astype(n
 spread = cv2.dilate(result, np.ones((5, 5), np.uint8)); edge = (cv2.dilate(painted, np.ones((5, 5), np.uint8)) > 0) & (painted == 0)
 result[edge] = spread[edge]
 Image.fromarray(result).save(a.out)
+if a.layer:  # this view alone, for blend_views.py: its colour, how much it should count, and which texels the mesh uses
+    lay = np.zeros((S, S, 3), np.uint8); lay[ty, tx] = np.clip(colour, 0, 255)
+    Image.fromarray(lay).save(a.layer + "-rgb.png"); Image.fromarray((np.clip(wmap, 0, 1) * 255).astype(np.uint8)).save(a.layer + "-w.png")
+    Image.fromarray(((owner >= 0) * 255).astype(np.uint8)).save(a.layer + "-used.png")
 print(f"repainted {100 * (wmap[ty, tx] > 0.5).mean():.0f}% of the used texture, {int((wmap > 0.5).sum())} texels, at {S} px")
 if a.debug:
     over = photo.copy(); edgepx = cv2.Canny(((ids >= 0) * 255).astype(np.uint8), 50, 150) > 0; over[edgepx] = (255, 0, 255)

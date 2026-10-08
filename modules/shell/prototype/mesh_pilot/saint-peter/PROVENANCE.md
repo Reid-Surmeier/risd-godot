@@ -21,3 +21,18 @@ One object made end to end on the route the owner asked for: Muse views first, t
 | `saint-peter-b.glb` (`aa2fc64a18903fab…`) | 15,000 | colour 1024 px, normal map 1024 px | 933 KB (mesh 463, colour 236, normal 233) |
 
 View image hashes: `image-work/mesh-pilot-263/saint-peter/views.sha256`. The view images themselves are not in git.
+
+## Colour test (8 October, later)
+
+| Step | What | Cost |
+| --- | --- | --- |
+| Corrected projection | `match_colour.py` (views brought to the catalogue photograph's colour), `colour_mesh2.sh` (views cross-faded; the 11.7% of the texture no view saw filled from its surroundings), `match_in_scene.py` (texture lifted until the figure, lit as in the game, matches the photograph: gain 1.44 / 1.57 / 1.80) | free |
+| Generator texture | Flora, RISD EDU Workspace, Meshy 5 Retexture (`m3d2m3d-meshy-5-retexture`) on B's 15,000-triangle mesh, original UVs kept, PBR off, reference: the matched front colour view; run `run_m17cytc4rq4jt48m2ga7h412198fwd47`; raw GLB `5f2a1bd474ecf83f…`; its texture put on B beside B's normal map and given the same in-scene lift | quoted 0.36, charged 0.36 USD |
+
+| File | What | In the pack |
+| --- | --- | --- |
+| `saint-peter-b3.glb` | B, corrected projection, 15,000 triangles, normal map 1024 px | 1,022 KB |
+| `saint-peter-b4.glb` | B, Meshy texture, 15,000 triangles, normal map 1024 px | 963 KB |
+| `saint-peter-b-10k-512.glb` | B at 10,000 triangles, normal map 512 px, corrected projection before the in-scene lift | 675 KB (mesh 311, normal 81, colour 283) |
+
+Measured and not kept: 15,000 triangles with a 512 px normal map, 829 KB.

@@ -44,4 +44,6 @@ Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 | Tripo H3.1 Multi-View, geometry detailed, no texture, 20,000 faces (RISD EDU) | 0.48 | 0.48 |
 | Tripo H3.1 Multi-View, geometry detailed, no texture, 500,000 faces (RISD EDU) | 0.48 | 0.48 |
 
-**Charged so far: 6.71 USD**: 3.12 above, 2.52 stopped-route, 1.07 Saint Peter Muse-first (0.11 Muse, 0.96 Tripo).
+| Meshy 5 Retexture on variant B (RISD EDU) | 0.36 | 0.36 |
+
+**Charged so far: 7.07 USD**: 3.12 above, 2.52 stopped-route, 1.43 Saint Peter Muse-first (0.11 Muse, 0.96 Tripo, 0.36 Meshy retexture).
