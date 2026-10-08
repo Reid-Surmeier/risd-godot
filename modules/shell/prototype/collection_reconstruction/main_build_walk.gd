@@ -1197,7 +1197,9 @@ func _update_camera(k: float) -> void:
 		_wipe_begin()
 	var closing := _wipe_t >= 0.0 and _wipe_t < WIPE_CLOSE
 	var added := _stage >= 0
-	($OtherWall as Button).visible = _space == "gallery"
+	# Not while a work is being read, nor while the camera glides back from it (#280): the
+	# button walks the visitor across and swings the view round, and the shot follows neither.
+	($OtherWall as Button).visible = _space == "gallery" and _inspect.is_empty() and _inspect_t <= 0.0
 	if _baked_room:
 		_baked_room.get_node("Lightmap").visible = not added
 	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
