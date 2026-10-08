@@ -135,6 +135,11 @@ const JOINED := {
 # gradient geometry beyond the opening, seen only through the opening itself, and a fan of the
 # same light on this stage's floor. No bake, no texture.
 const DOOR_GLOW := Color(1.0, 0.74, 0.46)  # the light at the sill
+# The room change closes to the doorways' haze. Kept clear of the void's own two colours, so the
+# doors pass (museum_playtest.gd _void_share) never reads the wipe as the outside of a room.
+const WIPE_VEIL := Color(0.78, 0.57, 0.36)
+const WIPE_HEART := Color(0.46, 0.32, 0.2)
+const WIPE_RIM := Color(0.33, 0.225, 0.14)
 const WALL_SHADE := 0.13  # what a wall the bake left unlit still shows of its own colour
 var _doors: Array = []  # {stage, node, at, header, hall_layer}: one per doorway onto another stage
 var _stage := NO_STAGE  # the stage drawn
@@ -2155,17 +2160,37 @@ void fragment() {
 	_floor_mask.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(_floor_mask)
 	var shader := Shader.new()
+	# Drawn as warm haze, not as an iris of black: the same radius closes and opens it at the
+	# same times, but its edge is feathered over more than half the picture and its colour is
+	# the doorways' light in fog, thinner and brighter where it has only begun to gather.
 	shader.code = """shader_type canvas_item;
 uniform float radius = 2.0; // in half-diagonals of the picture
+uniform float open_radius = 1.19;
+uniform float feather = 0.7;
 uniform vec2 reach = vec2(1.0);
+uniform vec3 veil; // the haze where it is thin
+uniform vec3 heart; // the picture shut, at its middle
+uniform vec3 rim; // and at its corners
 void fragment() {
 	float d = length((UV - 0.5) * reach);
-	float edge = fwidth(d);
-	COLOR = vec4(0.0, 0.0, 0.0, smoothstep(radius - edge, radius + edge, d));
+	// Nothing is covered at open_radius, everything at 0. Between, the edge is `feather` wide,
+	// narrowing over the last of the way so the middle of the picture goes last, as it did.
+	float open = clamp(radius / open_radius, 0.0, 1.0);
+	float soft = feather * min(open * 2.5, 1.0);
+	float inner = open * (1.0 + soft) - soft;
+	float cover = open <= 0.0 ? 1.0 : smoothstep(inner, inner + soft + 0.0001, d);
+	vec3 full = mix(heart, rim, smoothstep(0.0, 1.0, d));
+	vec3 colour = mix(veil, full, cover * cover);
+	colour += (fract(sin(dot(FRAGCOORD.xy, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0 / 255.0;
+	COLOR = vec4(colour, cover);
 }"""
 	_wipe = ColorRect.new()
 	_wipe.material = ShaderMaterial.new()
 	_wipe.material.shader = shader
+	_wipe.material.set_shader_parameter("open_radius", WIPE_RADIUS)
+	_wipe.material.set_shader_parameter("veil", Vector3(WIPE_VEIL.r, WIPE_VEIL.g, WIPE_VEIL.b))
+	_wipe.material.set_shader_parameter("heart", Vector3(WIPE_HEART.r, WIPE_HEART.g, WIPE_HEART.b))
+	_wipe.material.set_shader_parameter("rim", Vector3(WIPE_RIM.r, WIPE_RIM.g, WIPE_RIM.b))
 	_wipe.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_wipe.z_index = 50  # over the view buttons, which are added after the rooms
 	_wipe.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
