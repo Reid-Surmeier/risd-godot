@@ -40,8 +40,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    height, no footsteps in the air; one stride carried through every change of gait with each foot sounding in turn, a landing
    after every jump that hands back to the gait the keys ask for, and a sprint thrown into
    reverse that skids at once and only once (#259).
-6. **Inspection shows the work.** When a work opens, the work that opened is the one clicked, all
-   of it is inside the picture, and the visitor's body does not overlap it on screen. A second
+6. **Inspection shows the work.** When a work opens, the work that opened is the one clicked, it
+   is drawn (the camera's cut-away has not hidden it), all of it is inside the picture, and the
+   visitor's body does not overlap it on screen. A second
    click on it opens its zoom page from wherever the visitor ended up standing, including just
    through a doorway. (Objects pass.)
 7. **The same hop at any frame rate.** The jump is run at 15, 30, 60 and 120 frames a second and

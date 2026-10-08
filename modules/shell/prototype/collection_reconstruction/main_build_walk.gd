@@ -1228,7 +1228,8 @@ func _update_camera(k: float) -> void:
 					for section in wall.boxes:
 						if (section as AABB).intersects_segment(eye, subject) != null:
 							clear = false
-			if not _inspect.is_empty():
+			# A placed mesh is its own cut-away body: the work being read never hides itself.
+			if not _inspect.is_empty() and wall.body != _inspect.get("node"):
 				for section in wall.boxes:
 					if (section as AABB).intersects_segment(eye, _inspect.center + _inspect.normal * 0.15) != null:
 						clear = false

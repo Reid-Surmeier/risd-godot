@@ -866,3 +866,20 @@ Collection prototype Issues #178/#182 only. Added a narrow `_walk_to` override f
 ### Collection viewer export and west-wall source fit — 2026-10-01
 
 Original IMG_6383 60.60/61.00/62.00s reviewed; native lossless CPU-decoded frames and intake-matched video SHA recorded in `docs/evidence/collection-reconstruction/west-wall-source-fit-20261001/measurements.json`. Wall spans remain source-relative; global metre and visual placement acceptance false. No paid generation ($0). Optional native proof writes now tolerate read-only packaged resources; topology assertions retained. Web export preserves both baked room scenes and lightmap data byte-for-byte; hashes in `docs/evidence/collection-reconstruction/viewer-export-20261001/`. Browser rendering/publication unverified: HTTP sockets and browser approval blocked; tailscaled unavailable. Main Hall/3D Viewer unchanged.
+
+### 2026-10-08 — First placed mesh in the added rooms: a stand-in (#264)
+
+No generation, no paid call: USD 0.
+
+| File | Made from | How | SHA-256 |
+| --- | --- | --- | --- |
+| `collection_rooms/assets/additions/medieval/head-59131.glb` (source copy: `image-work/collection-room-remodel/additions/medieval/head-59131.glb`) | `modules/sculpture_viewer/assets/models/proton-scan-20260820133334.glb`, the owner's scan of Portrait of Hadrian, RISD 59.050 (`94e634a0…626d9e`, 120,000 triangles) | `prepare_mesh.py --height 0.813 --triangles 6000 --texture 1024 --yaw 180`, Blender 4.0.2: 6,000 triangles, 1024 px texture, 0.467 x 0.813 x 0.457 m | `9fc187b09f80ef21ad0d01af6be3114138aa965514e33357d7fe778859bc9b26` |
+| `collection_rooms/assets/additions/medieval/head-59131_albedo.jpg` | the texture inside that GLB | written by Godot's import | `8dbc5aea5394e4fed2c8bbd1ebc308cd2cf90f0c53cd8104b596415d711bdee6` |
+| `collection_rooms/addition_baked/room.exr` | room sources at `95ff360d` plus the mesh | `scripts/rebuild_rooms.sh`: 1553 surfaces, 430 probes | `259161c23cdfd8b4e7003011782777e6e3cfb216f71c33b86cc673760abde976` |
+
+It stands where the Head of Christ or a Saint (59.131) belongs in the medieval room and is a
+different object: it proves that a room can place a mesh, and `representation.json` lists 59.131
+as `stand_in_mesh`, still below the floor. It is over the builder guide's budget for a work of its
+size (6,000 triangles and 1024 px against 3,000 and 512) because a scan's patchwork texture tears
+when it is decimated further. Replace it with the Head's own mesh. The scan's rights are as
+recorded for the sculpture viewer; nothing new is decided here.

@@ -481,6 +481,9 @@ func _objects() -> void:
 			problems.append("the visitor is not standing still")
 		if walk._inspect.get("tag", "") != tag:
 			problems.append("a different work opened: " + str(walk._inspect.get("tag", "")))
+		# Its box can be in the picture while the camera's cut-away has hidden the work itself.
+		if thing.has("node") and not walk._drawn(thing.node):
+			problems.append("the work is not drawn in its own inspection")
 		# The whole work is in the picture and the visitor stands beside it, not over it.
 		var work := _on_screen(thing.corners)
 		var body: Array = []
