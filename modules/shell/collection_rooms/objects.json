@@ -830,7 +830,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/pink-ladle.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-ladle.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-ladle-2017743920)"
   },
-  "apostle-41046": {
+  "41.046": {
     "title": "Apostle",
     "maker": "Unknown Maker, French",
     "date": "ca. 1110",
@@ -842,7 +842,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/apostle-41046.jpg",
     "source": "https://risdmuseum.org/art-design/collection/apostle-41046 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/apostle-41046.json)"
   },
-  "apostle-41045": {
+  "41.045": {
     "title": "Apostle",
     "maker": "Unknown Maker, French",
     "date": "ca. 1110",
