@@ -568,14 +568,14 @@ geometry['rooms'] += [
 geometry['rooms'][8]['openings']['east']=[-2.51,-1.41]
 geometry['rooms'][8].setdefault('clear_heights',{})['east']=2.47
 geometry['rooms'][12]={'label':'Impressionist gallery B','bounds':[10.55,16.70,12.70,22.30],
-    'height':3.5,'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.10,16.40]},
+    'height':3.5,'boards_across':True,'openings':{'north':[15.20,16.30],'south':[15.10,16.40]},
     'clear_heights':{'north':2.47,'south':2.74}}
 geometry['rooms'] += [
     {'label':'Impressionist passage','bounds':[19.45,21.45,-2.86,1.04],'height':3.2,
      'boards_across':True,'openings':{'west':[-2.51,-1.41],'south':[19.75,21.15]},
      'clear_heights':{'west':2.47,'south':2.74}},
     {'label':'Impressionist gallery A','bounds':[10.55,16.70,3.04,12.70],'height':3.69,
-     'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.10,16.40]},
+     'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.20,16.30]},
      'clear_heights':{'north':2.74,'south':2.47}},
     {'label':'Impressionist passage return','bounds':[14.75,21.45,1.04,3.04],'height':3.2,
      'boards_across':True,'openings':{'north':[19.75,21.15],'south':[15.10,16.40]},
