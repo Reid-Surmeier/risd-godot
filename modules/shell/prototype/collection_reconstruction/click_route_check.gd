@@ -31,7 +31,9 @@ func run() -> void:
 		["target-inside-hall-passage", "far", Vector3(2, 0, -28.5), Vector3(.3, 0, -26.1), "gallery"],
 		["replace-crossing-click", "far", Vector3(2, 0, -28.5), Vector3(-1, 0, -30), "far"],
 		["floor-pick-grey-hall", "far", Vector3(1.5, 0, -28.3), Vector3(-1, 0, -24.5), "gallery"],
-		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(1.5, 0, -28.3), "far"]
+		# #280: seen through the Hall's far door. The floor at x 1.5 lies behind the Hall's
+		# north wall, and a click on a wall is no longer a click on the floor behind it.
+		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(0.3, 0, -28.3), "far"]
 	]
 	var rows := []
 	var failures := []

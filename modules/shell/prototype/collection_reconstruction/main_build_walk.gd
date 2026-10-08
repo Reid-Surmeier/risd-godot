@@ -39,6 +39,9 @@ const DOOR_CLEAR := 0.25
 const BODY_CLEAR := 0.3
 const SWAP_DEPTH := 0.3  # how far into the other room group before the space changes
 const GRID := 0.25  # click-route search cell, metres
+# The lowest wall top in geometry.json's rooms: a sight line above it at a stage's edge has gone
+# over a wall, not through a door (no door head is higher except the portal's, which is walk4's).
+const DOOR_TOP := 3.5
 const SIDES := {
 	"west": Vector3.LEFT, "east": Vector3.RIGHT, "north": Vector3.FORWARD, "south": Vector3.BACK
 }
@@ -499,6 +502,49 @@ func _drawn(node: Node3D) -> bool:
 		if mesh.is_visible_in_tree():
 			return true
 	return false
+
+
+# The floor a click may walk to (#280): the drawn stage's own, or what a doorway in its edge
+# shows. walk4's ray alone runs on through a drawn wall, or over it, to the floor of whatever
+# room lies behind, and the visitor was sent there.
+func _floor_at(pt: Vector2):
+	var spot = super(pt)
+	if spot == null or _rooms == null or _on_stage(spot):
+		return spot
+	# Back along the sight line to where it leaves the stage: only a doorway lets a click out.
+	var eye := _cam.global_position
+	var far: Vector3 = eye + (spot - eye).limit_length(80.0)
+	for step in range(1, ceili(eye.distance_to(far) / 0.1)):
+		var q := far.move_toward(eye, step * 0.1)
+		if not _on_stage(Vector3(q.x, 0, q.z)):
+			continue
+		if not _doorway(q):
+			return null
+		# The wall over a door, and the door's casing, are wall: its header stops the click.
+		for wall in _walls:
+			if str(wall.body.get_meta("room_wall", "")).ends_with(":header"):
+				for box in wall.boxes:
+					if (box as AABB).intersects_segment(q.move_toward(eye, 0.5), spot) != null:
+						return null
+		return spot
+	return null
+
+
+# Whether a floor point belongs to the stage being drawn: its areas, or the Hall itself.
+func _on_stage(p: Vector3) -> bool:
+	var room := _room_at(p)
+	if room >= 0:
+		return _stage_ids[room] == _stage
+	return _stage == -1 and absf(p.x) <= W / 2.0 and p.z <= 0.0 and p.z >= -L
+
+
+# Whether a sight line leaving the stage at q passes through a doorway: one of the Hall's two
+# doors as walk4 builds them, or a gap in an added room's wall where a visitor may stand.
+func _doorway(q: Vector3) -> bool:
+	for door in DOORS.values():
+		if absf(q.x) <= door.size.x / 2.0 and absf(q.z - door.z) < 0.6:
+			return q.y <= door.size.y
+	return q.y < DOOR_TOP and _free(Vector3(q.x, 0, q.z))
 
 
 # Where a visitor stands to look at a work, and which way it faces from the wall.

@@ -63,7 +63,9 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
 10. **What a player found by playing stays fixed.** (Interaction pass, #280.) Each fault is
     replayed with real pointer events. "Other wall" is not offered while a work is being read or
     while the camera glides back from it, so the visitor never walks off under an open caption;
-    the button is back once the reading has closed.
+    the button is back once the reading has closed. A wall is not floor: in every room, facing
+    each wall in turn, a click on the drawn wall starts no walk, and a click in a doorway of
+    that wall still walks through it.
 
 Round 1's reviewer asked for four more that the harness does not have yet; until it does, the
 reviewer checks them by hand and says so:

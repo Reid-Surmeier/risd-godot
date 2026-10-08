@@ -6,7 +6,8 @@
 ## 4 objects: every artwork is clicked with a real mouse event; the visitor must walk up,
 ##            a detail must open, and it must close again.
 ## 5 interaction: the faults a player found by playing (#280), each replayed with real
-##            pointer events: "Other wall" pressed while a work is being read.
+##            pointer events: "Other wall" pressed while a work is being read; a click on
+##            every room's walls (no walk) and in every doorway (a walk through).
 ## source ~/promo-lab/gpu-env.sh   (the RTX through Mesa d3d12; llvmpipe is ten times slower)
 ## godot --fixed-fps 60 --path . --script res://modules/shell/playtest/museum_playtest.gd
 ##   --display-driver x11 --rendering-driver opengl3 -- --out-dir=<dir>
@@ -776,6 +777,109 @@ func _interaction() -> void:
 	entry["button_back"] = button.is_visible_in_tree()
 	if not entry.button_back:
 		problems.append("the button did not come back after the reading closed")
+	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
+	report.interaction.append(entry)
+	if not problems.is_empty():
+		_fail("interaction", entry.name + ": " + entry.result, entry)
+	await _wall_clicks()
+
+
+
+# The pixel showing a point of a wall, or null when it is out of the picture or under a work.
+func _wall_pixel(point: Vector3):
+	if walk._cam.is_position_behind(point):
+		return null
+	var at: Vector2 = walk._to_screen(point)
+	if not Rect2(Vector2.ZERO, walk.size).grow(-8).has_point(at):
+		return null
+	return at if walk._painting_at(at).is_empty() else null
+
+
+# Click, say where the walk it started would end (null when it started none), and drop it.
+func _click_goal(at: Vector2):
+	_mouse(at, true)
+	_mouse(at, false)
+	var goal = walk._target
+	walk._new_action()
+	walk._target = null
+	return goal
+
+
+# A wall is not floor (#280). In every room, facing each of its walls in turn from the middle,
+# a click on the drawn wall starts no walk, and a click in a doorway of that wall still does.
+func _wall_clicks() -> void:
+	var entry := {
+		"name": "wall and doorway clicks",
+		"walls": 0,
+		"doorways": 0,
+		"not_tried": [],
+		"walked": [],
+		"dead_doorways": []
+	}
+	for area in _areas():
+		var b: Array = area.b
+		if b[1] - b[0] < 2.5 or b[3] - b[2] < 2.5:
+			continue  # a doorway's own thickness
+		var openings := {"north": [-0.95, 0.95], "south": [-0.95, 0.95]}  # the Hall's two doors
+		for room in walk._plan:
+			if room.label == area.label:
+				openings = room.openings
+		var middle_of := Vector3((b[0] + b[1]) / 2.0, 0, (b[2] + b[3]) / 2.0)
+		for side in walk.SIDES:
+			var out: Vector3 = walk.SIDES[side]
+			var along_z: bool = side in ["west", "east"]
+			var plane: float = b[["west", "east", "north", "south"].find(side)]
+			# From the middle, or four metres short of the wall in a long room.
+			var reach: float = absf(plane - (middle_of.x if along_z else middle_of.z))
+			var stand := _free_near(middle_of + out * maxf(0.0, reach - 4.0))
+			var door: Array = openings.get(side, [])
+			var spans := [[b[2], b[3]] if along_z else [b[0], b[1]]]
+			if not door.is_empty():
+				spans = [[spans[0][0], door[0]], [door[1], spans[0][1]]]
+			_place(stand)
+			walk.view_yaw = atan2(-out.x, -out.z)
+			for settle in 8:
+				await process_frame
+			var name := "%s, %s" % [area.label, side]
+			# The wall: the middle of each solid stretch, at three heights, until one shows.
+			var at = null
+			for span in spans:
+				for height in [1.5, 0.5, 2.5]:
+					var middle: float = (span[0] + span[1]) / 2.0
+					if at == null and span[1] - span[0] > 0.6:
+						at = _wall_pixel(
+							Vector3(plane, height, middle) if along_z else Vector3(middle, height, plane)
+						)
+			if at == null:
+				entry.not_tried.append(name + " wall")
+			else:
+				entry.walls += 1
+				if _click_goal(at) != null:
+					entry.walked.append(name)
+			if door.is_empty():
+				continue
+			var centre: float = (door[0] + door[1]) / 2.0
+			var sill := Vector3(plane, 0, centre) if along_z else Vector3(centre, 0, plane)
+			# A metre up, a doorway shows the dark beyond the stage. Where the area behind it is
+			# part of this stage (a wall's thickness, a stub) it shows that area's back wall,
+			# so there the floor in the doorway is clicked.
+			var beyond: int = walk._room_at(sill + out * 0.3)
+			var joined: bool = beyond >= 0 and walk._stage_of(beyond) == walk._stage
+			at = _wall_pixel(sill + Vector3(0, 0.3 if joined else 1.0, 0))
+			if at == null:
+				entry.not_tried.append(name + " doorway")
+				continue
+			entry.doorways += 1
+			var goal = _click_goal(at)
+			if goal == null or (goal as Vector3 - sill).dot(out) <= 0.0:
+				entry.dead_doorways.append(name)
+	var problems := PackedStringArray()
+	if not entry.walked.is_empty():
+		problems.append("a click on a wall started a walk: " + "; ".join(entry.walked))
+	if not entry.dead_doorways.is_empty():
+		problems.append(
+			"a click in a doorway did not walk through: " + "; ".join(entry.dead_doorways)
+		)
 	entry["result"] = "ok" if problems.is_empty() else ", ".join(problems)
 	report.interaction.append(entry)
 	if not problems.is_empty():
