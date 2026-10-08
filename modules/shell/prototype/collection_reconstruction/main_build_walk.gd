@@ -104,23 +104,30 @@ var _seen_fov := 23.0
 var _seen_mask := 0
 var _wipe_fill := 0.65
 var _wipe_fade: Tween
+var _rooms_path := ""  # the room scene still to be built; empty once it is, or when there is none
+var _wipe_space := ""  # the space the first doorway leads to, entered once the rooms exist
+var _wipe_wait := 0
 
 
+# The launch reads only the plan (#281). The room scene itself, half the launch's work, is
+# built the first time the visitor leaves the Hall, behind the room-change wipe's black.
 func _build_test_room() -> void:
 	super()
 	for path in ROOM_SCENES:
 		if ResourceLoader.exists(path):
-			_attach_rooms(path)
+			if _read_plan(path):
+				_rooms_path = path
+				_build_stages()
 			return
 
 
-func _attach_rooms(path: String) -> void:
+func _read_plan(path: String) -> bool:
 	var plan = JSON.parse_string(
 		FileAccess.get_file_as_string(path.get_base_dir().path_join("geometry.json"))
 	)
 	if not (plan is Dictionary and plan.has("rooms")):
 		push_error("Collection rooms: geometry.json missing beside " + path)
-		return
+		return false
 	for area in plan.rooms:
 		if area.label == HALL_ROOM:
 			continue
@@ -140,6 +147,12 @@ func _attach_rooms(path: String) -> void:
 		if area.has("floor_void"):
 			var v: Array = area.floor_void
 			_blocks.append(Rect2(v[0] + ATTACH.x, v[2] + ATTACH.z, v[1] - v[0], v[3] - v[2]))
+	return true
+
+
+func _attach_rooms(path: String) -> void:
+	var began := Time.get_ticks_msec()
+	_rooms_path = ""
 	_rooms = load(path).instantiate()
 	_rooms.set_meta("main_build_host", true)
 	# The room scene builds itself in its own metres (its Hall-footprint tests are absolute),
@@ -253,14 +266,16 @@ func _attach_rooms(path: String) -> void:
 			child.hide()
 	_collect_objects()
 	_collect_parts()
-	_build_stages()
-	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()))
+	for wall in _walls:
+		wall["at"] = wall.room if wall.room >= 0 else _room_of(wall.box)
+	print("MAIN_BUILD_ROOMS ", JSON.stringify(state()), " ms=", Time.get_ticks_msec() - began)
 
 
 ## What the checks read: counts only, no behaviour.
 func state() -> Dictionary:
 	return {
 		"attached": _rooms != null,
+		"pending": _rooms_path != "",
 		"rooms": _plan.size(),
 		"blocks": _blocks.size(),
 		"cutaway_bodies": _walls.size(),
@@ -825,7 +840,7 @@ func _layers_of(item: GeometryInstance3D) -> int:
 
 func _set_lighting(enabled: bool) -> void:
 	super(enabled)
-	if _rooms == null:
+	if _rooms == null and _rooms_path == "":
 		return
 	# The stand-in room behind the portal gives way to the authored medieval room: hidden at
 	# runtime, never edited. Everything that reaches past the portal front; the portal stays.
@@ -881,6 +896,12 @@ func _set_lighting(enabled: bool) -> void:
 
 
 func _enter_space(next: String) -> void:
+	if _rooms == null and _rooms_path != "":
+		# The first doorway out of the Hall: the wipe closes here and the rooms are built in its black.
+		if next != "gallery" and _wipe_t < 0.0:
+			_wipe_space = next
+			_wipe_begin()
+		return
 	if _rooms == null:
 		super(next)
 		return
@@ -1185,6 +1206,8 @@ func _walkable(p: Vector3) -> bool:
 
 func _update_camera(k: float) -> void:
 	super(k)
+	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and _room_at(_pos) >= 0:
+		_attach_rooms(_rooms_path)  # put straight into an added room: no wipe to hide behind
 	if _rooms == null:
 		return
 	var here := _room_at(_pos)
@@ -1382,8 +1405,6 @@ func _build_stages() -> void:
 			if _plan[j].label == JOINED.get(_plan[i].label, ""):
 				id = j
 		_stage_ids.append(id)
-	for wall in _walls:
-		wall["at"] = wall.room if wall.room >= 0 else _room_of(wall.box)
 	for node in _vp.get_children():
 		if node is WorldEnvironment:
 			node.environment.background_color = VOID
@@ -1469,7 +1490,7 @@ func _wipe_begin() -> void:
 	_wipe_t = 0.0
 	_wipe_cam = _seen_cam
 	_wipe_fov = _seen_fov
-	_wipe_mask = _seen_mask
+	_wipe_mask = _seen_mask if _rooms != null else _cam.cull_mask
 	_velocity = Vector3.ZERO
 	# Straight in from the wall just crossed: the nearest edge of the area now stood in.
 	var here := _room_at(_pos)
@@ -1489,6 +1510,18 @@ func _wipe_begin() -> void:
 
 
 func _wipe_step(delta: float) -> void:
+	delta = minf(delta, 0.05)  # the frame after a load is long; the wipe does not skip ahead
+	if _rooms == null and _rooms_path != "" and _wipe_t + delta >= WIPE_CLOSE:
+		# The hold stretches: two frames of black on screen, then the rooms are built in one go.
+		(_wipe.material as ShaderMaterial).set_shader_parameter("radius", 0.0)
+		_wipe_wait += 1
+		if _wipe_wait < 3:
+			return
+		_attach_rooms(_rooms_path)
+		_stage = -1  # the Hall is what the wipe closed on
+		_stage_pos = _pos
+		_enter_space(_wipe_space)
+		_wipe_t = WIPE_CLOSE - delta
 	var before := _wipe_t
 	var open_at := WIPE_CLOSE + WIPE_HOLD
 	_wipe_t += delta

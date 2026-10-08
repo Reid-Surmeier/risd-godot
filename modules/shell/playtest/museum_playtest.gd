@@ -55,8 +55,9 @@ func _run() -> void:
 		root.add_child(walk)
 		for i in 240:
 			await process_frame
-	if not walk.state().attached:
-		_fail("setup", "the room scene did not attach")
+	# The room scene is built the first time the visitor leaves the Hall (#281).
+	if not walk.state().attached and not walk.state().get("pending", false):
+		_fail("setup", "the room scene is neither attached nor waiting to be")
 	walk._new_action()
 	if "doors" in only:
 		await _doors()
@@ -102,6 +103,10 @@ func _area_at(p: Vector3) -> String:
 
 # Every doorway once: {a, b: area labels, from, to: points 0.9 m inside each side}.
 func _doorways() -> Array:
+	# Where a visitor can stand beside a door depends on the furniture, which exists only once
+	# the rooms are built: step into the medieval room first.
+	if not walk.state().attached:
+		_place(Vector3(0, 0, walk.PORTAL_MOUTH + 0.9))
 	var doors := [
 		{"a": HALL, "from": Vector3(0, 0, -walk.L + 0.9), "to": Vector3(0, 0, -walk.L - 1.3)},
 		{"a": HALL, "from": Vector3(0, 0, -0.9), "to": Vector3(0, 0, walk.PORTAL_MOUTH + 0.9)},
@@ -463,6 +468,13 @@ func _on_screen(points: Array) -> Rect2:
 
 
 func _objects() -> void:
+	# A work in a room not yet entered exists only once the visitor has gone there.
+	if not walk.state().attached:
+		_place(Vector3(0, 0, walk.PORTAL_MOUTH + 0.9))
+		for settle in 6:
+			await process_frame
+		if not walk.state().attached:
+			_fail("setup", "walking into an added room did not build the rooms")
 	var things: Array = walk._paintings.duplicate()
 	if walk.get("_objects") is Array:
 		things += walk._objects
