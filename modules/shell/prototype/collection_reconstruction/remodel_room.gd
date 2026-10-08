@@ -818,9 +818,10 @@ func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,f
 ## What makes a wall case read as the footage's (IMG_6383 24.6/30.2/44.0/62.0s) once its deck, back
 ## board and clear hood exist. The hood's polished edges: the four top ones as narrow dark rails
 ## (seen from below against the white board they read slate-dark in every frame), the other eight
-## as thinner mid grey-green lines, darker than the board and lighter than the room. A sloped
-## label rail along the deck's front inside the hood, carrying one blank block per `labels` row
-## ([centre along the case, width]). A recessed lower step under the deck. On the floor under the
+## as thinner mid grey-green lines, darker than the board and lighter than the room. Inside the
+## hood a riser the works stand on, 10 cm above the deck, whose sloped front is the label face
+## and carries one blank block per `labels` row ([centre along the case, width]): a work
+## standing in the case is placed at deck+.10. A recessed lower step under the deck. On the floor under the
 ## case, a thin dark strip round its footprint. `display` is the case's own frame: x along the
 ## wall and centred, y up from the floor, z out of the wall. `under` and `deck` are the deck's
 ## bottom and top, `top` the hood's.
@@ -850,23 +851,27 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	var strip:=look(Color("83623f"))
 	for x in [-length/2,length/2]:add.call(Vector3(x,.004,depth/2+.03),Vector3(.02,.008,depth-.06),strip)
 	for z in [.06,depth]:add.call(Vector3(0,.004,z),Vector3(length+.02,.008,.02),strip)
-	# The label rail: a wedge rising from the deck's front edge toward the works.
+	# The riser: the works' floor, back to the board, with the label face sloping down to the
+	# deck's front edge. IMG_6383 24.6s, a camera fit on the Pietà case's own width: 10 cm up
+	# over 9 cm (+-2 cm).
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var run:=minf(.14,depth*.26)
+	var run:=.09
+	var rise:=.10
 	var front:=depth-.02
 	var back:=front-run
-	var rise:=run/2
+	var half:=length/2-.03
 	var slope:=Vector3(0,run,rise).normalized()
-	for quad in [[[Vector3(-1,deck,front),Vector3(1,deck,front),Vector3(1,deck+rise,back),Vector3(-1,deck+rise,back)],slope],
-		[[Vector3(-1,deck+rise,back),Vector3(1,deck+rise,back),Vector3(1,deck,back),Vector3(-1,deck,back)],Vector3(0,0,-1)]]:
+	for quad in [[[Vector3(-half,deck,front),Vector3(half,deck,front),Vector3(half,deck+rise,back),Vector3(-half,deck+rise,back)],slope],
+		[[Vector3(-half,deck+rise,back),Vector3(half,deck+rise,back),Vector3(half,deck+rise,.03),Vector3(-half,deck+rise,.03)],Vector3.UP]]:
 		for i in [0,1,2,0,2,3]:
 			st.set_normal(quad[1])
-			st.add_vertex(Vector3(quad[0][i].x*(length/2-.03),quad[0][i].y,quad[0][i].z))
-	for x in [-(length/2-.03),length/2-.03]:
-		for corner in [Vector3(x,deck,front),Vector3(x,deck+rise,back),Vector3(x,deck,back)]:
+			st.add_vertex(quad[0][i])
+	for x in [-half,half]:
+		var end:=[Vector3(x,deck,front),Vector3(x,deck+rise,back),Vector3(x,deck+rise,.03),Vector3(x,deck,.03)]
+		for i in [0,1,2,0,2,3]:
 			st.set_normal(Vector3(signf(x),0,0))
-			st.add_vertex(corner)
+			st.add_vertex(end[i])
 	var rail:=MeshInstance3D.new()
 	rail.mesh=st.commit()
 	var card:=look(Color("f6f4ee"))
@@ -874,9 +879,9 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	rail.material_override=card
 	rail.set_meta("artwork_label_proxy",true)
 	display.add_child(rail)
-	# The labels lie on the rail's slope. Blank blocks: the game carries no typed text.
+	# The labels lie on the riser's slope. Blank blocks: the game carries no typed text.
 	for spec in labels:
-		var block:Node3D=add.call(Vector3(spec[0],deck+rise/2,(front+back)/2)+slope*.002,Vector3(spec[1],.003,run*.86),look(Color("dedbd4")))
+		var block:Node3D=add.call(Vector3(spec[0],deck+rise/2,(front+back)/2)+slope*.002,Vector3(spec[1],.003,Vector2(run,rise).length()*.86),look(Color("dedbd4")))
 		block.rotation.x=atan2(rise,run)
 		block.set_meta("artwork_label_proxy",true)
 
@@ -1760,7 +1765,7 @@ func build_sculpture_rooms() -> void:
 	_renaissance_triptych_case=triptych_case
 	var triptych:=Triptych.build()
 	add_child(triptych)
-	triptych.position=triptych_at+Vector3(0,1.08,0)
+	triptych.position=triptych_at+Vector3(0,1.18,0)
 	triptych.reparent(triptych_case)
 	for spec in [[Vector3(-.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(0,1.50,.48),Vector3(.92,.84,.012)],[Vector3(0,1.50,0),Vector3(.92,.84,.012)],[Vector3(0,1.92,.24),Vector3(.92,.012,.48)]]:
 		var pane:=solid(triptych_at+spec[0],spec[1],roch_glass)
@@ -1780,19 +1785,20 @@ func build_sculpture_rooms() -> void:
 	_renaissance_pieta_case=pieta_case
 	var pieta:=Pieta.build()
 	add_child(pieta)
-	pieta.position=pieta_at+Vector3(0,1.08,0)
+	pieta.position=pieta_at+Vector3(0,1.18,0)
 	pieta.rotation.y=PI/2
 	pieta.reparent(pieta_case)
-	for spec in [[Vector3(-.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(0,1.43,-.325),Vector3(.38,.70,.012)],[Vector3(0,1.43,.325),Vector3(.38,.70,.012)],[Vector3(0,1.78,0),Vector3(.38,.012,.65)]]:
+	for spec in [[Vector3(-.19,1.525,0),Vector3(.012,.89,.65)],[Vector3(.19,1.525,0),Vector3(.012,.89,.65)],[Vector3(0,1.525,-.325),Vector3(.38,.89,.012)],[Vector3(0,1.525,.325),Vector3(.38,.89,.012)],[Vector3(0,1.97,0),Vector3(.38,.012,.65)]]:
 		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)
 		pane.reparent(pieta_case)
-	# IMG_6383 24.6s: the same hood and rail; the label under the work, about 0.27 m.
+	# IMG_6383 24.6s: the same hood and riser; the label under the work, about 0.27 m. The hood
+	# is 0.89 m tall there, a third of a metre clear above the figure.
 	var pieta_frame:=Node3D.new()
 	add_child(pieta_frame)
 	pieta_frame.position=pieta_at+Vector3(-.19,0,0)
 	pieta_frame.rotation.y=PI/2
 	pieta_frame.reparent(pieta_case)
-	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.78,[[0.0,.27]])
+	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.97,[[0.0,.27]])
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
@@ -2229,7 +2235,7 @@ func build_renaissance_east_cases() -> void:
 		backing.position=Vector3(0,1.53,.018)
 		wall_case_fittings(display,1.20,.56,.97,1.08,1.98,[[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]])
 		if row[0]=="A":
-			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.08,.32)],["bookcover",Vector3(-.16,1.08,.35)],["emblem",Vector3(.12,1.08,.30)],["albarello",Vector3(.45,1.08,.30)]]:
+			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.18,.32)],["bookcover",Vector3(-.16,1.18,.35)],["emblem",Vector3(.12,1.18,.30)],["albarello",Vector3(.45,1.18,.30)]]:
 				var art:=RenaissanceA.on_display(spec[0],images,Painting.mat)
 				display.add_child(art)
 				art.position=spec[1]
@@ -2237,7 +2243,7 @@ func build_renaissance_east_cases() -> void:
 				if spec[0]=="cleric":art.set_meta("frame_texture","source-guided Muse study, source-band fit; provisional")
 				if spec[0]=="bookcover":art.rotation.y=.28
 		else:
-			for spec in [["plate_46391",Vector3(-.27,1.55,.027),0.0],["plate_57302",Vector3(.22,1.55,.027),0.0],["roundel_51105",Vector3(-.38,1.14,.34),-.95],["glass_201729",Vector3(0,1.20,.29),-.15],["plaque_34024",Vector3(.40,1.15,.34),-.72]]:
+			for spec in [["plate_46391",Vector3(-.27,1.55,.027),0.0],["plate_57302",Vector3(.22,1.55,.027),0.0],["roundel_51105",Vector3(-.38,1.24,.34),-.95],["glass_201729",Vector3(0,1.30,.29),-.15],["plaque_34024",Vector3(.40,1.25,.34),-.72]]:
 				var art:=RenaissanceB.build(spec[0],"res://assets/renaissance-case-b/textures/")
 				display.add_child(art)
 				art.position=spec[1]
@@ -2246,7 +2252,7 @@ func build_renaissance_east_cases() -> void:
 				if spec[0] in ["roundel_51105","plaque_34024"]:
 					var mount:=solid(Vector3.ZERO,Vector3(.12,.018,.10),white)
 					mount.reparent(display,false)
-					mount.position=Vector3(spec[1].x,1.09,.34)
+					mount.position=Vector3(spec[1].x,1.19,.34)
 					mount.rotation.x=-.28
 	inventory["renaissance_case_objects"]={"case_a":6,"case_b":5,"probable":["34.024"],"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 

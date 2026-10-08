@@ -82,7 +82,7 @@ func run() -> void:
 			var figure = node.find_child("Pieta59128", true, false)
 			if node.get_parent().get_meta("room_wall", "") != "light Renaissance room:west" or not node is StaticBody3D or not node.get_child(0) is CollisionShape3D or figure == null:
 				failures.append("Pietà case lost its west-wall owner, collision or figure")
-			elif not figure.global_position.is_equal_approx(Vector3(-5.29,1.08,29.80)) or not figure.get_meta("catalogue_size_m").is_equal_approx(Vector3(.381,.457,.132)):
+			elif not figure.global_position.is_equal_approx(Vector3(-5.29,1.18,29.80)) or not figure.get_meta("catalogue_size_m").is_equal_approx(Vector3(.381,.457,.132)):
 				failures.append("Pietà lost its catalogue bounds or window-relative placement")
 			if figure != null:
 				for flag in ["visual_fidelity_accepted","rear_fidelity_accepted","placement_accepted","survey_metres_accepted","whole_room_complete"]:

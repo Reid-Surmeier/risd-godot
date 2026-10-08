@@ -166,6 +166,38 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    Guessed: the camera's lens (the tilt correction assumes straight lines stay straight); the
    cards on Saint Peter's and the relief's pedestals are placed as before (0.82 m centre).
 
+13. `13-wall-case-risers-footage-and-unbaked.jpg`: the riser inside the four Renaissance wall
+   cases. Pairs, footage then unbaked: IMG_6383 44.0 s (east case A), 24.6 s (the Pietà case),
+   30.2 s (the triptych case). In the footage the works do not stand on the hood's floor: they
+   stand on a white block inside the hood whose sloped front is the label face. The kit's
+   wedge-shaped rail is now that block: `wall_case_fittings()` builds it 10 cm high, back to the
+   board, its front sloping down over 9 cm to the deck's front edge.
+   WORKS MOVED, each straight up by 0.10 m with its floor, nothing else changed:
+   - east case A: the diptych (22.201), the book cover (34.016), the emblem (2023.17) and the
+     albarello (35.713), base 1.08 -> 1.18 m;
+   - east case B: the roundel (51.105) 1.14 -> 1.24 m, the glass (2017.29) 1.20 -> 1.30 m, the
+     plaque (34.024) 1.15 -> 1.25 m, and the two small mounts under the roundel and plaque;
+   - the triptych (2021.131), base 1.08 -> 1.18 m;
+   - the Pietà (59.128), base 1.08 -> 1.18 m.
+   Not moved: the two portraits in case A and the two plates in case B, which hang on the back
+   board (in 44.0 s the woman's portrait hangs clear of the riser, its foot level with the
+   albarello's rim, which is nearer the build after the move than before).
+   The measurement, 24.6 s: a camera fit on the Pietà riser's three edges (back, front top,
+   foot of the slope), which shorten with distance as 436 : 600 : 640 px, with the riser's
+   width (0.575 m, from the Pietà's catalogue width on it) as the ruler and the phone's lens
+   taken as 1536 px. It gives the camera 0.53 m above the riser's top, the slope 10.6 cm up over
+   9.0 cm, and the Pietà's front 0.18 m from the board (its catalogue depth is 0.13 m, so the
+   fit holds together). East case A agrees: its label face reads 0.14 m tall seen from above,
+   against the albarello's 0.241 m. Uncertainty +-2 cm.
+   ALSO CHANGED, the Pietà's hood: 0.89 m tall (top 1.97 m; it was 0.70 m, top 1.78 m). The same
+   fit puts the hood's top 0.78 m above the riser, a third of a metre clear above the figure;
+   with the figure raised the old hood left 14 cm. The triptych's hood needed nothing (8 cm clear
+   above the gable, as filmed), nor the east cases'.
+   `architecture_check.gd`: the Pietà's pinned height 1.08 -> 1.18 m. Nothing else in it.
+   Seen and left: the filmed riser top of the Pietà case is about 0.42 m deep, so that case is
+   deeper than the build's 0.38 m; and the east cases' and the triptych's hood heights were not
+   measured.
+
 The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
 up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
@@ -174,10 +206,7 @@ up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip`
 - Done in the Renaissance room: the bench, the four wall cases, the hooded floor case and its
   proportions, the textile platform with its label stands, the window (pictures 1 to 9).
 - Saint Roch's plinth is lowered to the filmed 0.44 m and the figure with it (picture 11).
-- Allowed by the lead and not done: raising the deck, and the works on it, in the four wall
-  cases so the label rail's face has its filmed height. Measure from 44.0, 24.6 and 30.2 s
-  (scale from the case's own width or a catalogue size in the same plane), move works only
-  vertically and only with their deck, and name each work and distance in the commit.
+- The four wall cases' works stand on a 10 cm riser with the sloped label face (picture 13).
 - Done in the dark medieval room: the two glass cases and the octagonal pedestals (picture 10),
   their filmed proportions and the label cards (picture 12).
 - Not done: the grey French gallery (the plinth under Rodin's Hand of God, benches), and the
@@ -235,7 +264,8 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
 with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
 `2.82,1.32,-1.89:3.39,.82,-.12`; picture 11: `renaissance_west_blind`
-`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 12, `medieval_crucifix_platform`: `-3.2,1.6,-1.9:-4.78,.9,-.98` and
+`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 13: `renaissance_wall_case=A` `-1.05,.65,.12:0,.25,.30`, `pieta_wall_case`
+`1.0,.65,.05:0,.22,0`, `triptych_wall_case` `.05,.65,1.2:0,.28,0`; picture 12, `medieval_crucifix_platform`: `-3.2,1.6,-1.9:-4.78,.9,-.98` and
 `3.6,1.45,-1.6:3.39,1.25,-.12`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
