@@ -31,6 +31,9 @@ Worked through once, on Saint Peter 20.254 (8 October 2026). Run from the reposi
 
 ## What is known to go wrong
 
+- **A clay reference can take over.** On the Hand of God, with the clay front attached as a second reference, Muse copied the front for the back and right views twice. Given the photograph of that side alone it drew the right view. On the Angel the same references worked.
+- **Views that are not square-on.** The museum's photographs are rarely at 0, 90, 180 and 270 degrees. `finish_object.sh` finds the mesh's front, and with `view:ALL:weight` each colour view's direction, by silhouette in 15 degree steps.
+
 - **Nudes.** Muse refused the fireplace and the River God; Tripo refused Amphitrite. `prepare_batch.py` writes no prompts for flagged objects and puts a fallback in their `views.json`.
 - **A view Muse turns.** Asked for a true right side of Saint Peter, Muse gave a three-quarter. Where no photograph of a side or back exists, the view is Muse's invention; most objects here have only a front photograph.
 - **Tripo's view order.** Front, left, back, right. "Left" was taken as the object's own left and that worked once.

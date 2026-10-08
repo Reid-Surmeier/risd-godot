@@ -22,7 +22,7 @@ OBJECTS = {  # accession: page, what it is (named parts come from the museum's a
  "41.046": ("apostle-41046", "a tall narrow limestone relief of a standing apostle", "weathered grey-buff limestone", None),
  "06.057": ("tabernacle-06057", "a marble tabernacle relief with two kneeling angels either side of a rectangular opening that goes right through", "ivory-white marble with warm staining", None),
  "37.201": ("bust-madame-recamier-37201", "a marble bust of a young woman with curled hair bound in a cloth, on a round socle", "white marble, slightly warm", None),
- "23.005": ("hand-god-23005", "a marble of a great hand rising from rough stone and holding two small entwined figures", "white marble, polished hand, rough-hewn block",
+ "23.005": ("hand-god-23005", "a marble of one great right hand rising upright from a rough-hewn block of stone, its fingers curled around a lump of rough stone from which two small entwined figures are only half carved; the block below is pitted and coarse, the hand smooth", "plain white marble, the hand polished and the block rough and pitted, with no veining and no cracks",
             "The two small figures are nude. Tripo accepted the catalogue photograph of this piece on 8 Oct; Muse is untested. Try one clay view; if refused, use the fallback."),
  "2017.74.31.1": ("neptune-river-deity-201774311", "", "", "Nude male figure. " + NUDE_M + " Tripo accepted the photograph (8 Oct). Fallback: no Muse; Tripo H3.1 single view from the cut-out photograph, plain white glaze needs no colour pass."),
  "2017.74.31.2": ("amphitrite-river-deity-201774312", "", "", "Nude female figure. " + NUDE_M + " Tripo also refused the photograph (content policy, 8 Oct). Fallback: Trellis from the cut-out photograph (made 8 Oct, soft, pits at the back), or leave as it is."),
@@ -36,13 +36,14 @@ CLAY_MATCH = ("Reference 1 is a photograph of a sculpture and is the view to dra
               " Exactly the material of reference 2: the same light grey matte clay, one even tone, the same light.")
 TURN = ("Reference 1 is the front of a sculpture as a clay maquette{extra}. Draw this exact sculpture, in the same light grey matte clay and light, seen {how}: {what}. Keep every proportion of the references. "
         "Show the whole object, centred, filling about three quarters of the frame. Plain seamless white background with no horizon line. Level camera. No cast shadow, no reflections, no text.")
+PLAIN = {"23.005", "37.201", "06.057", "2017.74.31.1", "2017.74.31.2"}  # plain marble or white glaze: ask for no markings
 FLAT = ("Reference 1 is a grey clay maquette of a sculpture. Reference 2 is the museum's photograph of the real sculpture. Repaint reference 1 exactly as it is drawn, with the same outline, the same viewpoint, "
         "the same size and place in the frame and every carved line where it is, as a flat colour map of the real material of reference 2: {material}, with its own colour only. Keep its real markings: paint traces, stains, chips. "
         "Light it perfectly evenly from every side, as in a light tent, so that there is no shading at all: no shadows, no dark creases, no darkening in grooves, hair or hollows, no highlights. "
         "Matte. Plain seamless white background, no cast shadow, no plinth, no text.")
 HOW = {"right": "exactly from its own right side in true profile, camera level and at ninety degrees to the front", "side": "exactly from its own left side in true profile, camera level and at ninety degrees to the front", "back": "from directly behind", "threequarter": "three-quarter from the front, turned about forty-five degrees"}
 PICK = {"back": r"\b(rear|back view|from behind|back of|reverse)\b", "side": r"\b(profile|side view|from the side|seen from the (left|right))\b", "threequarter": r"\b(angled|three-quarter|oblique|at an angle|turned)\b"}
-BY_EYE = {"59.131": {"back": 3}, "37.201": {"threequarter": 2}, "37.114": {"side": 17, "back": 4, "right": 16, "threequarter": 7}}  # photographs with no alt text, assigned by looking: accession -> view -> photograph number
+BY_EYE = {"59.131": {"back": 3}, "23.005": {"side": 10, "back": 2, "right": 7}, "37.201": {"threequarter": 2}, "37.114": {"side": 17, "back": 4, "right": 16, "threequarter": 7}}  # photographs with no alt text, assigned by looking: accession -> view -> photograph number
 CLOSE = r"\b(close-up|detail|close up|closeup)\b"
 
 def get(url, binary=False):
@@ -85,5 +86,5 @@ for acc in (sys.argv[1:] or OBJECTS):
             if it: a2 = it["alt"].strip(); text = CLAY_MATCH.format(what=what, alt=a2 if a2.endswith(".") else a2 + ".")
             else: text = TURN.format(extra="; the other references are photographs of the real sculpture from other sides", how=HOW[v], what=what)
             open(f"{out}/clay-{v}.prompt.txt", "w").write(text + "\n")
-        for v in views: open(f"{out}/flat-{v}.prompt.txt", "w").write(FLAT.format(material=material) + "\n")
+        for v in views: open(f"{out}/flat-{v}.prompt.txt", "w").write((FLAT.replace(" Keep its real markings: paint traces, stains, chips.", " The surface is plain: no veining, no cracks, no stains, no painted lines.") if acc in PLAIN else FLAT).format(material=material) + "\n")
     print(f"{acc}: {len(items)} photographs | " + " ".join(f"{v}={str(it.get('px_wide')) + 'px' if it else 'TURN'}" for v, it in views.items()) + (" | NUDE: no prompts" if nude and acc != '23.005' else ""))

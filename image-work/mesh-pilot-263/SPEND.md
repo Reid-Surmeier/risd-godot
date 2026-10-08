@@ -58,4 +58,8 @@ Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 | Head of Christ 59.131 | 6 (0.06) | 0.48 / 0.48 | accepted, 467 KB |
 | Bust of Madame Récamier 37.201 | 6 (0.06) | 0.48 / 0.48 | rejected: invented round socle, invented veining and dark hair in the colour |
 
-**Batch so far: 1.64 USD. Whole effort: 8.76 USD charged.**
+| The Hand of God 23.005 | 11 (0.11); one more failed with HTTP 502, not resubmitted, charge unknown | 0.48 / 0.48 | form right, colour streaked at the edges; 303 KB; not placed |
+
+Head of Christ rebuilt at 512 px colour: 303 KB (was 467 KB), no charge.
+
+**Batch so far: 2.23 USD. Whole effort: 9.35 USD charged.**

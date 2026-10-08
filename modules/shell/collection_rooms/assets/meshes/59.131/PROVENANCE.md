@@ -21,4 +21,4 @@ Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 
 | `flat-back` | photograph of this direction |
 | `flat-side` | inferred by Muse from the other views |
 
-`59-131.glb` (`934bc5e33b9cf33a…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 467 KB (mesh 199, colour 267).
+`59-131.glb` (`f11df19e755f0e2b…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 303 KB (mesh 199, colour 103).

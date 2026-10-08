@@ -11,7 +11,7 @@ B=~/apps/blender-5.2.2/blender-5.2.2-linux-x64/blender; source ~/promo-lab/gpu-e
 for spec in $specs; do v=${spec%%:*}; python3 "$here/cut_photo.py" "$d/flat-$v.png" "$d/flat-$v-cut.png" 0,0,0,0 --key-white 14 >/dev/null; done
 python3 "$here/match_colour.py" "$d/cut.png" "$d/flat-front-cut.png" -matched $(for spec in $specs; do echo "$d/flat-${spec%%:*}-cut.png"; done) | cut -c1-120
 if [ ! -f "$tmp/low.glb" ]; then
-  turn=$(python3 "$here/project_photo.py" "$tmp/raw.glb" "$d/flat-front-cut.png" x.png --view-only | tee "$tmp/view.txt" | sed -n 's/^view: turn \([0-9.]*\) deg.*/\1/p'); tail -1 "$tmp/view.txt"
+  turn=$(python3 "$here/project_photo.py" "$tmp/raw.glb" "$d/flat-front-cut.png" x.png --view-only --turns "$(seq -s, 0 15 345)" | tee "$tmp/view.txt" | sed -n 's/^view: turn \([0-9.]*\) deg.*/\1/p'); tail -1 "$tmp/view.txt"
   LD_LIBRARY_PATH=/usr/lib/wsl/lib timeout 1800 $B --background --factory-startup --python "$here/clay_mesh.py" -- "$tmp/raw.glb" "$tmp/low.glb" --turn "$turn" --low 10000 --maps 512 --unshaded "$@" 2>&1 | grep -E "^CLAY|Error|assert" | cut -c1-330
   cp "${tmp}/low.json" "$tmp/low.json" 2>/dev/null || true; rm -f "$tmp/raw.glb"
 fi

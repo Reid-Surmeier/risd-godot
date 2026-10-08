@@ -1,0 +1,62 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/23.005/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/23.005/back.jpg"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "note": "third attempt: with the clay front attached as a reference Muse copied the front twice; drawn from the photograph alone",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/23.005/back.jpg"
+  ]
+ },
+ "clay-side": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/23.005/side.jpg",
+   "batch/23.005/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/23.005/front.jpg"
+  ]
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "note": "third attempt: with the clay front attached as a reference Muse copied the front twice; drawn from the photograph alone",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/23.005/right.jpg"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/23.005/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/23.005/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/23.005/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/23.005/back.jpg",
+   "batch/23.005/flat-front.png"
+  ]
+ },
+ "flat-side": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/23.005/clay-side.png",
+   "~/risd-godot-ingestion/catalogue-masters/23.005/side.jpg",
+   "batch/23.005/flat-front.png"
+  ]
+ },
+ "flat-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/23.005/clay-right.png",
+   "~/risd-godot-ingestion/catalogue-masters/23.005/right.jpg",
+   "batch/23.005/flat-front.png"
+  ]
+ }
+}

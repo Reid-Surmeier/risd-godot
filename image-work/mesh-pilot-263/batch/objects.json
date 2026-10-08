@@ -66,9 +66,9 @@
    },
    "views": "front and back from photographs; left inferred (Muse drew the right profile, mirrored)",
    "imported": {
-    "mesh": 204763,
-    "colour": 274146,
-    "total": 478909
+    "mesh": 204765,
+    "colour": 105896,
+    "total": 310661
    }
   }
  },
@@ -150,6 +150,22 @@
    "charged": 0.36,
    "sha256": "7543bc58649c3ef768f06d678f302969474fa9976183c04e4921256d11edef47",
    "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/23-005-tripo.glb"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m172w6rwjf81z0t8cgehw56pz98fwwc4",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "31855dba5f15342037d558c3ef23810829e4dc471f36ac23d2e3b3f6e62d1443"
+   },
+   "views": "front, left, back, right, each from the museum's photograph of that side",
+   "imported": {
+    "mesh": 194588,
+    "colour": 116260,
+    "total": 310848
+   }
   }
  },
  "41.045": {

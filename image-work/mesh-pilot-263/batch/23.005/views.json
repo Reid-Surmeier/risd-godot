@@ -13,8 +13,33 @@
    ],
    "alt": "Marble sculpture depicting the thumb of a carved hand holding rock from which two emerging figures flow into each other,\nrising from a base of unworked stone. "
   },
-  "back": "no photograph: Muse turns it from the front",
-  "side": "no photograph: Muse turns it from the front",
-  "threequarter": "no photograph: Muse turns it from the front"
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/23.005/back.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    4080,
+    4080
+   ],
+   "alt": "Marble sculpture on a black backdrop featuring a detailed hand rising out of a large unworked stone base, fingers gripping a pillar of rock contrasting the smooth and rough textures."
+  },
+  "side": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/23.005/side.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    4080,
+    4080
+   ],
+   "alt": "Marble sculpture showing a large hand rising from a roughly carved block, its fingers curved around a chunk of stone with hints of a human form emerging from it."
+  },
+  "threequarter": "no photograph: Muse turns it from the front",
+  "right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/23.005/right.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    4080,
+    4080
+   ],
+   "alt": "Marble sculpture on a dark backdrop with a base of uncarved stone from which a hand rises holding a rock from which two intertwined figures emerge."
+  }
  }
 }
