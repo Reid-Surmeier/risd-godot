@@ -129,11 +129,7 @@ func rodin(room) -> void:
 			door = area.openings.west
 	var at := Vector3(b[1] - 2.35, 0, (door[0] + door[1]) / 2)
 	var plinth: Node3D = room.solid(at + Vector3(0, .25, 0), Vector3(1.0, .5, 1.0), room.look(Color("eeeae2")), true)
-	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "rodin-23.005-cut.json"))
-	var hand := volume(data, load(DIR + "rodin-23.005-cut.png"))
-	room.add_child(hand)
-	hand.position = at + Vector3(0, .5, 0)
-	hand.rotation.y = -PI / 2  # the photographed front faces the connector door
+	var hand: Node3D = room.place_mesh(DIR + "hand-23005.glb", at + Vector3(0, .5, 0), -PI / 2, Vector3(.826, 1.003, .68), "23.005")  # the photographed front faces the connector door
 	describe(hand, {"accession": "23.005", "title": "The Hand of God", "maker": "Auguste Rodin", "date": "1873-1923",
 		"medium": "Marble", "dimensions": "100.3 x 82.6 x 68 cm", "image": DIR + "rodin-23.005.jpg"})
 	card(room, plinth, Vector3(-.502, .12, .3), -PI / 2)

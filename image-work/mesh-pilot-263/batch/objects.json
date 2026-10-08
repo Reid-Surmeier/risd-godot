@@ -150,6 +150,22 @@
    "charged": 0.36,
    "sha256": "7fbc8ad6fe42b9312e73255050824713ee354de461631508e807e1b3adaf9181",
    "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/69-196-tripo.glb"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m1761kq1n3p2x6cgdke92mthzd8fxbn6",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "69745e758ceee299b4fc39dc21ec43667b8e54d30734ffeef0e7220ab4078cb6"
+   },
+   "views": "front from the photograph; left inferred by Muse (mirrored from the right profile it drew)",
+   "imported": {
+    "mesh": 201322,
+    "colour": 88626,
+    "total": 289948
+   }
   }
  },
  "23.005": {
@@ -179,8 +195,8 @@
    "views": "front, left, back, right, each from the museum's photograph of that side",
    "imported": {
     "mesh": 194588,
-    "colour": 116260,
-    "total": 310848
+    "colour": 42492,
+    "total": 237080
    }
   }
  },
@@ -198,6 +214,22 @@
    "charged": 0.36,
    "sha256": "0da8b6e0226b338f7ef3cbf646cc72cbb94ad788f8486ffa6e879dea93110a9c",
    "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/41-045-tripo.glb"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m172axfcqfdp4p2k9ew6h9cdd98fwv7e",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "aada9f126d336c46c4ed4bb86d6dcc51d3afd6741f19d8f753757e752d30d9e3"
+   },
+   "views": "front from the photograph; left inferred by Muse (mirrored from the right profile it drew)",
+   "imported": {
+    "mesh": 191552,
+    "colour": 71484,
+    "total": 263036
+   }
   }
  },
  "41.046": {
@@ -214,6 +246,22 @@
    "charged": 0.36,
    "sha256": "e23de6b29cdf6ef86811fabc16d651c8c17c623a19fd8ba5a9c5412f0df2cec7",
    "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/41-046-tripo.glb"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m17dcwj1vvvjdcc1j1a2byn6yx8fx4n0",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "ffd1ee87941426028da2ad9440c02ad2cc3bac3685c362f1eced05077c7dfbf3"
+   },
+   "views": "front from the photograph; left inferred by Muse (mirrored from the right profile it drew)",
+   "imported": {
+    "mesh": 210417,
+    "colour": 74648,
+    "total": 285065
+   }
   }
  },
  "44.674": {

@@ -1,0 +1,23 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/41.046/front.jpg",
+   "footage IMG_6382 25 s (setting only)"
+  ]
+ },
+ "clay-side": {
+  "from": "inferred by Muse from the clay front alone; no photograph or usable footage of the side",
+  "note": "Muse drew the right profile; mirrored to serve as the left view",
+  "references": [
+   "image-work/mesh-pilot-263/batch/41.046/clay-front.png"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/41.046/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/41.046/front.jpg"
+  ]
+ }
+}

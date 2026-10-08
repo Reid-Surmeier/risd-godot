@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://do1bnxi1tgn67"
-path="res://.godot/imported/23-005_final.jpg-2b6d88977d5baa4335ad9fb203414ebf.ctex"
+uid="uid://cjyutbgjitwdg"
+path="res://.godot/imported/41-045_final.jpg-0af9b77bc599aa56101323ebbcd613fa.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "eef4b0364cda1c739ec54d8372d2d20e"
+"md5": "7e249ad489305296a2162799600eea70"
 }
 
 [deps]
 
-source_file="res://modules/shell/collection_rooms/assets/meshes/23.005/23-005_final.jpg"
-dest_files=["res://.godot/imported/23-005_final.jpg-2b6d88977d5baa4335ad9fb203414ebf.ctex"]
+source_file="res://modules/shell/collection_rooms/assets/meshes/41.045/41-045_final.jpg"
+dest_files=["res://.godot/imported/41-045_final.jpg-0af9b77bc599aa56101323ebbcd613fa.ctex"]
 
 [params]
 
