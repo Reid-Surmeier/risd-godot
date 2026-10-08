@@ -12,3 +12,6 @@ modules/shell/character/*_target-albedo512.png
 !modules/shell/character/audio/*.wav.import
 
 modules/shell/character/*.gd.uid
+
+# #263: Godot writes each GLB's embedded texture out beside it on import; the GLB is the source.
+modules/shell/prototype/mesh_pilot/*_Image_*.jpg

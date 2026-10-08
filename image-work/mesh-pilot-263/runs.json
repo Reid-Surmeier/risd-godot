@@ -1,0 +1,63 @@
+{
+ "flora": {
+  "workspace": "ws_qd7792zta3zwxyvjeqt4d5vf1x8fh63z",
+  "project": "prj_ns7arkva3pe1w3wwcc1ab5by5h8fwyp3",
+  "balance_before_usd": 0.3,
+  "balance_after_usd": 0.204
+ },
+ "fireplace": {
+  "run_id": "run_m176nxjs4w5vbbn7w1wx6js3px8fx0je",
+  "model": "i3d-trellis",
+  "params": {
+   "texture_size": "1024",
+   "mesh_simplify": 0.98
+  },
+  "quote_usd": 0.024,
+  "input": "fireplace/trellis-input.png",
+  "submitted": "2026-10-08T03:38Z",
+  "charged_usd": 0.024,
+  "glb_sha256": "ceedef0ceb7e070e8d7240b783cb708555bd8a8c2f5ecf3d59a6785d45f2b333",
+  "triangles": 6310
+ },
+ "neptune": {
+  "run_id": "run_m179ny9wszxg2t3z2m1rvyamwx8fx5jh",
+  "model": "i3d-trellis",
+  "params": {
+   "texture_size": "1024",
+   "mesh_simplify": 0.98
+  },
+  "quote_usd": 0.024,
+  "input": "neptune/trellis-input.png",
+  "submitted": "2026-10-08T03:38Z",
+  "charged_usd": 0.024,
+  "glb_sha256": "2228ee33ed90aec7648c89db0c203abaf928174cdf038aa11276458d3a5755cb",
+  "triangles": 19312
+ },
+ "fireplace-detail": {
+  "run_id": "run_m171f7pcpv6672swcakdwha8p18fx36p",
+  "model": "i3d-trellis",
+  "params": {
+   "texture_size": "2048",
+   "mesh_simplify": 0.9
+  },
+  "quote_usd": 0.024,
+  "input": "fireplace/trellis-input.png",
+  "submitted": "2026-10-08T03:46Z",
+  "charged_usd": 0.024,
+  "triangles": 34625
+ },
+ "neptune-detail": {
+  "run_id": "run_m173ntdbr9fdy66tqx3yjzdsjh8fxd4e",
+  "model": "i3d-trellis",
+  "params": {
+   "texture_size": "1024",
+   "mesh_simplify": 0.9,
+   "ss_sampling_steps": 25
+  },
+  "quote_usd": 0.024,
+  "input": "neptune/trellis-input.png",
+  "submitted": "2026-10-08T03:46Z",
+  "charged_usd": 0.024,
+  "triangles": 100639
+ }
+}
