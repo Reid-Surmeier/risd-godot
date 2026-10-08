@@ -358,6 +358,63 @@ func _views() -> void:
 					_fail("view", "%s %s: the visitor cannot be seen" % [area.label, view], entry)
 
 
+# ---------------------------------------------------------------- reading
+
+
+# What is wrong with a caption label as it came out in `image`, or "" when it reads: a
+# character its font has no glyph for (the Web build has no system font to fall back on),
+# text that drew as nothing, or a line that drew as solid blocks. Letters fill about a
+# quarter of the box round them; a glyph sheet that did not reach the GPU fills it (#271).
+func _unreadable(image: Image, label: Label) -> String:
+	var text := label.text.strip_edges()
+	if text == "":
+		return ""
+	var font := label.get_theme_font("font")
+	var missing := ""
+	for i in text.length():
+		if text.unicode_at(i) > 32 and not font.has_char(text.unicode_at(i)) and not text[i] in missing:
+			missing += text[i]
+	if missing != "":
+		return "the font has no glyph for " + missing
+	var colour := label.get_theme_color("font_color")
+	var box := Rect2i(label.get_global_rect()).intersection(Rect2i(Vector2i.ZERO, image.get_size()))
+	var ink := 0
+	var line := Rect2i()  # the run of pixel rows being read, and the ink in it
+	var line_ink := 0
+	for y in range(box.position.y, box.end.y + 1):
+		var row := 0
+		if y < box.end.y:
+			for x in range(box.position.x, box.end.x):
+				var c := image.get_pixel(x, y)
+				if absf(c.r - colour.r) + absf(c.g - colour.g) + absf(c.b - colour.b) < 0.3:
+					line = Rect2i(x, y, 1, 1) if line_ink + row == 0 else line.expand(Vector2i(x + 1, y + 1))
+					row += 1
+		if row > 0:
+			line_ink += row
+			continue
+		if line_ink > 0 and line.size.y >= 6 and line_ink > 0.5 * line.get_area():
+			return "a line drew as solid blocks, not letters"
+		ink += line_ink
+		line_ink = 0
+	return "the text did not draw" if ink < 4 * text.length() else ""
+
+
+# The share of a picture its one commonest colour takes: 1 is a blank rectangle.
+func _blank_share(image: Image) -> float:
+	var buckets := {}
+	var seen := 0
+	for y in range(0, image.get_height(), 3):
+		for x in range(0, image.get_width(), 3):
+			var c := image.get_pixel(x, y)
+			var key := int(c.r * 31.0) << 10 | int(c.g * 31.0) << 5 | int(c.b * 31.0)
+			buckets[key] = buckets.get(key, 0) + 1
+			seen += 1
+	var most := 0
+	for key in buckets:
+		most = maxi(most, buckets[key])
+	return most / maxf(seen, 1.0)
+
+
 # ---------------------------------------------------------------- touching
 
 
@@ -394,8 +451,17 @@ func _objects() -> void:
 		var entry := {
 			"tag": tag,
 			"title": str(thing.rec.get("title", "")),
+			"maker": str(thing.rec.get("artist", "")),
+			"number": str(thing.rec.get("acc", "")),
 			"room": walk._plan[thing.room].label if thing.has("object") else HALL
 		}
+		# The caption says what the catalogue says: a title, a maker and a museum number.
+		var problems := PackedStringArray()
+		for field in ["title", "maker", "number"]:
+			if entry[field].strip_edges() == "":
+				problems.append("the caption has no " + field)
+		if not thing.rec.get("identified", true) or entry.title == tag.get_slice("#", 0):
+			problems.append("the caption carries a working name, not a catalogue title")
 		# Stand in front of it and face it, as a visitor would before clicking: nearer or
 		# further until it is on screen. A free-standing work is viewed from the room's middle.
 		var facing: Vector3 = thing.normal
@@ -465,7 +531,10 @@ func _objects() -> void:
 		entry["title_shown"] = title
 		entry["camera_glided"] = walk._inspect_t > 0.99
 		entry["flat_share"] = snappedf(_flat_share(looked), 0.001)
-		var problems := PackedStringArray()
+		for part in ["Title", "Body"]:
+			var fault := _unreadable(looked, panel.get_child(0).get_node(part))
+			if fault != "":
+				problems.append("caption %s: %s" % [part.to_lower(), fault])
 		if not panel.visible or title.strip_edges() == "":
 			problems.append("no title in the panel")
 		if title.begins_with("Authored Surface") or title.begins_with("@"):
@@ -505,7 +574,23 @@ func _objects() -> void:
 		else:
 			for settle in 20:
 				await process_frame
-			await _shot("zoom-%s.png" % slug)
+			var zoomed := await _shot("zoom-%s.png" % slug)
+			# The page shows the work, and its caption reads clear of the picture.
+			var picture: Control = walk._zoom_root.get_node("Painting")
+			var shown := Rect2i(picture.get_global_rect()).intersection(Rect2i(Vector2i.ZERO, zoomed.get_size()))
+			entry["zoom_blank_share"] = snappedf(_blank_share(zoomed.get_region(shown)), 0.001) if shown.has_area() else 1.0
+			if entry.zoom_blank_share > 0.97:
+				problems.append("the zoom page's picture is blank")
+			if walk.get("_caption") is Label:
+				var fault := _unreadable(zoomed, walk._caption)
+				var page: Rect2 = picture.get_global_rect()
+				var frame: Control = walk._zoom_root.get_node("Frame")
+				if frame.visible:
+					page = page.merge(frame.get_global_rect())
+				if page.intersects(walk._caption.get_global_rect()):
+					fault = "it lies across the picture"
+				if fault != "":
+					problems.append("zoom page caption: " + fault)
 			walk._close_detail()
 			for settle in 10:
 				await process_frame

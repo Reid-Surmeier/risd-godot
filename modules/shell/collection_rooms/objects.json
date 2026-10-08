@@ -44,8 +44,8 @@
     "accession": "22.201",
     "credit": "Museum Appropriation Fund",
     "identified": true,
-    "image": "res://modules/shell/collection_rooms/assets/renaissance-case-a/textures/diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-0.jpg",
-    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/diptych-scenes-nativity-crucifixion-and-last-judgement-22201.html.gz (saved copy of https://risdmuseum.org/art-design/collection/diptych-scenes-nativity-crucifixion-and-last-judgement-22201)"
+    "image": "res://modules/shell/collection_rooms/assets/details/22.201.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/diptych-scenes-nativity-crucifixion-and-last-judgement-22201.html.gz (saved copy of https://risdmuseum.org/art-design/collection/diptych-scenes-nativity-crucifixion-and-last-judgement-22201). The picture is the museum's first photograph (renaissance-case-a/textures/diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-0.jpg) cut to the leaf it shows, x 614 to 1211 and y 18 to 1070: the other half of that photograph is a blank white leaf."
   },
   "34.016": {
     "title": "Book cover",
@@ -68,8 +68,8 @@
     "accession": "2023.17",
     "credit": "Museum purchase: gift of Ambassador J. W. Middendorf II and Esther Mauran Acquisitions Fund",
     "identified": true,
-    "image": "res://modules/shell/collection_rooms/assets/renaissance-case-a/textures/emblem-right-page.png",
-    "source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/photos/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317.html.gz (saved copy of https://risdmuseum.org/art-design/collection/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317)"
+    "image": "res://modules/shell/collection_rooms/assets/details/2023.17.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/photos/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317.html.gz (saved copy of https://risdmuseum.org/art-design/collection/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317). No museum photograph: the live page has none (fetched 8 Oct 2026 with the Scrapling MCP make_request). The picture is the owner's film, IMG_6383.MOV at 46.40 s (frame 25 after 45.6 s), HLG tone-mapped, the whole open book cut to 480 x 410 px at native size from x 0 y 846; not enlarged."
   },
   "35.713": {
     "title": "Drug Jar (Albarello)",
@@ -132,26 +132,16 @@
     "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/virgin-woman-apocalypse-201729.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-woman-apocalypse-201729)"
   },
   "34.024": {
-    "title": "Small rectangular enamel plaque with figures on a blue ground",
-    "maker": "",
-    "date": "",
-    "medium": "",
-    "dimensions": "",
-    "accession": "",
-    "credit": "",
-    "identified": false,
+    "title": "Virgin and Child with Clerics and Donors",
+    "maker": "Pierre Reymond, enameler",
+    "date": "ca.1513-after 1584",
+    "medium": "Polychrome enamel and gold on copper",
+    "dimensions": "12.9 x 10.7 cm (5 1/16 x 4 3/16 inches)",
+    "accession": "34.024",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
     "image": "res://modules/shell/collection_rooms/assets/details/34.024.jpg",
-    "source": "Not established: the repo records this match as \"probable (form only)\" because the film does not resolve the scene or the label, so the title is a description. The fields under \"candidate\" are from docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/virgin-and-child-clerics-and-donors-34024.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-and-child-clerics-and-donors-34024). See docs/research/2026-10-01-museum-object-manifest.md.",
-    "candidate": {
-      "title": "Virgin and Child with Clerics and Donors",
-      "maker": "Pierre Reymond, enameler",
-      "date": "ca.1513-after 1584",
-      "medium": "Polychrome enamel and gold on copper",
-      "dimensions": "12.9 x 10.7 cm (5 1/16 x 4 3/16 inches)",
-      "accession": "34.024",
-      "credit": "Mary B. Jackson Fund",
-      "url": "https://risdmuseum.org/art-design/collection/virgin-and-child-clerics-and-donors-34024"
-    }
+    "source": "Accepted for #271 from the repo's recorded candidate: the picture shown and the model in the room are the museum's photograph of 34.024, and its label copy opens with the same sentence as that of the roundel 2017.29 beside it (docs/research/2026-10-01-museum-object-manifest.md, \"Left unidentified\"). The film does not resolve the scene, so the match is inferred, not read off the case label. Fields: docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/virgin-and-child-clerics-and-donors-34024.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-and-child-clerics-and-donors-34024); tombstone re-read on the live page, fetched 8 Oct 2026 with the Scrapling MCP make_request."
   },
   "2021.131": {
     "title": "Madonna Enthroned, with Saints and Angels",
@@ -502,26 +492,16 @@
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:recamier.html (saved copy of https://risdmuseum.org/art-design/collection/bust-madame-recamier-37201)"
   },
   "ewe-lamb": {
-    "title": "Earthenware figure of a ewe and lamb",
-    "maker": "",
-    "date": "",
-    "medium": "",
-    "dimensions": "",
-    "accession": "",
-    "credit": "",
-    "identified": false,
-    "image": "res://modules/shell/collection_rooms/assets/ewe-lamb-volume.png",
-    "source": "Not established: the repo records this match as a \"catalogue candidate\" and the museum publishes no photograph to check it against, so the title is a description. The fields under \"candidate\" are from image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:ewe-lamb.html (saved copy of https://risdmuseum.org/art-design/collection/ewe-and-lamb-20177432). See docs/research/2026-10-01-museum-object-manifest.md.",
-    "candidate": {
-      "title": "Ewe and Lamb",
-      "maker": "Unknown Maker, British",
-      "date": "ca. 1755",
-      "medium": "Earthenware with glaze",
-      "dimensions": "9.5 x 15 x 9 cm (3 3/4 x 5 7/8 x 3 9/16 inches)",
-      "accession": "2017.74.32",
-      "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
-      "url": "https://risdmuseum.org/art-design/collection/ewe-and-lamb-20177432"
-    }
+    "title": "Ewe and Lamb",
+    "maker": "Unknown Maker, British",
+    "date": "ca. 1755",
+    "medium": "Earthenware with glaze",
+    "dimensions": "9.5 x 15 x 9 cm (3 3/4 x 5 7/8 x 3 9/16 inches)",
+    "accession": "2017.74.32",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/ewe-lamb.jpg",
+    "source": "Accepted for #271 from the repo's recorded candidate: 19 of the 20 objects on the bookcase are matched by photograph and Ewe and Lamb is the one remaining page that carries the bookcase label copy (docs/research/2026-10-01-museum-object-manifest.md, \"Left unidentified\"), so the match is inferred by elimination. Fields: image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:ewe-lamb.html (saved copy of https://risdmuseum.org/art-design/collection/ewe-and-lamb-20177432); tombstone re-read on the live page, fetched 8 Oct 2026 with the Scrapling MCP make_request. No museum photograph: the page has none. The picture is the owner's film, IMG_6380.MOV at 148.53 s (frame 47 after 147.0 s), HLG tone-mapped, cut to 126 x 92 px at native size from x 536 y 630; not enlarged."
   },
   "sconce-left": {
     "title": "Wall Sconce",
@@ -990,5 +970,17 @@
     "identified": true,
     "image": "res://modules/shell/collection_rooms/assets/painting-21.250.png",
     "source": "docs/evidence/collection-reconstruction/main-worker-connected-loop-20261001T0735/memmi-magdalene.html.gz (saved copy of https://risdmuseum.org/art-design/collection/mary-magdalene-21250)"
+  },
+  "european-east-platter-saldanha": {
+    "title": "Saldanha Platter",
+    "maker": "Unknown Maker, Chinese",
+    "date": "ca. 1760",
+    "medium": "Porcelain with enamels and glaze",
+    "dimensions": "Length: 29.5 cm (11 5/8 inches)",
+    "accession": "55.023.6H",
+    "credit": "The Helena Woolworth McCann Collection. Gift of the Winfield Foundation",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/european-east/platter-55.023.6H.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/saldanha-platter-550236h, fetched 8 Oct 2026 with the Scrapling MCP make_request. The room builder (european_east_additions.gd) holds this card as a candidate, so it carried no number; the picture it shows is the museum's photograph of 55.023.6H, and the caption now says what that photograph is."
   }
 }
