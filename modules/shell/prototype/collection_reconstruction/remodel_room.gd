@@ -1620,7 +1620,9 @@ func build_adjacent_gallery() -> void:
 	# kept as authored and stays unaccepted until the gallery is fitted.
 	# #238: the dress case and the secretary take the corner first (6385 2..21s), then the Piranesi;
 	# the Delacroix follows them. By wall order and catalogue widths, not measured.
-	painting.position=Vector3(-3.485,1.60,6.85)
+	# Placement by eye, 8 Oct: every distance along this wall is stretched by 26.3/21.2 as the east
+	# wall's and the floor cases' are (european_west_additions.gd): 5.05 m from the north wall becomes 6.27.
+	painting.position=Vector3(-3.485,1.60,8.07)
 	painting.rotation.y=PI/2
 	painting.set_meta("catalogue_accession","35.786")
 	# The secretary (catalogue data, already in the room) clears the dress case in the corner.
@@ -1632,7 +1634,7 @@ func build_adjacent_gallery() -> void:
 	angels.build_framed(load("res://assets/fetti-frame.png"),load("res://assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px,[.105,.105,.105,.105])
 	# #238: 11.1m from the south wall, was 19.3m (camera solve of 6384..6386 scaled by this frame
 	# and the Tironi's; docs/evidence/museum-238/european-west/NOTES.md). Provisional.
-	angels.position=Vector3(-3.485,1.53,16.96)
+	angels.position=Vector3(-3.485,1.53,14.28) # 11.14 m x 26.3/21.2 from the south wall
 	angels.rotation.y=PI/2
 	angels.set_meta("catalogue_accession","36.003")
 	# IMG_6386 44.5/67.5s: nothing stands out of this wall but the one white display panel on the
@@ -1650,7 +1652,7 @@ func build_adjacent_gallery() -> void:
 	add_child(goltzius)
 	goltzius.build_framed(load("res://assets/goltzius-frame.png"),load("res://assets/painting-61.006.jpg"),Vector2(.345,.510),data.margins_px)
 	# #238: 6.1m from the south wall, was 13.4m (same solve). Provisional.
-	goltzius.position=Vector3(-3.485,1.64,22.01)
+	goltzius.position=Vector3(-3.485,1.64,20.54) # 6.09 m x 26.3/21.2 from the south wall
 	goltzius.rotation.y=PI/2
 	goltzius.set_meta("catalogue_accession","61.006")
 	inventory["verified_paintings"]=5

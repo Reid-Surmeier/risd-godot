@@ -262,16 +262,18 @@ func build_floor() -> void:
 	flap.scale.z = .3
 	flap.reparent(box)
 	# 4. Majolica case by the west wall, south end (IMG_6386 0.5-14.5 s, IMG_6384 30.5-32.5 s).
+	# Its deck as filmed from the room side (IMG_6386 12 s): mortar, bone casket and jar along the
+	# wall side, the two plates and the roundel along the room side, the gilt casket at the north end.
 	c = at(4.9, 4.5)
 	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60)
 	majolica.set_meta("european_east_case", "majolica")
-	card(majolica, "mortar", ["54.147.9", "Mortar (with Pestle 54.147.20)", "Unknown Maker, Italian", "1680", "Bronze", "Height 17.6 cm"], "mortar-54.147.9.jpg", Vector2(.304, .289), c + Vector3(.10, deck, .855), -PI / 2, false, SQUARE, true, Vector2(.64, .61), .05)
-	card(majolica, "embriachi-casket", ["85.075.8", "Casket", "Baldessare degli Imbriachi", "ca. 1400", "Bone, wood and horn", "Base 31.8 x 22.9 cm"], "casket-85.075.8.jpg", Vector2(.477, .358), c + Vector3(.25, deck + .04, .46), -PI / 2, false, SQUARE, true, Vector2(.48, .90), .05)
-	card(majolica, "orciuolo", ["43.351", "Apothecary Jar (Orciuolo)", "Unknown Maker, Italian", "ca. 1414-1465", "Earthenware with tin glaze", "23.5 x 25.4 x 20.3 cm"], "jar-43.351.jpg", Vector2(.324, .324), c + Vector3(.20, deck, .05), -PI / 2, false, SQUARE, true, Vector2(.75, .76), .14)
-	card(majolica, "istoriato-plate", ["35.703", "Plate", "Unknown Maker, Italian", "ca. 1535-1555", "Earthenware with tin glaze", "Diameter 27 cm"], "plate-35.703.jpg", Vector2(.365, .349), c + Vector3(-.15, deck, .45), -PI / 2, false, round_plate, true, Vector2(.74, .80), .10)
-	card(majolica, "calendar-plate", ["1989.085", "March Calendar Plate", "Pierre Reymond", "ca. 1535-1585", "Enamel with gilding on copper", "Diameter 18.4 cm"], "plate-1989.085.jpg", Vector2(.227, .227), c + Vector3(-.10, deck, -.20), -PI / 2, false, round_plate, true, Vector2(.81, .84), .08)
-	card(majolica, "apollo-roundel", ["51.502", "Apollo and the Muses on Mount Parnassus", "Unknown Maker, Flemish", "ca. 1520-1570", "Silver with gilding", "Diameter 15.1 cm"], "roundel-51.502.jpg", Vector2(.151, .151), c + Vector3(-.25, deck, -.55), 0.0, true, round_plate)
-	card(majolica, "pastiglia-casket", ["51.272", "Casket", "Unknown Maker, Italian", "ca. 1475-1525", "Wood with pastiglia and gilding", "15.2 x 21 x 14 cm"], "casket-51.272.jpg", Vector2(.238, .217), c + Vector3(.25, deck + .03, -.45), -PI / 2, false, SQUARE, true, Vector2(.86, .72), .13)
+	card(majolica, "mortar", ["54.147.9", "Mortar (with Pestle 54.147.20)", "Unknown Maker, Italian", "1680", "Bronze", "Height 17.6 cm"], "mortar-54.147.9.jpg", Vector2(.304, .289), c + Vector3(-.10, deck, .855), -PI / 2, false, SQUARE, true, Vector2(.64, .61), .05)
+	card(majolica, "embriachi-casket", ["85.075.8", "Casket", "Baldessare degli Imbriachi", "ca. 1400", "Bone, wood and horn", "Base 31.8 x 22.9 cm"], "casket-85.075.8.jpg", Vector2(.477, .358), c + Vector3(-.25, deck + .04, .46), -PI / 2, false, SQUARE, true, Vector2(.48, .90), .05)
+	card(majolica, "orciuolo", ["43.351", "Apothecary Jar (Orciuolo)", "Unknown Maker, Italian", "ca. 1414-1465", "Earthenware with tin glaze", "23.5 x 25.4 x 20.3 cm"], "jar-43.351.jpg", Vector2(.324, .324), c + Vector3(-.20, deck, .05), -PI / 2, false, SQUARE, true, Vector2(.75, .76), .14)
+	card(majolica, "istoriato-plate", ["35.703", "Plate", "Unknown Maker, Italian", "ca. 1535-1555", "Earthenware with tin glaze", "Diameter 27 cm"], "plate-35.703.jpg", Vector2(.365, .349), c + Vector3(.15, deck, .45), -PI / 2, false, round_plate, true, Vector2(.74, .80), .10)
+	card(majolica, "calendar-plate", ["1989.085", "March Calendar Plate", "Pierre Reymond", "ca. 1535-1585", "Enamel with gilding on copper", "Diameter 18.4 cm"], "plate-1989.085.jpg", Vector2(.227, .227), c + Vector3(.10, deck, -.20), -PI / 2, false, round_plate, true, Vector2(.81, .84), .08)
+	card(majolica, "apollo-roundel", ["51.502", "Apollo and the Muses on Mount Parnassus", "Unknown Maker, Flemish", "ca. 1520-1570", "Silver with gilding", "Diameter 15.1 cm"], "roundel-51.502.jpg", Vector2(.151, .151), c + Vector3(.25, deck, -.55), 0.0, true, round_plate)
+	card(majolica, "pastiglia-casket", ["51.272", "Casket", "Unknown Maker, Italian", "ca. 1475-1525", "Wood with pastiglia and gilding", "15.2 x 21 x 14 cm"], "casket-51.272.jpg", Vector2(.238, .217), c + Vector3(-.25, deck + .03, -.45), -PI / 2, false, SQUARE, true, Vector2(.86, .72), .13)
 	var low: Node3D = room.solid(c + Vector3(-.05, deck + .02, -.92), Vector3(.40, .04, .22), white)
 	low.reparent(majolica)
 	plain(majolica, "small-dish", "Small brass dish", Vector3(.10, .015, .10), c + Vector3(-.15, deck + .04, -.92), Color("b89a55"))

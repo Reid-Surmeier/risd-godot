@@ -65,6 +65,69 @@ Not sure, left alone: where the Seated Woman's case stands between the two windo
 shows it hard by the south window's casing, from an oblique place; the draft has it 0.25 m
 north of the middle). `IMG_6343` 224–263 s, the second walk of this room, was not opened.
 
+## European gallery (IMG_6384, 6385, 6386) — the west wall re-laid, one case deck turned
+
+Sheets: `european-east-south.jpg`, `european-east-north.jpg`, `european-south.jpg`,
+`european-west-south.jpg`, `european-across.jpg` (six frames that hold a floor case and a wall
+at once, with the draft from the same places), `european-cases.jpg` (majolica deck and the north
+group, after), `european-case-porcelain.jpg`; before the change: `european-west-north-before.jpg`,
+`european-case-majolica-before.jpg`. The three east and south sheets were read against the draft
+before the change and re-made after it without being opened again; nothing on those walls moved.
+
+**What was wrong.** The real room is about 21.2 m long and the build's is 26.3.
+`european_east_additions.gd` lays the east wall and the five floor pieces in by their fraction of
+the room (every distance x 26.3/21.2). The west wall's south group, Fetti, Goltzius and Delacroix
+were laid in at their real metres, unstretched. So each wall was right in itself and wrong against
+what faces it, by up to 3.4 m, with 7.2 m of bare wall between the Guardi pair and the Delacroix:
+
+| Footage | What it shows | Draft before | Draft after |
+|---|---|---|---|
+| 6386 1 s, 15 s | the majolica case ends just south of the Goltzius; the two Kussell prints hang behind its south half (6386 9 s) | the case stood centred on the Goltzius | as filmed |
+| 6386 45.5 s | from the Canal view, the porcelain case is a few steps on, by the Guardi pair | 4 m further | 0.6 m past the pair |
+| 6386 53–57 s, 6385 29.5–31 s | pair, wall text, Delacroix follow within the case's length; from the Delacroix the case is at hand and Reynolds, Mengs, Longhi stand behind it | case 1.5 m south of the Delacroix, pair 7.2 m from it | the Delacroix at the case's north end, the pair 2.6 m on |
+| 6386 86–89 s | from between the Zompini prints and the textile case, the writing desk stands before the Crucifixion | from there it stood before the Longhi | as filmed |
+
+**Moved** (all on the west wall, z in room metres, each distance from its end wall x 26.3/21.2):
+knocker 55.091 25.10 → 24.38; Kussell 2024.17.5 24.00 → 23.01 and 2024.17.6 23.25 → 22.08;
+Goltzius 61.006 22.01 → 20.54; Zompini 67.106.31 20.49 → 18.66 and 67.106.8 19.95 → 17.99; the
+textile 85.075.6 with the glass case under it and its five vessels 18.63 → 16.35; Fetti 36.003
+16.96 → 14.28; Tironi 42.042 15.44 → 12.39; the Guardi pair 24.508 and 53.115 14.02 → 10.63;
+Delacroix 35.786 6.85 → 8.07; Piranesi 63.066.45 5.10 → 5.89; their label cards with them. Hang
+heights untouched. The lamps follow the works (they are made from them at the bake).
+
+**Majolica case deck** (6386 3.5, 6, 9, 12 s, 6384 31 s): filmed from the room side the mortar,
+the bone casket and the jar stand along the wall side and the two plates and the roundel along
+the room side; the draft had the two sides exchanged. All seven cards now stand at the same place
+along the deck on the other side of its long axis (x → −x about the case's centre).
+
+| Wall | Work or piece | Footage | Draft | Agree |
+|---|---|---|---|---|
+| east | Perseus 57.167, print 84.198.1032, Venus and Adonis 54.186, Adoration 21.482, Crucifixion 69.197, Cloth of Gold 46.256 | 6384 5–70 s, south to north in that order, eye height; 47 s: print then Perseus then the corner | same | yes |
+| east | Longhi 34.1371, Mengs 57.281, Reynolds 53.349 | 6384 71–83 s; 6386 43 s from across the room | same | yes |
+| east | Cover 37.009 on its panel, the platform, commode 2017.46 with the charger, Vigée 2025.86 | 6384 86–99 s, 6386 68 s: panel south, commode north of it on the same platform, the portrait beyond | same | yes |
+| north | micromosaic 1990.060 over its wall case east of the door; Mrs. Wolff 42.072 west of it | 6384 101.5 s; 6385 0–6 s | same | yes |
+| west, north end | dress 2000.103.3 in the corner, secretary, Piranesi, Delacroix | 6385 2–28 s, 6386 61–66 s | same order | yes |
+| west | Guardi pair (Scuola over Ridotto), Tironi, Fetti, textile over its glass case, Zompini pair, Goltzius, Kussell pair, knocker | 6386 15–53 s, 6384 21–29 s | same order, now at the east wall's scale | yes |
+| south | Risen Christ 16.237, Apollo 73.079 in its wall case, door, tabernacle 06.057 on its pedestal by the corner | 6384 1, 13, 16, 19, 36 s; 6386 98.5 s | same | yes |
+| floor | River God, majolica case, writing desk, bench, porcelain case | 6384 36–41, 50.5 s; 6386 43, 79, 86 s | same order down the room; bench before the Longhi | yes |
+
+Not sure, left alone:
+
+- **Porcelain and silver case deck** (`european-case-porcelain.jpg`). 6385 34 s has the riser with
+  the two figures at the far side, a plate leaning on each side of it, the armorial plate in front
+  left and the silver basket in front right; 6386 57 s, from the west, has the riser beyond, a flat
+  plate nearest and the coffeepot to the south. The draft's riser is at the north-east and the
+  basket at the south-west. The two clips do not fix which side 6385 34 s was taken from.
+- **The label stand on the east platform**: 6384 89 s shows it under the cover's north edge; the
+  draft has it 1 m south of the cover's centre. One frame, oblique.
+- **River God**: 6384 36 s looks at the south door with the god's case off to the left, not before
+  the door; the draft has it 0.4 m east of the door's axis. It is a card of the front photograph;
+  6384 41 s shows its back from the north-west, which a card cannot.
+- In the footage the gilt casket 51.272 stands on the low riser at the majolica case's north end,
+  the small dish and utensil beside it; the draft has four plain blocks on that riser. A work on
+  another riser is the lead's call.
+- Piranesi to the platform's end: 0.7 m in 6386 63.5 s, 1.4 m now (0.65 m before), the stretch.
+
 ## For whoever continues
 
 Rooms left, in order: the European gallery (`adjacent gallery`, IMG_6384, 6385, 6386),
