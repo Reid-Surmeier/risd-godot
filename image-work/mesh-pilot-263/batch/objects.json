@@ -391,10 +391,11 @@
    "views": "the clay front alone (the rule for reliefs); the clay front drawn from the front photograph and two detail photographs",
    "imported": {
     "mesh": 219439,
-    "colour": 47086,
-    "total": 266525
+    "colour": 44968,
+    "total": 264407
    },
-   "size_note": "The catalogue gives no depth: 0.18 m is an estimate from the museum's detail photograph of the right-hand angels; the generator made 0.27 m"
+   "size_note": "The catalogue gives no depth: 0.18 m is an estimate from the museum's detail photograph of the right-hand angels; the generator made 0.27 m",
+   "build": "TURN=90 --upright --depth 0.18; colour PLAIN='1.0 0.7 bright photo': base from the brightest third of the photograph, shaded towards the photograph's own shadow colour"
   }
  },
  "59.128": {

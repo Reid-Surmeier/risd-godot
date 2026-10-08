@@ -73,7 +73,7 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Christ in Majesty 69.196 | 3 (0.03) | Multi-View 0.48 / 0.48, rejected: the invented side view gave a second arm and a 0.46 m block | not kept |
 | Christ in Majesty 69.196, redo | none | single view from the clay front alone, 0.48 / 0.48 | accepted, 271 KB with the occlusion at 0.5; placed in the room source |
 
-| Tabernacle 06.057 | 2 (0.02) | single view from the clay front alone, 0.48 / 0.48 | 260 KB, plain-marble colour; waiting for the lead's look, not placed |
+| Tabernacle 06.057 | 2 (0.02) | single view from the clay front alone, 0.48 / 0.48 | 258 KB; geometry accepted; recoloured warm (ivory base, shading towards the photograph's own shadow colour); placed in the room source |
 
 | Pietà 59.128 | 5 (0.05): clay front, a three-quarter and a carved back that were not used, a strict left profile, flat front | Multi-View from front + left, 0.48 / 0.48 | 252 KB; placed in the room source |
 | Saint Roch 21.398 | 6 (0.06): clay front, back and left, flat front and back, and a flat left that repeated the front and was not used | Multi-View from front, left, back, 0.48 / 0.48 | 262 KB; placed in the room source |
