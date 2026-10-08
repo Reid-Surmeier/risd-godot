@@ -64,4 +64,13 @@ Head of Christ rebuilt at 512 px colour: 303 KB (was 467 KB), no charge.
 
 | The Crucified Christ 43.195 | 4 (0.04) | 0.48 / 0.48 | accepted, 478 KB (1024 px colour: a 2.16 m piece) |
 
-**Batch so far: 2.75 USD. Whole effort: 9.87 USD charged.**
+The Hand of God redone as plain marble (no charge): accepted, 233 KB.
+
+| Object | Muse images | Tripo H3.1 (RISD EDU), quote / charged | Result |
+| --- | --- | --- | --- |
+| Apostle 41.045 | 3 (0.03) | Multi-View 0.48 / 0.48 | accepted as a relief, 256 KB |
+| Apostle 41.046 | 3 (0.03) | Multi-View 0.48 / 0.48 | accepted as a relief, 278 KB |
+| Christ in Majesty 69.196 | 3 (0.03) | Multi-View 0.48 / 0.48, rejected: the invented side view gave a second arm and a 0.46 m block | not kept |
+| Christ in Majesty 69.196, redo | none | single view from the clay front alone, 0.48 / 0.48 | 258 KB; waiting for the lead's look before placing |
+
+**Batch so far: 4.76 USD** (44 Muse images 0.44, eight Multi-View meshes 3.84, one single-view mesh 0.48). **Whole effort: 11.88 USD charged.**
