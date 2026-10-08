@@ -21,6 +21,10 @@ const FAR_ROOMS := [
 	"purple elevator-5 connector",
 	"grey French gallery",
 	"marble stair hall",
+	"Impressionist passage",
+	"Impressionist passage return",
+	"Impressionist gallery A",
+	"Impressionist gallery B",
 	"Skylight Gallery",
 	"Skylight Gallery reveal threshold",
 	# The thickness of the wall those rooms share with the Hall and the European gallery.
@@ -94,7 +98,8 @@ const JOINED := {
 	"Rockefeller reveal threshold": "Rockefeller",
 	"Skylight Gallery reveal threshold": "Skylight Gallery",
 	"white sculpture gallery threshold study limit": "lion stair landing",
-	"modern adjoining gallery threshold study limit": "modern painting gallery",
+	"Impressionist passage": "Impressionist gallery A",
+	"Impressionist passage return": "Impressionist gallery A",
 }
 var _stage := NO_STAGE  # the stage drawn
 var _stage_ids: Array[int] = []  # _plan index -> its stage

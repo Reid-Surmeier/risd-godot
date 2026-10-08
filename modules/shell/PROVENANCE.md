@@ -1128,3 +1128,26 @@ Review count: 17 small JPEG comparisons, each below 150 KB. The left image is th
 | `docs/evidence/stairs-276/06-columns-opening.jpg` | `d39fdff97a1c07b1e636d9cb337730e2508fb28a5aafdc65df024487977e3b93` |
 | `docs/evidence/stairs-276/06-fanlight.jpg` | `7d8153ecc9f7546c42e07acfe04c73d4297822655686bb00b0d4d50a7b597ecd` |
 | `docs/evidence/stairs-276/06-rail-joints.jpg` | `cb01d52cc21dd74d47a2fe3f167909124a6068d54c6a2dbba85c049eadbdc588` |
+
+## Impressionist galleries prepared from existing sources (#277, 8 Oct 2026)
+
+Provider: RISD Museum for four already-tracked catalogue photographs; existing local trim/cloth/frame assets for room details. Model: none. Paid requests: zero. Cost: USD 0. No artwork was fetched or generated. `IMG_6343.MOV` is measurement/review only; its pixels never enter a runtime material. Fitted measurements, uncertainty, compared pictures and missing works are in `docs/evidence/impressionist-277/`.
+
+| Work | Unchanged tracked source | Pixels | Source/prepared SHA-256 | Existing source attribution |
+| --- | --- | --- | --- | --- |
+| 42.219 | `prototypes/painting-coverflow/web/assets/42-219.jpg` | 1324×984 | `5bb288637b2285d4ab8276b9c51e96c4936af7a93d1a54871806473b3dc22bf1` | https://risdmuseum.cdn.picturepark.com/v/oSMPh0wK/ |
+| 1998.107 | `prototypes/painting-coverflow/web/assets/1998-107.jpg` | 1324×1095 | `ffe677d378d0a295078ab004bc6b9490f227e445f1f528d4ef0ebc995e97b648` | https://risdmuseum.cdn.picturepark.com/v/tKY50bdH/ |
+| 44.541 | `prototypes/painting-coverflow/web/assets/44-541.jpg` | 1324×933 | `a6f171bd6bb87750e3b233fd4339ca258e17d2636199f33d2cfff44711091968` | https://risdmuseum.cdn.picturepark.com/v/IaDNTna7/ |
+| 41.012 | `image-work/collection-room-remodel/inventory-catalogue/cezanne-apples-zoom-0.jpg` | 1324×776 | `8bcaa3e4fa2ae5999975db8b578cc94e7d5f4493c83623630e67cc95b7e23e59` | Saved primary API record cezanne-apples.json |
+
+All four are copied byte-for-byte by the separate #277 block in `prepare_remodel.py`, to `assets/additions/impressionist/painting-<accession>.jpg` in the room draft, then relocated under `modules/shell/collection_rooms/` by the orchestrator. The coverflow image provenance is retained in `prototypes/painting-coverflow/web/paintings.json` and `PROVENANCE.json`. The previously noted framed IIIF image of1998.107 is not used: the older coverflow prototype has a larger, already-cropped canvas. No new copyright-hold image is used.
+
+Reused textures (existing provider/generation record retained; zero new spend):
+
+- `modules/shell/prototype/gallery_walk4/frames/E7.png`: SHA-256 `4b696a88b5b8024d6a2e3ede229ce1a10864607678b57d1fe591f9ccec34571e`.
+- `modules/shell/prototype/gallery_walk4/frames/W10.png`: SHA-256 `fbb93a0f3d3db41cf14027485e691976cadfb6533b098e8e652952815850f7cb`.
+- `modules/shell/prototype/gallery_walk4/textures/bench-cloth-muse.webp`: SHA-256 `4e87afbd59fec5004a36506934a30b62cc0f58500e07829572a9007ac13ffe51`.
+
+Room geometry is locally authored GDScript in `impressionist_additions.gd`: six-sided plinth/clear hood, rounded upholstered bench, panelled leaves, sash windows/roller shades/aprons, grilles and detector. Plain/procedural materials and the existing white trim/wood kit are reused; no new raster generation. Borrowed gilt frame textures are fitted to approximate filmed outer dimensions; fine ornament fidelity is unaccepted. Lamps and the bake remain #274/orchestrator work.
+
+Review-only fitted-plan diagram: source `docs/evidence/impressionist-277/fitted_plan.py` (SHA-256 `a4b1d724e61effb39b521aa0a9ca86a73ee27011d59395417da34feb581f71e4`), input the prepared `geometry.json`, output `docs/evidence/impressionist-277/fitted-plan.jpg` (SHA-256 `844fee359b3274309aa94687b5211bd1e28b64d2ec7f5d3eb7c42065e12e7bad`). Provider: local Python/Pillow; model: none; cost: USD0; no paid request. It is excluded from runtime exports and makes no calibrated-plan claim.

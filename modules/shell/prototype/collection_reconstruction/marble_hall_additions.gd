@@ -418,28 +418,31 @@ func inner_walls() -> void:
 	base.reparent(chimney)
 	service_niche(plaster)
 	# IMG_6381 1.25..3.0s, 71.0s: the wall under the half-landing's edge, exit doorway in its middle.
-	var exit := wall("east:landing", Vector3(xe, (half - .25) / 2, (zn + zs) / 2), Vector3(.12, half - .25, zs - zn), plaster)
-	var white: Material = room.look(Color("eeeae2"))
+	# #277,6343 84–91s: open passage under the stair, not a closed lift-like double door.
 	var middle := (zn + zs) / 2
-	var door := Batch.new()
-	for side in [-1, 1]:
-		door.box(Vector3(xe - .075, 1.08, middle + side * .26), Vector3(.03, 2.16, .5))
-		door.box(Vector3(xe - .085, 1.14, middle + side * .60), Vector3(.05, 2.28, .14))
-	door.box(Vector3(xe - .085, 2.28, middle), Vector3(.05, .14, 1.34))
-	door.into(exit, white, "ExitDoorClosed").set_meta("marble_hall_provisional", "closed leaves: the filmed doorway stood open onto a corridor")
-	var sign: MeshInstance3D = room.solid(Vector3(xe - .09, 2.55, middle), Vector3(.05, .19, .36), room.look(Color("273a2d")))
+	var opening := [middle - .55, middle + .55]
+	for span in [[zn, opening[0]], [opening[1], zs]]:
+		var pier := wall("east:landing", Vector3(xe, (half - .25) / 2, (span[0] + span[1]) / 2), Vector3(.12, half - .25, span[1] - span[0]), plaster)
+		var foot: MeshInstance3D = room.solid(Vector3(xe - .07, .09, (span[0] + span[1]) / 2), Vector3(.02, .18, span[1] - span[0]), skirting)
+		foot.reparent(pier)
+	var head := 2.47
+	var exit := wall("east:landing:header", Vector3(xe, (head + half - .25) / 2, middle), Vector3(.12, half - .25 - head, 1.10), plaster)
+	exit.set_meta("source_casing_width", .16)
+	room.door_casing(exit, "east", xe, opening, head, .16)
+	var white: Material = room.look(Color("eeeae2"))
+	# The existing sign sits on the landing fascia above the taller opened casing.
+	var sign_y := half - .125
+	var sign: MeshInstance3D = room.solid(Vector3(xe - .09, sign_y, middle), Vector3(.05, .19, .36), room.look(Color("273a2d")))
 	sign.reparent(exit)
 	var lettering := Label3D.new()
 	lettering.text = "EXIT"
 	lettering.font_size = 48
 	lettering.pixel_size = .0024
 	lettering.modulate = Color("70f89e")
-	lettering.position = Vector3(xe - .12, 2.55, middle)
+	lettering.position = Vector3(xe - .12, sign_y, middle)
 	lettering.rotation.y = -PI / 2
 	room.add_child(lettering)
 	lettering.reparent(sign)
-	var foot: MeshInstance3D = room.solid(Vector3(xe - .07, .09, middle), Vector3(.02, .18, zs - zn), skirting)
-	foot.reparent(exit)
 	# IMG_6380 49.0/70.0/71.0s: grey wall behind the columns, a cased doorway to a further gallery
 	# (leaves folded in its reveal) and a fire alarm pull left of it. Closed leaves here.
 	var south: Node3D = room.wall_body(LABEL, "south", Vector3(x0 + 1.4, 1.3, z1))
@@ -458,7 +461,9 @@ func inner_walls() -> void:
 	pull.reparent(south)
 	# The flights and the room behind the exit wall are not floor.
 	block(Vector3((xe - STRAIGHT * TREAD - .3 + xe) / 2, 1.0, (z0 + zn) / 2), Vector3(STRAIGHT * TREAD + .3, 2.0, FLIGHT))
-	block(Vector3((xe + x1) / 2, 1.0, (z0 + z1) / 2), Vector3(FLIGHT, 2.0, z1 - z0))
+	# Keep both flights blocked, leaving only the filmed ground-floor passage free.
+	for span in [[z0, opening[0]], [opening[1], z1]]:
+		block(Vector3((xe + x1) / 2, 1.0, (span[0] + span[1]) / 2), Vector3(FLIGHT, 2.0, span[1] - span[0]))
 
 
 ## IMG_6343 87 s / IMG_6380 35.5, 70.5 s: an actual hollow arch, olive walls and stairs down.

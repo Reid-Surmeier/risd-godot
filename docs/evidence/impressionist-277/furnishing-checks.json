@@ -1,0 +1,204 @@
+{
+  "checkpoint": "furnishing",
+  "baked": false,
+  "arch": {
+    "case_rails": 8,
+    "casings": 28,
+    "east_cases": 2,
+    "east_objects": {
+      "albarello": 1,
+      "bookcover": 1,
+      "cleric": 1,
+      "diptych": 1,
+      "emblem": 1,
+      "glass_201729": 1,
+      "plaque_34024": 1,
+      "plate_46391": 1,
+      "plate_57302": 1,
+      "roundel_51105": 1,
+      "woman": 1
+    },
+    "failures": [],
+    "grilles": 1,
+    "hall_reveal_leaves": 2,
+    "leaf": 2,
+    "lift_features": 3,
+    "pieta_cases": 1,
+    "rockefeller_linings": 2,
+    "saint_roch": 1,
+    "triptych_panels": 3
+  },
+  "route": {
+    "failures": [],
+    "trials": [
+      {
+        "clear": true,
+        "trial": "modern_far_opening_out"
+      },
+      {
+        "clear": true,
+        "trial": "modern_far_opening_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_inner_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_inner_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_outer_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_outer_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_passage_return_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_passage_return_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_return_A_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_return_A_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_A_B_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_A_B_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_00_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_00_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_01_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_01_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_02_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_02_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_03_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_03_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_04_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_04_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_05_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_05_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_06_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_06_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_07_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_07_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_08_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_08_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_09_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_09_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_10_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_10_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_11_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_11_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_12_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_12_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_13_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_13_back"
+      }
+    ]
+  },
+  "source_sha256": {
+    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "6aabf16d79cdd7a8b0040e57d7bc4425a0b9c5698e15761b4157e6eafc0a4e6d",
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "74d0e9a3c57bb07fbc13911ab91ffd4115bad02269e38dad189d7772f26bdc54",
+    "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "316f3be37858ddd7c571edda2a8a5e952c62742ee5447695ce177bbb421a83ad",
+    "modules/shell/prototype/collection_reconstruction/marble_hall_additions.gd": "5f509acf0651087b1001a6726d3ce2cd4799f942da7c1f1ec013e09086aec296"
+  },
+  "root_checks": "FAIL: three baseline medieval mesh declarations; generated scene is stale",
+  "native_capture_errors": []
+}

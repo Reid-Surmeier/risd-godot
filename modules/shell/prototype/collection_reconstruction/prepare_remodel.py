@@ -561,6 +561,34 @@ geometry['rooms'] += [
     {'label':'white sculpture gallery threshold study limit','bounds':[16.15,17.65,29.5,31.5],'openings':{'west':[29.5,31.5]}},
     {'label':'modern adjoining gallery threshold study limit','bounds':[15.10,16.40,20.70,22.30],'openings':{'south':[15.10,16.40]}}
 ]
+# #277: fit the filmed Impressionist sequence to the two retained museum doors.
+# A's end wall is scaled by Le Repos (6343 147s); longitudinal closure needs +3.86m.
+# The passage elbow and stretched depths are explicit in impressionist-277/NOTES.md.
+# No existing room moves. Index12 replaces only the old modern-adjoining study stub.
+geometry['rooms'][8]['openings']['east']=[-2.51,-1.41]
+geometry['rooms'][8].setdefault('clear_heights',{})['east']=2.47
+geometry['rooms'][12]={'label':'Impressionist gallery B','bounds':[10.55,16.70,12.70,22.30],
+    'height':3.5,'boards_across':True,'openings':{'north':[15.20,16.30],'south':[15.10,16.40]},
+    'clear_heights':{'north':2.47,'south':2.74}}
+geometry['rooms'] += [
+    {'label':'Impressionist passage','bounds':[19.45,21.45,-2.86,1.04],'height':3.2,
+     'boards_across':True,'openings':{'west':[-2.51,-1.41],'south':[19.75,21.15]},
+     'clear_heights':{'west':2.47,'south':2.74}},
+    {'label':'Impressionist gallery A','bounds':[10.55,16.70,3.04,12.70],'height':3.69,
+     'boards_across':True,'openings':{'north':[15.10,16.40],'south':[15.20,16.30]},
+     'clear_heights':{'north':2.74,'south':2.47}},
+    {'label':'Impressionist passage return','bounds':[14.75,21.45,1.04,3.04],'height':3.2,
+     'boards_across':True,'openings':{'north':[19.75,21.15],'south':[15.10,16.40]},
+     'clear_heights':{'north':2.74,'south':2.74}}
+]
+for a,side,b,other in [(8,'east',13,'west'),(13,'south',15,'north'),(15,'south',14,'north'),(14,'south',12,'north')]:
+    assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
+geometry['impressionist_fit']={'source':'IMG_6343 84..228s; docs/evidence/impressionist-277/NOTES.md',
+    'fixed_stair_door':[17.85,-1.96],'fixed_modern_door':[15.75,22.30],
+    'estimated_depths_m':[2.0,9.6,8.8],'longitudinal_residual_m':3.86,
+    'fitted_depths_m':[5.0,9.66,9.60],'passage_elbow_inferred':True,
+    'passage_return_m':4.7,'windows_side':'east','first_draft_mirror_corrected':True,
+    'metric_accepted':False,'lighting_owned_by':'#274','missing_works':'WORKS-NEEDED.md'}
 assert sum(geometry['rooms'][3]['openings']['west'])==sum(geometry['rooms'][3]['openings']['east'])
 for a,side,b,other in [(3,'east',5,'west'),(5,'north',10,'south'),(5,'east',11,'west'),(10,'north',12,'south')]:
     assert geometry['rooms'][a]['openings'][side]==geometry['rooms'][b]['openings'][other]
@@ -599,6 +627,25 @@ for trial in geometry['trials']:
         trial[1][2] = 31.6
         trial[2][2] = 33.1
 geometry['lion_modern_layout']['stair_block'] = 'Landing edge 4.115m from the lion wall; rounded guard/stringers, two visible storeys below; all metres provisional (#276)'
+# #277: reciprocal doors and the complete clear route; each leg is within the 3.5m trial reach.
+for name,a,b in [
+    ('impressionist_stair_inner',[16.85,-1.96],[19.05,-1.96]),
+    ('impressionist_stair_outer',[19.05,-1.96],[20.45,-1.96]),
+    ('impressionist_passage_return',[20.45,.40],[20.45,1.80]),
+    ('impressionist_return_A',[15.75,2.25],[15.75,3.85]),
+    ('impressionist_A_B',[15.75,11.85],[15.75,13.55])
+]:
+    geometry['trials'] += [[name+'_out',[a[0],.25,a[1]],[b[0],0,b[1]],False],
+                          [name+'_back',[b[0],.25,b[1]],[a[0],0,a[1]],False]]
+impressionist_route=[[20.45,-1.96],[20.45,.40],[20.45,2.04],[18.25,2.04],
+    [15.75,2.04],[15.75,3.85],[14.85,6.20],[14.85,9.20],[15.75,11.85],
+    [15.75,13.55],[13.25,15.70],[13.25,18.70],[13.25,20.65],[15.75,21.45],[15.75,23.25]]
+for i,(a,b) in enumerate(zip(impressionist_route,impressionist_route[1:])):
+    assert sum((x-y)**2 for x,y in zip(a,b))**.5<=3.5
+    for direction,start,end in [('out',a,b),('back',b,a)]:
+        geometry['trials'].append([f'impressionist_route_{i:02d}_{direction}',
+            [start[0],.25,start[1]],[end[0],0,end[1]],False])
+geometry['impressionist_route_waypoints']=impressionist_route
 geometry['trials']=[t for t in geometry['trials'] if not t[0].startswith('grey_piano')]
 
 # The wall's thickness is walked as two threshold rooms; remodel_room.gd lines them and hangs the leaves.
@@ -709,6 +756,12 @@ copy(source/'acceptance.json','acceptance.json') # read by architecture_check.gd
 for path in sorted((app/'additions').rglob('*')):
     if path.is_file():
         copy(path,'assets/additions/'+str(path.relative_to(app/'additions')))
+# #277: only already-tracked museum photographs, copied unchanged. No fetching/generation.
+for accession in ['42.219', '1998.107', '44.541']:
+    copy(repo/'prototypes/painting-coverflow/web/assets'/f'{accession.replace(".", "-")}.jpg',
+         f'assets/additions/impressionist/painting-{accession}.jpg')
+copy(repo/'image-work/collection-room-remodel/inventory-catalogue/cezanne-apples-zoom-0.jpg',
+     'assets/additions/impressionist/painting-41.012.jpg')
 for name in ['walk4.gd','works.json','gaps.json']:
     copy(hall_source/name,'modules/shell/prototype/gallery_walk4/'+name)
 for folder in ['frames','canvas','textures']:

@@ -177,7 +177,11 @@
   "2025.19": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
   "2026.3": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
   "69.094": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
-  "73.018": {"room": "Skylight Gallery", "form": "flat", "as": "flat"}
+  "73.018": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
+  "1998.107": {"room": "Impressionist gallery A", "form": "flat", "as": "flat"},
+  "41.012": {"room": "Impressionist gallery A", "form": "flat", "as": "flat"},
+  "42.219": {"room": "Impressionist gallery A", "form": "flat", "as": "flat"},
+  "44.541": {"room": "Impressionist gallery B", "form": "flat", "as": "flat"}
  },
  "shortfalls": [
   "2017.74.31.1",
