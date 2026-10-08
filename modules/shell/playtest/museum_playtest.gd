@@ -466,8 +466,12 @@ func _objects() -> void:
 	var things: Array = walk._paintings.duplicate()
 	if walk.get("_objects") is Array:
 		things += walk._objects
+	# --objects=E1,21.482 drives only those works (by tag, or by the accession before its #).
+	var wanted := _arg("objects", "").split(",", false)
 	for thing in things:
 		var tag: String = thing.tag
+		if not wanted.is_empty() and not (tag in wanted or tag.get_slice("#", 0) in wanted):
+			continue
 		var entry := {
 			"tag": tag,
 			"title": str(thing.rec.get("title", "")),
@@ -634,6 +638,16 @@ func _objects() -> void:
 			for settle in 20:
 				await process_frame
 			var zoomed := await _shot("zoom-%s.png" % slug)
+			var pic: TextureRect = walk._zoom_root.get_node("Painting")
+			entry["zoom_image_px"] = [pic.texture.get_width(), pic.texture.get_height()]
+			if thing.rec.has("image_resolution"):
+				var images: Dictionary = thing.rec.image_resolution.images
+				var need: Dictionary = images.get("zoom_external", images.get("detail", {}))
+				if (
+					maxf(pic.texture.get_width(), pic.texture.get_height())
+					< need.get("required_long_side", 0)
+				):
+					problems.append("the zoom picture is smaller than its recorded requirement")
 			# The page shows the work, and its caption reads clear of the picture.
 			var picture: Control = walk._zoom_root.get_node("Painting")
 			var shown := Rect2i(picture.get_global_rect()).intersection(Rect2i(Vector2i.ZERO, zoomed.get_size()))
@@ -650,16 +664,6 @@ func _objects() -> void:
 					fault = "it lies across the picture"
 				if fault != "":
 					problems.append("zoom page caption: " + fault)
-			var pic: TextureRect = walk._zoom_root.get_node("Painting")
-			entry["zoom_image_px"] = [pic.texture.get_width(), pic.texture.get_height()]
-			if thing.rec.has("image_resolution"):
-				var images: Dictionary = thing.rec.image_resolution.images
-				var wanted: Dictionary = images.get("zoom_external", images.get("detail", {}))
-				if (
-					maxf(pic.texture.get_width(), pic.texture.get_height())
-					< wanted.get("required_long_side", 0)
-				):
-					problems.append("the zoom picture is smaller than its recorded requirement")
 			entry["zoom_fit_px"] = [ceilf(pic.size.x), ceilf(pic.size.y)]
 			walk._zoom_at(walk.size / 2.0, 6.0)
 			entry["zoom_full_px"] = [ceilf(pic.size.x * walk._zoom), ceilf(pic.size.y * walk._zoom)]
