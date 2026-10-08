@@ -82,7 +82,7 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Fireplace surround 83.152 | 3 (0.03): clay front (Muse accepted it this time), clay left, flat front | Multi-View from front + left, 0.48 / 0.48 | 358 KB at 1024 px colour; placed in the room source |
 | River God 44.674 | 0: the one clay attempt was refused (HTTP 400), charge unknown and not counted | Multi-View from the museum's own front, left and back photographs, 0.48 / 0.48 | 224 KB; kept as a trial only, not in the game sources: the lead withdrew the photograph route on 8 October (a refused Muse step is a stop) and put it to the owner as item 20 on #262 |
 
-| Neptune 2017.74.31.1 | 0 | Multi-View from the museum's own photographs, 0.48 / 0.48 | HELD: submitted minutes before the lead's stop on the photograph route reached me; completed and charged; not downloaded, not built |
+| Neptune 2017.74.31.1 | 0 | Multi-View from the museum's own photographs, 0.48 / 0.48 | a trial only: submitted minutes before the lead's stop on the photograph route reached me; built afterwards at no cost for its sheet; 260 KB; not in the game sources |
 | Amphitrite 2017.74.31.2 | 0 | the same, quoted 0.48, charged 0 | the run failed (the provider was overloaded); not resubmitted; she stays as she is |
 
 **Batch so far: 8.31 USD** (63 Muse images 0.63, fourteen Multi-View meshes 6.72, two single-view meshes 0.96). **Whole effort: 15.43 USD charged.**

@@ -482,10 +482,17 @@
     "params": "geometry detailed, texture off, face limit 500,000; input the museum's photographs themselves, cut out",
     "quote": 0.48,
     "charged": 0.48,
-    "status": "completed 8 October, charged 0.48 USD; not downloaded"
+    "status": "completed 8 October, charged 0.48 USD; not downloaded",
+    "sha256": "fa57088b3dd1ee99b49c1f9e3fef1486d260167b7e5e47569dbcfafbf7d999c1"
    },
    "views": "front, left and back, each the museum's own photograph of that side (no Muse view)",
-   "held": "HELD, 8 October: submitted before the lead's stop reached me. The photograph route is withdrawn (a refused Muse step is a stop; #262 item 20). Not downloaded, not built, not resubmitted."
+   "held": "A TRIAL ONLY, 8 October: submitted before the lead's stop reached me; built afterwards at the lead's word, at no cost, to have its sheet. Not in the game sources; waits for the owner's answer to #262 item 20.",
+   "imported": {
+    "mesh": 217113,
+    "colour": 49398,
+    "total": 266511
+   },
+   "build": "PLAIN='0.6 1', PHOTO_VIEWS; the front was found at 45 degrees, silhouette overlap 0.915"
   }
  }
 }
