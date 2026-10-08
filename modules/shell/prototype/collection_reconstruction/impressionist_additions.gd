@@ -128,7 +128,7 @@ func window(label: String, along: float, wall: Node3D) -> void:
 	roller.rotation.z = PI / 2
 	node.add_child(roller)
 	# Apron: a sunken painted panel, with the kit profile around it and a low louvred grille.
-	local_box(node, Vector3(0, .355, .009), Vector3(1.58, .30, .020), lining)
+	local_box(node, Vector3(0, .355, .009), Vector3(1.58, .30, .020), white)
 	for spec in [[Vector3(0, .50, .026), 1.64, .045, false], [Vector3(0, .205, .026), 1.64, .045, false], [Vector3(-.79, .353, .026), .04, .295, true], [Vector3(.79, .353, .026), .04, .295, true]]:
 		var trim: MeshInstance3D = room.moulding(spec[1], spec[2], "window-apron", spec[3])
 		trim.reparent(node, false)
@@ -176,12 +176,17 @@ func passage_details() -> void:
 	# 89.5s: six-panel service leaf and two ventilation grilles beside A's entry.
 	# The return leg is a fixed-door fit; the service door stays on its entrance-side wall.
 	var service := leaf(.85, 2.50)
-	service.position = room.wall_point(RETURN, "south", 2.40, 1.25, .075)
+	var service_at: Vector3 = room.wall_point(RETURN, "south", 2.40, 1.25, .075)
+	service.position = service_at
 	service.rotation.y = PI
 	service.reparent(room.wall_body(RETURN, "south", service.position))
+	service.set_meta("room_wall", RETURN + ":south:service-leaf")
+	service.set_meta("source_casing_width", .16)
+	var b: Array = room.room_bounds(RETURN)
+	room.door_casing(service, "south", b[3], [service_at.x - .425, service_at.x + .425], 2.50, .16)
 	var vent := Node3D.new()
 	room.add_child(vent)
-	vent.position = room.wall_point(RETURN, "south", 2.40, 2.96, .075)
+	vent.position = room.wall_point(RETURN, "south", 2.40, 2.85, .075)
 	vent.rotation.y = PI
 	grille(vent, Vector3.ZERO, Vector2(.82, .18), false)
 	vent.reparent(room.wall_body(RETURN, "south", vent.position))

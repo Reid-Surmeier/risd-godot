@@ -215,14 +215,16 @@ func inner_walls() -> void:
 	exit.set_meta("source_casing_width", .16)
 	room.door_casing(exit, "east", xe, opening, head, .16)
 	var white: Material = room.look(Color("eeeae2"))
-	var sign: MeshInstance3D = room.solid(Vector3(xe - .09, 2.55, middle), Vector3(.05, .19, .36), room.look(Color("273a2d")))
+	# The existing sign sits on the landing fascia above the taller opened casing.
+	var sign_y := half - .125
+	var sign: MeshInstance3D = room.solid(Vector3(xe - .09, sign_y, middle), Vector3(.05, .19, .36), room.look(Color("273a2d")))
 	sign.reparent(exit)
 	var lettering := Label3D.new()
 	lettering.text = "EXIT"
 	lettering.font_size = 48
 	lettering.pixel_size = .0024
 	lettering.modulate = Color("70f89e")
-	lettering.position = Vector3(xe - .12, 2.55, middle)
+	lettering.position = Vector3(xe - .12, sign_y, middle)
 	lettering.rotation.y = -PI / 2
 	room.add_child(lettering)
 	lettering.reparent(sign)
