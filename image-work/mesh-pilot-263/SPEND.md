@@ -87,6 +87,8 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 
 | Panel with Striding Lion 34.652 | 2 (0.02): clay front (accepted by Muse), flat front | single view from the clay front alone, 0.48 / 0.48 | 360 KB at 1024 px colour; sheet made; not placed yet |
 
-**Batch so far: 8.81 USD** (65 Muse images 0.65, fourteen Multi-View meshes 6.72, three single-view meshes 1.44). **Whole effort: 15.93 USD charged.**
+| St. George and the Dragon 2017.74.14 | 8 (0.08): clay front, back, right; three flat views wasted on my own wrong colour description (a white horse) and a repeated view; flat front and back redone | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 276 KB; placed in the Rockefeller room source |
+
+**Batch so far: 9.37 USD** (73 Muse images 0.73, fifteen Multi-View meshes 7.20, three single-view meshes 1.44). **Whole effort: 16.49 USD charged.**
 
 Not counted, because the charge is unknown: three Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.04 USD.

@@ -1,0 +1,33 @@
+{
+ "accession": "2017.74.14",
+ "page": "https://risdmuseum.org/art-design/collection/st-george-and-dragon-20177414",
+ "photographs": 6,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.14/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.14/back.jpg",
+   "px_wide": null,
+   "source_px": null,
+   "alt": ""
+  },
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.14/threequarter.jpg",
+   "px_wide": null,
+   "source_px": null,
+   "alt": ""
+  },
+  "right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.14/right.jpg",
+   "px_wide": null,
+   "source_px": null,
+   "alt": ""
+  }
+ }
+}

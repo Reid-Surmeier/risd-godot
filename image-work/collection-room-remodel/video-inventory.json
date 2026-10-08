@@ -3,6 +3,7 @@
   "volume_instances": [
     {
       "asset": "st-george",
+      "mesh": "additions/rockefeller/st-george-20177414.glb",
       "accession": "2017.74.14",
       "title": "St. George and the Dragon",
       "size_m": [

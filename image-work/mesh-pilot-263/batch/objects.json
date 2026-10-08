@@ -517,5 +517,27 @@
     "total": 368990
    }
   }
+ },
+ "2017.74.14": {
+  "title": "Ralph Wood the younger. *St. George and the Dragon*, ca. 1770. Earthenware with glaze and metal. 26.4 × 20.3 × 12.3 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.14/front.jpg",
+  "prepare": "--height 0.264 --width 0.203 --depth 0.123",
+  "muse_first": {
+   "run": {
+    "id": "run_m17caqs5dan77rt417b1z380758fxxy8",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000; views given as back, right, front (the frame turned half round: there is no left view)",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "9a96d0602a390237cc69d1b5d3f9b2cf3080781730b933b8ae6e054b86ab9b94"
+   },
+   "views": "front, back and right, each a Muse clay view of the museum's photograph of that side",
+   "imported": {
+    "mesh": 227890,
+    "colour": 55694,
+    "total": 283584
+   },
+   "build": "CUT=--keep-holes SUF=-cut LIFT=none: the flat views as Muse drew them, no pull to the photograph's overall brightness and no per-channel lift, both of which washed this many-coloured figure out"
+  }
  }
 }

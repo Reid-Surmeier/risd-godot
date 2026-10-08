@@ -1,0 +1,44 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/threequarter.jpg"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/back.jpg",
+   "batch/2017.74.14/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/front.jpg"
+  ]
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/right.jpg",
+   "batch/2017.74.14/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/front.jpg"
+  ]
+ },
+ "wrong-colour": {
+  "from": "three flat views made with a colour description I wrote before looking at the photograph (a cream-white horse; the real one is brown), and a 'right' view that repeated the front; not used; 0.03 USD",
+  "references": []
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.14/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.14/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.14/back.jpg",
+   "batch/2017.74.14/flat-front.png"
+  ]
+ }
+}
