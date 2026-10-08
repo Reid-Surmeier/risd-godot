@@ -2434,7 +2434,8 @@ func _set_view(mode: int) -> void:
 
 
 func _other_wall() -> void:
-	if not _open.is_empty() or _space != "gallery":
+	# A held movement key outranks the pointer (#280): see _gui_input.
+	if not _open.is_empty() or _space != "gallery" or _screen_direction() != Vector3.ZERO:
 		return
 	# A deliberate gallery shortcut: keep the same bay, cross to the other hang. The visitor
 	# walks across and the view glides round with it; nothing jumps.
@@ -3270,7 +3271,14 @@ func _gui_input(event: InputEvent) -> void:
 				_orbit_from = event.position
 				_orbit_dragged = false
 			else:
-				if _orbit_from != null and not _orbit_dragged:
+				# A held movement key outranks the pointer (#280). _process adds the key's
+				# travel and a click route together, so a route may never start under a
+				# held key: the click is dropped and the visitor keeps its one speed.
+				if (
+					_orbit_from != null
+					and not _orbit_dragged
+					and _screen_direction() == Vector3.ZERO
+				):
 					_click(event.position)
 				_orbit_from = null
 			accept_event()

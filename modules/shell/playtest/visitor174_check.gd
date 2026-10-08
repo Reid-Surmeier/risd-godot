@@ -228,6 +228,57 @@ func _run() -> void:
 	_key(gallery, KEY_A, false)
 	_shift(false)
 	await create_timer(0.5).timeout
+	# #280: a floor click made while a movement key is held gives way to the key. The visitor
+	# keeps its one walking speed (never the key's travel plus the route's) and the route is
+	# dropped, whether the key leads towards the clicked floor (W) or away from it (S).
+	gallery.size = Vector2(960, 640)
+	await process_frame
+	for code in [KEY_W, KEY_S]:
+		gallery._new_action()
+		gallery._target = null
+		gallery._pos = Vector3(-2.6, 0, -13.0)
+		gallery._last_pos = gallery._pos
+		gallery._update_camera(1.0)
+		_key(gallery, code, true)
+		await create_timer(0.5).timeout
+		var up_screen := Vector3(-sin(gallery.view_yaw), 0, -cos(gallery.view_yaw))
+		var spot: Vector2 = gallery._to_screen(gallery._pos + up_screen * 4.0)
+		assert(
+			(
+				Rect2(Vector2.ZERO, gallery.size).has_point(spot)
+				and gallery._painting_at(spot).is_empty()
+			),
+			"the #280 floor click is not on visible floor: %s" % spot
+		)
+		for pressed in [true, false]:
+			var click := InputEventMouseButton.new()
+			click.button_index = MOUSE_BUTTON_LEFT
+			click.pressed = pressed
+			click.position = spot
+			gallery._gui_input(click)
+		await process_frame  # timers fire after the frame's movement: start on a frame edge
+		var slowest := INF
+		var fastest := 0.0
+		for _tick in 60:
+			var from: Vector3 = gallery._pos
+			await process_frame
+			var mps: float = gallery._pos.distance_to(from) / root.get_process_delta_time()
+			slowest = minf(slowest, mps)
+			fastest = maxf(fastest, mps)
+		var held_key := "W" if code == KEY_W else "S"
+		_expect(
+			fastest < gallery.WALK_MPS * 1.05 and slowest > gallery.WALK_MPS * 0.95,
+			(
+				"%s held through a floor click walked at %.2f to %.2f m/s, not %.2f"
+				% [held_key, slowest, fastest, gallery.WALK_MPS]
+			)
+		)
+		_expect(
+			gallery._target == null and gallery._path.is_empty(),
+			"a click route survived the held %s key" % held_key
+		)
+		_key(gallery, code, false)
+		await create_timer(0.5).timeout
 	gallery._set_view(2)
 	await process_frame
 	var turn_start: float = gallery._kid.rotation.y
@@ -262,14 +313,15 @@ func _run() -> void:
 	if not _faults.is_empty():
 		for fault in _faults:
 			push_error(fault)
-		print("FAIL #259: %d locomotion faults" % _faults.size())
+		print("FAIL #259/#280: %d locomotion faults" % _faults.size())
 		quit(1)
 		return
 	print(
 		(
 			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, "
 			+ "90/180-degree turns, floor contact and step cadence, gestures disabled; "
-			+ "#259: one stride through gait changes, landings, sprint reversal skid"
+			+ "#259: one stride through gait changes, landings, sprint reversal skid; "
+			+ "#280: a held key outranks a floor click, one walking speed"
 		)
 	)
 	quit()
