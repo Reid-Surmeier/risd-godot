@@ -583,11 +583,11 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 		var sw:=fposmod(w+width/2,width/rows)
 		var du:=minf(su,length/columns-su) if absf(u)<length/2-.02 else 1.0
 		var dw:=minf(sw,width/rows-sw) if absf(w)<width/2-.02 else 1.0
-		return y-.010*exp(-pow(minf(du,dw)/.012,2))-.014*exp(-(du*du+dw*dw)/.0009)
+		return y-.005*exp(-pow(minf(du,dw)/.010,2))-.012*exp(-(du*du+dw*dw)/.0006)
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var nu:=columns*12
-	var nw:=rows*12
+	var nu:=columns*16
+	var nw:=rows*14
 	var corner:=func(i:int,j:int) -> Vector3:
 		var u:float=-length/2+length*i/nu
 		var w:float=-width/2+width*j/nw
@@ -602,7 +602,7 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 				var point:Vector3=corner.call(c[0],c[1])
 				var e:=.004
 				var slope:=Vector3(top.call(point.x-e,point.z)-top.call(point.x+e,point.z),2*e,top.call(point.x,point.z-e)-top.call(point.x,point.z+e)).normalized()
-				put.call(point,slope,clampf(1.0-(height-point.y)*14.0,.55,1.0))
+				put.call(point,slope,clampf(1.0-(height-point.y)*22.0,.55,1.0))
 	# The seat's side, from the rim down to the frame.
 	var rim_points:Array=[]
 	for i in nu:rim_points.append(corner.call(i,0))
@@ -636,8 +636,8 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 		for z in [-inset.y,inset.y]:
 			var leg:=MeshInstance3D.new()
 			var taper:=CylinderMesh.new()
-			taper.top_radius=.034
-			taper.bottom_radius=.020
+			taper.top_radius=.032
+			taper.bottom_radius=.026
 			taper.height=height-thick
 			taper.radial_segments=4
 			taper.rings=1
@@ -1491,7 +1491,7 @@ func build_sculpture_rooms() -> void:
 	inventory["medieval_objects_complete"]=false
 	# IMG_6383 61.25..64.75s: the central bench, a grey tufted seat on a dark frame. Its length and
 	# width are the earlier builder's by-eye reading; nothing is measured.
-	bench(Vector3(-2.75,0,22.4),1.65,.55,.46,5,2)
+	bench(Vector3(-2.75,0,22.4),1.65,.55,.46,3,2)
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
 	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
