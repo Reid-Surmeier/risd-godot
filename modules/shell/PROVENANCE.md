@@ -1192,3 +1192,32 @@ fidelity limits are in
 [`NOTES.md`](../../docs/evidence/vessels-turned/NOTES.md). The 22 figural blobs
 are unchanged and named in
 [`LIST.md`](../../docs/evidence/vessels-turned/LIST.md).
+
+## Twelve Impressionist catalogue photographs — #277, 8 October 2026
+
+Provider: **RISD Museum** (its public catalogue, Picturepark downloads and Micrio IIIF viewer). Paid requests: **0**; cost: **USD 0**. Twelve museum photographs, visually matched to the owner’s SDR `IMG_6343` footage; no footage pixels become art, no generation or enlargement. Selected source JPEGs and native IIIF metadata remain outside git under `~/risd-godot-ingestion/catalogue-masters/impressionist-277/`.
+
+The complete source URLs, original/source pixel dimensions, source SHA-256, crops, and each of 36 output paths/pixel dimensions/SHA-256 are recorded in [`catalogue.json`](../../image-work/collection-room-remodel/additions/impressionist/catalogue.json). [`prepare_images.py`](../../image-work/collection-room-remodel/additions/impressionist/prepare_images.py) checks source hashes and recreates downsampled JPEGs without upscaling. Museum page text is retained in `docs/evidence/impressionist-images/catalogue-pages/`; records use exact maker links and tombstone title/date/medium/dimensions/credit. Bracquemond is oil on panel and retains the two printed titles.
+
+| Accession | Source photo | Wall | Fitted preview | External zoom |
+| --- | --- | --- | --- | --- |
+| 42.190 | 3535 × 2890 | 256 × 209 | 896 × 733 | 3535 × 2890 |
+| 2007.68 | 2900 × 3505 | 212 × 256 | 741 × 896 | 2900 × 3505 |
+| 57.236 | 4320 × 2821 | 384 × 251 | 896 × 585 | 4320 × 2821 |
+| 59.027 | 2260 × 3000 | 337 × 448 | 675 × 896 | 2260 × 3000 |
+| 23.072 | 2010 × 2712 | 190 × 256 | 664 × 896 | 2010 × 2712 |
+| 72.096 | 3665 × 3063 | 384 × 321 | 896 × 749 | 3665 × 3063 |
+| 1999.3 | 2859 × 3457 | 265 × 320 | 741 × 896 | 2859 × 3457 |
+| 33.053 | 3420 × 2772 | 384 × 311 | 896 × 726 | 3420 × 2772 |
+| 2021.101 | 3076 × 4320 | 137 × 192 | 638 × 896 | 3076 × 4320 |
+| 2010.57 | 3155 × 3786 | 267 × 320 | 747 × 896 | 3155 × 3786 |
+| 35.770 | 3000 × 2428 | 256 × 205 | 896 × 719 | 2922 × 2344 |
+| 60.095 | 3350 × 4007 | 266 × 320 | 745 × 896 | 3198 × 3847 |
+
+Packed copies: lossy Godot import at quality .8, mipmaps enabled, 2110686 imported bytes. External zooms: 33013634 bytes, under the Godot-ignored `modules/shell/assets/impressionist/zoom/`, copied beside the pack to `museum-images/` and fetched only on opening. Van Gogh and Cassatt have the documented native edge crops; all other photographs use the complete source. No ICC profiles or colour edits. Room frames continue to reuse existing frame textures; exact carving/finish and final baked light remain unaccepted. Measurements and verification are in [`image notes`](../../docs/evidence/impressionist-images/NOTES.md).
+
+### #277 final frame palettes and review evidence (8 October 2026)
+
+Two numerical colour copies of the existing W7 frame retain its 1361× 966 dimensions and complete alpha channel; pale for 72.096/35.770, rose for 1999.3. Original W7 source SHA-256 `b0c05b8a151f3a6c221b3b2e1c893b64e87a510681c38981393758a7b3403424`; output pale `b562dcd34288df7238627d0634c9d0ae72825baf5aae5b8550dd07a405d6e8b4`, rose `5a6f6b9a3fb48d1f60bd03324d1f4f631858141b782da9ae0399cadf1f49f54d`. Source/provider is the previously recorded Muse W7 repository asset; local Pillow palette transformation, new model/provider calls 0, cost USD 0. The hash-checked recipe is `image-work/collection-room-remodel/additions/impressionist/frame-palettes.json`, reproduced by `prepare_images.py`. All painting photographs retain their original colour. Imported palette textures add 220,784 bytes; total new imported textures 2,331,470 bytes (2.224 MiB); external zooms 33,013,634 bytes remain outside the pack. The pack-only installed-tree export is 232,113,540 bytes (221.361 MiB); the final rebuilt pack remains for the orchestrator.
+
+Every output pixel size, byte size and SHA-256 for the small comparison/inspection JPEGs and the two full gallery sheets is in `docs/evidence/impressionist-images/review-provenance.json`. Sources: ordinary-SDR IMG_6343 from the owner's walkthrough and native Godot GL Compatibility unbaked captures; providers: local ffmpeg/Godot/Pillow; new spend USD 0. Pictures and capture scripts are review-only and never become art textures or runtime dependencies. Full gallery sheets are below 300 KB; small progress pictures below 150 KB. The exact final field/pixel/UV2/pack checks are alongside that provenance record.

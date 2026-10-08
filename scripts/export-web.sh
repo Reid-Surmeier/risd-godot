@@ -28,6 +28,7 @@ HTML
 # Full zoom photographs are fetched only when their painting opens (#278).
 mkdir -p "$NEXT/museum-images"
 cp modules/shell/prototype/gallery_walk4/zoom/*.jpg "$NEXT/museum-images/"
+cp modules/shell/assets/impressionist/zoom/*.jpg "$NEXT/museum-images/"
 cp modules/video_player/media/*.ogv "$NEXT/media/"
 cp -r modules/flowers_page/web "$NEXT/flowers" && rm -f "$NEXT/flowers/.gdignore"  # the Flowers game and its Ruffle build
 for f in "$NEXT/$SHA".{wasm,pck,game.pck}; do gzip -9 -k -f "$f"; done

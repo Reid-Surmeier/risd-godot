@@ -1,0 +1,262 @@
+{
+  "failures": [],
+  "uv2_surfaces": 48,
+  "viewport": [
+    695,
+    465
+  ],
+  "works": [
+    {
+      "accession": "42.190",
+      "canvas_metres": [
+        0.46000000834465,
+        0.377999991178513
+      ],
+      "frame_metres": [
+        0.639999985694885,
+        0.550000011920929
+      ],
+      "full_zoom_px": [
+        3535,
+        2890
+      ],
+      "inspected_canvas_px": [
+        128.126129150391,
+        106.001373291016
+      ],
+      "room": "Impressionist gallery A",
+      "wall_long_px": 256
+    },
+    {
+      "accession": "2007.68",
+      "canvas_metres": [
+        0.453999996185303,
+        0.634999990463257
+      ],
+      "frame_metres": [
+        0.680000007152557,
+        0.870000004768372
+      ],
+      "full_zoom_px": [
+        2900,
+        3505
+      ],
+      "inspected_canvas_px": [
+        105.204071044922,
+        146.098785400391
+      ],
+      "room": "Impressionist gallery A",
+      "wall_long_px": 256
+    },
+    {
+      "accession": "57.236",
+      "canvas_metres": [
+        0.736999988555908,
+        0.481000006198883
+      ],
+      "frame_metres": [
+        0.990000009536743,
+        0.730000019073486
+      ],
+      "full_zoom_px": [
+        4320,
+        2821
+      ],
+      "inspected_canvas_px": [
+        188.398696899414,
+        122.126724243164
+      ],
+      "room": "Impressionist gallery A",
+      "wall_long_px": 384
+    },
+    {
+      "accession": "59.027",
+      "canvas_metres": [
+        1.13999998569489,
+        1.50199997425079
+      ],
+      "frame_metres": [
+        1.47000002861023,
+        1.82999992370605
+      ],
+      "full_zoom_px": [
+        2260,
+        3000
+      ],
+      "inspected_canvas_px": [
+        156.408355712891,
+        204.372863769531
+      ],
+      "room": "Impressionist gallery A",
+      "wall_long_px": 448
+    },
+    {
+      "accession": "23.072",
+      "canvas_metres": [
+        0.46399998664856,
+        0.629000008106232
+      ],
+      "frame_metres": [
+        0.699999988079071,
+        0.870000004768372
+      ],
+      "full_zoom_px": [
+        2010,
+        2712
+      ],
+      "inspected_canvas_px": [
+        107.433929443359,
+        144.50260925293
+      ],
+      "room": "Impressionist gallery A",
+      "wall_long_px": 256
+    },
+    {
+      "accession": "72.096",
+      "canvas_metres": [
+        0.656000018119812,
+        0.542999982833862
+      ],
+      "frame_metres": [
+        0.939999997615814,
+        0.819999992847443
+      ],
+      "full_zoom_px": [
+        3665,
+        3063
+      ],
+      "inspected_canvas_px": [
+        161.080200195312,
+        132.369003295898
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 384
+    },
+    {
+      "accession": "1999.3",
+      "canvas_metres": [
+        0.546000003814697,
+        0.648000001907349
+      ],
+      "frame_metres": [
+        0.740000009536743,
+        0.850000023841858
+      ],
+      "full_zoom_px": [
+        2859,
+        3457
+      ],
+      "inspected_canvas_px": [
+        129.447448730469,
+        152.379013061523
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 320
+    },
+    {
+      "accession": "33.053",
+      "canvas_metres": [
+        0.810000002384186,
+        0.653999984264374
+      ],
+      "frame_metres": [
+        0.970000028610229,
+        0.810000002384186
+      ],
+      "full_zoom_px": [
+        3420,
+        2772
+      ],
+      "inspected_canvas_px": [
+        201.926010131836,
+        161.883972167969
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 384
+    },
+    {
+      "accession": "2021.101",
+      "canvas_metres": [
+        0.234999999403954,
+        0.330000013113022
+      ],
+      "frame_metres": [
+        0.370000004768372,
+        0.469999998807907
+      ],
+      "full_zoom_px": [
+        3076,
+        4320
+      ],
+      "inspected_canvas_px": [
+        76.426628112793,
+        108.03491973877
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 192
+    },
+    {
+      "accession": "2010.57",
+      "canvas_metres": [
+        0.499000012874603,
+        0.600000023841858
+      ],
+      "frame_metres": [
+        0.710000038146973,
+        0.810000002384186
+      ],
+      "full_zoom_px": [
+        3155,
+        3786
+      ],
+      "inspected_canvas_px": [
+        124.134887695312,
+        148.073501586914
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 320
+    },
+    {
+      "accession": "35.770",
+      "canvas_metres": [
+        0.421000003814697,
+        0.340000003576279
+      ],
+      "frame_metres": [
+        0.660000026226044,
+        0.579999983310699
+      ],
+      "full_zoom_px": [
+        2922,
+        2344
+      ],
+      "inspected_canvas_px": [
+        111.225654602051,
+        90.3584747314453
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 256
+    },
+    {
+      "accession": "60.095",
+      "canvas_metres": [
+        0.521000027656555,
+        0.610000014305115
+      ],
+      "frame_metres": [
+        0.770000040531158,
+        0.860000014305115
+      ],
+      "full_zoom_px": [
+        3198,
+        3847
+      ],
+      "inspected_canvas_px": [
+        122.021606445312,
+        141.770736694336
+      ],
+      "room": "Impressionist gallery B",
+      "wall_long_px": 320
+    }
+  ]
+}

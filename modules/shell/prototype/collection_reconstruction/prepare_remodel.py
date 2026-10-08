@@ -782,6 +782,11 @@ for accession in ['42.219', '1998.107', '44.541']:
          f'assets/additions/impressionist/painting-{accession}.jpg')
 copy(repo/'image-work/collection-room-remodel/inventory-catalogue/cezanne-apples-zoom-0.jpg',
      'assets/additions/impressionist/painting-41.012.jpg')
+# #277 image follow-up: packed photographs keep their authored module paths/imports.
+# Full zooms are external to Godot; only wall and fitted-preview files enter the draft.
+for path in sorted((repo/'modules/shell/assets/impressionist').iterdir()):
+    if path.is_file():
+        copy(path,'modules/shell/assets/impressionist/'+path.name)
 for name in ['walk4.gd','works.json','gaps.json']:
     copy(hall_source/name,'modules/shell/prototype/gallery_walk4/'+name)
 for folder in ['frames','canvas','textures']:
