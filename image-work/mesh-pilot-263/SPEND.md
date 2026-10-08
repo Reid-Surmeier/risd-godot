@@ -76,6 +76,6 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Tabernacle 06.057 | 2 (0.02) | single view from the clay front alone, 0.48 / 0.48 | 260 KB, plain-marble colour; waiting for the lead's look, not placed |
 
 | Pietà 59.128 | 5 (0.05): clay front, a three-quarter and a carved back that were not used, a strict left profile, flat front | Multi-View from front + left, 0.48 / 0.48 | 252 KB; placed in the room source |
-| Saint Roch 21.398 | 2 so far (0.02): clay front and back | not yet | in progress |
+| Saint Roch 21.398 | 6 (0.06): clay front, back and left, flat front and back, and a flat left that repeated the front and was not used | Multi-View from front, left, back, 0.48 / 0.48 | 262 KB; placed in the room source |
 
-**Batch so far: 5.81 USD** (53 Muse images 0.53, nine Multi-View meshes 4.32, two single-view meshes 0.96). **Whole effort: 12.93 USD charged.**
+**Batch so far: 6.33 USD** (57 Muse images 0.57, ten Multi-View meshes 4.80, two single-view meshes 0.96). **Whole effort: 13.45 USD charged.**

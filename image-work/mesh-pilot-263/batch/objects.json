@@ -373,5 +373,28 @@
    "build": "TURN=90 --upright (4.3 degrees), CUT=--keep-holes; colour from the flat front alone"
   },
   "cut": "saturation key on the catalogue front photograph; cut.png is not in git (5.6 MB): cut_photo.py ~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg batch/59.128/cut.png 186,122,1945,2553 --key-sat 60"
+ },
+ "21.398": {
+  "title": "Unknown maker, French. *Saint Roch*, 1475–1525. Wood with polychromy. Height 105.4 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/21.398/front.jpg",
+  "prepare": "--height 1.054",
+  "muse_first": {
+   "run": {
+    "id": "run_m171n7e3946p9pzgj3ayprpmdd8fwb3m",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "311e252cdb07a086b540e6ee48b93db23afdabc84ea23605c732d6033c9913e1"
+   },
+   "views": "front and back each from the museum's photograph of that side; left inferred by Muse",
+   "imported": {
+    "mesh": 217277,
+    "colour": 51406,
+    "total": 268683
+   },
+   "build": "CUT=--keep-holes; colour from the flat front and back; the flat left repeated the front and was not used"
+  },
+  "cut": "GrabCut on the catalogue front photograph; cut.png is not in git: cut_photo.py ~/risd-godot-ingestion/catalogue-masters/21.398/front.jpg batch/21.398/cut.png 431,214,1535,2868"
  }
 }

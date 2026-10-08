@@ -1262,10 +1262,13 @@ func build_sculpture_rooms() -> void:
 	var roch_label:=solid(roch_at+Vector3(.401,.625,.10),Vector3(.003,.035,.11),look(Color("dedbd4")))
 	roch_label.set_meta("artwork_label_proxy",true)
 	roch_label.reparent(roch_plinth)
-	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
-	add_child(roch)
-	roch.position=roch_at+Vector3(0,.68,0)
-	roch.rotation.y=PI/2
+	# A real mesh (#263) at the same point, turn and catalogue height; saint_roch_asset.gd's blocks are no longer built.
+	var roch:=place_mesh("res://assets/additions/renaissance/roch-21398.glb",roch_at+Vector3(0,.68,0),PI/2,Vector3(0,SaintRoch.HEIGHT,0),"21.398")
+	roch.name="SaintRoch21398"
+	roch.set_meta("catalogue_medium","wood with polychromy")
+	roch.set_meta("height_m",SaintRoch.HEIGHT)
+	roch.set_meta("left_side_source","none: front and back from official photographs; the left profile is inferred")
+	for flag in ["survey_metres_accepted","placement_accepted","rear_fidelity_accepted","visual_fidelity_accepted"]:roch.set_meta(flag,false)
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
 	for side in [-1,1]:

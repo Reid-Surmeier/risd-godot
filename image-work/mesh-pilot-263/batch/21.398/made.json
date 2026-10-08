@@ -13,5 +13,38 @@
    "batch/21.398/clay-front.png",
    "~/risd-godot-ingestion/catalogue-masters/21.398/front.jpg"
   ]
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front and back; no photograph of a side exists",
+  "note": "a footage frame (IMG_6383 18.3 s, seen from his front right through the case) was attached for the depth of the cape, dog and base",
+  "references": [
+   "image-work/mesh-pilot-263/batch/21.398/clay-front.png",
+   "image-work/mesh-pilot-263/batch/21.398/clay-back.png",
+   "~/risd-godot-ingestion/mesh-pilot-263/footage/21.398/crop-18.3.jpg"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/21.398/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/21.398/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/21.398/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/21.398/back.jpg",
+   "batch/21.398/flat-front.png"
+  ]
+ },
+ "flat-left": {
+  "from": "inferred: the clay left repainted with the colours of the front photograph",
+  "references": [
+   "image-work/mesh-pilot-263/batch/21.398/clay-left.png",
+   "~/risd-godot-ingestion/catalogue-masters/21.398/front.jpg",
+   "image-work/mesh-pilot-263/batch/21.398/flat-front.png"
+  ],
+  "note": "not used: Muse repeated the front view instead of repainting the profile"
  }
 }
