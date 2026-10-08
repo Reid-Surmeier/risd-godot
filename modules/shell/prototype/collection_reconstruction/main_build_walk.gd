@@ -178,6 +178,12 @@ var _bake_held: Resource
 var _building: Node3D  # the room scene while it builds; hidden between steps
 var _build_clock := 0.0
 var _build_ms := 0  # what the steps have cost so far, and the longest of them
+# Each area is drawn once, small and out of sight, after the rooms are in place: the first
+# drawing of a room compiles its shaders, and that was one long frame as the first room opened.
+var _warm_left: Array = []
+var _warm_vp: SubViewport
+var _warm_cam: Camera3D
+var _wipe_warm := 0  # frames the wipe has been drawn at launch
 var _build_longest := 0
 var _wipe_routed := false  # the change began on a clicked route, which keeps its own destination
 
@@ -302,6 +308,10 @@ func _begin_rooms() -> void:
 	_building.set_meta("main_build_host", true)
 	_building.set_meta("build_gate", build_gate)
 	_vp.add_child(_building)  # runs as far as the first gate
+	# The room scene makes its own camera the picture's as it enters the tree. Built in one
+	# call that camera is freed before a frame is drawn; built in steps it showed the Hall as
+	# black with the visitor huge for as long as the build lasted.
+	_cam.make_current()
 	_building.set_physics_process(false)
 	_building.set_process(false)
 	_building.set_process_unhandled_key_input(false)
@@ -346,6 +356,37 @@ func _standing_still() -> bool:
 		and not _entrance_active
 		and _glide_t >= 1.0
 	)
+
+
+# One area drawn once, from above, into a viewport nobody sees.
+func _warm_step() -> void:
+	if _warm_vp == null:
+		_warm_vp = SubViewport.new()
+		_warm_vp.size = Vector2i(64, 64)
+		_warm_vp.world_3d = _vp.find_world_3d()
+		_warm_vp.render_target_update_mode = SubViewport.UPDATE_DISABLED
+		add_child(_warm_vp)
+		_warm_cam = Camera3D.new()
+		_warm_cam.projection = Camera3D.PROJECTION_ORTHOGONAL
+		_warm_cam.cull_mask = NEAR_LAYER | FAR_LAYER | VISITOR_LAYER
+		_warm_cam.near = 0.5
+		_warm_cam.far = 80.0
+		_warm_cam.rotation_degrees = Vector3(-90, 0, 0)
+		_warm_vp.add_child(_warm_cam)
+	# A room is drawn with its light map on, and the Hall with its own: a mesh's shader is
+	# compiled again for the light map, so a draw without it warmed nothing.
+	var capture := _rooms.get_node_or_null("BakedRoom/Lightmap")
+	if capture:
+		capture.visible = true
+	# The visitor's lamp too, as _mask_floor leaves it: with a sun in the picture every mesh
+	# has a different shader again.
+	var fill = _kid.get("_fill")
+	if fill is Light3D:
+		fill.layers |= VISITOR_LAYER
+	var area := _room_rect(_warm_left.pop_back())
+	_warm_cam.size = maxf(area.size.x, area.size.y) + 2.0
+	_warm_cam.position = Vector3(area.get_center().x, 40.0, area.get_center().y)
+	_warm_vp.render_target_update_mode = SubViewport.UPDATE_ONCE
 
 
 func _install_rooms() -> void:
@@ -469,6 +510,7 @@ func _install_rooms() -> void:
 	_link_doors()
 	_shade_walls()
 	_grid = null  # a route planned in the Hall before now knew no furniture (#280)
+	_warm_left = range(_plan.size())
 	_build_ms += Time.get_ticks_msec() - began
 	_build_longest = maxi(_build_longest, Time.get_ticks_msec() - began)
 	print(
@@ -1601,6 +1643,21 @@ func _process(delta: float) -> void:
 				_begin_rooms()
 			else:
 				_pump_rooms(BUILD_SHARE_MS)
+	elif not _warm_left.is_empty() and _wipe_t < 0.0:
+		if _stage >= 0:
+			_warm_left.clear()  # put into a room: the other stages are hidden, nothing to draw
+		elif _standing_still():
+			_warm_step()
+	if _wipe_warm < 4 and _wipe_t < 0.0 and is_visible_in_tree():
+		_wipe_warm += 1
+		# The same for the Hall's portal wall, which dissolves as the visitor steps into the
+		# passage: its dissolve shader was first used, and compiled, as the first wipe began.
+		# At full strength it draws the wall whole.
+		for entry in _cutaway_materials.get(8, []):
+			entry.material.set_shader_parameter("cutaway_opacity", 1.0)
+			entry.mesh.material_override = entry.material
+		if _wipe_warm == 4:
+			_wipe.hide()
 	if _rooms == null or not _open.is_empty() or _entrance_active:
 		return
 	if _space == "far" and _pos.z > -L and absf(_pos.x) < DOORS.far.size.x / 2.0:
@@ -2219,7 +2276,8 @@ void fragment() {
 	_wipe.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	_wipe.z_index = 50  # over the view buttons, which are added after the rooms
 	_wipe.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
-	_wipe.hide()
+	# Shown, fully open, for its first frames: its shader is compiled then, behind the loading
+	# screen, and not in the frame the first wipe begins (0.3 s in the engine, more in a browser).
 	add_child(_wipe)
 	# What the long first hold shows: one still mark, lower right, as nothing can move while
 	# the rooms are being built.
@@ -2614,10 +2672,11 @@ func _wipe_begin() -> void:
 
 func _wipe_step(delta: float) -> void:
 	delta = minf(delta, 0.05)  # the frame after a load is long; the wipe does not skip ahead
-	if _rooms == null and _rooms_path != "" and _wipe_t + delta >= WIPE_CLOSE:
-		# The hold stretches while what is left of the rooms is built: black, then the mark,
-		# then one step a frame, so the mark is on screen through any long step and turns
-		# between them.
+	var owed := (_rooms == null and _rooms_path != "") or not _warm_left.is_empty()
+	if owed and _wipe_t < WIPE_CLOSE and _wipe_t + delta >= WIPE_CLOSE:
+		# The hold stretches while what is left of the rooms is built and drawn once: black,
+		# then the mark, then one step a frame, so the mark is on screen through any long step
+		# and turns between them.
 		(_wipe.material as ShaderMaterial).set_shader_parameter("radius", 0.0)
 		_wipe_mask = 0  # the picture is black: drawing the half-built rooms behind it doubled the wait
 		_wipe_wait += 1
@@ -2628,15 +2687,19 @@ func _wipe_step(delta: float) -> void:
 		_wipe_mark.show()
 		if _wipe_wait < 4:
 			return
-		if _building == null:
-			_begin_rooms()
-			return
-		_pump_rooms(BUILD_SHARE_MS, true)  # the next steps, or the putting in place after the last
 		if _rooms == null:
+			if _building == null:
+				_begin_rooms()
+				return
+			_pump_rooms(BUILD_SHARE_MS, true)  # the next steps, or the putting in place after the last
+			if _rooms == null:
+				return
+			_stage = -1  # the Hall is what the wipe closed on
+			_stage_pos = _pos
+			_enter_space(_wipe_space)
+		if not _warm_left.is_empty():
+			_warm_step()
 			return
-		_stage = -1  # the Hall is what the wipe closed on
-		_stage_pos = _pos
-		_enter_space(_wipe_space)
 		_wipe_t = WIPE_CLOSE - delta
 	var before := _wipe_t
 	var open_at := WIPE_CLOSE + WIPE_HOLD

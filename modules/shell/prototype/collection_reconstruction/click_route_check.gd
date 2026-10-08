@@ -22,6 +22,17 @@ func run() -> void:
 	# walk runs them; the trace is the visitor every 30th frame.
 	if walk.state().get("pending", false):
 		walk._new_action()
+		# Standing in the Hall the rooms begin to be built in steps. The picture stays the
+		# Hall's own camera's while they are: the room scene brings a camera of its own.
+		var kept_camera := false
+		for i in 600:
+			await process_frame
+			if walk._building != null:
+				kept_camera = walk._vp.get_camera_3d() == walk._cam
+				break
+		rows.append({"name": "fresh-launch-hall-camera", "passed": kept_camera, "input": "real frames, standing in the Hall"})
+		if not kept_camera:
+			failures.append("fresh-launch-hall-camera")
 		walk._pos = Vector3(0, 0, -3)
 		walk._last_pos = walk._pos
 		walk._kid.position = walk._pos

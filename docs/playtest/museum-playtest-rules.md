@@ -27,8 +27,8 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    walk clip and landing footsteps. Until the wipe has shut, the dark share of the picture must
    not rise by more than 0.15 between two readings: a room or a wall dropped in one frame. The
    three deep doorways are walked again off their centre line (60 legs), and in the marble stair
-   hall the visitor is walked into the corner beside the chimneypiece wall's return and pressed
-   against it (2 legs; round 5, finding 6).
+   hall the visitor is walked into the corner past the chimneypiece wall's west end and pressed
+   into it (2 legs; round 5, finding 6).
 2. **Every room, from every door, by clicking.** A click on the middle of the room must walk the
    visitor there round whatever furniture is in the way. The middle is the free floor nearest it,
    on each level the room has: in the Skylight Gallery the visitor is walked to the landing and
