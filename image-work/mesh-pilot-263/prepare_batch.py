@@ -32,7 +32,7 @@ OBJECTS = {  # accession: page, what it is (named parts come from the museum's a
 CLAY = ("Redraw this exact sculpture as an unpainted, matte, light grey clay maquette. Keep the same shape, proportions, pose and viewpoint: {what}; {alt} "
         "Remove any museum plinth, mount or label: the object ends at its own edge. Show the whole object, centred, filling about three quarters of the frame. Plain seamless white background with no horizon line. "
         "Soft, even light from the front. Level camera, no perspective distortion. No cast shadow, no reflections, no glaze, no paint, no text.")
-CLAY_MATCH = ("Reference 1 is a photograph of a sculpture. Reference 2 is a clay maquette of the same sculpture from the front and is the authority for material and light. " + CLAY[0].lower() + CLAY[1:] +
+CLAY_MATCH = ("Reference 1 is a photograph of a sculpture and is the view to draw. Reference 2 is a clay maquette of the same sculpture from the front and is the authority for material and light only. Reference 3 is the museum's front photograph, for the form only. " + CLAY[0].lower() + CLAY[1:] +
               " Exactly the material of reference 2: the same light grey matte clay, one even tone, the same light.")
 TURN = ("Reference 1 is the front of a sculpture as a clay maquette{extra}. Draw this exact sculpture, in the same light grey matte clay and light, seen {how}: {what}. Keep every proportion of the references. "
         "Show the whole object, centred, filling about three quarters of the frame. Plain seamless white background with no horizon line. Level camera. No cast shadow, no reflections, no text.")
@@ -40,9 +40,9 @@ FLAT = ("Reference 1 is a grey clay maquette of a sculpture. Reference 2 is the 
         "the same size and place in the frame and every carved line where it is, as a flat colour map of the real material of reference 2: {material}, with its own colour only. Keep its real markings: paint traces, stains, chips. "
         "Light it perfectly evenly from every side, as in a light tent, so that there is no shading at all: no shadows, no dark creases, no darkening in grooves, hair or hollows, no highlights. "
         "Matte. Plain seamless white background, no cast shadow, no plinth, no text.")
-HOW = {"side": "exactly from its own left side in true profile, camera level and at ninety degrees to the front", "back": "from directly behind", "threequarter": "three-quarter from the front, turned about forty-five degrees"}
+HOW = {"right": "exactly from its own right side in true profile, camera level and at ninety degrees to the front", "side": "exactly from its own left side in true profile, camera level and at ninety degrees to the front", "back": "from directly behind", "threequarter": "three-quarter from the front, turned about forty-five degrees"}
 PICK = {"back": r"\b(rear|back view|from behind|back of|reverse)\b", "side": r"\b(profile|side view|from the side|seen from the (left|right))\b", "threequarter": r"\b(angled|three-quarter|oblique|at an angle|turned)\b"}
-BY_EYE = {"59.131": {"back": 3}}  # photographs with no alt text, assigned by looking: accession -> view -> photograph number
+BY_EYE = {"59.131": {"back": 3}, "37.201": {"threequarter": 2}, "37.114": {"side": 17, "back": 4, "right": 16, "threequarter": 7}}  # photographs with no alt text, assigned by looking: accession -> view -> photograph number
 CLOSE = r"\b(close-up|detail|close up|closeup)\b"
 
 def get(url, binary=False):
@@ -80,10 +80,10 @@ for acc in (sys.argv[1:] or OBJECTS):
     if not nude or acc == "23.005":
         alt = views["front"]["alt"].strip(); alt = alt if alt.endswith(".") else alt + "."
         open(f"{out}/clay-front.prompt.txt", "w").write(CLAY.format(what=what, alt=alt) + "\n")
-        for v in ("side", "back", "threequarter"):
+        for v in [k for k in views if k != "front"]:
             it = views[v]
             if it: a2 = it["alt"].strip(); text = CLAY_MATCH.format(what=what, alt=a2 if a2.endswith(".") else a2 + ".")
-            else: text = TURN.format(extra=" and reference 2 is its back" if v == "side" and views["back"] else "", how=HOW[v], what=what)
+            else: text = TURN.format(extra="; the other references are photographs of the real sculpture from other sides", how=HOW[v], what=what)
             open(f"{out}/clay-{v}.prompt.txt", "w").write(text + "\n")
-        for v in ("front", "side", "back", "threequarter"): open(f"{out}/flat-{v}.prompt.txt", "w").write(FLAT.format(material=material) + "\n")
+        for v in views: open(f"{out}/flat-{v}.prompt.txt", "w").write(FLAT.format(material=material) + "\n")
     print(f"{acc}: {len(items)} photographs | " + " ".join(f"{v}={str(it.get('px_wide')) + 'px' if it else 'TURN'}" for v, it in views.items()) + (" | NUDE: no prompts" if nude and acc != '23.005' else ""))

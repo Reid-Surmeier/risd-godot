@@ -2,14 +2,25 @@
 
 Unknown maker, Italian (Sienese). *Angel of the Annunciation*, ca. 1350. Wood with polychromy. Height 152.4 cm. RISD Museum 37.114.
 
-| Step | What | Cost | sha256 |
-| --- | --- | --- | --- |
-| Source | the museum's catalogue photograph, `modules/shell/collection_rooms/assets/additions/medieval/angel-cut.jpg` (see the `SOURCES.md` beside it) | — | — |
-| Cut-out | `cut_photo.py`, the eye-checked outline in medieval/shapes.json: `image-work/mesh-pilot-263/batch/37.114/cut.png` | free | `179cf51d1f1acf6b…` |
-| Mesh | Flora, RISD EDU Workspace, Tripo H3.1 (`i3d-tripo-h3-1-i3d`), face limit 10,000, texture on, PBR off; run `run_m172gex01fwk3ge0rfwttpw1f58fxcwc` | quoted 0.36 USD, charged 0.36 USD | `ea68001ee00258e8…` |
-| Photograph over the front | `project_photo.py`: turn 90 deg, eye distance 2.4, silhouette IoU 0.951 | free | — |
-| Clean-up | `prepare_mesh.py`:  | free | `9731f31ffcf4dd9fe64d140b28423a384f64d9fe08a4931e8617e95caa580d12` |
+Made on the Muse-first route (`image-work/mesh-pilot-263/RECIPE.md`), 8 October 2026. Not placed in a room.
 
-9,534 triangles, one 1024 px texture. Size 0.4272 × 1.524 × 0.4305 m (width × height × depth). In the pack: 268 KB (mesh 137, texture 131).
+| Step | What | Cost |
+| --- | --- | --- |
+| References | the museum's catalogue photographs, deep-zoom source at up to 2400 px, in `~/risd-godot-ingestion/catalogue-masters/37.114/` (outside git); which photograph backs which view: `image-work/mesh-pilot-263/batch/37.114/views.json` | free |
+| Muse views | 8 images (OpenRouter, `meta/muse-image`): clay and flat colour, prompts in `image-work/mesh-pilot-263/batch/37.114/` | 0.08 USD |
+| Mesh | Flora, RISD EDU Workspace, Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`), geometry detailed, texture off, face limit 500,000; views front, left, back, right (all from photographs of those sides); run `run_m1718mk3xkebtjdzxn5a92fjt18fxe5b`; raw GLB `649fac35a775692d…` (469,628 triangles, not kept) | quoted 0.48, charged 0.48 USD |
+| Blender 5.2.2 | `clay_mesh.py`: reduced to 10,000 triangles, occlusion baked from the high mesh; made 0.4124 m wide and 0.4124 m deep at the catalogue height, set to [0.4117, 1.5241, 0.412] m (width, height, depth) | free |
+| Colour | `colour_mesh2.sh`: flat views matched to the photograph, cross-faded, occlusion 0.35; `match_in_scene.py` lift for unshaded drawing | free |
 
-The height is the catalogue's 152.4 cm applied to the whole figure with its carved base, as photographed.
+| View | Came from |
+| --- | --- |
+| `clay-front` | photograph of this direction |
+| `clay-back` | photograph of this direction |
+| `clay-side` | photograph of this direction |
+| `clay-right` | photograph of this direction |
+| `flat-front` | photograph of this direction |
+| `flat-back` | photograph of this direction |
+| `flat-side` | photograph of this direction |
+| `flat-right` | photograph of this direction |
+
+`37-114.glb` (`df831e3816f3cf5d…`): 10,000 triangles, one colour texture, no normal map, for drawing unshaded. In the pack: 391 KB (mesh 186, colour 204).

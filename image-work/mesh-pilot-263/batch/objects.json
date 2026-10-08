@@ -54,6 +54,22 @@
    "charged": 0.36,
    "sha256": "949f7b1e39237420d9a4103610ca52472f2b4a44c2d7d837fd2484a262ba9cca",
    "view": "turn 90 deg, eye distance 8, silhouette IoU 0.976"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m178k1b4qgdjebt2qa0148pxa98fxejm",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "1449eaab67fff9a18a15fd2f6d4ee5da351480bebc270539d356e808244c7db2"
+   },
+   "views": "front and back from photographs; left inferred (Muse drew the right profile, mirrored)",
+   "imported": {
+    "mesh": 204763,
+    "colour": 274146,
+    "total": 478909
+   }
   }
  },
  "20.254": {
@@ -86,6 +102,22 @@
    "charged": 0.36,
    "sha256": "ea68001ee00258e877d0512938158a3d1aba7b6fd294bd022bfbe23c7142486f",
    "view": "turn 90 deg, eye distance 2.4, silhouette IoU 0.951"
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m1718mk3xkebtjdzxn5a92fjt18fxe5b",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "649fac35a775692d556f2a4c7959c3b1ea27a75af31cb55f12e6e635671a3256"
+   },
+   "views": "front, left, back, right (all from photographs of those sides)",
+   "imported": {
+    "mesh": 191192,
+    "colour": 209244,
+    "total": 400436
+   }
   }
  },
  "69.196": {
@@ -179,6 +211,15 @@
    "id": "run_m17f3gpazfvwttb8zs87250hxd8fw64s",
    "params": "face limit 10,000, texture on, PBR off",
    "quote": 0.36
+  },
+  "muse_first": {
+   "run": {
+    "id": "run_m171mq2jvy2r4gkzr2qzg9bdvs8fx0jw",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48
+   },
+   "views": "front from the photograph; left and back inferred (Muse drew the right profile, mirrored)"
   }
  },
  "06.057": {

@@ -1,13 +1,14 @@
 ## PROTOTYPE #263: one generated mesh in the game's light, camera and display, beside the visitor.
 ## Standalone on purpose: the room pipeline is not touched (#264 gives rooms a way to place a mesh).
 ##   godot --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- <mesh.glb> <setting> <view> <out.png> [unshaded]
-##   mesh.glb: a res:// path      setting: wall | plinth      view: game | front | threequarter | side
+##   mesh.glb: a res:// path      setting: wall | floor | plinth      view: game | front | threequarter | side
 ## "game" is the game's own camera through its 480 px display; the other three stand closer and are not shrunk.
 extends Control
 
 # where it stands; where the visitor stands; what it stands on [centre, size, colour] or []
 const SETTINGS := {
 	"wall": {"at": Vector3(0, 0, 0), "visitor": Vector3(1.75, 0, 1.0), "stand": []},
+	"floor": {"at": Vector3(0, 0, 1.2), "visitor": Vector3(1.0, 0, 1.3), "stand": []},
 	# rockefeller_additions.gd vincennes(): the central pedestal is 1.1 x 1.1 x .65, the group .24 off its centre
 	"plinth": {"at": Vector3(-.24, 1.1, 1.2), "visitor": Vector3(.85, 0, 1.3), "stand": [Vector3(0, .55, 1.2), Vector3(1.1, 1.1, .65), Color("ecebe6")]},
 }

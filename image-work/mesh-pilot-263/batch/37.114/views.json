@@ -29,7 +29,7 @@
     6132,
     8176
    ],
-   "alt": "A profile view of a weathered wooden statue of a figure with a solemn expression, with red and green drapery."
+   "alt": "A weathered wooden statue of a standing figure from the side, showing off intricate red drapery and gazing downward with a calm expression."
   },
   "threequarter": {
    "file": "~/risd-godot-ingestion/catalogue-masters/37.114/threequarter.jpg",
@@ -38,7 +38,16 @@
     6132,
     8176
    ],
-   "alt": "A weathered wooden statue viewed from behind at an angle, draped in a faded red cloak and looking downwards with visible signs of aging."
+   "alt": "A side view of an aged wooden statue, draped in faded green and red garments standing on a carved pedestal."
+  },
+  "right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.114/right.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    6132,
+    8176
+   ],
+   "alt": "A side view of an aged wooden statue, draped in faded green and red garments standing on a carved pedestal."
   }
  }
 }

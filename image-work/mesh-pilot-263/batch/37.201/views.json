@@ -15,6 +15,14 @@
   },
   "back": "no photograph: Muse turns it from the front",
   "side": "no photograph: Muse turns it from the front",
-  "threequarter": "no photograph: Muse turns it from the front"
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/37.201/threequarter.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3430,
+    4013
+   ],
+   "alt": ""
+  }
  }
 }
