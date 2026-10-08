@@ -720,11 +720,38 @@ func _objects() -> void:
 				if fault != "":
 					problems.append("zoom page caption: " + fault)
 			entry["zoom_fit_px"] = [ceilf(pic.size.x), ceilf(pic.size.y)]
-			walk._zoom_at(walk.size / 2.0, 6.0)
+			# Magnified, the caption lies clear of the work or is put away (#280, round 4): one
+			# notch of the wheel over the picture, then as far as the page goes.
+			var wheel := InputEventMouseButton.new()
+			wheel.button_index = MOUSE_BUTTON_WHEEL_UP
+			wheel.pressed = true
+			wheel.position = walk.size / 2.0
+			wheel.global_position = wheel.position
+			walk._gui_input(wheel)
+			for step in 2:
+				if step == 1:
+					walk._zoom_at(walk.size / 2.0, 6.0)
+				await process_frame
+				var grown: Rect2 = picture.get_global_rect()
+				var border: Control = walk._zoom_root.get_node("Frame")
+				if border.visible:
+					grown = grown.merge(border.get_global_rect())
+				if (
+					walk.get("_caption") is Label
+					and walk._caption.is_visible_in_tree()
+					and grown.intersects(walk._caption.get_global_rect())
+				):
+					problems.append(
+						"zoom page caption lies across the picture magnified %.2f times" % walk._zoom
+					)
 			entry["zoom_full_px"] = [ceilf(pic.size.x * walk._zoom), ceilf(pic.size.y * walk._zoom)]
 			for settle in 4:
 				await process_frame
 			await _shot("zoom-full-%s.png" % slug)
+			walk._zoom_at(walk.size / 2.0, 1.0 / 6.0)
+			await process_frame
+			if walk.get("_caption") is Label and not walk._caption.is_visible_in_tree():
+				problems.append("the zoom page caption did not come back at the fitted size")
 			walk._close_detail()
 			for settle in 10:
 				await process_frame

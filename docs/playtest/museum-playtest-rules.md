@@ -57,7 +57,8 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    name. Every character of the caption has a glyph in the caption font itself: the Web build has
    no system font to fall back on. In the photograph of the inspection panel and of the zoom page
    each caption line is letters, not solid blocks and not nothing. The zoom page's picture is not
-   a blank rectangle, and its caption lies clear of the picture. A run that fails only on "drew
+   a blank rectangle, and its caption lies clear of the picture, also when the page is magnified
+   (one wheel notch, then fully), where it is put away and comes back at the fitted size. A run that fails only on "drew
    as solid blocks" or "did not draw" is run again before it is believed: one capture on
    7 October drew 19 captions that way and no later run of the same build has.
 10. **What a player found by playing stays fixed.** (Interaction pass, #280.) Each fault is

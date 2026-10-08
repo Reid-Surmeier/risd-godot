@@ -872,13 +872,18 @@ func _fit_detail() -> void:
 	var top := (size.y - work.size.y - gap - _caption.size.y) / 2.0
 	_zoom_root.position = Vector2((size.x - _zoom_root.size.x) / 2.0, top - work.position.y)
 	_caption.position = Vector2(size.x * 0.05, top + work.size.y + gap)
+	_caption.show()
 
 
 # Zoomed back out, the page is laid out again: walk4 alone would centre the picture on the caption.
+# Magnified, the picture grows over where the caption was laid, so the caption is put away
+# until the page is fitted again (#280, round 4).
 func _zoom_at(point: Vector2, factor: float) -> void:
 	super(point, factor)
 	if is_equal_approx(_zoom, 1.0):
 		_fit_detail()
+	elif _caption:
+		_caption.hide()
 
 
 func _gui_input(event: InputEvent) -> void:
