@@ -87,7 +87,37 @@ const WIPE_HOLD := 0.5
 const WIPE_OPEN := 0.889
 const WIPE_BACK := 0.6  # into the opening, the keys come back
 const WIPE_RADIUS := 1.19
-const VOID := Color(0.03, 0.03, 0.04)  # what a doorway and the floor beyond the stage show
+# What lies beyond the stage (fog doorways): never black. One warm umber for the whole museum,
+# VOID_NEAR where the ground meets the room and VOID far off, which is also the background.
+const VOID := Color(0.145, 0.097, 0.064)
+const VOID_NEAR := Color(0.27, 0.18, 0.115)
+const VOID_FALL := 3.2  # metres from the stage over which the ground loses most of its warmth
+const VOID_LAYER := 16384  # the ground beyond the stage and the doorways' light: drawn in every stage
+# The ground beyond the stage, shared by everything that has to meet it without a seam. An
+# unshaded surface's colour reaches the screen as it is written (measured: 0.2 in, 0.196 out,
+# with the darkest twentieth crushed), so colours are mixed as the screen shows them, and
+# dithered: a dark gradient this wide bands otherwise.
+const VOID_GLSL := """
+uniform vec4 rooms[8]; // the stage's areas: centre x, z and half sizes
+uniform int room_count = 0;
+uniform vec3 void_near;
+uniform vec3 void_far;
+uniform float void_fall = 3.2;
+varying vec3 world;
+float outside(vec2 p) {
+	float d = 1.0e6;
+	for (int i = 0; i < room_count; i++) {
+		d = min(d, length(max(abs(p - rooms[i].xy) - rooms[i].zw, vec2(0.0))));
+	}
+	return d;
+}
+vec3 ground(vec2 p) {
+	return mix(void_far, void_near, exp(-outside(p) / void_fall));
+}
+vec3 dither(vec2 pixel) {
+	return vec3(fract(sin(dot(pixel, vec2(12.9898, 78.233))) * 43758.5453) - 0.5) * 2.0 / 255.0;
+}
+"""
 const PORTAL_LAYER := 8192  # the stone portal stands in the medieval room but is the Hall's mesh
 const PORTAL_ROOM := "dark medieval room"
 const NO_STAGE := -2
@@ -1815,6 +1845,11 @@ func _walkable(p: Vector3) -> bool:
 
 func _update_camera(k: float) -> void:
 	super(k)
+	_cam.cull_mask |= VOID_LAYER  # the parent sets the mask afresh; the void is in every picture
+	if _floor_mask and _floor_mask_stage == NO_STAGE and _stage == NO_STAGE:
+		_stage = -1  # only the Hall exists yet: its own ground beyond the walls
+		_mask_floor()
+		_stage = NO_STAGE
 	# Set before anything below can return: a Hall painting is read at launch, when the rooms
 	# are not built yet (#281).
 	var other_wall := get_node_or_null("OtherWall") as Button
@@ -2084,13 +2119,21 @@ func _build_stages() -> void:
 	for node in _vp.get_children():
 		if node is WorldEnvironment:
 			node.environment.background_color = VOID
-	var black := StandardMaterial3D.new()
-	black.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
-	black.albedo_color = VOID
-	black.cull_mode = BaseMaterial3D.CULL_DISABLED
+	var ground := Shader.new()
+	ground.code = (
+		"shader_type spatial;\nrender_mode unshaded, cull_disabled, fog_disabled;\n"
+		+ VOID_GLSL
+		+ """
+void vertex() {
+	world = (MODEL_MATRIX * vec4(VERTEX, 1.0)).xyz;
+}
+void fragment() {
+	ALBEDO = ground(world.xz) + dither(FRAGCOORD.xy);
+}"""
+	)
 	_floor_mask = MeshInstance3D.new()
-	_floor_mask.material_override = black
-	_floor_mask.layers = NEAR_LAYER | FAR_LAYER
+	_floor_mask.material_override = _void_material(ground)
+	_floor_mask.layers = VOID_LAYER
 	_floor_mask.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 	_vp.add_child(_floor_mask)
 	var shader := Shader.new()
@@ -2129,19 +2172,46 @@ void fragment() {
 	_wipe.add_child(_wipe_mark)
 
 
-# The floor is one mesh under every room. Black quads lie over all of it outside the stage,
-# so its edge is a flat dark cut and a doorway shows nothing beyond.
+func _void_material(shader: Shader) -> ShaderMaterial:
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("void_near", Vector3(VOID_NEAR.r, VOID_NEAR.g, VOID_NEAR.b))
+	material.set_shader_parameter("void_far", Vector3(VOID.r, VOID.g, VOID.b))
+	material.set_shader_parameter("void_fall", VOID_FALL)
+	return material
+
+
+# The areas of a stage, in x/z. The Hall's is itself, the ground between the portal's stone
+# sides and the sill of its far door, which are its own meshes.
+func _stage_rects(stage: int) -> Array[Rect2]:
+	var rects: Array[Rect2] = []
+	if stage < 0:
+		rects.append(Rect2(-W / 2.0, -L, W, L))
+		rects.append(Rect2(-PORTAL_SIDE, 0.0, PORTAL_SIDE * 2.0, PORTAL_MOUTH))
+		rects.append(Rect2(-DOORS.far.size.x / 2.0, -L - 0.19, DOORS.far.size.x, 0.19))
+	else:
+		for i in _plan.size():
+			if _stage_ids[i] == stage:
+				rects.append(_room_rect(i))
+	return rects
+
+
+# The floor is one mesh under every room. Quads the colour of the void lie over all of it outside
+# the stage: warm where they meet the room, darker with distance, so the edge reads as depth.
 func _mask_floor() -> void:
 	_floor_mask_stage = _stage
-	_floor_mask.visible = _stage >= 0
+	var keep := _stage_rects(_stage)
+	var areas := PackedVector4Array()
+	for rect in keep:
+		var c := rect.get_center()
+		areas.append(Vector4(c.x, c.y, rect.size.x / 2.0, rect.size.y / 2.0))
+	areas.resize(8)
+	for material in _void_materials():
+		material.set_shader_parameter("rooms", areas)
+		material.set_shader_parameter("room_count", mini(keep.size(), 8))
+	_mask_mesh(keep)
 	if _stage < 0:
 		return
-	# #275: the stage's dark exterior meets the oak floor below the entry.
-	# A y=0 mask would obscure the lower room from its dollhouse camera.
-	var mask_y := .004
-	if _plan[_stage].label == "Skylight Gallery":
-		for patch in _skylight_surfaces:
-			mask_y = minf(mask_y, patch.at.y + .004)
 	# The Hall's layers are not drawn from an added room; the visitor's own lamp must still be.
 	var fill = _kid.get("_fill")
 	if fill is Light3D:
@@ -2153,15 +2223,24 @@ func _mask_floor() -> void:
 			and (mesh.global_transform * mesh.get_aabb()).position.z >= -0.01
 		):
 			mesh.layers |= PORTAL_LAYER
-	var keep: Array[Rect2] = []
+
+
+func _void_materials() -> Array:
+	return [_floor_mask.material_override]
+
+
+func _mask_mesh(keep: Array[Rect2]) -> void:
+	# #275: the stage's dark exterior meets the oak floor below the entry.
+	# A y=0 mask would obscure the lower room from its dollhouse camera.
+	var mask_y := .004
+	if _stage >= 0 and _plan[_stage].label == "Skylight Gallery":
+		for patch in _skylight_surfaces:
+			mask_y = minf(mask_y, patch.at.y + .004)
 	var xs := [-80.0, 80.0]
 	var zs := [-100.0, 80.0]
-	for i in _plan.size():
-		if _stage_ids[i] == _stage:
-			var rect := _room_rect(i)
-			keep.append(rect)
-			xs.append_array([rect.position.x, rect.end.x])
-			zs.append_array([rect.position.y, rect.end.y])
+	for rect in keep:
+		xs.append_array([rect.position.x, rect.end.x])
+		zs.append_array([rect.position.y, rect.end.y])
 	xs.sort()
 	zs.sort()
 	var tool := SurfaceTool.new()
@@ -2182,6 +2261,22 @@ func _mask_floor() -> void:
 						cell.position.y + cell.size.y * corner[1]
 					)
 				)
+	# Walls and a lid at the ground's limits: everything beyond the rooms is this one surface,
+	# and the horizon has no seam against the viewport's clear colour.
+	var x0: float = xs[0]
+	var x1: float = xs[-1]
+	var z0: float = zs[0]
+	var z1: float = zs[-1]
+	var top := 90.0
+	for quad in [
+		[Vector3(x0, mask_y, z0), Vector3(x1, mask_y, z0), Vector3(x1, top, z0), Vector3(x0, top, z0)],
+		[Vector3(x0, mask_y, z1), Vector3(x1, mask_y, z1), Vector3(x1, top, z1), Vector3(x0, top, z1)],
+		[Vector3(x0, mask_y, z0), Vector3(x0, mask_y, z1), Vector3(x0, top, z1), Vector3(x0, top, z0)],
+		[Vector3(x1, mask_y, z0), Vector3(x1, mask_y, z1), Vector3(x1, top, z1), Vector3(x1, top, z0)],
+		[Vector3(x0, top, z0), Vector3(x1, top, z0), Vector3(x1, top, z1), Vector3(x0, top, z1)]
+	]:
+		for corner in [0, 1, 2, 0, 2, 3]:
+			tool.add_vertex(quad[corner])
 	_floor_mask.mesh = tool.commit()
 
 
@@ -2351,7 +2446,7 @@ func _inspect_camera() -> bool:
 func _hall_walls_back(also: int) -> void:
 	var eye := _cam.global_position
 	if Rect2(-W / 2.0, -L, W, L).grow(-0.3).has_point(Vector2(eye.x, eye.z)):
-		_cam.cull_mask = _cutaway_mask(63, minf(0.2, get_process_delta_time() * 2.5)) | also
+		_cam.cull_mask = _cutaway_mask(63, minf(0.2, get_process_delta_time() * 2.5)) | also | VOID_LAYER
 
 
 # A change of view glides from where the camera was instead of cutting.
