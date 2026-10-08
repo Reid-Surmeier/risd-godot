@@ -126,7 +126,7 @@ var _wipe_spin := 0.0  # the mark turns a little between one build step and the 
 # for this signal. Steps run while the visitor stands still in the Hall, and in the black of
 # the wipe if a doorway is reached first.
 signal build_gate
-const ROOMS_AT_LAUNCH := false  # the fallback: the whole museum behind the loading screen
+const ROOMS_AT_LAUNCH := true  # the fallback: the whole museum behind the loading screen
 const BUILD_AFTER := 2.0  # seconds the Hall is on screen before the rooms begin
 const BUILD_SHARE_MS := 60  # short steps share one frame up to this long
 const ARRIVAL_WALL := 6.0  # metres: a wall further off than this shows no works in the picture
@@ -355,7 +355,8 @@ func _install_rooms() -> void:
 			continue
 		if not floors.has(material):
 			var limits = material.get_shader_parameter("floor_z_limits")
-			floors[material] = limits is Vector2
+			# ps1.gdshader carries the same limits and clips by them only where it draws plank seams.
+			floors[material] = limits is Vector2 and material.get_shader_parameter("plank_seams") != false
 			if limits is Vector2:
 				material.set_shader_parameter("floor_z_limits", limits + Vector2(ATTACH.z, ATTACH.z))
 		if floors[material]:
@@ -363,7 +364,7 @@ func _install_rooms() -> void:
 			var reach: AABB = mesh.global_transform * mesh.mesh.get_aabb()
 			assert(
 				reach.position.z >= clip.x - 0.01 and reach.end.z <= clip.y + 0.01,
-				"Added floor lies outside its clip limits after attachment"
+				"Added floor %s (z %.2f to %.2f) lies outside its clip limits %s after attachment" % [mesh.get_path(), reach.position.z, reach.end.z, clip]
 			)
 	for body in _rooms.get("casings"):
 		if (
@@ -1535,6 +1536,11 @@ func _process(delta: float) -> void:
 		var kept := _held
 		if _wipe_t < WIPE_CLOSE + WIPE_HOLD + WIPE_BACK:
 			_held = {}
+		if _rooms == null:
+			# Until the rooms exist the Hall's own limit stops the visitor 0.2 m into the
+			# doorway, and walk4 gives a route up after half a second against anything. A
+			# clicked route waits there instead and goes on once the rooms are in place (#281).
+			_stall_t = 0.0
 		super(delta)
 		_held = kept
 		_wipe_step(delta)

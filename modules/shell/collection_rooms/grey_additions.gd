@@ -28,8 +28,9 @@ const WORKS := [
 	{"side": "south", "along": 3.60, "height": 1.75, "size": [.746, .413], "frame": "courbet", "card": 1,
 		"image": DIR + "pannini-56.094.jpg", "accession": "56.094", "title": "The Colosseum",
 		"maker": "Giovanni Paolo Pannini", "date": "1725-1775", "medium": "Oil on canvas", "dimensions": "41.3 x 74.6 cm"},
-	# The record gives the frame, 50.8 x 61 cm; the canvas is its footage share of that, about 31 x 41 cm.
-	{"side": "south", "along": 6.20, "height": 1.75, "size": [.41, .31], "frame": "courbet", "card": 1,
+	# The record gives the frame, 50.8 x 61 cm; the canvas is its footage share of that, about 31 x 41 cm,
+	# so the moulding is the 10 cm left over on every side.
+	{"side": "south", "along": 6.20, "height": 1.75, "size": [.41, .31], "frame": "courbet", "card": 1, "band": [.10, .099, .10, .099],
 		"image": DIR + "villeneuve-1998.35.jpg", "accession": "1998.35", "title": "View of a Roman Aqueduct, near Tivoli",
 		"maker": "Louis-Jules-Frédéric Villeneuve", "date": "1827", "medium": "Oil on canvas", "dimensions": "50.8 x 61 x 8.3 cm (frame)"},
 	# The pier between the Hall door and the connector door. It is 0.70 m here and about 1.2 m in the
@@ -54,7 +55,7 @@ static func hang(room, label: String, work: Dictionary) -> Node3D:
 	var frame: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/%s-frame-geometry.json" % work.frame))
 	var art := Painting.new()
 	room.add_child(art)
-	art.build_framed(load("res://modules/shell/collection_rooms/assets/%s-frame.png" % work.frame), load(work.image), Vector2(work.size[0], work.size[1]), frame.margins_px)
+	art.build_framed(load("res://modules/shell/collection_rooms/assets/%s-frame.png" % work.frame), load(work.image), Vector2(work.size[0], work.size[1]), frame.margins_px, work.get("band", []))
 	art.position = room.wall_point(label, work.side, work.along, work.height, .07)
 	art.rotation.y = YAW[work.side]
 	describe(art, work)
@@ -129,10 +130,14 @@ func rodin(room) -> void:
 			door = area.openings.west
 	var at := Vector3(b[1] - 2.35, 0, (door[0] + door[1]) / 2)
 	var plinth: Node3D = room.solid(at + Vector3(0, .25, 0), Vector3(1.0, .5, 1.0), room.look(Color("eeeae2")), true)
+	plinth.set_meta("grey_rodin_plinth", true)
+	# IMG_6380 16.5s: the plinth stands on a projecting base band, about a third of its height.
+	var band: Node3D = room.solid(at + Vector3(0, .08, 0), Vector3(1.06, .16, 1.06), room.look(Color("eeeae2")))
+	band.reparent(plinth)
 	var hand: Node3D = room.place_mesh(DIR + "hand-23005.glb", at + Vector3(0, .5, 0), -PI / 2, Vector3(.826, 1.003, .68), "23.005")  # the photographed front faces the connector door
 	describe(hand, {"accession": "23.005", "title": "The Hand of God", "maker": "Auguste Rodin", "date": "1873-1923",
 		"medium": "Marble", "dimensions": "100.3 x 82.6 x 68 cm", "image": DIR + "rodin-23.005.jpg"})
-	card(room, plinth, Vector3(-.502, .12, .3), -PI / 2)
+	card(room, plinth, Vector3(-.502, .27, .3), -PI / 2)
 
 
 func fixtures(room) -> void:

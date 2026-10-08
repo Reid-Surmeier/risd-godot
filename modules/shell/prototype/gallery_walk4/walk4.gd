@@ -1974,7 +1974,8 @@ func _build_paintings() -> void:
 				load(DIR + "frames/%s.png" % r.tag),
 				load(DIR + "canvas/%s.jpg" % r.tag),
 				Vector2(r.canvas_w, r.canvas_h),
-				r.margins_px
+				r.margins_px,
+				r.get("band_m", [])
 			)
 		assets[r.tag] = node
 	var x := W / 2.0
@@ -1997,7 +1998,7 @@ func _build_paintings() -> void:
 		var gaps: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(DIR + "gaps.json"))
 		var total := 0.0
 		for i in wall.tags.size():
-			total += assets[wall.tags[i]].outer.x
+			total += assets[wall.tags[i]].slot.x
 			if i > 0:
 				total += gaps.get("%s-%s" % [wall.tags[i - 1], wall.tags[i]], GAP)
 		var d: float = (L - total) / 2.0  # the rest splits evenly between the two corners
@@ -2005,7 +2006,7 @@ func _build_paintings() -> void:
 			var t: String = wall.tags[i]
 			if i > 0:
 				d += gaps.get("%s-%s" % [wall.tags[i - 1], t], GAP)
-			var w: float = assets[t].outer.x
+			var w: float = assets[t].slot.x
 			var along := d + w / 2.0
 			var z := -(L - along) if wall.from_far else -along
 			_place(t, by[t], assets[t], Vector3(wall.x, 0, z), wall.rot)

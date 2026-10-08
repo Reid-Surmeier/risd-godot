@@ -18,7 +18,7 @@ func run() -> void:
 	assert(lion_proof!=null)
 	lion_proof.store_string(JSON.stringify({"position":[lion[0].global_position.x,lion[0].global_position.y,lion[0].global_position.z],"yaw":0.0,"catalogue_front_size_m":[2.286,1.041],"depth_m_provisional":.08,"closed_slab_triangles":12,"generated_damage_accepted":false,"original_front_retained":true,"individual_brick_relief_complete":false},"\t")+"\n")
 	var modern_proof:Array=[]
-	for spec in [["1995.043",Vector3(10.78,1.65,24.75),PI/2],["57.037",Vector3(12.0,1.65,22.38),0.0],["43.255",Vector3(13.65,1.65,22.38),0.0],["48.248",Vector3(14.2,1.65,28.02),PI],["70.058",Vector3(15.55,1.65,28.02),PI]]:
+	for spec in [["1995.043",Vector3(10.78,1.65,24.75),PI/2],["57.037",Vector3(12.0,1.54,22.38),0.0],["43.255",Vector3(13.65,1.65,22.38),0.0],["48.248",Vector3(14.2,1.65,28.02),PI],["70.058",Vector3(15.55,1.65,28.02),PI]]:
 		var work:Array=scene.find_children("*","Node3D",true,false).filter(func(node):return node.get_meta("catalogue_accession","")==spec[0])
 		assert(work.size()==1 and work[0].global_position.distance_to(spec[1])<.0001 and work[0].global_transform.basis.z.distance_to(Vector3(sin(spec[2]),0,cos(spec[2])))<.0001,"Catalogue painting must keep its assigned source wall")
 		modern_proof.append({"accession":spec[0],"position":[work[0].global_position.x,work[0].global_position.y,work[0].global_position.z],"yaw":spec[2],"frame_outer_size_m":[work[0].outer.x,work[0].outer.y],"metric_accepted":false})
@@ -139,7 +139,7 @@ func run() -> void:
 		["modern-seated-woman-oblique",Vector3(14.85,1.55,25.95),Vector3(16.32,1.25,24.85)],
 		["modern-braque",Vector3(14.2,1.65,26.1),Vector3(14.2,1.65,28.02)],
 		["modern-villon",Vector3(15.55,1.65,26.3),Vector3(15.55,1.65,28.02)],
-		["modern-pumpkin",Vector3(12.0,1.65,24.4),Vector3(12.0,1.65,22.38)],
+		["modern-pumpkin",Vector3(12.0,1.54,24.4),Vector3(12.0,1.54,22.38)],
 		["modern-cezanne",Vector3(13.65,1.65,24.4),Vector3(13.65,1.65,22.38)],
 		["medieval-stair-wall-wide",Vector3(6.3,1.65,23.615),Vector3(10.45,1.65,22.515)],
 		["medieval-apostle-left",Vector3(8.6,1.45,21.215),Vector3(10.38,1.453,21.215)],

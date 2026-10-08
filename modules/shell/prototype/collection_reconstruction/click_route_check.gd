@@ -14,7 +14,33 @@ func run() -> void:
 		await process_frame
 	var walk = app.find_child("GalleryWalk", true, false)
 	assert(walk != null)
-	# The rooms are built at the first doorway (#281); this check wants them now.
+	var rows := []
+	var failures := []
+	# #281: a doorway clicked as the first room change of a fresh launch. The rooms are put in
+	# place inside that wipe, and the route has to outlive it: the visitor ends at least 1.4 m
+	# past the sill (the Hall's wall plane, z 0), not on the threshold. Real frames, as the
+	# walk runs them; the trace is the visitor every 30th frame.
+	if walk.state().get("pending", false):
+		walk._new_action()
+		walk._pos = Vector3(0, 0, -3)
+		walk._last_pos = walk._pos
+		walk._kid.position = walk._pos
+		walk.view_yaw = PI
+		walk._update_camera(1.0)
+		walk._click(walk._to_screen(Vector3(0, 1.0, 0.3)))
+		var goal = walk._target
+		var trace := []
+		for i in 4000:
+			await process_frame
+			if i % 30 == 0:
+				trace.append([i, snappedf(walk._pos.z, 0.01), walk._space, snappedf(walk._wipe_t, 0.01), walk._target, walk.state().attached])
+			if i > 30 and walk._wipe_t < 0.0 and walk._target == null and walk._path.is_empty():
+				break
+		var fresh_passed: bool = goal != null and walk.state().attached and walk._space == "arch" and walk._pos.z >= 1.4
+		rows.append({"name": "fresh-launch-portal-click", "passed": fresh_passed, "input": "native floor ray and click handler, real frames", "space": walk._space, "goal": goal, "settled_z": walk._pos.z, "trace": trace})
+		if not fresh_passed:
+			failures.append("fresh-launch-portal-click")
+	# The rooms are built at the first doorway (#281); the rest of this check wants them now.
 	if walk.state().get("pending", false):
 		walk._attach_rooms(walk._rooms_path)
 	assert(walk.state().attached)
@@ -42,8 +68,6 @@ func run() -> void:
 		# the floor behind it. This one is in the far door's opening.
 		["floor-pick-hall-grey", "gallery", Vector3(1.5, 0, -24.5), Vector3(0.3, 0, -28.3), "far", Vector3(0.48, 0, -28.58)]
 	]
-	var rows := []
-	var failures := []
 	for test in cases:
 		walk._entrance_waiting = false
 		walk._entrance_active = false

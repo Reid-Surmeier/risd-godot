@@ -13,6 +13,9 @@ const INSET := 0.035
 static var _shader: Shader
 
 var outer := Vector2.ZERO  # the framed size in metres, for picking
+## The framed size at the frame texture's own proportion, whatever band_m says: the width a
+## wall was laid out with, so a measured band does not slide the hang.
+var slot := Vector2.ZERO
 
 
 # The room's PS1 surface shader, lit (paintings cast and receive the skylight's
@@ -62,6 +65,7 @@ func build_framed(
 	var t: float = margins[1] * mpp
 	var r: float = margins[2] * mpp
 	var b: float = margins[3] * mpp
+	slot = Vector2(canvas.x + l + r, canvas.y + t + b)
 	if band_m.size() == 4:
 		l = band_m[0]
 		t = band_m[1]
@@ -231,6 +235,7 @@ func build_framed(
 ## front face textured with its keyed Muse cut-out, and continuous side faces back to the wall.
 func build_shaped(tex: Texture2D, size: Vector2, outline: Array, edge_color: Color) -> void:
 	outer = size
+	slot = size
 	var d := 0.05
 	var pts := PackedVector2Array()
 	var uvs: Array = []
