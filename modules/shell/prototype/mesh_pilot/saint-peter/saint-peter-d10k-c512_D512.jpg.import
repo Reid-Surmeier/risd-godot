@@ -2,19 +2,19 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://csnqxpxuxrjgf"
-path="res://.godot/imported/saint-peter-b-10k-512_B10k512-clay.jpg-75f59457ee8e18e4fd182a4ffdee5407.ctex"
+uid="uid://dlcwaucny1rk0"
+path="res://.godot/imported/saint-peter-d10k-c512_D512.jpg-509ab0a64d11c4cd6b4dd1612077fe87.ctex"
 metadata={
 "vram_texture": false
 }
 generator_parameters={
-"md5": "c8bd731639059b4617409ce6b8a3e64f"
+"md5": "2386108da4d448cf31bd0bc79011cb94"
 }
 
 [deps]
 
-source_file="res://modules/shell/prototype/mesh_pilot/saint-peter/saint-peter-b-10k-512_B10k512-clay.jpg"
-dest_files=["res://.godot/imported/saint-peter-b-10k-512_B10k512-clay.jpg-75f59457ee8e18e4fd182a4ffdee5407.ctex"]
+source_file="res://modules/shell/prototype/mesh_pilot/saint-peter/saint-peter-d10k-c512_D512.jpg"
+dest_files=["res://.godot/imported/saint-peter-d10k-c512_D512.jpg-509ab0a64d11c4cd6b4dd1612077fe87.ctex"]
 
 [params]
 

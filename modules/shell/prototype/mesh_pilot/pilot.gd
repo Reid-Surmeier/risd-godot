@@ -1,6 +1,6 @@
 ## PROTOTYPE #263: one generated mesh in the game's light, camera and display, beside the visitor.
 ## Standalone on purpose: the room pipeline is not touched (#264 gives rooms a way to place a mesh).
-##   godot --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- <mesh.glb> <setting> <view> <out.png>
+##   godot --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- <mesh.glb> <setting> <view> <out.png> [unshaded]
 ##   mesh.glb: a res:// path      setting: wall | plinth      view: game | front | threequarter | side
 ## "game" is the game's own camera through its 480 px display; the other three stand closer and are not shrunk.
 extends Control
@@ -80,6 +80,8 @@ func _ready() -> void:
 		for i in part.mesh.get_surface_count():
 			var m: BaseMaterial3D = part.mesh.surface_get_material(i).duplicate()
 			m.specular_mode = BaseMaterial3D.SPECULAR_DISABLED  # the rooms' look()
+			if args.size() > 4 and args[4] == "unshaded":  # how the rooms draw a work today: the texture at full brightness
+				m.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
 			part.set_surface_override_material(i, m)
 			triangles += part.mesh.surface_get_array_len(i) if part.mesh.surface_get_array_index_len(i) == 0 else part.mesh.surface_get_array_index_len(i) / 3
 			print("material metallic ", m.metallic, " roughness ", m.roughness, " texture ", m.albedo_texture.get_size() if m.albedo_texture else null)

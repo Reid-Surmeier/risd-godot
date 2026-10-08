@@ -46,4 +46,6 @@ Saint Peter 20.254 on the Muse-first route (owner's go for one object):
 
 | Meshy 5 Retexture on variant B (RISD EDU) | 0.36 | 0.36 |
 
-**Charged so far: 7.07 USD**: 3.12 above, 2.52 stopped-route, 1.43 Saint Peter Muse-first (0.11 Muse, 0.96 Tripo, 0.36 Meshy retexture).
+| Muse, 5 flat colour views (one retry) | 0.05 | 0.05 |
+
+**Charged so far: 7.12 USD**: 3.12 above, 2.52 stopped-route, 1.48 Saint Peter Muse-first (0.16 Muse, 0.96 Tripo, 0.36 Meshy retexture).

@@ -3,13 +3,13 @@
 importer="scene"
 importer_version=1
 type="PackedScene"
-uid="uid://cfkvif16q34hk"
-path="res://.godot/imported/saint-peter-b-10k-512.glb-7897023e7adfc2663341cf3bbab9cd5a.scn"
+uid="uid://cm2seu0q446od"
+path="res://.godot/imported/saint-peter-d10k-c512.glb-a5afc280d06132b61d8f8b427054af16.scn"
 
 [deps]
 
-source_file="res://modules/shell/prototype/mesh_pilot/saint-peter/saint-peter-b-10k-512.glb"
-dest_files=["res://.godot/imported/saint-peter-b-10k-512.glb-7897023e7adfc2663341cf3bbab9cd5a.scn"]
+source_file="res://modules/shell/prototype/mesh_pilot/saint-peter/saint-peter-d10k-c512.glb"
+dest_files=["res://.godot/imported/saint-peter-d10k-c512.glb-a5afc280d06132b61d8f8b427054af16.scn"]
 
 [params]
 

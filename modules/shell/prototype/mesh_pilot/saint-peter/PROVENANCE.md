@@ -33,6 +33,20 @@ View image hashes: `image-work/mesh-pilot-263/saint-peter/views.sha256`. The vie
 | --- | --- | --- |
 | `saint-peter-b3.glb` | B, corrected projection, 15,000 triangles, normal map 1024 px | 1,022 KB |
 | `saint-peter-b4.glb` | B, Meshy texture, 15,000 triangles, normal map 1024 px | 963 KB |
-| `saint-peter-b-10k-512.glb` | B at 10,000 triangles, normal map 512 px, corrected projection before the in-scene lift | 675 KB (mesh 311, normal 81, colour 283) |
 
 Measured and not kept: 15,000 triangles with a 512 px normal map, 829 KB.
+
+## Flat colour with baked occlusion (8 October, last)
+
+| Step | What | Cost |
+| --- | --- | --- |
+| Flat colour views | Muse `edit`, four images lit evenly from all sides with no shading (`flat-*.prompt.txt`); the three-quarter still had shadow and was re-run once with the flat front as its reference (`flat2-threequarter.prompt.txt`) | 0.05 USD (5 images) |
+| Colour | `colour_mesh2.sh` with those views (`VIEW_PREFIX=flat`), then the occlusion baked from the 481,316-triangle mesh multiplied over it. Two strengths tried, 0.35 and 0.60; 0.35 kept by eye against the photograph | free |
+| Lift | `match_in_scene.py`: gain 1.45 / 1.53 / 1.79 for the lit scene; 1.42 / 1.32 / 1.26 when drawn unshaded | free |
+
+| File | What | In the pack |
+| --- | --- | --- |
+| `saint-peter-c35.glb` | B (15,000 triangles, normal map 1024 px), flat colour x occlusion 0.35, colour 1024 px | 1,020 KB (mesh 463, normal 233, colour 324) |
+| `saint-peter-d10k-c512.glb` | 10,000 triangles, normal map 512 px, the same colour at 512 px | 513 KB (mesh 311, normal 81, colour 120) |
+
+Measured and not kept: 10,000 triangles, normal map 512 px, colour 1024 px: 704 KB (mesh 311, normal 81, colour 311).
