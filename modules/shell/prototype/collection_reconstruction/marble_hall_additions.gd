@@ -13,6 +13,7 @@ const TREAD := .35
 const FLIGHT := 1.6 # flight width; the two balustrade lines meet the two Ionic columns
 const STRAIGHT := 13 # steps in the first run, then 6 winders to the half-landing
 const SOFFIT := 3.745 # underside of the upper landing: the ceiling of the strip behind the columns
+static var _scroll_panel: ArrayMesh
 
 var room
 var x0: float
@@ -34,10 +35,21 @@ class Batch:
 	func _init() -> void:
 		st.begin(Mesh.PRIMITIVE_TRIANGLES)
 
+	## Primitive meshes have indices; swept faces do not. Keep the batch unindexed so
+	## adding a primitive cannot silently hide the hand-built curls, leaves or rail.
+	func append(mesh: Mesh, transform: Transform3D) -> void:
+		if mesh is ArrayMesh and mesh.surface_get_array_index_len(0) == 0:
+			st.append_from(mesh, 0, transform)
+			return
+		var source := SurfaceTool.new()
+		source.create_from(mesh, 0)
+		source.deindex()
+		st.append_from(source.commit(), 0, transform)
+
 	func box(at: Vector3, size: Vector3, basis := Basis.IDENTITY) -> void:
 		var cube := BoxMesh.new()
 		cube.size = size
-		st.append_from(cube, 0, Transform3D(basis, at))
+		append(cube, Transform3D(basis, at))
 		used = true
 
 	func ball(at: Vector3, radius: float, squash := Vector3.ONE) -> void:
@@ -46,7 +58,7 @@ class Batch:
 		sphere.height = radius * 2
 		sphere.radial_segments = 8
 		sphere.rings = 4
-		st.append_from(sphere, 0, Transform3D(Basis.from_scale(squash), at))
+		append(sphere, Transform3D(Basis.from_scale(squash), at))
 		used = true
 
 	func tube(at: Vector3, radius: float, height: float, basis := Basis.IDENTITY, sides := 10) -> void:
@@ -56,7 +68,7 @@ class Batch:
 		cylinder.height = height
 		cylinder.radial_segments = sides
 		cylinder.rings = 1
-		st.append_from(cylinder, 0, Transform3D(basis, at))
+		append(cylinder, Transform3D(basis, at))
 		used = true
 
 	## A bar between two points.
@@ -64,6 +76,40 @@ class Batch:
 		var along := c - a
 		var up := Vector3.UP if absf(along.normalized().y) < .99 else Vector3.RIGHT
 		box((a + c) / 2, Vector3(thick, thick if tall < 0 else tall, along.length()), Basis.looking_at(along.normalized(), up))
+
+	## A continuous elliptical section, including the rounded oak rail and its open volute.
+	func sweep(points: PackedVector3Array, wide: float, high: float, sides := 8, reference := Vector3.UP) -> void:
+		var rings: Array[PackedVector3Array] = []
+		var normals: Array[PackedVector3Array] = []
+		for i in points.size():
+			var tangent := (points[mini(i + 1, points.size() - 1)] - points[maxi(i - 1, 0)]).normalized()
+			var side := tangent.cross(reference).normalized()
+			if side.length_squared() < .001:
+				side = Vector3.RIGHT
+			var up := side.cross(tangent).normalized()
+			var ring := PackedVector3Array()
+			var normal := PackedVector3Array()
+			for j in sides:
+				var angle := j * TAU / sides
+				ring.append(points[i] + side * cos(angle) * wide / 2 + up * sin(angle) * high / 2)
+				normal.append((side * cos(angle) / wide + up * sin(angle) / high).normalized())
+			rings.append(ring)
+			normals.append(normal)
+		for i in points.size() - 1:
+			for j in sides:
+				var next := (j + 1) % sides
+				for pair in [Vector2i(i, j), Vector2i(i + 1, next), Vector2i(i + 1, j), Vector2i(i, j), Vector2i(i, next), Vector2i(i + 1, next)]:
+					st.set_normal(normals[pair.x][pair.y])
+					st.set_uv(Vector2(pair.x * .1, float(pair.y) / sides))
+					st.add_vertex(rings[pair.x][pair.y])
+		used = true
+
+
+	func panel(at: Vector3, along: Vector3, height: float, mesh: ArrayMesh) -> void:
+		var axis := Vector3(along.x, 0, along.z).normalized()
+		var basis := Basis(axis, Vector3.UP * height / .87, axis.cross(Vector3.UP))
+		append(mesh, Transform3D(basis, at))
+		used = true
 
 	## A vertical prism over a plan polygon (x, z), with its top and, if asked, its underside.
 	func prism(plan: PackedVector2Array, y0: float, y1: float, under := false) -> void:
@@ -102,6 +148,57 @@ class Batch:
 		return node
 
 
+## IMG_6381 5.5 s: a narrow vertical spindle, paired end curls, a short oval and curled leaf tips.
+## One template is reused in both stair spaces; ornament never becomes a flat X/decal.
+static func scroll_panel_mesh() -> ArrayMesh:
+	if _scroll_panel != null:
+		return _scroll_panel
+	var panel := Batch.new()
+	panel.box(Vector3(0, .435, 0), Vector3(.014, .87, .014))
+	for level in [.055, .22, .435, .65, .815]:
+		panel.tube(Vector3(0, level, 0), .016, .016, Basis.IDENTITY, 8)
+	for level in [.10, .77]:
+		for hand in [-1.0, 1.0]:
+			var points := PackedVector3Array()
+			for i in 11:
+				var t := float(i) / 10
+				var angle := -PI / 2 + t * TAU * 1.12
+				var radius := lerpf(.035, .008, t)
+				points.append(Vector3(hand * (.021 + cos(angle) * radius), level + sin(angle) * radius, 0))
+			panel.sweep(points, .009, .012, 4, Vector3.BACK)
+	for hand in [-1.0, 1.0]:
+		var points := PackedVector3Array()
+		for i in 15:
+			var t := float(i) / 14
+			points.append(Vector3(hand * (.009 + sin(t * PI) * .037), .355 + t * .17, 0))
+		panel.sweep(points, .009, .012, 4, Vector3.BACK)
+		for level in [.235, .655]:
+			# A folded pointed leaf: front and back facets, not a card facing the camera.
+			var leaf := PackedVector3Array([Vector3(.008 * hand, level - .015, 0), Vector3(.030 * hand, level + .020, 0), Vector3(.053 * hand, level + .010, 0), Vector3(.041 * hand, level - .010, .012), Vector3(.025 * hand, level - .019, 0)])
+			for side in [-1.0, 1.0]:
+				for triangle in [[0, 1, 3], [1, 2, 3], [0, 3, 4]]:
+					var a: Vector3 = leaf[triangle[0]] * Vector3(1, 1, side)
+					var b: Vector3 = leaf[triangle[1]] * Vector3(1, 1, side)
+					var c: Vector3 = leaf[triangle[2]] * Vector3(1, 1, side)
+					panel.st.set_normal((c - a).cross(b - a).normalized())
+					for vertex in [a, b, c]:
+						panel.st.add_vertex(vertex)
+	_scroll_panel = panel.st.commit()
+	return _scroll_panel
+
+
+func guard(bars: Batch, rail: Batch, a: Vector3, b: Vector3, height := .92) -> void:
+	var along := b - a
+	var count := maxi(2, roundi(Vector2(along.x, along.z).length() / .175))
+	for i in count + 1:
+		var foot := a.lerp(b, float(i) / count)
+		if i % 2 == 0:
+			bars.panel(foot, along, height - .035, scroll_panel_mesh())
+		else:
+			bars.box(foot + Vector3.UP * (height - .035) / 2, Vector3(.014, height - .035, .014))
+	rail.sweep(PackedVector3Array([a + Vector3.UP * height, b + Vector3.UP * height]), .065, .050)
+
+
 func ceiling_height() -> float:
 	for area in room._plan_rooms:
 		if area.label == LABEL:
@@ -130,10 +227,11 @@ func build(scene) -> void:
 	inner_walls()
 	stair()
 	upper_landing()
+	rounded_corners()
 	shell()
 	fireplace()
 	chandelier()
-	room.inventory["marble_hall"] = {"risers": 31, "upper_floor_m": upper, "accessions": ["83.152", "2011.60"], "metric_accepted": false, "service_stair_built": false, "upper_rooms_built": false}
+	room.inventory["marble_hall"] = {"risers": 31, "upper_floor_m": upper, "accessions": ["83.152", "2011.60"], "metric_accepted": false, "service_stair_built": true, "upper_rooms_built": false}
 
 
 ## A wall or slab the game's camera may cut away: collision box, visible box, room_wall tag.
@@ -150,6 +248,50 @@ func block(at: Vector3, size: Vector3) -> void:
 	body.set_meta("collision_only", true)
 
 
+## Deterministic stone, not a photograph. Same finish for tiles, stair and grey base.
+static func marble_material(tone: Color, seed := 0.0) -> ShaderMaterial:
+	var shader := Shader.new()
+	shader.code = """
+shader_type spatial;
+render_mode cull_disabled;
+uniform vec4 stone_tone : source_color;
+uniform float seed = 0.0;
+varying vec3 stone_position;
+varying vec3 stone_normal;
+float hash(vec2 p) { return fract(sin(dot(p, vec2(127.1, 311.7))) * 43758.5453); }
+float noise(vec2 p) {
+	vec2 i = floor(p), f = fract(p);
+	f = f * f * (3.0 - 2.0 * f);
+	return mix(mix(hash(i), hash(i + vec2(1, 0)), f.x), mix(hash(i + vec2(0, 1)), hash(i + vec2(1, 1)), f.x), f.y);
+}
+float stone_noise(vec2 p) {
+	float n = 0.0, weight = 0.5;
+	for (int i = 0; i < 4; i++) { n += noise(p) * weight; p = p * 2.07 + vec2(7.1, 2.4); weight *= 0.5; }
+	return n;
+}
+void vertex() { stone_position = VERTEX; stone_normal = NORMAL; }
+void fragment() {
+	vec3 normal = abs(stone_normal);
+	vec2 p = normal.y > 0.6 ? stone_position.xz : (normal.x > normal.z ? stone_position.zy : stone_position.xy);
+	p += vec2(seed * 5.4, seed * 8.2);
+	float cloud = stone_noise(p * 3.2);
+	float field = p.x * 2.1 - p.y * 1.2 + 3.1 * stone_noise(p * 1.6) + 0.55 * stone_noise(p * 5.0);
+	float aa = max(fwidth(field), 0.008);
+	float vein = 1.0 - smoothstep(0.012, 0.035 + aa, abs(sin(field * 4.0)));
+	float feather = 1.0 - smoothstep(0.035, 0.18 + aa, abs(sin(field * 4.0)));
+	float mineral = stone_noise(p * vec2(15.0, 24.0));
+	ALBEDO = stone_tone.rgb * (0.978 + cloud * 0.035 - vein * 0.060 - feather * 0.025 - mineral * 0.006);
+	ROUGHNESS = 0.13 + cloud * 0.040;
+	SPECULAR = 0.55;
+}
+"""
+	var material := ShaderMaterial.new()
+	material.shader = shader
+	material.set_shader_parameter("stone_tone", tone)
+	material.set_shader_parameter("seed", seed)
+	return material
+
+
 func marble_floor() -> void:
 	# build_rooms lays oak boards in any room it has no floor for: take this room's away.
 	for child in room.get_children():
@@ -161,9 +303,33 @@ func marble_floor() -> void:
 				child.free()
 	# IMG_6381 90.5s, 71.0s; IMG_6380 49.0s: large squares on the diagonal in two pale marbles,
 	# a grey band under the columns. The .76m square is read against the fireplace and the columns.
+	marble_tiles(room, rect(x0, x1, z0, z1), .004)
+	var band := Batch.new()
+	band.prism(rect(x0, x0 + .30, z0, z1), .004, .008)
+	band.into(room, marble_material(Color("b6b6b1"), 3.2), "MarbleThresholdBand")
+	# Reuse the kit's existing baseboard geometry with this room's marble finish.
+	for body in room.casings:
+		if not str(body.get_meta("room_wall", "")).begins_with(LABEL + ":"):
+			continue
+		for trim in body.get_children():
+			if trim is MeshInstance3D and trim.get_meta("trim", "") == "baseboard":
+				trim.material_override = marble_material(Color("b6b6b1"), 3.2)
+	var reflection := ReflectionProbe.new()
+	reflection.name = "MarbleHallReflection"
+	reflection.position = Vector3((x0 + x1) / 2, ceiling_height() / 2, (z0 + z1) / 2)
+	reflection.size = Vector3(x1 - x0, ceiling_height(), z1 - z0)
+	reflection.origin_offset = Vector3(0, 2.6 - ceiling_height() / 2, 0)
+	reflection.intensity = 2.0
+	reflection.box_projection = true
+	reflection.interior = true
+	reflection.ambient_mode = ReflectionProbe.AMBIENT_DISABLED
+	reflection.max_distance = 14.0
+	room.add_child(reflection)
+
+
+func marble_tiles(parent: Node3D, edge: PackedVector2Array, level: float) -> void:
 	var size := .76
 	var turn := Transform2D(PI / 4, Vector2((x0 + x1) / 2, (z0 + z1) / 2))
-	var edge := rect(x0, x1, z0, z1)
 	var tones := [Batch.new(), Batch.new()]
 	var reach := int(ceil((x1 - x0 + z1 - z0) / size / 1.4)) + 1
 	for i in range(-reach, reach + 1):
@@ -172,36 +338,28 @@ func marble_floor() -> void:
 			for corner in [Vector2(i, j), Vector2(i + 1, j), Vector2(i + 1, j + 1), Vector2(i, j + 1)]:
 				tile.append(turn * (corner * size))
 			for piece in Geometry2D.intersect_polygons(tile, edge):
-				var batch: Batch = tones[posmod(i + j, 2)]
-				batch.st.set_normal(Vector3.UP)
-				for index in Geometry2D.triangulate_polygon(piece):
-					batch.st.set_uv(piece[index])
-					batch.st.add_vertex(Vector3(piece[index].x, .004, piece[index].y))
-				batch.used = true
-	tones[0].into(room, room.look(Color("e4e1d8")), "MarbleFloorLight")
-	tones[1].into(room, room.look(Color("bdbcb8")), "MarbleFloorGrey")
-	var band := Batch.new()
-	band.prism(rect(x0, x0 + .30, z0, z1), .004, .008)
-	band.into(room, room.look(Color("9d9c98")), "MarbleThresholdBand")
+				var pieces: Array = Geometry2D.clip_polygons(piece, rect(xf + .065, xf + 2.25, (zs + z1) / 2 + .05 - .50, (zs + z1) / 2 + .05 + .50)) if level < .02 else [piece]
+				for visible in pieces:
+					var batch: Batch = tones[posmod(i + j, 2)]
+					batch.st.set_normal(Vector3.UP)
+					for index in Geometry2D.triangulate_polygon(visible):
+						batch.st.set_uv(visible[index])
+						batch.st.add_vertex(Vector3(visible[index].x, level, visible[index].y))
+					batch.used = true
+	tones[0].into(parent, marble_material(Color("e9e7e1")), "MarbleFloorLight")
+	tones[1].into(parent, marble_material(Color("d9d9d4"), 1.7), "MarbleFloorGrey")
 
 
 func inner_walls() -> void:
-	var plaster: Material = room.look(Color("e2dfd6"), "res://presentation/neutral-plaster.png")
+	var plaster: Material = room.trim_paint()
 	var grey: Material = room.look(Color("a9a8a3"), "res://presentation/neutral-plaster.png")
-	var skirting: Material = room.look(Color("a39f95"))
+	var skirting: Material = marble_material(Color("b6b6b1"), 3.2)
 	# IMG_6380 47.0/65.0s and the 83.152 photographs: the fireplace wall carries the upper flight's string.
 	var chimney := wall("south:chimney", Vector3((xf + xe) / 2, SOFFIT / 2, zs), Vector3(xe - xf, SOFFIT, .12), plaster)
 	chimney.set_meta("marble_hall_part", "chimneypiece wall")
 	var base: MeshInstance3D = room.solid(Vector3((xf + xe) / 2, .09, zs - .07), Vector3(xe - xf, .18, .02), skirting)
 	base.reparent(chimney)
-	# IMG_6380 70.0..77.5s: the wall's west end turns back to the outer wall; a round arch in it leads
-	# to a black stair going down under the upper flight. Drawn as a dark recess: the stair is not built.
-	var back := wall("south:return", Vector3(xf, SOFFIT / 2, (zs + z1) / 2), Vector3(.12, SOFFIT, z1 - zs), grey)
-	var dark: Material = room.look(Color("2b2c2e"))
-	var arch := Batch.new()
-	arch.box(Vector3(xf - .065, 1.05, (zs + z1) / 2 + .05), Vector3(.012, 2.1, 1.0))
-	arch.tube(Vector3(xf - .065, 2.1, (zs + z1) / 2 + .05), .5, .012, Basis(Vector3.BACK, PI / 2), 16)
-	arch.into(back, dark, "ServiceStairArch").set_meta("marble_hall_provisional", "blind recess in place of the filmed stair down")
+	service_niche(plaster)
 	# IMG_6381 1.25..3.0s, 71.0s: the wall under the half-landing's edge, exit doorway in its middle.
 	var exit := wall("east:landing", Vector3(xe, (half - .25) / 2, (zn + zs) / 2), Vector3(.12, half - .25, zs - zn), plaster)
 	var white: Material = room.look(Color("eeeae2"))
@@ -246,60 +404,150 @@ func inner_walls() -> void:
 	block(Vector3((xe + x1) / 2, 1.0, (z0 + z1) / 2), Vector3(FLIGHT, 2.0, z1 - z0))
 
 
+## IMG_6343 87 s / IMG_6380 35.5, 70.5 s: an actual hollow arch, olive walls and stairs down.
+func service_niche(plaster: Material) -> void:
+	var middle := (zs + z1) / 2 + .05
+	var radius := .50
+	var spring := 2.10
+	var crown := spring + radius + .02
+	for span in [[zs, middle - radius], [middle + radius, z1]]:
+		wall("west:niche", Vector3(xf, SOFFIT / 2, (span[0] + span[1]) / 2), Vector3(.12, SOFFIT, span[1] - span[0]), plaster)
+	var header := wall("west:niche:header", Vector3(xf, (crown + SOFFIT) / 2, (zs + z1) / 2), Vector3(.12, SOFFIT - crown, z1 - zs), plaster)
+	var profile := PackedVector2Array([Vector2(middle - radius, crown), Vector2(middle + radius, crown)])
+	for i in 25:
+		var angle := float(i) * PI / 24
+		profile.append(Vector2(middle + cos(angle) * radius, spring + sin(angle) * radius))
+	# Rotate an extruded profile from the Batch's x/z plane into the return wall's z/y plane.
+	var shaped := Batch.new()
+	shaped.prism(profile, xf - .06, xf + .06, true)
+	var face := Batch.new()
+	face.st.append_from(shaped.st.commit(), 0, Transform3D(Basis(Vector3.BACK, Vector3.RIGHT, Vector3.UP), Vector3.ZERO))
+	face.used = true
+	face.into(header, plaster, "NicheArchSpandrel")
+	var olive: Material = room.look(Color("5e6347"))
+	var lining := Batch.new()
+	var depth := 2.16
+	lining.box(Vector3(xf + depth / 2, .35, middle - radius - .03), Vector3(depth, 3.50, .06))
+	lining.box(Vector3(xf + depth / 2, .35, middle + radius + .03), Vector3(depth, 3.50, .06))
+	lining.box(Vector3(xf + depth, .60, middle), Vector3(.06, 4.10, 1.06))
+	for i in 24:
+		var a := float(i) * PI / 24
+		var b := float(i + 1) * PI / 24
+		var corners := [Vector3(xf + .06, spring + sin(a) * radius, middle + cos(a) * radius), Vector3(xf + depth, spring + sin(a) * radius, middle + cos(a) * radius), Vector3(xf + depth, spring + sin(b) * radius, middle + cos(b) * radius), Vector3(xf + .06, spring + sin(b) * radius, middle + cos(b) * radius)]
+		lining.st.set_normal(Vector3(0, -sin((a + b) / 2), -cos((a + b) / 2)))
+		for index in [0, 2, 1, 0, 3, 2]:
+			lining.st.add_vertex(corners[index])
+	lining.used = true
+	lining.into(header, olive, "ServiceStairOliveVault")
+	var steps := Batch.new()
+	var edges := Batch.new()
+	for i in 8:
+		steps.box(Vector3(xf + .12 + (i + .5) * .25, -(i + 1) * RISER - .10, middle), Vector3(.25, .20, .94))
+		var nose := xf + .12 + (i + 1) * .25 - .008
+		edges.sweep(PackedVector3Array([Vector3(nose, -(i + 1) * RISER, middle - .47), Vector3(nose, -(i + 1) * RISER, middle + .47)]), .015, .010, 6)
+	steps.into(header, room.look(Color("505149")), "ServiceStairDescendingTreads")
+	edges.into(header, room.look(Color("62645a")), "ServiceStairRoundedNosings")
+	var hand := Batch.new()
+	hand.sweep(PackedVector3Array([Vector3(xf + .15, .91, middle + .44), Vector3(xf + 2.1, -.20, middle + .44)]), .035, .032)
+	for i in 3:
+		hand.bar(Vector3(xf + .3 + i * .75, .82 - i * .43, middle + .44), Vector3(xf + .3 + i * .75, .82 - i * .43, middle + .50), .014)
+	hand.into(header, room.look(Color("37372e")), "ServiceStairHandrail")
+	header.set_meta("service_stair_niche", {"treads": 8, "width_m": 1.0, "descending": true, "walkable": false})
+
+
 func stair() -> void:
-	var marble: Material = room.look(Color("d3cfc5"))
+	var marble: Material = marble_material(Color("ddd9d0"), 2.4)
 	var strip: Material = room.look(Color("4f4f52"))
-	var iron: Material = room.look(Color("2e2b29"))
-	var wood: Material = room.look(Color("6a4a2e"))
+	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
+	iron.metallic = .55
+	iron.roughness = .38
+	iron.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	var wood: StandardMaterial3D = room.look(Color("6a4a2e"))
+	wood.roughness = .30
+	wood.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
 	var solid := Batch.new()
 	var strips := Batch.new()
 	var bars := Batch.new()
 	var rail := Batch.new()
 	var first := xe - STRAIGHT * TREAD
-	# IMG_6380 45.5s, IMG_6381 83.0/83.5s: thirteen steps against the north wall, a curved first step.
+	var rail_start := Vector3(first + .15, RISER + .92, zn - .06)
+	var rail_end := Vector3(xe - .25, STRAIGHT * RISER + .92, zn - .06)
+	# IMG_6381 3.5/5.5 s: continuous bullnose around the open cage, no separate disc.
 	for k in range(1, STRAIGHT + 1):
 		var nose := first + (k - 1) * TREAD
-		solid.prism(rect(nose - (.18 if k == 1 else .0), xe, z0, zn), (k - 1) * RISER, k * RISER)
+		if k == 1:
+			var bottom := PackedVector2Array([Vector2(first - .35, z0), Vector2(xe, z0), Vector2(xe, zn - .05), Vector2(first + .45, zn - .05)])
+			for i in range(1, 25):
+				bottom.append(Vector2(first + .05, zn - .05) + Vector2.from_angle(i * PI / 24) * .40)
+			solid.prism(bottom, 0, RISER)
+		else:
+			solid.prism(rect(nose, xe, z0, zn), (k - 1) * RISER, k * RISER)
 		strips.box(Vector3(nose + .07, k * RISER + .003, (z0 + zn) / 2), Vector3(.05, .006, FLIGHT - .3))
 		for part in [.25, .75]:
 			var at := Vector3(nose + part * TREAD, k * RISER, zn - .06)
-			bars.box(at + Vector3(0, .43, 0), Vector3(.018, .86, .018))
-			if part == .25 and k % 2 == 0:
-				bars.box(at + Vector3(0, .45, 0), Vector3(.012, .22, .11), Basis(Vector3.BACK, PI / 4))
-				bars.box(at + Vector3(0, .45, 0), Vector3(.012, .22, .11), Basis(Vector3.BACK, -PI / 4))
-	var bull := PackedVector2Array()
-	for i in 12:
-		bull.append(Vector2(first + .05, zn - .02) + Vector2.from_angle(i * TAU / 12) * .4)
-	solid.prism(bull, 0, RISER)
-	for i in 6:
-		var around := Vector2(first + .05, zn - .02) + Vector2.from_angle(i * TAU / 6) * .16
-		bars.box(Vector3(around.x, RISER + .45, around.y), Vector3(.018, .9, .018))
-	rail.tube(Vector3(first + .05, RISER + .92, zn - .02), .2, .05)
-	rail.bar(Vector3(first + .1, RISER + .92, zn - .06), Vector3(xe, STRAIGHT * RISER + .92, zn - .06), .07, .06)
-	# IMG_6381 10.5..13.5s, 79.5..81.5s: six winders turn the corner to a landing under the window.
+			var rail_y := rail_start.lerp(rail_end, (at.x - rail_start.x) / (rail_end.x - rail_start.x)).y
+			var height := rail_y - at.y - .025
+			if part == .25:
+				bars.panel(at, Vector3.RIGHT, height, scroll_panel_mesh())
+			else:
+				bars.box(at + Vector3.UP * height / 2, Vector3(.014, height, .014))
+	# The oak scroll grows out to the sloping rail. The hole remains visibly open.
+	var centre := Vector2(first + .05, zn + .1225)
+	block(Vector3(centre.x, 1.0, centre.y), Vector3(.44, 2.0, .44))
+	var volute := PackedVector3Array()
+	for i in 49:
+		var t := float(i) / 48
+		var angle := -PI / 2 - TAU * 1.15 * (1 - t)
+		var radius := lerpf(.070, .1825, t)
+		var point := centre + Vector2.from_angle(angle) * radius
+		volute.append(Vector3(point.x, rail_start.y, point.y))
+	volute.append(rail_start)
+	volute.append(rail_end)
+	rail.sweep(volute, .065, .050)
+	# Eight open spindles, four ornamented, with thin iron hoops rather than a solid newel.
+	for i in 8:
+		var angle := i * TAU / 8
+		var point := centre + Vector2.from_angle(angle) * .155
+		var foot := Vector3(point.x, RISER + .025, point.y)
+		if i % 2 == 0:
+			bars.panel(foot, Vector3(cos(angle + PI / 2), 0, sin(angle + PI / 2)), .855, scroll_panel_mesh())
+		else:
+			bars.box(foot + Vector3.UP * .4275, Vector3(.014, .855, .014))
+	for level in [RISER + .06, rail_start.y - .05]:
+		var hoop := PackedVector3Array()
+		for i in 25:
+			var point := centre + Vector2.from_angle(i * TAU / 24) * .155
+			hoop.append(Vector3(point.x, level, point.y))
+		bars.sweep(hoop, .014, .014, 4)
+	# Six quarter-turn winders, retaining their count and the half-landing footprint.
 	var pivot := Vector2(xe, zn)
 	var outer := []
 	for i in 7:
 		var a := deg_to_rad(i * 15.0)
-		outer.append(Vector2(xe + FLIGHT * tan(a), z0) if i <= 3 else Vector2(x1, zn - FLIGHT * tan(PI / 2 - a)))
+		outer.append(pivot + Vector2.from_angle(-PI / 2 + a) * FLIGHT)
 	for j in range(1, 7):
 		solid.prism(PackedVector2Array([pivot, outer[j - 1], outer[j]]), 0, (STRAIGHT + j) * RISER)
 		winder_strip(strips, pivot, outer[j - 1], outer[j], (STRAIGHT + j) * RISER)
 	solid.prism(rect(xe, x1, zn, zs), half - .25, half, true)
-	bars.box(Vector3(xe, (STRAIGHT * RISER + half + .92) / 2, zn), Vector3(.03, half + .92 - STRAIGHT * RISER, .03))
-	var along := zs - zn
-	for i in range(1, int(along / .2)):
-		bars.box(Vector3(xe + .04, half + .43, zn + i * .2), Vector3(.018, .86, .018))
-	rail.bar(Vector3(xe + .04, half + .92, zn), Vector3(xe + .04, half + .92, zs), .07, .06)
+	var turn := PackedVector3Array()
+	for i in 13:
+		var t := float(i) / 12
+		var point := Vector2(xe - .25, zn + .23) + Vector2.from_angle(-PI / 2 + t * PI / 2) * .29
+		var level := lerpf(STRAIGHT * RISER, half, t)
+		turn.append(Vector3(point.x, level + .92, point.y))
+		if i % 3 == 0:
+			bars.panel(Vector3(point.x, level, point.y), Vector3(cos(t * PI / 2), 0, sin(t * PI / 2)), .885, scroll_panel_mesh())
+	rail.sweep(turn, .065, .050)
+	guard(bars, rail, Vector3(xe + .04, half, zn + .23), Vector3(xe + .04, half, zs - .23))
 	var treads := solid.into(room, marble, "MarbleStairLower")
 	treads.set_meta("marble_hall_part", "first flight, winders and half-landing")
 	strips.into(room, strip, "MarbleStairStrips")
-	bars.into(room, iron, "MarbleStairBalusters")
+	var ironwork := bars.into(room, iron, "MarbleStairBalusters")
+	ironwork.set_meta("stair_ironwork", "repeated scroll and leaf mesh, open cage newel")
 	rail.into(room, wood, "MarbleStairHandrail")
-	# The wall rail of the first flight goes with the north wall.
 	var north: Node3D = room.wall_body(LABEL, "north", Vector3((first + xe) / 2, 1.5, z0))
 	var hand := Batch.new()
-	hand.bar(Vector3(first + .3, RISER + .9, z0 + .11), Vector3(xe, STRAIGHT * RISER + .9, z0 + .11), .05)
+	hand.sweep(PackedVector3Array([Vector3(first + .3, RISER + .9, z0 + .11), Vector3(xe - .25, STRAIGHT * RISER + .9, z0 + .11)]), .050, .042)
 	hand.into(north, wood, "MarbleStairWallRail")
 
 
@@ -313,10 +561,15 @@ func winder_strip(strips: Batch, pivot: Vector2, from: Vector2, to: Vector2, lev
 
 
 func upper_landing() -> void:
-	var marble: Material = room.look(Color("d3cfc5"))
-	var white: Material = room.look(Color("ecebe6"))
-	var iron: Material = room.look(Color("2e2b29"))
-	var wood: Material = room.look(Color("6a4a2e"))
+	var marble: Material = marble_material(Color("ddd9d0"), 2.4)
+	var white: Material = room.trim_paint()
+	var iron: StandardMaterial3D = room.look(Color("2e2b29"))
+	iron.metallic = .55
+	iron.roughness = .38
+	iron.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
+	var wood: StandardMaterial3D = room.look(Color("6a4a2e"))
+	wood.roughness = .30
+	wood.specular_mode = BaseMaterial3D.SPECULAR_SCHLICK_GGX
 	var strip: Material = room.look(Color("4f4f52"))
 	var top := xe - 4 * TREAD
 	# IMG_6381 20.5/31.5s: the upper landing lies over the strip behind the columns, its white fascia
@@ -335,7 +588,7 @@ func upper_landing() -> void:
 	var outer := []
 	for i in 7:
 		var a := deg_to_rad(i * 15.0)
-		outer.append(Vector2(x1, zs + FLIGHT * tan(a)) if i <= 3 else Vector2(xe + FLIGHT * tan(PI / 2 - a), z1))
+		outer.append(pivot + Vector2.from_angle(a) * FLIGHT)
 	for j in range(1, 7):
 		flight.prism(PackedVector2Array([pivot, outer[j - 1], outer[j]]), half - .25, half + j * RISER, true)
 		winder_strip(strips, pivot, outer[j - 1], outer[j], half + j * RISER)
@@ -344,33 +597,41 @@ func upper_landing() -> void:
 		flight.prism(rect(xe - k * TREAD, xe - (k - 1) * TREAD, zs, z1), SOFFIT - .15, level, true)
 		strips.box(Vector3(xe - (k - 1) * TREAD - .07, level + .003, (zs + z1) / 2), Vector3(.05, .006, FLIGHT - .3))
 		for part in [.25, .75]:
-			bars.box(Vector3(xe - (k - 1 + part) * TREAD, level + .43, zs + .06), Vector3(.018, .86, .018))
-	bars.box(Vector3(xe, (half + upper) / 2 + .46, zs), Vector3(.03, upper - half + .92, .03))
-	rail.bar(Vector3(xe, half + 7 * RISER + .92, zs + .06), Vector3(top, upper + .92, zs + .06), .07, .06)
-	# Balustrades of the arm and of the landing's edge across the well, glass in front as filmed (20.5s).
-	var span := top - xf
-	for i in range(0, int(span / .2) + 1):
-		bars.box(Vector3(xf + i * .2, upper + .46, zs + .06), Vector3(.018, .92, .018))
-	rail.bar(Vector3(xf, upper + .95, zs + .06), Vector3(top, upper + .95, zs + .06), .07, .06)
+			var at := Vector3(xe - (k - 1 + part) * TREAD, level, zs + .06)
+			if part == .25:
+				bars.panel(at, Vector3.LEFT, .88, scroll_panel_mesh())
+			else:
+				bars.box(at + Vector3.UP * .44, Vector3(.014, .88, .014))
+	var curve := PackedVector3Array()
+	for i in 13:
+		var t := float(i) / 12
+		var point := Vector2(xe - .25, zs - .23) + Vector2.from_angle(t * PI / 2) * .29
+		var level := half + t * 7 * RISER
+		curve.append(Vector3(point.x, level + .92, point.y))
+		if i % 3 == 0:
+			bars.panel(Vector3(point.x, level, point.y), Vector3(-sin(t * PI / 2), 0, cos(t * PI / 2)), .885, scroll_panel_mesh())
+	rail.sweep(curve, .065, .050)
+	rail.sweep(PackedVector3Array([curve[-1], Vector3(top, upper + .92, zs + .06)]), .065, .050)
+	guard(bars, rail, Vector3(xf, upper, zs + .06), Vector3(top, upper, zs + .06), .95)
 	flight.into(arm, marble, "MarbleStairUpper")
 	strips.into(arm, strip, "MarbleStairUpperStrips")
 	bars.into(arm, iron, "MarbleStairUpperBalusters")
 	rail.into(arm, wood, "MarbleStairUpperHandrail")
 	var edge_bars := Batch.new()
 	var edge_rail := Batch.new()
-	var run := zs - z0
-	for i in range(0, int(run / .2) + 1):
-		var z := z0 + .1 + i * .2
-		edge_bars.box(Vector3(xf - .06, upper + .46, z), Vector3(.018, .92, .018))
-		if i % 5 == 2:
-			edge_bars.box(Vector3(xf - .06, upper + .5, z), Vector3(.11, .24, .012), Basis(Vector3.RIGHT, PI / 4))
-			edge_bars.box(Vector3(xf - .06, upper + .5, z), Vector3(.11, .24, .012), Basis(Vector3.RIGHT, -PI / 4))
-	edge_rail.bar(Vector3(xf - .06, upper + .95, z0 + .05), Vector3(xf - .06, upper + .95, zs + .06), .07, .06)
+	guard(edge_bars, edge_rail, Vector3(xf - .06, upper, z0 + .05), Vector3(xf - .06, upper, zs + .06), .95)
 	edge_bars.into(deck, iron, "UpperLandingBalusters")
 	edge_rail.into(deck, wood, "UpperLandingHandrail")
-	var floor_top := Batch.new()
-	floor_top.prism(rect(x0 + .2, xf - .12, z0 + .1, z1 - .1), upper, upper + .004)
-	floor_top.into(deck, marble, "UpperLandingFloor")
+	marble_tiles(deck, rect(x0 + .12, xf - .12, z0 + .12, z1 - .12), upper + .004)
+	marble_tiles(arm, rect(xf, top, zs + .10, z1 - .10), upper + .004)
+	var arm_border := Batch.new()
+	for span in [rect(xf, top, zs, zs + .10), rect(xf, top, z1 - .10, z1)]:
+		arm_border.prism(span, upper, upper + .005)
+	arm_border.into(arm, marble_material(Color("b6b6b1"), 3.2), "UpperLandingArmBorder")
+	var border := Batch.new()
+	for span in [rect(x0, x0 + .12, z0, z1), rect(xf - .12, xf, z0, z1), rect(x0, xf, z0, z0 + .12), rect(x0, xf, z1 - .12, z1)]:
+		border.prism(span, upper, upper + .005)
+	border.into(deck, marble_material(Color("b6b6b1"), 3.2), "UpperLandingMarbleBorder")
 	# Three closed doors of the floor above (IMG_6381 31.5/42.25/61.25s), seen from below across the well.
 	var doors := Batch.new()
 	for spec in [[Vector3(x0 + .20, upper, (z0 + z1) / 2), false], [Vector3(x0 + 1.5, upper, z0 + .08), true], [Vector3(xf + 1.0, upper, z1 - .08), true]]:
@@ -400,35 +661,98 @@ func shell() -> void:
 	for spec in [[Vector3((x0 + x1) / 2, height - .12, z0 + .1), Vector3(x1 - x0, .24, .16)], [Vector3((x0 + x1) / 2, height - .12, z1 - .1), Vector3(x1 - x0, .24, .16)], [Vector3(x1 - .1, height - .12, (z0 + z1) / 2), Vector3(.16, .24, z1 - z0)], [Vector3(x0 + .16, height - .12, (z0 + z1) / 2), Vector3(.16, .24, z1 - z0)]]:
 		cornice.box(spec[0], spec[1])
 	room.ceiling_details.append(cornice.into(room, room.look(Color("f1efe9")), "MarbleHallCornice"))
-	# IMG_6381 24.25..28.75s and the 2011.60 photographs: a three-part window over the half-landing,
-	# arched in the middle, columns between the lights, a panelled apron and a grille under the sill.
-	var east: Node3D = room.wall_body(LABEL, "east", Vector3(x1, 4.0, (z0 + z1) / 2))
+	window()
+
+
+## The filmed stair turns follow quarter-round wall faces within the existing footprint.
+func rounded_corners() -> void:
+	var white: Material = room.trim_paint()
+	for spec in [[Vector2(xe, zn), -PI / 2, Vector2(x1, z0), "north"], [Vector2(xe, zs), 0.0, Vector2(x1, z1), "south"]]:
+		var outline := PackedVector2Array()
+		for i in 25:
+			outline.append(spec[0] + Vector2.from_angle(spec[1] + i * PI / 48) * FLIGHT)
+		outline.append(spec[2])
+		var curve := Batch.new()
+		curve.prism(outline, 0, ceiling_height(), true)
+		var owner: Node3D = room.wall_body(LABEL, spec[3], Vector3(xe, 3.5, z0 if spec[3] == "north" else z1))
+		curve.into(owner, white, "RoundedStairCorner")
+	# White stringers follow the curve of the guard, then meet the straight flights.
+	var stringer := Batch.new()
+	for lower in [true, false]:
+		var path := PackedVector3Array()
+		for i in 13:
+			var t := float(i) / 12
+			var centre := Vector2(xe - .25, zn + .23 if lower else zs - .23)
+			var angle := -PI / 2 + t * PI / 2 if lower else t * PI / 2
+			var point := centre + Vector2.from_angle(angle) * .29
+			var level := lerpf(STRAIGHT * RISER, half, t) if lower else half + t * 7 * RISER
+			path.append(Vector3(point.x, level - .11, point.y))
+		stringer.sweep(path, .09, .22)
+	stringer.into(room, white, "CurvedMarbleStairStringers")
+
+
+## IMG_6381 28.5 s: tall centre arch, two tall side lights, four engaged columns,
+## deep profiled sill, stepped bases/capitals, glazing bars and louvred sill grilles.
+func window() -> void:
+	var white: Material = room.trim_paint()
+	for body in room.casings:
+		var tag: String = body.get_meta("room_wall", "")
+		if tag in [LABEL + ":north", LABEL + ":east", LABEL + ":south"]:
+			body.get_child(1).material_override = white
 	var middle := (z0 + z1) / 2
 	var sill := half + .95
-	var light: Material = room.look(Color("eef2f4"), "", true)
+	var spring := sill + 2.90
+	var east: Node3D = room.wall_body(LABEL, "east", Vector3(x1, 4.0, middle))
+	var glow: StandardMaterial3D = room.look(Color("eef2f4"), "", true)
+	glow.emission_enabled = true
+	glow.emission = Color("eef2f4")
+	glow.emission_energy_multiplier = 4.0
 	var glass := Batch.new()
-	glass.box(Vector3(x1 - .07, sill + 1.45, middle), Vector3(.012, 2.9, 1.25))
-	glass.tube(Vector3(x1 - .07, sill + 2.9, middle), .625, .012, Basis(Vector3.BACK, PI / 2), 16)
-	for side in [-1, 1]:
-		glass.box(Vector3(x1 - .07, sill + 1.1, middle + side * 1.05), Vector3(.012, 2.2, .5))
-	var panes := glass.into(east, light, "MarbleHallWindowLight")
-	panes.set_meta("marble_hall_window", true)
+	glass.box(Vector3(x1 - .071, sill + 1.45, middle), Vector3(.015, 2.90, 1.34))
+	glass.tube(Vector3(x1 - .071, spring, middle), .67, .015, Basis(Vector3.BACK, PI / 2), 32)
+	for hand in [-1, 1]:
+		glass.box(Vector3(x1 - .071, sill + 1.40, middle + hand * 1.13), Vector3(.015, 2.80, .60))
+	glass.into(east, glow, "MarbleHallWindowLight").set_meta("marble_hall_window", true)
 	var frame := Batch.new()
-	for side in [-1, 1]:
-		frame.tube(Vector3(x1 - .16, sill + 1.1, middle + side * .72), .07, 2.2)
-		frame.tube(Vector3(x1 - .16, sill + 1.1, middle + side * 1.38), .07, 2.2)
-		frame.box(Vector3(x1 - .10, sill + 2.28, middle + side * 1.05), Vector3(.14, .16, .86))
-		for row in 4:
-			frame.box(Vector3(x1 - .085, sill + .5 + row * .55, middle + side * 1.05), Vector3(.02, .025, .5))
-	for column in [-.21, .21]:
-		frame.box(Vector3(x1 - .085, sill + 1.45, middle + column), Vector3(.02, 2.9, .03))
-	for row in 5:
-		frame.box(Vector3(x1 - .085, sill + .55 + row * .55, middle), Vector3(.02, .03, 1.25))
-	frame.box(Vector3(x1 - .16, sill - .04, middle), Vector3(.30, .08, 3.0))
-	frame.box(Vector3(x1 - .09, sill - .5, middle), Vector3(.05, .84, 2.9))
-	frame.into(east, room.look(Color("f1efe9")), "MarbleHallWindowFrame")
-	var grille: MeshInstance3D = room.solid(Vector3(x1 - .2, sill + .003, middle), Vector3(.14, .006, 2.4), room.look(Color("8d8c88")))
-	grille.reparent(east)
+	for hand in [-1, 1]:
+		for column in [.77, 1.52]:
+			var z: float = middle + hand * column
+			var radius := .095 if column == .77 else .060
+			frame.box(Vector3(x1 - .18, sill + .065, z), Vector3(.26, .13, radius * 3))
+			for band in [[.14, radius * 1.45, .045], [.19, radius * 1.18, .045], [2.70, radius * 1.16, .05], [2.76, radius * 1.4, .06]]:
+				frame.tube(Vector3(x1 - .18, sill + band[0], z), band[1], band[2], Basis.IDENTITY, 16)
+			frame.tube(Vector3(x1 - .18, sill + 1.45, z), radius, 2.48, Basis.IDENTITY, 16)
+			frame.box(Vector3(x1 - .18, sill + 2.84, z), Vector3(.25, .10, radius * 3))
+		frame.box(Vector3(x1 - .16, spring + .03, middle + hand * 1.13), Vector3(.26, .12, .84))
+		for row in 5:
+			frame.box(Vector3(x1 - .102, sill + .45 + row * .48, middle + hand * 1.13), Vector3(.025, .023, .60))
+	for column in [-.225, .225]:
+		frame.box(Vector3(x1 - .102, sill + 1.45, middle + column), Vector3(.028, 2.90, .03))
+	for row in 6:
+		frame.box(Vector3(x1 - .102, sill + .44 + row * .48, middle), Vector3(.028, .025, 1.34))
+	for radius in [.705, .755]:
+		var arch := PackedVector3Array()
+		for i in 33:
+			var angle := i * PI / 32
+			arch.append(Vector3(x1 - .18, spring + sin(angle) * radius, middle + cos(angle) * radius))
+		frame.sweep(arch, .085, .042, 8, Vector3.RIGHT)
+	frame.box(Vector3(x1 - .19, sill - .04, middle), Vector3(.36, .08, 3.18))
+	frame.box(Vector3(x1 - .12, sill - .13, middle), Vector3(.18, .10, 3.05))
+	for hand in [-1, 1]:
+		frame.box(Vector3(x1 - .10, sill - .53, middle + hand * 1.09), Vector3(.08, .70, .70))
+		frame.box(Vector3(x1 - .14, sill - .53, middle + hand * 1.09), Vector3(.025, .59, .59))
+	frame.box(Vector3(x1 - .10, sill - .53, middle), Vector3(.08, .70, 1.25))
+	frame.box(Vector3(x1 - .14, sill - .53, middle), Vector3(.025, .59, 1.13))
+	frame.into(east, white, "MarbleHallWindowFrame")
+	var grille := Batch.new()
+	for hand in [-1, 1]:
+		grille.box(Vector3(x1 - .22, sill + .004, middle + hand * 1.12), Vector3(.15, .009, .62))
+	var slots := Batch.new()
+	for hand in [-1, 1]:
+		for i in 15:
+			slots.box(Vector3(x1 - .22, sill + .010, middle + hand * 1.12 - .28 + i * .04), Vector3(.14, .008, .008))
+	grille.into(east, room.look(Color("7f817c")), "WindowSillGrilles")
+	slots.into(east, room.look(Color("343936")), "WindowSillGrilleSlots")
 
 
 func fireplace() -> void:
