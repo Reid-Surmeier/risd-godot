@@ -3,8 +3,8 @@ extends SceneTree
 
 ## #274: one light for every added room. The rule, in words, is in
 ## docs/playtest/room-builder-guide.md ("Light"); these are its numbers.
-const FILL_ENERGY:=1.4 # the fill for FILL_M2 of floor in a room with no spots
-const UPLIGHT:=.35 # of each fill, sent up at the ceiling from UPLIGHT_DROP below it
+const FILL_ENERGY:=.8 # the fill for FILL_M2 of floor in a room with no spots: low, so the pools read
+const UPLIGHT:=.25 # of each fill, sent up at the ceiling from UPLIGHT_DROP below it
 const UPLIGHT_DROP:=1.5
 const FILL_M2:=25.0
 const SPILL:=.03 # of its spots' energy a room's fill gives up: they light the floor too
@@ -18,17 +18,18 @@ const FILL_TRIM:={"Rockefeller":.75,"grey French gallery":.5,"adjacent gallery":
 	"purple elevator-5 connector":4.8,"modern adjoining gallery threshold study limit":5.6,
 	"Grand Gallery reveal threshold":2.3,"Rockefeller reveal threshold":1.5,
 	"white sculpture gallery threshold study limit":1.4}
-## The Hall's lamps are #ffe1b2 and #ffd391, but its daylight cools them: its white skirting
-## reads (195,174,155). Alone, those two colours turn white trim tan and grey paint olive, so
-## the rooms' lamps are the colours that make their trim read as the Hall's skirting does, and
-## the oak carries its honey in its own tone (remodel_room.gd, OAK_TONE).
-const FILL_COLOR:="ffeee8"
-const SPOT_COLOR:="ffe4c8"
-const SPOT_ENERGY_PER_M:=1.8 # the Hall's 6.8 at 3.8 m from its painting
+## The owner, 8 Oct, playing the build: "you don't have spotlights on objects warm glow", "the
+## lighting should be warm in the medieval room". So the spot on each work is the picture: warm
+## (about 3000 K on screen) and strong enough that its pool glows on the wall and floor round the
+## work; the fill is a faintly warm white, kept low so the room between works is quieter than
+## the pools. The oak carries its honey in its own tone (remodel_room.gd, OAK_TONE).
+const FILL_COLOR:="fff0e0"
+const SPOT_COLOR:="ffb870"
+const SPOT_ENERGY_PER_M:=2.8 # the Hall's is 1.8 (6.8 at 3.8 m); more here, so the pool is the brightest thing on its wall
 const SPOT_LEAN:=.7 # metres out from the work per metre above it: the Hall's 2.2 for 3.1
 const SPOT_DROP:=3.1 # a spot hangs at most this far above its work's middle
-const SHADE_FLOOR:=.45 # what a work's face turned away from its lamp keeps
-const PLAIN_TINT:="fff6ea" # on a work's parts that carry no picture
+const SHADE_FLOOR:=.35 # what a work's face turned away from its lamp keeps
+const WORK_TINT:="fff0dc" # the warmth of its spot on every work, mild enough to leave a painting its colours
 ## What stays out of the baked scene altogether, because the bake traces every triangle and the
 ## scene is read as text at the first doorway: every work (thirteen placed meshes are 130,000
 ## triangles), and anything modelled finer than DETAIL_TRIANGLES (the Skylight Gallery's
@@ -40,16 +41,14 @@ const DETAIL_TRIANGLES:=30000
 const DETAIL_LEVEL:=.45
 const PROXY:=.6
 const SHADE_TOP:=1.2
-## Two switches for a room the bake cannot yet afford, both by plan label.
+## Two switches for a room a bake on the CPU cannot afford, both by plan label and both empty
+## while scripts/rebuild_rooms.sh bakes on the GPU (18 s). On lavapipe the whole cost of a bake
+## is the lamps' shadow rays: 139 lamps with shadows ran past every limit, without shadows 1:37.
 ## LAMPLESS_ROOMS: the room's surfaces are baked, but the rule gives it no fills, spots, probes
-## or shadow boxes; it is lit by whatever glows in it and by bounce. Today the two-storey
-## Skylight Gallery: without it a full bake took 1:35, with its geometry and none of its lamps
-## 2:08, with its lamps more than 15 minutes; which of them costs that is not yet known. Its
-## laylights are emissive. Its works keep the brightness of the spot they would have had.
+## or shadow boxes; it is lit by whatever glows in it and by bounce.
 ## UNBAKED_ROOMS: the room is kept out of the lightmap altogether, every surface drawn at
-## UNBAKED_LEVEL of its own colour and shaded per vertex from above. Empty today; it is the
-## fallback if a room's geometry alone is what a bake cannot afford.
-const LAMPLESS_ROOMS:=["Skylight Gallery"]
+## UNBAKED_LEVEL of its own colour and shaded per vertex from above.
+const LAMPLESS_ROOMS:=[]
 const UNBAKED_ROOMS:=[]
 const UNBAKED_LEVEL:=.6
 ## Daylight the footage shows; the only lamps not derived from the plan and the works.
@@ -419,7 +418,7 @@ func prepare() -> void:
 	lm.owner=room
 	room.set_meta("vertex_shades",shades)
 	room.set_meta("shade_top",SHADE_TOP)
-	room.set_meta("plain_tint",Color(PLAIN_TINT))
+	room.set_meta("plain_tint",Color(WORK_TINT))
 	var packed:=PackedScene.new()
 	assert(packed.pack(room)==OK)
 	assert(ResourceSaver.save(packed,"res://modules/shell/prototype/gallery_walk4/baked/room.tscn")==OK)
