@@ -80,6 +80,6 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 
 | Bust of Madame Récamier 37.201, redo | 3 (0.03): clay front, right and back; a fourth call (clay left) failed with HTTP 502, was not resubmitted, charge unknown and not counted | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 261 KB, plain-marble colour, square stepped socle; waiting for the lead's look, not placed |
 | Fireplace surround 83.152 | 3 (0.03): clay front (Muse accepted it this time), clay left, flat front | Multi-View from front + left, 0.48 / 0.48 | 358 KB at 1024 px colour; placed in the room source |
-| River God 44.674 | 0: the one clay attempt was refused (HTTP 400), charge unknown and not counted | Multi-View from the museum's own front, left and back photographs, 0.48 / 0.48 | 224 KB; colour projected from the same three photographs; not placed yet |
+| River God 44.674 | 0: the one clay attempt was refused (HTTP 400), charge unknown and not counted | Multi-View from the museum's own front, left and back photographs, 0.48 / 0.48 | 224 KB; colour projected from the same three photographs; placed in its case in the room source |
 
 **Batch so far: 7.83 USD** (63 Muse images 0.63, thirteen Multi-View meshes 6.24, two single-view meshes 0.96). **Whole effort: 14.95 USD charged.**
