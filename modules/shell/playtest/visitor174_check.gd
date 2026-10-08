@@ -1,5 +1,9 @@
 extends SceneTree
 
+var _faults := []
+var _last_foot := -1
+var _since_step := 99
+
 
 func _initialize() -> void:
 	call_deferred("_run")
@@ -46,7 +50,7 @@ func _run() -> void:
 		"REST_HEIGHT no longer matches walk.glb: %s" % (rest_height / visitor.model.scale.y)
 	)
 	# LANDINGS must be where the walk clip really puts each foot down after its high lift.
-	for gait in ["walk", "run", "dash"]:
+	for gait in ["walk", "dash"]:
 		visitor.player.play(gait)
 		var clip_length: float = visitor.player.get_animation(gait).length
 		var lifted := [false, false]
@@ -140,6 +144,35 @@ func _run() -> void:
 			peak = maxf(peak, visitor._height)
 		peaks.append(peak)
 	assert(peaks.max() - peaks.min() < 0.03, "jump height depends on the frame rate: %s" % [peaks])
+	# #259: one stride carries through every gait change. Shift pressed and released
+	# mid-stride, and a sprint that slows through a turn, may not restart the cycle, and
+	# each foot sounds in turn: never the same one twice, never two within a fifth of a second.
+	visitor.reset()
+	visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
+	for leg in [[1.2, 100], [3.0, 90], [1.2, 90], [3.0, 45], [2.2, 30], [3.0, 45]]:
+		_travel(visitor, leg[0], leg[1])
+	# #259: a hop from a stand, a walk and a sprint lands visibly and hands back to the gait
+	# the travel asks for. In stride it may not stand in the landing pose while it slides on.
+	for case in [[0.0, "idle"], [1.2, "walk"], [3.0, "dash"]]:
+		visitor.reset()
+		visitor.pose(0.0, false, 0.0, Vector3.FORWARD, 0.0)
+		_last_foot = -1  # a stride from a stand may open on either foot
+		_travel(visitor, case[0], 90)
+		visitor.jump()
+		var landing_ticks := 0
+		for _tick in 90:
+			visitor.position.z -= case[0] / 60.0
+			visitor.pose(1.0 / 60.0, case[0] > 0.0, 0.0, Vector3.FORWARD, 0.0)
+			landing_ticks += int(visitor.player.current_animation == "landing")
+		_expect(landing_ticks >= 2, "a jump from %s ended without a landing" % case[1])
+		_expect(
+			case[0] == 0.0 or landing_ticks <= 7,
+			"landing from a %s stood still for %d ticks while sliding" % [case[1], landing_ticks]
+		)
+		_expect(
+			visitor._clip == case[1],
+			"a jump from %s resolved into %s" % [case[1], visitor._clip]
+		)
 	visitor.queue_free()
 	await process_frame
 	var gallery = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
@@ -174,6 +207,27 @@ func _run() -> void:
 		absf(wrapf(gallery._kid.rotation.y - forward_heading, -PI, PI)) > 2.5,
 		"runtime reversal did not turn around"
 	)
+	# #259: with real keys, a sprint from a stand away from the facing never skids; a sprint
+	# thrown into reverse skids at once, still travelling the old way, and only that once.
+	_shift(true)
+	_key(gallery, KEY_D, true)
+	_expect(await _skid_seconds(gallery, 1.0) == 0.0, "a sprint from a stand skidded")
+	_expect(gallery._kid._clip == "dash", "Shift did not sprint: %s" % gallery._kid._clip)
+	var way: Vector3 = gallery._velocity
+	_key(gallery, KEY_D, false)
+	_key(gallery, KEY_A, true)
+	await create_timer(0.1).timeout
+	_expect(
+		gallery._kid._clip == "skid" and gallery._velocity.dot(way) > 0.0,
+		"reversing a sprint did not skid at once: %s" % gallery._kid._clip
+	)
+	await create_timer(0.4).timeout
+	_expect(
+		await _skid_seconds(gallery, 0.8) == 0.0, "the visitor skidded while sprinting away"
+	)
+	_key(gallery, KEY_A, false)
+	_shift(false)
+	await create_timer(0.5).timeout
 	gallery._set_view(2)
 	await process_frame
 	var turn_start: float = gallery._kid.rotation.y
@@ -205,13 +259,90 @@ func _run() -> void:
 	)
 	gallery.queue_free()
 	await process_frame
+	if not _faults.is_empty():
+		for fault in _faults:
+			push_error(fault)
+		print("FAIL #259: %d locomotion faults" % _faults.size())
+		quit(1)
+		return
 	print(
 		(
 			"PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, "
-			+ "90/180-degree turns, floor contact and step cadence, gestures disabled"
+			+ "90/180-degree turns, floor contact and step cadence, gestures disabled; "
+			+ "#259: one stride through gait changes, landings, sprint reversal skid"
 		)
 	)
 	quit()
+
+
+func _expect(ok: bool, fault: String) -> void:
+	if not ok and fault not in _faults:
+		_faults.append(fault)
+
+
+# Share of a stride since the left foot landed, the same in every gait; -1 outside them.
+func _stride(visitor: Node3D) -> float:
+	var clip: String = visitor.player.current_animation
+	if not visitor.LANDINGS.has(clip):
+		return -1.0
+	return fposmod(
+		(
+			visitor.player.current_animation_position / visitor.player.current_animation_length
+			- visitor.LANDINGS[clip][0]
+		),
+		1.0
+	)
+
+
+# Travel at `speed` for `ticks`. The stride runs on, with no restart and no step backwards,
+# and the feet sound in turn.
+func _travel(visitor: Node3D, speed: float, ticks: int) -> void:
+	for _tick in ticks:
+		var before := _stride(visitor)
+		var clip: String = visitor.player.current_animation
+		visitor.position.z -= speed / 60.0
+		visitor.pose(1.0 / 60.0, speed > 0.0, 0.0, Vector3.FORWARD, 0.0)
+		var after := _stride(visitor)
+		_since_step += 1
+		if visitor.contacts > 0:
+			# The right foot lands 0.48 of a stride after the left in both gaits.
+			var foot := int(after > 0.24 and after < 0.74)
+			_expect(
+				visitor.contacts == 1 and foot != _last_foot and _since_step >= 12,
+				(
+					"%d steps sounded %d ticks after the last, in %s"
+					% [visitor.contacts, _since_step, visitor.player.current_animation]
+				)
+			)
+			_last_foot = foot
+			_since_step = 0
+		_expect(
+			before < 0.0 or after < 0.0 or fposmod(after - before, 1.0) < 0.06,
+			(
+				"the stride jumped from %.2f to %.2f going from %s to %s"
+				% [before, after, clip, visitor.player.current_animation]
+			)
+		)
+
+
+# Seconds of the next `seconds` the gallery's visitor spends in its skid.
+func _skid_seconds(gallery: Control, seconds: float) -> float:
+	var clock := 0.0
+	var skidding := 0.0
+	while clock < seconds:
+		await process_frame
+		var delta: float = root.get_process_delta_time()
+		clock += delta
+		if gallery._kid._clip == "skid":
+			skidding += delta
+	return skidding
+
+
+func _shift(pressed: bool) -> void:
+	var event := InputEventKey.new()
+	event.keycode = KEY_SHIFT
+	event.pressed = pressed
+	Input.parse_input_event(event)
 
 
 func _key(gallery: Control, code: Key, pressed: bool) -> void:

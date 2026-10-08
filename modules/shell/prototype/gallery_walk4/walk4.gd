@@ -2819,6 +2819,10 @@ func _process(delta: float) -> void:
 	_kid.position = _pos
 	if _generated_visitor:
 		var facing := _fwd() if view_mode == 2 else _motion_heading
+		# Keys thrown against the travel: face where they point at once, so the visitor
+		# brakes and turns while it still slides the old way, not after it has set off (#259).
+		if view_mode != 2 and _screen_direction().dot(_motion_heading) < 0.0:
+			facing = _screen_direction()
 		_kid.pose(
 			delta,
 			distance_moved > 0.0001,
