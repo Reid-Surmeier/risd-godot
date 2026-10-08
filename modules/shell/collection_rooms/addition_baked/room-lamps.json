@@ -643,48 +643,47 @@
 	},
 	{
 		"at": [
-			-4.008,
+			-3.977,
 			3.2,
-			20.409
+			19.85
 		],
 		"color": "ffe4c8",
 		"cone": 14.0,
-		"energy": 4.708,
+		"energy": 4.866,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
-			-4.008,
-			1.057,
-			21.909
+			-3.977,
+			0.985,
+			21.4
 		],
 		"works": [
-			"@Node3D@4764",
-			"85.075.8",
-			"@Node3D@4771",
-			"43.351",
-			"@Node3D@4757",
-			"54.147.9"
+			"51.502",
+			"@Node3D@4785",
+			"1989.085"
 		]
 	},
 	{
 		"at": [
-			-3.933,
+			-4.158,
 			3.2,
-			19.912
+			20.78
 		],
 		"color": "ffe4c8",
 		"cone": 14.0,
-		"energy": 4.833,
+		"energy": 4.769,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
-			-3.933,
-			1.0,
-			21.452
+			-4.158,
+			1.03,
+			22.3
 		],
 		"works": [
-			"@Node3D@4796",
-			"51.272"
+			"@Node3D@4778",
+			"35.703",
+			"@Node3D@4757",
+			"54.147.9"
 		]
 	},
 	{
@@ -798,68 +797,69 @@
 	},
 	{
 		"at": [
-			-4.245,
+			-3.144,
 			3.2,
-			24.475
-		],
-		"color": "ffe4c8",
-		"cone": 30.162,
-		"energy": 3.515,
-		"kind": "spot",
-		"room": "adjacent gallery",
-		"target": [
-			-5.365,
-			1.6,
-			24.475
-		],
-		"works": [
-			"55.091",
-			"2024.17.5"
-		]
-	},
-	{
-		"at": [
-			-3.075,
-			3.2,
-			22.48
+			23.39
 		],
 		"color": "ffe4c8",
 		"cone": 32.0,
-		"energy": 3.917,
+		"energy": 4.013,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
-			-4.323,
-			1.417,
-			22.48
+			-4.423,
+			1.374,
+			23.39
 		],
 		"works": [
-			"2024.17.6",
-			"35.703",
-			"@Node3D@4778",
-			"61.006",
-			"51.502"
+			"55.091",
+			"2024.17.5",
+			"@Node3D@4764",
+			"85.075.8"
 		]
 	},
 	{
 		"at": [
-			-2.612,
+			-3.117,
 			3.2,
-			21.475
+			21.343
 		],
 		"color": "ffe4c8",
-		"cone": 16.55,
-		"energy": 4.866,
+		"cone": 32.0,
+		"energy": 3.94,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.373,
+			1.407,
+			21.343
+		],
+		"works": [
+			"43.351",
+			"@Node3D@4771",
+			"2024.17.6",
+			"51.272",
+			"@Node3D@4796",
+			"61.006"
+		]
+	},
+	{
+		"at": [
+			-2.581,
+			3.2,
+			21.101
+		],
+		"color": "ffe4c8",
+		"cone": 14.0,
+		"energy": 4.966,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
 			-4.163,
-			0.985,
-			21.475
+			0.94,
+			21.101
 		],
 		"works": [
-			"1989.085",
-			"@Node3D@4785",
 			"european-east-small-metal-2",
 			"european-east-small-dish",
 			"european-east-small-metal-1",
@@ -868,9 +868,9 @@
 	},
 	{
 		"at": [
-			-3.944,
+			-3.964,
 			3.2,
-			19.537
+			17.666
 		],
 		"color": "ffe4c8",
 		"cone": 32.0,
@@ -878,37 +878,37 @@
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
-			-5.144,
+			-5.164,
 			1.485,
-			19.537
+			17.666
 		],
 		"works": [
 			"67.106.31",
 			"67.106.8",
 			"47.625",
-			"45.188",
-			"32.010",
-			"73.060"
+			"45.188"
 		]
 	},
 	{
 		"at": [
-			-4.261,
+			-4.04,
 			3.2,
-			18.614
+			16.335
 		],
 		"color": "ffe4c8",
-		"cone": 26.534,
-		"energy": 3.399,
+		"cone": 26.813,
+		"energy": 3.465,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
-			-5.344,
-			1.653,
-			18.614
+			-5.144,
+			1.623,
+			16.335
 		],
 		"works": [
+			"32.010",
 			"85.075.6",
+			"73.060",
 			"52.533"
 		]
 	},
@@ -916,7 +916,7 @@
 		"at": [
 			-4.176,
 			3.2,
-			16.96
+			14.28
 		],
 		"color": "ffe4c8",
 		"cone": 23.88,
@@ -926,7 +926,7 @@
 		"target": [
 			-5.345,
 			1.53,
-			16.96
+			14.28
 		],
 		"works": [
 			"36.003"
@@ -934,42 +934,42 @@
 	},
 	{
 		"at": [
-			-4.458,
+			-4.379,
 			3.2,
-			14.878
+			12.267
 		],
 		"color": "ffe4c8",
-		"cone": 32.0,
-		"energy": 2.942,
+		"cone": 28.998,
+		"energy": 3.188,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
 			-5.395,
-			1.861,
-			14.878
+			1.749,
+			12.267
 		],
 		"works": [
-			"42.042",
-			"53.115"
+			"42.042"
 		]
 	},
 	{
 		"at": [
-			-4.241,
+			-4.431,
 			3.2,
-			13.893
+			10.505
 		],
 		"color": "ffe4c8",
-		"cone": 21.702,
-		"energy": 3.621,
+		"cone": 26.531,
+		"energy": 3.027,
 		"kind": "spot",
 		"room": "adjacent gallery",
 		"target": [
 			-5.395,
-			1.552,
-			13.893
+			1.822,
+			10.505
 		],
 		"works": [
+			"53.115",
 			"24.508"
 		]
 	},
@@ -990,8 +990,8 @@
 			9.279
 		],
 		"works": [
-			"@Node3D@4656",
 			"2016.124",
+			"@Node3D@4656",
 			"2016.102.2",
 			"09.351"
 		]
@@ -1000,7 +1000,7 @@
 		"at": [
 			-4.225,
 			3.2,
-			6.837
+			8.057
 		],
 		"color": "ffe4c8",
 		"cone": 22.866,
@@ -1010,7 +1010,7 @@
 		"target": [
 			-5.345,
 			1.6,
-			6.837
+			8.057
 		],
 		"works": [
 			"35.786"
@@ -1020,7 +1020,7 @@
 		"at": [
 			-4.419,
 			3.2,
-			4.977
+			5.771
 		],
 		"color": "ffe4c8",
 		"cone": 24.741,
@@ -1030,7 +1030,7 @@
 		"target": [
 			-5.455,
 			1.72,
-			4.977
+			5.771
 		],
 		"works": [
 			"63.066.45"
@@ -1370,19 +1370,19 @@
 	},
 	{
 		"at": [
-			5.085,
+			5.084,
 			3.2,
-			-4.016
+			-4.02
 		],
 		"color": "ffe4c8",
-		"cone": 29.36,
-		"energy": 3.342,
+		"cone": 30.114,
+		"energy": 3.341,
 		"kind": "spot",
 		"room": "grey French gallery",
 		"target": [
 			4.02,
-			1.679,
-			-4.016
+			1.68,
+			-4.02
 		],
 		"works": [
 			"43.571"
@@ -1501,16 +1501,16 @@
 		"at": [
 			-0.47,
 			3.2,
-			29.399
+			29.411
 		],
 		"color": "ffe4c8",
-		"cone": 21.11,
-		"energy": 3.543,
+		"cone": 21.344,
+		"energy": 3.581,
 		"kind": "spot",
 		"room": "light Renaissance room",
 		"target": [
 			-0.47,
-			1.587,
+			1.57,
 			28.27
 		],
 		"works": [
@@ -1761,7 +1761,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 0.854,
+		"energy": 0.851,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -1778,7 +1778,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.299,
+		"energy": 0.298,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -1795,7 +1795,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 0.854,
+		"energy": 0.851,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -1812,7 +1812,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.299,
+		"energy": 0.298,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -1829,7 +1829,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 0.854,
+		"energy": 0.851,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -1846,7 +1846,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.299,
+		"energy": 0.298,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -1863,7 +1863,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 0.854,
+		"energy": 0.851,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -1880,7 +1880,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.299,
+		"energy": 0.298,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -1897,7 +1897,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 0.854,
+		"energy": 0.851,
 		"kind": "fill",
 		"room": "adjacent gallery",
 		"target": [
@@ -1914,7 +1914,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.299,
+		"energy": 0.298,
 		"kind": "up",
 		"room": "adjacent gallery",
 		"target": [
@@ -1931,7 +1931,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 88.0,
-		"energy": 1.082,
+		"energy": 1.081,
 		"kind": "fill",
 		"room": "light Renaissance room",
 		"target": [
@@ -1948,7 +1948,7 @@
 		],
 		"color": "ffeee8",
 		"cone": 85.0,
-		"energy": 0.379,
+		"energy": 0.378,
 		"kind": "up",
 		"room": "light Renaissance room",
 		"target": [

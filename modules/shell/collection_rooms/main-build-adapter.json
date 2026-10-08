@@ -1,5 +1,5 @@
 {
-  "main_build_tip": "5269d4a1676c9fb389047d59dc382764219b883c",
+  "main_build_tip": "c965b6067cf6ae68ab678ee6766961b975697b3f",
   "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
@@ -14,13 +14,13 @@
     },
     "european_east_additions.gd": {
       "paths_moved": 3,
-      "source_sha256": "0009b4837ffcb87b822f79e1d2143d1c3413890b3de4e567a32bc616f227ae27",
-      "sha256": "d31775535dadd0aee6176ef7085433ec2d4f7bb45f3bd412d01386c3adeca462"
+      "source_sha256": "a0d5c8c55a3ae4b82dac887d763c559bab5e992f363f405c0f809c88d4e33fee",
+      "sha256": "0f537c01588b85447470189a44ea3e9d5b5d8440ed17d1714a43c1f55a57b5aa"
     },
     "european_west_additions.gd": {
       "paths_moved": 3,
-      "source_sha256": "94ece5eb401db48a2d527c67deb15059410b696d1ddd864be556edc46a0ef0b1",
-      "sha256": "528cb5d3d9d029a00567af05f5f1cf1b3200061655a3c2bfc590f55ce266dc0d"
+      "source_sha256": "e04321df2c3678326a7e6c0a290ed35003d2bb8d087fc7d96931a3445ee2da72",
+      "sha256": "c6b71cdb2bcfe74609e55e2f247b189ede7e1c5db66d85fc5260eec1d0853853"
     },
     "grey_additions.gd": {
       "paths_moved": 3,
@@ -84,8 +84,8 @@
     },
     "remodel_room.gd": {
       "paths_moved": 96,
-      "source_sha256": "5a98df05ede22dc5c5466bb519127f03668bcf48a06d871a5717fbd881079466",
-      "sha256": "14a8728f6cee982680068c77e54e460905bd6a631e6d1b008aaeb2c721ac7f76"
+      "source_sha256": "0b5334174560560dd13db3ed9b6c688126e8d9cdce22cde7da31d9494bdb7283",
+      "sha256": "13491a821af119acf01ef6478440e7c5912b1442882258c923fca2aabfdf5015"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,
