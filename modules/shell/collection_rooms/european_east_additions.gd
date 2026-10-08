@@ -130,10 +130,10 @@ func build_wall() -> void:
 ## The white platform at the north end: the display panel with the Indian cover, and the Cressent commode.
 func build_platform() -> void:
 	var k: float = (b[3] - b[2]) / REAL.y
-	var deck: Node3D = room.solid(at(16.95, .65, .07), Vector3(1.3, .14, 4.9 * k), white, true)
+	var deck: Node3D = room.plinth(at(16.95, .65), Vector3(1.3, .14, 4.9 * k))
 	deck.set_meta("european_east_platform", true)
 	# Panel: about 2.7 m wide, to 10 cm under the ceiling, 0.31 m deep as in the footage.
-	var panel: Node3D = room.solid(at(16.0, .155, 1.795), Vector3(.31, 3.31, 2.7), room.look(Color.WHITE, "res://modules/shell/collection_rooms/presentation/wall-plaster.png"), true)
+	var panel: Node3D = room.solid(at(16.0, .155, 1.795), Vector3(.31, 3.31, 2.7), room.wall_paint("adjacent gallery"), true)
 	panel.set_meta("european_east_display_panel", true)
 	var cover := slab("textile-37.009.jpg", Vector2(.92, 1.334), SQUARE, Color("6d2f2a"))
 	cover.position = at(16.0, .306, 1.56)
@@ -141,20 +141,12 @@ func build_platform() -> void:
 	cover.scale.z = .1
 	tag(cover, "indian-cover", ["37.009", "Cover", "Unknown Maker, Indian", "ca. 1700-1800", "Painted, mordant-printed and resist-dyed cotton", "Length 133.4 cm"], "textile-37.009.jpg")
 	cover.reparent(panel)
-	var stand: Node3D = room.solid(at(15.2, 1.1, .29), Vector3(.17, .30, .30), room.look(Color("e9e4d4")))
-	stand.set_meta("artwork_label_proxy", true)
-	stand.reparent(deck)
-	# Commode: a closed box at catalogue size carrying the record's front photograph; marble slab on top.
+	room.label_stand(at(15.2, 1.1, .14), -PI / 2).reparent(deck)
+	# Commode: a real mesh (#263) at catalogue size on the deck, its front to the room. It carries its own
+	# marble top, mounts and legs; the box, the slab and the front photograph are no longer built.
 	var size := Vector3(.648, .864, 1.448)
-	var body: Node3D = room.solid(at(18.5, .40, .14 + .40), Vector3(size.x * .9, .70, size.z * .92), room.look(Color("6b3a1f")), true)
+	var body: Node3D = room.place_mesh(DIR + "commode-201746.glb", at(18.5, .40, .14), -PI / 2, Vector3(size.z, size.y, size.x), "2017.46")
 	tag(body, "commode", ["2017.46", "Commode", "Charles Cressent", "ca. 1725-1730", "Fir, oak, amaranth, macacauba and bois satine with gilt bronze mounts and marble top", "86.4 x 144.8 x 64.8 cm"], "commode-2017.46.jpg")
-	var top: Node3D = room.solid(at(18.5, .40, .14 + .864 - .02), Vector3(size.x, .04, size.z), room.look(Color("7a4a43")))
-	top.reparent(body)
-	var front := slab("commode-2017.46.jpg", Vector2(size.z, size.y), SQUARE, Color("6b3a1f"))
-	front.position = at(18.5, .40 + size.x * .45 + .005, .14 + size.y / 2)
-	front.rotation.y = -PI / 2
-	front.scale.z = .2
-	front.reparent(body)
 	# Meissen charger in its acrylic box on the marble.
 	var disc: Array = []
 	for i in 32:
@@ -168,31 +160,48 @@ func build_platform() -> void:
 	var hood: Node3D = room.solid(at(18.5, .40, .14 + .864 + .29), Vector3(.30, .58, .62), glass)
 	hood.reparent(body)
 
-func display_case(s: float, e: float, foot: Vector2, base_h: float, glass_h: float, base_look: Material) -> Node3D:
+## A floor case as filmed (IMG_6385 33.0s, IMG_6386 7.0/41.2s, IMG_6384 40.0s): a white base on a
+## recessed kick, a cap, a clear hood with pale edges, and inside the hood a riser sloped down to
+## the cap all round. The works stand on the riser's top, at base_h + .04 where they always
+## stood; the cap and the hood's foot are the riser's 8 cm (by eye) lower.
+func display_case(s: float, e: float, foot: Vector2, base_h: float, glass_h: float) -> Node3D:
 	# foot.x across the room, foot.y along it
 	var c := at(s, e)
-	var base: Node3D = room.solid(c + Vector3(0, base_h / 2, 0), Vector3(foot.x, base_h, foot.y), base_look, true)
-	var cap: Node3D = room.solid(c + Vector3(0, base_h + .02, 0), Vector3(foot.x + .06, .04, foot.y + .06), white)
+	var rise := .08
+	var low: float = base_h + .04 - rise
+	var top: float = base_h + .04 + glass_h
+	var base: Node3D = room.plinth(c, Vector3(foot.x, low - .04, foot.y))
+	var cap: Node3D = room.solid(c + Vector3(0, low - .02, 0), Vector3(foot.x + .06, .04, foot.y + .06), white)
 	cap.reparent(base)
-	var y: float = base_h + .04 + glass_h / 2
 	for side in [-1, 1]:
-		var pane: Node3D = room.solid(c + Vector3(side * foot.x / 2, y, 0), Vector3(.012, glass_h, foot.y), glass)
+		var pane: Node3D = room.solid(c + Vector3(side * foot.x / 2, (low + top) / 2, 0), Vector3(.012, top - low, foot.y), glass)
 		pane.reparent(base)
-		pane = room.solid(c + Vector3(0, y, side * foot.y / 2), Vector3(foot.x, glass_h, .012), glass)
+		pane = room.solid(c + Vector3(0, (low + top) / 2, side * foot.y / 2), Vector3(foot.x, top - low, .012), glass)
 		pane.reparent(base)
-	var lid: Node3D = room.solid(c + Vector3(0, base_h + .04 + glass_h, 0), Vector3(foot.x, .012, foot.y), glass)
+	var lid: Node3D = room.solid(c + Vector3(0, top, 0), Vector3(foot.x, .012, foot.y), glass)
 	lid.reparent(base)
+	room.hood_edges(base, c, foot.x, foot.y, low, top)
+	room.case_riser(base, c, foot / 2 - Vector2(.01, .01), low, rise, rise)
 	return base
 
 ## One case object as the record's photograph on a thin card (both faces), or flat on the deck.
-func card(base: Node3D, key: String, row: Array, image: String, size: Vector2, pos: Vector3, yaw: float, flat := false, outline: Array = SQUARE, identified := true) -> void:
+## `size` is the whole photograph. `fill` is the share of it the object takes (width, height) and
+## `foot` the share of its height below the object's foot, both measured on the photograph (#266):
+## size x fill is the object at its catalogue size, and an upright card is sunk by `foot` so the
+## object, not the photograph's backdrop, stands on the deck.
+func card(base: Node3D, key: String, row: Array, image: String, size: Vector2, pos: Vector3, yaw: float, flat := false, outline: Array = SQUARE, identified := true, fill := Vector2.ONE, foot := 0.0) -> void:
 	for face in ([0] if flat else [0, 1]):
 		var p := slab(image, size, outline, Color("8c8780"))
 		p.scale.z = .2
-		p.position = pos + Vector3(0, .012 if flat else size.y / 2, 0)
+		p.position = pos + Vector3(0, .012 if flat else size.y * (.5 - foot), 0)
 		p.rotation = Vector3(-PI / 2 if flat else 0.0, yaw + face * PI, 0)
 		if face == 0:
 			tag(p, key, row, image, identified)
+			# the object's share of the built slab, which a round outline cuts inside the photograph
+			var span := Vector2.ZERO
+			for corner in outline:
+				span = span.max(Vector2(absf(corner[0] - .5), absf(corner[1] - .5)) * 2)
+			p.set_meta("object_fill", fill / span)
 		p.reparent(base)
 	var note: Node3D = room.solid(pos + Vector3(-.01 if flat else 0.0, .006, size.y / 2 + .10 if flat else .14), Vector3(.09, .004, .05), room.look(Color("e9e4d4")))
 	note.set_meta("artwork_label_proxy", true)
@@ -204,57 +213,65 @@ func plain(base: Node3D, key: String, title: String, size: Vector3, pos: Vector3
 	block.reparent(base)
 
 func build_floor() -> void:
-	var grey: Material = room.look(Color("b9b8b3"))
 	var round_plate: Array = []
 	for i in 32:
 		round_plate.append([.5 + .47 * cos(i * TAU / 32), .5 + .47 * sin(i * TAU / 32)])
 	# 1. Silver and porcelain, north end (IMG_6385 30.5-37 s, IMG_6386 57.25 s).
 	var c := at(15.2, 4.0)
-	var silver := display_case(15.2, 4.0, Vector2(1.3, 1.6), .85, .60, white)
+	var silver := display_case(15.2, 4.0, Vector2(1.3, 1.6), .85, .60)
 	silver.set_meta("european_east_case", "silver")
 	var deck := .89
 	var riser: Node3D = room.solid(c + Vector3(.15, deck + .15, -.35), Vector3(.36, .30, .36), white)
 	riser.reparent(silver)
 	card(silver, "cake-basket", ["2016.124", "Cake Basket", "Peter Archambo I", "1736", "Silver", "10.5 x 31.5 x 27.5 cm"], "basket-2016.124.jpg", Vector2(.315, .295), c + Vector3(-.25, deck, .40), PI / 2)
-	card(silver, "coffeepot", ["2014.33", "Coffeepot", "Paul de Lamerie", "1745", "Silver with wood", "23.5 x 19.1 cm"], "coffeepot-2014.33.jpg", Vector2(.191, .235), c + Vector3(.40, deck + .03, .05), PI / 2)
-	card(silver, "plate-scholten", ["09.351", "Plate with Scholten Impaling Hogenberg Coat of Arms", "Unknown Maker, Chinese", "ca. 1725-1745", "Porcelain with enamels and gilding", "Diameter 22.9 cm"], "plate-09.351.jpg", Vector2(.30, .229), c + Vector3(-.30, deck, -.35), 0.0, true)
-	card(silver, "plate-colebrooke", ["2016.62", "Plate with Colebrooke Impaling Hudson Coat of Arms", "Unknown Maker, Chinese", "ca. 1732-1742", "Porcelain with enamels and gilding", ""], "plate-2016.62.jpg", Vector2(.25, .229), c + Vector3(.05, deck, .15), PI / 2)
-	card(silver, "plate-elephant", ["2016.102.2", "Plate with Elephant", "Unknown Maker, Chinese", "ca. 1745-1755", "Porcelain with glaze", ""], "plate-2016.102.2.jpg", Vector2(.31, .23), c + Vector3(-.20, deck, .05), 0.0, true)
-	card(silver, "platter-saldanha", ["55.023.6H", "Saldanha Platter", "Unknown Maker, Chinese", "ca. 1735-1785", "Porcelain with enamels and glaze", "Length 29.5 cm"], "platter-55.023.6H.jpg", Vector2(.295, .222), c + Vector3(.15, deck, -.62), 0.0, false, SQUARE, false)
+	card(silver, "coffeepot", ["2014.33", "Coffeepot", "Paul de Lamerie", "1745", "Silver with wood", "23.5 x 19.1 cm"], "coffeepot-2014.33.jpg", Vector2(.227, .280), c + Vector3(.40, deck + .03, .05), PI / 2, false, SQUARE, true, Vector2(.77, .84), .07)
+	card(silver, "plate-scholten", ["09.351", "Plate with Scholten Impaling Hogenberg Coat of Arms", "Unknown Maker, Chinese", "ca. 1725-1745", "Porcelain with enamels and gilding", "Diameter 22.9 cm"], "plate-09.351.jpg", Vector2(.358, .273), c + Vector3(-.30, deck, -.35), 0.0, true, SQUARE, true, Vector2(.64, .86), 0.0)
+	card(silver, "plate-colebrooke", ["2016.62", "Plate with Colebrooke Impaling Hudson Coat of Arms", "Unknown Maker, Chinese", "ca. 1732-1742", "Porcelain with enamels and gilding", ""], "plate-2016.62.jpg", Vector2(.318, .291), c + Vector3(.05, deck, .15), PI / 2, false, SQUARE, true, Vector2(.72, .82), .08)
+	card(silver, "plate-elephant", ["2016.102.2", "Plate with Elephant", "Unknown Maker, Chinese", "ca. 1745-1755", "Porcelain with glaze", ""], "plate-2016.102.2.jpg", Vector2(.388, .288), c + Vector3(-.20, deck, .05), 0.0, true, SQUARE, true, Vector2(.59, .81), 0.0)
+	card(silver, "platter-saldanha", ["55.023.6H", "Saldanha Platter", "Unknown Maker, Chinese", "ca. 1735-1785", "Porcelain with enamels and glaze", "Length 29.5 cm"], "platter-55.023.6H.jpg", Vector2(.421, .317), c + Vector3(.15, deck, -.62), 0.0, false, SQUARE, false, Vector2(.70, .73), .13)
 	plain(silver, "figure-turkish-man", "Porcelain figure of a man in a turban beside a covered pot", Vector3(.08, .175, .08), c + Vector3(.07, deck + .30, -.35), Color("ece6c9"), "37.087")
 	plain(silver, "figure-turkish-woman", "Porcelain figure of a woman in pink beside a covered pot", Vector3(.08, .162, .08), c + Vector3(.23, deck + .30, -.35), Color("e7c3d2"), "37.086")
 	plain(silver, "pineapple-teapot", "Small green and yellow moulded teapot", Vector3(.12, .10, .09), c + Vector3(.42, deck, -.25), Color("a9b25a"))
-	# 2. Bench (IMG_6386 42-43.5 s): black slab top on splayed legs; sizes by eye.
+	# 2. Bench (IMG_6386 42-43.5 s): black slab top on two black leg frames, each a loop with a
+	# rail on the floor; sizes by eye.
 	var seat: Node3D = room.solid(at(10.3, 2.6, .43), Vector3(.45, .05, 2.0), room.look(Color("1c1b1b")), true)
 	seat.set_meta("european_east_bench", true)
 	for z in [-.8, .8]:
 		for x in [-.17, .17]:
 			var leg: Node3D = room.solid(at(10.3, 2.6, .205) + Vector3(x, 0, z), Vector3(.05, .41, .05), room.look(Color("1c1b1b")))
 			leg.reparent(seat)
-	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch as a closed box with its front photograph.
+		var rail: Node3D = room.solid(at(10.3, 2.6, .02) + Vector3(0, 0, z), Vector3(.39, .04, .05), room.look(Color("1c1b1b")))
+		rail.reparent(seat)
+	# 3. Cabinet case (IMG_6386 41.2 s, 83.5-84.5 s): the Schreibtisch stands open, its long faces across the
+	# gallery. At 41.2 s the camera looks south to the exit sign and sees its back; at 84.0 s the fall front lies
+	# lowered before it. The front and the flap carry the museum's two square-on photographs; no photograph of
+	# the back, the ends or the top exists, so those stay plain wood. Which way it faces is read from those two frames.
 	c = at(8.3, 3.0)
-	var cabinet_case := display_case(8.3, 3.0, Vector2(.85, 1.05), .80, .70, grey)
+	var cabinet_case := display_case(8.3, 3.0, Vector2(.85, 1.05), .80, .70)
 	cabinet_case.set_meta("european_east_case", "cabinet")
-	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, 0), Vector3(.333, .451, .606), room.look(Color("7a3a16")))
+	var box: Node3D = room.solid(c + Vector3(0, .84 + .2255, -.20), Vector3(.606, .451, .333), room.look(Color("7a3a16")))
 	tag(box, "schreibtisch", ["75.023", "Writing Desk (Schreibtisch)", "Unknown Maker, German", "ca. 1590", "Walnut, burled walnut, ebonized walnut", "45.1 x 60.6 x 33.3 cm"], "cabinet-75.023.jpg")
 	box.reparent(cabinet_case)
-	for side in [-1, 1]:
-		var face := slab("cabinet-75.023.jpg", Vector2(.606, .451), SQUARE, Color("7a3a16"))
-		face.position = c + Vector3(side * .17, .84 + .2255, 0)
-		face.rotation.y = side * PI / 2
-		face.scale.z = .1
-		face.reparent(box)
+	var face := slab("cabinet-75.023-open.jpg", Vector2(.606, .451), SQUARE, Color("7a3a16"))
+	face.position = c + Vector3(0, .84 + .2255, -.20 + .1665)
+	face.scale.z = .1
+	face.reparent(box)
+	var flap := slab("cabinet-75.023-flap.jpg", Vector2(.606, .445), SQUARE, Color("7a3a16"))
+	flap.position = c + Vector3(0, .84 + .012, -.20 + .1665 + .2225)
+	flap.rotation.x = -PI / 2
+	flap.scale.z = .3
+	flap.reparent(box)
 	# 4. Majolica case by the west wall, south end (IMG_6386 0.5-14.5 s, IMG_6384 30.5-32.5 s).
 	c = at(4.9, 4.5)
-	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60, white)
+	var majolica := display_case(4.9, 4.5, Vector2(1.0, 2.2), .85, .60)
 	majolica.set_meta("european_east_case", "majolica")
-	card(majolica, "mortar", ["54.147.9", "Mortar (with Pestle 54.147.20)", "Unknown Maker, Italian", "1680", "Bronze", "Height 17.6 cm"], "mortar-54.147.9.jpg", Vector2(.24, .228), c + Vector3(.10, deck, .90), -PI / 2)
-	card(majolica, "embriachi-casket", ["85.075.8", "Casket", "Baldessare degli Imbriachi", "ca. 1400", "Bone, wood and horn", "Base 31.8 x 22.9 cm"], "casket-85.075.8.jpg", Vector2(.32, .24), c + Vector3(.25, deck + .04, .50), -PI / 2)
-	card(majolica, "orciuolo", ["43.351", "Apothecary Jar (Orciuolo)", "Unknown Maker, Italian", "ca. 1414-1465", "Earthenware with tin glaze", "23.5 x 25.4 x 20.3 cm"], "jar-43.351.jpg", Vector2(.254, .254), c + Vector3(.20, deck, .05), -PI / 2)
-	card(majolica, "istoriato-plate", ["35.703", "Plate", "Unknown Maker, Italian", "ca. 1535-1555", "Earthenware with tin glaze", "Diameter 27 cm"], "plate-35.703.jpg", Vector2(.285, .273), c + Vector3(-.15, deck, .45), -PI / 2, false, round_plate)
-	card(majolica, "calendar-plate", ["1989.085", "March Calendar Plate", "Pierre Reymond", "ca. 1535-1585", "Enamel with gilding on copper", "Diameter 18.4 cm"], "plate-1989.085.jpg", Vector2(.196, .196), c + Vector3(-.10, deck, -.20), -PI / 2, false, round_plate)
+	card(majolica, "mortar", ["54.147.9", "Mortar (with Pestle 54.147.20)", "Unknown Maker, Italian", "1680", "Bronze", "Height 17.6 cm"], "mortar-54.147.9.jpg", Vector2(.304, .289), c + Vector3(.10, deck, .855), -PI / 2, false, SQUARE, true, Vector2(.64, .61), .05)
+	card(majolica, "embriachi-casket", ["85.075.8", "Casket", "Baldessare degli Imbriachi", "ca. 1400", "Bone, wood and horn", "Base 31.8 x 22.9 cm"], "casket-85.075.8.jpg", Vector2(.477, .358), c + Vector3(.25, deck + .04, .46), -PI / 2, false, SQUARE, true, Vector2(.48, .90), .05)
+	card(majolica, "orciuolo", ["43.351", "Apothecary Jar (Orciuolo)", "Unknown Maker, Italian", "ca. 1414-1465", "Earthenware with tin glaze", "23.5 x 25.4 x 20.3 cm"], "jar-43.351.jpg", Vector2(.324, .324), c + Vector3(.20, deck, .05), -PI / 2, false, SQUARE, true, Vector2(.75, .76), .14)
+	card(majolica, "istoriato-plate", ["35.703", "Plate", "Unknown Maker, Italian", "ca. 1535-1555", "Earthenware with tin glaze", "Diameter 27 cm"], "plate-35.703.jpg", Vector2(.365, .349), c + Vector3(-.15, deck, .45), -PI / 2, false, round_plate, true, Vector2(.74, .80), .10)
+	card(majolica, "calendar-plate", ["1989.085", "March Calendar Plate", "Pierre Reymond", "ca. 1535-1585", "Enamel with gilding on copper", "Diameter 18.4 cm"], "plate-1989.085.jpg", Vector2(.227, .227), c + Vector3(-.10, deck, -.20), -PI / 2, false, round_plate, true, Vector2(.81, .84), .08)
 	card(majolica, "apollo-roundel", ["51.502", "Apollo and the Muses on Mount Parnassus", "Unknown Maker, Flemish", "ca. 1520-1570", "Silver with gilding", "Diameter 15.1 cm"], "roundel-51.502.jpg", Vector2(.151, .151), c + Vector3(-.25, deck, -.55), 0.0, true, round_plate)
-	card(majolica, "pastiglia-casket", ["51.272", "Casket", "Unknown Maker, Italian", "ca. 1475-1525", "Wood with pastiglia and gilding", "15.2 x 21 x 14 cm"], "casket-51.272.jpg", Vector2(.22, .20), c + Vector3(.25, deck + .03, -.45), -PI / 2)
+	card(majolica, "pastiglia-casket", ["51.272", "Casket", "Unknown Maker, Italian", "ca. 1475-1525", "Wood with pastiglia and gilding", "15.2 x 21 x 14 cm"], "casket-51.272.jpg", Vector2(.238, .217), c + Vector3(.25, deck + .03, -.45), -PI / 2, false, SQUARE, true, Vector2(.86, .72), .13)
 	var low: Node3D = room.solid(c + Vector3(-.05, deck + .02, -.92), Vector3(.40, .04, .22), white)
 	low.reparent(majolica)
 	plain(majolica, "small-dish", "Small brass dish", Vector3(.10, .015, .10), c + Vector3(-.15, deck + .04, -.92), Color("b89a55"))
@@ -262,8 +279,8 @@ func build_floor() -> void:
 		plain(majolica, "small-metal-%d" % i, "Small metal object", Vector3(.04, .02, .04), c + Vector3(0, deck + .04, -.98 + i * .06), Color("8f8a80"))
 	# 5. Giambologna's River God in its hooded case, south end (IMG_6384 34.5-40.5 s).
 	c = at(2.8, 2.5)
-	var god_case := display_case(2.8, 2.5, Vector2(.75, .75), 1.0, .95, grey)
+	var god_case := display_case(2.8, 2.5, Vector2(.75, .75), 1.0, .95)
 	god_case.set_meta("european_east_case", "river-god")
-	var skirt: Node3D = room.solid(c + Vector3(0, .09, 0), Vector3(.83, .18, .83), grey)
+	var skirt: Node3D = room.solid(c + Vector3(0, .09, 0), Vector3(.83, .18, .83), white)
 	skirt.reparent(god_case)
-	card(god_case, "river-god", ["44.674", "River God (The Virile Age; The Euphrates)", "Giambologna", "ca. 1575", "Terracotta", "48.3 x 43.5 x 31.8 cm"], "rivergod-44.674.jpg", Vector2(.39, .483), c + Vector3(0, 1.04, 0), -PI / 4)
+	card(god_case, "river-god", ["44.674", "River God (The Virile Age; The Euphrates)", "Giambologna", "ca. 1575", "Terracotta", "48.3 x 43.5 x 31.8 cm"], "rivergod-44.674.jpg", Vector2(.528, .654), c + Vector3(0, 1.04, 0), -PI / 4, false, SQUARE, true, Vector2(.77, .74), .09)

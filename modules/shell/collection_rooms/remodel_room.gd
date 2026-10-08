@@ -3,7 +3,7 @@
 extends "doorway_walk.gd"
 
 # Per-room addition scripts, built in this order after the rooms themselves.
-const ADDITIONS:=["medieval_additions.gd","grey_additions.gd","european_east_additions.gd","european_west_additions.gd","rockefeller_additions.gd","landing_additions.gd","skylight_additions.gd","marble_hall_additions.gd","fixtures_additions.gd"]
+const ADDITIONS:=["medieval_additions.gd","grey_additions.gd","european_east_additions.gd","european_west_additions.gd","rockefeller_additions.gd","landing_additions.gd","skylight_additions.gd","marble_hall_additions.gd","impressionist_additions.gd","fixtures_additions.gd","vessels_turned_additions.gd"]
 const Painting := preload("res://modules/shell/prototype/gallery_walk4/painting_asset.gd")
 const SeatedWoman := preload("res://modules/shell/collection_rooms/seated_woman_asset.gd")
 const VirginChild := preload("res://modules/shell/collection_rooms/virgin_child_asset.gd")
@@ -15,6 +15,19 @@ const Pieta := preload("res://modules/shell/collection_rooms/pieta_asset.gd")
 const RenaissanceA := preload("res://modules/shell/collection_rooms/renaissance_case_a_assets.gd")
 const RenaissanceB := preload("res://modules/shell/collection_rooms/renaissance_case_b_assets.gd")
 const RenaissanceWall := preload("res://modules/shell/collection_rooms/renaissance_wall_assets.gd")
+## #274: wall paint by room ("" is every other area). A wall reads grey when it has the hue of
+## the room's white trim and is darker than it: the lamps are warm, so both read warm, and the
+## eye takes the trim for white. These are greys in the trim's hue with a slight cool-green
+## cast, as the footage has beside its skirting (IMG_6343 78 and 252 s; IMG_6383 62.5 s;
+## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
+const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"dfe3dd","Rockefeller":"d8e7e2",
+	"modern painting gallery":"e0e6e4","lion stair landing":"c8cbc7","grey French gallery":"e2e3da","Skylight Gallery":"d2d6ce",
+	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
+## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
+## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
+const OAK_TONE:="f5bf74"
+func wall_paint(label:String) -> StandardMaterial3D:
+	return look(Color(WALL_PAINT.get(label,WALL_PAINT[""])),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")
 var inventory := {"point_clouds":0,"bookcase":1,"mirrors":2,"settee":1,"armchairs":3}
 var contact_shadow:MeshInstance3D
 var ceiling_details:Array[MeshInstance3D]=[]
@@ -67,8 +80,12 @@ func wall_body(label:String,side:String,at:Vector3) -> Node3D:
 				best=wall
 	return best
 
+# With a "build_gate" signal in its metadata (main_build_walk.gd, #281) the build stops at each
+# gate until the host emits it, so the rooms are built a step at a time while the game runs.
+# Without one nothing waits: the bake tools and the checks get the whole build in one call.
 func _ready() -> void:
 	super._ready()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Keep the existing collision floors; their flat study colours are replaced.
 	for child in get_children():
 		if child is MeshInstance3D:
@@ -80,13 +97,17 @@ func _ready() -> void:
 		if child is DirectionalLight3D:
 			child.light_color = Color("fff1d9")
 			child.light_energy = .65
-	build_rooms()
+	await build_rooms()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	var first:=get_child_count()
 	build_bookcase()
 	build_mirrors()
 	build_displays()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_furniture()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_catalogue_objects()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Grey register (opus-grey-register-fit-20261001): Rockefeller and the secretary by its door
 	# move 2.2m with the room; the apostles and lion in the same catalogue file keep their z.
 	shift_new(first,Vector3(-1.95,0,2.2),1.0)
@@ -94,9 +115,11 @@ func _ready() -> void:
 	shift_new(first,Vector3(0,0,-hall_reveal.wall_m),1.8)
 	first=get_child_count()
 	build_adjacent_gallery()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	shift_new(first,Vector3(-1.95,0,0))
 	first=get_child_count()
-	build_sculpture_rooms()
+	await build_sculpture_rooms()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	shift_new(first,Vector3(0,0,9.25))
 	# The grille and its slats go with the north wall when that wall is cut away.
 	var north_header:Node3D
@@ -131,14 +154,18 @@ func _ready() -> void:
 				break
 		assert(art.get_parent().get_meta("room_wall", "") == "light Renaissance room:"+side)
 	build_grey_gallery()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_connected_hall()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_lion_modern_rooms()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Room additions (#238): one script per room, each adding only its own nodes with
 	# positions taken from the room's walls (room_bounds, wall_point), so a later change
 	# to a room's size carries them along.
 	for extra in ADDITIONS:
 		if ResourceLoader.exists("res://modules/shell/collection_rooms/"+extra):
 			load("res://modules/shell/collection_rooms/"+extra).new().build(self)
+		if has_meta("build_gate"):await get_meta("build_gate")
 	# placed_mesh_check.gd asks for its one fixture; no shipped room has it.
 	if "--placed-mesh-fixture" in OS.get_cmdline_user_args():
 		load("res://modules/shell/prototype/collection_reconstruction/placed_mesh_fixture.gd").new().build(self)
@@ -147,12 +174,17 @@ func _ready() -> void:
 		if not visitor.is_ancestor_of(surface) and not surface.has_meta("retained_main_hall"):
 			surface.name="AuthoredSurface%03d"%index
 			index+=1
-	load_bake()
+			# Renaming is slow with this many siblings (2.2 s in all): a gate every 300.
+			if index%300==0 and has_meta("build_gate"):await get_meta("build_gate")
+	if has_meta("build_gate"):await get_meta("build_gate")
+	await load_bake()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	build_contact_shadow()
 	if OS.has_feature("web"):
 		JavaScriptBridge.eval("window.remodelInventory=" + JSON.stringify(inventory))
 	assert(not FileAccess.file_exists("res://modules/shell/collection_rooms/points.bin"))
 	print("REMODEL_READY " + JSON.stringify(inventory))
+	if has_meta("build_gate"):set_meta("build_done",true)
 
 func shift_new(first:int,offset:Vector3,z_before:=INF) -> void:
 	# Nodes at or beyond z_before take the x shift only.
@@ -667,22 +699,24 @@ func shaded_window(side:String,fixed:float,opening:Array,sill:float,head:float) 
 		var mid:float=(s[0]+s[1])/2
 		var size:=Vector3(out[1]-out[0],y[1]-y[0],s[1]-s[0])
 		return [Vector3(off,(y[0]+y[1])/2,mid),size] if vertical else [Vector3(mid,(y[0]+y[1])/2,off),Vector3(size.z,size.y,size.x)]
-	# The shade is daylit from behind: it keeps its own brightness, as the works do.
-	var cloth:=look(Color("e6e7e5"),"",true)
+	# The shade is daylit from behind: it keeps its own brightness, as the works do. #274: a
+	# little above the lit wall and under the case tops; at full white it was the one glowing
+	# rectangle in the room.
+	var cloth:=look(Color("c4c6c2"),"",true)
 	var lo:float=opening[0]
 	var hi:float=opening[1]
 	var w:=.10
 	var deep:=.035
 	var spot:Array=place.call(opening,[sill,head],[.002,.010])
 	var shade:=solid(spot[0],spot[1],cloth)
-	var glow:=look(Color("a6d2ff"),"",true)
+	var glow:=look(Color("a3bbd0"),"",true)
 	var parts:=[[[lo,lo+.06],[sill,head-.10],[.010,.012],glow],[[hi-.06,hi],[sill,head-.10],[.010,.012],glow],
 		[[lo,hi],[head-.115,head-.10],[.010,.012],glow],[[lo,hi],[head-.10,head],[.010,.030],trim_paint()],
 		[[lo-w,lo-.002],[sill,head+w],[0,deep],trim_paint()],[[hi+.002,hi+w],[sill,head+w],[0,deep],trim_paint()],
 		[[lo-w,hi+w],[head+.002,head+w],[0,deep],trim_paint()]]
 	var fold:=sill+.28
 	while fold<head-.15:
-		parts.append([[lo+.06,hi-.06],[fold,fold+.003],[.010,.011],look(Color("d6d7d4"),"",true)])
+		parts.append([[lo+.06,hi-.06],[fold,fold+.003],[.010,.011],look(Color("b6b8b4"),"",true)])
 		fold+=.28
 	for part in parts:
 		spot=place.call(part[0],part[1],part[2])
@@ -761,6 +795,36 @@ func hood_edges(body:Node3D,at:Vector3,width:float,depth:float,deck:float,top:fl
 			[Vector3(side*width/2,mid,-depth/2),Vector3(t,top-deck,t)],[Vector3(side*width/2,mid,depth/2),Vector3(t,top-deck,t)]]:
 			solid(at+spec[0],spec[1],edge).reparent(body)
 
+## The furniture kit's case riser (IMG_6383 20.0s, IMG_6385 33.0s, IMG_6384 40.0s): the works'
+## floor inside a floor case's hood, a flat top sloped down to the hood's foot all round. `at` is
+## the floor point under its middle, `low` its foot's half width and depth, `deck` the hood's
+## foot; it hangs from `body`.
+## How far a work stands above its case's deck: the riser's height. Used by the two case builders and by
+## whatever places a work in one, so the two cannot drift apart.
+const FLOOR_CASE_RISE:=.04
+const WALL_CASE_RISE:=.10
+func case_riser(body:Node3D,at:Vector3,low:Vector2,deck:float,run:float,rise:float) -> MeshInstance3D:
+	var high:=low-Vector2(run,run)
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var ring:=func(half:Vector2,y:float) -> Array:
+		return [Vector3(-half.x,y,-half.y),Vector3(half.x,y,-half.y),Vector3(half.x,y,half.y),Vector3(-half.x,y,half.y)]
+	var foot:Array=ring.call(low,deck)
+	var crown:Array=ring.call(high,deck+rise)
+	var quads:=[[crown[0],crown[1],crown[2],crown[3]]]
+	for i in 4:quads.append([foot[i],foot[(i+1)%4],crown[(i+1)%4],crown[i]])
+	for quad in quads:
+		st.set_normal((quad[2]-quad[0]).cross(quad[1]-quad[0]).normalized())
+		for i in [0,1,2,0,2,3]:st.add_vertex(quad[i])
+	var riser:=MeshInstance3D.new()
+	riser.mesh=st.commit()
+	var paint:=look(Color("f6f4ee"))
+	paint.cull_mode=BaseMaterial3D.CULL_DISABLED
+	riser.material_override=paint
+	body.add_child(riser)
+	riser.global_position=at
+	return riser
+
 ## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0/61.0s): a white plinth on a
 ## recessed kick, a cap slab that oversails it by 9 cm, a clear hood standing on the cap 6 cm
 ## inside its edge with its polished edges as pale lines, and inside the hood a low riser with
@@ -784,30 +848,10 @@ func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,f
 		add.call(Vector3(0,mid,side*depth/2),Vector3(width,top-deck,.012),glass)
 	add.call(Vector3(0,top,0),Vector3(width,.012,depth),glass)
 	hood_edges(body,at,width,depth,deck,top)
-	# The riser: a flat top for the work, sloped down to the cap all round.
 	var run:=.10
-	var rise:=.04
+	var rise:=FLOOR_CASE_RISE
 	var low:=Vector2(width/2-.03,depth/2-.03)
-	var high:=low-Vector2(run,run)
-	var st:=SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var ring:=func(half:Vector2,y:float) -> Array:
-		return [Vector3(-half.x,y,-half.y),Vector3(half.x,y,-half.y),Vector3(half.x,y,half.y),Vector3(-half.x,y,half.y)]
-	var foot:Array=ring.call(low,deck)
-	var crown:Array=ring.call(high,deck+rise)
-	var quads:=[[crown[0],crown[1],crown[2],crown[3]]]
-	for i in 4:quads.append([foot[i],foot[(i+1)%4],crown[(i+1)%4],crown[i]])
-	for quad in quads:
-		st.set_normal((quad[2]-quad[0]).cross(quad[1]-quad[0]).normalized())
-		for i in [0,1,2,0,2,3]:st.add_vertex(quad[i])
-	var riser:=MeshInstance3D.new()
-	riser.mesh=st.commit()
-	var paint:=look(Color("f6f4ee"))
-	paint.cull_mode=BaseMaterial3D.CULL_DISABLED
-	riser.material_override=paint
-	riser.set_meta("floor_case_part","riser")
-	body.add_child(riser)
-	riser.global_position=at
+	case_riser(body,at,low,deck,run,rise).set_meta("floor_case_part","riser")
 	# The label lies on the riser's front slope. A blank block: the game carries no typed text.
 	var reach:=absf(front.x)*low.x+absf(front.z)*low.y-run/2
 	var label:Node3D=add.call(front*(reach+.001)+Vector3(0,deck+rise/2+.002,0),Vector3(run*.8,.003,.20),look(Color("dedbd4")))
@@ -818,9 +862,10 @@ func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,f
 ## What makes a wall case read as the footage's (IMG_6383 24.6/30.2/44.0/62.0s) once its deck, back
 ## board and clear hood exist. The hood's polished edges: the four top ones as narrow dark rails
 ## (seen from below against the white board they read slate-dark in every frame), the other eight
-## as thinner mid grey-green lines, darker than the board and lighter than the room. A sloped
-## label rail along the deck's front inside the hood, carrying one blank block per `labels` row
-## ([centre along the case, width]). A recessed lower step under the deck. On the floor under the
+## as thinner mid grey-green lines, darker than the board and lighter than the room. Inside the
+## hood a riser the works stand on, 10 cm above the deck, whose sloped front is the label face
+## and carries one blank block per `labels` row ([centre along the case, width]): a work
+## standing in the case is placed at deck+.10. A recessed lower step under the deck. On the floor under the
 ## case, a thin dark strip round its footprint. `display` is the case's own frame: x along the
 ## wall and centred, y up from the floor, z out of the wall. `under` and `deck` are the deck's
 ## bottom and top, `top` the hood's.
@@ -850,23 +895,27 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	var strip:=look(Color("83623f"))
 	for x in [-length/2,length/2]:add.call(Vector3(x,.004,depth/2+.03),Vector3(.02,.008,depth-.06),strip)
 	for z in [.06,depth]:add.call(Vector3(0,.004,z),Vector3(length+.02,.008,.02),strip)
-	# The label rail: a wedge rising from the deck's front edge toward the works.
+	# The riser: the works' floor, back to the board, with the label face sloping down to the
+	# deck's front edge. IMG_6383 24.6s, a camera fit on the Pietà case's own width: 10 cm up
+	# over 9 cm (+-2 cm).
 	var st:=SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var run:=minf(.14,depth*.26)
+	var run:=.09
+	var rise:=WALL_CASE_RISE
 	var front:=depth-.02
 	var back:=front-run
-	var rise:=run/2
+	var half:=length/2-.03
 	var slope:=Vector3(0,run,rise).normalized()
-	for quad in [[[Vector3(-1,deck,front),Vector3(1,deck,front),Vector3(1,deck+rise,back),Vector3(-1,deck+rise,back)],slope],
-		[[Vector3(-1,deck+rise,back),Vector3(1,deck+rise,back),Vector3(1,deck,back),Vector3(-1,deck,back)],Vector3(0,0,-1)]]:
+	for quad in [[[Vector3(-half,deck,front),Vector3(half,deck,front),Vector3(half,deck+rise,back),Vector3(-half,deck+rise,back)],slope],
+		[[Vector3(-half,deck+rise,back),Vector3(half,deck+rise,back),Vector3(half,deck+rise,.03),Vector3(-half,deck+rise,.03)],Vector3.UP]]:
 		for i in [0,1,2,0,2,3]:
 			st.set_normal(quad[1])
-			st.add_vertex(Vector3(quad[0][i].x*(length/2-.03),quad[0][i].y,quad[0][i].z))
-	for x in [-(length/2-.03),length/2-.03]:
-		for corner in [Vector3(x,deck,front),Vector3(x,deck+rise,back),Vector3(x,deck,back)]:
+			st.add_vertex(quad[0][i])
+	for x in [-half,half]:
+		var end:=[Vector3(x,deck,front),Vector3(x,deck+rise,back),Vector3(x,deck+rise,.03),Vector3(x,deck,.03)]
+		for i in [0,1,2,0,2,3]:
 			st.set_normal(Vector3(signf(x),0,0))
-			st.add_vertex(corner)
+			st.add_vertex(end[i])
 	var rail:=MeshInstance3D.new()
 	rail.mesh=st.commit()
 	var card:=look(Color("f6f4ee"))
@@ -874,9 +923,9 @@ func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck
 	rail.material_override=card
 	rail.set_meta("artwork_label_proxy",true)
 	display.add_child(rail)
-	# The labels lie on the rail's slope. Blank blocks: the game carries no typed text.
+	# The labels lie on the riser's slope. Blank blocks: the game carries no typed text.
 	for spec in labels:
-		var block:Node3D=add.call(Vector3(spec[0],deck+rise/2,(front+back)/2)+slope*.002,Vector3(spec[1],.003,run*.86),look(Color("dedbd4")))
+		var block:Node3D=add.call(Vector3(spec[0],deck+rise/2,(front+back)/2)+slope*.002,Vector3(spec[1],.003,Vector2(run,rise).length()*.86),look(Color("dedbd4")))
 		block.rotation.x=atan2(rise,run)
 		block.set_meta("artwork_label_proxy",true)
 
@@ -903,6 +952,7 @@ func build_rooms() -> void:
 	var oak := ShaderMaterial.new()
 	oak.shader=load("res://modules/shell/collection_rooms/presentation/floor_oak.gdshader")
 	oak.set_shader_parameter("oak",load("res://modules/shell/collection_rooms/presentation/oak-board-atlas-168-v3.webp"))
+	oak.set_shader_parameter("ground_tone",Color(OAK_TONE))
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/geometry.json"))
 	hall_reveal=data.hall_reveal
 	var floor_limits:=Vector2(INF,-INF)
@@ -913,13 +963,9 @@ func build_rooms() -> void:
 	oak.set_shader_parameter("floor_z_limits",floor_limits)
 	for area in data.rooms:
 		var b:Array=area.bounds
-		var wall:=look(Color.WHITE,"res://modules/shell/collection_rooms/presentation/purple-plaster.png") if area.label.begins_with("purple") else look(Color.WHITE,"res://modules/shell/collection_rooms/presentation/wall-plaster.png")
-		if area.label=="dark medieval room":wall=look(Color("53545b"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")
+		var wall:=look(Color.WHITE,"res://modules/shell/collection_rooms/presentation/purple-plaster.png") if area.label.begins_with("purple") else wall_paint(area.label)
 		if area.label.begins_with("Main Hall"):wall=look(Color("7c8ca3"))
 		if area.label.begins_with("Grand Gallery"):wall=look(Color.WHITE,"res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp")
-		if area.label in ["lion stair landing","modern painting gallery"]:wall=look(Color.WHITE,"res://modules/shell/collection_rooms/presentation/landing-plaster.png")
-		if area.label=="grey French gallery":wall=look(Color("b6b4ad"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")
-		if area.label=="light Renaissance room":wall=look(Color("e3e2de"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")
 		var height:float=area.get("height",3.5)
 		if area.label in ["light Renaissance room","dark medieval room","modern painting gallery","adjacent gallery","Rockefeller","grey French gallery"]:
 			# IMG_6383 62.25s / IMG_6382 88.75s: flat plaster, not the Hall skylight. The European gallery
@@ -1002,6 +1048,7 @@ func build_rooms() -> void:
 			if DEEP_REVEALS.has(area.label+":"+side):
 				var reveal:Array=DEEP_REVEALS[area.label+":"+side]
 				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),reveal[0],reveal[1],reveal[2])
+		if has_meta("build_gate"):await get_meta("build_gate")
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
@@ -1056,56 +1103,8 @@ func build_grey_gallery() -> void:
 	add_child(number)
 	number.reparent(north)
 	var first:=get_child_count()
-	# Wide column opening faces the purple connector, rather than a door at the far end of a tube.
-	# The north column keeps its authored 1.6m from the moved north wall (-4.2); 6380 247.5/248.5s
-	# has the south one near the connector axis, so it stays. Their spacing is unmeasured.
-	for z in [-2.6,.2]:
-		var column:=StaticBody3D.new()
-		column.position=Vector3(15.65,1.4,z)
-		var shape:=CollisionShape3D.new()
-		var cylinder:=CylinderShape3D.new()
-		cylinder.radius=.19
-		cylinder.height=2.8
-		shape.shape=cylinder
-		column.add_child(shape)
-		var visual:=MeshInstance3D.new()
-		var mesh:=CylinderMesh.new()
-		mesh.top_radius=.145
-		mesh.bottom_radius=.18
-		mesh.height=2.8
-		mesh.radial_segments=12
-		mesh.rings=1
-		visual.mesh=mesh
-		visual.material_override=ivory
-		column.add_child(visual)
-		add_child(column)
-		casings.append(column)
-		var base:=solid(Vector3(15.65,.08,z),Vector3(.46,.16,.46),ivory)
-		base.reparent(column)
-		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/ionic-capital-geometry.json"))
-		assert(data.edge_pair_counts.size()==1 and int(data.edge_pair_counts[0])==2,"Capital must be a closed low polygon solid")
-		var capital:=MeshInstance3D.new()
-		capital.mesh=stone_mesh(data,data.faces,data.size_m[2])
-		capital.material_override=look(Color.WHITE,"res://modules/shell/collection_rooms/assets/ionic-capital.png")
-		capital.position=Vector3(15.65,2.7,z)
-		capital.rotation.y=-PI/2
-		add_child(capital)
-		capital.reparent(column)
-	# 6380 35.0/35.5s: smooth shafts, end pilasters and a cream beam; metres remain provisional.
-	# The beam starts where the capitals end (3.10). It used to start at 2.72 and swallow them, so the
-	# bake left them black and they showed from the stair side, where the camera cuts the beam away.
-	var beam:=solid(Vector3(15.65,3.30,-1.2),Vector3(.48,.40,6.0),ivory)
-	beam.set_meta("column_beam",true)
-	var cornice:=moulding(6.0,.16,"door-architrave",false)
-	cornice.position=Vector3(15.39,3.40,-1.2)
-	cornice.rotation.y=PI/2
-	cornice.reparent(beam)
-	for z in [-4.05,1.65]:
-		var pilaster:=solid(Vector3(15.65,1.45,z),Vector3(.16,2.9,.30),ivory)
-		pilaster.set_meta("column_end_pilaster",true)
-		var cap:=solid(Vector3(15.65,3.0,z),Vector3(.30,.20,.46),ivory)
-		cap.reparent(pilaster)
-	# Capital side/rear relief, dentils and entablature dimensions are still unaccepted.
+	# #276: the two plain white columns, their dentilled beam and end pilasters are
+	# owned by marble_hall_additions.gd, built in room-scene metres after this builder.
 	# Bertin sits on the Hall-door wall between Villeneuve and Pannini; exact offsets remain provisional.
 	# Courbet centre 4.86m from the south-west corner (fit); Corot rides the north wall, offset along it unmeasured.
 	# #238: Courbet 1.80 -> 1.69 (IMG_6380 3.1s, level with the Gericault); Bertin .2m east so its gap to the
@@ -1316,23 +1315,32 @@ func build_mirrors() -> void:
 
 func display_case(at:Vector3,size:Vector3,pedestal:=false) -> void:
 	var ivory:=look(Color("eeeae2"))
-	# IMG_6380: gold service has a solid base; pink Worcester has a tray on legs.
+	# IMG_6380 166.5s: the gold service's case stands on a solid white base. 125.0s: the pink
+	# Worcester case hangs on the south wall, a tray on a cleat, with no legs. Both have a clear
+	# hood with a lid and a blank label panel sloped out from the front edge.
+	var base:Node3D
 	if pedestal:
-		var base:=solid(at+Vector3(0,.55,0),Vector3(size.x,1.1,size.z),ivory,true)
-		assert(is_equal_approx(base.position.y- base.get_child(0).shape.size.y/2,at.y))
+		base=plinth(at,Vector3(size.x,1.1,size.z))
 	else:
-		solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
-		for x in [-size.x*.4,size.x*.4]:
-			for z in [-size.z*.36,size.z*.36]:
-				solid(at+Vector3(x,.49,z),Vector3(.025,.98,.025),ivory,true)
+		base=solid(at+Vector3(0,1.04,0),Vector3(size.x,.12,size.z),ivory,true)
+		solid(at+Vector3(0,.86,size.z/2-.09),Vector3(size.x-.3,.24,.18),ivory).reparent(base)
+	base.set_meta("rockefeller_case","gold" if pedestal else "pink")
 	var glass:=look(Color(.78,.88,.89,.12),"",true)
 	for z in [-size.z/2,size.z/2]:solid(at+Vector3(0,1.5,z),Vector3(size.x,.8,.012),glass)
 	for x in [-size.x/2,size.x/2]:solid(at+Vector3(x,1.5,0),Vector3(.012,.8,size.z),glass)
+	solid(at+Vector3(0,1.9,0),Vector3(size.x,.012,size.z),glass)
+	hood_edges(base,at,size.x,size.z,1.1,1.9)
+	var front:=Vector3(-1,0,0) if pedestal else Vector3(0,0,-1)
+	var along:=Vector3(0,0,-1) if pedestal else Vector3(-1,0,0)
+	var card:=solid(at+front*((size.x if pedestal else size.z)/2+.035)+along*.55+Vector3(0,1.02,0),Vector3(.45,.14,.004),look(Color("f6f4ee")))
+	card.rotation=Vector3(-.5,-PI/2 if pedestal else PI,0)
+	card.set_meta("artwork_label_proxy",true)
+	card.reparent(base)
 
 func build_displays() -> void:
 	var ivory:=look(Color("eeeae2"))
-	solid(Vector3(.45,.065,-6.73),Vector3(5.8,.13,.95),ivory,true)
-	solid(Vector3(-2.23,.065,-4.075),Vector3(.85,.13,6.25),ivory,true)
+	plinth(Vector3(.45,0,-6.73),Vector3(5.8,.13,.95))
+	plinth(Vector3(-2.23,0,-4.075),Vector3(.85,.13,6.25))
 	# Pink Worcester left of the gallery door; gold export service beside the purple door.
 	# #238: the pink case hangs on the wall and is about .6 deep (6380 123..128s, 176..178.5s). At .88 and
 	# clear of the wall it reached within .23m of the east door's axis and stopped a visitor walking in.
@@ -1341,7 +1349,7 @@ func build_displays() -> void:
 	# Raised central stand for the gold tureen, visible in the reference video.
 	solid(Vector3(3.32,1.15,-3.8),Vector3(.32,.1,.40),ivory)
 	# The Vincennes pair occupies its own central pedestal.
-	solid(Vector3(.45,.55,-3.85),Vector3(1.1,1.1,.65),ivory,true)
+	plinth(Vector3(.45,0,-3.85),Vector3(1.1,1.1,.65))
 	# The photographed bust keeps its separate white plinth and black-and-white socle.
 	solid(Vector3(-2.2,.63,-5.87),Vector3(.48,1.0,.48),ivory,true)
 	solid(Vector3(-2.2,1.15,-5.87),Vector3(.34,.18,.34),look(Color("343332")))
@@ -1360,13 +1368,13 @@ func build_displays() -> void:
 	inventory["central_pedestals"]=1
 	# Arabesque Wallpaper 34.912: diamond/birds/garlands match IMG_6380 210.25s.
 	# The catalogue paper size is measured; the white conservation mount is provisional.
-	solid(Vector3(3.59,2.10,-5.4),Vector3(.018,1.345,.76),ivory)
+	solid(Vector3(3.59,1.52,-5.4),Vector3(.018,1.345,.76),ivory)
 	var paper:=Painting.new()
 	add_child(paper)
 	paper.build_shaped(load("res://modules/shell/collection_rooms/assets/wallpaper-34.912.jpg"),Vector2(.56,1.145),[[0,0],[1,0],[1,1],[0,1]],Color("e7dfcd"))
-	paper.position=Vector3(3.575,2.10,-5.4)
+	paper.position=Vector3(3.575,1.52,-5.4)
 	paper.rotation.y=-PI/2
-	for z in [-5.70,-5.10]:solid(Vector3(3.55,2.75,z),Vector3(.025,.025,.025),look(Color("b4b4ad")))
+	for z in [-5.70,-5.10]:solid(Vector3(3.55,2.17,z),Vector3(.025,.025,.025),look(Color("b4b4ad")))
 	inventory["verified_wallpaper_panels"]=1
 
 func _physics_process(delta: float) -> void:
@@ -1389,11 +1397,50 @@ func update_baked_visibility() -> void:
 				var target=surface.get_meta("live_cutaway")
 				surface.visible=target.get_parent().get_child(1).is_visible_in_tree() if target.get_parent() is StaticBody3D and target.get_parent() in casings else target.is_visible_in_tree()
 
+## Give one of the room's own meshes the brightness the bake preparation kept for it: `kept`
+## is [is a work, then a PackedByteArray for each surface, a byte a vertex, `top` at 255].
+## A mesh whose vertices no longer match what was baked is left as it was built.
+func shade_from_bake(target:MeshInstance3D,kept:Array,top:float,plain_tint:Color) -> void:
+	var lit:=ArrayMesh.new()
+	for surface in target.mesh.get_surface_count():
+		var arrays:Array=target.mesh.surface_get_arrays(surface)
+		var bytes:PackedByteArray=kept[surface+1] if surface+1<kept.size() else PackedByteArray()
+		if bytes.size()!=arrays[Mesh.ARRAY_VERTEX].size():return
+		var colors:=PackedColorArray()
+		colors.resize(bytes.size())
+		for i in bytes.size():
+			var shade:float=bytes[i]/255.0*top
+			colors[i]=Color(shade,shade,shade)
+		arrays[Mesh.ARRAY_COLOR]=colors
+		lit.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES,arrays)
+		lit.surface_set_material(surface,target.mesh.surface_get_material(surface))
+	target.mesh=lit
+	var own=target.material_override
+	if own is ShaderMaterial and own.shader.resource_path.ends_with("/ps1.gdshader"):
+		own=own.duplicate()
+		own.set_shader_parameter("use_vertex_color",true)
+		target.material_override=own
+	elif own is ShaderMaterial and own.shader.resource_path.ends_with("floor_oak.gdshader"):
+		# A floor outside the lightmap (a room the bake leaves out): the oak's tone, plain.
+		var boards:=look(Color(OAK_TONE),"",true)
+		boards.vertex_color_use_as_albedo=true
+		target.material_override=boards
+	elif own==null or own is BaseMaterial3D:
+		var skin:BaseMaterial3D=StandardMaterial3D.new() if own==null else own.duplicate()
+		skin.shading_mode=BaseMaterial3D.SHADING_MODE_UNSHADED
+		skin.vertex_color_use_as_albedo=true
+		# A work's mount or plain-coloured part has no photograph's light in it: it takes the lamps' warmth.
+		if kept[0] and skin.albedo_texture==null:skin.albedo_color*=plain_tint
+		target.material_override=skin
+
 func load_bake() -> void:
 	if has_meta("bake_preparing"):return
 	if not ResourceLoader.exists("res://modules/shell/collection_rooms/addition_baked/room.tres"):
 		return
-	var bake=load("res://modules/shell/collection_rooms/addition_baked/room.tscn").instantiate()
+	var saved=load("res://modules/shell/collection_rooms/addition_baked/room.tscn")
+	if has_meta("build_gate"):await get_meta("build_gate")
+	var bake=saved.instantiate()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Retain authored collision and cutaway ownership; reuse saved native UV2 meshes/materials.
 	var by_name={}
 	for mesh in find_children("*","MeshInstance3D",true,false):
@@ -1401,6 +1448,10 @@ func load_bake() -> void:
 			by_name[mesh.name]=mesh
 	for source in bake.get_children():
 		if source is MeshInstance3D:
+			# remodel_bake.gd's shadow boxes: they cast in the bake and are never drawn.
+			if source.has_meta("shadow_proxy"):
+				source.hide()
+				continue
 			var keys=source.get_meta("source_paths",[])
 			if not keys.is_empty():
 				for name in keys:
@@ -1416,7 +1467,14 @@ func load_bake() -> void:
 			# takes the original baked node; hiding follows the original cutaway visual.
 			target.layers=2
 			source.set_meta("live_cutaway",target)
+	# Works and the finest detail are not in the baked scene (remodel_bake.gd): the room's own
+	# mesh is drawn, unshaded, at the one brightness a vertex the bake preparation kept for it.
+	# One mesh at a time, so a build that is spread over several frames can call it as each exists.
+	var shades:Dictionary=bake.get_meta("vertex_shades",{})
+	for key in shades:
+		if by_name.has(key):shade_from_bake(by_name[key],shades[key],bake.get_meta("shade_top",1.2),bake.get_meta("plain_tint",Color.WHITE))
 	camera.cull_mask=1
+	if has_meta("build_gate"):await get_meta("build_gate")
 	add_child(bake)
 	for child in get_children():
 		if child is DirectionalLight3D: child.hide()
@@ -1562,7 +1620,7 @@ func build_adjacent_gallery() -> void:
 	# kept as authored and stays unaccepted until the gallery is fitted.
 	# #238: the dress case and the secretary take the corner first (6385 2..21s), then the Piranesi;
 	# the Delacroix follows them. By wall order and catalogue widths, not measured.
-	painting.position=Vector3(-3.485,1.75,6.85)
+	painting.position=Vector3(-3.485,1.60,6.85)
 	painting.rotation.y=PI/2
 	painting.set_meta("catalogue_accession","35.786")
 	# The secretary (catalogue data, already in the room) clears the dress case in the corner.
@@ -1571,10 +1629,10 @@ func build_adjacent_gallery() -> void:
 	var fetti:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/fetti-frame-geometry.json"))
 	var angels:=Painting.new()
 	add_child(angels)
-	angels.build_framed(load("res://modules/shell/collection_rooms/assets/fetti-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px)
+	angels.build_framed(load("res://modules/shell/collection_rooms/assets/fetti-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-36.003.jpg"),Vector2(.781,.895),fetti.margins_px,[.105,.105,.105,.105])
 	# #238: 11.1m from the south wall, was 19.3m (camera solve of 6384..6386 scaled by this frame
 	# and the Tironi's; docs/evidence/museum-238/european-west/NOTES.md). Provisional.
-	angels.position=Vector3(-3.485,1.8,16.96)
+	angels.position=Vector3(-3.485,1.53,16.96)
 	angels.rotation.y=PI/2
 	angels.set_meta("catalogue_accession","36.003")
 	# IMG_6386 44.5/67.5s: nothing stands out of this wall but the one white display panel on the
@@ -1592,7 +1650,7 @@ func build_adjacent_gallery() -> void:
 	add_child(goltzius)
 	goltzius.build_framed(load("res://modules/shell/collection_rooms/assets/goltzius-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-61.006.jpg"),Vector2(.345,.510),data.margins_px)
 	# #238: 6.1m from the south wall, was 13.4m (same solve). Provisional.
-	goltzius.position=Vector3(-3.485,1.75,22.01)
+	goltzius.position=Vector3(-3.485,1.64,22.01)
 	goltzius.rotation.y=PI/2
 	goltzius.set_meta("catalogue_accession","61.006")
 	inventory["verified_paintings"]=5
@@ -1644,7 +1702,7 @@ func stone_asset(kind:String,at:Vector3,yaw:float) -> void:
 		if q.all(func(p):return int(p[2])==1):front.append(q)
 		elif q.all(func(p):return int(p[2])==0):back.append(q)
 		else:sides.append(q)
-	for spec in [[front,look(Color("53545b"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png") if kind=="romanesque-portal" else look(Color("e3e2de"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
+	for spec in [[front,wall_paint("dark medieval room") if kind=="romanesque-portal" else wall_paint("light Renaissance room")],[back,look(Color("7c8ca3")) if kind=="romanesque-portal" else look(Color("53545b"),"res://modules/shell/collection_rooms/presentation/neutral-plaster.png")],[sides,look(Color("53545b"))]]:
 		var fill:=MeshInstance3D.new()
 		fill.mesh=stone_mesh(data,spec[0],.13)
 		fill.material_override=spec[1]
@@ -1685,9 +1743,12 @@ func build_sculpture_rooms() -> void:
 			shaft.position=Vector3(.49+offset,1.125,22.515+side*.62)
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# The native close shots show exposed panel outlines on grey mounts, not added frames.
-	# ponytail: offsets follow reciprocal wides; absolute wall metres and mounting heights remain provisional.
-	for spec in [["20.207",Vector3(.70,1.55,20.75),PI/2],["57.301",Vector3(.70,1.55,19.53),PI/2],["22.047",Vector3(2.00,1.55,19.05),0.0]]:
+	# Heights and the west pair's spacing are measured (#266): IMG_6382 65.5, 68.0 and 74.0 s, each wall
+	# rectified from the panel's own catalogue size. Centres 1.40 m (west) and 1.37 m (north), +-0.06;
+	# the west pair 0.87 m centre to centre, 57.301 0.70 m from the north-west corner.
+	for spec in [["20.207",Vector3(.70,1.40,20.40),PI/2],["57.301",Vector3(.70,1.40,19.53),PI/2],["22.047",Vector3(2.00,1.37,19.05),0.0]]:
 		var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/panel-"+spec[0]+".json"))
 		var mount:=Node3D.new()
 		mount.name="MedievalPanel"+str(spec[0]).replace(".","_")
@@ -1704,7 +1765,7 @@ func build_sculpture_rooms() -> void:
 		art.build_shaped(load("res://modules/shell/collection_rooms/assets/painting-"+spec[0]+".jpg"),size,data.outline,Color("674d29"))
 		assert(art.get_child_count()==2 and art.outer==size)
 	# North-wall display projection and vents are visible in6382 85.25..87.25s.
-	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),look(Color("53545b")))
+	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),wall_paint("dark medieval room"))
 	var screen:=solid(Vector3(3.05,2.8,19.104),Vector3(.44,.90,.015),look(Color("0a0a0b")))
 	screen.reparent(projection)
 	for spec in [[Vector3(1.75,3.82,19.06),Vector2(1.35,.16)],[Vector3(1.46,.45,19.06),Vector2(.48,.24)]]:
@@ -1727,6 +1788,7 @@ func build_sculpture_rooms() -> void:
 	# IMG_6383 61.25..64.75s: the central bench, a grey tufted seat on a dark frame. Its length and
 	# width are the earlier builder's by-eye reading; nothing is measured.
 	bench(Vector3(-2.75,0,22.4),1.65,.55,.46,3,2)
+	if has_meta("build_gate"):await get_meta("build_gate")
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
 	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
@@ -1744,14 +1806,18 @@ func build_sculpture_rooms() -> void:
 	# The same frame puts the cap's top at 0.44 m (+-5 cm), under the window sill; the figure stands
 	# on the riser at 0.48 m and the hood's top is 1.89 m (both were 0.20 m higher).
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,.44,1.89,Vector3(1,0,0))
+	var roch_deck:=.44
+	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,roch_deck,1.89,Vector3(1,0,0))
 	roch_plinth.set_meta("saint_roch_installation",true)
 	for part in roch_plinth.get_children():
 		if part.has_meta("floor_case_part"):part.set_meta("saint_roch_plinth_step",part.get_meta("floor_case_part"))
-	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
-	add_child(roch)
-	roch.position=roch_at+Vector3(0,.48,0)
-	roch.rotation.y=PI/2
+	# A real mesh (#263) at the same point, turn and catalogue height; saint_roch_asset.gd's blocks are no longer built.
+	var roch:=place_mesh("res://modules/shell/collection_rooms/assets/additions/renaissance/roch-21398.glb",roch_at+Vector3(0,roch_deck+FLOOR_CASE_RISE,0),PI/2,Vector3(0,SaintRoch.HEIGHT,0),"21.398")
+	roch.name="SaintRoch21398"
+	roch.set_meta("catalogue_medium","wood with polychromy")
+	roch.set_meta("height_m",SaintRoch.HEIGHT)
+	roch.set_meta("left_side_source","none: front and back from official photographs; the left profile is inferred")
+	for flag in ["survey_metres_accepted","placement_accepted","rear_fidelity_accepted","visual_fidelity_accepted"]:roch.set_meta(flag,false)
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
 	inventory["saint_roch"]={"accession":"21.398","height_m":1.054,"closed_solid_prototype":true,"muse_sheet_used":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
@@ -1761,9 +1827,10 @@ func build_sculpture_rooms() -> void:
 	var triptych_case:=solid(triptych_at+Vector3(0,1.025,.24),Vector3(.92,.11,.48),white,true)
 	triptych_case.set_meta("triptych_wall_case",true)
 	_renaissance_triptych_case=triptych_case
+	if has_meta("build_gate"):await get_meta("build_gate")
 	var triptych:=Triptych.build()
 	add_child(triptych)
-	triptych.position=triptych_at+Vector3(0,1.08,0)
+	triptych.position=triptych_at+Vector3(0,1.18,0)
 	triptych.reparent(triptych_case)
 	for spec in [[Vector3(-.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(0,1.50,.48),Vector3(.92,.84,.012)],[Vector3(0,1.50,0),Vector3(.92,.84,.012)],[Vector3(0,1.92,.24),Vector3(.92,.012,.48)]]:
 		var pane:=solid(triptych_at+spec[0],spec[1],roch_glass)
@@ -1781,23 +1848,29 @@ func build_sculpture_rooms() -> void:
 	var pieta_case:=solid(pieta_at+Vector3(0,1.025,0),Vector3(.38,.11,.65),white,true)
 	pieta_case.set_meta("pieta_wall_case",true)
 	_renaissance_pieta_case=pieta_case
-	var pieta:=Pieta.build()
-	add_child(pieta)
-	pieta.position=pieta_at+Vector3(0,1.08,0)
-	pieta.rotation.y=PI/2
+	var pieta_deck:=1.08
+	# A real mesh (#263) at the same point, turn and catalogue size; pieta_asset.gd's blocks are no longer built.
+	var pieta:=place_mesh("res://modules/shell/collection_rooms/assets/additions/renaissance/pieta-59128.glb",pieta_at+Vector3(0,pieta_deck+WALL_CASE_RISE,0),PI/2,Pieta.SIZE,"59.128")
+	pieta.name="Pieta59128"
+	pieta.set_meta("catalogue_medium","linden wood")
+	pieta.set_meta("dating","unresolved: API 1480-1510, case label and page ca. 1515-1525")
+	pieta.set_meta("rear_source","none: no photograph of the back or a side exists; the flat back is inferred")
+	for flag in ["survey_metres_accepted","placement_accepted","rear_fidelity_accepted","visual_fidelity_accepted","whole_room_complete"]:pieta.set_meta(flag,false)
 	pieta.reparent(pieta_case)
-	for spec in [[Vector3(-.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(0,1.43,-.325),Vector3(.38,.70,.012)],[Vector3(0,1.43,.325),Vector3(.38,.70,.012)],[Vector3(0,1.78,0),Vector3(.38,.012,.65)]]:
+	for spec in [[Vector3(-.19,1.525,0),Vector3(.012,.89,.65)],[Vector3(.19,1.525,0),Vector3(.012,.89,.65)],[Vector3(0,1.525,-.325),Vector3(.38,.89,.012)],[Vector3(0,1.525,.325),Vector3(.38,.89,.012)],[Vector3(0,1.97,0),Vector3(.38,.012,.65)]]:
 		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)
 		pane.reparent(pieta_case)
-	# IMG_6383 24.6s: the same hood and rail; the label under the work, about 0.27 m.
+	# IMG_6383 24.6s: the same hood and riser; the label under the work, about 0.27 m. The hood
+	# is 0.89 m tall there, a third of a metre clear above the figure.
 	var pieta_frame:=Node3D.new()
 	add_child(pieta_frame)
 	pieta_frame.position=pieta_at+Vector3(-.19,0,0)
 	pieta_frame.rotation.y=PI/2
 	pieta_frame.reparent(pieta_case)
-	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.78,[[0.0,.27]])
+	wall_case_fittings(pieta_frame,.65,.38,.97,pieta_deck,1.97,[[0.0,.27]])
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
+	if has_meta("build_gate"):await get_meta("build_gate")
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
 	var platform:=plinth(Vector3(-3.10,0,24.415),Vector3(4.30,.16,.95))
 	platform.set_meta("renaissance_textile_platform",true)
@@ -1958,13 +2031,13 @@ func build_lion_modern_rooms() -> void:
 	var pumpkin:=Painting.new()
 	add_child(pumpkin)
 	var pumpkin_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/matisse-frame-geometry.json"))
-	pumpkin.build_framed(load("res://modules/shell/collection_rooms/assets/matisse-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-57.037.jpg"),Vector2(.645,.800),pumpkin_frame.margins_px)
-	pumpkin.position=Vector3(12.0,1.65,22.38)
+	pumpkin.build_framed(load("res://modules/shell/collection_rooms/assets/matisse-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-57.037.jpg"),Vector2(.645,.800),pumpkin_frame.margins_px,[.135,.135,.135,.135])
+	pumpkin.position=Vector3(12.0,1.54,22.38)
 	pumpkin.set_meta("catalogue_accession","57.037")
 	var landscape:=Painting.new()
 	add_child(landscape)
 	var landscape_frame:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/collection_rooms/assets/cezanne-frame-geometry.json"))
-	landscape.build_framed(load("res://modules/shell/collection_rooms/assets/cezanne-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-43.255.jpg"),Vector2(.737,.610),landscape_frame.margins_px)
+	landscape.build_framed(load("res://modules/shell/collection_rooms/assets/cezanne-frame.png"),load("res://modules/shell/collection_rooms/assets/painting-43.255.jpg"),Vector2(.737,.610),landscape_frame.margins_px,[.14,.14,.14,.14])
 	landscape.position=Vector3(13.65,1.65,22.38)
 	landscape.set_meta("catalogue_accession","43.255")
 	var villon:=Painting.new()
@@ -2177,7 +2250,7 @@ func build_gabled_frame() -> void:
 	assert(signed_volume>0 and abs(signed_volume-front_area*float(data.depth_m))<.000001)
 	var frame:=Painting.new()
 	frame.name="MagdaleneGabledFrame"
-	frame.position=Vector3(1.18,1.55,19.05)
+	frame.position=Vector3(1.18,1.37,19.05)
 	add_child(frame)
 	for group in [front,rest]:
 		frame._mesh(func(st:SurfaceTool) -> void:
@@ -2187,7 +2260,7 @@ func build_gabled_frame() -> void:
 					var p:Array=data.points_px[i%count]
 					st.set_uv(Vector2(p[0]/data.source_size_px[0],p[1]/data.source_size_px[1]))
 					st.add_vertex(vertices[i]),Painting.mat(load("res://modules/shell/collection_rooms/assets/magdalene-frame.png")) if group==front else look(Color("7c6038")))
-	var support:=solid(Vector3(1.18,1.55,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
+	var support:=solid(Vector3(1.18,1.37,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
 	support.name="MagdaleneGreySupport"
 	var art:=Painting.new()
 	frame.add_child(art)
@@ -2232,7 +2305,7 @@ func build_renaissance_east_cases() -> void:
 		backing.position=Vector3(0,1.53,.018)
 		wall_case_fittings(display,1.20,.56,.97,1.08,1.98,[[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]])
 		if row[0]=="A":
-			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.08,.32)],["bookcover",Vector3(-.16,1.08,.35)],["emblem",Vector3(.12,1.08,.30)],["albarello",Vector3(.45,1.08,.30)]]:
+			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.18,.32)],["bookcover",Vector3(-.16,1.18,.35)],["emblem",Vector3(.12,1.18,.30)],["albarello",Vector3(.45,1.18,.30)]]:
 				var art:=RenaissanceA.on_display(spec[0],images,Painting.mat)
 				display.add_child(art)
 				art.position=spec[1]
@@ -2240,7 +2313,7 @@ func build_renaissance_east_cases() -> void:
 				if spec[0]=="cleric":art.set_meta("frame_texture","source-guided Muse study, source-band fit; provisional")
 				if spec[0]=="bookcover":art.rotation.y=.28
 		else:
-			for spec in [["plate_46391",Vector3(-.27,1.55,.027),0.0],["plate_57302",Vector3(.22,1.55,.027),0.0],["roundel_51105",Vector3(-.38,1.14,.34),-.95],["glass_201729",Vector3(0,1.20,.29),-.15],["plaque_34024",Vector3(.40,1.15,.34),-.72]]:
+			for spec in [["plate_46391",Vector3(-.27,1.55,.027),0.0],["plate_57302",Vector3(.22,1.55,.027),0.0],["roundel_51105",Vector3(-.38,1.24,.34),-.95],["glass_201729",Vector3(0,1.30,.29),-.15],["plaque_34024",Vector3(.40,1.25,.34),-.72]]:
 				var art:=RenaissanceB.build(spec[0],"res://modules/shell/collection_rooms/assets/renaissance-case-b/textures/")
 				display.add_child(art)
 				art.position=spec[1]
@@ -2249,7 +2322,7 @@ func build_renaissance_east_cases() -> void:
 				if spec[0] in ["roundel_51105","plaque_34024"]:
 					var mount:=solid(Vector3.ZERO,Vector3(.12,.018,.10),white)
 					mount.reparent(display,false)
-					mount.position=Vector3(spec[1].x,1.09,.34)
+					mount.position=Vector3(spec[1].x,1.19,.34)
 					mount.rotation.x=-.28
 	inventory["renaissance_case_objects"]={"case_a":6,"case_b":5,"probable":["34.024"],"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 
@@ -2261,7 +2334,7 @@ func build_renaissance_wall_art() -> void:
 	glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 	glass.cull_mode=BaseMaterial3D.CULL_DISABLED
 	glass.roughness=.18
-	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.22,24.10),PI/2,"west"]]:
+	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.52,24.10),PI/2,"west"]]:
 		var art:=RenaissanceWall.build(row[0])
 		add_child(art)
 		art.position=row[1]

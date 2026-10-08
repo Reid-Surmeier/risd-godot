@@ -209,32 +209,6 @@
       ]
     },
     {
-      "label": "Skylight Gallery",
-      "color": "81735c",
-      "vertices": [
-        [
-          0.35000000000000053,
-          0,
-          -10.76
-        ],
-        [
-          9.85,
-          0,
-          -10.76
-        ],
-        [
-          9.85,
-          0,
-          -5.76
-        ],
-        [
-          0.35000000000000053,
-          0,
-          -5.76
-        ]
-      ]
-    },
-    {
       "label": "landing north floor",
       "color": "81735c",
       "vertices": [
@@ -251,12 +225,12 @@
         [
           16.15,
           0,
-          33.715
+          32.215
         ],
         [
           10.55,
           0,
-          33.715
+          32.215
         ]
       ]
     },
@@ -313,28 +287,132 @@
       ]
     },
     {
-      "label": "modern adjoining gallery threshold study limit",
+      "label": "Impressionist gallery B",
       "color": "81735c",
       "vertices": [
         [
-          15.1,
+          10.55,
           0,
-          20.7
+          12.7
         ],
         [
-          16.4,
+          16.7,
           0,
-          20.7
+          12.7
         ],
         [
-          16.4,
+          16.7,
           0,
           22.3
         ],
         [
-          15.1,
+          10.55,
           0,
           22.3
+        ]
+      ]
+    },
+    {
+      "label": "Impressionist passage",
+      "color": "81735c",
+      "vertices": [
+        [
+          19.45,
+          0,
+          -2.86
+        ],
+        [
+          21.45,
+          0,
+          -2.86
+        ],
+        [
+          21.45,
+          0,
+          1.04
+        ],
+        [
+          19.45,
+          0,
+          1.04
+        ]
+      ]
+    },
+    {
+      "label": "Impressionist gallery A",
+      "color": "81735c",
+      "vertices": [
+        [
+          10.55,
+          0,
+          3.04
+        ],
+        [
+          16.7,
+          0,
+          3.04
+        ],
+        [
+          16.7,
+          0,
+          12.7
+        ],
+        [
+          10.55,
+          0,
+          12.7
+        ]
+      ]
+    },
+    {
+      "label": "Impressionist passage return",
+      "color": "81735c",
+      "vertices": [
+        [
+          14.75,
+          0,
+          1.04
+        ],
+        [
+          21.45,
+          0,
+          1.04
+        ],
+        [
+          21.45,
+          0,
+          3.04
+        ],
+        [
+          14.75,
+          0,
+          3.04
+        ]
+      ]
+    },
+    {
+      "label": "lion west landing ear",
+      "color": "81735c",
+      "vertices": [
+        [
+          10.55,
+          0,
+          32.215
+        ],
+        [
+          11.671000000000001,
+          0,
+          32.215
+        ],
+        [
+          11.671000000000001,
+          0,
+          32.665
+        ],
+        [
+          10.55,
+          0,
+          32.665
         ]
       ]
     },
@@ -413,6 +491,240 @@
           4.550000000000001,
           0,
           -4.96
+        ]
+      ]
+    },
+    {
+      "label": "Skylight lower north floor",
+      "color": "81735c",
+      "vertices": [
+        [
+          0.35000000000000053,
+          -2.55,
+          -10.76
+        ],
+        [
+          6.9,
+          -2.55,
+          -10.76
+        ],
+        [
+          6.9,
+          -2.55,
+          -7.41
+        ],
+        [
+          0.35000000000000053,
+          -2.55,
+          -7.41
+        ]
+      ]
+    },
+    {
+      "label": "Skylight lower west floor",
+      "color": "81735c",
+      "vertices": [
+        [
+          0.35000000000000053,
+          -2.55,
+          -7.41
+        ],
+        [
+          4.200000000000001,
+          -2.55,
+          -7.41
+        ],
+        [
+          4.200000000000001,
+          -2.55,
+          -5.76
+        ],
+        [
+          0.35000000000000053,
+          -2.55,
+          -5.76
+        ]
+      ]
+    },
+    {
+      "label": "Skylight lower well floor",
+      "color": "81735c",
+      "vertices": [
+        [
+          6.9,
+          -2.55,
+          -9.48
+        ],
+        [
+          8.65,
+          -2.55,
+          -9.48
+        ],
+        [
+          8.65,
+          -2.55,
+          -7.41
+        ],
+        [
+          6.9,
+          -2.55,
+          -7.41
+        ]
+      ]
+    },
+    {
+      "label": "Skylight upper landing",
+      "color": "81735c",
+      "vertices": [
+        [
+          4.200000000000001,
+          0,
+          -7.41
+        ],
+        [
+          6.9,
+          0,
+          -7.41
+        ],
+        [
+          6.9,
+          0,
+          -5.76
+        ],
+        [
+          4.200000000000001,
+          0,
+          -5.76
+        ]
+      ]
+    },
+    {
+      "label": "Skylight upper ramp",
+      "color": "81735c",
+      "vertices": [
+        [
+          6.9,
+          0,
+          -7.41
+        ],
+        [
+          8.65,
+          -0.7083333333333333,
+          -7.41
+        ],
+        [
+          8.65,
+          -0.7083333333333333,
+          -5.76
+        ],
+        [
+          6.9,
+          0,
+          -5.76
+        ]
+      ]
+    },
+    {
+      "label": "Skylight south-east quarter landing",
+      "color": "81735c",
+      "vertices": [
+        [
+          8.65,
+          -0.7083333333333333,
+          -7.41
+        ],
+        [
+          9.85,
+          -0.7083333333333333,
+          -7.41
+        ],
+        [
+          9.85,
+          -0.7083333333333333,
+          -5.76
+        ],
+        [
+          8.65,
+          -0.7083333333333333,
+          -5.76
+        ]
+      ]
+    },
+    {
+      "label": "Skylight east ramp",
+      "color": "81735c",
+      "vertices": [
+        [
+          8.65,
+          -1.7,
+          -9.48
+        ],
+        [
+          9.85,
+          -1.7,
+          -9.48
+        ],
+        [
+          9.85,
+          -0.7083333333333333,
+          -7.41
+        ],
+        [
+          8.65,
+          -0.7083333333333333,
+          -7.41
+        ]
+      ]
+    },
+    {
+      "label": "Skylight north-east quarter landing",
+      "color": "81735c",
+      "vertices": [
+        [
+          8.65,
+          -1.7,
+          -10.76
+        ],
+        [
+          9.85,
+          -1.7,
+          -10.76
+        ],
+        [
+          9.85,
+          -1.7,
+          -9.48
+        ],
+        [
+          8.65,
+          -1.7,
+          -9.48
+        ]
+      ]
+    },
+    {
+      "label": "Skylight lower ramp",
+      "color": "81735c",
+      "vertices": [
+        [
+          6.9,
+          -2.55,
+          -10.76
+        ],
+        [
+          8.65,
+          -1.7,
+          -10.76
+        ],
+        [
+          8.65,
+          -1.7,
+          -9.48
+        ],
+        [
+          6.9,
+          -2.55,
+          -9.48
         ]
       ]
     }
@@ -1614,12 +1926,12 @@
       [
         13.35,
         0.25,
-        32.7
+        31.6
       ],
       [
         13.35,
         0,
-        34.6
+        33.1
       ],
       true
     ],
@@ -1628,12 +1940,12 @@
       [
         11.15,
         0.25,
-        32.9
+        31.6
       ],
       [
         11.15,
         0,
-        34.6
+        33.1
       ],
       true
     ],
@@ -1642,14 +1954,546 @@
       [
         15.55,
         0.25,
-        32.9
+        31.6
       ],
       [
         15.55,
         0,
-        34.6
+        33.1
       ],
       true
+    ],
+    [
+      "impressionist_stair_inner_out",
+      [
+        16.85,
+        0.25,
+        -1.96
+      ],
+      [
+        19.05,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "impressionist_stair_inner_back",
+      [
+        19.05,
+        0.25,
+        -1.96
+      ],
+      [
+        16.85,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "impressionist_stair_outer_out",
+      [
+        19.05,
+        0.25,
+        -1.96
+      ],
+      [
+        20.45,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "impressionist_stair_outer_back",
+      [
+        20.45,
+        0.25,
+        -1.96
+      ],
+      [
+        19.05,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "impressionist_passage_return_out",
+      [
+        20.45,
+        0.25,
+        0.4
+      ],
+      [
+        20.45,
+        0,
+        1.8
+      ],
+      false
+    ],
+    [
+      "impressionist_passage_return_back",
+      [
+        20.45,
+        0.25,
+        1.8
+      ],
+      [
+        20.45,
+        0,
+        0.4
+      ],
+      false
+    ],
+    [
+      "impressionist_return_A_out",
+      [
+        15.75,
+        0.25,
+        2.25
+      ],
+      [
+        15.75,
+        0,
+        3.85
+      ],
+      false
+    ],
+    [
+      "impressionist_return_A_back",
+      [
+        15.75,
+        0.25,
+        3.85
+      ],
+      [
+        15.75,
+        0,
+        2.25
+      ],
+      false
+    ],
+    [
+      "impressionist_A_B_out",
+      [
+        15.75,
+        0.25,
+        11.85
+      ],
+      [
+        15.75,
+        0,
+        13.55
+      ],
+      false
+    ],
+    [
+      "impressionist_A_B_back",
+      [
+        15.75,
+        0.25,
+        13.55
+      ],
+      [
+        15.75,
+        0,
+        11.85
+      ],
+      false
+    ],
+    [
+      "impressionist_route_00_out",
+      [
+        20.45,
+        0.25,
+        -1.96
+      ],
+      [
+        20.45,
+        0,
+        0.4
+      ],
+      false
+    ],
+    [
+      "impressionist_route_00_back",
+      [
+        20.45,
+        0.25,
+        0.4
+      ],
+      [
+        20.45,
+        0,
+        -1.96
+      ],
+      false
+    ],
+    [
+      "impressionist_route_01_out",
+      [
+        20.45,
+        0.25,
+        0.4
+      ],
+      [
+        20.45,
+        0,
+        2.04
+      ],
+      false
+    ],
+    [
+      "impressionist_route_01_back",
+      [
+        20.45,
+        0.25,
+        2.04
+      ],
+      [
+        20.45,
+        0,
+        0.4
+      ],
+      false
+    ],
+    [
+      "impressionist_route_02_out",
+      [
+        20.45,
+        0.25,
+        2.04
+      ],
+      [
+        18.25,
+        0,
+        2.04
+      ],
+      false
+    ],
+    [
+      "impressionist_route_02_back",
+      [
+        18.25,
+        0.25,
+        2.04
+      ],
+      [
+        20.45,
+        0,
+        2.04
+      ],
+      false
+    ],
+    [
+      "impressionist_route_03_out",
+      [
+        18.25,
+        0.25,
+        2.04
+      ],
+      [
+        15.75,
+        0,
+        2.04
+      ],
+      false
+    ],
+    [
+      "impressionist_route_03_back",
+      [
+        15.75,
+        0.25,
+        2.04
+      ],
+      [
+        18.25,
+        0,
+        2.04
+      ],
+      false
+    ],
+    [
+      "impressionist_route_04_out",
+      [
+        15.75,
+        0.25,
+        2.04
+      ],
+      [
+        15.75,
+        0,
+        3.85
+      ],
+      false
+    ],
+    [
+      "impressionist_route_04_back",
+      [
+        15.75,
+        0.25,
+        3.85
+      ],
+      [
+        15.75,
+        0,
+        2.04
+      ],
+      false
+    ],
+    [
+      "impressionist_route_05_out",
+      [
+        15.75,
+        0.25,
+        3.85
+      ],
+      [
+        14.85,
+        0,
+        6.2
+      ],
+      false
+    ],
+    [
+      "impressionist_route_05_back",
+      [
+        14.85,
+        0.25,
+        6.2
+      ],
+      [
+        15.75,
+        0,
+        3.85
+      ],
+      false
+    ],
+    [
+      "impressionist_route_06_out",
+      [
+        14.85,
+        0.25,
+        6.2
+      ],
+      [
+        14.85,
+        0,
+        9.2
+      ],
+      false
+    ],
+    [
+      "impressionist_route_06_back",
+      [
+        14.85,
+        0.25,
+        9.2
+      ],
+      [
+        14.85,
+        0,
+        6.2
+      ],
+      false
+    ],
+    [
+      "impressionist_route_07_out",
+      [
+        14.85,
+        0.25,
+        9.2
+      ],
+      [
+        15.75,
+        0,
+        11.85
+      ],
+      false
+    ],
+    [
+      "impressionist_route_07_back",
+      [
+        15.75,
+        0.25,
+        11.85
+      ],
+      [
+        14.85,
+        0,
+        9.2
+      ],
+      false
+    ],
+    [
+      "impressionist_route_08_out",
+      [
+        15.75,
+        0.25,
+        11.85
+      ],
+      [
+        15.75,
+        0,
+        13.55
+      ],
+      false
+    ],
+    [
+      "impressionist_route_08_back",
+      [
+        15.75,
+        0.25,
+        13.55
+      ],
+      [
+        15.75,
+        0,
+        11.85
+      ],
+      false
+    ],
+    [
+      "impressionist_route_09_out",
+      [
+        15.75,
+        0.25,
+        13.55
+      ],
+      [
+        13.25,
+        0,
+        15.7
+      ],
+      false
+    ],
+    [
+      "impressionist_route_09_back",
+      [
+        13.25,
+        0.25,
+        15.7
+      ],
+      [
+        15.75,
+        0,
+        13.55
+      ],
+      false
+    ],
+    [
+      "impressionist_route_10_out",
+      [
+        13.25,
+        0.25,
+        15.7
+      ],
+      [
+        13.25,
+        0,
+        18.7
+      ],
+      false
+    ],
+    [
+      "impressionist_route_10_back",
+      [
+        13.25,
+        0.25,
+        18.7
+      ],
+      [
+        13.25,
+        0,
+        15.7
+      ],
+      false
+    ],
+    [
+      "impressionist_route_11_out",
+      [
+        13.25,
+        0.25,
+        18.7
+      ],
+      [
+        13.25,
+        0,
+        20.65
+      ],
+      false
+    ],
+    [
+      "impressionist_route_11_back",
+      [
+        13.25,
+        0.25,
+        20.65
+      ],
+      [
+        13.25,
+        0,
+        18.7
+      ],
+      false
+    ],
+    [
+      "impressionist_route_12_out",
+      [
+        13.25,
+        0.25,
+        20.65
+      ],
+      [
+        15.75,
+        0,
+        21.45
+      ],
+      false
+    ],
+    [
+      "impressionist_route_12_back",
+      [
+        15.75,
+        0.25,
+        21.45
+      ],
+      [
+        13.25,
+        0,
+        20.65
+      ],
+      false
+    ],
+    [
+      "impressionist_route_13_out",
+      [
+        15.75,
+        0.25,
+        21.45
+      ],
+      [
+        15.75,
+        0,
+        23.25
+      ],
+      false
+    ],
+    [
+      "impressionist_route_13_back",
+      [
+        15.75,
+        0.25,
+        23.25
+      ],
+      [
+        15.75,
+        0,
+        21.45
+      ],
+      false
     ],
     [
       "grey_skylight_out",
@@ -1661,7 +2505,7 @@
       [
         5.55,
         0,
-        -7.2
+        -6.58
       ],
       false
     ],
@@ -1670,7 +2514,7 @@
       [
         5.55,
         0.25,
-        -7.2
+        -6.58
       ],
       [
         5.55,
@@ -1680,16 +2524,198 @@
       false
     ],
     [
+      "skylight_landing_east",
+      [
+        5.55,
+        0.25,
+        -6.58
+      ],
+      [
+        6.9,
+        0,
+        -6.58
+      ],
+      false
+    ],
+    [
+      "skylight_upper_down",
+      [
+        6.9,
+        0.25,
+        -6.58
+      ],
+      [
+        9.27,
+        -0.7083333333333333,
+        -6.58
+      ],
+      false
+    ],
+    [
+      "skylight_east_down",
+      [
+        9.27,
+        -0.45833333333333326,
+        -6.58
+      ],
+      [
+        9.27,
+        -1.7,
+        -10.12
+      ],
+      false
+    ],
+    [
+      "skylight_lower_down",
+      [
+        9.27,
+        -1.45,
+        -10.12
+      ],
+      [
+        6.300000000000001,
+        -2.55,
+        -10.12
+      ],
+      false
+    ],
+    [
+      "skylight_lower_aisle",
+      [
+        6.300000000000001,
+        -2.3,
+        -10.12
+      ],
+      [
+        6.300000000000001,
+        -2.55,
+        -7.86
+      ],
+      false
+    ],
+    [
+      "skylight_lower_west",
+      [
+        6.300000000000001,
+        -2.3,
+        -7.86
+      ],
+      [
+        3.5,
+        -2.55,
+        -7.86
+      ],
+      false
+    ],
+    [
+      "skylight_lower_lift",
+      [
+        3.5,
+        -2.3,
+        -7.86
+      ],
+      [
+        3.5,
+        -2.55,
+        -6.359999999999999
+      ],
+      false
+    ],
+    [
+      "skylight_lower_up",
+      [
+        6.300000000000001,
+        -2.3,
+        -10.12
+      ],
+      [
+        9.27,
+        -1.7,
+        -10.12
+      ],
+      false
+    ],
+    [
+      "skylight_east_up",
+      [
+        9.27,
+        -1.45,
+        -10.12
+      ],
+      [
+        9.27,
+        -0.7083333333333333,
+        -6.58
+      ],
+      false
+    ],
+    [
+      "skylight_upper_up",
+      [
+        9.27,
+        -0.45833333333333326,
+        -6.58
+      ],
+      [
+        6.9,
+        0,
+        -6.58
+      ],
+      false
+    ],
+    [
+      "skylight_landing_back",
+      [
+        6.9,
+        0.25,
+        -6.58
+      ],
+      [
+        5.55,
+        0,
+        -6.58
+      ],
+      false
+    ],
+    [
+      "skylight_front_guard",
+      [
+        5.55,
+        0.25,
+        -6.58
+      ],
+      [
+        5.55,
+        0,
+        -8.11
+      ],
+      true
+    ],
+    [
+      "skylight_west_guard",
+      [
+        4.850000000000001,
+        0.25,
+        -6.58
+      ],
+      [
+        3.550000000000001,
+        0,
+        -6.58
+      ],
+      true
+    ],
+    [
       "skylight_piano_blocked",
       [
-        2.6,
-        0.25,
-        -8.4
+        2.7,
+        -2.3,
+        -8.16
       ],
       [
         1.2,
-        0,
-        -9.9
+        -2.55,
+        -9.76
       ],
       true
     ]
@@ -2087,15 +3113,15 @@
         10.55,
         16.15,
         28.1,
-        37.615
+        36.115
       ],
       "height": 4.1,
       "floor": "stone-pinwheel",
       "floor_void": [
         10.55,
         16.15,
-        33.715,
-        37.615
+        32.215,
+        36.115
       ],
       "openings": {
         "west": [
@@ -2110,7 +3136,21 @@
           29.5,
           31.5
         ]
-      }
+      },
+      "floor_voids": [
+        [
+          10.55,
+          11.671000000000001,
+          32.665,
+          36.115
+        ],
+        [
+          11.671000000000001,
+          16.15,
+          32.215,
+          36.115
+        ]
+      ]
     },
     {
       "label": "purple elevator-5 connector",
@@ -2177,12 +3217,17 @@
         "west"
       ],
       "clear_heights": {
-        "west": 3.12
+        "west": 3.12,
+        "east": 2.47
       },
       "openings": {
         "west": [
           -4.96,
           1.04
+        ],
+        "east": [
+          -2.51,
+          -1.41
         ]
       },
       "height": 8.0,
@@ -2208,7 +3253,8 @@
           4.550000000000001,
           6.550000000000001
         ]
-      }
+      },
+      "floor": "skylight-two-storey"
     },
     {
       "label": "modern painting gallery",
@@ -2247,18 +3293,103 @@
       }
     },
     {
-      "label": "modern adjoining gallery threshold study limit",
+      "label": "Impressionist gallery B",
       "bounds": [
-        15.1,
-        16.4,
-        20.7,
+        10.55,
+        16.7,
+        12.7,
         22.3
       ],
+      "height": 3.5,
+      "boards_across": true,
       "openings": {
+        "north": [
+          15.2,
+          16.3
+        ],
         "south": [
           15.1,
           16.4
         ]
+      },
+      "clear_heights": {
+        "north": 2.47,
+        "south": 2.74
+      }
+    },
+    {
+      "label": "Impressionist passage",
+      "bounds": [
+        19.45,
+        21.45,
+        -2.86,
+        1.04
+      ],
+      "height": 3.2,
+      "boards_across": true,
+      "openings": {
+        "west": [
+          -2.51,
+          -1.41
+        ],
+        "south": [
+          19.75,
+          21.15
+        ]
+      },
+      "clear_heights": {
+        "west": 2.47,
+        "south": 2.74
+      }
+    },
+    {
+      "label": "Impressionist gallery A",
+      "bounds": [
+        10.55,
+        16.7,
+        3.04,
+        12.7
+      ],
+      "height": 3.69,
+      "boards_across": true,
+      "openings": {
+        "north": [
+          15.1,
+          16.4
+        ],
+        "south": [
+          15.2,
+          16.3
+        ]
+      },
+      "clear_heights": {
+        "north": 2.74,
+        "south": 2.47
+      }
+    },
+    {
+      "label": "Impressionist passage return",
+      "bounds": [
+        14.75,
+        21.45,
+        1.04,
+        3.04
+      ],
+      "height": 3.2,
+      "boards_across": true,
+      "openings": {
+        "north": [
+          19.75,
+          21.15
+        ],
+        "south": [
+          15.1,
+          16.4
+        ]
+      },
+      "clear_heights": {
+        "north": 2.74,
+        "south": 2.74
       }
     },
     {
@@ -2531,9 +3662,38 @@
     "hall_width_m": 10.0,
     "medieval_wall_width_m": 10.0
   },
+  "impressionist_fit": {
+    "source": "IMG_6343 84..228s; docs/evidence/impressionist-277/NOTES.md",
+    "fixed_stair_door": [
+      17.85,
+      -1.96
+    ],
+    "fixed_modern_door": [
+      15.75,
+      22.3
+    ],
+    "estimated_depths_m": [
+      2.0,
+      9.6,
+      8.8
+    ],
+    "longitudinal_residual_m": 3.86,
+    "fitted_depths_m": [
+      5.0,
+      9.66,
+      9.6
+    ],
+    "passage_elbow_inferred": true,
+    "passage_return_m": 4.7,
+    "windows_side": "east",
+    "first_draft_mirror_corrected": true,
+    "metric_accepted": false,
+    "lighting_owned_by": "#274",
+    "missing_works": "WORKS-NEEDED.md"
+  },
   "lion_modern_layout": {
     "source": "IMG_6387 native2.25..84.25s; reciprocal6382 stair view",
-    "stair_block": "Draft void, flights and guard translated +1.715 with the stair door; preserved shape, not a source measurement",
+    "stair_block": "Landing edge 4.115m from the lion wall; rounded guard/stringers, two visible storeys below; all metres provisional (#276)",
     "door_order": "Medieval west on the tracery axis; modern north on the adjoining wall at one inside corner, lion right of modern on that wall; white sculpture gallery on the next east wall (z provisional); stairwell south",
     "modern_wall_groups": "Entry/Braque/Villon south; large painting west off the entry jamb; pumpkin/landscape/second doorway north; two windows and sculpture case east",
     "source_review": "docs/evidence/collection-reconstruction/opus-modern-layout-review-20261001; wall order docs/evidence/collection-reconstruction/opus-landing-refit-20261001",
@@ -2543,6 +3703,68 @@
     "white_sculpture_room_interior_complete": false,
     "adjoining_room_interior_complete": false
   },
+  "impressionist_route_waypoints": [
+    [
+      20.45,
+      -1.96
+    ],
+    [
+      20.45,
+      0.4
+    ],
+    [
+      20.45,
+      2.04
+    ],
+    [
+      18.25,
+      2.04
+    ],
+    [
+      15.75,
+      2.04
+    ],
+    [
+      15.75,
+      3.85
+    ],
+    [
+      14.85,
+      6.2
+    ],
+    [
+      14.85,
+      9.2
+    ],
+    [
+      15.75,
+      11.85
+    ],
+    [
+      15.75,
+      13.55
+    ],
+    [
+      13.25,
+      15.7
+    ],
+    [
+      13.25,
+      18.7
+    ],
+    [
+      13.25,
+      20.65
+    ],
+    [
+      15.75,
+      21.45
+    ],
+    [
+      15.75,
+      23.25
+    ]
+  ],
   "hall_reveal": {
     "source": "docs/evidence/collection-reconstruction/opus-hall-reveal-builder-20261001/REPORT.md",
     "wall_m": 0.76,
@@ -2568,6 +3790,333 @@
     "opening_metres_accepted": false,
     "leaf_fidelity_accepted": false,
     "rockefeller_leaf_built": false,
+    "metric_accepted": false
+  },
+  "skylight_walk": {
+    "source": "IMG_6379 6.5/26/54/127/154.5/159.5s; docs/evidence/skylight-275/NOTES.md",
+    "lower_y": -2.55,
+    "ceiling_y": 3.9,
+    "landing": [
+      4.200000000000001,
+      6.9,
+      -7.41,
+      -5.76
+    ],
+    "turn_x": 8.65,
+    "turn_z": -9.48,
+    "risers": [
+      5,
+      7,
+      6
+    ],
+    "surfaces": [
+      {
+        "label": "Skylight lower north floor",
+        "color": "81735c",
+        "vertices": [
+          [
+            0.35000000000000053,
+            -2.55,
+            -10.76
+          ],
+          [
+            6.9,
+            -2.55,
+            -10.76
+          ],
+          [
+            6.9,
+            -2.55,
+            -7.41
+          ],
+          [
+            0.35000000000000053,
+            -2.55,
+            -7.41
+          ]
+        ]
+      },
+      {
+        "label": "Skylight lower west floor",
+        "color": "81735c",
+        "vertices": [
+          [
+            0.35000000000000053,
+            -2.55,
+            -7.41
+          ],
+          [
+            4.200000000000001,
+            -2.55,
+            -7.41
+          ],
+          [
+            4.200000000000001,
+            -2.55,
+            -5.76
+          ],
+          [
+            0.35000000000000053,
+            -2.55,
+            -5.76
+          ]
+        ]
+      },
+      {
+        "label": "Skylight lower well floor",
+        "color": "81735c",
+        "vertices": [
+          [
+            6.9,
+            -2.55,
+            -9.48
+          ],
+          [
+            8.65,
+            -2.55,
+            -9.48
+          ],
+          [
+            8.65,
+            -2.55,
+            -7.41
+          ],
+          [
+            6.9,
+            -2.55,
+            -7.41
+          ]
+        ]
+      },
+      {
+        "label": "Skylight upper landing",
+        "color": "81735c",
+        "vertices": [
+          [
+            4.200000000000001,
+            0,
+            -7.41
+          ],
+          [
+            6.9,
+            0,
+            -7.41
+          ],
+          [
+            6.9,
+            0,
+            -5.76
+          ],
+          [
+            4.200000000000001,
+            0,
+            -5.76
+          ]
+        ]
+      },
+      {
+        "label": "Skylight upper ramp",
+        "color": "81735c",
+        "vertices": [
+          [
+            6.9,
+            0,
+            -7.41
+          ],
+          [
+            8.65,
+            -0.7083333333333333,
+            -7.41
+          ],
+          [
+            8.65,
+            -0.7083333333333333,
+            -5.76
+          ],
+          [
+            6.9,
+            0,
+            -5.76
+          ]
+        ]
+      },
+      {
+        "label": "Skylight south-east quarter landing",
+        "color": "81735c",
+        "vertices": [
+          [
+            8.65,
+            -0.7083333333333333,
+            -7.41
+          ],
+          [
+            9.85,
+            -0.7083333333333333,
+            -7.41
+          ],
+          [
+            9.85,
+            -0.7083333333333333,
+            -5.76
+          ],
+          [
+            8.65,
+            -0.7083333333333333,
+            -5.76
+          ]
+        ]
+      },
+      {
+        "label": "Skylight east ramp",
+        "color": "81735c",
+        "vertices": [
+          [
+            8.65,
+            -1.7,
+            -9.48
+          ],
+          [
+            9.85,
+            -1.7,
+            -9.48
+          ],
+          [
+            9.85,
+            -0.7083333333333333,
+            -7.41
+          ],
+          [
+            8.65,
+            -0.7083333333333333,
+            -7.41
+          ]
+        ]
+      },
+      {
+        "label": "Skylight north-east quarter landing",
+        "color": "81735c",
+        "vertices": [
+          [
+            8.65,
+            -1.7,
+            -10.76
+          ],
+          [
+            9.85,
+            -1.7,
+            -10.76
+          ],
+          [
+            9.85,
+            -1.7,
+            -9.48
+          ],
+          [
+            8.65,
+            -1.7,
+            -9.48
+          ]
+        ]
+      },
+      {
+        "label": "Skylight lower ramp",
+        "color": "81735c",
+        "vertices": [
+          [
+            6.9,
+            -2.55,
+            -10.76
+          ],
+          [
+            8.65,
+            -1.7,
+            -10.76
+          ],
+          [
+            8.65,
+            -1.7,
+            -9.48
+          ],
+          [
+            6.9,
+            -2.55,
+            -9.48
+          ]
+        ]
+      }
+    ],
+    "guards": [
+      {
+        "ends": [
+          [
+            4.200000000000001,
+            0,
+            -5.76
+          ],
+          [
+            4.200000000000001,
+            0,
+            -7.41
+          ]
+        ]
+      },
+      {
+        "ends": [
+          [
+            4.200000000000001,
+            0,
+            -7.41
+          ],
+          [
+            6.9,
+            0,
+            -7.41
+          ]
+        ]
+      },
+      {
+        "ends": [
+          [
+            6.9,
+            0,
+            -7.41
+          ],
+          [
+            8.65,
+            -0.7083333333333333,
+            -7.41
+          ]
+        ]
+      },
+      {
+        "ends": [
+          [
+            8.65,
+            -0.7083333333333333,
+            -7.41
+          ],
+          [
+            8.65,
+            -1.7,
+            -9.48
+          ]
+        ]
+      },
+      {
+        "ends": [
+          [
+            8.65,
+            -1.7,
+            -9.48
+          ],
+          [
+            6.9,
+            -2.55,
+            -9.48
+          ]
+        ]
+      }
+    ],
     "metric_accepted": false
   }
 }

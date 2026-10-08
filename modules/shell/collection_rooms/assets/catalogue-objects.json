@@ -188705,6 +188705,7 @@
   "instances": [
     {
       "asset": "st-george",
+      "mesh": "additions/rockefeller/st-george-20177414.glb",
       "accession": "2017.74.14",
       "title": "St. George and the Dragon",
       "size_m": [
@@ -188728,6 +188729,7 @@
     },
     {
       "asset": "flute-player",
+      "mesh": "additions/rockefeller/flute-player-20177416.glb",
       "accession": "2017.74.16",
       "title": "The Flute Player",
       "size_m": [
@@ -188751,6 +188753,7 @@
     },
     {
       "asset": "hudibras",
+      "mesh": "additions/rockefeller/hudibras-20177417.glb",
       "accession": "2017.74.17",
       "title": "Hudibras",
       "size_m": [
@@ -189142,6 +189145,7 @@
     },
     {
       "asset": "recamier",
+      "mesh": "additions/rockefeller/recamier-37201.glb",
       "accession": "37.201",
       "title": "Bust of Madame R\u00e9camier",
       "size_m": [
