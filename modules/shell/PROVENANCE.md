@@ -1075,3 +1075,24 @@ Christ (59.131). That copy is not in the build. The check's fixture is the visit
 ## Launch geometry prepared locally (#281)
 
 `native_cpu_arrays.res` is a deterministic extraction of Hall native primitives built by walk4.gd and painting_asset.gd with Godot 4.7.2, prepared by `modules/shell/prototype/gallery_walk4/prepare_cpu_geometry.gd`. Provider: local Godot; model: none; count: one extraction; cost: $0; no paid generation. Source revision: `abf8858504a8f79fc124613bd60e8350231fd88c`. SHA-256: `d91c30dfb4d8ae71d3630103a1327fb9e49905ef30d555cb2ca1ea12e9827a9f`; size: 13962 bytes. Regenerate after changing the source geometry or face/hand skin gates. No artwork, shader appearance or animation is redesigned.
+
+
+## Skylight Gallery two-storey reconstruction (#275)
+
+Source geometry: `prototype/collection_reconstruction/skylight_additions.gd`,
+with the named Skylight block in `prepare_remodel.py` and walking adaptation
+in `main_build_walk.gd`. Reference: September IMG_6379 / IMG_6380 footage,
+HLG converted locally for measurement; catalogue canvas sizes and existing
+Skylight image sources. Provider: local Godot 4.7.2, ffmpeg and Python;
+model: none; generation API requests: 0; API cost: USD 0; three `--draft`
+rebuilds, no bake / install by this worker. Architecture uses closed built
+geometry and existing plain / procedural materials; no video architectural
+texture, new artwork image or paid service. Five pre-existing artwork images
+are reused. Source, reference clip, those five images and all nineteen small
+JPEG evidence exports have SHA-256 / size records in
+[`docs/evidence/skylight-275/SHA256.json`](../../docs/evidence/skylight-275/SHA256.json).
+Frame-scaled estimates, errors, exact source edits, route trials, side-by-side
+pictures and verification limits are in
+[`docs/evidence/skylight-275/NOTES.md`](../../docs/evidence/skylight-275/NOTES.md).
+Metric, placement and fine-fidelity acceptance remain false; baked lighting,
+Web / doorway integration and the final shared trim profile are not signed off.

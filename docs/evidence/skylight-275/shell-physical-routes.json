@@ -1,0 +1,251 @@
+{
+  "checks": {
+    "grey_skylight_back": true,
+    "grey_skylight_back_camera": true,
+    "grey_skylight_out": true,
+    "grey_skylight_out_camera": true,
+    "skylight_east_down": true,
+    "skylight_east_down_camera": true,
+    "skylight_east_up": true,
+    "skylight_east_up_camera": true,
+    "skylight_front_guard": true,
+    "skylight_front_guard_camera": true,
+    "skylight_landing_back": true,
+    "skylight_landing_back_camera": true,
+    "skylight_landing_east": true,
+    "skylight_landing_east_camera": true,
+    "skylight_lower_aisle": true,
+    "skylight_lower_aisle_camera": false,
+    "skylight_lower_down": true,
+    "skylight_lower_down_camera": true,
+    "skylight_lower_lift": true,
+    "skylight_lower_lift_camera": true,
+    "skylight_lower_up": true,
+    "skylight_lower_up_camera": true,
+    "skylight_lower_west": true,
+    "skylight_lower_west_camera": false,
+    "skylight_piano_blocked": true,
+    "skylight_piano_blocked_camera": true,
+    "skylight_upper_down": true,
+    "skylight_upper_down_camera": true,
+    "skylight_upper_up": true,
+    "skylight_upper_up_camera": true,
+    "skylight_west_guard": true,
+    "skylight_west_guard_camera": true
+  },
+  "frame_time_p50_ms": 16.6666666666667,
+  "frame_time_p95_ms": 16.6666666666667,
+  "navigation_accepted": false,
+  "render_frames": 3855,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.54999923706055,
+        0.000830120174214244,
+        -6.55583190917969
+      ],
+      "started_without_reset": false,
+      "trial": "grey_skylight_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.54999923706055,
+        0.000840320950374007,
+        -4.18083810806274
+      ],
+      "started_without_reset": true,
+      "trial": "grey_skylight_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        6.8625054359436,
+        -0.000203196716029197,
+        -6.58000087738037
+      ],
+      "started_without_reset": false,
+      "trial": "skylight_landing_east"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        9.24996566772461,
+        -0.707415163516998,
+        -6.57998275756836
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_upper_down"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        9.26985645294189,
+        -1.69909346103668,
+        -10.0980701446533
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_east_down"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        6.33712530136108,
+        -2.54916381835938,
+        -10.1197261810303
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_lower_down"
+    },
+    {
+      "camera_clear": false,
+      "casing_contact": false,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        6.30050706863403,
+        -2.54917073249817,
+        -7.8908576965332
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_lower_aisle"
+    },
+    {
+      "camera_clear": false,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        3.52982831001282,
+        -2.54916787147522,
+        -7.86032819747925
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_lower_west"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        3.50042629241943,
+        -2.54917097091675,
+        -6.38144445419312
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_lower_lift"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        9.24368667602539,
+        -1.69912171363831,
+        -10.1199817657471
+      ],
+      "started_without_reset": false,
+      "trial": "skylight_lower_up"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        9.26974391937256,
+        -0.707469701766968,
+        -6.61630535125732
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_east_up"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        6.93824863433838,
+        -0.00329973781481385,
+        -6.58050727844238
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_upper_up"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        5.58519649505615,
+        0.000815711973700672,
+        -6.58001279830933
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_landing_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 2,
+      "on_floor": true,
+      "position": [
+        5.57178068161011,
+        -0.000829154392704368,
+        -7.1631908416748
+      ],
+      "started_without_reset": true,
+      "trial": "skylight_front_guard"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 4,
+      "on_floor": true,
+      "position": [
+        4.44700145721436,
+        -0.000419581105234101,
+        -6.59437227249146
+      ],
+      "started_without_reset": false,
+      "trial": "skylight_west_guard"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        2.10024261474609,
+        -2.54905986785889,
+        -8.71010208129883
+      ],
+      "started_without_reset": false,
+      "trial": "skylight_piano_blocked"
+    }
+  ]
+}
