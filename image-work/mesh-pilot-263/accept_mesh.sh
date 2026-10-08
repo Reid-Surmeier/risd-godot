@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
-# Build one accepted mesh into modules/shell/collection_rooms/assets/meshes/<accession>/, import it with the lean
+# Build one accepted mesh into modules/shell/prototype/mesh_pilot/meshes/<accession>/, import it with the lean
 # settings, and print what it costs in the pack. Run from the repository root.
 # usage: accept_mesh.sh ACCESSION RAW.glb CUTOUT.png SIZE_PX [--no-photo] -- <prepare_mesh.py options>
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd); acc=$1; shift; name=${acc//./-}
-dir=modules/shell/collection_rooms/assets/meshes/$acc; mkdir -p "$dir"
+dir=modules/shell/prototype/mesh_pilot/meshes/$acc; mkdir -p "$dir"
 "$here/build_mesh.sh" "$1" "$2" "$dir/$name.glb" "${@:3}" | grep -E "^view|^repainted|Error|Traceback|assert" || true
 [ -f "$dir/$name.glb" ] || { echo "no mesh written"; exit 1; }
 source ~/promo-lab/gpu-env.sh; export DISPLAY=:99; godot=$HOME/.local/opt/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64

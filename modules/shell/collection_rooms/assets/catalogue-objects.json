@@ -189742,9 +189742,13 @@
     },
     {
       "asset": "apostle-41046",
-      "mesh": "meshes/41.046/41-046.glb", "accession": "41.046",
+      "accession": "41.046",
       "title": "Apostle",
-      "size_m": [0.3418, 0.86, 0.14],
+      "size_m": [
+        0.267,
+        0.826,
+        0.12
+      ],
       "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
       "position": [
         12.33,
@@ -189758,9 +189762,13 @@
     },
     {
       "asset": "apostle-41045",
-      "mesh": "meshes/41.045/41-045.glb", "accession": "41.045",
+      "accession": "41.045",
       "title": "Apostle",
-      "size_m": [0.2625, 0.86, 0.14],
+      "size_m": [
+        0.254,
+        0.864,
+        0.12
+      ],
       "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
       "position": [
         12.33,

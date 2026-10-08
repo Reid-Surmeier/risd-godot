@@ -1,9 +1,9 @@
-"""Write modules/shell/collection_rooms/assets/meshes/<accession>/PROVENANCE.md from batch/objects.json and the
+"""Write modules/shell/prototype/mesh_pilot/meshes/<accession>/PROVENANCE.md from batch/objects.json and the
 mesh's own record. usage: write_provenance.py ACCESSION [NOTE]   (run from the repository root)"""
 import sys, json, hashlib, os
 acc = sys.argv[1]; note = sys.argv[2] if len(sys.argv) > 2 else ""
 here = os.path.dirname(os.path.abspath(__file__)); o = json.load(open(f"{here}/batch/objects.json"))[acc]
-d = f"modules/shell/collection_rooms/assets/meshes/{acc}"; name = acc.replace(".", "-"); r = json.load(open(f"{d}/{name}.json"))
+d = f"modules/shell/prototype/mesh_pilot/meshes/{acc}"; name = acc.replace(".", "-"); r = json.load(open(f"{d}/{name}.json"))
 sha = lambda p: hashlib.sha256(open(p, "rb").read()).hexdigest()
 out, imp, run = r["out"], r["imported"], o["run"]; w, h, dep = out["size_m_width_height_depth"]
 rows = [("Source", f"the museum's catalogue photograph, `{o['source']}` (see the `SOURCES.md` beside it)", "—", "—"),

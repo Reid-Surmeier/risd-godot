@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 # One batch object after its Tripo Multi-View run finished: steps 4 to 11 of RECIPE.md, unshaded batch size.
 # usage: finish_object.sh ACCESSION GLB_URL CHARGED SETTING(floor|plinth|wall) SIZE_PX "view:turns:weight ..." -- <clay_mesh.py size options>
-# Writes the mesh to modules/shell/collection_rooms/assets/meshes/<accession>/ (replacing what is there), a sheet to
+# Writes the mesh to modules/shell/prototype/mesh_pilot/meshes/<accession>/ (replacing what is there), a sheet to
 # docs/evidence/mesh-pilot-263/batch/<accession>.jpg, and PROVENANCE.md. Run from the repository root.
 set -euo pipefail
 here=$(cd "$(dirname "$0")" && pwd); acc=$1; url=$2; charged=$3; setting=$4; size=$5; specs=$6; shift 7; name=${acc//./-}
-d=$here/batch/$acc; tmp=/tmp/mp263/batch/$name; mkdir -p "$tmp" docs/evidence/mesh-pilot-263/batch; dir=modules/shell/collection_rooms/assets/meshes/$acc
+d=$here/batch/$acc; tmp=/tmp/mp263/batch/$name; mkdir -p "$tmp" docs/evidence/mesh-pilot-263/batch; dir=modules/shell/prototype/mesh_pilot/meshes/$acc
 B=~/apps/blender-5.2.2/blender-5.2.2-linux-x64/blender; source ~/promo-lab/gpu-env.sh; export DISPLAY=:99; godot=$HOME/.local/opt/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64
 [ -f "$tmp/low.glb" ] || { curl -sS -m 600 -o "$tmp/raw.glb" "$url"; rawsha=$(sha256sum "$tmp/raw.glb" | cut -c1-64); echo "$rawsha" > "$tmp/raw.sha256"; }
 [ -z "${PLAIN:-}" ] && for spec in $specs; do v=${spec%%:*}; python3 "$here/cut_photo.py" "$d/flat-$v.png" "$d/flat-$v-cut.png" 0,0,0,0 --key-white 14 >/dev/null; done

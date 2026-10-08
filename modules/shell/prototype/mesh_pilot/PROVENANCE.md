@@ -60,4 +60,4 @@ Tripo H3.1 prices quoted that day (texture on, PBR off): 0.36 USD standard, 0.48
 
 Pilot total: 1.416 USD charged by Flora, plus the unconfirmed 0.01 USD Muse ceiling.
 
-Free steps added: `project_photo.py` lays the catalogue photograph over the front of a mesh; `build_mesh.sh` and `accept_mesh.sh` chain it with the clean-up and the import. The accepted meshes of both objects are in `modules/shell/collection_rooms/assets/meshes/`; the three GLBs in this folder are the pass-1 Trellis meshes, kept for the comparison.
+Free steps added: `project_photo.py` lays the catalogue photograph over the front of a mesh; `build_mesh.sh` and `accept_mesh.sh` chain it with the clean-up and the import. The accepted meshes of both objects are in `modules/shell/prototype/mesh_pilot/meshes/`; the three GLBs in this folder are the pass-1 Trellis meshes, kept for the comparison.

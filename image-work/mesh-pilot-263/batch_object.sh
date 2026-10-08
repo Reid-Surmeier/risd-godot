@@ -18,7 +18,7 @@ json.dump(o, open(f, "w"), indent=1, ensure_ascii=False); open(f, "a").write("\n
 P
 python3 "$here/write_provenance.py" "$acc" "$note"
 source ~/promo-lab/gpu-env.sh; export DISPLAY=:99; godot=$HOME/.local/opt/godot-4.7.2/Godot_v4.7.2-stable_linux.x86_64
-for v in front threequarter side; do timeout 120 "$godot" --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- "res://modules/shell/collection_rooms/assets/meshes/$acc/$name.glb" "$setting" $v "/tmp/mp263/batch/$name-$v.png" 2>&1 | grep -E "ERROR|SCRIPT" | head -2 || true; done
+for v in front threequarter side; do timeout 120 "$godot" --path . --rendering-driver opengl3 --resolution 960x642 res://modules/shell/prototype/mesh_pilot/pilot.tscn -- "res://modules/shell/prototype/mesh_pilot/meshes/$acc/$name.glb" "$setting" $v "/tmp/mp263/batch/$name-$v.png" 2>&1 | grep -E "ERROR|SCRIPT" | head -2 || true; done
 python3 - "$name" "$here/batch/$acc/cut-preview.jpg" <<'P'
 import sys
 from PIL import Image
