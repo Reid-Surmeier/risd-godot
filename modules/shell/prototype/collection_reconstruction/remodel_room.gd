@@ -650,6 +650,67 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 			leg.global_position=at+Vector3(x,leg_h/2,z)
 	return body
 
+## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0s): a white plinth on a recessed
+## kick, a cap slab that oversails it, a clear hood standing on the cap inside its edge with its
+## polished edges as pale lines, and inside the hood a low riser with sloped sides whose `front`
+## slope carries the blank label block. `at` is the floor point under its middle, `deck` the
+## cap's top and `top` the hood's; the work stands on the riser, at deck+.04. Returns the body
+## to walk round; its kick, cap and riser carry "floor_case_part".
+func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,front:Vector3) -> StaticBody3D:
+	var white:=look(Color("f0eeea"))
+	var body:StaticBody3D=solid(at+Vector3(0,(deck-.04)/2,0),Vector3(width,deck-.04,depth),white,true)
+	var skin:MeshInstance3D=body.get_child(1)
+	skin.mesh.size.y-=.02
+	skin.position.y=.01
+	var add:=func(offset:Vector3,size:Vector3,m:Material) -> Node3D:
+		var piece:=solid(at+offset,size,m)
+		piece.reparent(body)
+		return piece
+	add.call(Vector3(0,.01,0),Vector3(width-.04,.02,depth-.04),look(Color("959691"))).set_meta("floor_case_part","kick")
+	add.call(Vector3(0,deck-.02,0),Vector3(width+.08,.04,depth+.08),white).set_meta("floor_case_part","cap")
+	var glass:=look(Color(.82,.90,.91,.10),"",true)
+	var edge:=look(Color("d5e0df"),"",true)
+	var t:=.004
+	var mid:=(deck+top)/2
+	for side in [-1,1]:
+		add.call(Vector3(side*width/2,mid,0),Vector3(.012,top-deck,depth),glass)
+		add.call(Vector3(0,mid,side*depth/2),Vector3(width,top-deck,.012),glass)
+		for y in [deck+t/2,top]:
+			add.call(Vector3(side*width/2,y,0),Vector3(t,t,depth),edge)
+			add.call(Vector3(0,y,side*depth/2),Vector3(width,t,t),edge)
+		for z in [-depth/2,depth/2]:add.call(Vector3(side*width/2,mid,z),Vector3(t,top-deck,t),edge)
+	add.call(Vector3(0,top,0),Vector3(width,.012,depth),glass)
+	# The riser: a flat top for the work, sloped down to the cap all round.
+	var run:=.10
+	var rise:=.04
+	var low:=Vector2(width/2-.03,depth/2-.03)
+	var high:=low-Vector2(run,run)
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var ring:=func(half:Vector2,y:float) -> Array:
+		return [Vector3(-half.x,y,-half.y),Vector3(half.x,y,-half.y),Vector3(half.x,y,half.y),Vector3(-half.x,y,half.y)]
+	var foot:Array=ring.call(low,deck)
+	var crown:Array=ring.call(high,deck+rise)
+	var quads:=[[crown[0],crown[1],crown[2],crown[3]]]
+	for i in 4:quads.append([foot[i],foot[(i+1)%4],crown[(i+1)%4],crown[i]])
+	for quad in quads:
+		st.set_normal((quad[2]-quad[0]).cross(quad[1]-quad[0]).normalized())
+		for i in [0,1,2,0,2,3]:st.add_vertex(quad[i])
+	var riser:=MeshInstance3D.new()
+	riser.mesh=st.commit()
+	var paint:=look(Color("f6f4ee"))
+	paint.cull_mode=BaseMaterial3D.CULL_DISABLED
+	riser.material_override=paint
+	riser.set_meta("floor_case_part","riser")
+	body.add_child(riser)
+	riser.global_position=at
+	# The label lies on the riser's front slope. A blank block: the game carries no typed text.
+	var reach:=absf(front.x)*low.x+absf(front.z)*low.y-run/2
+	var label:Node3D=add.call(front*(reach+.001)+Vector3(0,deck+rise/2+.002,0),Vector3(run*.8,.003,.20),look(Color("dedbd4")))
+	label.rotation=Vector3(0,atan2(-front.z,front.x),-atan2(rise,run))
+	label.set_meta("artwork_label_proxy",true)
+	return body
+
 ## What makes a wall case read as the footage's (IMG_6383 24.6/30.2/44.0/62.0s) once its deck, back
 ## board and clear hood exist. The hood's polished edges: the four top ones as narrow dark rails
 ## (seen from below against the white board they read slate-dark in every frame), the other eight
@@ -1572,28 +1633,16 @@ func build_sculpture_rooms() -> void:
 	# IMG_6383 18.3/62.0s: polychromed wood on a white floor plinth before this window.
 	# ponytail: plinth/hood metres and window-relative offset are by eye; replace after source fitting.
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=solid(roch_at+Vector3(0,.30,0),Vector3(.70,.60,.70),white,true)
+	var roch_plinth:=hooded_floor_case(roch_at,.70,.70,.64,2.09,Vector3(1,0,0))
 	roch_plinth.set_meta("saint_roch_installation",true)
-	for spec in [["foot",.025,.05,.78],["cap",.62,.04,.80],["mount",.66,.04,.64]]:
-		var step:=solid(roch_at+Vector3(0,spec[1],0),Vector3(spec[3],spec[2],spec[3]),white)
-		step.set_meta("saint_roch_plinth_step",spec[0])
-		step.reparent(roch_plinth)
-	var roch_label:=solid(roch_at+Vector3(.401,.625,.10),Vector3(.003,.035,.11),look(Color("dedbd4")))
-	roch_label.set_meta("artwork_label_proxy",true)
-	roch_label.reparent(roch_plinth)
+	for part in roch_plinth.get_children():
+		if part.has_meta("floor_case_part"):part.set_meta("saint_roch_plinth_step",part.get_meta("floor_case_part"))
 	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
 	add_child(roch)
 	roch.position=roch_at+Vector3(0,.68,0)
 	roch.rotation.y=PI/2
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
-	for side in [-1,1]:
-		var pane:=solid(roch_at+Vector3(side*.35,1.365,0),Vector3(.012,1.45,.70),roch_glass)
-		pane.reparent(roch_plinth)
-		pane=solid(roch_at+Vector3(0,1.365,side*.35),Vector3(.70,1.45,.012),roch_glass)
-		pane.reparent(roch_plinth)
-	var roch_lid:=solid(roch_at+Vector3(0,2.09,0),Vector3(.70,.012,.70),roch_glass)
-	roch_lid.reparent(roch_plinth)
 	inventory["saint_roch"]={"accession":"21.398","height_m":1.054,"closed_solid_prototype":true,"muse_sheet_used":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	#6383 30.2/63.9s: three gabled panels in a wall-hung case, left of the north door.
 	# ponytail: case metres and offsets are by eye; the front/rear art stays official photography.

@@ -53,13 +53,25 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    exact colour (the frame is motion-blurred), and that the east cases have one (no frame I
    opened shows the floor under them; the census says all four do).
 
+6. `6-hooded-floor-case-footage-and-unbaked.jpg`: the hooded floor case (Saint Roch). Footage
+   IMG_6383 18.3 s and 20.0 s, each followed by the unbaked case from about the same place; the
+   last panel is the foot of the plinth from 0.35 m up. Before: a box with a wider foot and cap,
+   a label on the cap's side, bare glass. Now `hooded_floor_case()`: a plinth on a recessed
+   kick, a cap slab that oversails it by 4 cm, the hood standing on the cap inside its edge with
+   pale edge lines (here the edges read bright, against the grey wall), and inside the hood a
+   riser with sloped sides, the blank label block on its front slope (20.0/21.0 s). The figure,
+   its height (0.68 m) and the hood's top (2.09 m) did not move.
+   Guessed: the kick. No frame shows the plinth's foot closely; 18.3 s shows a thin dark line
+   where it meets the floor, built as a 2 cm recess. The riser's slope (10 cm out, 4 cm up) is
+   by eye from 20.0/21.0 s.
+
 The clip is at `~/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV`.
 
 ## State for whoever continues
 
-- Done: the bench, the four wall cases (pictures 1 to 5).
-- Not done: the hooded floor case (Saint Roch), the textile platform with its label blocks, the
-  window reveal and shade, the pedestals.
+- Done: the bench, the four wall cases, the hooded floor case (pictures 1 to 6).
+- Not done: the textile platform with its label blocks, the window reveal and shade, the
+  pedestals.
 
 ## How the unbaked pictures are taken
 
@@ -104,7 +116,8 @@ piece's origin in the room's axes (x east, y up, z south). It stops the room's p
 upright like the footage, 70 degrees. The shots in pictures 4 and 5:
 east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà case
 `1.0,.40,.12:0,.25,0` and the corner `2.3,-.1,1.4:.4,-.5,-.7:60`; triptych case
-`.05,.42,1.3:0,.36,0`. A blank or flat picture means the camera is inside a wall: change the
+`.05,.42,1.3:0,.36,0`; picture 6, `saint_roch_installation`: `1.3,1.2,.9:0,.75,0`,
+`1.15,1.25,.15:0,.35,0`, `1.5,.05,.8:0,-.1,0:50`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
 file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.
