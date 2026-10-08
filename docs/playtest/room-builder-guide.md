@@ -106,7 +106,7 @@ not looked at is not done. A stale bake hides an edit without any error: after t
 6. Never invent an identification, a title or a room connection. An unidentified work may be built
    from a rectified crop of the footage, marked `catalogue_identified=false`, with a plain
    descriptive title, and listed in your notes with what would settle it.
-7. Generate what a photograph cannot give. Muse stills go through OpenRouter, up to 5 USD on
+7. Generation is part of the work. Muse stills go through OpenRouter, up to 5 USD on
    your own judgment; Flora (meshes) up to 20 USD a session; ask in the Issue before going over
    either. Write every call in the owning module's `PROVENANCE.md`: provider, model, count, cost,
    and the hash of what you kept.
@@ -127,14 +127,10 @@ side.
 
 ## Making a mesh
 
-1. Start from the catalogue photograph, never a video crop. Keep the museum's full-size files,
-   every view it publishes, in `image-work/collection-room-remodel/sources/<room>/` (not shipped),
-   and note each one's pixel size and view in `SOURCES.md`.
-2. Muse: isolate the object on white from the same viewpoint (about 0.01 USD).
-3. Flora `i3d-trellis`: quote first, then run (about 0.024 USD). Compare the mesh with the
-   photograph; if the face is lost, run Tripo H3.1 (about 0.48 USD). Stop at three Muse images and
-   two meshes for one object.
-4. Blender, in one command: metallic 0, normals, decimate, catalogue size, base at the origin.
+How a mesh of an object is made (which pictures go in, which generator, how many tries) is ticket
+#263's recipe: follow its resolution. This guide starts where you hold a GLB.
+
+1. Blender, in one command: metallic 0, normals, decimate, catalogue size, base at the origin.
 
    ```bash
    blender -b -P SRC/prepare_mesh.py -- in.glb image-work/collection-room-remodel/additions/<room>/<name>-<number>.glb \
@@ -142,17 +138,14 @@ side.
    ```
 
    Give `--depth` for a relief or a work that stands against a wall. Name the file without dots
-   apart from `.glb`. Render the result and put it beside the photograph before placing it. It
-   must bring its texture: a mesh without one is lit by the lightmap alone and reads dim.
-5. Place it (the line above), declare it in `representation.json`, copy the script's last line
-   into `PROVENANCE.md`, rebuild.
-6. After the install, in the new `.glb.import` set `meshes/generate_lods=false` and
+   apart from `.glb`. Render the result and look at it from all sides before placing it. It must
+   bring its texture: a mesh without one is lit by the lightmap alone and reads dim.
+2. Place it (the line above), declare it in `representation.json`, copy the script's last line
+   into `PROVENANCE.md` with what the mesh cost, rebuild.
+3. After the install, in the new `.glb.import` set `meshes/generate_lods=false` and
    `meshes/create_shadow_meshes=false`, and in its texture's `.import` set `compress/mode=1`,
    `compress/lossy_quality=0.8` and `mipmaps/generate=true`; then
-   `godot --headless --editor --import --path .`.
-
-Furniture and cases that are boxes stay code geometry from their dimensions with one Muse surface
-pass; carved or upholstered pieces take this route.
+   `godot --headless --editor --import --path .` and `git add -f` both `.import` files.
 
 ## What a mesh may cost
 
