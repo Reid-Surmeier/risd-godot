@@ -198,6 +198,36 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    deeper than the build's 0.38 m; and the east cases' and the triptych's hood heights were not
    measured.
 
+14. `14-european-floor-cases-footage-and-unbaked.jpg`: the European gallery's floor cases.
+   Pairs, footage then unbaked: IMG_6385 33.0 s (the silver case), IMG_6386 7.0 s (the majolica
+   case), IMG_6384 40.0 s (the River God's case). In every one the hood stands on the base and
+   the works stand higher, on a white riser sloped down to the hood's foot all round. Before:
+   plain boxes, two of them grey, the works on the cap, bare glass. Now the east file's
+   `display_case()` builds each of its four cases (silver, cabinet, majolica, River God) as the
+   kit's `plinth()` (white, recessed kick), its cap, the kit's `hood_edges()`, and the kit's new
+   `case_riser()`, which is Saint Roch's riser taken out of `hooded_floor_case()` so both use it.
+   NO WORK MOVED: every object stands at the height it had; the cap and the hood's foot are the
+   riser's 8 cm lower instead (bases 0.81, 0.76 and 0.96 m to the cap's top, were 0.89, 0.84,
+   1.04 m). The pedestal case under the embroidered panel on the west wall (IMG_6386 26.5 s)
+   takes the same three pieces the same way; it is not in the picture.
+   Guessed: the riser's 8 cm (by eye; the filmed ones look nearer 10 to 15 cm, the River God's
+   tallest), that the cabinet case's base is white (41.2/42.5 s show it pale, far off), and the
+   kick (a dark line at the floor in 33.0 and 41.2 s). The River God's pedestal has a stepped
+   cap in 40.0 s; the build's is one slab. Not done: the dress case's dark frame edges, the
+   shelf case on the north wall, the tabernacle's pedestal (another agent's line).
+15. `15-european-platforms-and-bench-footage-and-unbaked.jpg`: pairs, footage then unbaked:
+   IMG_6386 67.5 s (the long east platform, the display panel and the commode; the unbaked view
+   is past the silver case's glass), IMG_6385 3.5 s (the low platform in the north-west corner),
+   IMG_6386 42.5 s (the bench). Both platforms are the kit's `plinth()` now, same footprint and
+   height (1.3 x 0.14 m by 4.9 m of the real room; 1.05 x 0.13 x 2.65 m). The label block on
+   the east platform is the kit's `label_stand()`. The bench keeps its black slab and four legs
+   and gains the rail on the floor that joins each pair, as filmed; the kit's `bench()` is the
+   tufted kind and is not used here. The display panel is unchanged: 67.5 s shows it as a plain
+   white full-height slab, as built.
+   Guessed: the platforms' kick (no frame shows their foot closely), that the east platform's
+   label is a folded stand (no frame I opened shows it), the bench's legs (the filmed ones are
+   thinner bars than the build's 5 cm).
+
 The clips are in `~/risd-godot-ingestion/collection-expansion/verified/` (the copies one folder
 up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip` to the filter.
 
@@ -209,10 +239,10 @@ up are empty or cut short). `IMG_6382.MOV` plays upside down: add `,hflip,vflip`
 - The four wall cases' works stand on a 10 cm riser with the sloped label face (picture 13).
 - Done in the dark medieval room: the two glass cases and the octagonal pedestals (picture 10),
   their filmed proportions and the label cards (picture 12).
-- Not done: the grey French gallery (the plinth under Rodin's Hand of God, benches), and the
-  European gallery (`european_east_additions.gd`, `european_west_additions.gd`;
-  footage IMG_6384, 6385, 6386). Its platforms and case bases are the white kind: start from
-  `plinth()`, `hood_edges()` and `label_stand()`, after reading the footage for each piece.
+- Done in the European gallery: the four floor cases and the west pedestal case (picture 14),
+  both platforms, the label stand and the bench (picture 15).
+- Not done: the grey French gallery (the plinth under Rodin's Hand of God, benches) and
+  Rockefeller.
 
 ## How the unbaked pictures are taken
 
@@ -264,7 +294,10 @@ east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà c
 `.9,-.9,.95:0,-1.2,.62:45`; picture 10, `medieval_crucifix_platform` (the nearest piece
 with a key): `-2.6,1.5,-3.6:1.6,.5,-1.9`, `-3.5,1.3,-2.6:-4.78,.75,-.98`,
 `2.82,1.32,-1.89:3.39,.82,-.12`; picture 11: `renaissance_west_blind`
-`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. picture 13: `renaissance_wall_case=A` `-1.05,.65,.12:0,.25,.30`, `pieta_wall_case`
+`3.9,-.35,.3:.3,-.35,0:55` and `saint_roch_installation` `1.4,1.3,1.0:0,.85,0`. pictures 14 and 15: `european_east_case=silver` `-1.4,.9,-1.4:0,.42,0` and (the north-west
+platform) `.9,1.25,-3.4:-1.4,.2,-6.2`, `european_east_case=majolica` `-1.0,.9,1.7:0,.42,.3`,
+`european_east_case=river-god` `-1.3,1.1,1.3:0,.5,0`, `european_east_platform`
+`-3.6,1.5,3.4:0,.6,-.4`, `european_east_bench` `.9,1.1,2.5:0,-.25,0`; picture 13: `renaissance_wall_case=A` `-1.05,.65,.12:0,.25,.30`, `pieta_wall_case`
 `1.0,.65,.05:0,.22,0`, `triptych_wall_case` `.05,.65,1.2:0,.28,0`; picture 12, `medieval_crucifix_platform`: `-3.2,1.6,-1.9:-4.78,.9,-.98` and
 `3.6,1.45,-1.6:3.39,1.25,-.12`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows

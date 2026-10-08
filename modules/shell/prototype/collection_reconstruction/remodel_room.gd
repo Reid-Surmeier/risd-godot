@@ -761,6 +761,32 @@ func hood_edges(body:Node3D,at:Vector3,width:float,depth:float,deck:float,top:fl
 			[Vector3(side*width/2,mid,-depth/2),Vector3(t,top-deck,t)],[Vector3(side*width/2,mid,depth/2),Vector3(t,top-deck,t)]]:
 			solid(at+spec[0],spec[1],edge).reparent(body)
 
+## The furniture kit's case riser (IMG_6383 20.0s, IMG_6385 33.0s, IMG_6384 40.0s): the works'
+## floor inside a floor case's hood, a flat top sloped down to the hood's foot all round. `at` is
+## the floor point under its middle, `low` its foot's half width and depth, `deck` the hood's
+## foot; it hangs from `body`.
+func case_riser(body:Node3D,at:Vector3,low:Vector2,deck:float,run:float,rise:float) -> MeshInstance3D:
+	var high:=low-Vector2(run,run)
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var ring:=func(half:Vector2,y:float) -> Array:
+		return [Vector3(-half.x,y,-half.y),Vector3(half.x,y,-half.y),Vector3(half.x,y,half.y),Vector3(-half.x,y,half.y)]
+	var foot:Array=ring.call(low,deck)
+	var crown:Array=ring.call(high,deck+rise)
+	var quads:=[[crown[0],crown[1],crown[2],crown[3]]]
+	for i in 4:quads.append([foot[i],foot[(i+1)%4],crown[(i+1)%4],crown[i]])
+	for quad in quads:
+		st.set_normal((quad[2]-quad[0]).cross(quad[1]-quad[0]).normalized())
+		for i in [0,1,2,0,2,3]:st.add_vertex(quad[i])
+	var riser:=MeshInstance3D.new()
+	riser.mesh=st.commit()
+	var paint:=look(Color("f6f4ee"))
+	paint.cull_mode=BaseMaterial3D.CULL_DISABLED
+	riser.material_override=paint
+	body.add_child(riser)
+	riser.global_position=at
+	return riser
+
 ## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0/61.0s): a white plinth on a
 ## recessed kick, a cap slab that oversails it by 9 cm, a clear hood standing on the cap 6 cm
 ## inside its edge with its polished edges as pale lines, and inside the hood a low riser with
@@ -784,30 +810,10 @@ func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,f
 		add.call(Vector3(0,mid,side*depth/2),Vector3(width,top-deck,.012),glass)
 	add.call(Vector3(0,top,0),Vector3(width,.012,depth),glass)
 	hood_edges(body,at,width,depth,deck,top)
-	# The riser: a flat top for the work, sloped down to the cap all round.
 	var run:=.10
 	var rise:=.04
 	var low:=Vector2(width/2-.03,depth/2-.03)
-	var high:=low-Vector2(run,run)
-	var st:=SurfaceTool.new()
-	st.begin(Mesh.PRIMITIVE_TRIANGLES)
-	var ring:=func(half:Vector2,y:float) -> Array:
-		return [Vector3(-half.x,y,-half.y),Vector3(half.x,y,-half.y),Vector3(half.x,y,half.y),Vector3(-half.x,y,half.y)]
-	var foot:Array=ring.call(low,deck)
-	var crown:Array=ring.call(high,deck+rise)
-	var quads:=[[crown[0],crown[1],crown[2],crown[3]]]
-	for i in 4:quads.append([foot[i],foot[(i+1)%4],crown[(i+1)%4],crown[i]])
-	for quad in quads:
-		st.set_normal((quad[2]-quad[0]).cross(quad[1]-quad[0]).normalized())
-		for i in [0,1,2,0,2,3]:st.add_vertex(quad[i])
-	var riser:=MeshInstance3D.new()
-	riser.mesh=st.commit()
-	var paint:=look(Color("f6f4ee"))
-	paint.cull_mode=BaseMaterial3D.CULL_DISABLED
-	riser.material_override=paint
-	riser.set_meta("floor_case_part","riser")
-	body.add_child(riser)
-	riser.global_position=at
+	case_riser(body,at,low,deck,run,rise).set_meta("floor_case_part","riser")
 	# The label lies on the riser's front slope. A blank block: the game carries no typed text.
 	var reach:=absf(front.x)*low.x+absf(front.z)*low.y-run/2
 	var label:Node3D=add.call(front*(reach+.001)+Vector3(0,deck+rise/2+.002,0),Vector3(run*.8,.003,.20),look(Color("dedbd4")))
