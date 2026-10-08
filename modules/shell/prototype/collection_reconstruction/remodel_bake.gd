@@ -3,8 +3,10 @@ extends SceneTree
 
 ## #274: one light for every added room. The rule, in words, is in
 ## docs/playtest/room-builder-guide.md ("Light"); these are its numbers.
-const FILL_ENERGY:=.5 # one soft fill per FILL_M2 of floor, under the ceiling
-const FILL_M2:=12.0
+const FILL_ENERGY:=.85 # a fill serving FILL_M2 of floor; less floor, less energy
+const FILL_M2:=25.0
+const FILL_BAY:=5.0 # metres between fills, the Hall's bay
+const GROUP_M:=2.4 # works within this width of one wall share a spot
 const FILL_COLOR:="ffe1b2" # the Hall's fill
 const SPOT_COLOR:="ffd391" # the Hall's painting spot
 const SPOT_ENERGY_PER_M:=1.8 # the Hall's 6.8 at 3.8 m from its painting
@@ -57,8 +59,10 @@ func find_works(walk:Node,plan:Array) -> Array:
 				facing=side[1]
 		var hung:=facing!=Vector3.ZERO
 		if not hung:
-			facing=Vector3((b[0]+b[1])/2-box.get_center().x,0,(b[2]+b[3])/2-box.get_center().z)
-			facing=facing.normalized() if facing.length()>.3 else Vector3.BACK
+			# Free-standing: lit from the side of the room's middle, square to the walls so that
+			# neighbours on one plinth or in one case face the same way and share a spot.
+			var off:=Vector2(((b[0]+b[1])/2-box.get_center().x)/(b[1]-b[0]),((b[2]+b[3])/2-box.get_center().z)/(b[3]-b[2]))
+			facing=Vector3(signf(off.x),0,0) if absf(off.x)>absf(off.y) else Vector3(0,0,signf(off.y) if off.y!=0 else 1.0)
 		# The key a click reports (main_build_walk.gd): the accession, else the asset name; a framed
 		# painting carries its accession only in its canvas file, assets/painting-<accession>.jpg.
 		var key:=str(node.get_meta("catalogue_accession",""))
@@ -72,15 +76,21 @@ func find_works(walk:Node,plan:Array) -> Array:
 			"flat":hung and absf(box.size.dot(facing))<=.25})
 	return works
 
-## One track spot per work, or per group of works that touch (a case of small things): hung
-## above and out from the work as the Hall's are, as strong as its distance asks, its cone
-## fitted to what it lights.
+## One track spot per work, or per group of works within GROUP_M of each other on one wall (a
+## case of small things, a tight hang): hung above and out from the work as the Hall's are, as
+## strong as its distance asks, its cone fitted to what it lights. Every lamp is paid for in
+## bake time (159 lamps did not finish in the 28 minutes the rebuild allows; 57 take 8).
 func spots_for(works:Array) -> Array:
 	var groups:=[]
+	works=works.duplicate()
+	works.sort_custom(func(a,b):
+		var along:Vector3=Vector3.UP.cross(a.facing)
+		return [a.room.label,a.facing.x,a.facing.z,a.box.get_center().dot(along)]<[b.room.label,b.facing.x,b.facing.z,b.box.get_center().dot(along)])
 	for work in works:
 		var joined=null
-		for group in groups: # ponytail: one greedy pass; a chain of cases longer than its first box grows gets a second lamp
-			if joined==null and group.room==work.room and group.facing.dot(work.facing)>.9 and group.box.grow(.3).intersects(work.box):joined=group
+		for group in groups: # ponytail: one greedy pass along each wall, not the fewest lamps possible
+			var both:AABB=group.box.merge(work.box)
+			if joined==null and group.room==work.room and group.facing.dot(work.facing)>.9 and maxf(both.size.x,both.size.z)<=GROUP_M and absf(both.size.dot(work.facing))<=1.2:joined=group
 		if joined==null:
 			groups.append({"room":work.room,"facing":work.facing,"box":work.box,"works":[work]})
 		else:
@@ -209,8 +219,11 @@ func prepare() -> void:
 			if skin.albedo_texture==null:skin.albedo_color*=Color(PLAIN_TINT)
 			skin.vertex_color_use_as_albedo=true
 			instance.material_override=skin
-			# A flat work on a wall can be hidden while its wall stays: it leaves no shadow behind.
-			if work.flat:instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+			# A flat work on a wall can be hidden while its wall stays, so it leaves no shadow behind:
+			# it is kept out of the bake altogether (the shadow flag alone does not stop it occluding).
+			if work.flat:
+				instance.gi_mode=GeometryInstance3D.GI_MODE_DISABLED
+				instance.cast_shadow=GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		instance.set_meta("source_path",source.name)
 		room.add_child(instance)
 		instance.owner=room
@@ -242,13 +255,16 @@ func prepare() -> void:
 	for area in plan:
 		if area.label==HALL:continue
 		var b:Array=area.bounds
-		var across:int=maxi(1,roundi((b[1]-b[0])/sqrt(FILL_M2)))
-		var along:int=maxi(1,roundi((b[3]-b[2])/sqrt(FILL_M2)))
+		var across:int=maxi(1,roundi((b[1]-b[0])/FILL_BAY))
+		var along:int=maxi(1,roundi((b[3]-b[2])/FILL_BAY))
 		var share:float=(b[1]-b[0])*(b[3]-b[2])/(across*along)/FILL_M2
 		for i in across:
 			for j in along:
-				lamps.append({"room":area.label,"kind":"fill","at":Vector3(lerpf(b[0],b[1],(i+.5)/across),minf(float(area.get("height",3.5))-.5,5.5),lerpf(b[2],b[3],(j+.5)/along)),
-					"energy":FILL_ENERGY*clampf(share,.15,1.3),"color":FILL_COLOR})
+				# A wide lamp looking straight down: the floor and the lower walls take it, the ceiling
+				# and the wall tops only what bounces (an all-round lamp left a glow on the ceiling).
+				var hung:=Vector3(lerpf(b[0],b[1],(i+.5)/across),minf(float(area.get("height",3.5))-.3,5.5),lerpf(b[2],b[3],(j+.5)/along))
+				lamps.append({"room":area.label,"kind":"fill","at":hung,"target":Vector3(hung.x,0,hung.z),"cone":80.0,
+					"energy":FILL_ENERGY*clampf(share,.15,2.0),"color":FILL_COLOR})
 		# The visitor takes the room's light from probes at body height.
 		for x in range(maxi(1,int((b[1]-b[0])/2.0))):
 			for z in range(maxi(1,int((b[3]-b[2])/2.0))):
@@ -261,20 +277,20 @@ func prepare() -> void:
 		if plan.any(func(area):return area.label==spec[0]):
 			lamps.append({"room":spec[0],"kind":"daylight","at":spec[1],"target":spec[2],"energy":spec[3],"cone":spec[4],"color":spec[5]})
 	for lamp in lamps:
-		var light:Light3D=OmniLight3D.new() if lamp.kind=="fill" else SpotLight3D.new()
+		var light:=SpotLight3D.new()
 		room.add_child(light)
 		light.owner=room
-		light.position=lamp.at
-		if light is SpotLight3D:
-			light.look_at_from_position(lamp.at,lamp.target,Vector3.UP if absf((lamp.target-lamp.at).normalized().y)<.99 else Vector3.RIGHT)
-			light.spot_range=lamp.at.distance_to(lamp.target)+3.0
-			light.spot_angle=lamp.cone
-			light.spot_angle_attenuation=1.5
-			light.light_size=.2
-		else:
-			light.omni_range=8
-			light.omni_attenuation=.65
+		light.look_at_from_position(lamp.at,lamp.target,Vector3.UP if absf((lamp.target-lamp.at).normalized().y)<.99 else Vector3.RIGHT)
+		light.spot_angle=lamp.cone
+		if lamp.kind=="fill":
+			light.spot_range=lamp.at.y+4.0
+			light.spot_attenuation=.65 # the Hall's fills fall off this gently
+			light.spot_angle_attenuation=.5
 			light.light_size=.4
+		else:
+			light.spot_range=lamp.at.distance_to(lamp.target)+2.0
+			light.spot_angle_attenuation=1.5
+			light.light_size=.05 # the lightmap's 14 cm texels soften a shadow's edge more than a wide lamp would
 		light.light_energy=lamp.energy
 		light.light_color=Color(lamp.color)
 		light.light_bake_mode=Light3D.BAKE_STATIC

@@ -19,8 +19,8 @@ const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 ## paint is bluer here than it reads in the room: each is chosen by rendering the room and
 ## comparing its wall with the tone-mapped footage beside the white trim (the light pass prints
 ## the wall's colour), never by eye from this table.
-const WALL_PAINT:={"":"babee2","light Renaissance room":"a6a5c4","adjacent gallery":"babee2","Rockefeller":"b2bcd1",
-	"modern painting gallery":"b2bcec","lion stair landing":"a9aac6","grey French gallery":"b2b8e0","Skylight Gallery":"c2caf8",
+const WALL_PAINT:={"":"b0c3d5","light Renaissance room":"9ba9ba","adjacent gallery":"b0c3d5","Rockefeller":"a8c7c8",
+	"modern painting gallery":"a8c0e7","lion stair landing":"a0aebb","grey French gallery":"a8bdd3","Skylight Gallery":"b3c8e1",
 	"marble stair hall":"d8e6ff","dark medieval room":"4a5479"}
 func wall_paint(label:String) -> StandardMaterial3D:
 	return look(Color(WALL_PAINT.get(label,WALL_PAINT[""])),"res://presentation/neutral-plaster.png")

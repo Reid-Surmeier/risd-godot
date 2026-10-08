@@ -133,22 +133,26 @@ One rule lights every added room (#274). `SRC/remodel_bake.gd` applies it from `
 and from the works themselves, so a room script places no lamps and a new room or work is lit
 the day it is added. The numbers are the constants at the top of that file.
 
-1. **Fill.** One soft lamp for every 12 m² of floor, and at least one in every area of the plan
-   (stubs and thresholds too), half a metre under the ceiling, in the Hall's fill colour
-   `#ffe1b2`. No sun and no sky: a room is lit by its own lamps, with or without a ceiling.
+1. **Fill.** One wide lamp looking straight down for every 5 m bay of floor (the Hall's own
+   spacing), and at least one in every area of the plan, stubs and thresholds too, hung at the
+   ceiling in the Hall's fill colour `#ffe1b2`. The floor and the lower walls take it; the
+   ceiling and the wall tops get only what bounces. No sun and no sky: a room is lit by its
+   own lamps, with or without a ceiling.
 2. **A spot for every work.** Everything a click opens gets a spot in the Hall's colour
    `#ffd391`, hung the way the Hall's are (0.7 m out from the work for each metre above its
    middle, at most 3.1 m up), as strong as its distance asks (1.8 a metre, which is the Hall's
-   6.8 at 3.8 m), its cone fitted to the work plus 35 cm. Works that touch, such as the
-   contents of one case, share a spot.
+   6.8 at 3.8 m), its cone fitted to what it lights plus 35 cm. Works within 2.4 m of each
+   other on one wall, or in one case, share a spot: every lamp costs about 11 seconds of
+   bake, and the rebuild stops a bake at 28 minutes.
 3. **Works are drawn at their own colours, never through the lightmap.** Each vertex of a work
    is shaded once, at bake time, by the spot aimed at it: full colour on the face it shows the
    room, down to 45% on faces turned away. Lightmap texels are 14 cm, and a 20 cm object lit
    by them came out dark and blotchy. A flat work on a wall casts no baked shadow, so nothing
    is left on the wall when the camera hides it.
-4. **Walls, floor and furniture take the lightmap.** Wall paint is the colour the tone-mapped
-   footage shows beside its white trim (`WALL_PAINT` in `SRC/remodel_room.gd`); judge it from
-   a tone-mapped frame, never from a survey frame.
+4. **Walls, floor and furniture take the lightmap.** Wall paint is one table, `WALL_PAINT` in
+   `SRC/remodel_room.gd`. The lamps are warm, so a paint is bluer in the table than it reads
+   in the room: set it by baking, reading the wall's colour from the light pass, and putting
+   the picture beside a tone-mapped footage frame (never a survey frame).
 5. **Daylight** only where the footage has a window: the `DAYLIGHT` list.
 
 To try one room, `ROOMS_LIGHT_ONLY="<room label>" scripts/rebuild_rooms.sh` bakes that room
