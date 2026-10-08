@@ -18,6 +18,10 @@
 extends SceneTree
 
 const SIZE := Vector2i(960, 640)
+# A work being read: the least share of the picture's height it stands, and the most of its
+# screen rectangle the caption panel may cover (#272).
+const READ_HEIGHT := 0.25
+const READ_COVERED := 0.02
 const HALL := "Grand Gallery"
 
 var walk
@@ -687,6 +691,13 @@ func _objects() -> void:
 		]
 		if not Rect2(Vector2.ZERO, walk.size).grow(2).encloses(work):
 			problems.append("the work is not wholly in the inspection picture")
+		# The caption panel stands under the work, not over it (#272).
+		var under := 0.0
+		if panel.is_visible_in_tree() and work.has_area():
+			under = work.intersection(panel.get_global_rect()).get_area() / work.get_area()
+		entry["under_caption"] = snappedf(under, 0.01)
+		if under > READ_COVERED:
+			problems.append("the caption panel covers %.2f of the work" % under)
 		entry["render_size"] = [walk._vp.size.x, walk._vp.size.y]
 		if thing.rec.has("canvas_w"):
 			var canvas_points: Array = []
@@ -1195,10 +1206,6 @@ func _other_wall_in_wipe() -> void:
 # its inspection shot, the work's rectangle on screen lies inside the picture and stands at
 # least READ_HEIGHT of its height, the caption panel covers no more than READ_COVERED of the
 # work, and the caption has its title.
-const READ_HEIGHT := 0.25
-const READ_COVERED := 0.3
-
-
 func _hall_readings(when: String) -> void:
 	var entry := {"name": "reading a Hall work frames it" + when, "works": []}
 	var problems := PackedStringArray()

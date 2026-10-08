@@ -805,6 +805,24 @@ func _other_wall() -> void:
 		super()
 
 
+# How far down the picture the caption panel's top comes while a work is read, as a share of
+# the picture's height: 0.645 for the usual panel, less where a long title makes it taller.
+# Measured from the text as _show_page lays it out, before the panel is shown.
+func _caption_top(p: Dictionary) -> float:
+	var font := get_theme_default_font()
+	var wide := size.x * 0.58 - 36.0
+	var tall := 0.0
+	for page in _pages(p):
+		var title := font.get_multiline_string_size(
+			page[0], HORIZONTAL_ALIGNMENT_CENTER, wide, maxi(12, roundi(size.y * 0.046))
+		)
+		var body := font.get_multiline_string_size(
+			page[1], HORIZONTAL_ALIGNMENT_CENTER, wide, maxi(10, roundi(size.y * 0.032))
+		)
+		tall = maxf(tall, title.y + body.y + 40.0)
+	return 1.0 - 0.08 - maxf(0.275, tall / size.y)
+
+
 # Where the camera stands to look at a work: square on to it, 6 degrees down, far enough
 # that the work fills its share of the picture, never outside the room it hangs in. When
 # the room is too shallow for a 23-degree lens the lens widens instead.
@@ -815,13 +833,22 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 		p["view"] = view
 	var normal: Vector3 = view.normal
 	var height: float = maxf(p.outer.y, 0.05)
-	var share := lerpf(0.43, 0.68, clampf((height - 1.0) / 2.0, 0.0, 1.0))
+	# The work stands in the band above the caption panel (#272): its top four hundredths of
+	# the picture under the picture's, its foot three hundredths above the panel. A tall work
+	# takes less of the picture than it used to (up to 0.68, which put its foot under the panel).
+	if p.get("band_at") != size:
+		p["band"] = _caption_top(p)
+		p["band_at"] = size
+	var band: float = p.band
+	var share := minf(lerpf(0.43, 0.68, clampf((height - 1.0) / 2.0, 0.0, 1.0)), band - 0.07)
 	var back := clampf(height / (share * 0.407), 4.5, 13.0)
 	var tilt := deg_to_rad(6.0)
 	if view.small:
 		# A case object or a small panel: near it, almost level, a third of the picture high.
 		share = 0.33
-		back = clampf(height / (share * 0.407), 1.6, 4.5)
+		# Near, but never so near that a tall free-standing work (the 3.5 m fireplace surround)
+		# overflows the widest lens.
+		back = clampf(height / (share * 0.407), 1.6, maxf(4.5, height * 2.2))
 		tilt = deg_to_rad(3.0)
 	var foot := Vector3(p.center.x, 0, p.center.z)
 	var room := _room_at(foot + normal * 0.6)
@@ -837,8 +864,12 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 	p["covered"] = depth > 0.0 and depth < back and gap < 0.35 + p.outer.x / 2.0 * (1.0 - depth / back)
 	_inspect_fov = clampf(rad_to_deg(2.0 * atan(height / share / 2.0 / back)), 23.0, 65.0)
 	var eye: Vector3 = foot + normal * back + view.along * shift
-	# The work's centre sits 40% down the picture: a tenth of the lens above its axis.
-	eye.y = p.center.y + back * tan(tilt - deg_to_rad(_inspect_fov * 0.1))
+	# The work's centre sits 40% down the picture, a tenth of the lens above its axis; higher
+	# where it must be for the work's foot to clear the panel.
+	var shown: float = height / (2.0 * back * tan(deg_to_rad(_inspect_fov) / 2.0))
+	var centre := clampf(band - 0.03 - shown / 2.0, shown / 2.0 + 0.02, 0.4)
+	var above := atan((0.5 - centre) * 2.0 * tan(deg_to_rad(_inspect_fov) / 2.0))  # of the lens's axis
+	eye.y = p.center.y + back * tan(tilt - above)
 	var aim := Vector3(p.center.x, eye.y, p.center.z) - eye
 	var sight := (aim.normalized() * cos(tilt) + Vector3.DOWN * sin(tilt)).normalized()
 	return Transform3D(Basis.looking_at(sight, Vector3.UP), eye)
