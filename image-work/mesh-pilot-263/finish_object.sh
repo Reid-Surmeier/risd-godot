@@ -41,14 +41,14 @@ LD_LIBRARY_PATH=/usr/lib/wsl/lib timeout 600 $B --background --factory-startup -
 place "$tmp/final.glb"; for v in front threequarter side; do shot $v; done
 for y in 0 90 180; do :; done; (cd /tmp && CLAY=1 timeout 900 blender --background --factory-startup --python "$here/preview_mesh.py" -- "$tmp/low.glb" "$tmp/grey" 0,90,180 420 2>&1 | grep -E "Error" || true)
 scn=$(stat -c%s .godot/imported/$name.glb-*.scn); tex=0; for f in .godot/imported/${name}_*.ctex; do tex=$((tex+$(stat -c%s "$f"))); done
-PLAIN="${PLAIN:-}" AO="${AO:-0.35}" python3 - "$acc" "$name" "$d" "$tmp" "$dir" "$scn" "$tex" "$charged" "$specs" <<'P'
+PLAIN="${PLAIN:-}" AO="${AO:-0.35}" CLAY_VIEWS="${CLAY_VIEWS:-}" python3 - "$acc" "$name" "$d" "$tmp" "$dir" "$scn" "$tex" "$charged" "$specs" <<'P'
 import sys, json, io, os, hashlib
 from PIL import Image, ImageDraw, ImageFont
 acc, name, d, tmp, dir_, scn, tex, charged, specs = sys.argv[1:10]; scn, tex = int(scn), int(tex); here = os.path.dirname(d.rstrip('/')).rsplit('/batch', 1)[0]
 font = ImageFont.truetype('/usr/share/fonts/truetype/dejavu/DejaVuSans.ttf', 13); h = 300; fit = lambda im: im.resize((max(1, im.width * h // im.height), h), Image.LANCZOS)
 sz = json.load(open(f'{tmp}/low.json'))['size_m_width_height_depth']; wide = sz[0] > sz[1]  # a wide object needs wide crops
 CC, GC, SC = ((40, 400, 1400, 1360), (0, 60, 420, 360), (150, 150, 810, 600)) if wide else ((250, 100, 1190, 1660), (80, 10, 340, 410), (270, 30, 690, 610))
-views = json.load(open(f'{d}/views.json'))['views']; made = json.load(open(f'{d}/made.json')); order = [s.split(':')[0] for s in specs.split()][::-1]
+views = json.load(open(f'{d}/views.json'))['views']; made = json.load(open(f'{d}/made.json')); order = os.environ.get('CLAY_VIEWS', '').split() or [s.split(':')[0] for s in specs.split()][::-1]  # CLAY_VIEWS: clay views to show when the mesh used more than the colour did
 cells = [('Catalogue photograph', fit(Image.open(os.path.expanduser(views['front']['file'])).convert('RGB')))]
 cells += [(f'Clay: {v}' + ('' if 'photograph' in made[f'clay-{v}']['from'] else ' (inferred)'), fit(Image.open(f'{d}/clay-{v}.png').convert('RGB').crop(CC))) for v in order]
 cells += [(f'Grey mesh: {n}', fit(Image.open(f'{tmp}/grey-{y}.png').convert('RGB').crop(GC))) for y, n in (('000', 'front'), ('090', 'side'), ('180', 'back'))]

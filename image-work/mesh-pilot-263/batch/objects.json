@@ -350,5 +350,28 @@
    },
    "size_note": "The catalogue gives no depth: 0.18 m is an estimate from the museum's detail photograph of the right-hand angels; the generator made 0.27 m"
   }
+ },
+ "59.128": {
+  "title": "Tilman Riemenschneider. *Pietà*. Linden wood. 45.7 × 38.1 × 13.2 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg",
+  "prepare": "--height 0.457 --width 0.381 --depth 0.132",
+  "muse_first": {
+   "run": {
+    "id": "run_m176zfw962c0e14aqkv3jn0ggn8fw97d",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "e54f7847944af4cfc9bd6b1375664402b137fb808078945f0c90c0f1ee1b8d46"
+   },
+   "views": "front from the photograph; left inferred by Muse from the clay front (no photograph of a side or the back exists)",
+   "imported": {
+    "mesh": 218814,
+    "colour": 40218,
+    "total": 259032
+   },
+   "build": "TURN=90 --upright (4.3 degrees), CUT=--keep-holes; colour from the flat front alone"
+  },
+  "cut": "saturation key on the catalogue front photograph; cut.png is not in git (5.6 MB): cut_photo.py ~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg batch/59.128/cut.png 186,122,1945,2553 --key-sat 60"
  }
 }

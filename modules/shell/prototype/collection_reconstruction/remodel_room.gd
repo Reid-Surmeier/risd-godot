@@ -1299,10 +1299,13 @@ func build_sculpture_rooms() -> void:
 	var pieta_case:=solid(pieta_at+Vector3(0,1.025,0),Vector3(.38,.11,.65),white,true)
 	pieta_case.set_meta("pieta_wall_case",true)
 	_renaissance_pieta_case=pieta_case
-	var pieta:=Pieta.build()
-	add_child(pieta)
-	pieta.position=pieta_at+Vector3(0,1.08,0)
-	pieta.rotation.y=PI/2
+	# A real mesh (#263) at the same point, turn and catalogue size; pieta_asset.gd's blocks are no longer built.
+	var pieta:=place_mesh("res://assets/additions/renaissance/pieta-59128.glb",pieta_at+Vector3(0,1.08,0),PI/2,Pieta.SIZE,"59.128")
+	pieta.name="Pieta59128"
+	pieta.set_meta("catalogue_medium","linden wood")
+	pieta.set_meta("dating","unresolved: API 1480-1510, case label and page ca. 1515-1525")
+	pieta.set_meta("rear_source","none: no photograph of the back or a side exists; the flat back is inferred")
+	for flag in ["survey_metres_accepted","placement_accepted","rear_fidelity_accepted","visual_fidelity_accepted","whole_room_complete"]:pieta.set_meta(flag,false)
 	pieta.reparent(pieta_case)
 	for spec in [[Vector3(-.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(0,1.43,-.325),Vector3(.38,.70,.012)],[Vector3(0,1.43,.325),Vector3(.38,.70,.012)],[Vector3(0,1.78,0),Vector3(.38,.012,.65)]]:
 		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)

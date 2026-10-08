@@ -1,0 +1,44 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/59.128/other-03.jpg (detail: Christ's head and chest)"
+  ]
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front; no photograph of a side exists",
+  "note": "a blurred footage frame (IMG_6383 18.3 s) gave only how narrow the group is; Muse drew the flat back as a board",
+  "references": [
+   "image-work/mesh-pilot-263/batch/59.128/clay-front.png",
+   "~/risd-godot-ingestion/mesh-pilot-263/footage/59.128/crop-from-18.3.jpg"
+  ]
+ },
+ "clay-side": {
+  "from": "inferred by Muse; came out a three-quarter view, not a profile",
+  "note": "not used for the mesh",
+  "references": [
+   "batch/59.128/clay-front.png",
+   "footage IMG_6383 24.6 s",
+   "footage IMG_6383 18.3 s",
+   "~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg"
+  ]
+ },
+ "clay-back": {
+  "from": "inferred by Muse; no photograph of the back exists",
+  "note": "not used for the mesh: Muse carved the back in the round, against the flat back its own profile view and the 13.2 cm catalogue depth give",
+  "references": [
+   "batch/59.128/clay-front.png",
+   "footage IMG_6383 24.6 s",
+   "footage IMG_6383 18.3 s",
+   "~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/59.128/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/59.128/front.jpg"
+  ]
+ }
+}

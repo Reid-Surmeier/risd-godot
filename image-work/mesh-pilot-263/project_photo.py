@@ -145,6 +145,7 @@ weight = np.clip((facing[tf] - r0) / r1, 0, 1) * visible * inside
 sx2, sy2 = np.clip(sx2, 0, W - 1.001), np.clip(sy2, 0, H - 1.001); jx, jy = sx2.astype(int), sy2.astype(int); fx, fy = (sx2 - jx)[:, None], (sy2 - jy)[:, None]
 colour = (photo[jy, jx] * (1 - fx) + photo[jy, jx + 1] * fx) * (1 - fy) + (photo[jy + 1, jx] * (1 - fx) + photo[jy + 1, jx + 1] * fx) * fy
 wmap = np.zeros((S, S), np.float32); wmap[ty, tx] = weight; wmap = cv2.GaussianBlur(wmap, (0, 0), 1.5)  # soften the edge of what was seen
+wmap[ty, tx] = np.where(weight > 0, wmap[ty, tx], 0)  # the blur may lower a seen texel, never lend weight to an unseen one: its colour is the background
 out = atlas.copy().astype(np.float32); k = wmap[ty, tx][:, None]
 out[ty, tx] = colour * k + out[ty, tx] * (1 - k)
 # keep island gutters from bleeding old colour: spread the repainted texels outward a few pixels

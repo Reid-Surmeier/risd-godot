@@ -1,0 +1,31 @@
+{
+ "raw_sha256": "e54f7847944af4cfc9bd6b1375664402b137fb808078945f0c90c0f1ee1b8d46",
+ "raw_triangles": 480748,
+ "lean_removed_deg": 4.31,
+ "as_made_m_at_catalogue_height": {
+  "width": 0.3575,
+  "depth": 0.1759
+ },
+ "scale": {
+  "height": 0.46614,
+  "width_against_height": 1.0659,
+  "depth_against_height": 0.7502
+ },
+ "baked_map_means": {
+  "ao": [
+   0.518,
+   0.518,
+   0.518
+  ]
+ },
+ "maps_px": 512,
+ "triangles": 10000,
+ "size_m_width_height_depth": [
+  0.3815,
+  0.457,
+  0.1322
+ ],
+ "glb_bytes": 454004,
+ "images": 1,
+ "blender": "5.2.2 LTS"
+}
