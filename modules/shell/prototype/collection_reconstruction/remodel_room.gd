@@ -2306,7 +2306,7 @@ func build_renaissance_wall_art() -> void:
 	glass.transparency=BaseMaterial3D.TRANSPARENCY_ALPHA
 	glass.cull_mode=BaseMaterial3D.CULL_DISABLED
 	glass.roughness=.18
-	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.22,24.10),PI/2,"west"]]:
+	for row in [["velvet_23307x",Vector3(-1.775,1.31,24.867),PI,"south"],["woodcutters_29280",Vector3(-3.225,1.35,24.887),PI,"south"],["madonna_58196",Vector3(-5.478,1.52,24.10),PI/2,"west"]]:
 		var art:=RenaissanceWall.build(row[0])
 		add_child(art)
 		art.position=row[1]
