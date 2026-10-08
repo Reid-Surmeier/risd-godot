@@ -373,8 +373,9 @@ const ARCHITRAVE:=[[0,0],[0,.014],[.003,.019],[.009,.022],[.015,.019],[.018,.014
 ## head and down the other with mitred corners, and the lining back to the plane the two rooms
 ## share. Three meshes (left, head, right) under the door head, so the camera's cut-away tests
 ## each and never the empty opening. `fixed` is the wall's plan line, `opening` its two edges
-## along the wall, `head` the clear height, `width` the casing's width.
-func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,width:float) -> void:
+## along the wall, `head` the clear height, `width` the casing's width. A window's casing starts
+## at `base`, on its sill, instead of the floor.
+func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,width:float,base:=0.0) -> void:
 	var vertical:bool=side in ["west","east"]
 	var face:float=1.0 if side in ["west","north"] else -1.0
 	# (along the wall, up, out of the wall face) -> room metres; the wall's face stands .061 in.
@@ -397,8 +398,8 @@ func door_casing(header:Node3D,side:String,fixed:float,opening:Array,head:float,
 		# Which way "across the casing" points for this run, and its two ends for a given offset.
 		var across:Vector3=-along if part=="left" else along if part=="right" else Vector3.UP
 		var ends:=func(d:float,out:float) -> Array:
-			if part=="left":return [at.call(lo-d,0.0,out),at.call(lo-d,head+d,out)]
-			if part=="right":return [at.call(hi+d,head+d,out),at.call(hi+d,0.0,out)]
+			if part=="left":return [at.call(lo-d,base,out),at.call(lo-d,head+d,out)]
+			if part=="right":return [at.call(hi+d,head+d,out),at.call(hi+d,base,out)]
 			return [at.call(lo-d,head+d,out),at.call(hi+d,head+d,out)]
 		for i in section.size()-1:
 			var a:Array=ends.call(section[i].x,section[i].y)
@@ -439,10 +440,21 @@ func exit_sign(at:Vector3,yaw:float) -> Node3D:
 	sign.set_meta("exit_sign",true)
 	return sign
 
-## Doorways with the footage's deep panelled reveal: "<room>:<side>" -> depth in metres.
-const DEEP_REVEALS:={"light Renaissance room:north":.8}
-## A folded leaf's panels on a reveal cheek, as fractions of its height from the top (IMG_6385 1.0s).
-const LEAF_PANELS:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
+## A folded leaf's panels on a reveal cheek, as fractions of its height from the top: the
+## five-panel leaf of IMG_6385 1.0s, and the two unequal panels of IMG_6386 102.75s.
+const LEAF_FIVE:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
+const LEAF_TWO:=[[.066,.672],[.734,.953]]
+## Doorways with the footage's deep panelled reveal: "<room>:<side>" -> [depth in metres, the
+## panels on each cheek, what the cheek is]. "knob": a gallery door's leaf folded flat, with its
+## knob. "fire": a stair door's fire door seen from the room it opens away from, with its push
+## bar and closer (IMG_6382 20.0s, IMG_6387 5.0/10.5s). "plain": the panelled lining seen from
+## the room those fire doors open into, where they stand as leaves. One doorway is two entries,
+## one for each room it joins.
+const DEEP_REVEALS:={
+	"light Renaissance room:north":[.8,LEAF_TWO,"knob"],"adjacent gallery:south":[.8,LEAF_TWO,"knob"],
+	"dark medieval room:east":[.9,LEAF_TWO,"fire"],"lion stair landing:west":[.5,LEAF_TWO,"plain"],
+	"lion stair landing:north":[.9,LEAF_TWO,"fire"],"modern painting gallery:south":[.5,LEAF_TWO,"plain"],
+	"lion stair landing:east":[.9,LEAF_TWO,"fire"],"white sculpture gallery threshold study limit:west":[.5,LEAF_TWO,"plain"]}
 
 ## The reveal of a cased doorway as a stage flat: two panelled cheeks, a panelled soffit and a
 ## threshold, standing `depth` metres beyond the wall plane where the next room would be, and
@@ -452,7 +464,7 @@ const LEAF_PANELS:=[[.03,.19],[.22,.32],[.35,.60],[.63,.72],[.75,.96]]
 ## shared-wall rule from drawing it in the room it reaches into. Its faces show from inside the
 ## opening only. It carries its own tones and stays out of the bake, so it throws no shadow on
 ## the neighbour's floor.
-func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float) -> void:
+func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,depth:float,leaf:Array,kind:String) -> void:
 	var vertical:bool=side in ["west","east"]
 	var face:float=1.0 if side in ["west","north"] else -1.0
 	# (along the wall, up, metres beyond the wall plane) -> room metres.
@@ -476,7 +488,7 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 	var into:=Vector3(0,0,1) if vertical else Vector3(1,0,0) # along the wall
 	var beyond:Vector3=at.call(0.0,0.0,1.0)-at.call(0.0,0.0,0.0)
 	var cheek:Array=[]
-	for span in LEAF_PANELS:cheek.append(Rect2(.09,head*(1.0-span[1]),depth-.18,head*(span[1]-span[0])))
+	for span in leaf:cheek.append(Rect2(.09,head*(1.0-span[1]),depth-.18,head*(span[1]-span[0])))
 	for spec in [
 		[at.call(lo,head,0.0),into,beyond,Vector3.DOWN,hi-lo,depth,[Rect2(.10,.10,hi-lo-.20,depth-.20)],Color("efe9da")],
 		[at.call(lo,0.0,0.0),beyond,Vector3.UP,into,depth,head,cheek,Color("efe9da")],
@@ -529,6 +541,344 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 		mesh.visible=not has_meta("bake_preparing")
 		body.add_child(mesh)
 		mesh.global_transform=Transform3D.IDENTITY
+	# What each cheek carries: a folded leaf's knob at its free edge deep in the reveal, a fire
+	# door's push bar with its two fittings and the closer by the hinge, or nothing. [height, metres in, size along the
+	# reveal / up / out of the cheek].
+	var dark:=look(Color("2a2a2b"),"",true)
+	var hardware:Array=[[.98,depth/2,Vector3(.66,.045,.04)],[.98,depth/2-.33,Vector3(.06,.075,.065)],[.98,depth/2+.33,Vector3(.06,.075,.065)],[2.51,.20,Vector3(.23,.09,.05)]] if kind=="fire" else [[.95,depth-.08,Vector3(.05,.05,.05)]] if kind=="knob" else []
+	for s in [lo+.02,hi-.02]:
+		for piece in hardware:
+			var fitting:=MeshInstance3D.new()
+			var box:=BoxMesh.new()
+			box.size=Vector3(piece[2].x,piece[2].y,piece[2].z) if vertical else Vector3(piece[2].z,piece[2].y,piece[2].x)
+			fitting.mesh=box
+			if kind=="knob":
+				var ball:=SphereMesh.new()
+				ball.radius=.025
+				ball.height=.05
+				ball.radial_segments=8
+				ball.rings=4
+				fitting.mesh=ball
+			fitting.material_override=dark if kind=="fire" else look(Color("3a3323"),"",true)
+			fitting.visible=not has_meta("bake_preparing")
+			body.add_child(fitting)
+			fitting.global_position=at.call(s,piece[0],piece[1])
+
+## The furniture kit's gallery bench (IMG_6383 62.5s): an upholstered seat with rounded edges and
+## stitched tufts, `columns` by `rows` of them, a third of the bench's height with its fabric side
+## showing, on a dark brown wooden base rail carried by four stout square legs. `at` is the floor
+## point under its middle; its length runs along x. The seat is one surface, shaped and shaded in
+## its seams, and the whole bench is one body to walk round.
+func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int) -> StaticBody3D:
+	var body:StaticBody3D=solid(at+Vector3(0,height/2,0),Vector3(length,height,width),look(Color("2a2623")),true)
+	body.get_child(1).mesh=ArrayMesh.new() # the box is only what a visitor walks round
+	body.set_meta("collision_only",true)
+	body.set_meta("furniture","bench")
+	var thick:=height/3
+	# The seat's top at a point of its plan: rounded down at the rim, drawn in along each seam,
+	# and pulled deeper where two seams cross.
+	var top:=func(u:float,w:float) -> float:
+		var rim:=.04
+		var over:=Vector2(maxf(absf(u)-(length/2-rim),0),maxf(absf(w)-(width/2-rim),0))
+		var y:=height-(rim-sqrt(maxf(rim*rim-over.length_squared(),0)))
+		var su:=fposmod(u+length/2,length/columns)
+		var sw:=fposmod(w+width/2,width/rows)
+		var du:=minf(su,length/columns-su) if absf(u)<length/2-.02 else 1.0
+		var dw:=minf(sw,width/rows-sw) if absf(w)<width/2-.02 else 1.0
+		return y-.005*exp(-pow(minf(du,dw)/.010,2))-.012*exp(-(du*du+dw*dw)/.0006)
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var nu:=columns*16
+	var nw:=rows*14
+	var corner:=func(i:int,j:int) -> Vector3:
+		var u:float=-length/2+length*i/nu
+		var w:float=-width/2+width*j/nw
+		return Vector3(u,top.call(u,w),w)
+	var put:=func(point:Vector3,normal:Vector3,shade:float) -> void:
+		st.set_color(Color(shade,shade,shade))
+		st.set_normal(normal)
+		st.add_vertex(at+point)
+	for i in nu:
+		for j in nw:
+			for c in [[i,j],[i+1,j+1],[i+1,j],[i,j],[i,j+1],[i+1,j+1]]:
+				var point:Vector3=corner.call(c[0],c[1])
+				var e:=.004
+				var slope:=Vector3(top.call(point.x-e,point.z)-top.call(point.x+e,point.z),2*e,top.call(point.x,point.z-e)-top.call(point.x,point.z+e)).normalized()
+				put.call(point,slope,clampf(1.0-(height-point.y)*22.0,.55,1.0))
+	# The seat's side, from the rim down to the frame.
+	var rim_points:Array=[]
+	for i in nu:rim_points.append(corner.call(i,0))
+	for j in nw:rim_points.append(corner.call(nu,j))
+	for i in nu:rim_points.append(corner.call(nu-i,nw))
+	for j in nw:rim_points.append(corner.call(0,nw-j))
+	for k in rim_points.size():
+		var a:Vector3=rim_points[k]
+		var b:Vector3=rim_points[(k+1)%rim_points.size()]
+		var out:=Vector3(b.z-a.z,0,a.x-b.x).normalized()
+		var low:=height-thick
+		for c in [[a,a.y,.8],[b,b.y,.8],[b,low,.62],[a,a.y,.8],[b,low,.62],[a,low,.62]]:
+			put.call(Vector3(c[0].x,c[1],c[0].z),out,c[2])
+	var seat:=MeshInstance3D.new()
+	seat.mesh=st.commit()
+	var cloth:=look(Color("7d7c7e"))
+	cloth.vertex_color_use_as_albedo=true
+	cloth.cull_mode=BaseMaterial3D.CULL_DISABLED
+	seat.material_override=cloth
+	body.add_child(seat)
+	seat.global_transform=Transform3D.IDENTITY
+	# The frame: the base rail the seat sits on, and four stout square legs under its corners.
+	var wood:=look(Color("3b2a1e"))
+	var rail_h:=.06
+	var inset:=Vector2(length/2-.045,width/2-.045)
+	for spec in [[Vector3(0,height-thick-rail_h/2,inset.y),Vector3(length-.04,rail_h,.05)],[Vector3(0,height-thick-rail_h/2,-inset.y),Vector3(length-.04,rail_h,.05)],
+		[Vector3(inset.x,height-thick-rail_h/2,0),Vector3(.05,rail_h,width-.04)],[Vector3(-inset.x,height-thick-rail_h/2,0),Vector3(.05,rail_h,width-.04)]]:
+		var rail:=solid(at+spec[0],spec[1],wood)
+		rail.reparent(body)
+	var leg_h:=height-thick-rail_h
+	for x in [-inset.x+.01,inset.x-.01]:
+		for z in [-inset.y+.01,inset.y-.01]:
+			var leg:=MeshInstance3D.new()
+			var post:=CylinderMesh.new()
+			post.top_radius=.05 # a square post about 7 cm a side
+			post.bottom_radius=.044
+			post.height=leg_h
+			post.radial_segments=4
+			post.rings=1
+			leg.mesh=post
+			leg.rotation.y=PI/4
+			leg.material_override=wood
+			body.add_child(leg)
+			leg.global_position=at+Vector3(x,leg_h/2,z)
+	return body
+
+## The furniture kit's shaded window (IMG_6383 16.5/17.0/61.0s): the trim kit's casing round a
+## shallow reveal, a drawn white shade with its folds, daylight leaking as pale blue strips down
+## both sides and under the head box, and a sill of stool and apron. `side` is the wall it is on,
+## `fixed` that wall's plan line, `opening` the reveal's two edges along the wall, `sill` and
+## `head` its bottom and top. The wall is not cut: the reveal is 3.5 cm of frame standing on the
+## wall's face. Returns [shade, sill]; every other part hangs from the shade, so re-parenting
+## those two to the wall's body hides the window with the wall.
+func shaded_window(side:String,fixed:float,opening:Array,sill:float,head:float) -> Array:
+	var vertical:bool=side in ["west","east"]
+	var face:float=1.0 if side in ["west","north"] else -1.0
+	# [along the wall], [up], [out of the wall's face] -> where that box is and its size.
+	var place:=func(s:Array,y:Array,out:Array) -> Array:
+		var off:float=fixed+face*(.061+(out[0]+out[1])/2)
+		var mid:float=(s[0]+s[1])/2
+		var size:=Vector3(out[1]-out[0],y[1]-y[0],s[1]-s[0])
+		return [Vector3(off,(y[0]+y[1])/2,mid),size] if vertical else [Vector3(mid,(y[0]+y[1])/2,off),Vector3(size.z,size.y,size.x)]
+	# The shade is daylit from behind: it keeps its own brightness, as the works do.
+	var cloth:=look(Color("e6e7e5"),"",true)
+	var lo:float=opening[0]
+	var hi:float=opening[1]
+	var w:=.10
+	var deep:=.035
+	var spot:Array=place.call(opening,[sill,head],[.002,.010])
+	var shade:=solid(spot[0],spot[1],cloth)
+	var glow:=look(Color("a6d2ff"),"",true)
+	var parts:=[[[lo,lo+.06],[sill,head-.10],[.010,.012],glow],[[hi-.06,hi],[sill,head-.10],[.010,.012],glow],
+		[[lo,hi],[head-.115,head-.10],[.010,.012],glow],[[lo,hi],[head-.10,head],[.010,.030],trim_paint()],
+		[[lo-w,lo-.002],[sill,head+w],[0,deep],trim_paint()],[[hi+.002,hi+w],[sill,head+w],[0,deep],trim_paint()],
+		[[lo-w,hi+w],[head+.002,head+w],[0,deep],trim_paint()]]
+	var fold:=sill+.28
+	while fold<head-.15:
+		parts.append([[lo+.06,hi-.06],[fold,fold+.003],[.010,.011],look(Color("d6d7d4"),"",true)])
+		fold+=.28
+	for part in parts:
+		spot=place.call(part[0],part[1],part[2])
+		solid(spot[0],spot[1],part[3]).reparent(shade)
+	door_casing(shade,side,fixed+face*deep,opening,head,w,sill)
+	# The sill, one mesh: a stool the casing stands on, proud of it, and an apron under the stool.
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for part in [[[lo-w-.03,hi+w+.03],[sill-.035,sill],[0,deep+.076]],[[lo-w,hi+w],[sill-.12,sill-.035],[0,.02]]]:
+		spot=place.call(part[0],part[1],part[2])
+		st.append_from(BoxMesh.new(),0,Transform3D(Basis.from_scale(spot[1]),spot[0]))
+	st.generate_normals()
+	var ledge:=MeshInstance3D.new()
+	ledge.mesh=st.commit()
+	ledge.material_override=trim_paint()
+	add_child(ledge)
+	return [shade,ledge]
+
+## The furniture kit's plinth: a white box to walk round, standing on a recessed kick 2 cm high
+## (the thin dark line where the footage's plinths and platform meet the floor, IMG_6383
+## 7.0/18.3s). `at` is the floor point under its middle. The kick is its third child.
+func plinth(at:Vector3,size:Vector3) -> StaticBody3D:
+	var body:StaticBody3D=solid(at+Vector3(0,size.y/2,0),size,look(Color("f0eeea")),true)
+	var skin:MeshInstance3D=body.get_child(1)
+	skin.mesh.size.y-=.02
+	skin.position.y=.01
+	var kick:=solid(at+Vector3(0,.01,0),Vector3(size.x-.04,.02,size.z-.04),look(Color("959691")))
+	kick.reparent(body)
+	return body
+
+## The furniture kit's label stand (IMG_6383 5.0/7.0/10.0s): a folded white sheet standing on a
+## platform. Two cheeks carry a plate that slopes down toward the reader; it is open underneath,
+## and the blank label block lies on the plate. `at` is the point it stands on, under its
+## middle; `yaw` turns its reading side (+z).
+func label_stand(at:Vector3,yaw:float,width:=.38) -> Node3D:
+	var stand:=Node3D.new()
+	add_child(stand)
+	stand.position=at
+	stand.rotation.y=yaw
+	stand.set_meta("artwork_label_proxy",true)
+	# Sizes against the platform's 16 cm face in 7.0/10.0s: about twice its height at the back.
+	var depth:=.22
+	var low:=.20
+	var high:=.34
+	var sheet:=look(Color("f0eeea"))
+	sheet.cull_mode=BaseMaterial3D.CULL_DISABLED
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for x in [-width/2,width/2]:
+		var cheek:=[Vector3(x,0,depth/2),Vector3(x,low,depth/2),Vector3(x,high,-depth/2),Vector3(x,0,-depth/2)]
+		st.set_normal(Vector3(signf(x),0,0))
+		for i in [0,1,2,0,2,3]:st.add_vertex(cheek[i])
+	var cheeks:=MeshInstance3D.new()
+	cheeks.mesh=st.commit()
+	cheeks.material_override=sheet
+	stand.add_child(cheeks)
+	var tilt:=atan2(high-low,depth)
+	var length:=Vector2(depth,high-low).length()
+	for spec in [[Vector3(width+.008,.005,length+.01),sheet,0.0],[Vector3(width*.86,.003,length*.8),look(Color("dedbd4")),.004]]:
+		var plate:=solid(Vector3.ZERO,spec[0],spec[1])
+		plate.reparent(stand,false)
+		plate.position=Vector3(0,(low+high)/2,0)+Vector3(0,cos(tilt),sin(tilt))*spec[2]
+		plate.rotation.x=tilt
+	return stand
+
+## The furniture kit's hood edges: the twelve polished edges of a clear hood as thin pale lines
+## (IMG_6383 18.3s, IMG_6382 79.0s). `at` is the floor point under the hood's middle, `deck` its
+## foot and `top` its lid; the lines hang from `body`.
+func hood_edges(body:Node3D,at:Vector3,width:float,depth:float,deck:float,top:float) -> void:
+	var edge:=look(Color("d5e0df"),"",true)
+	var t:=.004
+	var mid:=(deck+top)/2
+	for side in [-1,1]:
+		for spec in [[Vector3(side*width/2,deck+t/2,0),Vector3(t,t,depth)],[Vector3(side*width/2,top,0),Vector3(t,t,depth)],
+			[Vector3(0,deck+t/2,side*depth/2),Vector3(width,t,t)],[Vector3(0,top,side*depth/2),Vector3(width,t,t)],
+			[Vector3(side*width/2,mid,-depth/2),Vector3(t,top-deck,t)],[Vector3(side*width/2,mid,depth/2),Vector3(t,top-deck,t)]]:
+			solid(at+spec[0],spec[1],edge).reparent(body)
+
+## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0/61.0s): a white plinth on a
+## recessed kick, a cap slab that oversails it by 9 cm, a clear hood standing on the cap 6 cm
+## inside its edge with its polished edges as pale lines, and inside the hood a low riser with
+## sloped sides whose `front` slope carries the blank label block. `at` is the floor point under
+## its middle, `width` and `depth` the hood's, `deck` the cap's top and `top` the hood's; the
+## work stands on the riser, at deck+.04. Returns the body to walk round; its kick, cap and
+## riser carry "floor_case_part".
+func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,front:Vector3) -> StaticBody3D:
+	var white:=look(Color("f0eeea"))
+	var body:=plinth(at,Vector3(width-.06,deck-.04,depth-.06))
+	body.get_child(2).set_meta("floor_case_part","kick")
+	var add:=func(offset:Vector3,size:Vector3,m:Material) -> Node3D:
+		var piece:=solid(at+offset,size,m)
+		piece.reparent(body)
+		return piece
+	add.call(Vector3(0,deck-.02,0),Vector3(width+.12,.04,depth+.12),white).set_meta("floor_case_part","cap")
+	var glass:=look(Color(.82,.90,.91,.10),"",true)
+	var mid:=(deck+top)/2
+	for side in [-1,1]:
+		add.call(Vector3(side*width/2,mid,0),Vector3(.012,top-deck,depth),glass)
+		add.call(Vector3(0,mid,side*depth/2),Vector3(width,top-deck,.012),glass)
+	add.call(Vector3(0,top,0),Vector3(width,.012,depth),glass)
+	hood_edges(body,at,width,depth,deck,top)
+	# The riser: a flat top for the work, sloped down to the cap all round.
+	var run:=.10
+	var rise:=.04
+	var low:=Vector2(width/2-.03,depth/2-.03)
+	var high:=low-Vector2(run,run)
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var ring:=func(half:Vector2,y:float) -> Array:
+		return [Vector3(-half.x,y,-half.y),Vector3(half.x,y,-half.y),Vector3(half.x,y,half.y),Vector3(-half.x,y,half.y)]
+	var foot:Array=ring.call(low,deck)
+	var crown:Array=ring.call(high,deck+rise)
+	var quads:=[[crown[0],crown[1],crown[2],crown[3]]]
+	for i in 4:quads.append([foot[i],foot[(i+1)%4],crown[(i+1)%4],crown[i]])
+	for quad in quads:
+		st.set_normal((quad[2]-quad[0]).cross(quad[1]-quad[0]).normalized())
+		for i in [0,1,2,0,2,3]:st.add_vertex(quad[i])
+	var riser:=MeshInstance3D.new()
+	riser.mesh=st.commit()
+	var paint:=look(Color("f6f4ee"))
+	paint.cull_mode=BaseMaterial3D.CULL_DISABLED
+	riser.material_override=paint
+	riser.set_meta("floor_case_part","riser")
+	body.add_child(riser)
+	riser.global_position=at
+	# The label lies on the riser's front slope. A blank block: the game carries no typed text.
+	var reach:=absf(front.x)*low.x+absf(front.z)*low.y-run/2
+	var label:Node3D=add.call(front*(reach+.001)+Vector3(0,deck+rise/2+.002,0),Vector3(run*.8,.003,.20),look(Color("dedbd4")))
+	label.rotation=Vector3(0,atan2(-front.z,front.x),-atan2(rise,run))
+	label.set_meta("artwork_label_proxy",true)
+	return body
+
+## What makes a wall case read as the footage's (IMG_6383 24.6/30.2/44.0/62.0s) once its deck, back
+## board and clear hood exist. The hood's polished edges: the four top ones as narrow dark rails
+## (seen from below against the white board they read slate-dark in every frame), the other eight
+## as thinner mid grey-green lines, darker than the board and lighter than the room. A sloped
+## label rail along the deck's front inside the hood, carrying one blank block per `labels` row
+## ([centre along the case, width]). A recessed lower step under the deck. On the floor under the
+## case, a thin dark strip round its footprint. `display` is the case's own frame: x along the
+## wall and centred, y up from the floor, z out of the wall. `under` and `deck` are the deck's
+## bottom and top, `top` the hood's.
+func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck:float,top:float,labels:=[]) -> void:
+	var white:=look(Color("f0eeea"))
+	var edge:=look(Color("8a9a98"),"",true)
+	var dark:=look(Color("434b52"),"",true)
+	var add:=func(at:Vector3,size:Vector3,m:Material) -> Node3D:
+		var piece:=solid(Vector3.ZERO,size,m)
+		piece.reparent(display,false)
+		piece.position=at
+		return piece
+	var t:=.004
+	var rails:=[]
+	for x in [-length/2,length/2]:
+		for z in [0.0,depth]:
+			add.call(Vector3(x,(deck+top)/2,z),Vector3(t,top-deck,t),edge)
+		add.call(Vector3(x,deck+t/2,depth/2),Vector3(t,t,depth),edge)
+		rails.append(add.call(Vector3(x,top,depth/2),Vector3(.008,.008,depth),dark))
+	for z in [0.0,depth]:
+		add.call(Vector3(0,deck+t/2,z),Vector3(length,t,t),edge)
+		rails.append(add.call(Vector3(0,top,z),Vector3(length,.008,.008),dark))
+	for rail in rails:rail.set_meta("wall_case_top_rail",true)
+	# The lower step, set back from the front and the ends.
+	add.call(Vector3(0,under-.06,(depth-.07)/2),Vector3(length-.12,.12,depth-.07),white)
+	# The floor strip: the case's footprint drawn on the boards, darker than the oak (62.0s).
+	var strip:=look(Color("83623f"))
+	for x in [-length/2,length/2]:add.call(Vector3(x,.004,depth/2+.03),Vector3(.02,.008,depth-.06),strip)
+	for z in [.06,depth]:add.call(Vector3(0,.004,z),Vector3(length+.02,.008,.02),strip)
+	# The label rail: a wedge rising from the deck's front edge toward the works.
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var run:=minf(.14,depth*.26)
+	var front:=depth-.02
+	var back:=front-run
+	var rise:=run/2
+	var slope:=Vector3(0,run,rise).normalized()
+	for quad in [[[Vector3(-1,deck,front),Vector3(1,deck,front),Vector3(1,deck+rise,back),Vector3(-1,deck+rise,back)],slope],
+		[[Vector3(-1,deck+rise,back),Vector3(1,deck+rise,back),Vector3(1,deck,back),Vector3(-1,deck,back)],Vector3(0,0,-1)]]:
+		for i in [0,1,2,0,2,3]:
+			st.set_normal(quad[1])
+			st.add_vertex(Vector3(quad[0][i].x*(length/2-.03),quad[0][i].y,quad[0][i].z))
+	for x in [-(length/2-.03),length/2-.03]:
+		for corner in [Vector3(x,deck,front),Vector3(x,deck+rise,back),Vector3(x,deck,back)]:
+			st.set_normal(Vector3(signf(x),0,0))
+			st.add_vertex(corner)
+	var rail:=MeshInstance3D.new()
+	rail.mesh=st.commit()
+	var card:=look(Color("f6f4ee"))
+	card.cull_mode=BaseMaterial3D.CULL_DISABLED
+	rail.material_override=card
+	rail.set_meta("artwork_label_proxy",true)
+	display.add_child(rail)
+	# The labels lie on the rail's slope. Blank blocks: the game carries no typed text.
+	for spec in labels:
+		var block:Node3D=add.call(Vector3(spec[0],deck+rise/2,(front+back)/2)+slope*.002,Vector3(spec[1],.003,run*.86),look(Color("dedbd4")))
+		block.rotation.x=atan2(rise,run)
+		block.set_meta("artwork_label_proxy",true)
 
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
@@ -650,7 +1000,8 @@ func build_rooms() -> void:
 			header.set_meta("source_casing_width",casing_width)
 			door_casing(header,side,fixed,opening,minf(clear_height,2.74),casing_width)
 			if DEEP_REVEALS.has(area.label+":"+side):
-				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),DEEP_REVEALS[area.label+":"+side])
+				var reveal:Array=DEEP_REVEALS[area.label+":"+side]
+				deep_reveal(area.label,side,fixed,opening,minf(clear_height,2.74),reveal[0],reveal[1],reveal[2])
 	# Ceiling rails and vents follow the wide views, and Rockefeller north by the Hall reveal.
 	var north:=Vector3(0,0,-hall_reveal.wall_m)
 	for x in [-3.65,-1.55,.55]:
@@ -1145,6 +1496,9 @@ func build_catalogue_objects() -> void:
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/catalogue-objects.json"))
 	for row in data.instances:
 		var asset:Dictionary=data.meshes[row.asset]
+		if row.has("mesh"): # a real mesh (#263) at the row's own position, yaw and catalogue size
+			place_mesh("res://assets/"+row.mesh,vec(row.position),row.get("yaw",0.0),vec(row.size_m),row.accession).set_meta("catalogue_asset",row.asset)
+			continue
 		if row.get("shape","") in ["cabinet","table"]:
 			build_front_furniture(row,asset)
 			continue
@@ -1227,37 +1581,11 @@ func build_adjacent_gallery() -> void:
 	# platform, which european_east_additions.gd builds. The two full-height piers once built here
 	# were a misreading of that panel and are gone.
 	inventory["gallery_piers"]=0
-	# IMG_6386 102.75/104.75s: two unequal panels, leaves swing into Renaissance.
-	# ponytail: right-angle swing and leaf dimensions remain provisional; wall relationship is observed.
-	for x in [-1.59,.49]:
-		var ivory:=look(Color("eee9de"))
-		var leaf:=solid(Vector3(x,1.38,28.58),Vector3(.07,2.7,.96),ivory,true)
-		for index in 2:
-			var y:float=[1.73,.43][index]
-			var height:float=[1.66,.60][index]
-			for side in [-1,1]:
-				var face:float=x+side*.042
-				panel(leaf,[Vector3(face-x,y-height/2-1.38,-.36),Vector3(face-x,y-height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,.36),Vector3(face-x,y+height/2-1.38,-.36)],
-					[Vector2(0,1),Vector2(1,1),Vector2(1,0),Vector2(0,0)],look(Color.WHITE,"res://assets/european-two-panel-door-%d.png"%index))
-				for edge in [-1,1]:
-					var stile:=solid(Vector3(x+side*.050,y,28.58+edge*.36),Vector3(.014,height+.03,.03),ivory)
-					stile.reparent(leaf)
-					var rail:=solid(Vector3(x+side*.050,y+edge*height/2,28.58),Vector3(.014,.03,.75),ivory)
-					rail.reparent(leaf)
-		for side in [-1,1]:
-			var knob:=MeshInstance3D.new()
-			var sphere:=SphereMesh.new()
-			sphere.radius=.025
-			sphere.height=.05
-			sphere.radial_segments=8
-			sphere.rings=4
-			knob.mesh=sphere
-			knob.material_override=look(Color("514831"))
-			knob.position=Vector3(x+side*.070,.88,28.99)
-			add_child(knob)
-			knob.reparent(leaf)
+	# IMG_6386 102.75/104.75s, IMG_6383 62.5s: each leaf has two unequal panels and lies folded flat
+	# in the doorway's reveal. deep_reveal() draws them as the reveal's cheeks (DEEP_REVEALS), so
+	# no leaf stands in the room.
 	inventory["european_door_panels_per_leaf"]=2
-	inventory["european_door_swing_into_renaissance"]=true
+	inventory["european_door_folded_into_reveal"]=true
 	inventory["far_doorway_threshold"]=1
 	var data:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://assets/goltzius-frame-geometry.json"))
 	var goltzius:=Painting.new()
@@ -1396,47 +1724,36 @@ func build_sculpture_rooms() -> void:
 	inventory["stair_wall_apostles"]={"accessions":["41.046","41.045"],"catalogue_width_height":true,"mount_depth_placement_accepted":false,"muse_damage_fidelity_accepted":false}
 	inventory["medieval_verified_panels"]=4
 	inventory["medieval_objects_complete"]=false
-	# IMG_6383 61.25..64.75s: black central bench; dimensions unmeasured.
-	var bench:=solid(Vector3(-2.75,.43,22.4),Vector3(1.65,.16,.55),look(Color("282526")),true)
-	for x in [-3.4,-2.1]:
-		for z in [22.18,22.62]:
-			var leg:=solid(Vector3(x,.2,z),Vector3(.07,.4,.07),look(Color("29231e")))
-			leg.reparent(bench)
+	# IMG_6383 61.25..64.75s: the central bench, a grey tufted seat on a dark frame. Its length and
+	# width are the earlier builder's by-eye reading; nothing is measured.
+	bench(Vector3(-2.75,0,22.4),1.65,.55,.46,3,2)
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
 	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
-	var blind:=solid(Vector3(-5.47,1.815,22.7),Vector3(.08,2.37,1.25),white)
+	# 16.5/17.0/61.0s: a cased reveal, a drawn shade with daylight down both its sides, a sill.
+	var window:=shaded_window("west",-5.55,[22.075,23.325],.63,3.0)
+	var blind:MeshInstance3D=window[0]
 	blind.set_meta("renaissance_west_blind",true)
-	var sill:=solid(Vector3(-5.43,.57,22.7),Vector3(.20,.12,1.45),white)
+	var sill:MeshInstance3D=window[1]
 	sill.set_meta("renaissance_west_sill",true)
 	for part in [blind,sill]:
 		part.set_meta("wall_side","west")
 		_renaissance_wall_art.append(part)
 	# IMG_6383 18.3/62.0s: polychromed wood on a white floor plinth before this window.
-	# ponytail: plinth/hood metres and window-relative offset are by eye; replace after source fitting.
+	# 61.0s, with the figure's 1.054 m as the ruler: the cap is about 1.0 m wide, the body 0.83.
+	# The same frame puts the cap's top at 0.44 m (+-5 cm), under the window sill; the figure stands
+	# on the riser at 0.48 m and the hood's top is 1.89 m (both were 0.20 m higher).
 	var roch_at:=Vector3(-4.86,0,22.7)
-	var roch_plinth:=solid(roch_at+Vector3(0,.30,0),Vector3(.70,.60,.70),white,true)
+	var roch_plinth:=hooded_floor_case(roch_at,.86,.86,.44,1.89,Vector3(1,0,0))
 	roch_plinth.set_meta("saint_roch_installation",true)
-	for spec in [["foot",.025,.05,.78],["cap",.62,.04,.80],["mount",.66,.04,.64]]:
-		var step:=solid(roch_at+Vector3(0,spec[1],0),Vector3(spec[3],spec[2],spec[3]),white)
-		step.set_meta("saint_roch_plinth_step",spec[0])
-		step.reparent(roch_plinth)
-	var roch_label:=solid(roch_at+Vector3(.401,.625,.10),Vector3(.003,.035,.11),look(Color("dedbd4")))
-	roch_label.set_meta("artwork_label_proxy",true)
-	roch_label.reparent(roch_plinth)
+	for part in roch_plinth.get_children():
+		if part.has_meta("floor_case_part"):part.set_meta("saint_roch_plinth_step",part.get_meta("floor_case_part"))
 	var roch:=SaintRoch.build() # Muse sheet rejected off-axis; keep the closed flat study.
 	add_child(roch)
-	roch.position=roch_at+Vector3(0,.68,0)
+	roch.position=roch_at+Vector3(0,.48,0)
 	roch.rotation.y=PI/2
 	roch.reparent(roch_plinth)
 	var roch_glass:=look(Color(.82,.90,.91,.10),"",true)
-	for side in [-1,1]:
-		var pane:=solid(roch_at+Vector3(side*.35,1.365,0),Vector3(.012,1.45,.70),roch_glass)
-		pane.reparent(roch_plinth)
-		pane=solid(roch_at+Vector3(0,1.365,side*.35),Vector3(.70,1.45,.012),roch_glass)
-		pane.reparent(roch_plinth)
-	var roch_lid:=solid(roch_at+Vector3(0,2.09,0),Vector3(.70,.012,.70),roch_glass)
-	roch_lid.reparent(roch_plinth)
 	inventory["saint_roch"]={"accession":"21.398","height_m":1.054,"closed_solid_prototype":true,"muse_sheet_used":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	#6383 30.2/63.9s: three gabled panels in a wall-hung case, left of the north door.
 	# ponytail: case metres and offsets are by eye; the front/rear art stays official photography.
@@ -1451,9 +1768,12 @@ func build_sculpture_rooms() -> void:
 	for spec in [[Vector3(-.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(.46,1.50,.24),Vector3(.012,.84,.48)],[Vector3(0,1.50,.48),Vector3(.92,.84,.012)],[Vector3(0,1.50,0),Vector3(.92,.84,.012)],[Vector3(0,1.92,.24),Vector3(.92,.012,.48)]]:
 		var pane:=solid(triptych_at+spec[0],spec[1],roch_glass)
 		pane.reparent(triptych_case)
-	var triptych_label:=solid(triptych_at+Vector3(0,1.03,.485),Vector3(.20,.05,.005),look(Color("dedbd4")))
-	triptych_label.set_meta("artwork_label_proxy",true)
-	triptych_label.reparent(triptych_case)
+	# IMG_6383 30.2s: dark top rails, grey corner lines, one label about half the rail's length.
+	var triptych_frame:=Node3D.new()
+	add_child(triptych_frame)
+	triptych_frame.position=triptych_at
+	triptych_frame.reparent(triptych_case)
+	wall_case_fittings(triptych_frame,.92,.48,.97,1.08,1.92,[[0.0,.50]])
 	inventory["renaissance_triptych"]={"accession":"2021.131","panels":3,"source_rear_observed":true,"placement_accepted":false,"case_metres_accepted":false,"fine_frame_fidelity_accepted":false}
 	#6383 24.6/62.0s: the shallow linden-wood Pietà hangs north of the shuttered window.
 	# ponytail: white shelf/hood offsets are by eye; unobserved sculpture sides stay provisional.
@@ -1469,25 +1789,17 @@ func build_sculpture_rooms() -> void:
 	for spec in [[Vector3(-.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(.19,1.43,0),Vector3(.012,.70,.65)],[Vector3(0,1.43,-.325),Vector3(.38,.70,.012)],[Vector3(0,1.43,.325),Vector3(.38,.70,.012)],[Vector3(0,1.78,0),Vector3(.38,.012,.65)]]:
 		var pane:=solid(pieta_at+spec[0],spec[1],roch_glass)
 		pane.reparent(pieta_case)
-	var pieta_label:=solid(pieta_at+Vector3(.195,1.025,0),Vector3(.005,.06,.30),look(Color("dedbd4")))
-	pieta_label.rotation.z=-.3
-	pieta_label.set_meta("artwork_label_proxy",true)
-	pieta_label.reparent(pieta_case)
+	# IMG_6383 24.6s: the same hood and rail; the label under the work, about 0.27 m.
+	var pieta_frame:=Node3D.new()
+	add_child(pieta_frame)
+	pieta_frame.position=pieta_at+Vector3(-.19,0,0)
+	pieta_frame.rotation.y=PI/2
+	pieta_frame.reparent(pieta_case)
+	wall_case_fittings(pieta_frame,.65,.38,.97,1.08,1.78,[[0.0,.27]])
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
-	# Original6383 24.6/30.2s: dark narrow top rails and corner seams, not a floor plinth.
-	for spec in [[triptych_case,triptych_at+Vector3(0,0,.24),Vector2(.92,.48),1.92],[pieta_case,pieta_at,Vector2(.38,.65),1.78]]:
-		var centre:Vector3=spec[1]
-		var size:Vector2=spec[2]
-		var top:float=spec[3]
-		for side in [-1,1]:
-			for rail in [[Vector3(side*size.x/2,top,0),Vector3(.008,.008,size.y)],[Vector3(0,top,side*size.y/2),Vector3(size.x,.008,.008)]]:
-				var edge:=solid(centre+rail[0],rail[1],look(Color("3c3a35")))
-				edge.set_meta("wall_case_top_rail",true)
-				edge.reparent(spec[0])
-
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
-	var platform:=solid(Vector3(-3.10,.08,24.415),Vector3(4.30,.16,.95),white,true)
+	var platform:=plinth(Vector3(-3.10,0,24.415),Vector3(4.30,.16,.95))
 	platform.set_meta("renaissance_textile_platform",true)
 	build_renaissance_wall_art()
 	for origin in [Vector3(-2.5,3.43,22),Vector3(5.55,4.18,22)]:
@@ -1501,7 +1813,9 @@ func build_sculpture_rooms() -> void:
 	# Reciprocal IMG_6382 78.25/88.75s: broad low case west of the tall stair-side case.
 	#6387 13.0/44.0s,6383 66.5s: stair door, tall case and tracery doorway on one axis.
 	# ponytail: source-relative arrangement only; replace metric offsets after wide-view fitting.
-	var grey:=look(Color("666763"))
+	# IMG_6382 77.5/79.0s: the bases are the pedestals' slate grey, on a projecting base band; the
+	# hoods' edges show as thin pale lines.
+	var grey:=look(Color("6b6d73"))
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
 	for case_spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],
 		[Vector3(8.05,0,22.515),Vector2(1.05,.90),.88,1.05]]:
@@ -1522,6 +1836,9 @@ func build_sculpture_rooms() -> void:
 			pane.reparent(base)
 		var lid:=solid(at+Vector3(0,base_height+.05+glass_height,0),Vector3(footprint.x,.012,footprint.y),glass)
 		lid.reparent(base)
+		hood_edges(base,at,footprint.x,footprint.y,base_height+.05,base_height+.05+glass_height)
+		var band:=solid(at+Vector3(0,.05,0),Vector3(footprint.x+.04,.10,footprint.y+.04),grey)
+		band.reparent(base)
 		# ponytail: by-eye deck positions; catalogue heights fixed, mounts/spacing await source fitting.
 		if footprint.x<1.5:
 			for spec in [[Vector3(-.32,1.025,.13),Vector3(.28,.19,.30)],
@@ -1913,12 +2230,7 @@ func build_renaissance_east_cases() -> void:
 		var backing:=solid(Vector3.ZERO,Vector3(1.19,.90,.012),white)
 		backing.reparent(display,false)
 		backing.position=Vector3(0,1.53,.018)
-		for side in [-1,1]:
-			for rail in [[Vector3(side*.60,1.98,.28),Vector3(.008,.008,.56)],[Vector3(0,1.98,.28+side*.28),Vector3(1.20,.008,.008)]]:
-				var edge:=solid(Vector3.ZERO,rail[1],look(Color("3c3a35")))
-				edge.reparent(display,false)
-				edge.position=rail[0]
-				edge.set_meta("east_case_top_rail",true)
+		wall_case_fittings(display,1.20,.56,.97,1.08,1.98,[[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]])
 		if row[0]=="A":
 			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.08,.32)],["bookcover",Vector3(-.16,1.08,.35)],["emblem",Vector3(.12,1.08,.30)],["albarello",Vector3(.45,1.08,.30)]]:
 				var art:=RenaissanceA.on_display(spec[0],images,Painting.mat)
@@ -1939,12 +2251,6 @@ func build_renaissance_east_cases() -> void:
 					mount.reparent(display,false)
 					mount.position=Vector3(spec[1].x,1.09,.34)
 					mount.rotation.x=-.28
-		for spec in [[-.40,.28],[-.16,.18],[.12,.24],[.45,.16]] if row[0]=="A" else [[-.38,.23],[0.0,.25],[.40,.22]]:
-			var label:=solid(Vector3.ZERO,Vector3(spec[1],.06,.005),look(Color("dedbd4")))
-			label.reparent(display,false)
-			label.position=Vector3(spec[0],1.025,.565)
-			label.rotation.x=.25
-			label.set_meta("artwork_label_proxy",true)
 	inventory["renaissance_case_objects"]={"case_a":6,"case_b":5,"probable":["34.024"],"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 
 #6383 reciprocal wides: velvet east and tapestry west on south wall, framed Madonna south of west window.
@@ -1971,14 +2277,10 @@ func build_renaissance_wall_art() -> void:
 				mesh.position=pane[0]
 				mesh.set_meta("velvet_hood_pane",true)
 		if row[3]=="south":
-			var stand:=solid(Vector3.ZERO,Vector3(.21,.15,.17),look(Color("eeeae3")))
-			stand.position=Vector3(row[1].x,.235,24.03)
-			stand.set_meta("artwork_label_proxy",true)
+			# IMG_6383 7.0s: the velvet's stand by the platform's east end; 10.0/60.6s: the
+			# tapestry's toward its west end. Both at the platform's front edge; along it, by eye.
+			var stand:=label_stand(Vector3(-1.26 if row[0]=="velvet_23307x" else -4.25,.16,24.08),PI)
 			stand.set_meta("renaissance_textile_label",true)
-			var label:=solid(Vector3.ZERO,Vector3(.13,.006,.10),look(Color("dedbd4")))
-			label.reparent(stand,false)
-			label.position=Vector3(0,.079,0)
-			label.set_meta("artwork_label_proxy",true)
 		else:
 			var label:=solid(Vector3.ZERO,Vector3(.11,.07,.006),look(Color("dedbd4")))
 			label.reparent(art,false)

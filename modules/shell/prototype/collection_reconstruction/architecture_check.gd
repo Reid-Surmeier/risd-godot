@@ -74,8 +74,9 @@ func run() -> void:
 			if owner==null:failures.append("Renaissance object lost case owner: "+key)
 		if node.has_meta("wall_case_top_rail"):
 			case_rails += 1
-			if not (node.get_parent().has_meta("pieta_wall_case") or node.get_parent().has_meta("triptych_wall_case")):
-				failures.append("Case rail lost its wall-case cutaway owner")
+			var case:Node=node.get_parent()
+			while case!=null and not (case.has_meta("pieta_wall_case") or case.has_meta("triptych_wall_case") or case.has_meta("renaissance_wall_case")):case=case.get_parent()
+			if case==null:failures.append("Case rail lost its wall-case cutaway owner")
 		if node.has_meta("pieta_wall_case"):
 			pieta_cases += 1
 			var figure = node.find_child("Pieta59128", true, false)
@@ -140,7 +141,7 @@ func run() -> void:
 			var figure = node.find_child("SaintRoch21398", true, false)
 			if not node is StaticBody3D or not node.get_child(0) is CollisionShape3D or figure == null:
 				failures.append("Saint Roch lacks its figure or colliding plinth")
-			elif not figure.global_position.is_equal_approx(Vector3(-4.86, .68, 31.95)) or figure.get_meta("height_m") != 1.054:
+			elif not figure.global_position.is_equal_approx(Vector3(-4.86, .48, 31.95)) or figure.get_meta("height_m") != 1.054:
 				failures.append("Saint Roch lost its catalogue height or provisional window placement")
 			if figure != null:
 				for flag in ["visual_fidelity_accepted", "rear_fidelity_accepted", "placement_accepted", "survey_metres_accepted"]:
@@ -162,7 +163,7 @@ func run() -> void:
 					label = true
 				if part is MeshInstance3D and part.material_override is StandardMaterial3D and part.material_override.transparency == BaseMaterial3D.TRANSPARENCY_ALPHA:
 					lid_y = maxf(lid_y, part.global_position.y)
-			if steps != 3 or not label or not is_equal_approx(lid_y, 2.09):
+			if steps != 3 or not label or not is_equal_approx(lid_y, 1.89):
 				failures.append("Saint Roch source-guided hood/plinth steps/label missing")
 		if node.has_meta("lift_panel") or (node is Label3D and node.text == "5"):
 			lifts += 1
@@ -206,7 +207,7 @@ func run() -> void:
 	if hood_panes!=5 or textile_labels!=2 or textile_platforms!=1:failures.append("Textile hood, low platform or blank label stands missing")
 	if west_blinds!=1 or west_sills!=1:failures.append("Renaissance west window missing")
 	print("RENAISSANCE_WALL_CHECK ",JSON.stringify({"objects":wall_objects,"hood_panes":hood_panes,"platforms":textile_platforms,"label_stands":textile_labels}))
-	if case_rails!=8:failures.append("Pietà and triptych need their eight narrow source top rails")
+	if case_rails!=16:failures.append("The four Renaissance wall cases need their sixteen narrow source top rails")
 	# Acceptance: a flag ending in _accepted may be true only with a record in acceptance.json
 	# under "<subject>.<flag>" (what was measured, from what, the evidence file, the reviewer and
 	# the commit; scripts/check_museum_records.py checks the record itself). A record whose flag
