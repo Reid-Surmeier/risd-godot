@@ -1,0 +1,36 @@
+{
+ "accession": "34.652",
+ "page": "https://risdmuseum.org/art-design/collection/panel-striding-lion-34652",
+ "photographs": 20,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/34.652/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    3896,
+    1824
+   ],
+   "alt": ""
+  },
+  "side": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/34.652/side.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    8686,
+    11579
+   ],
+   "alt": "Close view of a roaring lion’s profile formed from glazed bricks, its white and yellow face emerging against blue-green blocks, the surface showing cracks, uneven edges, and worn textured glaze."
+  },
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/34.652/threequarter.jpg",
+   "px_wide": 2310,
+   "source_px": [
+    2310,
+    3858
+   ],
+   "alt": "Angled view of a glazed, weathered brick wall depicting a striding lion in cream tones against a blue-green background, the top and bottom lined with a border of terracotta bricks."
+  },
+  "back": "none: it hangs on a wall"
+ }
+}

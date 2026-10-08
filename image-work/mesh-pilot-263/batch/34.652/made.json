@@ -1,0 +1,17 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/34.652/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/34.652/threequarter.jpg (the panel from an angle)",
+   "~/risd-godot-ingestion/catalogue-masters/34.652/side.jpg (close view of the lion's eye and mouth)"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "image-work/mesh-pilot-263/batch/34.652/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/34.652/front.jpg"
+  ]
+ }
+}

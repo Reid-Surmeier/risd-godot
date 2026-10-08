@@ -494,5 +494,28 @@
    },
    "build": "PLAIN='0.6 1', PHOTO_VIEWS; the front was found at 45 degrees, silhouette overlap 0.915"
   }
+ },
+ "34.652": {
+  "title": "Unknown maker, Neo-Babylonian. *Panel with Striding Lion*, 604–562 BCE. Brick with glaze. 104.1 × 228.6 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/34.652/front.jpg",
+  "cut": "the photograph cropped to the bricks (the panel fills the picture)",
+  "prepare": "--height 1.041 --width 2.286",
+  "muse_first": {
+   "run": {
+    "id": "run_m1742zwe5b6x05wfajjtype5nh8fwtfy",
+    "model": "Tripo H3.1 (`i3d-tripo-h3-1-i3d`), single view",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "36d9829bdea1e6bafd61981414256f4c41e0cc784dbe41bbf8f3d93f3ab63fb6"
+   },
+   "views": "the clay front alone (the rule for reliefs); the clay front drawn from the front photograph, an angled photograph and a close view",
+   "size_note": "The catalogue gives no depth: 0.10 m is an estimate from the museum's angled photograph of the mounted panel; the generator made it deeper",
+   "imported": {
+    "mesh": 190450,
+    "colour": 178540,
+    "total": 368990
+   }
+  }
  }
 }

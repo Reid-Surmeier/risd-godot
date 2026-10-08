@@ -1,0 +1,20 @@
+{
+ "accession": "22.201",
+ "page": "https://risdmuseum.org/art-design/collection/diptych-scenes-nativity-crucifixion-and-last-judgement-22201",
+ "photographs": 1,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/22.201/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    4938,
+    4200
+   ],
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front",
+  "side": "no photograph: Muse turns it from the front",
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

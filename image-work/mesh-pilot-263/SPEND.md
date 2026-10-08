@@ -85,6 +85,8 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Neptune 2017.74.31.1 | 0 | Multi-View from the museum's own photographs, 0.48 / 0.48 | a trial only: submitted minutes before the lead's stop on the photograph route reached me; built afterwards at no cost for its sheet; 260 KB; not in the game sources |
 | Amphitrite 2017.74.31.2 | 0 | the same, quoted 0.48, charged 0 | the run failed (the provider was overloaded); not resubmitted; she stays as she is |
 
-**Batch so far: 8.31 USD** (63 Muse images 0.63, fourteen Multi-View meshes 6.72, two single-view meshes 0.96). **Whole effort: 15.43 USD charged.**
+| Panel with Striding Lion 34.652 | 2 (0.02): clay front (accepted by Muse), flat front | single view from the clay front alone, 0.48 / 0.48 | 360 KB at 1024 px colour; sheet made; not placed yet |
+
+**Batch so far: 8.81 USD** (65 Muse images 0.65, fourteen Multi-View meshes 6.72, three single-view meshes 1.44). **Whole effort: 15.93 USD charged.**
 
 Not counted, because the charge is unknown: three Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.04 USD.
