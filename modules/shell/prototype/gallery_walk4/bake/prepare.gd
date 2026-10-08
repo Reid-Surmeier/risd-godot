@@ -205,6 +205,11 @@ func _prepare() -> void:
 	# #258: the light the owner approved on 26-30 Sep (the bake of dbfe2393): broad warm fill,
 	# a soft warm pool on each work, daylight across the Hall. The dark New Horizons light of
 	# #238 (b40d0091) was turned down by the owner on 7 Oct; its values are in that commit.
+	# #266, 8 Oct, the owner on the #258 light: "you don't have spotlights on objects warm glow".
+	# A trial between the two: the fill, daylight and environment at about 0.55 of #258 (fill 0.55,
+	# daylight 0.35, environment 0.18), each painting's spot warmer (3000 K, was #ffd391), stronger
+	# (was 6.8), a little wider (was 25 degrees) and aimed 0.3 m below the centre so the pool sits
+	# on the picture and runs down the wall instead of gathering above it.
 	var lamps := []  # written to baked/lamps.json; nothing reads it yet
 	var bays := [-3.0, -8.0, -13.0, -18.0, -23.0]
 	for z in bays:
@@ -212,7 +217,7 @@ func _prepare() -> void:
 		light.position = Vector3(0, 5.7, z)
 		light.omni_range = 13.0
 		light.omni_attenuation = 0.65
-		light.light_energy = 0.55
+		light.light_energy = 0.30
 		light.light_color = Color("#ffe1b2")
 		light.light_size = 2.5
 		light.light_bake_mode = Light3D.BAKE_STATIC
@@ -226,13 +231,13 @@ func _prepare() -> void:
 		room.add_child(spot)
 		spot.owner = room
 		spot.position = painting.center + painting.normal * 2.2 + Vector3.UP * 3.1
-		var aim: Vector3 = painting.center
+		var aim: Vector3 = painting.center + Vector3.DOWN * 0.3
 		spot.look_at(aim, Vector3.UP)
 		spot.spot_range = 7.0
-		spot.spot_angle = 25.0
+		spot.spot_angle = 28.0
 		spot.spot_angle_attenuation = 1.5
-		spot.light_color = Color("#ffd391")
-		spot.light_energy = 6.8
+		spot.light_color = Color("#ffb46b")
+		spot.light_energy = 12.0
 		spot.light_size = 0.35
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
@@ -241,7 +246,7 @@ func _prepare() -> void:
 	# across the gallery, avoiding a hard far-lunette shadow
 	daylight.rotation_degrees = Vector3(-60, -75, 0)
 	daylight.light_color = Color("#eff5ff")
-	daylight.light_energy = 0.35
+	daylight.light_energy = 0.20
 	daylight.light_angular_distance = 6.0
 	daylight.light_bake_mode = Light3D.BAKE_STATIC
 	daylight.shadow_enabled = true
@@ -319,7 +324,7 @@ func _prepare() -> void:
 				probe.owner = room
 	lm.environment_mode = LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
 	lm.environment_custom_color = Color("#dfd6c7")
-	lm.environment_custom_energy = 0.18
+	lm.environment_custom_energy = 0.10
 	room.add_child(lm)
 	lm.owner = room
 	var file := FileAccess.open(DIR + "baked/lamps.json", FileAccess.WRITE)

@@ -1,7 +1,7 @@
 [
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.3,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -16,7 +16,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.3,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -31,7 +31,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.3,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -46,7 +46,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.3,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -61,7 +61,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.3,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -75,8 +75,8 @@
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -85,13 +85,13 @@
 		],
 		"target": [
 			-5.0,
-			1.73,
+			1.43,
 			-2.231
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -100,13 +100,13 @@
 		],
 		"target": [
 			-5.0,
-			1.9,
+			1.6,
 			-4.361
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -115,13 +115,13 @@
 		],
 		"target": [
 			-5.0,
-			1.78,
+			1.48,
 			-6.504
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -130,13 +130,13 @@
 		],
 		"target": [
 			-5.0,
-			1.7,
+			1.4,
 			-8.557
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -145,13 +145,13 @@
 		],
 		"target": [
 			-5.0,
-			1.72,
+			1.42,
 			-10.744
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -160,13 +160,13 @@
 		],
 		"target": [
 			-5.0,
-			2.475,
+			2.175,
 			-13.29
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -175,13 +175,13 @@
 		],
 		"target": [
 			-5.0,
-			1.71,
+			1.41,
 			-16.095
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -190,13 +190,13 @@
 		],
 		"target": [
 			-5.0,
-			1.92,
+			1.62,
 			-18.636
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -205,13 +205,13 @@
 		],
 		"target": [
 			-5.0,
-			1.73,
+			1.43,
 			-21.025
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-2.8,
@@ -220,13 +220,13 @@
 		],
 		"target": [
 			-5.0,
-			1.73,
+			1.43,
 			-23.741
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -235,13 +235,13 @@
 		],
 		"target": [
 			5.0,
-			1.76,
+			1.46,
 			-23.06
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -250,13 +250,13 @@
 		],
 		"target": [
 			5.0,
-			1.72,
+			1.42,
 			-20.575
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -265,13 +265,13 @@
 		],
 		"target": [
 			5.0,
-			1.74,
+			1.44,
 			-18.365
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -280,13 +280,13 @@
 		],
 		"target": [
 			5.0,
-			1.71,
+			1.41,
 			-16.014
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -295,13 +295,13 @@
 		],
 		"target": [
 			5.0,
-			2.007,
+			1.707,
 			-13.091
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -310,13 +310,13 @@
 		],
 		"target": [
 			5.0,
-			1.69,
+			1.39,
 			-10.256
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -325,13 +325,13 @@
 		],
 		"target": [
 			5.0,
-			1.72,
+			1.42,
 			-7.719
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -340,13 +340,13 @@
 		],
 		"target": [
 			5.0,
-			1.88,
+			1.58,
 			-5.295
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			2.8,
@@ -355,13 +355,13 @@
 		],
 		"target": [
 			5.0,
-			1.69,
+			1.39,
 			-2.89
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			3.115,
@@ -370,13 +370,13 @@
 		],
 		"target": [
 			3.115,
-			2.06,
+			1.76,
 			0.0
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-3.115,
@@ -385,13 +385,13 @@
 		],
 		"target": [
 			-3.115,
-			2.079,
+			1.779,
 			0.0
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			-3.115,
@@ -400,13 +400,13 @@
 		],
 		"target": [
 			-3.115,
-			2.07,
+			1.77,
 			-26.3
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb46b",
+		"energy": 12.0,
 		"kind": "painting",
 		"position": [
 			3.115,
@@ -415,13 +415,13 @@
 		],
 		"target": [
 			3.115,
-			2.07,
+			1.77,
 			-26.3
 		]
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.2,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -436,7 +436,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.2,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -451,7 +451,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.2,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -466,7 +466,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.2,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -481,7 +481,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.2,
 		"kind": "skylight",
 		"position": [
 			0.0,
