@@ -991,9 +991,12 @@ func build_adjacent_gallery() -> void:
 	angels.set_meta("catalogue_accession","36.003")
 	# IMG_6386 44.25/67.75s: opposite-wall piers project into the gallery.
 	# ponytail: wall relationships observed; pier depth and spacing await metric fitting.
+	# #258: this wall (x 2.50 here) is the Main Hall's own west wall, a sheet with no thickness.
+	# The piers stop 2 cm short of it: a face on that plane flickers through the Hall wall, and
+	# the foot used to reach 2.5 cm into the Hall. Their fronts are where they were.
 	for z in [3.65,8.4]:
-		var pier:=solid(Vector3(2.28,1.75,z),Vector3(.44,3.5,.9),look(Color.WHITE,"res://presentation/wall-plaster.png"),true)
-		var foot:=solid(Vector3(2.25,.065,z),Vector3(.55,.13,1.06),look(Color("f1ede2")))
+		var pier:=solid(Vector3(2.27,1.75,z),Vector3(.42,3.5,.9),look(Color.WHITE,"res://presentation/wall-plaster.png"),true)
+		var foot:=solid(Vector3(2.2275,.065,z),Vector3(.505,.13,1.06),look(Color("f1ede2")))
 		foot.reparent(pier)
 	inventory["gallery_piers"]=2
 	# IMG_6386 102.75/104.75s: two unequal panels, leaves swing into Renaissance.
