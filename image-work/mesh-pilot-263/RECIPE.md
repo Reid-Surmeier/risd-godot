@@ -29,6 +29,11 @@ Worked through once, on Saint Peter 20.254 (8 October 2026). Run from the reposi
 | The same with a 512 px normal map and tangents, drawn shaded | 513 KB |
 | Time | the bake 12 s; Blender, colour and import about 5 minutes together; Tripo 12 to 14 minutes from submission on a busy queue. Muse was not timed. |
 
+## Two rules that replace steps
+
+- **Reliefs: one clay view, single-view Tripo.** For a relief slab the mesh comes from the clay front alone (`i3d-tripo-h3-1-i3d`, geometry detailed, texture off, 500,000 faces), with its depth set to the catalogue's or a stated estimate. This is not a skipped step: the museum shows only the front, and when Muse invented a side for Christ in Majesty it drew a figure seated in the round, which gave the mesh a second arm on the wrong side. The input is still the Muse clay view. A slab's silhouette is the same from the back, so its front is set with `TURN=90`.
+- **Plain white marble and white porcelain: no colour views.** `PLAIN="0.6 1" finish_object.sh ...` gives one base colour from the brightest third of the catalogue photograph and the baked occlusion, blurred, at 0.6. Projected views streaked these objects; at 0.35 the form vanished when drawn unshaded.
+
 ## What is known to go wrong
 
 - **A clay reference can take over.** On the Hand of God, with the clay front attached as a second reference, Muse copied the front for the back and right views twice. Given the photograph of that side alone it drew the right view. On the Angel the same references worked.
