@@ -96,7 +96,36 @@ the doorway (looked at side by side).
 
 ## Checks
 
-Being run on the merged tree as this is committed; results follow in the next commit.
+All on `677ea9b2` (this branch merged with build `b707d92c`) unless a commit is named.
+
+1. `scripts/check.sh`: `checks passed`, exit 0. `git diff --check` against the build: clean.
+2. Museum playtest, `--only=views,objects`: 110 views, 177 objects, 0 script errors. All 23
+   Hall paintings: "inspected, zoomed and closed". All 25 Hall and threshold views pass
+   (largest flat share 0.269 against the 0.45 limit; the visitor is in every one).
+   Two failures, neither in the Hall:
+   - `2011.60` chandelier, marble stair hall, cannot be clicked. Known: it is the one failure
+     the build's own census records (`docs/playtest/census-2026-10-08-rooms.md`).
+   - `23.307X` Velvet Cover, Renaissance room, "the zoom page's picture is blank", a check
+     that arrived with #271 in the merge. Run again for that work alone on the same commit
+     it passes (blank share 0.175, "inspected, zoomed and closed"). So it is intermittent,
+     like the blank zoom page #271 describes and could not reproduce. Not run on the build
+     tip without this branch.
+   The same pass before that merge (`5667a0dd`): 110 views, 177 objects, one failure, the
+   chandelier.
+3. The Hall's own rendered checks (`scripts/check-gallery.sh` list plus the five of the
+   re-light's notes), on `5667a0dd`; the failing ones were also run on the build tip
+   `e731ba74`:
+   - pass: `visitor_check`, `rig/check`, `doorway_check`, `navigation_check`,
+     `owner_repair_check`, `render_diagnostics_check`, `portal_traversal_check`,
+     `cutaway_floor_check`.
+   - fail the same way on the build tip, line for line: `final_render_check` (1 failure),
+     `shot` (E6 half-visible), `rig/render_check` and `rig/contact_check` (script errors
+     against the newer visitor; they hang and were stopped by `timeout`).
+   - `dollhouse_shot`: 29 failures here, 30 on the build tip. The one this branch removes is
+     "baked surface is black with runtime lights removed", the dark Hall. The other 29 are
+     the same lines on both.
+4. Wall-plane scan after the rebuild, on `677ea9b2`'s tree: no room mesh on or inside the
+   Hall's wall planes.
 
 ## Pictures
 
