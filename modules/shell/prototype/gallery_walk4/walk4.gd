@@ -2799,6 +2799,10 @@ func _process(delta: float) -> void:
 		var to: Vector3 = goal - _pos
 		to.y = 0
 		if to.length() < 0.05:
+			# Onto the waypoint itself, not up to 5 cm short of it. A route's corners are free
+			# floor; a point just beside one can lie inside a case's clearance, and from there
+			# the next leg could not start (#272: the visitor stalled beside the east table).
+			_move_to(Vector3(goal.x, _pos.y, goal.z))
 			if not _path.is_empty():
 				_path.pop_front()
 			else:

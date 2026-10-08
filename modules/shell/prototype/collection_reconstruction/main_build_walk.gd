@@ -374,6 +374,7 @@ func _collect_objects() -> void:
 		var first := true
 		var image: Texture2D = null
 		var canvas: Texture2D = null
+		var face: GeometryInstance3D = null  # the part that carries the work's picture
 		var parts: Array = node.find_children("*", "GeometryInstance3D", true, false)
 		if node is GeometryInstance3D:
 			parts.append(node)
@@ -398,6 +399,7 @@ func _collect_objects() -> void:
 						or texture.get_width() * texture.get_height() > image.get_width() * image.get_height()
 					):
 						image = texture
+						face = part
 		if canvas != null:
 			image = canvas  # the picture itself, not its frame
 		if first or image == null:
@@ -473,7 +475,9 @@ func _collect_objects() -> void:
 				"center": centre,
 				"normal": normal,
 				"corners": corners,
-				"outer": Vector2(maxf(box.size.x, box.size.z), box.size.y)
+				"outer": Vector2(maxf(box.size.x, box.size.z), box.size.y),
+				"flat": _flat_normal(node),
+				"front": _front(face, centre)
 			}
 		)
 
@@ -633,10 +637,24 @@ func _doorway(q: Vector3) -> bool:
 # Beside the work rather than in front of its middle, so the inspection shot sees past the
 # visitor: the side with free floor, the nearer one if both are free.
 func _viewing(p: Dictionary) -> Dictionary:
-	var normal: Vector3 = p.normal
-	if normal == Vector3.ZERO:
-		normal = Vector3(_pos.x - p.center.x, 0, _pos.z - p.center.z).normalized()
-	var along := normal.cross(Vector3.UP)
+	var normals: Array = [p.normal]
+	if p.normal == Vector3.ZERO:
+		normals = [Vector3(_pos.x - p.center.x, 0, _pos.z - p.center.z).normalized()]
+	# A flat work standing up (a photo card, a cut-out) is looked at square on, from whichever
+	# face has floor before it, whatever wall is nearest and wherever the visitor happens to
+	# be (#272): seen along its edge it is a dark bar. One lying down is looked down on.
+	var flat: Vector3 = p.get("flat", Vector3.ZERO)
+	# A free-standing work with its picture on one face is seen from that face.
+	if p.normal == Vector3.ZERO and p.get("front", Vector3.ZERO) != Vector3.ZERO:
+		normals = [p.front]
+		flat = Vector3.ZERO
+	var turned: bool = (
+		flat != Vector3.ZERO
+		and flat.y == 0.0
+		and (p.normal == Vector3.ZERO or absf(p.normal.dot(flat)) < 0.9)
+	)
+	if turned:
+		normals = [flat, -flat]
 	var foot := Vector3(p.center.x, 0, p.center.z)
 	var small: bool = p.outer.y < 0.6 or p.normal == Vector3.ZERO
 	var out: float = p.outer.x / 2.0 + 1.0 if small else clampf(p.outer.y * 0.9, 1.5, 2.5)
@@ -644,18 +662,96 @@ func _viewing(p: Dictionary) -> Dictionary:
 	var aside: float = p.outer.x / 2.0 + 0.75
 	var best := {}
 	var nearest := INF
-	for side in [1.0, -1.0]:
-		var wanted: Vector3 = foot + normal * out + along * side * aside
-		var cell := _cell(wanted)
-		if not _route_grid().is_in_boundsv(cell):
-			continue
-		var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
-		# A side where a wall or a case pushes the spot back in front of the work loses.
-		var d := stand.distance_to(_pos) + maxf(0.0, stand.distance_to(wanted) - 0.2) * 10.0
-		if d < nearest:
-			nearest = d
-			best = {"normal": normal, "along": along, "side": side, "stand": stand, "small": small}
+	for normal in normals:
+		var along: Vector3 = normal.cross(Vector3.UP)
+		for side in [1.0, -1.0]:
+			var wanted: Vector3 = foot + normal * out + along * side * aside
+			var cell := _cell(wanted)
+			if not _route_grid().is_in_boundsv(cell):
+				continue
+			var stand := Vector3(cell.x * GRID, 0, cell.y * GRID)
+			# A face with a wall behind it has no floor of its own: its spot would be next door.
+			if turned and _stage_of(_room_at(stand)) != _stage_of(p.room):
+				continue
+			# A side where a wall or a case pushes the spot back in front of the work loses.
+			var d := stand.distance_to(_pos) + maxf(0.0, stand.distance_to(wanted) - 0.2) * 10.0
+			# So does a face with another work standing in front of it, by how much it hides.
+			if turned:
+				d += _stood_before(p, normal) * 20.0
+			if d < nearest:
+				nearest = d
+				best = {
+					"normal": normal, "along": along, "side": side, "stand": stand, "small": small,
+					"above": flat.y != 0.0
+				}
 	return best
+
+
+# How much of a work's face, seen from the side its normal points to, another work in its
+# room stands in front of: 0 none, 1 all of it. By their boxes, within a metre of it.
+func _stood_before(p: Dictionary, normal: Vector3) -> float:
+	var along := normal.cross(Vector3.UP)
+	var most := 0.0
+	for other in _objects:
+		if other.tag == p.tag or other.room != p.get("room", -1):
+			continue
+		var off: Vector3 = other.center - p.center
+		var depth := off.dot(normal)
+		if depth <= 0.02 or depth > 1.0:
+			continue
+		var reach: Vector3 = other.corners[7] - other.corners[0]
+		var wide: float = absf(along.x) * reach.x + absf(along.z) * reach.z
+		var across: float = (wide + p.outer.x) / 2.0 - absf(off.dot(along))
+		var up: float = (reach.y + p.outer.y) / 2.0 - absf(off.y)
+		most = maxf(
+			most,
+			clampf(across / maxf(p.outer.x, 0.01), 0.0, 1.0) * clampf(up / maxf(p.outer.y, 0.01), 0.0, 1.0)
+		)
+	return most
+
+
+# The way a flat thing faces: the axis its meshes are thin along, taken in its own frame (a card
+# may stand at any angle) and turned into the room's. UP for one lying down; zero for a thing
+# in the round, which is anything not thinner than a fifth of its other two measures.
+func _flat_normal(node: Node3D) -> Vector3:
+	var parts: Array = node.find_children("*", "MeshInstance3D", true, false)
+	if node is MeshInstance3D:
+		parts.append(node)
+	var inward := node.global_transform.affine_inverse()
+	var box := AABB()
+	var first := true
+	for part in parts:
+		if part.mesh == null:
+			continue
+		var reach: AABB = (inward * part.global_transform) * part.get_aabb()
+		box = reach if first else box.merge(reach)
+		first = false
+	if first:
+		return Vector3.ZERO
+	var measures: Vector3 = box.size * node.global_transform.basis.get_scale()
+	var thin := measures.min_axis_index()
+	if (
+		measures[thin] >= 0.2 * measures[(thin + 1) % 3]
+		or measures[thin] >= 0.2 * measures[(thin + 2) % 3]
+	):
+		return Vector3.ZERO
+	var axis := Vector3.ZERO
+	axis[thin] = 1.0
+	var way := (node.global_transform.basis * axis).normalized()
+	if absf(way.y) > 0.7:
+		return Vector3.UP
+	return Vector3(way.x, 0, way.z).normalized()
+
+
+# The side a work in the round is meant to be seen from, where its picture is a flat part set
+# on one of its faces (the Writing Desk: a box with its photograph on the front): the way
+# that part faces, out from the work's middle. Zero when it has no such part.
+func _front(face: GeometryInstance3D, centre: Vector3) -> Vector3:
+	if face == null:
+		return Vector3.ZERO
+	var way := _flat_normal(face)
+	var off: float = ((face.global_transform * face.get_aabb()).get_center() - centre).dot(way)
+	return way * signf(off) if way.y == 0.0 and absf(off) > 0.05 else Vector3.ZERO
 
 
 # Any work, Hall painting or added-room object: walk to its viewing spot, face it, open it.
@@ -857,6 +953,13 @@ func _inspect_shot(p: Dictionary) -> Transform3D:
 		# overflows the widest lens.
 		back = clampf(height / (share * 0.407), 1.6, maxf(4.5, height * 2.2))
 		tilt = deg_to_rad(3.0)
+	if view.get("above", false):
+		# Lying flat: looked down on at 55 degrees so that its face shows. What the face
+		# measures across the lens stands in for its height in the sums below.
+		tilt = deg_to_rad(55.0)
+		height = maxf(p.outer.x, 0.05) * sin(tilt) * cos(tilt)
+		share = 0.33
+		back = clampf(height / (share * 0.407), 0.9, 4.5)
 	var foot := Vector3(p.center.x, 0, p.center.z)
 	var room := _room_at(foot + normal * 0.6)
 	var bounds: Array = _plan[room].b if room >= 0 else [-W / 2.0, W / 2.0, -L, 0.0]
@@ -1504,15 +1607,18 @@ func _update_camera(k: float) -> void:
 			clear = false
 		# A low case stays: hiding it would bare the unlit floor and the shadow baked under it.
 		var low: bool = wall.room < 0 and (wall.box as AABB).end.y < 1.6
-		if clear and wall.layers & shown and not low:
+		# The work being read never hides itself, nor does the case it stands in (#272: the
+		# sight line to the Seated Woman always passes through her own case).
+		var read = _inspect.get("node")
+		var holds: bool = read is Node and (wall.body == read or wall.body.is_ancestor_of(read))
+		if clear and wall.layers & shown and not low and not holds:
 			for offset in [-0.45, 0.0, 0.45]:
 				for height in [0.5, 1.5]:
 					var subject: Vector3 = _pos + across * offset + Vector3(0, height, 0)
 					for section in wall.boxes:
 						if (section as AABB).intersects_segment(eye, subject) != null:
 							clear = false
-			# A placed mesh is its own cut-away body: the work being read never hides itself.
-			if not _inspect.is_empty() and wall.body != _inspect.get("node"):
+			if not _inspect.is_empty():
 				for section in wall.boxes:
 					if (section as AABB).intersects_segment(eye, _inspect.center + _inspect.normal * 0.15) != null:
 						clear = false

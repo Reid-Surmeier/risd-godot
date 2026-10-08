@@ -46,7 +46,12 @@ object, and exits non-zero if any rule failed. `--only=doors,rooms,views,objects
    is drawn (the camera's cut-away has not hidden it), all of it is inside the picture, and the
    visitor's body does not overlap it on screen. A second
    click on it opens its zoom page from wherever the visitor ended up standing, including just
-   through a doorway. (Objects pass.)
+   through a doorway. (Objects pass.) Further (#272): the caption panel covers none of
+   the work (no more than two hundredths of its rectangle); a flat work, a photo card or a
+   cut-out, shows at least six tenths of its face, standing or lying; and at five points of
+   the work's rectangle no other work is met before it by the lens's ray. Where the museum
+   gives a work a face (a card at any angle, a slab lying down, the front of a cabinet) the
+   lens leans at least 0.6 towards it, and the work is drawn in its own inspection.
 7. **The same hop at any frame rate.** The jump is run at 15, 30, 60 and 120 frames a second and
    must rise the same height within 3 cm. (`visitor174_check.gd`.)
 8. **No script errors.** The run's log must contain no `SCRIPT ERROR`; `build/run-playtest.sh`
