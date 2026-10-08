@@ -1,0 +1,25 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/83.152/frontal.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/83.152/frontal-lower.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/83.152/oblique-right.jpg"
+  ]
+ },
+ "clay-left": {
+  "from": "inferred by Muse from the clay front and the museum's oblique photograph of that flank; no square-on photograph of a side exists",
+  "note": "Muse drew the flank's figure as a full-length draped figure",
+  "references": [
+   "image-work/mesh-pilot-263/batch/83.152/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/83.152/oblique-right.jpg"
+  ]
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "image-work/mesh-pilot-263/batch/83.152/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/83.152/frontal.jpg"
+  ]
+ }
+}

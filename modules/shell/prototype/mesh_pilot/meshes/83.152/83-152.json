@@ -1,73 +1,31 @@
 {
- "source": {
-  "sha256": "36fa9958d9b79916156243ca9aac61c5b581197faddf4b165e42bf6a7b7d5b97",
-  "vertices": 9574,
-  "triangles": 19166
+ "raw_sha256": "a4f411ed2a10a977ffcb1c5e460fc835c74a3dd2a07065a418ab33ec141a154c",
+ "raw_triangles": 474791,
+ "lean_removed_deg": 0.0,
+ "as_made_m_at_catalogue_height": {
+  "width": 2.0603,
+  "depth": 0.6594
  },
- "steps": [
-  {
-   "islands": [
-    19156,
-    6,
-    2,
-    1,
-    1
-   ],
-   "dropped_faces": 10
-  },
-  {
-   "boundary_edges": 8,
-   "hole_patches": 0
-  },
-  {
-   "depth_as_made_m": 0.608,
-   "depth_scale": 0.836,
-   "depth_m": 0.508,
-   "pressed_faces_dropped": 1331
-  },
-  {
-   "width_scale": 1.011
-  }
+ "scale": {
+  "height": 3.57203,
+  "width_against_height": 1.0232,
+  "depth_against_height": 0.7704
+ },
+ "baked_map_means": {
+  "ao": [
+   0.61,
+   0.61,
+   0.61
+  ]
+ },
+ "maps_px": 512,
+ "triangles": 9998,
+ "size_m_width_height_depth": [
+  2.1101,
+  3.498,
+  0.5082
  ],
- "texture_image": {
-  "sha256": "75c305573f1853a5e384d7fd5db5c2928bc54b5c63c210c90a410991447c8518"
- },
- "out": {
-  "sha256": "17c29ba52f525f59c5970a885963a68f1ae1e64f97ff6df12a7f4de77be2b46a",
-  "bytes": 993304,
-  "triangles": 17824,
-  "vertices": 11774,
-  "size_m_width_height_depth": [
-   2.108,
-   3.498,
-   0.508
-  ],
-  "min": [
-   -1.0540000200271606,
-   0,
-   0
-  ],
-  "max": [
-   1.0540000200271606,
-   3.497999906539917,
-   0.5080000162124634
-  ],
-  "metallicFactor": 0,
-  "texture": {
-   "mime": "image/jpeg",
-   "bytes": 508138,
-   "px": [
-    [
-     2048,
-     2048
-    ]
-   ]
-  },
-  "blender": "4.0.2"
- },
- "imported": {
-  "mesh_bytes": 258357,
-  "texture_bytes": 626134,
-  "total_bytes": 884491
- }
+ "glb_bytes": 496196,
+ "images": 1,
+ "blender": "5.2.2 LTS"
 }

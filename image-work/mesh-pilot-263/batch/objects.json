@@ -290,7 +290,8 @@
    "charged": 0.36,
    "sha256": "de4f3a96e6d6cc3647cccd96a05291b005505c18780371e5c61e8976decd2c03",
    "kept": "downloaded outside git, not built: ~/risd-godot-ingestion/mesh-pilot-263/rejected-route/44-674-tripo.glb"
-  }
+  },
+  "muse_refusals": "5 October twice, and 8 October once more with a description of it as a terracotta sketch model of a river god (HTTP 400); not resubmitted"
  },
  "37.201": {
   "title": "Joseph Chinard. *Bust of Madame Récamier*. Marble. 60.6 × 33.7 × 23.5 cm with its socle.",
@@ -411,5 +412,29 @@
    "build": "CUT=--keep-holes; colour from the flat front and back; the flat left repeated the front and was not used"
   },
   "cut": "GrabCut on the catalogue front photograph; cut.png is not in git: cut_photo.py ~/risd-godot-ingestion/catalogue-masters/21.398/front.jpg batch/21.398/cut.png 431,214,1535,2868"
+ },
+ "83.152": {
+  "title": "Hugnet Frères. *Fireplace Surround*, 1900. Walnut, glazed tile and copper. 349.8 × 210.8 × 50.8 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/83.152/frontal.jpg",
+  "prepare": "--height 3.498 --width 2.108 --depth 0.508",
+  "earlier": "the pilot's photo-route meshes of this object are in modules/shell/prototype/mesh_pilot/ and its PROVENANCE.md; the owner rejected that route",
+  "muse_first": {
+   "run": {
+    "id": "run_m17dv9ah0dftk6kxedpt8vr64x8fwmaz",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "a4f411ed2a10a977ffcb1c5e460fc835c74a3dd2a07065a418ab33ec141a154c"
+   },
+   "views": "front from the museum's frontal photographs; left inferred by Muse with the museum's oblique photograph of that flank",
+   "imported": {
+    "mesh": 235501,
+    "colour": 131174,
+    "total": 366675
+   },
+   "build": "TURN=90 --upright (0.0 degrees: the back came square), 1024 px colour from the flat front alone"
+  },
+  "cut": "the pilot's frontal cut-out: batch/83.152/cut.png is a copy of image-work/mesh-pilot-263/fireplace/trellis-input.png (not added to git a second time)"
  }
 }

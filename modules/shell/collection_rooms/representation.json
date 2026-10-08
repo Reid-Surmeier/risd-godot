@@ -172,7 +172,7 @@
   "70.058": {"room": "modern painting gallery", "form": "flat", "as": "flat"},
   "lion-panel": {"room": "lion stair landing", "form": "relief", "as": "flat"},
   "2011.60": {"room": "marble stair hall", "form": "volume", "as": "modelled"},
-  "83.152": {"room": "marble stair hall", "form": "volume", "as": "extruded_photo"},
+  "83.152": {"room": "marble stair hall", "form": "volume", "as": "mesh"},
   "2000.17": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
   "2025.19": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
   "2026.3": {"room": "Skylight Gallery", "form": "flat", "as": "flat"},
@@ -239,7 +239,6 @@
   "85.075.8",
   "european-east-platter-saldanha",
   "22.201",
-  "lion-panel",
-  "83.152"
+  "lion-panel"
  ]
 }

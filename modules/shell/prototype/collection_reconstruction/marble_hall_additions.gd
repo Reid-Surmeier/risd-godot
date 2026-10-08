@@ -434,8 +434,8 @@ func shell() -> void:
 func fireplace() -> void:
 	# Hugnet Freres, Fireplace Surround, 1900, RISD 83.152: 349.8 x 210.8 x 50.8 cm (catalogue, unframed
 	# object size). IMG_6380 47.0..67.0s: on the wall under the upper flight, about a metre from the
-	# wall's west corner, its label to its right. The front is the museum's own photograph on the
-	# object's outline; the depth is one extrusion, shallower than the catalogue's deepest point.
+	# wall's west corner, its label to its right. fireplace-83.152.json still gives the width that
+	# places it and its label.
 	var data: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ASSETS + "fireplace-83.152.json"))
 	var chimney: Node3D
 	for body in room.casings:
@@ -443,14 +443,9 @@ func fireplace() -> void:
 			chimney = body
 	assert(chimney != null, "The fireplace needs its wall")
 	var centre := xf + 1.0 + float(data.size_m[0]) / 2
-	var art := Painting.new()
+	# A real mesh (#263), catalogue size, its flat back on the wall plane; the photograph slab is no longer built.
+	var art: Node3D = room.place_mesh(ASSETS + "fireplace-83152.glb", Vector3(centre, 0, zs - .061 - .254), PI, Vector3(2.108, 3.498, .508), "83.152") # back on the plane the slab stood on
 	art.name = "FireplaceSurround83152"
-	room.add_child(art)
-	art.build_shaped(load(ASSETS + "fireplace-83.152.jpg"), Vector2(data.size_m[0], data.size_m[1]), data.outline, Color("7a4f26"))
-	art.scale.z = .40 / .05
-	art.position = Vector3(centre, float(data.size_m[1]) / 2, zs - .061)
-	art.rotation.y = PI
-	art.set_meta("catalogue_accession", "83.152")
 	art.set_meta("catalogue_title", "Fireplace Surround")
 	art.set_meta("catalogue_maker", "Hugnet Frères (French, active in Paris ca. 1900), designer")
 	art.set_meta("catalogue_date", "1900")

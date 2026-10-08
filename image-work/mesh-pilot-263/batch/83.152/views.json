@@ -2,19 +2,33 @@
  "accession": "83.152",
  "page": "https://risdmuseum.org/art-design/collection/fireplace-surround-83152",
  "photographs": 28,
- "nude": "Two nude women carved on the arch. Muse refused it. Tripo accepted the photograph (8 Oct). Fallback: the Tripo mesh with the photograph over the front, already built; or ask Muse for clay views of a crop without the figures.",
+ "nude": "Two nude women carved on the arch. Muse refused it. Tripo accepted the photograph (8 Oct). Fallback: the Tripo mesh with the photograph over the front, already built; or ask Muse for clay views of a crop without the figures. 8 October, later: Muse accepted it once described as carved wooden architecture with two small draped attendant figures.",
  "views": {
   "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/83.152/frontal.jpg",
+   "px_wide": 2400,
+   "note": "photograph 27 of 28, the whole object from the front"
+  },
+  "front-lower": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/83.152/frontal-lower.jpg",
+   "px_wide": 2210,
+   "note": "photograph 25, the lower half from the front"
+  },
+  "oblique-right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/83.152/oblique-right.jpg",
+   "px_wide": 2400,
+   "note": "photograph 20, seen from the viewer's right: the object's own left flank"
+  },
+  "oblique-left": {
    "file": "~/risd-godot-ingestion/catalogue-masters/83.152/front.jpg",
    "px_wide": 2400,
    "source_px": [
     10652,
     14343
    ],
-   "alt": "An ornate warm-toned wooden fireplace, featuring twisting vertical supports, carved figures, and floral turquoise panels, extending upward into a tall, polished structure over the mantel."
+   "alt": "An ornate warm-toned wooden fireplace, featuring twisting vertical supports, carved figures, and floral turquoise panels, extending upward into a tall, polished structure over the mantel.",
+   "note": "photograph 1, seen from the viewer's left"
   },
-  "back": "no photograph: Muse turns it from the front",
-  "side": "no photograph: Muse turns it from the front",
-  "threequarter": "no photograph: Muse turns it from the front"
+  "back": "none: it stands against a wall"
  }
 }
