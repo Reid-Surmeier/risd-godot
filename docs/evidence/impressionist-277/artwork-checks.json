@@ -1,0 +1,234 @@
+{
+  "checkpoint": "four existing artworks",
+  "baked": false,
+  "arch": {
+    "case_rails": 8,
+    "casings": 28,
+    "east_cases": 2,
+    "east_objects": {
+      "albarello": 1,
+      "bookcover": 1,
+      "cleric": 1,
+      "diptych": 1,
+      "emblem": 1,
+      "glass_201729": 1,
+      "plaque_34024": 1,
+      "plate_46391": 1,
+      "plate_57302": 1,
+      "roundel_51105": 1,
+      "woman": 1
+    },
+    "failures": [],
+    "grilles": 1,
+    "hall_reveal_leaves": 2,
+    "leaf": 2,
+    "lift_features": 3,
+    "pieta_cases": 1,
+    "rockefeller_linings": 2,
+    "saint_roch": 1,
+    "triptych_panels": 3
+  },
+  "representation": {
+    "built": 181,
+    "declared": 181,
+    "failures": [],
+    "unregistered": [
+      "15.108",
+      "1992.051",
+      "2014.110",
+      "21.398",
+      "30.011",
+      "40.002",
+      "52.002",
+      "59.128",
+      "european-east-figure-turkish-man",
+      "european-east-figure-turkish-woman",
+      "european-east-pineapple-teapot",
+      "european-east-small-dish",
+      "european-east-small-metal-0",
+      "european-east-small-metal-1",
+      "european-east-small-metal-2"
+    ]
+  },
+  "route": {
+    "failures": [],
+    "trials": [
+      {
+        "clear": true,
+        "trial": "modern_far_opening_out"
+      },
+      {
+        "clear": true,
+        "trial": "modern_far_opening_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_inner_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_inner_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_outer_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_stair_outer_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_passage_return_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_passage_return_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_return_A_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_return_A_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_A_B_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_A_B_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_00_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_00_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_01_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_01_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_02_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_02_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_03_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_03_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_04_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_04_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_05_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_05_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_06_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_06_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_07_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_07_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_08_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_08_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_09_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_09_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_10_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_10_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_11_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_11_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_12_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_12_back"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_13_out"
+      },
+      {
+        "clear": true,
+        "trial": "impressionist_route_13_back"
+      }
+    ]
+  },
+  "source_sha256": {
+    "modules/shell/prototype/collection_reconstruction/impressionist_additions.gd": "797097891b70d098c75165b250bf9339a8b8b8bc0edcc7e7e97c39f8e1ff5c74",
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "89c010bca93e48b4423b43b3bfbccc9e3bbe55b3ec806dc8ae0daf193a1d8b7b",
+    "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "316f3be37858ddd7c571edda2a8a5e952c62742ee5447695ce177bbb421a83ad",
+    "modules/shell/prototype/collection_reconstruction/marble_hall_additions.gd": "5f509acf0651087b1001a6726d3ce2cd4799f942da7c1f1ec013e09086aec296",
+    "modules/shell/collection_rooms/objects.json": "ec73cc870e3ee7c4ebf9c1a0f2b1998536dbec5ef1ff9f970b7b6faf633a8ac4",
+    "modules/shell/collection_rooms/representation.json": "12c9f914c36d98a59f8e98fe54e94044e18ee7bff9620b9870c4246d77483f21"
+  },
+  "root_checks": "FAIL: three baseline medieval mesh declarations and four newly registered works absent in old generated scene; orchestrator bake/install required",
+  "native_capture_errors": [],
+  "native_uv2_preparation": {
+    "bake_run": false,
+    "duplicate_owned_names": [],
+    "failures": [],
+    "surfaces": 409
+  }
+}

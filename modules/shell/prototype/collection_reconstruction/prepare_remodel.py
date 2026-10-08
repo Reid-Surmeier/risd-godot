@@ -660,6 +660,12 @@ copy(source/'acceptance.json','acceptance.json') # read by architecture_check.gd
 for path in sorted((app/'additions').rglob('*')):
     if path.is_file():
         copy(path,'assets/additions/'+str(path.relative_to(app/'additions')))
+# #277: only already-tracked museum photographs, copied unchanged. No fetching/generation.
+for accession in ['42.219', '1998.107', '44.541']:
+    copy(repo/'prototypes/painting-coverflow/web/assets'/f'{accession.replace(".", "-")}.jpg',
+         f'assets/additions/impressionist/painting-{accession}.jpg')
+copy(repo/'image-work/collection-room-remodel/inventory-catalogue/cezanne-apples-zoom-0.jpg',
+     'assets/additions/impressionist/painting-41.012.jpg')
 for name in ['walk4.gd','works.json','gaps.json']:
     copy(hall_source/name,'modules/shell/prototype/gallery_walk4/'+name)
 for folder in ['frames','canvas','textures']:

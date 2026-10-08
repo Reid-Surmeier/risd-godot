@@ -15,11 +15,13 @@ const VIEWS := [
 	["B-windows", Vector3(13.6, 0, 18.50), -PI / 2, Vector3(11.65, 1.65, 17.15), Vector3(16.7, 1.6, 19.4)],
 	["B-modern", Vector3(15.75, 0, 20.80), PI, Vector3(15.75, 1.65, 20.65), Vector3(15.75, 1.50, 25.6)],
 	["modern-B", Vector3(15.75, 0, 23.25), 0.0, Vector3(15.75, 1.65, 24.05), Vector3(15.75, 1.5, 20.2)],
-	["passage-panels", Vector3(17.90, 0, 2.04), PI, Vector3(17.90, 1.65, 1.65), Vector3(16.70, 1.45, 3.04)],
+	["passage-panels", Vector3(16.30, 0, 2.04), PI, Vector3(16.30, 1.65, 1.18), Vector3(15.85, 1.25, 3.04)],
 	["A-case", Vector3(14.85, 0, 9.20), PI, Vector3(15.45, 1.65, 9.10), Vector3(14.10, 1.05, 10.55)],
 	["B-bench", Vector3(13.25, 0, 16.20), PI, Vector3(13.65, 1.40, 15.45), Vector3(12.0, .25, 17.70)],
 	["A-Monet", Vector3(12.40, 0, 11.09), PI / 2, Vector3(12.50, 1.65, 11.09), Vector3(10.55, 1.65, 11.09)],
-	["A-Cezanne", Vector3(14.90, 0, 4.39), -PI / 2, Vector3(14.90, 1.62, 4.39), Vector3(16.70, 1.62, 4.39)]
+	["A-Cezanne", Vector3(14.90, 0, 4.39), -PI / 2, Vector3(14.90, 1.62, 4.39), Vector3(16.70, 1.62, 4.39)],
+	["A-Basin", Vector3(12.65, 0, 5.49), PI / 2, Vector3(12.70, 1.65, 5.49), Vector3(10.55, 1.65, 5.49)],
+	["B-Giverny", Vector3(13.70, 0, 20.3), PI, Vector3(13.70, 1.65, 20.40), Vector3(13.70, 1.65, 22.30)]
 ]
 
 

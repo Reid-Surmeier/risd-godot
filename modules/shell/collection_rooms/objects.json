@@ -2392,5 +2392,53 @@
         201
       ]
     }
+  },
+  "1998.107": {
+    "title": "A Walk in the Meadows at Argenteuil",
+    "maker": "Claude Monet",
+    "date": "1873",
+    "medium": "Oil on canvas",
+    "dimensions": "53.3 x 64.8 cm",
+    "accession": "1998.107",
+    "credit": "Gift of Houghton P. Metcalf, Jr.",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-1998.107.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/walk-meadows-argenteuil-1998107; existing tracked RISD photograph prototypes/painting-coverflow/web/assets/1998-107.jpg, copied byte-for-byte; provenance in prototypes/painting-coverflow/web/paintings.json and modules/shell/PROVENANCE.md"
+  },
+  "41.012": {
+    "title": "Still Life with Apples",
+    "maker": "Paul Cézanne",
+    "date": "ca. 1878",
+    "medium": "Oil on canvas",
+    "dimensions": "23.2 x 39.7 cm",
+    "accession": "41.012",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-41.012.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/still-life-apples-41012; existing tracked RISD photograph image-work/collection-room-remodel/inventory-catalogue/cezanne-apples-zoom-0.jpg and saved primary API record cezanne-apples.json; photograph copied unchanged; provenance in modules/shell/PROVENANCE.md"
+  },
+  "42.219": {
+    "title": "The Basin at Argenteuil (Le Bassin d'Argenteuil)",
+    "maker": "Claude Monet",
+    "date": "1874",
+    "medium": "Oil on canvas",
+    "dimensions": "55.2 x 74.3 cm",
+    "accession": "42.219",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-42.219.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/basin-argenteuil-le-bassin-dargenteuil-42219; existing tracked RISD photograph prototypes/painting-coverflow/web/assets/42-219.jpg, copied unchanged; provenance in prototypes/painting-coverflow/web/paintings.json and modules/shell/PROVENANCE.md"
+  },
+  "44.541": {
+    "title": "The Seine at Giverny",
+    "maker": "Claude Monet",
+    "date": "1885",
+    "medium": "Oil on canvas",
+    "dimensions": "64.8 x 92.7 cm",
+    "accession": "44.541",
+    "credit": "Museum Appropriation Fund, by exchange",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-44.541.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/seine-giverny-44541; existing tracked RISD photograph prototypes/painting-coverflow/web/assets/44-541.jpg, copied unchanged; provenance in prototypes/painting-coverflow/web/paintings.json and modules/shell/PROVENANCE.md"
   }
 }

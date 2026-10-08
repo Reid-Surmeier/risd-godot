@@ -26,8 +26,9 @@ func build(target) -> void:
 	modern_exit_plate()
 	dancer_case()
 	bench()
+	hang_existing_works()
 	room.inventory["impressionist"] = {
-		"rooms": [PASSAGE, RETURN, A, B], "filmed_works": 17, "hung_works": 0,
+		"rooms": [PASSAGE, RETURN, A, B], "filmed_works": 17, "hung_works": 4,
 		"windows": 4, "benches": 1, "empty_dancer_cases": 1,
 		"metric_accepted": false, "lighting_complete": false,
 		"physical_museum_plan_accepted": false
@@ -387,3 +388,63 @@ func bench() -> void:
 			room.add_child(button)
 			button.position = c + bench_surface(x, z) + Vector3(0, .002, 0)
 			button.reparent(body)
+
+
+# #277: four filmed paintings with tracked repo photographs.
+func hang_existing_works() -> void:
+	var works: Array = JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/prototype/gallery_walk4/works.json"))
+	for spec in [
+		["42.219", "The Basin at Argenteuil (Le Bassin d'Argenteuil)", "Claude Monet", "1874", "55.2 x 74.3 cm", "west", 2.45, 1.65, Vector2(.743, .552), "E7", 1.20, A],
+		["1998.107", "A Walk in the Meadows at Argenteuil", "Claude Monet", "1873", "53.3 x 64.8 cm", "west", 8.05, 1.65, Vector2(.648, .533), "E7", 1.20, A],
+		["41.012", "Still Life with Apples", "Paul Cézanne", "ca. 1878", "23.2 x 39.7 cm", "east", 1.35, 1.62, Vector2(.397, .232), "W10", 2.35, A],
+		["44.541", "The Seine at Giverny", "Claude Monet", "1885", "64.8 x 92.7 cm", "south", 3.15, 1.65, Vector2(.927, .648), "E7", .78, B]
+	]:
+		var margins: Array = []
+		for work in works:
+			if work.tag == spec[9]:
+				margins = work.margins_px
+		assert(not margins.is_empty())
+		var painting = room.Painting.new()
+		room.add_child(painting)
+		var image: String = "res://assets/additions/impressionist/painting-" + spec[0] + ".jpg"
+		painting.build_framed(load("res://modules/shell/prototype/gallery_walk4/frames/" + spec[9] + ".png"), load(image), spec[8], margins)
+		# Match filmed broad bands while keeping the canvas at catalogue scale and the
+		# kit's existing UVs. This changes our new frame geometry, not the frame source.
+		var canvas: Vector2 = spec[8]
+		var band_scale: float = spec[10]
+		for mesh in painting.get_children():
+			if not mesh is MeshInstance3D:
+				continue
+			var widened := ArrayMesh.new()
+			for surface in mesh.mesh.get_surface_count():
+				var arrays: Array = mesh.mesh.surface_get_arrays(surface)
+				var vertices: PackedVector3Array = arrays[Mesh.ARRAY_VERTEX]
+				for i in vertices.size():
+					var point := vertices[i]
+					if absf(point.x) > canvas.x / 2 + .0001:
+						point.x = signf(point.x) * (canvas.x / 2 + (absf(point.x) - canvas.x / 2) * band_scale)
+					if absf(point.y) > canvas.y / 2 + .0001:
+						point.y = signf(point.y) * (canvas.y / 2 + (absf(point.y) - canvas.y / 2) * band_scale)
+					vertices[i] = point
+				arrays[Mesh.ARRAY_VERTEX] = vertices
+				widened.add_surface_from_arrays(Mesh.PRIMITIVE_TRIANGLES, arrays)
+			mesh.mesh = widened
+		painting.outer = canvas + (painting.outer - canvas) * band_scale
+		painting.position = room.wall_point(spec[11], spec[5], spec[6], spec[7], .067)
+		painting.rotation.y = YAW[spec[5]]
+		painting.set_meta("catalogue_accession", spec[0])
+		painting.set_meta("catalogue_asset", "impressionist-" + spec[0])
+		painting.set_meta("catalogue_title", spec[1])
+		painting.set_meta("catalogue_maker", spec[2])
+		painting.set_meta("catalogue_date", spec[3])
+		painting.set_meta("catalogue_medium", "Oil on canvas")
+		painting.set_meta("catalogue_dimensions", spec[4])
+		painting.set_meta("catalogue_image", image)
+		painting.set_meta("catalogue_identified", true)
+		painting.set_meta("placement_accepted", false)
+		painting.set_meta("frame_ornament_accepted", false)
+		painting.reparent(room.wall_body(spec[11], spec[5], painting.position))
+		var right: float = -1 if spec[5] in ["west", "south"] else 1
+		var card: Node3D = room.solid(room.wall_point(spec[11], spec[5], spec[6] + right * (painting.outer.x / 2 + .15), 1.40, .068), Vector3(.12, .14, .004) if spec[5] == "south" else Vector3(.004, .14, .12), room.look(Color("e9e7df")))
+		card.set_meta("artwork_label_proxy", true)
+		card.reparent(room.wall_body(spec[11], spec[5], card.position))
