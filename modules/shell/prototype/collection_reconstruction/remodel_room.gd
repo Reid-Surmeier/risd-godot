@@ -563,6 +563,91 @@ func deep_reveal(label:String,side:String,fixed:float,opening:Array,head:float,d
 			body.add_child(fitting)
 			fitting.global_position=at.call(s,piece[0],piece[1])
 
+## The furniture kit's gallery bench (IMG_6383 62.5s): an upholstered seat with rounded edges and
+## stitched tufts, `columns` by `rows` of them, on a dark frame of four tapered legs, an apron and
+## a low stretcher. `at` is the floor point under its middle; its length runs along x. The seat is
+## one surface, shaped and shaded in its seams, and the whole bench is one body to walk round.
+func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int) -> StaticBody3D:
+	var body:StaticBody3D=solid(at+Vector3(0,height/2,0),Vector3(length,height,width),look(Color("2a2623")),true)
+	body.get_child(1).mesh=ArrayMesh.new() # the box is only what a visitor walks round
+	body.set_meta("collision_only",true)
+	body.set_meta("furniture","bench")
+	var thick:=.12
+	# The seat's top at a point of its plan: rounded down at the rim, drawn in along each seam,
+	# and pulled deeper where two seams cross.
+	var top:=func(u:float,w:float) -> float:
+		var rim:=.04
+		var over:=Vector2(maxf(absf(u)-(length/2-rim),0),maxf(absf(w)-(width/2-rim),0))
+		var y:=height-(rim-sqrt(maxf(rim*rim-over.length_squared(),0)))
+		var su:=fposmod(u+length/2,length/columns)
+		var sw:=fposmod(w+width/2,width/rows)
+		var du:=minf(su,length/columns-su) if absf(u)<length/2-.02 else 1.0
+		var dw:=minf(sw,width/rows-sw) if absf(w)<width/2-.02 else 1.0
+		return y-.010*exp(-pow(minf(du,dw)/.012,2))-.014*exp(-(du*du+dw*dw)/.0009)
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var nu:=columns*12
+	var nw:=rows*12
+	var corner:=func(i:int,j:int) -> Vector3:
+		var u:float=-length/2+length*i/nu
+		var w:float=-width/2+width*j/nw
+		return Vector3(u,top.call(u,w),w)
+	var put:=func(point:Vector3,normal:Vector3,shade:float) -> void:
+		st.set_color(Color(shade,shade,shade))
+		st.set_normal(normal)
+		st.add_vertex(at+point)
+	for i in nu:
+		for j in nw:
+			for c in [[i,j],[i+1,j+1],[i+1,j],[i,j],[i,j+1],[i+1,j+1]]:
+				var point:Vector3=corner.call(c[0],c[1])
+				var e:=.004
+				var slope:=Vector3(top.call(point.x-e,point.z)-top.call(point.x+e,point.z),2*e,top.call(point.x,point.z-e)-top.call(point.x,point.z+e)).normalized()
+				put.call(point,slope,clampf(1.0-(height-point.y)*14.0,.55,1.0))
+	# The seat's side, from the rim down to the frame.
+	var rim_points:Array=[]
+	for i in nu:rim_points.append(corner.call(i,0))
+	for j in nw:rim_points.append(corner.call(nu,j))
+	for i in nu:rim_points.append(corner.call(nu-i,nw))
+	for j in nw:rim_points.append(corner.call(0,nw-j))
+	for k in rim_points.size():
+		var a:Vector3=rim_points[k]
+		var b:Vector3=rim_points[(k+1)%rim_points.size()]
+		var out:=Vector3(b.z-a.z,0,a.x-b.x).normalized()
+		var low:=height-thick
+		for c in [[a,a.y,.8],[b,b.y,.8],[b,low,.62],[a,a.y,.8],[b,low,.62],[a,low,.62]]:
+			put.call(Vector3(c[0].x,c[1],c[0].z),out,c[2])
+	var seat:=MeshInstance3D.new()
+	seat.mesh=st.commit()
+	var cloth:=look(Color("7d7c7e"))
+	cloth.vertex_color_use_as_albedo=true
+	cloth.cull_mode=BaseMaterial3D.CULL_DISABLED
+	seat.material_override=cloth
+	body.add_child(seat)
+	seat.global_transform=Transform3D.IDENTITY
+	# The frame: an apron under the seat, four legs tapering to the floor, a stretcher low between them.
+	var wood:=look(Color("2a2623"))
+	var inset:=Vector2(length/2-.07,width/2-.07)
+	for spec in [[Vector3(0,height-thick-.03,inset.y),Vector3(length-.10,.06,.03)],[Vector3(0,height-thick-.03,-inset.y),Vector3(length-.10,.06,.03)],
+		[Vector3(inset.x,height-thick-.03,0),Vector3(.03,.06,width-.10)],[Vector3(-inset.x,height-thick-.03,0),Vector3(.03,.06,width-.10)],
+		[Vector3(inset.x,.10,0),Vector3(.025,.03,2*inset.y)],[Vector3(-inset.x,.10,0),Vector3(.025,.03,2*inset.y)],[Vector3(0,.10,0),Vector3(2*inset.x,.03,.025)]]:
+		var rail:=solid(at+spec[0],spec[1],wood)
+		rail.reparent(body)
+	for x in [-inset.x,inset.x]:
+		for z in [-inset.y,inset.y]:
+			var leg:=MeshInstance3D.new()
+			var taper:=CylinderMesh.new()
+			taper.top_radius=.034
+			taper.bottom_radius=.020
+			taper.height=height-thick
+			taper.radial_segments=4
+			taper.rings=1
+			leg.mesh=taper
+			leg.rotation.y=PI/4
+			leg.material_override=wood
+			body.add_child(leg)
+			leg.global_position=at+Vector3(x,(height-thick)/2,z)
+	return body
+
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -1404,12 +1489,9 @@ func build_sculpture_rooms() -> void:
 	inventory["stair_wall_apostles"]={"accessions":["41.046","41.045"],"catalogue_width_height":true,"mount_depth_placement_accepted":false,"muse_damage_fidelity_accepted":false}
 	inventory["medieval_verified_panels"]=4
 	inventory["medieval_objects_complete"]=false
-	# IMG_6383 61.25..64.75s: black central bench; dimensions unmeasured.
-	var bench:=solid(Vector3(-2.75,.43,22.4),Vector3(1.65,.16,.55),look(Color("282526")),true)
-	for x in [-3.4,-2.1]:
-		for z in [22.18,22.62]:
-			var leg:=solid(Vector3(x,.2,z),Vector3(.07,.4,.07),look(Color("29231e")))
-			leg.reparent(bench)
+	# IMG_6383 61.25..64.75s: the central bench, a grey tufted seat on a dark frame. Its length and
+	# width are the earlier builder's by-eye reading; nothing is measured.
+	bench(Vector3(-2.75,0,22.4),1.65,.55,.46,5,2)
 	# Shuttered west window and raised textile-wall plinth are visible in reciprocal wides.
 	var white:=look(Color("f0eeea"))
 	#6383 60.60s source-plane ratios: blind .63..3.00m, sill under it, ±6cm; no survey acceptance.
