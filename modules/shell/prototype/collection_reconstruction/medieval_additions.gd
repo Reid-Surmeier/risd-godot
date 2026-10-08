@@ -15,7 +15,7 @@ const FACE := 0.061 # a wall's visible face stands this far inside its plan line
 const GREY := Color("6b6d73") # pedestals: the wall's grey, a little lighter (6382 28.5..50.5s)
 const BACKING := Color("74757b")
 const WHITE := Color("f0eeea")
-const CARD := Color("e9e4d4")
+const CARD := Color("605e64") # label cards: the pedestal's grey, a quarter darker and mauve (6382 30.0s)
 const WORKS := {
 	"head": ["59.131", "Head of Christ or a Saint", "Unknown Maker, Spanish", "ca. 1220-1240", "Walnut with polychromy (colored paint)", "81.3 x 50.8 x 50.8 cm (32 x 20 x 20 inches)"],
 	"relief": ["69.196", "Christ in Majesty", "Unknown Maker, Spanish", "ca. 1090-1100", "Limestone", "97.8 x 55.9 cm (38 1/2 x 22 inches)"],
@@ -69,15 +69,16 @@ func build(scene) -> void:
 	relief_base.reparent(south)
 
 	# Head of Christ or a Saint on an octagonal pedestal near the south-east corner (6382 28.5..32.5s).
-	var head_base := _octagon(room.wall_point(ROOM, "south", 8.62, 0, .43), .30, 1.36, .24, .14)
+	var head_base := _octagon(room.wall_point(ROOM, "south", 8.62, 0, .43), .30, 1.36, .28, .14)
 	var head := _mesh("head", "head-59131.glb", room.wall_point(ROOM, "south", 8.62, 1.50, .43), PI, Vector3(.508, .813, .508))
 	head.reparent(head_base)
-	_label(room.wall_point(ROOM, "south", 8.62, 1.0, .43 + .28), PI, head_base)
+	_label(room.wall_point(ROOM, "south", 8.62, 1.20, .43 + .28), PI, head_base)
 	head_base.reparent(south)
 
 	# Angel of the Annunciation on a low octagonal pedestal against the west wall, south of the
-	# tracery door (6382 59.5..61.5s); 1.29 m from the south wall.
-	var angel_base := _octagon(room.wall_point(ROOM, "west", 4.81, 0, .45), .33, .69, 0, 0)
+	# tracery door (6382 59.5..61.5s); 1.29 m from the south wall. In 60.5s, with the figure's
+	# catalogue height as the ruler, the pedestal is 0.65 +-0.07 m high and 0.50 m across its flats.
+	var angel_base := _octagon(room.wall_point(ROOM, "west", 4.81, 0, .45), .27, .69, 0, 0)
 	var angel := _mesh("angel", "angel-37114.glb", room.wall_point(ROOM, "west", 4.81, .69, .45), PI / 2, Vector3(0, 1.524, 0))
 	angel.reparent(angel_base)
 	angel_base.reparent(west)
@@ -123,7 +124,9 @@ func _pedestal(at: Vector3, size: Vector3, cap: Vector3) -> StaticBody3D:
 		part.reparent(body)
 	return body
 
-## Octagonal pedestal on floor point `at`; an optional narrower octagonal cap on top.
+## Octagonal pedestal on floor point `at`, on a projecting base band (6382 30.0/60.5s: about a
+## fifth of the angel's pedestal); an optional octagonal cap on top, a small step in from the
+## shaft, or without one a projecting band round its head.
 func _octagon(at: Vector3, radius: float, height: float, cap_radius: float, cap_height: float) -> StaticBody3D:
 	var body := StaticBody3D.new()
 	body.position = at + Vector3(0, height / 2, 0)
@@ -132,7 +135,10 @@ func _octagon(at: Vector3, radius: float, height: float, cap_radius: float, cap_
 	box.size = Vector3(radius * 1.85, height, radius * 1.85)
 	collider.shape = box
 	body.add_child(collider)
-	for spec in [[radius, height, 0.0], [cap_radius, cap_height, height / 2 + cap_height / 2]]:
+	var bands := [[radius + .02, .15, -height / 2 + .075]]
+	if cap_radius <= 0:
+		bands.append([radius + .015, .12, height / 2 - .06])
+	for spec in [[radius, height, 0.0], [cap_radius, cap_height, height / 2 + cap_height / 2]] + bands:
 		if spec[1] <= 0:
 			continue
 		var visual := MeshInstance3D.new()
@@ -151,13 +157,15 @@ func _octagon(at: Vector3, radius: float, height: float, cap_radius: float, cap_
 	room.casings.append(body)
 	return body
 
-## Blank label card of the finish spec: 0.30 x 0.17 m, off-white, two grey bars, no words.
+## Blank label card as filmed (6382 30.0/60.5s): upright, 0.16 x 0.27 m, mauve grey, two pale
+## bars where the white lettering is, no words. The one lying on the crucifix platform keeps the
+## finish spec's 0.30 x 0.17 m.
 func _label(at: Vector3, yaw: float, parent: Node3D, lying := false) -> void:
-	var card: Node3D = room.solid(at, Vector3(.30, .004, .17) if lying else Vector3(.30, .17, .004), room.look(CARD))
+	var card: Node3D = room.solid(at, Vector3(.30, .004, .17) if lying else Vector3(.16, .27, .004), room.look(CARD))
 	card.rotation.y = yaw
 	card.set_meta("artwork_label_proxy", true)
-	for offset in [.03, -.02]:
-		var bar: Node3D = room.solid(Vector3.ZERO, Vector3(.20, .002, .012) if lying else Vector3(.20, .012, .002), room.look(Color("8c8a84")))
+	for offset in [.03, -.02] if lying else [.095, .06]:
+		var bar: Node3D = room.solid(Vector3.ZERO, Vector3(.20, .002, .012) if lying else Vector3(.11, .012, .002), room.look(Color("c4bdc0")))
 		bar.reparent(card, false)
-		bar.position = Vector3(-.03, .003, -offset) if lying else Vector3(-.03, offset, .003)
+		bar.position = Vector3(-.03, .003, -offset) if lying else Vector3(-.01, offset, .003)
 	card.reparent(parent)

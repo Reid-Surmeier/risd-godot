@@ -77,7 +77,7 @@ func west_wall() -> void:
 	attach(scuola, "west")
 	# North group, by wall order from the Rockefeller door (IMG_6385): dress case, secretary on the
 	# same low platform, the Piranesi, then the Delacroix (moved in build_adjacent_gallery).
-	room.solid(room.wall_point(GALLERY, "west", 1.325, .065, .525), Vector3(1.05, .13, 2.65), white, true)
+	room.plinth(room.wall_point(GALLERY, "west", 1.325, 0, .525), Vector3(1.05, .13, 2.65))
 	dress_case(room.wall_point(GALLERY, "west", .62, .13, .55))
 	var egypt := matted("west", 3.30, 1.72, "piranesi-63.066.45", Vector2(.325, .238), Vector2(.72, .52), .025, Color("1c1b1b"))
 	label(egypt, .52, -.06)
@@ -90,7 +90,8 @@ func west_wall() -> void:
 
 func textile_and_case(along: float) -> void:
 	# 6386 24.5..28.5s: embroidered panel on a white board behind acrylic, over a white floor
-	# pedestal with an acrylic hood and five objects.
+	# pedestal with an acrylic hood and five objects. The objects stand on a riser sloped down
+	# to the hood's foot (its front slope carries the lettering in 26.5s), 8 cm by eye.
 	var board := holder("west", along, 1.96)
 	part(board, Vector3(0, 0, .012), Vector3(1.0, .80, .024), white)
 	var panel := Painting.new()
@@ -103,12 +104,14 @@ func textile_and_case(along: float) -> void:
 	label(board, .62, -.20)
 	attach(board, "west")
 	var at: Vector3 = room.wall_point(GALLERY, "west", along, 0, .061 + .225)
-	var pedestal: Node3D = room.solid(at + Vector3(0, .5, 0), Vector3(.45, 1.0, 1.0), white, true)
+	var pedestal: Node3D = room.plinth(at, Vector3(.45, .92, 1.0))
+	room.hood_edges(pedestal, at, .43, .98, .92, 1.45)
+	room.case_riser(pedestal, at, Vector2(.205, .48), .92, .08, .08)
 	var deck := Node3D.new()
 	room.add_child(deck)
 	deck.position = at + Vector3(0, 1.0, 0)
 	deck.rotation.y = PI / 2
-	hood(deck, Vector3(0, .225, 0), Vector3(.98, .45, .43), true)
+	hood(deck, Vector3(0, .185, 0), Vector3(.98, .53, .43), true)
 	for riser in [Vector3(-.17, .03, -.08), Vector3(.36, .03, -.10)]:
 		part(deck, riser, Vector3(.16, .06, .16), white)
 	# Left to right as filmed: jug, covered glass on a riser, crystal cup, blue bowl, owl on a riser.
