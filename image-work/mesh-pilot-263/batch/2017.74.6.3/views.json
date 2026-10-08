@@ -1,0 +1,18 @@
+{
+ "accession": "2017.74.6.3",
+ "page": "https://risdmuseum.org/art-design/collection/wall-sconce-20177463",
+ "photographs": 2,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.6.3/front.jpg",
+   "px_wide": 2400,
+   "source_px": [
+    8407,
+    11193
+   ],
+   "alt": ""
+  },
+  "back": "none: it hangs on a wall"
+ }
+}

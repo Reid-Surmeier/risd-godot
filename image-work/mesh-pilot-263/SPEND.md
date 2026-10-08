@@ -96,6 +96,11 @@ The Hand of God redone as plain marble (no charge): accepted, 233 KB.
 | Hudibras 2017.74.17 | 5 (0.05): clay front, end view and back, flat front and back, each from the museum's photograph of that side | Multi-View from front, left, back, 0.48 / 0.48 | 259 KB; placed in the Rockefeller room source |
 | The Flute Player 2017.74.16 | 6 (0.06): clay front, a right view that came out three-quarter and was not used, a strict right profile, an inferred back, flat front and right | Multi-View from back, right, front (the frame turned half round), 0.48 / 0.48 | 266 KB; placed in the Rockefeller room source |
 
-**Batch so far: 11.51 USD** (95 Muse images 0.95, nineteen Multi-View meshes 9.12, three single-view meshes 1.44). **Whole effort: 18.63 USD charged.**
+| Wall Sconce 2017.74.6.3 (the boar) | 1 (0.01): clay front | single view from the clay front, 0.48 / 0.48 | 293 KB, plain gold; placed on its wall in the Rockefeller room source |
+| Wall Sconce 2017.74.6.4 (the birds) | 1 (0.01): clay front | single view from the clay front, 0.48 / 0.48 | 272 KB, plain gold; placed on its wall in the Rockefeller room source |
+| Figural Candlestick 2017.74.28.1 | 5 (0.05): clay front, side and back, flat front and back, each from the museum's photograph of that side | Multi-View from front, left, back, 0.48 / 0.48 | 266 KB; placed in the Rockefeller room source |
+| Figural Candlestick 2017.74.28.2 | 2 (0.02): flat front and back from its own photographs | none: the pair are casts of one model, so it takes its pair's mesh | 263 KB; placed in the Rockefeller room source |
+
+**Batch so far: 13.04 USD** (107 Muse images 1.07, twenty Multi-View meshes 9.60, five single-view meshes 2.40). **Whole effort: 20.16 USD charged.**
 
 Not counted, because the charge is unknown: four Muse calls that failed and were not resubmitted (Hand of God flat back HTTP 502, Récamier clay left HTTP 502, River God clay front HTTP 400, Dress clay front HTTP 502) and the pilot's fireplace call (HTTP 400). At 0.01 USD each the most they can add is 0.05 USD.

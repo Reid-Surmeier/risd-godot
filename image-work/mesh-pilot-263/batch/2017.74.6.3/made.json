@@ -1,0 +1,9 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.6.3/front.jpg",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.6.3/angled.jpg"
+  ]
+ }
+}

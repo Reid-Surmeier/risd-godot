@@ -1,0 +1,27 @@
+{
+ "accession": "2017.74.28.1",
+ "page": "https://risdmuseum.org/art-design/collection/figural-candlestick-201774281",
+ "photographs": 7,
+ "nude": null,
+ "views": {
+  "front": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.28.1/front.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.28.1/back.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "side": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.28.1/side.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "threequarter": "no photograph: Muse turns it from the front"
+ }
+}

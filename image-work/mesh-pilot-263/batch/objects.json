@@ -636,5 +636,94 @@
    },
    "build": "SUF=-cut LIFT=none CUT=--keep-holes; colour from two flat Muse views as drawn"
   }
+ },
+ "2017.74.6.4": {
+  "title": "*Wall Sconce*, one of a pair, with birds. Carved and gilded wood. Height 87.6 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.6.4/front.jpg",
+  "prepare": "--height 0.876",
+  "muse_first": {
+   "run": {
+    "id": "run_m179p73pdfh4yda6pqp1qh35t58fwdk1",
+    "model": "Tripo H3.1 (`i3d-tripo-h3-1-i3d`), single view",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "e6c0d136a54950790cfeacd17ad75d549af2a5bb9637293e3f447eca439cc783"
+   },
+   "views": "the clay front alone (a wall piece, by the rule for reliefs); the clay front drawn from the museum's front photograph and an angled one",
+   "imported": {
+    "mesh": 235567,
+    "colour": 43172,
+    "total": 278739
+   },
+   "build": "TURN=90 --upright, depth from the inventory row; colour PLAIN='0.9 0.7 bright photo': one gold from the photograph, shaded towards its own shadow colour"
+  }
+ },
+ "2017.74.6.3": {
+  "title": "*Wall Sconce*, one of a pair, with a boar under oak leaves. Carved and gilded wood. Height 87.6 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.6.3/front.jpg",
+  "prepare": "--height 0.876",
+  "muse_first": {
+   "run": {
+    "id": "run_m17a2ba6dhvf9m6sp1b1asmsg98fwtrm",
+    "model": "Tripo H3.1 (`i3d-tripo-h3-1-i3d`), single view",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "f462039671cda96ccef2abf5806c01797a85a4f2f68a4cc6fea82755aabcfd64"
+   },
+   "views": "the clay front alone (a wall piece, by the rule for reliefs); the clay front drawn from the museum's front photograph and an angled one",
+   "imported": {
+    "mesh": 250948,
+    "colour": 49248,
+    "total": 300196
+   },
+   "build": "TURN=90 --upright, depth from the inventory row; colour PLAIN='0.9 0.7 bright photo': one gold from the photograph, shaded towards its own shadow colour"
+  }
+ },
+ "2017.74.28.1": {
+  "title": "*Figural Candlestick*, one of a pair. Earthenware with glaze. Height 21 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.28.1/front.jpg",
+  "prepare": "--height 0.21 --width 0.12 --depth 0.11",
+  "muse_first": {
+   "run": {
+    "id": "run_m176m5adkpjp3jgyrgz4qnzrqd8fwtp7",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.48,
+    "charged": 0.48,
+    "sha256": "67a5289926e35f64d2092ecd556392d97edd0e57d4a1e38202887e33668e0d8d"
+   },
+   "views": "front, left and back, each a Muse clay view of the museum's photograph of that side",
+   "imported": {
+    "mesh": 216276,
+    "colour": 56532,
+    "total": 272808
+   },
+   "build": "SUF=-cut LIFT=none CUT=--keep-holes; colour from flat front and back"
+  }
+ },
+ "2017.74.28.2": {
+  "title": "*Figural Candlestick*, the other of the pair. Earthenware with glaze. Height 21.6 cm.",
+  "source": "~/risd-godot-ingestion/catalogue-masters/2017.74.28.2/front.jpg",
+  "prepare": "--height 0.216 --width 0.12 --depth 0.11",
+  "muse_first": {
+   "run": {
+    "id": "run_m176m5adkpjp3jgyrgz4qnzrqd8fwtp7",
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`); no run of its own: the pair are casts of one model, and this one takes the mesh made for 2017.74.28.1",
+    "params": "geometry detailed, texture off, face limit 500,000",
+    "quote": 0.0,
+    "charged": 0.0,
+    "sha256": "67a5289926e35f64d2092ecd556392d97edd0e57d4a1e38202887e33668e0d8d"
+   },
+   "views": "the clay front, left and back of its pair 2017.74.28.1; its colour from its own two photographs",
+   "size_note": "The museum's photographs show the same pose from the front, the side and the back in both candlesticks; small differences between the two casts (the curl of a hat brim) are not in this mesh",
+   "imported": {
+    "mesh": 216280,
+    "colour": 53832,
+    "total": 270112
+   },
+   "build": "its pair's reduced mesh, recoloured from its own flat front and back (SUF=-cut LIFT=none)"
+  }
  }
 }

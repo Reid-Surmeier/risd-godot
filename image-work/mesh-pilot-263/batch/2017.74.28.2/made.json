@@ -1,0 +1,35 @@
+{
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.28.2/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.28.2/front.jpg"
+  ]
+ },
+ "flat-back": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.28.2/clay-back.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.28.2/back.jpg",
+   "batch/2017.74.28.2/flat-front.png"
+  ]
+ },
+ "clay-front": {
+  "from": "photograph of this direction, of its pair 2017.74.28.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.28.1/clay-front.png"
+  ]
+ },
+ "clay-side": {
+  "from": "photograph of this direction, of its pair 2017.74.28.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.28.1/clay-side.png"
+  ]
+ },
+ "clay-back": {
+  "from": "photograph of this direction, of its pair 2017.74.28.1: the same clay view, since the two are casts of one model",
+  "references": [
+   "image-work/mesh-pilot-263/batch/2017.74.28.1/clay-back.png"
+  ]
+ }
+}
