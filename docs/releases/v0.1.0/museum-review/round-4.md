@@ -12,6 +12,22 @@ Scope of this round: the room-change wipe at every doorway, the restored Hall li
 
 ## Findings
 
+### 2. Leaving a room through a deep doorway, the whole room vanishes to black before the wipe starts.
+
+**VERIFIED · BLOCKS.** What a visitor sees: the moment the visitor steps into the doorway, the room's walls, floor and furniture are gone and the door casing hangs in black with a strip of floor (at the Rockefeller door one table floats beside it); the wipe then closes on that picture. This is the owner's complaint ("I just see the old room cut off … this black") still happening, in one direction, at the three doors that have a deep reveal. Where: Skylight → grey gallery, grey gallery → Main Hall, Rockefeller → long gallery; WASD, walk or sprint. The opposite direction through the same doors is clean, as are the other ten connections. Reproduce: (1) stand in the Skylight Gallery in front of its door; (2) hold the key that walks through it; (3) watch the second before the wipe.
+
+| Leaving | Share of the picture that is black | Room change logged | Wipe first visible |
+| --- | --- | --- | --- |
+| Skylight → grey, walk | 7% → 65% in one frame at 1.57 s | 2.19 s | about 2.8 s |
+| grey → Hall, walk | 21% → 62% at 1.86 s | 2.37 s | about 2.9 s |
+| Rockefeller → long gallery, walk | 18% → 65% at 1.75 s | 2.33 s | about 2.9 s |
+| the same three at a sprint | jump 0.15–0.2 s before the change | | held through the closing wipe |
+| control: long gallery → Rockefeller, landing → modern | no jump; the room stays until the wipe closes | | |
+
+At a walk the broken picture is on screen for about 1.2 s before any wipe can be seen. INFERRED: while the visitor stands in a reveal threshold that is joined to the room being left, the cut-away stops drawing that room; the wipe then holds the picture it was given.
+
+Evidence: [three doors and a control](../../../evidence/review-round-4/02-room-vanishes-before-wipe.jpg); scratch `L2-skylight-grey-walk.mp4`, `M1-grey-hall-walk.mp4`, `H2-rockefeller-adjacent-walk.mp4`, sprint `L4`, `M3`, `H4`, and `blackseries.py`.
+
 ### 1. The first time through a doorway the picture freezes as the wipe starts and the black lasts about twice as long.
 
 **VERIFIED · POLISH.** What a visitor sees: on the very first doorway (Hall into the dark medieval room) the visitor stops mid-step for half a second, the wipe closes, and the screen stays black for about two and a half seconds before the next room opens; it is over four seconds before the keys work again. Later crossings of the same door are clean. Where: every door the first time it is used in a session; worst at the stone portal, the first door anyone takes. Reproduce: (1) load the build fresh; (2) hold W from the start position into the medieval room; (3) walk back and through again to compare.
