@@ -173,10 +173,33 @@ Apollo 73.079: `cutout` height 0.21 → 0.187 m (catalogue 18.7 cm), its foot ke
 
 ## Not started
 
-- Positions along the walls in the European gallery, Rockefeller, grey and modern galleries, the
-  rest of the Renaissance room, and every standing work's base height.
+- Positions along the walls (see the next section), the rest of the Renaissance room, and every
+  standing work's base height.
 - In the footage the east cases' objects are laid out differently from the build (IMG_6385
   31–36 s, IMG_6386 2–13 s): a card's place in its case was not measured.
+
+## Positions along the walls: tried once, nothing changed
+
+For the European gallery every hung flat work was matched against all of IMG_6384, IMG_6385 and
+IMG_6386 at one frame a second, to get the distance between neighbours from the PAIR lines. It
+gave none that can be trusted: the clips walk close along the walls, so no frame holds two works
+that both match (the one pair found, the two Zompini prints, has 12 and 19 matches). Along-wall
+positions need a frame that holds a work and a corner, door edge or second work, or a chain of
+overlapping frames. Where each work matches best, for whoever takes this up (matches in brackets):
+
+- IMG_6384, east wall: 57.167 at 6 s (205), 84.198.1032 at 9 s (140), 54.186 at 54 s (363),
+  69.197 at 65 s (876), 34.1371 at 73 s (212), 57.281 at 78 s (175), 53.349 at 81 s (164),
+  37.009 at 89 s (303).
+- IMG_6386, west wall: 61.006 at 19 s (151), 85.075.6 at 27 s (243), 36.003 at 34 s (447),
+  35.786 at 60 s (195), 63.066.45 at 64 s (160). IMG_6385: 35.786 at 28 s (433).
+- No match: the textile 46.256, the knocker 55.091 (26), the Zompini prints. No picture file under
+  `collection_rooms/assets` for 24.508, 53.115 and 42.042 (they are drawn from Hall frame
+  textures W7, W2 and W10), so the tool now skips them.
+
+In a draft of today's sources the European gallery's west-wall works (Fetti, Delacroix, Goltzius)
+and its east cases stand 1.95 m further from the Hall than in the installed scene the dump was
+taken from (seen in the nodes' positions; the cause was not looked into). Take a fresh
+`placement_dump.gd` after the next install before comparing. Rockefeller, the grey and the modern galleries were not started.
 
 ## Running the method again
 
