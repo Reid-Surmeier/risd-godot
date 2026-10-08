@@ -23,6 +23,7 @@ const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 const WALL_PAINT:={"":"cfd5cf","light Renaissance room":"b2b8b3","adjacent gallery":"cfd5cf","Rockefeller":"cbd9d4",
 	"modern painting gallery":"d4dbe0","lion stair landing":"b5b8b5","grey French gallery":"dcdcd6","Skylight Gallery":"c2c6c2",
 	"marble stair hall":"dedcd4","dark medieval room":"4c5160"}
+const MEDIEVAL_MOUNT:="4f5564" # the panels' mount boards: the dark medieval room's wall paint, a tenth lighter
 ## #274: the oak's own tone. The Hall's floor reads (183,137,85) under its warm lamps and cool
 ## daylight; these rooms' lamps are near white so their trim reads white, and the honey is here.
 const OAK_TONE:="f5bf74"
@@ -1671,7 +1672,9 @@ func build_sculpture_rooms() -> void:
 			shaft.position=Vector3(.49+offset,1.125,22.515+side*.62)
 			shaft.material_override=look(Color("b8ad94"))
 			add_child(shaft)
-	# The native close shots show exposed panel outlines on grey mounts, not added frames.
+	# The native close shots show exposed panel outlines on mounts, not added frames. The mounts are
+	# painted as the wall: IMG_6382 68.0, 70.5 and 75.0 s, mount against wall beside it, 1.13, 1.08 and
+	# 0.84 in linear luminance (#266): MEDIEVAL_MOUNT.
 	# Heights and the west pair's spacing are measured (#266): IMG_6382 65.5, 68.0 and 74.0 s, each wall
 	# rectified from the panel's own catalogue size. Centres 1.40 m (west) and 1.37 m (north), +-0.06;
 	# the west pair 0.87 m centre to centre, 57.301 0.70 m from the north-west corner.
@@ -1683,7 +1686,7 @@ func build_sculpture_rooms() -> void:
 		mount.rotation.y=spec[2]
 		add_child(mount)
 		var size:=Vector2(data.size_m[0],data.size_m[1])
-		var support:=solid(Vector3.ZERO,Vector3(size.x+.10,size.y+.10,.025),look(Color("959691")))
+		var support:=solid(Vector3.ZERO,Vector3(size.x+.10,size.y+.10,.025),look(Color(MEDIEVAL_MOUNT)))
 		support.reparent(mount,false)
 		var art:=Painting.new()
 		mount.add_child(art)
@@ -2184,7 +2187,7 @@ func build_gabled_frame() -> void:
 					var p:Array=data.points_px[i%count]
 					st.set_uv(Vector2(p[0]/data.source_size_px[0],p[1]/data.source_size_px[1]))
 					st.add_vertex(vertices[i]),Painting.mat(load("res://assets/magdalene-frame.png")) if group==front else look(Color("7c6038")))
-	var support:=solid(Vector3(1.18,1.37,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color("959691")))
+	var support:=solid(Vector3(1.18,1.37,19.015),Vector3(data.outer_size_m[0]+.10,data.outer_size_m[1]+.10,.025),look(Color(MEDIEVAL_MOUNT)))
 	support.name="MagdaleneGreySupport"
 	var art:=Painting.new()
 	frame.add_child(art)
