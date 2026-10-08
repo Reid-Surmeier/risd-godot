@@ -1,6 +1,6 @@
 {
-  "main_build_tip": "2087721d490d010f92f9cee8297b7c1f35e1bece",
-  "hall_files_unchanged": 365,
+  "main_build_tip": "3ab5c2c42307811d49a640e70329986d5050e7b1",
+  "hall_files_unchanged": 408,
   "room_scripts": {
     "connected_hall.gd": {
       "paths_moved": 0,
@@ -39,8 +39,8 @@
     },
     "medieval_additions.gd": {
       "paths_moved": 1,
-      "source_sha256": "f2ee537db3e13aa28d9ad6576a2274f4274c8d32867c87c71cad5f4eb0519506",
-      "sha256": "88b074ac9a09ebf545090c51a1a302cb45e2a04ca7d8d34f1c7f8970cff63dde"
+      "source_sha256": "96b5710f45069c1352a333656aff892cb54de2a18f55fd0525a0930a8d296606",
+      "sha256": "9c738adaf6acf149c29554082d8575e382ed7f3388603ad4bd403d345042f702"
     },
     "medieval_ceramic_ivory_assets.gd": {
       "paths_moved": 0,
@@ -79,8 +79,8 @@
     },
     "remodel_room.gd": {
       "paths_moved": 104,
-      "source_sha256": "6ab32ec4673d895d6d83efda3196add5c0d21ea92182f76ca4701e74d11277fe",
-      "sha256": "e558af76b7b00a4fbd3070b7a7dac2805d62429a1580a6a1152abd2648f4d33d"
+      "source_sha256": "c6480c48361c3738e1351e47d656df716ecf62648b9489c11b048522816649f1",
+      "sha256": "55fbcbe18a8d0a70c5ec46935b9a3c6067ce4d90bbe450c2c402e9c597158985"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,

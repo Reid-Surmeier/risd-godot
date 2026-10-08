@@ -31,8 +31,8 @@ timeout 1700 $LVP godot --path "$EXT" --editor --rendering-method mobile > "$T/b
 cp "$T/project.godot.original" "$EXT/project.godot"
 grep "BAKE_OK" "$T/bake.log" || { echo "bake failed: $T/bake.log"; exit 1; }
 /usr/bin/python3 "$SRC/relocate_rooms.py" "$EXT" "$T/collection_rooms"
-# objects.json is authored in the repo, not generated: keep it across the install.
-rsync -a --delete --exclude='*.import' --exclude='*.uid' --exclude='objects.json' --exclude='assets/details/' "$T/collection_rooms/" "$CK/modules/shell/collection_rooms/"
+# objects.json and representation.json are authored in the repo, not generated: keep them across the install.
+rsync -a --delete --exclude='*.import' --exclude='*.uid' --exclude='objects.json' --exclude='representation.json' --exclude='assets/details/' "$T/collection_rooms/" "$CK/modules/shell/collection_rooms/"
 godot --headless --editor --import --path "$CK" > "$T/repo-import.log" 2>&1
 git -C "$CK" status --short modules/shell/collection_rooms | head -20
 echo "installed; room project kept at $EXT (delete $T when done)"
