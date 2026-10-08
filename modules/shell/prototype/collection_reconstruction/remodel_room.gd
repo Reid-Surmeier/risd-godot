@@ -650,6 +650,53 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 			leg.global_position=at+Vector3(x,leg_h/2,z)
 	return body
 
+## The furniture kit's plinth: a white box to walk round, standing on a recessed kick 2 cm high
+## (the thin dark line where the footage's plinths and platform meet the floor, IMG_6383
+## 7.0/18.3s). `at` is the floor point under its middle. The kick is its third child.
+func plinth(at:Vector3,size:Vector3) -> StaticBody3D:
+	var body:StaticBody3D=solid(at+Vector3(0,size.y/2,0),size,look(Color("f0eeea")),true)
+	var skin:MeshInstance3D=body.get_child(1)
+	skin.mesh.size.y-=.02
+	skin.position.y=.01
+	var kick:=solid(at+Vector3(0,.01,0),Vector3(size.x-.04,.02,size.z-.04),look(Color("959691")))
+	kick.reparent(body)
+	return body
+
+## The furniture kit's label stand (IMG_6383 5.0/7.0/10.0s): a folded white sheet standing on a
+## platform. Two cheeks carry a plate that slopes down toward the reader; it is open underneath,
+## and the blank label block lies on the plate. `at` is the point it stands on, under its
+## middle; `yaw` turns its reading side (+z).
+func label_stand(at:Vector3,yaw:float,width:=.38) -> Node3D:
+	var stand:=Node3D.new()
+	add_child(stand)
+	stand.position=at
+	stand.rotation.y=yaw
+	stand.set_meta("artwork_label_proxy",true)
+	# Sizes against the platform's 16 cm face in 7.0/10.0s: about twice its height at the back.
+	var depth:=.22
+	var low:=.20
+	var high:=.34
+	var sheet:=look(Color("f0eeea"))
+	sheet.cull_mode=BaseMaterial3D.CULL_DISABLED
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	for x in [-width/2,width/2]:
+		var cheek:=[Vector3(x,0,depth/2),Vector3(x,low,depth/2),Vector3(x,high,-depth/2),Vector3(x,0,-depth/2)]
+		st.set_normal(Vector3(signf(x),0,0))
+		for i in [0,1,2,0,2,3]:st.add_vertex(cheek[i])
+	var cheeks:=MeshInstance3D.new()
+	cheeks.mesh=st.commit()
+	cheeks.material_override=sheet
+	stand.add_child(cheeks)
+	var tilt:=atan2(high-low,depth)
+	var length:=Vector2(depth,high-low).length()
+	for spec in [[Vector3(width+.008,.005,length+.01),sheet,0.0],[Vector3(width*.86,.003,length*.8),look(Color("dedbd4")),.004]]:
+		var plate:=solid(Vector3.ZERO,spec[0],spec[1])
+		plate.reparent(stand,false)
+		plate.position=Vector3(0,(low+high)/2,0)+Vector3(0,cos(tilt),sin(tilt))*spec[2]
+		plate.rotation.x=tilt
+	return stand
+
 ## The furniture kit's hooded floor case (IMG_6383 18.3/20.0/21.0s): a white plinth on a recessed
 ## kick, a cap slab that oversails it, a clear hood standing on the cap inside its edge with its
 ## polished edges as pale lines, and inside the hood a low riser with sloped sides whose `front`
@@ -658,15 +705,12 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 ## to walk round; its kick, cap and riser carry "floor_case_part".
 func hooded_floor_case(at:Vector3,width:float,depth:float,deck:float,top:float,front:Vector3) -> StaticBody3D:
 	var white:=look(Color("f0eeea"))
-	var body:StaticBody3D=solid(at+Vector3(0,(deck-.04)/2,0),Vector3(width,deck-.04,depth),white,true)
-	var skin:MeshInstance3D=body.get_child(1)
-	skin.mesh.size.y-=.02
-	skin.position.y=.01
+	var body:=plinth(at,Vector3(width,deck-.04,depth))
+	body.get_child(2).set_meta("floor_case_part","kick")
 	var add:=func(offset:Vector3,size:Vector3,m:Material) -> Node3D:
 		var piece:=solid(at+offset,size,m)
 		piece.reparent(body)
 		return piece
-	add.call(Vector3(0,.01,0),Vector3(width-.04,.02,depth-.04),look(Color("959691"))).set_meta("floor_case_part","kick")
 	add.call(Vector3(0,deck-.02,0),Vector3(width+.08,.04,depth+.08),white).set_meta("floor_case_part","cap")
 	var glass:=look(Color(.82,.90,.91,.10),"",true)
 	var edge:=look(Color("d5e0df"),"",true)
@@ -1688,7 +1732,7 @@ func build_sculpture_rooms() -> void:
 	inventory["renaissance_pieta"]={"accession":"59.128","closed_parts":39,"source_rear_observed":false,"placement_accepted":false,"case_metres_accepted":false,"fine_fidelity_accepted":false}
 	build_renaissance_east_cases()
 	#6383 60.60/68.50s: the south platform is below bench height; placement and metres remain provisional.
-	var platform:=solid(Vector3(-3.10,.08,24.415),Vector3(4.30,.16,.95),white,true)
+	var platform:=plinth(Vector3(-3.10,0,24.415),Vector3(4.30,.16,.95))
 	platform.set_meta("renaissance_textile_platform",true)
 	build_renaissance_wall_art()
 	for origin in [Vector3(-2.5,3.43,22),Vector3(5.55,4.18,22)]:
@@ -2161,14 +2205,10 @@ func build_renaissance_wall_art() -> void:
 				mesh.position=pane[0]
 				mesh.set_meta("velvet_hood_pane",true)
 		if row[3]=="south":
-			var stand:=solid(Vector3.ZERO,Vector3(.21,.15,.17),look(Color("eeeae3")))
-			stand.position=Vector3(row[1].x,.235,24.03)
-			stand.set_meta("artwork_label_proxy",true)
+			# IMG_6383 7.0s: the velvet's stand by the platform's east end; 10.0/60.6s: the
+			# tapestry's toward its west end. Both at the platform's front edge; along it, by eye.
+			var stand:=label_stand(Vector3(-1.26 if row[0]=="velvet_23307x" else -4.25,.16,24.08),PI)
 			stand.set_meta("renaissance_textile_label",true)
-			var label:=solid(Vector3.ZERO,Vector3(.13,.006,.10),look(Color("dedbd4")))
-			label.reparent(stand,false)
-			label.position=Vector3(0,.079,0)
-			label.set_meta("artwork_label_proxy",true)
 		else:
 			var label:=solid(Vector3.ZERO,Vector3(.11,.07,.006),look(Color("dedbd4")))
 			label.reparent(art,false)

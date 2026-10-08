@@ -65,13 +65,26 @@ it. Unbaked means the draft's own flat light; the baked look is judged from the 
    where it meets the floor, built as a 2 cm recess. The riser's slope (10 cm out, 4 cm up) is
    by eye from 20.0/21.0 s.
 
+7. `7-textile-platform-and-label-stands-footage-and-unbaked.jpg`: the textile platform on the
+   south wall. Pairs, footage then unbaked: IMG_6383 7.0 s (the velvet's stand at the platform's
+   east end), 10.0 s (the tapestry's stand, seen along the wall), 60.6 s (the platform's whole
+   length). The footage's label blocks are not blocks: each is a folded white sheet, two cheeks
+   carrying a plate that slopes down toward the reader, open underneath. Before: a small white
+   box with a flat card on top, centred under each textile. Now `label_stand()`, with a blank
+   label block on the plate (no text), and the platform is the kit's `plinth()`: the same
+   footprint and height (4.30 x 0.16 x 0.95 m) on a recessed kick.
+   Guessed: the stand's size (0.38 wide, 0.20 high at the front, 0.34 at the back), scaled
+   against the platform's 16 cm face in 7.0 and 10.0 s, which disagree by a few centimetres;
+   where the tapestry's stand sits along the platform (the velvet's is 12 cm in from the east
+   end, read from 7.0 s); the platform's kick (a thin dark line at the floor in 7.0 s).
+
 The clip is at `~/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV`.
 
 ## State for whoever continues
 
-- Done: the bench, the four wall cases, the hooded floor case (pictures 1 to 6).
-- Not done: the textile platform with its label blocks, the window reveal and shade, the
-  pedestals.
+- Done: the bench, the four wall cases, the hooded floor case, the textile platform with its
+  label stands (pictures 1 to 7).
+- Not done: the window reveal and shade, the pedestals.
 
 ## How the unbaked pictures are taken
 
@@ -117,7 +130,8 @@ upright like the footage, 70 degrees. The shots in pictures 4 and 5:
 east case A `-1.05,.42,.12:0,.40,.30` and low `-1.7,-.55,1.0:0,-.62,0`; Pietà case
 `1.0,.40,.12:0,.25,0` and the corner `2.3,-.1,1.4:.4,-.5,-.7:60`; triptych case
 `.05,.42,1.3:0,.36,0`; picture 6, `saint_roch_installation`: `1.3,1.2,.9:0,.75,0`,
-`1.15,1.25,.15:0,.35,0`, `1.5,.05,.8:0,-.1,0:50`. A blank or flat picture means the camera is inside a wall: change the
+`1.15,1.25,.15:0,.35,0`, `1.5,.05,.8:0,-.1,0:50`; picture 7, `renaissance_textile_platform`:
+`1.75,1.55,-2.3:1.75,.55,0`, `1.0,1.4,-1.2:-.7,.75,.25`, `2.6,1.3,-1.6:-.6,.2,-.2`. A blank or flat picture means the camera is inside a wall: change the
 offset's sign. The draft draws every room at once and lights nothing by the bake, so it shows
 shape, not the final light or which room the game would draw. If a shot fails with "Cannot open
 file res://.godot/imported/...", another draft run is rebuilding the same folder: wait and repeat.
