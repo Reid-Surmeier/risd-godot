@@ -648,6 +648,57 @@ func bench(at:Vector3,length:float,width:float,height:float,columns:int,rows:int
 			leg.global_position=at+Vector3(x,(height-thick)/2,z)
 	return body
 
+## What makes a wall case read as the footage's (IMG_6383 17.0/44.0/48.5s) once its deck, back
+## board and clear hood exist: the hood's polished edges as bright lines on all twelve edges, a
+## sloped label rail along the deck's front inside the hood, a recessed lower step under the deck,
+## and the thin frame on the floor under the case. `display` is the case's own frame: x along the
+## wall and centred, y up from the floor, z out of the wall. `under` and `deck` are the deck's
+## bottom and top, `top` the hood's.
+func wall_case_fittings(display:Node3D,length:float,depth:float,under:float,deck:float,top:float) -> void:
+	var white:=look(Color("f0eeea"))
+	var edge_light:=look(Color("e6f1f2"),"",true)
+	var add:=func(at:Vector3,size:Vector3,m:Material) -> void:
+		var piece:=solid(Vector3.ZERO,size,m)
+		piece.reparent(display,false)
+		piece.position=at
+	var t:=.007
+	for x in [-length/2,length/2]:
+		for z in [0.0,depth]:
+			add.call(Vector3(x,(deck+top)/2,z),Vector3(t,top-deck,t),edge_light)
+		add.call(Vector3(x,top,depth/2),Vector3(t,t,depth),edge_light)
+		add.call(Vector3(x,deck+t/2,depth/2),Vector3(t,t,depth),edge_light)
+	for z in [0.0,depth]:
+		add.call(Vector3(0,top,z),Vector3(length,t,t),edge_light)
+		add.call(Vector3(0,deck+t/2,z),Vector3(length,t,t),edge_light)
+	# The lower step, set back from the front and the ends.
+	add.call(Vector3(0,under-.06,(depth-.07)/2),Vector3(length-.12,.12,depth-.07),white)
+	# The floor frame: the case's footprint as a low rail.
+	for x in [-length/2,length/2]:add.call(Vector3(x,.015,depth/2),Vector3(.02,.03,depth),white)
+	add.call(Vector3(0,.015,depth),Vector3(length,.03,.02),white)
+	# The label rail: a wedge rising from the deck's front edge toward the works.
+	var st:=SurfaceTool.new()
+	st.begin(Mesh.PRIMITIVE_TRIANGLES)
+	var front:=depth-.02
+	var back:=depth-.16
+	var rise:=.07
+	var slope:=Vector3(0,front-back,rise).normalized()
+	for quad in [[[Vector3(-1,deck,front),Vector3(1,deck,front),Vector3(1,deck+rise,back),Vector3(-1,deck+rise,back)],slope],
+		[[Vector3(-1,deck+rise,back),Vector3(1,deck+rise,back),Vector3(1,deck,back),Vector3(-1,deck,back)],Vector3(0,0,-1)]]:
+		for i in [0,1,2,0,2,3]:
+			st.set_normal(quad[1])
+			st.add_vertex(Vector3(quad[0][i].x*(length/2-.03),quad[0][i].y,quad[0][i].z))
+	for x in [-(length/2-.03),length/2-.03]:
+		for corner in [Vector3(x,deck,front),Vector3(x,deck+rise,back),Vector3(x,deck,back)]:
+			st.set_normal(Vector3(signf(x),0,0))
+			st.add_vertex(corner)
+	var rail:=MeshInstance3D.new()
+	rail.mesh=st.commit()
+	var card:=look(Color("f6f4ee"))
+	card.cull_mode=BaseMaterial3D.CULL_DISABLED
+	rail.material_override=card
+	rail.set_meta("artwork_label_proxy",true)
+	display.add_child(rail)
+
 func panel(parent: Node3D, corners: Array, uvs: Array, m: Material, tone := Color.WHITE) -> void:
 	var st := SurfaceTool.new()
 	st.begin(Mesh.PRIMITIVE_TRIANGLES)
@@ -2003,12 +2054,7 @@ func build_renaissance_east_cases() -> void:
 		var backing:=solid(Vector3.ZERO,Vector3(1.19,.90,.012),white)
 		backing.reparent(display,false)
 		backing.position=Vector3(0,1.53,.018)
-		for side in [-1,1]:
-			for rail in [[Vector3(side*.60,1.98,.28),Vector3(.008,.008,.56)],[Vector3(0,1.98,.28+side*.28),Vector3(1.20,.008,.008)]]:
-				var edge:=solid(Vector3.ZERO,rail[1],look(Color("3c3a35")))
-				edge.reparent(display,false)
-				edge.position=rail[0]
-				edge.set_meta("east_case_top_rail",true)
+		wall_case_fittings(display,1.20,.56,.97,1.08,1.98)
 		if row[0]=="A":
 			for spec in [["cleric",Vector3(-.26,1.58,.027)],["woman",Vector3(.16,1.58,.027)],["diptych",Vector3(-.40,1.08,.32)],["bookcover",Vector3(-.16,1.08,.35)],["emblem",Vector3(.12,1.08,.30)],["albarello",Vector3(.45,1.08,.30)]]:
 				var art:=RenaissanceA.on_display(spec[0],images,Painting.mat)
