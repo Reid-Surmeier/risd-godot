@@ -16,5 +16,3 @@ marks its images `data-asset-copyright="public"`. Nothing here was generated.
 
 Sizes are the record's. For paintings the record is the unframed support, except 1998.35, whose record
 gives the frame. The derivation script is `docs/evidence/museum-238/grey-rockefeller/prep_assets.py`.
-
-#278 (2026-10-08): all six paintings now use original museum photographs. Actual canvas coverage is 126–211 native pixels, so wall copies are 192–320 px; fitted previews are 896 px and source-capped full zooms are 3720–4087 px beside the pack. See Shell `PROVENANCE.md` and `objects.json` for source URLs, crop rectangles, pixel sizes and hashes. Existing frames and the provisional Eastlake identification are retained.
