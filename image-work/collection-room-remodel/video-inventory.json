@@ -265,6 +265,7 @@
     },
     {
       "asset": "fox",
+      "mesh": "additions/rockefeller/fox-20177420.glb",
       "accession": "2017.74.20",
       "title": "Figure of a Fox",
       "size_m": [
