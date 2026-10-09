@@ -2,7 +2,7 @@
 
 All pictures are RISD Museum catalogue photographs, taken 2026-10-01. Records come from
 `https://risdmuseum.org/api/v1/collection` (Scrapling fetcher; plain requests get a 403). Every page
-marks its images `data-asset-copyright="public"`. Nothing here was generated.
+marks its images `data-asset-copyright="public"`. The pictures were not generated; the meshes listed at the end were.
 
 | File | Work | Record | Picture | Credit line |
 | --- | --- | --- | --- | --- |
@@ -20,3 +20,13 @@ Identification: the Vincennes pair comes from the repository's earlier records. 
 the silk length were found in this round: the label beside the prints reads "Mary Smirke" (IMG_6380
 188.2 s) and both sheets match the catalogue photographs by eye; the silk matches by eye only
 (IMG_6380 135.0 s, 195.6 s). None of the three was confirmed by a feature match.
+
+## Generated meshes (#263, 8 October 2026, second batch)
+
+Each was made on the Muse-first route and reduced to 10,000 triangles with one colour texture. Prompts, the ledger of every view and each mesh's full record are on `proto/mesh-pilot-263` under `image-work/mesh-pilot-263/batch/<accession>/` and `modules/shell/prototype/mesh_pilot/meshes/<accession>/PROVENANCE.md`. The meshes placed earlier (St. George, Hudibras, the Flute Player, Récamier, the sconces, candlesticks, Shepherd, Cow and the pair of parrots) are recorded there too.
+
+| File | Work | Source and views | Mesh | SHA-256 |
+| --- | --- | --- | --- | --- |
+| `parrot-20177426.glb` | *Figure of a Parrot*. Earthenware with glaze. 15.6 × 17 × 7 cm. RISD Museum 2017.74.26 | the museum's catalogue photographs, redrawn as clay and flat colour views by Muse (OpenRouter, `meta/muse-image`): 9 images, 0.09 USD | Flora, RISD EDU Workspace, Tripo H3.1 Multi-View, run `run_m17cwhvbtrz2w43rdpw3t5sfjh8fxgjg`, 0.48 USD | `b94e8e2566191336bce4635d13d0df66076486b44d51f6d541e5d39782c8f932` |
+| `bear-jug-horn-20177422ab.glb` | *Brown Bear Jug and Cover*. Stoneware with glaze. Height 16.2 cm. RISD Museum 2017.74.22.ab | the museum's catalogue photographs, redrawn as clay and flat colour views by Muse (OpenRouter, `meta/muse-image`): 5 images, 0.05 USD | Flora, RISD EDU Workspace, Tripo H3.1 Multi-View, run `run_m1711gzs4jwmmatx3918e5eppd8fyeav`, 0.48 USD | `5879db7fba33531ebaad46b4feb0ce6a4a331dbe59f135e02efa1a6bc94fbde1` |
+| `bagpiper-20177421.glb` | *Figure of a Bagpiper*. Earthenware with glaze. 15 × 7 × 6 cm. RISD Museum 2017.74.21 | the museum's catalogue photographs, redrawn as clay and flat colour views by Muse (OpenRouter, `meta/muse-image`): 7 images, 0.07 USD | Flora, RISD EDU Workspace, Tripo H3.1 Multi-View, run `run_m178jr6bxaz9g9dh87g4qm0t4d8fz00z`, 0.48 USD | `cd8b63b0edc6930843bef9b5fcc9b5784dc7040696f239a151de59fce4fc3a60` |
