@@ -188869,6 +188869,7 @@
     },
     {
       "asset": "bagpiper",
+      "mesh": "additions/rockefeller/bagpiper-20177421.glb",
       "accession": "2017.74.21",
       "title": "Figure of a Bagpiper",
       "size_m": [
@@ -188892,6 +188893,7 @@
     },
     {
       "asset": "bear-jug-pair",
+      "mesh": "additions/rockefeller/bear-jug-horn-20177422ab.glb",
       "accession": "2017.74.22.ab",
       "title": "Brown Bear Jug and Cover",
       "size_m": [
@@ -189130,6 +189132,7 @@
     },
     {
       "asset": "parrot-third",
+      "mesh": "additions/rockefeller/parrot-20177426.glb",
       "accession": "2017.74.26",
       "title": "Figure of a Parrot",
       "size_m": [

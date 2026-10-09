@@ -1,5 +1,5 @@
 {
-  "main_build_tip": "31f81dbaafe66551a5e64f2730097c963aee7740",
+  "main_build_tip": "5936771a0863ccd90653700735c48a0f12b5b50b",
   "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
@@ -64,8 +64,8 @@
     },
     "remodel_bake.gd": {
       "paths_moved": 4,
-      "source_sha256": "d738cb610500eb6c128085161beb258569860a1dc7a38ee19fabd9a09e4eac66",
-      "sha256": "ea79901303b1a3d0635741b51c57d067f864068f742cc9f57078d6d07aeaf618"
+      "source_sha256": "a3e47ad4a720e002ebc74506609286f0ecd6dba941ceffc4753b84bbdfa6241d",
+      "sha256": "569e0bbca01cbd5e472dfdadbc70a8bb7b7ca39162f70086565ecc51acdb980b"
     },
     "remodel_presenter.gd": {
       "paths_moved": 5,
@@ -84,8 +84,8 @@
     },
     "remodel_room.gd": {
       "paths_moved": 96,
-      "source_sha256": "c83e490d2656d20043b7c2cf2e951aced84fef47a9a5d2705a7d685e8b04573c",
-      "sha256": "a2d2205435766ab3f2e60df5673974b61ba11f5a1e24960ca392aeaf401d22c2"
+      "source_sha256": "7f8f062f67f33123e1e3c2205cd868fc4ddc3b0e31f18573ff999edf4ff5c262",
+      "sha256": "d480e26a24a9e4e99493313f8580acfe9fee169570f7687e8976b06c69025e38"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,
@@ -129,8 +129,8 @@
     },
     "skylight_additions.gd": {
       "paths_moved": 4,
-      "source_sha256": "578faeaefe1c79778c2f2795dc0746035a5a77813f6c2d79489b671200777906",
-      "sha256": "db7c7ae83c197e019e720b103a0b05ece80d5a4dfb4d529343238205b4c74b0b"
+      "source_sha256": "ee439c7177d7f48d773237479998b9a93beaf7c71b4f2e67ff7e3ae5aff6923f",
+      "sha256": "09ce5ce2cdb3b9d54d3fe0084d58f28a8fe30eeb2953b58ba41759d7633e2c28"
     },
     "triptych_asset.gd": {
       "paths_moved": 3,
