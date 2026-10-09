@@ -75,7 +75,8 @@ def context(d, ox, skip=()):
             opening(d, ox, room["bounds"], side, span, GREY, 5)
 
 
-img = Image.new("RGB", (2 * W, H), "#f6f3ec")
+W3 = 800
+img = Image.new("RGB", (2 * W + W3, H), "#f6f3ec")
 d = ImageDraw.Draw(img)
 d.line([(W, 0), (W, H)], fill=GREY, width=1)
 d.text((16, 12), "AS BUILT (geometry.json at integration/next)", fill=INK, font=f18)
@@ -139,6 +140,45 @@ for x, z, text in (
         (10.7, 21.6, "Iris Morisot van Gogh"), (14.6, 19.3, "Cassatt 60.095")):
     d.text(P(x, z, W), text, fill="#5a4630", font=f10)
 d.text(P(12.5, 9.6, W), "case", fill="#5a4630", font=f10)
+
+# ---- third panel: the museum's own Floor 5 map, redrawn ---------------------------------------
+# Pixel positions scanned from the museum's Floor5-map-121420.png (1200 x 1022), turned a quarter
+# clockwise. One scale, K px per metre, set by three widths the build already has (Hall 10.0,
+# long gallery 6.1, strip 6.15 m). Anchored on the Hall's north-west corner.
+K = 13.6
+M = 2 * W
+
+
+def mp(mx0, mx1, my0, my1):
+    return [.55 + (486 - my1) / K, .55 + (486 - my0) / K, 1.8 + (mx0 - 503) / K, 1.8 + (mx1 - 503) / K]
+
+
+d.line([(M, 0), (M, H)], fill=GREY, width=1)
+d.text((M + 16, 12), "MUSEUM FLOOR 5 MAP, redrawn to one scale", fill=INK, font=f18)
+for cell, fill, label in (
+        ((503, 781, 486, 570), "ctx", "European (long gallery) 20.4 m"), ((403, 503, 486, 570), "ctx", ""), ((781, 865, 486, 570), "ctx", ""),
+        ((503, 781, 350, 486), "hall", "European Grand Gallery"), ((781, 865, 350, 486), "ctx", "(medieval end)"),
+        ((403, 503, 350, 440), "ctx", "(grey gallery)"), ((405, 457, 440, 486), "ctx", "lift"),
+        ((420, 503, 265, 350), "ctx", "(stair hall)"), ((442, 482, 172, 265), "ctx", "corridor on, under the half-landing"),
+        ((785, 865, 265, 350), "ctx", "(lion stair landing)"), ((865, 903, 265, 350), "ctx", "stair"),
+        ((503, 596, 265, 350), "imp", "A  6.8 m"), ((596, 699, 265, 350), "imp", "B  7.6 m"), ((699, 785, 265, 350), "imp", "modern  6.3 m")):
+    box(d, M, mp(*cell), FILL[fill], label, GREY if fill != "imp" else INK, font=f11 if fill == "imp" else f10)
+for cell in ((420, 442, 265, 311), (482, 503, 265, 305)):
+    box(d, M, mp(*cell), "#cfccc0", "", GREY)
+for (mx, my0, my1) in ((503, 323, 348), (503, 406, 440), (596, 267, 305), (699, 267, 305), (785, 322, 348), (781, 400, 440)):
+    z = 1.8 + (mx - 503) / K
+    seg(d, P(.55 + (486 - my1) / K, z, M), P(.55 + (486 - my0) / K, z, M), GREEN, 7)
+d.text(P(17.2, 8.0, M), "Radeke Garden", fill=BLUE, font=f13)
+tag(d, M, 13.0, .9, "door beside the stair flight, into A's corner", GREEN, f11)
+tag(d, M, 17.0, 11.5, "doors on the garden side", GREEN, f11)
+tag(d, M, 11.0, 24.4, "door at the far corner, to the landing", GREEN, f11)
+tag(d, M, 1.0, 10.0, "Grand Gallery  20.4 x 10.0 m on the map", INK, f11)
+tag(d, M, 1.0, 10.8, "26.3 x 10.0 m as built", RED, f11)
+tag(d, M, 1.0, 11.6, "about 18-20.5 m by IMG_6344 24.0 s", INK, f11)
+tag(d, M, -5.3, 32.2, "Three rooms span the Grand Gallery's length: 20.7 m on the map,", INK, f11)
+tag(d, M, -5.3, 33.0, "25.1 m as built (A 9.66, B 9.60, modern 5.80).", RED, f11)
+tag(d, M, -5.3, 33.8, "Stair hall ends level with the garden wall on the map; built 2.75 m past it.", RED, f11)
+tag(d, M, -5.3, 35.0, "Map: risdmuseum.org/visitor-guide/floor-5. Schematic; lines redrawn, not copied.", GREY, f10)
 
 # ---- legend ---------------------------------------------------------------------------------
 y = H - 128
