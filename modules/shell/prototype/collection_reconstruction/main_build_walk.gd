@@ -358,8 +358,9 @@ func _standing_still() -> bool:
 	)
 
 
-# One area drawn once, from above, into a viewport nobody sees.
-func _warm_step() -> void:
+# One area drawn once, from above, into a viewport nobody sees; or with `all`, every area
+# still owed in the one draw.
+func _warm_step(all := false) -> void:
 	if _warm_vp == null:
 		_warm_vp = SubViewport.new()
 		_warm_vp.size = Vector2i(64, 64)
@@ -384,6 +385,10 @@ func _warm_step() -> void:
 	if fill is Light3D:
 		fill.layers |= VISITOR_LAYER
 	var area := _room_rect(_warm_left.pop_back())
+	if all:
+		for index in _warm_left:
+			area = area.merge(_room_rect(index))
+		_warm_left.clear()
 	_warm_cam.size = maxf(area.size.x, area.size.y) + 2.0
 	_warm_cam.position = Vector3(area.get_center().x, 40.0, area.get_center().y)
 	_warm_vp.render_target_update_mode = SubViewport.UPDATE_ONCE
@@ -1649,7 +1654,11 @@ func _process(delta: float) -> void:
 			else:
 				_pump_rooms(BUILD_SHARE_MS)
 	elif not _warm_left.is_empty() and _wipe_t < 0.0:
-		if _stage >= 0:
+		if _entrance_waiting:
+			# The rooms were built at launch (ROOMS_AT_LAUNCH) and the loading screen is still
+			# up: every area in one draw, where one long frame is not seen.
+			_warm_step(true)
+		elif _stage >= 0:
 			_warm_left.clear()  # put into a room: the other stages are hidden, nothing to draw
 		elif _standing_still():
 			_warm_step()

@@ -48,3 +48,41 @@ for every frame of the build (29 of 29): the Hall black, the visitor huge.
 `_begin_rooms` now gives the picture back to the Hall's camera at once.
 
 ![After the fix: before the build, then twelve steps into it](hall-during-build-after-fix.jpg)
+
+## Later the same day, on the rebuilt rooms (19 areas, 7,998 nodes)
+
+### Can the build go on while the visitor walks? No.
+
+The stepped build is 62 steps that must run in order: a step cannot be put off while a later
+one runs. Each step timed once in the engine (ms), in order:
+
+`831, 159, 402, 128, 29, 27, 160, 20, 25, 139, 149, 116, 17, 185, 43, 188, 54, 40, 222, 83,
+328, 91, 176, 309, 64, 429, 289, 99, 650, 269, 143, 76, 311, 355, 54, 1531, 334, 2004, 794, 0,
+179, 4, 1, 0, 0, 0, 1, 0, 1, 1, 0, 0, 1, 1, 1, 1, 0, 2304, 14, 1990, 9, 26`
+
+15.9 s in all. Steps of 0.3 s or less add up to 3.3 s; the fourteen longer ones are 12.6 s.
+The first step is 0.83 s and the third 0.40 s, so a walking visitor with no frame over 0.3 s
+gets none of the build. Even if every short step could be run early, 12.6 s of the 15.9 s
+would still be owed at the door: four fifths of the wait. Steps of 12 ms or less add up to
+0.05 s. Getting under 5 s at the first doorway needs the long builders themselves cut up
+(the baked scene 2.3 s, the surface renaming 2.0 s, the rooms and the sculpture rooms), which
+is the room generator's work, not the walk's. `ROOMS_AT_LAUNCH` is left as it was found.
+
+### The rooms built at launch: the first draw goes behind the loading screen
+
+With `ROOMS_AT_LAUNCH` the rooms exist while the loading screen is still up, so every area is
+drawn in one draw in the walk's first frame there, where one long frame is not seen
+(`_warm_step(true)`). Measured with a stand-in loading screen held for 120 frames, then the
+entrance, then the same clicked route. Two runs each, ms:
+
+| Where | Before | After |
+| --- | --- | --- |
+| Under the loading screen, the frame after the build | 160, 161 | 3172, 3133 |
+| The wipe begins at the portal | 219, 279 | none over 100 |
+| Medieval room first shown | 1365, 716 | 244, 219 |
+| Renaissance room first shown | 337, 336 | none over 100 |
+| Lion stair landing first shown | 454, 438 | none over 100 |
+
+The frame about 107 frames after the walk first runs with the rooms is here too, 0.45 to
+0.7 s, sixteen frames into the first walk, before and after alike. It is not the stair hall's
+reflection probe: with the probe hidden it is still there (504 ms).
