@@ -22,9 +22,13 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 
 **VERIFIED · POLISH · NEW.** A broad herringbone floor surface crosses the foreground above the lower boards; near the landing it hides the visitor's body, leaving only the top of the hat. Steps: (1) in Skylight, click the yellow *Pile* and wait until its caption opens; (2) Escape back to the default walking view; (3) walk toward the upper landing from the lower floor, near (0, -35.84). Return via the clear lower aisle at x=-0.5, z=-38.1, then the east stair; the piano blocks a direct approach from farther west. [Before and after](../../../evidence/review-round-6/07-skylight-floor-covers-visitor.jpg). The three stair flights are usable; walking round to them recovers the view. **INFERRED:** the herringbone surface belongs to another room; the Skylight's lower boards and upper black landing have different finishes. No game code changed to investigate it.
 
+### 3. The stair deck fills the camera at the corrected Impressionist entrance.
+
+**VERIFIED · POLISH · KNOWN slab class, NEW entry check.** In the default walking view toward the door beside the fireplace, a dark stair deck covers almost the whole game picture, hiding the visitor and doorway. Steps: (1) marble stair hall, approach the fireplace doorway at (6.88, -27.41); (2) turn the default camera toward the passage (+z); (3) pause before crossing. [Approach and accessible arrival](../../../evidence/review-round-6/08-marble-entry-obstructed.jpg). Continuing through the doorway clears the obstruction and reaches gallery A; it does not block the route. Raw continuous capture: `51-fireplace-impressionist-entry/`.
+
 ## The rest, one line each
 
-3. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the upper landing still reads as a cool black rectangle; descend the three flights, turn to the wall with lift “4”, and look left of the lift; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg). It is outside the required loop and is not counted as an inaccessible loop room.
+4. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the upper landing still reads as a cool black rectangle; descend the three flights, turn to the wall with lift “4”, and look left of the lift; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg). It is outside the required loop and is not counted as an inaccessible loop room.
 
 ## Eight owner claims
 
