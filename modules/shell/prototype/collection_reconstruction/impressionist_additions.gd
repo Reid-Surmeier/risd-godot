@@ -1,9 +1,9 @@
-## #277: IMG_6343 84–228s. Source measurements and the fixed-door fit are in
-## docs/evidence/impressionist-277/NOTES.md; catalogue photographs fill the painting walls.
+## #277: IMG_6343 84–228s. Source measurements are in docs/evidence/impressionist-277/NOTES.md;
+## the route, the doors and which wall each work hangs on are in
+## docs/evidence/impressionist-plan/NOTES.md. Catalogue photographs fill the painting walls.
 extends RefCounted
 
 const PASSAGE := "Impressionist passage"
-const RETURN := "Impressionist passage return"
 const A := "Impressionist gallery A"
 const B := "Impressionist gallery B"
 const YAW := {"north": 0.0, "south": PI, "west": PI / 2, "east": -PI / 2}
@@ -13,11 +13,12 @@ var room
 
 func build(target) -> void:
 	room = target
-	for spec in [[PASSAGE, 3.2, "b4b1a9"], [RETURN, 3.2, "b4b1a9"], [A, 3.69, "a8a9a8"], [B, 3.5, "a8a9a8"]]:
+	for spec in [[PASSAGE, 3.2, "b4b1a9"], [A, 3.69, "a8a9a8"], [B, 3.5, "a8a9a8"]]:
 		finish_shell(spec[0], spec[1], Color(spec[2]))
-	# 89.5s: grey stone at the stair sill, then straight oak. Floor collision is the plan patch.
+	# 89.25s: grey stone at the stair hall's sill, then straight oak. Floor collision is the plan patch.
 	var stone: Material = room.look(Color("bdbcb8"))
-	room.solid(Vector3(18.85, .004, -1.96), Vector3(2.0, .008, 1.10), stone)
+	var pb: Array = room.room_bounds(PASSAGE)
+	room.solid(Vector3((pb[0] + pb[1]) / 2, .004, pb[2] + .30), Vector3(pb[1] - pb[0], .008, .60), stone)
 	build_windows(A, [3.0, 7.60], 3.69)
 	build_windows(B, [4.98, 8.44], 3.5)
 	high_vents()
@@ -29,7 +30,7 @@ func build(target) -> void:
 	hang_existing_works()
 	hang_catalogue_works()
 	room.inventory["impressionist"] = {
-		"rooms": [PASSAGE, RETURN, A, B], "filmed_works": 17, "hung_works": 16,
+		"rooms": [PASSAGE, A, B], "filmed_works": 17, "hung_works": 16,
 		"windows": 4, "benches": 1, "empty_dancer_cases": 1,
 		"metric_accepted": false, "lighting_complete": false,
 		"physical_museum_plan_accepted": false
@@ -174,45 +175,37 @@ func grille(parent: Node3D, at: Vector3, size: Vector2, crossbars: bool) -> void
 
 
 func passage_details() -> void:
-	# 89.5s: six-panel service leaf and two ventilation grilles beside A's entry.
-	# The return leg is a fixed-door fit; the service door stays on its entrance-side wall.
+	# 89.25s: one short straight passage. On the left (east) wall a six-panel service leaf with
+	# a grille over it; on the right (west) wall a low grille near A's doorway.
+	var b: Array = room.room_bounds(PASSAGE)
 	var service := leaf(.85, 2.50)
-	var service_at: Vector3 = room.wall_point(RETURN, "south", 2.40, 1.25, .075)
+	var service_at: Vector3 = room.wall_point(PASSAGE, "east", 1.34, 1.25, .075)
 	service.position = service_at
-	service.rotation.y = PI
-	service.reparent(room.wall_body(RETURN, "south", service.position))
-	service.set_meta("room_wall", RETURN + ":south:service-leaf")
+	service.rotation.y = YAW["east"]
+	service.reparent(room.wall_body(PASSAGE, "east", service.position))
+	service.set_meta("room_wall", PASSAGE + ":east:service-leaf")
 	service.set_meta("source_casing_width", .16)
-	var b: Array = room.room_bounds(RETURN)
-	room.door_casing(service, "south", b[3], [service_at.x - .425, service_at.x + .425], 2.50, .16)
+	room.door_casing(service, "east", b[1], [service_at.z - .425, service_at.z + .425], 2.50, .16)
 	var vent := Node3D.new()
 	room.add_child(vent)
-	vent.position = room.wall_point(RETURN, "south", 2.40, 2.85, .075)
-	vent.rotation.y = PI
+	vent.position = room.wall_point(PASSAGE, "east", 1.34, 2.85, .075)
+	vent.rotation.y = YAW["east"]
 	grille(vent, Vector3.ZERO, Vector2(.82, .18), false)
-	vent.reparent(room.wall_body(RETURN, "south", vent.position))
+	vent.reparent(room.wall_body(PASSAGE, "east", vent.position))
 	vent = Node3D.new()
 	room.add_child(vent)
-	vent.position = room.wall_point(RETURN, "west", 1.0, .53, .08)
-	vent.rotation.y = PI / 2
+	vent.position = room.wall_point(PASSAGE, "west", 1.40, .53, .08)
+	vent.rotation.y = YAW["west"]
 	grille(vent, Vector3.ZERO, Vector2(.56, .45), true)
-	vent.reparent(room.wall_body(RETURN, "west", vent.position))
-	# White leaves folded along the opening cheeks: kept outside the clear route.
+	vent.reparent(room.wall_body(PASSAGE, "west", vent.position))
+	# 88.25/89.25s: the stair hall doorway's white panelled leaves stand folded back inside it,
+	# clear of the walking line. The plan has no wall thickness, so they stand in the passage.
+	var door: Array = room._plan_rooms.filter(func(area): return area.label == PASSAGE)[0].openings.north
 	for side in [-1, 1]:
-		var folded := leaf(.53, 2.47)
-		folded.position = Vector3(18.18, 1.235, -1.96 + side * .57)
-		folded.rotation.y = 0 if side == -1 else PI
-		var head: Node3D
-		for body in room.casings:
-			if body.get_meta("room_wall", "") == "marble stair hall:east:landing:header":
-				head = body
-		assert(head != null)
-		folded.reparent(head)
-	for side in [-1, 1]:
-		var folded := leaf(.62, 2.74)
-		folded.position = Vector3(15.75 + side * .67, 1.37, 2.70)
+		var folded := leaf(.60, 2.60)
+		folded.position = Vector3((door[0] + door[1]) / 2 + side * ((door[1] - door[0]) / 2 + .03), 1.30, b[2] + .36)
 		folded.rotation.y = -side * PI / 2
-		folded.reparent(room.wall_body(RETURN, "south", folded.position))
+		folded.reparent(room.wall_body(PASSAGE, "north", folded.position))
 
 
 func leaf(width: float, height: float) -> Node3D:
@@ -471,8 +464,8 @@ func hang_catalogue_works() -> void:
 	# accession, wall, along, centre height, canvas, frame, moulding metres L/T/R/B,
 	# room, frame-only colour multiplier, card side (+1 is to the viewer's right).
 	for spec in [
-		["42.190", "north", 4.00, 1.62, Vector2(.460, .378), "E9", [.090, .086, .090, .086], A, Color(.95, .89, .78), -1],
-		["2007.68", "north", 2.80, 1.65, Vector2(.454, .635), "E7", [.113, .1175, .113, .1175], A, Color(1, 1, 1), 1],
+		["42.190", "north", 5.05, 1.62, Vector2(.460, .378), "E9", [.090, .086, .090, .086], A, Color(.95, .89, .78), -1],
+		["2007.68", "north", 3.65, 1.65, Vector2(.454, .635), "E7", [.113, .1175, .113, .1175], A, Color(1, 1, 1), 1],
 		["57.236", "west", 5.40, 1.65, Vector2(.737, .481), "W7", [.1265, .1245, .1265, .1245], A, Color(1, .98, .95), 1],
 		["59.027", "south", 2.25, 1.59, Vector2(1.140, 1.502), "E3", [.165, .164, .165, .164], A, Color(.89, .87, .81), 1],
 		["23.072", "east", 5.20, 1.64, Vector2(.464, .629), "E7", [.118, .1205, .118, .1205], A, Color(.97, .99, 1.02), 1],

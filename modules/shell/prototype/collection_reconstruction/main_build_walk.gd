@@ -22,7 +22,6 @@ const FAR_ROOMS := [
 	"grey French gallery",
 	"marble stair hall",
 	"Impressionist passage",
-	"Impressionist passage return",
 	"Impressionist gallery A",
 	"Impressionist gallery B",
 	"Skylight Gallery",
@@ -130,7 +129,6 @@ const JOINED := {
 	"Skylight Gallery reveal threshold": "Skylight Gallery",
 	"white sculpture gallery threshold study limit": "lion stair landing",
 	"Impressionist passage": "Impressionist gallery A",
-	"Impressionist passage return": "Impressionist gallery A",
 }
 # A doorway onto another stage shows that stage's light through haze, not the void: unshaded
 # gradient geometry beyond the opening, seen only through the opening itself, and a fan of the
