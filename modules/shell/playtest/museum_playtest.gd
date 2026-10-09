@@ -33,6 +33,9 @@ const READ_THROUGH := 3.8  # and no further than this
 # The follow view: the most of the picture's height the visitor may stand. It stands 0.41 in
 # the middle of a large room; pressed against a wall the lens used to close in on its head.
 const FOLLOW_TALL := 0.5
+# Arrived at launch or through a door, the visitor turns to the lens: the most its facing may be
+# off the way to the lens on the plan, in degrees. Walked in, it had its back to it: 180.
+const FACE_LENS := 30.0
 const HALL := "Grand Gallery"
 
 var walk
@@ -84,6 +87,10 @@ func _run() -> void:
 	# The room scene is built the first time the visitor leaves the Hall (#281).
 	if not walk.state().attached and not walk.state().get("pending", false):
 		_fail("setup", "the room scene is neither attached nor waiting to be")
+	# The launch walk-in is over (ENTRY_COMPLETE) and nothing has been asked of the visitor yet.
+	report["launch_off_lens_deg"] = snappedf(_off_lens(), 0.1)
+	if "doors" in only and (walk._entrance_active or report.launch_off_lens_deg > FACE_LENS):
+		_fail("door", "launch: the visitor does not stand facing the lens", {"off_lens_deg": report.launch_off_lens_deg})
 	walk._new_action()
 	if "doors" in only:
 		await _doors()
@@ -317,6 +324,7 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 	var before := walk._pos as Vector3
 	var dark := {"on": watch_void, "before": -1.0, "jump": 0.0, "at": 0.0, "from": 0.0}
 	var frame := 0
+	var changed := false  # a room change began on the way
 	while clock < limit_s:
 		var to: Vector3 = goal - walk._pos
 		to.y = 0
@@ -342,6 +350,7 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 		stuck = stuck + delta if moved < 0.0005 else 0.0
 		steps += walk._kid.contacts
 		walked_clip = walked_clip or walk._kid._clip == "walk"
+		changed = changed or float(walk.get("_wipe_t")) >= 0.0
 		before = walk._pos
 		if stuck > 2.5:
 			break
@@ -371,9 +380,16 @@ func _walk_keys(goal: Vector3, limit_s: float, watch_void := false) -> Dictionar
 		"void_jump_at_s": snappedf(dark.at, 0.01),
 		"void_before_jump": snappedf(dark.from, 0.01),
 		"idle_after": walk._kid._clip == "idle",
+		"room_change": changed or float(walk.get("_wipe_t")) >= 0.0,
 		"ended_in": _area_at(walk._pos),
 		"ended_at": [snappedf(walk._pos.x, 0.01), snappedf(walk._pos.z, 0.01)]
 	}
+
+
+# How far the visitor's facing is from the way to the lens, on the plan, in degrees.
+func _off_lens() -> float:
+	var to: Vector3 = walk._cam.global_position - walk._pos
+	return absf(rad_to_deg(wrapf(walk._kid.rotation.y - atan2(to.x, to.z), -PI, PI)))
 
 
 # The most the dark share of the picture may rise between two readings (every other frame).
@@ -408,6 +424,19 @@ func _doors() -> void:
 				_fail("door", name + ": walked without its walk animation or footsteps", leg)
 			elif leg.void_jump > DARK_STEP:
 				_fail("door", name + ": the room went dark in one step before the wipe had shut", leg)
+			if leg.arrived and leg.room_change:
+				# The change opens, the walk-in stops, and the visitor turns to the lens.
+				for wait in 300:
+					if float(walk.get("_wipe_t")) < 0.0:
+						break
+					await process_frame
+				for wait in 120:
+					if _off_lens() <= 1.0:
+						break
+					await process_frame
+				leg["off_lens_deg"] = snappedf(_off_lens(), 0.1)
+				if leg.off_lens_deg > FACE_LENS:
+					_fail("door", name + ": arrived, the visitor does not turn to face the lens", leg)
 	await _doors_off_centre()
 
 
