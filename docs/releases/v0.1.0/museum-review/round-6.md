@@ -29,7 +29,7 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 | 5. Walk 1.9 m/s, run 4.5 m/s | **YES · VERIFIED** | [Walk and run](../../../evidence/review-round-6/03-walk-run-speed.jpg). Sustained browser probe velocity is 1.900 and 4.500 m/s in recordings 10, 13 and 14; the gait changes in motion. |
 | 6. Turn to face camera on arrival | **YES at Renaissance arrival · VERIFIED** | [Arrival picture](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg). Release the crossing key, let arrival finish; the visitor turns to the lens. |
 | 7. Impressionist entry beside fireplace and re-hung B | In progress | To be walked, not inferred from the plan. |
-| 8. Small-room follow camera outside visitor's head | In progress | Follow view still to test. |
+| 8. Small-room follow camera outside visitor's head | **YES in Rockefeller · VERIFIED; tighter rooms pending** | [Original/follow view, still and moving](../../../evidence/review-round-6/05-follow-camera-rockefeller.jpg). The visitor remains in front of the lens while walking beside cases and turning by a wall; no inside-head frame seen. |
 
 ## Coverage and timing
 
