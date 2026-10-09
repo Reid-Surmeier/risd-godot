@@ -91,8 +91,9 @@ func build_windows(label: String, centers: Array, height: float) -> void:
 func window(label: String, along: float, wall: Node3D) -> void:
 	var white: Material = room.trim_paint()
 	var lining: Material = room.look(Color("e1dfd8"))
-	var glass: Material = room.look(Color("b3c5c7"))
-	var shade: Material = room.look(Color("d1cbbde6"))
+	# The pane is daylight and keeps its own brightness, as the modern gallery's does: the
+	# recess gets no baked light, and a shaded pane behind a translucent shade drew flat black.
+	var glass: Material = room.look(Color("f3f4ef"), "", true)
 	var node := Node3D.new()
 	node.set_meta("impressionist_window", label)
 	room.add_child(node)
@@ -104,19 +105,11 @@ func window(label: String, along: float, wall: Node3D) -> void:
 		local_box(node, Vector3(side * .765, 1.825, -.095), Vector3(.07, 2.55, .19), lining)
 	local_box(node, Vector3(0, 3.065, -.095), Vector3(1.60, .07, .19), lining)
 	local_box(node, Vector3(0, .555, .025), Vector3(1.80, .07, .29), white)
-	# 149/151/218: the solar shade's hem is at the sill. The broad lower field
-	# is daylight through the fabric, not four exposed, divided glass panes.
-	for x in [-.71, .71]:
-		local_box(node, Vector3(x, 1.28, -.125), Vector3(.04, 1.36, .05), white)
-	for y in [.61, 1.95]:
-		local_box(node, Vector3(0, y, -.125), Vector3(1.46, .055, .05), white)
-	var fabric := MeshInstance3D.new()
-	var sheet := QuadMesh.new()
-	sheet.size = Vector2(1.46, 2.43)
-	fabric.mesh = sheet
-	fabric.material_override = shade
-	fabric.position = Vector3(0, 1.825, -.075)
-	node.add_child(fabric)
+	# White slatted blinds over the whole opening, the modern gallery's slat and pitch.
+	var slats = load("res://modules/shell/collection_rooms/marble_hall_additions.gd").Batch.new()
+	for j in 36:
+		slats.box(Vector3(0, .66 + j * .066, -.075), Vector3(1.46, .025, .022))
+	slats.into(node, room.look(Color("dddcd4")), "WindowBlind", true)
 	local_box(node, Vector3(0, .61, -.065), Vector3(1.49, .025, .024), lining)
 	var roller := MeshInstance3D.new()
 	var tube := CylinderMesh.new()
@@ -144,8 +137,8 @@ func window(label: String, along: float, wall: Node3D) -> void:
 
 
 func high_vents() -> void:
-	# 147: high grille over A's last landscape; 214: slot over B's end-wall Monet.
-	for spec in [[A, "west", 8.70, 3.28, Vector2(1.40, .20)], [B, "south", 3.15, 3.12, Vector2(1.25, .18)]]:
+	# 147: high grille over A's last landscape; 213.5: slot over B's Monet, on its west wall.
+	for spec in [[A, "west", 8.70, 3.28, Vector2(1.40, .20)], [B, "west", 7.00, 3.12, Vector2(1.25, .18)]]:
 		var node := Node3D.new()
 		room.add_child(node)
 		node.position = room.wall_point(spec[0], spec[1], spec[2], spec[3], .078)
@@ -403,7 +396,7 @@ func hang_existing_works() -> void:
 		["42.219", "The Basin at Argenteuil (Le Bassin d'Argenteuil)", "Claude Monet", "1874", "55.2 x 74.3 cm", "west", 2.45, 1.65, Vector2(.743, .552), "E7", 1.20, A],
 		["1998.107", "A Walk in the Meadows at Argenteuil", "Claude Monet", "1873", "53.3 x 64.8 cm", "west", 8.05, 1.65, Vector2(.648, .533), "E7", 1.20, A],
 		["41.012", "Still Life with Apples", "Paul Cézanne", "ca. 1878", "23.2 x 39.7 cm", "east", 1.35, 1.62, Vector2(.397, .232), "W10", 2.35, A],
-		["44.541", "The Seine at Giverny", "Claude Monet", "1885", "64.8 x 92.7 cm", "south", 3.15, 1.65, Vector2(.927, .648), "E7", .78, B]
+		["44.541", "The Seine at Giverny", "Claude Monet", "1885", "64.8 x 92.7 cm", "west", 7.00, 1.65, Vector2(.927, .648), "E7", .78, B]
 	]:
 		var margins: Array = []
 		for work in works:
@@ -463,18 +456,22 @@ func hang_catalogue_works() -> void:
 	var works: Array = JSON.parse_string(FileAccess.get_file_as_string("res://modules/shell/prototype/gallery_walk4/works.json"))
 	# accession, wall, along, centre height, canvas, frame, moulding metres L/T/R/B,
 	# room, frame-only colour multiplier, card side (+1 is to the viewer's right).
+	# B's walls are read from one unbroken turn of the camera, 6343 211.5..218s, and 213.5/215.5s:
+	# north = Gauguin, Pissarro, door to A; west = Cézanne, Monet (hang_existing_works);
+	# south = iris, Morisot, van Gogh, door to the modern gallery; east = window, Cassatt, window.
+	# The order on each wall is filmed; the metres along it are spaced by eye.
 	for spec in [
 		["42.190", "north", 5.05, 1.62, Vector2(.460, .378), "E9", [.090, .086, .090, .086], A, Color(.95, .89, .78), -1],
 		["2007.68", "north", 3.65, 1.65, Vector2(.454, .635), "E7", [.113, .1175, .113, .1175], A, Color(1, 1, 1), 1],
 		["57.236", "west", 5.40, 1.65, Vector2(.737, .481), "W7", [.1265, .1245, .1265, .1245], A, Color(1, .98, .95), 1],
 		["59.027", "south", 2.25, 1.59, Vector2(1.140, 1.502), "E3", [.165, .164, .165, .164], A, Color(.89, .87, .81), 1],
 		["23.072", "east", 5.20, 1.64, Vector2(.464, .629), "E7", [.118, .1205, .118, .1205], A, Color(.97, .99, 1.02), 1],
-		["72.096", "west", 5.15, 1.64, Vector2(.656, .543), "W7", [.142, .1385, .142, .1385], B, Color(1.10, 1.06, .98), 1],
-		["1999.3", "west", 7.95, 1.64, Vector2(.546, .648), "W7", [.097, .101, .097, .101], B, Color(1.06, .83, .76), 1],
-		["33.053", "south", 1.15, 1.65, Vector2(.810, .654), "W3", [.080, .078, .080, .078], B, Color(.83, .83, .81), 1],
-		["2021.101", "east", .93, 1.64, Vector2(.235, .330), "E7", [.0675, .070, .0675, .070], B, Color(1, 1, 1), 1],
-		["2010.57", "east", 2.36, 1.65, Vector2(.499, .600), "E7", [.1055, .105, .1055, .105], B, Color(1, 1, 1), 1],
-		["35.770", "east", 3.66, 1.65, Vector2(.421, .340), "W7", [.1195, .120, .1195, .120], B, Color(1.12, 1.12, 1.15), -1],
+		["72.096", "north", 3.35, 1.64, Vector2(.656, .543), "W7", [.142, .1385, .142, .1385], B, Color(1.10, 1.06, .98), 1],
+		["1999.3", "north", 1.70, 1.64, Vector2(.546, .648), "W7", [.097, .101, .097, .101], B, Color(1.06, .83, .76), 1],
+		["33.053", "west", 2.70, 1.65, Vector2(.810, .654), "W3", [.080, .078, .080, .078], B, Color(.83, .83, .81), 1],
+		["2021.101", "south", .95, 1.64, Vector2(.235, .330), "E7", [.0675, .070, .0675, .070], B, Color(1, 1, 1), 1],
+		["2010.57", "south", 2.15, 1.65, Vector2(.499, .600), "E7", [.1055, .105, .1055, .105], B, Color(1, 1, 1), 1],
+		["35.770", "south", 3.45, 1.65, Vector2(.421, .340), "W7", [.1195, .120, .1195, .120], B, Color(1.12, 1.12, 1.15), -1],
 		["60.095", "east", 6.80, 1.65, Vector2(.521, .610), "E7", [.1245, .125, .1245, .125], B, Color(.90, .95, 1.05), 1]
 	]:
 		var record: Dictionary = records[spec[0]]

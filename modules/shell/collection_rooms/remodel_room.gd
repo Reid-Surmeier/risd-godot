@@ -1779,6 +1779,9 @@ func build_sculpture_rooms() -> void:
 	var projection:=solid(Vector3(3.05,2.125,18.98),Vector3(.77,4.25,.22),wall_paint("dark medieval room"))
 	var screen:=solid(Vector3(3.05,2.8,19.104),Vector3(.44,.90,.015),look(Color("0a0a0b")))
 	screen.reparent(projection)
+	# It stands on the floor but is the north wall's: left behind when that wall was cut away,
+	# it showed its unlit back as a black slab.
+	projection.reparent(wall_body("dark medieval room","north",projection.position))
 	for spec in [[Vector3(1.75,3.82,19.06),Vector2(1.35,.16)],[Vector3(1.46,.45,19.06),Vector2(.48,.24)]]:
 		var north_grille:=solid(spec[0],Vector3(spec[1].x,spec[1].y,.02),look(Color("222426")))
 		for index in 6:

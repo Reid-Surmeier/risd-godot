@@ -1,5 +1,5 @@
 {
-  "main_build_tip": "f40568eab69b4ad4f292a81880451f23a2921385",
+  "main_build_tip": "7d21dd22f2264cf2994dc5d682deb62affe27352",
   "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
@@ -28,9 +28,9 @@
       "sha256": "705df5fa2724b1c94712764d4928992390b12a4df9e187743215aab43553f2fc"
     },
     "impressionist_additions.gd": {
-      "paths_moved": 3,
-      "source_sha256": "d5c7a63cae5207e4ca01f2f293cba626cd50ebfba6d24c8ab92a5c7eca6169d3",
-      "sha256": "514b457c27bcc13af88c5e729f1d9019d4f92b0eb008fc09fcfed63c08f7a6ce"
+      "paths_moved": 4,
+      "source_sha256": "ff4c589d0e4559545996d7d703aac53aef8a28882add3aedff20e53876374857",
+      "sha256": "e75a66244bf820eda0b514c1ff366880526c6dff66906679dbcfbc858ecafb90"
     },
     "landing_additions.gd": {
       "paths_moved": 1,
@@ -84,8 +84,8 @@
     },
     "remodel_room.gd": {
       "paths_moved": 96,
-      "source_sha256": "7f8f062f67f33123e1e3c2205cd868fc4ddc3b0e31f18573ff999edf4ff5c262",
-      "sha256": "d480e26a24a9e4e99493313f8580acfe9fee169570f7687e8976b06c69025e38"
+      "source_sha256": "aa5db2b4541ef93959a2f62c116afc58a22e9ac2a352e6c7c78686095a42d3c7",
+      "sha256": "e17d8379cf4856288bb596aa6b669f7af3261840f1114fbc3ec9c758371f8c87"
     },
     "remodel_room.tscn": {
       "paths_moved": 1,

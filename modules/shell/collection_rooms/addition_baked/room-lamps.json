@@ -144,47 +144,6 @@
 		"at": [
 			15.458,
 			3.2,
-			14.43
-		],
-		"color": "ffb870",
-		"cone": 34.0,
-		"energy": 6.811,
-		"kind": "spot",
-		"room": "Impressionist gallery B",
-		"target": [
-			16.543,
-			1.65,
-			14.43
-		],
-		"works": [
-			"2021.101",
-			"2010.57"
-		]
-	},
-	{
-		"at": [
-			15.458,
-			3.2,
-			16.36
-		],
-		"color": "ffb870",
-		"cone": 23.686,
-		"energy": 6.811,
-		"kind": "spot",
-		"room": "Impressionist gallery B",
-		"target": [
-			16.543,
-			1.65,
-			16.36
-		],
-		"works": [
-			"35.770"
-		]
-	},
-	{
-		"at": [
-			15.458,
-			3.2,
 			19.5
 		],
 		"color": "ffb870",
@@ -203,49 +162,50 @@
 	},
 	{
 		"at": [
-			13.704,
-			3.2,
-			21.06
-		],
-		"color": "ffb870",
-		"cone": 29.474,
-		"energy": 6.801,
-		"kind": "spot",
-		"room": "Impressionist gallery B",
-		"target": [
-			13.704,
-			1.652,
-			22.143
-		],
-		"works": [
-			"44.541"
-		]
-	},
-	{
-		"at": [
-			11.7,
+			13.337,
 			3.2,
 			21.058
 		],
 		"color": "ffb870",
-		"cone": 27.502,
+		"cone": 34.0,
 		"energy": 6.811,
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
-			11.7,
+			13.337,
 			1.65,
 			22.143
 		],
 		"works": [
-			"33.053"
+			"35.770",
+			"2010.57"
 		]
 	},
 	{
 		"at": [
-			11.799,
+			11.5,
 			3.2,
-			20.65
+			21.051
+		],
+		"color": "ffb870",
+		"cone": 21.106,
+		"energy": 6.855,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			11.5,
+			1.64,
+			22.143
+		],
+		"works": [
+			"2021.101"
+		]
+	},
+	{
+		"at": [
+			12.25,
+			3.2,
+			13.949
 		],
 		"color": "ffb870",
 		"cone": 25.909,
@@ -253,9 +213,9 @@
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
-			10.707,
+			12.25,
 			1.64,
-			20.65
+			12.857
 		],
 		"works": [
 			"1999.3"
@@ -263,9 +223,9 @@
 	},
 	{
 		"at": [
-			11.799,
+			13.9,
 			3.2,
-			17.85
+			13.949
 		],
 		"color": "ffb870",
 		"cone": 26.994,
@@ -273,12 +233,52 @@
 		"kind": "spot",
 		"room": "Impressionist gallery B",
 		"target": [
-			10.707,
+			13.9,
 			1.64,
-			17.85
+			12.857
 		],
 		"works": [
 			"72.096"
+		]
+	},
+	{
+		"at": [
+			11.79,
+			3.2,
+			19.704
+		],
+		"color": "ffb870",
+		"cone": 29.474,
+		"energy": 6.801,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			10.707,
+			1.652,
+			19.704
+		],
+		"works": [
+			"44.541"
+		]
+	},
+	{
+		"at": [
+			11.792,
+			3.2,
+			15.4
+		],
+		"color": "ffb870",
+		"cone": 27.502,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			10.707,
+			1.65,
+			15.4
+		],
+		"works": [
+			"33.053"
 		]
 	},
 	{
@@ -447,12 +447,12 @@
 		"works": [
 			"2017.74.27.1",
 			"2017.74.28.1",
-			"horn-player",
+			"2017.74.19",
 			"finch",
 			"ewe-lamb",
 			"2017.74.16",
+			"2017.74.20",
 			"2017.74.29",
-			"fox",
 			"58.197",
 			"finch-pair",
 			"2017.74.21",
@@ -510,7 +510,7 @@
 			"@Node3D@3514",
 			"@Node3D@3520",
 			"44.226",
-			"@Node3D@3574"
+			"@Node3D@3576"
 		]
 	},
 	{
@@ -919,7 +919,7 @@
 			24.433
 		],
 		"works": [
-			"@Node3D@4710",
+			"@Node3D@4712",
 			"44.674"
 		]
 	},
@@ -961,7 +961,7 @@
 		],
 		"works": [
 			"51.502",
-			"@Node3D@4663",
+			"@Node3D@4665",
 			"1989.085"
 		]
 	},
@@ -982,9 +982,9 @@
 			22.3
 		],
 		"works": [
-			"@Node3D@4656",
+			"@Node3D@4658",
 			"35.703",
-			"@Node3D@4635",
+			"@Node3D@4637",
 			"54.147.9"
 		]
 	},
@@ -1046,7 +1046,7 @@
 			4.121
 		],
 		"works": [
-			"@Node3D@3602"
+			"@Node3D@3604"
 		]
 	},
 	{
@@ -1066,13 +1066,13 @@
 			9.552
 		],
 		"works": [
-			"@Node3D@4552",
+			"@Node3D@4554",
 			"2016.62",
 			"european-east-figure-turkish-man",
-			"@Node3D@4563",
+			"@Node3D@4565",
 			"european-east-platter-saldanha",
 			"european-east-figure-turkish-woman",
-			"@Node3D@4541",
+			"@Node3D@4543",
 			"2014.33",
 			"european-east-pineapple-teapot"
 		]
@@ -1116,7 +1116,7 @@
 		"works": [
 			"55.091",
 			"2024.17.5",
-			"@Node3D@4642",
+			"@Node3D@4644",
 			"85.075.8"
 		]
 	},
@@ -1138,9 +1138,9 @@
 		],
 		"works": [
 			"43.351",
-			"@Node3D@4649",
+			"@Node3D@4651",
 			"2024.17.6",
-			"@Node3D@4674",
+			"@Node3D@4676",
 			"51.272",
 			"61.006"
 		]
@@ -1292,7 +1292,7 @@
 			9.279
 		],
 		"works": [
-			"@Node3D@4534",
+			"@Node3D@4536",
 			"2016.124",
 			"2016.102.2",
 			"09.351"
@@ -2675,7 +2675,7 @@
 		],
 		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.836,
+		"energy": 0.835,
 		"kind": "fill",
 		"room": "Impressionist gallery B",
 		"target": [
@@ -2709,7 +2709,7 @@
 		],
 		"color": "fff0e0",
 		"cone": 88.0,
-		"energy": 0.836,
+		"energy": 0.835,
 		"kind": "fill",
 		"room": "Impressionist gallery B",
 		"target": [
