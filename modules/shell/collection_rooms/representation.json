@@ -33,7 +33,7 @@
   "44.226": {"room": "Rockefeller", "form": "flat", "as": "flat"},
   "58.197": {"room": "Rockefeller", "form": "flat", "as": "flat"},
   "agate-teapot": {"room": "Rockefeller", "form": "volume", "as": "profile"},
-  "bagpiper": {"room": "Rockefeller", "form": "volume", "as": "one_view_blob"},
+  "2017.74.21": {"room": "Rockefeller", "form": "volume", "as": "mesh"},
   "bear-jug": {"room": "Rockefeller", "form": "volume", "as": "one_view_blob"},
   "2017.74.22.ab": {"room": "Rockefeller", "form": "volume", "as": "mesh"},
   "2017.74.28.1": {"room": "Rockefeller", "form": "volume", "as": "mesh"},
@@ -188,7 +188,6 @@
  "shortfalls": [
   "2017.74.31.1",
   "2017.74.31.2",
-  "bagpiper",
   "bear-jug",
   "ewe-lamb",
   "finch",
