@@ -1,5 +1,5 @@
 {
-  "main_build_tip": "7d21dd22f2264cf2994dc5d682deb62affe27352",
+  "main_build_tip": "9dd74e5ecffae336fefd3c772fe65d3126f01cb7",
   "hall_files_unchanged": 482,
   "room_scripts": {
     "connected_hall.gd": {
@@ -14,8 +14,8 @@
     },
     "european_east_additions.gd": {
       "paths_moved": 3,
-      "source_sha256": "a0d5c8c55a3ae4b82dac887d763c559bab5e992f363f405c0f809c88d4e33fee",
-      "sha256": "0f537c01588b85447470189a44ea3e9d5b5d8440ed17d1714a43c1f55a57b5aa"
+      "source_sha256": "b18daace697ddd4ff9a78023d31cf0dc7a51c1725c933f2fac5a33eb630e1816",
+      "sha256": "6b074ad1b21a8184aa49d91fb4bf3cb69fa3074feb0ba3d2303d856333c99a05"
     },
     "european_west_additions.gd": {
       "paths_moved": 3,
