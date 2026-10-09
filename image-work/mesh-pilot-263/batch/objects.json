@@ -844,14 +844,29 @@
   "prepare": "--height 0.133 --width 0.165 --depth 0.08",
   "muse_first": {
    "run": {
-    "id": "run_m17a9r4y6kptnwzffjp72zhzn18fy2n8",
+    "id": "run_m1747dd07vs6444yq9nhwcxbpd8fztdf",
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000; views given as front, left, back",
     "quote": 0.48,
-    "charged": 0,
-    "failed": "Flora reported status failed, GENERATION_DOWNSTREAM_SERVICE_ERROR, \"The generation timed out\" (8 October, 20:07 EDT); no output; not resubmitted without the lead's word"
+    "charged": 0.48,
+    "sha256": "1c71e7980ea3f4ac0d4ecb108923e58f616ebbd022de7e40bf918f52169c6c32"
    },
-   "views": "front, a Muse clay view of the museum's square-on photograph of the one flank it shows; the head-on view and the other flank are Muse's inference from that clay view (the museum has no photograph of them)"
+   "views": "front, a Muse clay view of the museum's square-on photograph of the one flank it shows; the head-on view and the other flank are Muse's inference from that clay view (the museum has no photograph of them)",
+   "rejected_run": {
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "id": "run_m17a9r4y6kptnwzffjp72zhzn18fy2n8",
+    "views": "the same three",
+    "why": "Flora reported it failed at the provider (\"The generation timed out\", 8 October); no output. Resubmitted once on 9 October with the lead's word.",
+    "quote": 0.48,
+    "charged": 0.0
+   },
+   "imported": {
+    "mesh": 208218,
+    "colour": 60684,
+    "total": 268902
+   },
+   "size_note": "Height, width and depth are the catalogue's (13.3 x 16.5 x 8 cm). The generator made it 11.9 cm deep from the inferred head-on view, half as deep again as the real piece, so the depth is squashed to 0.67 of what was made. Its front was found at 64 degrees in 3 degree steps (the usual 15 degree search gave 60)",
+   "build": "TURN=64 SUF=-cut LIFT=none CUT=--keep-holes; colour from the flat front and the flat other-flank view"
   }
  },
  "2017.74.19": {
@@ -860,14 +875,27 @@
   "prepare": "--height 0.162 --width 0.07 --depth 0.05",
   "muse_first": {
    "run": {
-    "id": "run_m17e08epcxb3ezw4y2a85gjw8s8fyxce",
+    "id": "run_m178adefxgdayrwtr1gc8cy5kd8fzvz7",
     "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
     "params": "geometry detailed, texture off, face limit 500,000; views given as front, left, back",
     "quote": 0.48,
-    "charged": 0,
-    "failed": "Flora reported status failed, GENERATION_DOWNSTREAM_SERVICE_ERROR, \"The generation timed out\" (8 October, 20:07 EDT); no output; not resubmitted without the lead's word"
+    "charged": 0.48,
+    "sha256": "1504eb90768a6651e306186e121c5aceaa1ee202e979184999e7618f601c961f"
    },
-   "views": "front and back, each a Muse clay view of the museum's photograph of that side; the left profile is Muse's inference from the clay front, the clay back and the museum's part-turned photograph"
+   "views": "front and back, each a Muse clay view of the museum's photograph of that side; the left profile is Muse's inference from the clay front, the clay back and the museum's part-turned photograph",
+   "rejected_run": {
+    "model": "Tripo H3.1 Multi-View (`i3d-tripo-h3-1-multiview-i3d`)",
+    "id": "run_m17e08epcxb3ezw4y2a85gjw8s8fyxce",
+    "views": "the same three",
+    "why": "Flora reported it failed at the provider (\"The generation timed out\", 8 October); no output. Resubmitted once on 9 October with the lead's word.",
+    "quote": 0.48,
+    "charged": 0.0
+   },
+   "imported": {
+    "mesh": 194584,
+    "colour": 64536,
+    "total": 259120
+   }
   }
  },
  "2017.74.21": {
