@@ -39,6 +39,19 @@ room black despite a valid bake; the pixel regression detects this.
 Texture imports are committed for the oak mip chain and the lightmap's required
 2D-array format. No screen-space noise, snapping or texture warping was added.
 Native bake took 18.22 seconds on this host's software Vulkan renderer.
+
+**The bake runs on the GPU (8 Oct).** Vulkan inside WSL is lavapipe, a CPU renderer; with a
+spot on every painting the bake took 8 to 50 minutes there. `run.py` now bakes in the Windows
+build of the same Godot (`WIN_GODOT`, opened in place over `\\wsl.localhost`) when it is present
+and reports the same version as `godot`: 76 s for the whole run, 16 to 21 s of it baking, on the
+RTX 4070 SUPER (the log's `Using Device` line names the card). `BAKE_ON=cpu` keeps it on
+lavapipe. Run it under the host lock the room rebuilds use, so two bakes never overlap:
+`flock /tmp/risd-rebuild-rooms.lock python3 modules/shell/prototype/gallery_walk4/bake/run.py`.
+The Windows editor has no desktop in WSL's session: the log fills with "Couldn't create Vulkan
+swapchain", which does not affect the bake. It crashed once in two runs after "Done baking",
+before saving; `run.py` put the previous bake back and the second run saved. The editor also
+re-imports the room's textures as block-compressed "3D" textures; `run.py` puts every `.import`
+outside `baked/` back, and `godot --headless --import` afterwards rebuilds the cache from them.
 Initial camera/bake pass: 0 paid requests. Material continuation: 2 Muse requests
 through OpenRouter, $0.02 total, with unchanged native image bytes.
 
