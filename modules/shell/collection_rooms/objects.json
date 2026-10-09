@@ -410,7 +410,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/finch-pair.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:finch-pair.html (saved copy of https://risdmuseum.org/art-design/collection/finch-201774152)"
   },
-  "bagpiper": {
+  "2017.74.21": {
     "title": "Figure of a Bagpiper",
     "maker": "Unknown Maker, English",
     "date": "ca. 1745",
@@ -422,7 +422,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/bagpiper.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:bagpiper.html (saved copy of https://risdmuseum.org/art-design/collection/figure-bagpiper-20177421)"
   },
-  "bear-jug-pair": {
+  "2017.74.22.ab": {
     "title": "Brown Bear Jug and Cover",
     "maker": "Unknown Maker, English",
     "date": "ca. 1730",
@@ -542,7 +542,7 @@
     "image": "res://modules/shell/collection_rooms/assets/details/candlestick-pair.jpg",
     "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:candlestick-pair.html (saved copy of https://risdmuseum.org/art-design/collection/figural-candlestick-201774282)"
   },
-  "parrot-third": {
+  "2017.74.26": {
     "title": "Figure of a Parrot",
     "maker": "Unknown Maker, English",
     "date": "ca. 1760",
