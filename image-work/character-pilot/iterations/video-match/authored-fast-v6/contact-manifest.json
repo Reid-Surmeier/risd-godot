@@ -1,0 +1,90 @@
+{
+  "source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+  "candidate_sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20",
+  "bones": 24,
+  "period_seconds": 0.4666666666666667,
+  "controller_speed_mps": 1.05,
+  "contacts": [
+    {
+      "time": 0.0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.233333334326744,
+      "foot": "Right"
+    }
+  ],
+  "sampled_planar_contact_verified": false,
+  "terrain_turning_blending_verified": false,
+  "idle_event_count_expected": 0,
+  "walk_events_per_loop_expected": 2,
+  "contact_probe": {
+    "idle": {
+      "seconds": 4.03333330154419,
+      "sample_count": 257,
+      "endpoint_vertex_error_max_m": 9.09459245690414e-08,
+      "floor_penetration_max_m": 4.66369073137685e-07,
+      "authored_event_sole_height_m": {},
+      "velocity_convergence": [
+        {
+          "delta_seconds": 0.01,
+          "maximum_joint_velocity_jump_mps": 0.103757932782173,
+          "worst_bone": "LeftToeBase"
+        },
+        {
+          "delta_seconds": 0.003,
+          "maximum_joint_velocity_jump_mps": 0.119803607463837,
+          "worst_bone": "LeftToeBase"
+        },
+        {
+          "delta_seconds": 0.001,
+          "maximum_joint_velocity_jump_mps": 0.040006335824728,
+          "worst_bone": "LeftToeBase"
+        },
+        {
+          "delta_seconds": 0.0003,
+          "maximum_joint_velocity_jump_mps": 0.012073241174221,
+          "worst_bone": "LeftToeBase"
+        }
+      ],
+      "planar_stance_lock_verified": false
+    },
+    "walk": {
+      "seconds": 0.466666668653488,
+      "sample_count": 257,
+      "endpoint_vertex_error_max_m": 4.17498512206294e-07,
+      "floor_penetration_max_m": 0.000308923714328557,
+      "authored_event_sole_height_m": {
+        "Left": -1.38282771899867e-07,
+        "Right": -1.02519983613547e-07
+      },
+      "velocity_convergence": [
+        {
+          "delta_seconds": 0.01,
+          "maximum_joint_velocity_jump_mps": 2.05858874320984,
+          "worst_bone": "LeftHand"
+        },
+        {
+          "delta_seconds": 0.003,
+          "maximum_joint_velocity_jump_mps": 1.01880979537964,
+          "worst_bone": "head_end"
+        },
+        {
+          "delta_seconds": 0.001,
+          "maximum_joint_velocity_jump_mps": 1.03545463085175,
+          "worst_bone": "RightToeBase"
+        },
+        {
+          "delta_seconds": 0.0003,
+          "maximum_joint_velocity_jump_mps": 1.07254672050476,
+          "worst_bone": "RightToeBase"
+        }
+      ],
+      "planar_stance_lock_verified": false
+    }
+  },
+  "cost_usd": 0,
+  "source_reference_mode": true,
+  "import_fps": 240,
+  "contact_assignment": "target minimum sole at phases0/.5; this may differ from source side labels"
+}

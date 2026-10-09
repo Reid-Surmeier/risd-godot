@@ -19,7 +19,8 @@ grow_vertical = 2
 script = ExtResource("1")
 
 [node name="Desktop" type="SubViewport" parent="."]
-size = Vector2i(1920, 1080)
+gui_embed_subwindows = true
+size = Vector2i(1080, 1080)
 render_target_update_mode = 4
 
 [node name="Content" type="Control" parent="Desktop"]
@@ -28,12 +29,15 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 script = ExtResource("2")
 
-[node name="Screen" type="TextureRect" parent="."]
-material = SubResource("CRTMaterial")
+[node name="Exterior" type="ColorRect" parent="."]
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
-grow_horizontal = 2
-grow_vertical = 2
+mouse_filter = 2
+color = Color(1, 1, 1, 1)
+
+[node name="Screen" type="TextureRect" parent="."]
+material = SubResource("CRTMaterial")
+anchors_preset = 0
 mouse_filter = 2
 expand_mode = 1

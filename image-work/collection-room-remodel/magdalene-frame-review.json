@@ -1,0 +1,14 @@
+{
+  "run_id": "run-512ec3442058ba2c246e9eea",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "cost_usd": "0.010000",
+  "native_sha256": "bd670d7b3ea010abbd34950260e075dfa29227612004ed5f295000501d550ad6",
+  "accepted": false,
+  "visual_verdict": "Outer gable, four pairs of crockets, paired finial and twisted columns retained. Incorrect inset pentagonal opening/extra inner chevron truncates the actual painted triangular field; blue-grey wear invented. Do not install this frame or replace the authentic painting with it. No retry submitted.",
+  "next_action": "Rectify the source inner and outer frame profiles and use a precise geometry-preserving edit if another pass is justified. Complete source panel and placement evidence first.",
+  "tool_identity": "Pinned existing1790783219515 build; exact application Tool Lock matched, no upgrade or bypass.",
+  "cumulative_map_actual_usd": "0.73",
+  "cumulative_map_conservative_usd": "0.74"
+}

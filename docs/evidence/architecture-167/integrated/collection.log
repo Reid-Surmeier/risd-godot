@@ -1,0 +1,24 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+WARNING: res://modules/shell/prototype/gallery_walk4/baked/room.tscn:55 - ext_resource, invalid UID: uid://ckbxgj5hifwcl - using text path instead: res://modules/shell/prototype/gallery_walk4/textures/cornice-ivory.svg
+     at: load (scene/resources/resource_format_text.cpp:501)
+     GDScript backtrace (most recent call first):
+         [0] _set_lighting (res://modules/shell/prototype/gallery_walk4/walk4.gd:1428)
+         [1] _build_view_controls (res://modules/shell/prototype/gallery_walk4/walk4.gd:1330)
+         [2] _ready (res://modules/shell/prototype/gallery_walk4/walk4.gd:125)
+         [3] _create_tenant (res://modules/shell/shell.gd:172)
+         [4] _on_tab_selected (res://modules/shell/shell.gd:117)
+         [5] select_tab (res://modules/tab_strip/tab_strip.gd:556)
+         [6] select_tab (res://modules/tab_strip/interface.gd:64)
+         [7] select_tab (res://modules/shell/shell.gd:184)
+         [8] <anonymous lambda> (res://modules/shell/shell.gd:95)
+         [9] <anonymous lambda> (res://modules/tab_strip/tab_strip.gd:528)
+ENTRY_COMPLETE (0.0, 0.0, -2.6)
+COLLECTION_FIT PASS centered source proportions and live opening [P: (0.0, 54.0), S: (1080.0, 972.0)]

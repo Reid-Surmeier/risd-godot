@@ -1,0 +1,14 @@
+21:37:52 | INFO: Data are loaded, start creating Blender stuff
+21:37:52 | INFO: Blender create Mesh node char1
+21:37:52 | INFO: glTF import finished in 0.02s
+INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
+21:37:52 | INFO: Starting glTF 2.0 export
+21:37:52 | INFO: Extracting primitive: char1
+21:37:52 | INFO: Primitives created: 1
+21:37:52 | INFO: Finished glTF 2.0 export in 0.028263330459594727 s
+
+Info: Saved "canonical-rest.blend"
+HANDS_REPAIRED {'Left': {'vertices': 694, 'distal_length_before_m': 0.179534912109375, 'bounds_after_m': [[-0.08911314964294434, -0.008529794216156007, -0.12000000953674317], [0.08771952629089355, 0.14499998092651367, 0.06614525318145752]], 'length_factor': 0.8076423593404726, 'thumb_projection_m': 0.0500823974609375}, 'Right': {'vertices': 599, 'distal_length_before_m': 0.21139923095703125, 'bounds_after_m': [[-0.08810070991516114, -0.010408207178115844, -0.1200000286102295], [0.08835350036621094, 0.14499988555908203, 0.07103135108947754]], 'length_factor': 0.6859059957009613, 'thumb_projection_m': 0.05173580646514893}}
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+
+Blender quit

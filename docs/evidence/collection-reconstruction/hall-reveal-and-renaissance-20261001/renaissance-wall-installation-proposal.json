@@ -1,0 +1,77 @@
+{
+  "utc": "2026-10-01T20:30:15.083451+00:00",
+  "source": "Original6383 68.50s and reciprocal60.60s, native source frames visually inspected",
+  "wall_objects": [
+    {
+      "key": "velvet_23307x",
+      "at_authored": [
+        -1.775,
+        1.31,
+        24.867
+      ],
+      "side": "south",
+      "yaw": 3.141592653589793
+    },
+    {
+      "key": "woodcutters_29280",
+      "at_authored": [
+        -3.225,
+        1.35,
+        24.887
+      ],
+      "side": "south",
+      "yaw": 3.141592653589793
+    },
+    {
+      "key": "madonna_58196",
+      "at_authored": [
+        -5.478,
+        1.22,
+        24.1
+      ],
+      "side": "west",
+      "yaw": 1.5707963267948966
+    }
+  ],
+  "south_centres_m": 1.45,
+  "south_edge_gap_m": 0.4945,
+  "gap_evidence": "Approximate video-plane ratio against catalogue .94m tapestry width; perspective and registration uncertainty remains.",
+  "source_shift_z": 9.25,
+  "platform": {
+    "height_m": 0.16,
+    "depth_m": 0.95,
+    "width_m": 4.3,
+    "previous_height_m": 0.54,
+    "source_observation": "Wide60.60s shows low step/platform with label blocks, substantially below bench seat; .54m old height was too tall. Numbers provisional.",
+    "extent_x_m": [
+      -5.25,
+      -0.95
+    ]
+  },
+  "labels": "blank white source-observed proxies; no invented text",
+  "velvet_hood": "5clearpanes, observed1.04x1.60m; .08mdepth provisional. Source back atwall .02m behind artorigin.",
+  "metres_accepted": false,
+  "placement_accepted": false,
+  "fine_frame_fidelity_accepted": false,
+  "all_inventory_objects_represented": "18 lower-bound Renaissance inventory slots have prototype representations: 11 case objects,3wallworks,Perugino,triptych,SaintRoch,Pieta; one plaque identity probable. Not all museum objects complete or likeness accepted.",
+  "root_install_utc": "2026-10-01T20:41:08.789710+00:00",
+  "native_project": "main-build-extension-v49v",
+  "native_root_views": 6,
+  "architecture_check_exit": 0,
+  "asset_source": "43 original worker outputs verified hash-equal",
+  "frame_muse_trial": "one reported $.01 OpenRouter Muse trial REJECTED broad gold band; runtime video strips",
+  "corrected_native_project": "main-build-extension-v49x",
+  "source_review_H1_H2_H3": "ActualOpus task_ad82b2cbf489/ctx_cb11600fbded, 20:48UTC earlyfindings; independentlycheckedfixpending",
+  "window_H4": {
+    "blind_y_range_m": [
+      0.63,
+      3.0
+    ],
+    "sill_y_range_m": [
+      0.51,
+      0.63
+    ],
+    "source": "Opus independent native6383 60.60 same-plane ratios; \u00b1.06m, not survey acceptance"
+  },
+  "root_native_inspected": 6
+}

@@ -1,0 +1,80 @@
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from '/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV':
+  Metadata:
+    major_brand     : qt
+    minor_version   : 0
+    compatible_brands: qt
+    creation_time   : 2026-09-29T16:30:57.000000Z
+    com.apple.quicktime.full-frame-rate-playback-intent: 0
+    com.apple.quicktime.make: Apple
+    com.apple.quicktime.model: iPhone 15
+    com.apple.quicktime.software: 27.0
+    com.apple.quicktime.creationdate: 2026-09-29T12:30:57-0400
+  Duration: 00:04:20.54, start: 0.000000, bitrate: 14198 kb/s
+  Stream #0:0[0x1](und): Video: hevc (Main 10) (hvc1 / 0x31637668), yuv420p10le(tv, bt2020nc/bt2020/arib-std-b67), 1920x1080, 13993 kb/s, 29.98 fps, 29.97 tbr, 600 tbn (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : HEVC
+    Side data:
+      DOVI configuration record: version: 1.0, profile: 8, level: 4, rpu flag: 1, el flag: 0, bl flag: 1, compatibility id: 4
+      displaymatrix: rotation of -90.00 degrees
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 48000 Hz, stereo, fltp, 150 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Audio
+      vendor_id       : [0][0][0][0]
+  Stream #0:2[0x3](und): Data: none (mebx / 0x7862656D) (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Metadata
+  Stream #0:3[0x4](und): Data: none (mebx / 0x7862656D), 0 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Metadata
+  Stream #0:4[0x5](und): Data: none (mebx / 0x7862656D), 35 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Metadata
+  Stream #0:5[0x6](und): Data: none (mebx / 0x7862656D), 2 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Metadata
+  Stream #0:6[0x7](und): Data: none (mebx / 0x7862656D), 0 kb/s (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Metadata
+Stream mapping:
+  Stream #0:0 -> #0:0 (hevc (native) -> mjpeg (native))
+Press [q] to stop, [?] for help
+[hevc @ 0x5e742b4f5d00] Multiple Dolby Vision RPUs found in one AU. Skipping previous.
+[hevc @ 0x5e742b5b8100] Multiple Dolby Vision RPUs found in one AU. Skipping previous.
+[hevc @ 0x5e742b67a500] Multiple Dolby Vision RPUs found in one AU. Skipping previous.
+[swscaler @ 0x5e742bffa180] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x5e742c4d6b80] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x5e742c536500] deprecated pixel format used, make sure you did set range correctly
+[swscaler @ 0x5e742c4d6b80] deprecated pixel format used, make sure you did set range correctly
+Output #0, image2, to '/home/reidsurmeier/risd-godot-ingestion/collection-expansion/exit-floor-native-v2/%06d.jpg':
+  Metadata:
+    major_brand     : qt
+    minor_version   : 0
+    compatible_brands: qt
+    com.apple.quicktime.creationdate: 2026-09-29T12:30:57-0400
+    com.apple.quicktime.full-frame-rate-playback-intent: 0
+    com.apple.quicktime.make: Apple
+    com.apple.quicktime.model: iPhone 15
+    com.apple.quicktime.software: 27.0
+    encoder         : Lavf60.16.100
+  Stream #0:0(und): Video: mjpeg, yuvj420p(pc, bt2020nc/bt2020/arib-std-b67, progressive), 1920x1080, q=2-31, 200 kb/s, 6 fps, 6 tbn (default)
+    Metadata:
+      creation_time   : 2026-09-29T16:30:57.000000Z
+      handler_name    : Core Media Video
+      vendor_id       : [0][0][0][0]
+      encoder         : Lavc60.31.102 mjpeg
+    Side data:
+      cpb: bitrate max/min/avg: 0/0/200000 buffer size: 0 vbv_delay: N/A
+      DOVI configuration record: version: 1.0, profile: 8, level: 4, rpu flag: 1, el flag: 0, bl flag: 1, compatibility id: 4
+      displaymatrix: rotation of -90.00 degrees
+frame=    0 fps=0.0 q=0.0 size=       0kB time=N/A bitrate=N/A speed=N/A
+[out#0/image2 @ 0x5e7429110dc0] video:436kB audio:0kB subtitle:0kB other streams:0kB global headers:0kB muxing overhead: unknown
+frame=    4 fps=0.0 q=2.0 Lsize=N/A time=00:00:04.00 bitrate=N/A speed=9.41x

@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-f3d994b6f9e786f50346",
+      "objective": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Soup Tureen with Cover on Stand, accession 2017.74.38.1a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+      "procedureId": "muse-f3d994b6f9e786f50346",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "gold-tureen-recipe.json",
+          "sha256": "f3d994b6f9e786f5034616c4cfd16d3de76efe611b5ccb1ebfeb5ddb12bfdc5f"
+        },
+        {
+          "applicationPath": "gold-tureen-plan.json",
+          "sha256": "146825e0b2c65a9d3ee6baaf439af25c62a08b5c1e2915d92e798e8baa5a3f63"
+        },
+        {
+          "applicationPath": "gold-tureen-prompt.txt",
+          "sha256": "c393849d07c47b4d3c71fd8ece6cd6e4ac8a1d9e7f64f75cae06d7da12ee5d23"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/gold-tureen-selected-0.png",
+          "sha256": "b4827a94c5487cfae20920aadd9d18f36457778a2bc096b1410ea381325310da",
+          "byteLength": 1495163,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1036
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/gold-tureen-selected-1.png",
+          "sha256": "546388d490b812f62a8ee63186df24c7c702ad94693420f54268f1e44dcb9e63",
+          "byteLength": 1457163,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1036
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"The reference photographs are the sole authority for RISD Museum Rockefeller Service Soup Tureen with Cover on Stand, accession 2017.74.38.1a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\\n\",\"objectiveId\":\"muse-f3d994b6f9e786f50346\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-f3d994b6f9e786f50346\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/gold-tureen-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1495163,\"inspectedMedia\":{\"height\":1036,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"b4827a94c5487cfae20920aadd9d18f36457778a2bc096b1410ea381325310da\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/gold-tureen-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1457163,\"inspectedMedia\":{\"height\":1036,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"546388d490b812f62a8ee63186df24c7c702ad94693420f54268f1e44dcb9e63\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"gold-tureen-recipe.json\",\"sha256\":\"f3d994b6f9e786f5034616c4cfd16d3de76efe611b5ccb1ebfeb5ddb12bfdc5f\"},{\"applicationPath\":\"gold-tureen-plan.json\",\"sha256\":\"146825e0b2c65a9d3ee6baaf439af25c62a08b5c1e2915d92e798e8baa5a3f63\"},{\"applicationPath\":\"gold-tureen-prompt.txt\",\"sha256\":\"c393849d07c47b4d3c71fd8ece6cd6e4ac8a1d9e7f64f75cae06d7da12ee5d23\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "ea6153eee59b90a4404ce9e952dd35115e1f5564aa3e596b231852597a16e0f3"
+  },
+  "normalView": {
+    "objective": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Soup Tureen with Cover on Stand, accession 2017.74.38.1a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

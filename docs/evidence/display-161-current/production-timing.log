@@ -1,0 +1,6 @@
+{"mode":"current","gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","median_ms":16.69999999999709,"p95_ms":16.80000000000291,"errors":[]}
+{"mode":"bypass","gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","median_ms":16.69999999999709,"p95_ms":16.799999999999272,"errors":[]}
+{"mode":"copy-full","gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","median_ms":16.700000000000728,"p95_ms":33.299999999995634,"errors":[]}
+{"mode":"copy-full","gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","median_ms":16.69999999999709,"p95_ms":33.29999999999927,"errors":[]}
+{"mode":"bypass","gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","median_ms":16.69999999999709,"p95_ms":16.799999999999272,"errors":[]}
+{"mode":"current","gpu":"ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)","median_ms":16.69999999999709,"p95_ms":33.29999999999927,"errors":[]}

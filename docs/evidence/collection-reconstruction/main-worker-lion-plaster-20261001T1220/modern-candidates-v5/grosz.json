@@ -1,0 +1,834 @@
+[
+  {
+    "id": "1262626",
+    "collection": "",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1919",
+    "datingYearTo": "1920",
+    "description": "<p>Twilight (D\u00e4mmerung)<br>Dusk<br>from the portfolio In the Shadow (Im Schatten)</p>\n",
+    "dimensions": "Image: 39.1 x 28.3 cm (15 3/8 x 11 1/8 inches)",
+    "edition": "",
+    "inscription": "Original--Recto:signed in pencil under image on right:GROSZ; in LL of sheet:JBN\nMarks: Stamped in brown ink on verso:R.I.S.D./MUSEUM/OF ARTsurrounded byPROVIDENCE/RHODE ISLAND all inscribed in a circle.",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Photolithograph on paper"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "50.017",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Heavy weight Oriental wove paper"
+    ],
+    "technique": [
+      "Photolithograph on paper"
+    ],
+    "title": "Twilight (D\u00e4mmerung)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/twilight-dammerung-50017"
+  },
+  {
+    "id": "1342446",
+    "collection": "",
+    "credit": "Museum purchase: anonymous gift",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1921",
+    "datingYearTo": "1921",
+    "description": "<p>Untitled<br>Bauhaus Drucke.Neue Europaeische Graphik.5te Mappe Deutsche K\u00fcnstler</p>\n",
+    "dimensions": "56.5 x 45.4 cm (22 1/4 x 17 7/8 inches) mat",
+    "edition": "51/110",
+    "inscription": "Original--each signed in pencil by artists on the lower paper.\nMarks: Same mark on colophon as 53.304.1-.14.",
+    "makers": [
+      {
+        "name": "Bauhaus",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Frederik Muller & Cie.",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "53.305.4",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1225371"
+    ],
+    "state": "",
+    "support": [
+      "Paper varies."
+    ],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "Untitled",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/untitled-533054"
+  },
+  {
+    "id": "1591501",
+    "collection": "",
+    "credit": "Gift of Michael Cammer",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1940",
+    "datingYearTo": "1949",
+    "description": "<p>Untitled</p>\n",
+    "dimensions": "29.8 x 22.2 cm (11 3/4 x 8 3/4 inches) (sheet)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Graphite and watercolor on wove paper"
+    ],
+    "mediumTechnique": "watercolor, graphite",
+    "objectNumber": "2005.102.1",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "wove paper"
+    ],
+    "technique": [
+      "Graphite and watercolor on wove paper"
+    ],
+    "title": "Untitled",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/untitled-20051021"
+  },
+  {
+    "id": "1591516",
+    "collection": "",
+    "credit": "Gift of Michael Cammer",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1940",
+    "datingYearTo": "1949",
+    "description": "<p>Untitled</p>\n",
+    "dimensions": "35.2 x 11 cm (13 7/8 x 4 5/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Watercolor on heavy weight wove paper"
+    ],
+    "mediumTechnique": "watercolor",
+    "objectNumber": "2005.102.2",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "wove paper"
+    ],
+    "technique": [
+      "Watercolor on heavy weight wove paper"
+    ],
+    "title": "Untitled",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/untitled-20051022"
+  },
+  {
+    "id": "1591531",
+    "collection": "",
+    "credit": "Gift of Michael Cammer",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1941",
+    "datingYearTo": "1941",
+    "description": "<p>Untitled</p>\n",
+    "dimensions": "30 x 22.4 cm (11 13/16 x 8 13/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Natalie B. Baker",
+        "risdAffiliation": null,
+        "years": "1913-1998",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "ink and wash on wove paper"
+    ],
+    "mediumTechnique": "ink",
+    "objectNumber": "2005.102.3",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Natalie B. Baker",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "wove paper"
+    ],
+    "technique": [
+      "ink and wash on wove paper"
+    ],
+    "title": "Untitled",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/untitled-20051023"
+  },
+  {
+    "id": "1194456",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>print</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875.3",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1210756"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "print",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/print-841988753"
+  },
+  {
+    "id": "1210756",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>portfolio (group of works)</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1225331",
+      "https://risdmuseum.org/api/v1/collection?id=1194456",
+      "https://risdmuseum.org/api/v1/collection?id=1291681",
+      "https://risdmuseum.org/api/v1/collection?id=1507621",
+      "https://risdmuseum.org/api/v1/collection?id=1475131",
+      "https://risdmuseum.org/api/v1/collection?id=1458836"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "portfolio (group of works)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/portfolio-group-works-84198875"
+  },
+  {
+    "id": "1225331",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>print</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875.4",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1210756"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "print",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/print-841988754"
+  },
+  {
+    "id": "1291681",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>print</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875.6",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1210756"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "print",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/print-841988756"
+  },
+  {
+    "id": "1322626",
+    "collection": "",
+    "credit": "Gift of Harcourt Brown",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1923",
+    "datingYearTo": "1923",
+    "description": "<p>Le Nouvel Orph\u00e9e</p>\n",
+    "dimensions": "20.3 x 14.6 x 1.3 cm (8 x 5 3/4 x 1/2 inches)",
+    "edition": "Second Edition",
+    "inscription": "On fly-leaf in pen and ink, \"N.P. Harcourt Brown 1/23\".",
+    "makers": [
+      {
+        "name": "Yuan Goll",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "\u00c9ditions de la Sirene",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Fernand L\u00e9ger",
+        "risdAffiliation": null,
+        "years": "1881-1955",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Robert Delaunay",
+        "risdAffiliation": null,
+        "years": "1885-1941",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "print"
+    ],
+    "mediumTechnique": "print",
+    "objectNumber": "51.153",
+    "onView": false,
+    "place": "Place Made: Paris; Place Made: France",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "laid paper"
+    ],
+    "technique": [
+      "Print"
+    ],
+    "title": "Le Nouvel Orph\u00e9e",
+    "type": [
+      "Books"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/le-nouvel-orphee-51153"
+  },
+  {
+    "id": "1372591",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1933",
+    "datingYearTo": "1933",
+    "description": "<p>Man with Nude</p>\n",
+    "dimensions": "64.1 x 49.5 cm (25 1/4 x 19 1/2 inches) irregularly cut edges",
+    "edition": "",
+    "inscription": "Inscribed:Meinem l(ieben) Herbert zum Andenken an George Grosz 1933",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "charcoal on paper"
+    ],
+    "mediumTechnique": "charcoal",
+    "objectNumber": "57.064",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "paper"
+    ],
+    "technique": [
+      "charcoal on paper"
+    ],
+    "title": "Man with Nude",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/man-nude-57064"
+  },
+  {
+    "id": "1458836",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>print</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875.2",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1210756"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "print",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/print-841988752"
+  },
+  {
+    "id": "1475131",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>print</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875.1",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1210756"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "print",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/print-841988751"
+  },
+  {
+    "id": "1507621",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>print</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "84.198.875.5",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1210756"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "print",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/print-841988755"
+  },
+  {
+    "id": "1571676",
+    "collection": "",
+    "credit": "Gift of Alan Nathan",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1936",
+    "datingYearTo": "1936",
+    "description": "<p>Artist and Model</p>\n",
+    "dimensions": "57.5 x 43.5 cm (22 5/8 x 17 1/8 inches) (sight through mat)",
+    "edition": "",
+    "inscription": "Signed in ink at LR within the image: 36/Grosz. Inscription, illegible while framed, in graphite, at LL.",
+    "makers": [
+      {
+        "name": "George Grosz",
+        "risdAffiliation": null,
+        "years": "1893-1959",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "watercolor",
+      "pen and ink",
+      "ink splatter",
+      "touches of opaque watercolor and graphite underdrawing on wove paper"
+    ],
+    "mediumTechnique": "null",
+    "objectNumber": "2017.95.10",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "George Grosz",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "watercolor",
+      "pen and ink",
+      "ink splatter",
+      "touches of opaque watercolor and graphite underdrawing on wove paper"
+    ],
+    "title": "Artist and Model",
+    "type": [
+      "Work on Paper"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/artist-and-model-20179510"
+  }
+]

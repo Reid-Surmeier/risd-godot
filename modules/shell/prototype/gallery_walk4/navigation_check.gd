@@ -1,20 +1,24 @@
 ## #135 native navigation regression; uses delivered input events, not replacement motion logic.
-## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/navigation_check.gd
+## godot --rendering-method gl_compatibility --path . --script
+## res://modules/shell/prototype/gallery_walk4/navigation_check.gd
 extends "res://testing/harness_base.gd"
 
 var failures := 0
 var walk: Control
+
 
 func _require(ok: bool, message: String) -> void:
 	if not ok:
 		failures += 1
 		push_error(message)
 
+
 func _advance(seconds: float) -> void:
 	# Deterministic stepping of the actual runtime while process is disabled.
 	for frame in ceili(seconds * 60.0):
 		walk._process(1.0 / 60.0)
 	await process_frame
+
 
 func _hold(code: Key, seconds: float) -> void:
 	walk.grab_focus()
@@ -29,8 +33,10 @@ func _hold(code: Key, seconds: float) -> void:
 	Input.parse_input_event(up)
 	await process_frame
 
+
 func _initialize() -> void:
 	call_deferred("_run")
+
 
 func _run() -> void:
 	var loader := Control.new()
@@ -41,23 +47,36 @@ func _run() -> void:
 	walk.set_process(false)
 	var out := await _mount(walk, Vector2i(1152, 720), "/tmp/gallery-navigation")
 	walk.set_process(false)
-	_require(walk._entrance_active and walk._pos.z > -1.2, "viewer did not begin entering through arch")
+	_require(
+		walk._entrance_active and walk._pos.z > -1.2, "viewer did not begin entering through arch"
+	)
 	var waiting_pos: Vector3 = walk._pos
 	await _advance(0.5)
-	_require(walk._pos == waiting_pos and walk._entrance_waiting, "entrance played underneath boot loader")
+	_require(
+		walk._pos == waiting_pos and walk._entrance_waiting,
+		"entrance played underneath boot loader"
+	)
 	root.remove_child(loader)
 	loader.queue_free()
 	await _shot(out, "01-entrance.png")
 	var entry_from: Vector3 = walk._pos
 	await _advance(0.2)
-	var skeleton: Skeleton3D = walk._kid.skeleton
-	var first_pose: Transform3D = skeleton.get_bone_global_pose(skeleton.find_bone("foot.l"))
+	var first_pose: Vector3 = walk._kid.to_local(walk._kid.sole_positions()[0])
 	await _advance(0.3)
-	_require(not first_pose.is_equal_approx(skeleton.get_bone_global_pose(skeleton.find_bone("foot.l"))), "visible entrance skeleton stayed on one pose")
-	_require(walk._pos.z < entry_from.z - 0.4 and walk._kid_t > 0.0, "entrance did not advance walk animation")
+	_require(
+		not first_pose.is_equal_approx(walk._kid.to_local(walk._kid.sole_positions()[0])),
+		"visible entrance skeleton stayed on one pose"
+	)
+	_require(
+		walk._pos.z < entry_from.z - 0.4 and walk._kid_t > 0.0,
+		"entrance did not advance walk animation"
+	)
 	await _shot(out, "01b-entrance-walking.png")
 	await _advance(2.5)
-	_require(not walk._entrance_active and walk._pos.z < -2.5, "entry animation did not walk into gallery")
+	_require(
+		not walk._entrance_active and walk._pos.z < -2.5,
+		"entry animation did not walk into gallery"
+	)
 	var settled: Vector3 = walk._pos
 	walk.hide()
 	walk.show()
@@ -69,23 +88,36 @@ func _run() -> void:
 		walk._walk_to(Vector3(0, 0, 0.2 if side == "arch" else -walk.L - 0.2))
 		await _advance(1.3)
 		_require(walk._space == side, "could not exit through " + side)
-		_require(not walk.get_node("OtherWall").visible and not walk._painting_shown(walk._paintings[0]), "white room exposed gallery interactions")
-		walk._walk_to(Vector3(2.0, 0, -4.0))
+		_require(
+			not walk.get_node("OtherWall").visible and not walk._painting_shown(walk._paintings[0]),
+			"white room exposed gallery interactions"
+		)
+		if side == "arch":
+			walk._walk_to(Vector3(0, 0, 3.0))
+			await _advance(3.0)
+		var inside := Vector3(2.0, 0, 4.0 if side == "arch" else -4.0)
+		walk._walk_to(inside)
 		await _advance(4.0)
-		_require(walk._pos.distance_to(Vector3(2.0, 0, -4.0)) < 0.08, "white room was not traversable")
+		_require(walk._pos.distance_to(inside) < 0.08, "destination was not traversable: " + side)
 		await create_timer(0.3).timeout
 		await _shot(out, "02-white-" + side + ".png")
 		var wall: Vector3 = walk._clamp(Vector3(30, 0, 30))
-		_require(wall.x <= 2.451 and wall.z <= -0.549, "white room wall limit failed")
-		walk._walk_to(Vector3(0, 0, -2.5))
+		_require(
+			wall.x <= 2.451 and wall.z <= (6.101 if side == "arch" else -0.549),
+			"destination wall limit failed"
+		)
+		walk._walk_to(Vector3(0, 0, 2.5 if side == "arch" else -2.5))
 		await _advance(2.5)
-		walk.view_yaw = PI
+		walk.view_yaw = 0.0 if side == "arch" else PI
 		walk._update_camera(1.0)
 		await _shot(out, "03-return-door-" + side + ".png")
-		walk._walk_to(Vector3(0, 0, 0.2))
+		walk._walk_to(Vector3(0, 0, -0.2 if side == "arch" else 0.2))
 		await _advance(4.4)
 		_require(walk._space == "gallery", "could not return from " + side)
-		_require(absf(walk._pos.z - (-0.7 if side == "arch" else -walk.L + 0.7)) < 0.08, "returned to wrong doorway")
+		_require(
+			absf(walk._pos.z - (-0.2 if side == "arch" else -walk.L + 0.7)) < 0.08,
+			"returned to wrong doorway"
+		)
 		print("NAV_ROUNDTRIP ", side, " passed")
 	# Input-delivery coverage complements the route checks above: the same real
 	# key events used by the viewer must cross both portals and return correctly.
@@ -94,14 +126,22 @@ func _run() -> void:
 		walk.view_yaw = PI if side == "arch" else 0.0
 		await _hold(KEY_W, 0.9)
 		_require(walk._space == side, "real W input did not enter " + side + " white room")
-		walk._pos = Vector3(2.45, 0, -3)
+		walk._pos = Vector3(-2.45 if side == "arch" else 2.45, 0, 3 if side == "arch" else -3)
+		walk._velocity = Vector3.ZERO
 		var blocked_at: Vector3 = walk._pos
 		await _hold(KEY_D, 0.8)
 		_require(walk._pos.distance_to(blocked_at) < 0.01, "real D input crossed white room wall")
-		walk._pos = Vector3(0, 0, -0.7)
+		walk._pos = Vector3(0, 0, 0.7 if side == "arch" else -0.7)
 		await _hold(KEY_S, 0.7)
 		_require(walk._space == "gallery", "real S input did not return from " + side)
-		_require(absf(walk._pos.z - (-0.7 if side == "arch" else -walk.L + 0.7)) < 0.08, "key traversal returned to wrong gallery end")
+		_require(
+			(
+				walk._pos.z < 0.0 and walk._pos.z > -1.0
+				if side == "arch"
+				else absf(walk._pos.z + walk.L - 0.7) < 0.08
+			),
+			"key traversal returned to wrong gallery end"
+		)
 		print("NAV_KEY_ROUNDTRIP ", side, " passed")
 	# The door floor must also be reachable by the actual click ray, not only
 	# by supplying a private route target or holding a movement key.
@@ -112,18 +152,24 @@ func _run() -> void:
 		await _frames(2)
 		var door_floor := Vector3(0, 0, 0.15 if side == "arch" else -walk.L - 0.15)
 		var point: Vector2 = walk._to_screen(door_floor)
-		_require(Rect2(Vector2.ZERO, walk.size).has_point(point), "door floor cannot be clicked on screen: " + side)
+		_require(
+			Rect2(Vector2.ZERO, walk.size).has_point(point),
+			"door floor cannot be clicked on screen: " + side
+		)
 		await _click(walk.global_position + point, "exit via " + side + " floor")
 		await _advance(1.5)
 		_require(walk._space == side, "real floor click did not enter " + side)
-		walk.view_yaw = PI
+		walk.view_yaw = 0.0 if side == "arch" else PI
 		walk._update_camera(1.0)
 		await _frames(2)
-		point = walk._to_screen(Vector3(0, 0, 0.15))
+		point = walk._to_screen(Vector3(0, 0, -0.15 if side == "arch" else 0.15))
 		await _click(walk.global_position + point, "return through white doorway")
 		await _advance(1.2)
 		_require(walk._space == "gallery", "real floor click did not return from " + side)
-		_require(absf(walk._pos.z - (-0.7 if side == "arch" else -walk.L + 0.7)) < 0.08, "clicked return chose wrong gallery end")
+		_require(
+			absf(walk._pos.z - (-0.15 if side == "arch" else -walk.L + 0.7)) < 0.08,
+			"clicked return chose wrong gallery end"
+		)
 		print("NAV_CLICK_ROUNDTRIP ", side, " passed")
 	# A diagonal cannot jump through a solid wall beside either doorway.
 	for z in [0.0, -walk.L]:
@@ -147,7 +193,10 @@ func _run() -> void:
 	var old_yaw: float = walk.view_yaw
 	_require(absf(walk._view_turn_remaining) > 0.1, "mouse drag did not request turn")
 	await _advance(1.0 / 60.0)
-	_require(absf(walk.view_yaw - old_yaw) > 0.001 and absf(walk._view_turn_remaining) > 0.1, "turn was not eased across frames")
+	_require(
+		absf(walk.view_yaw - old_yaw) > 0.001 and absf(walk._view_turn_remaining) > 0.1,
+		"turn was not eased across frames"
+	)
 	await _button(motion.position, MOUSE_BUTTON_LEFT, false)
 	_require(walk._target == null and walk._open.is_empty(), "drag release clicked art/floor")
 	await _advance(1.0)

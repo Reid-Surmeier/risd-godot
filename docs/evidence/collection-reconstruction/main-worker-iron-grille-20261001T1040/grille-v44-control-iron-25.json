@@ -1,0 +1,1255 @@
+[
+  {
+    "id": "1584876",
+    "collection": "",
+    "credit": "Gift of Mrs. Leonard Colt",
+    "culture": "Japanese, Edo",
+    "dating": "",
+    "datingYearFrom": "1854",
+    "datingYearTo": "1854",
+    "description": "<p>Suit of Armor</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Lacquered iron",
+      "silk",
+      "leather",
+      "wool fabric\r\nand cords"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "43.033a-k",
+    "onView": false,
+    "place": "Origin: Japan",
+    "primaryMaker": "Unknown Maker, Japanese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Lacquered iron",
+      "Silk",
+      "leather",
+      "wool fabric\r\nand cords"
+    ],
+    "title": "Suit of Armor",
+    "type": [
+      "Arms and Armor"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/suit-armor-43033a-k"
+  },
+  {
+    "id": "1458976",
+    "collection": "",
+    "credit": "Anonymous gift",
+    "culture": "German",
+    "dating": "",
+    "datingYearFrom": "1585",
+    "datingYearTo": "1595",
+    "description": "<p>Writing Desk (Schreibtisch)</p>\n",
+    "dimensions": "45.1 x 60.6 x 33.3 cm (17 3/4 x 23 7/8 x 13 1/8 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "walnut",
+      "Burled walnut",
+      "ebonized walnut",
+      "satinwood",
+      "Pear wood",
+      "and pine with iron"
+    ],
+    "mediumTechnique": "unidentified softwood",
+    "objectNumber": "75.023",
+    "onView": true,
+    "place": "Place Made: Germany, probably Augsburg",
+    "primaryMaker": "Unknown Maker, German",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Walnut",
+      "Burled walnut",
+      "ebonized walnut",
+      "satinwood",
+      "Pear wood",
+      "and pine with iron"
+    ],
+    "title": "Writing Desk (Schreibtisch)",
+    "type": [
+      "Boxes"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/writing-desk-schreibtisch-75023"
+  },
+  {
+    "id": "1553571",
+    "collection": "",
+    "credit": "The Gorham Collection. Gift of Textron Inc.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1883",
+    "datingYearTo": "1883",
+    "description": "<p>Toddy Kettle and Stand<br>Sake Pot with Lid and Stand</p>\n",
+    "dimensions": "16.8 x 21.5 x 12.5 cm (6 5/8 x 8 7/16 x 4 15/16 inches) (overall)",
+    "edition": "",
+    "inscription": "Marks: Marked: [anchor] / GORHAM CO / W 22 / P / STERLING / IRON",
+    "makers": [
+      {
+        "name": "Gorham Manufacturing Company",
+        "risdAffiliation": null,
+        "years": "1831-present",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Iron with copper",
+      "brass",
+      "Silver and ebony"
+    ],
+    "mediumTechnique": "copper, ebony, brass (alloy), iron, silver",
+    "objectNumber": "1991.126.203a-c",
+    "onView": false,
+    "place": "Place Made: Providence; Place Made: Rhode Island",
+    "primaryMaker": "Gorham Manufacturing Company",
+    "publicDomain": null,
+    "recentAcquisition": null,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1378726",
+      "https://risdmuseum.org/api/v1/collection?id=1477911",
+      "https://risdmuseum.org/api/v1/collection?id=1478006"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Iron with copper",
+      "brass",
+      "Silver and ebony"
+    ],
+    "title": "Toddy Kettle and Stand",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/toddy-kettle-and-stand-1991126203a-c"
+  },
+  {
+    "id": "1597736",
+    "collection": "",
+    "credit": "Gift of Mrs. Gustav Radeke",
+    "culture": "Chinese",
+    "dating": "Ming",
+    "datingYearFrom": "1368",
+    "datingYearTo": "1644",
+    "description": "<p>Incense Burner</p>\n",
+    "dimensions": "15.2 cm (6 inches) (height)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Stoneware with iron underglaze and turquoise glaze"
+    ],
+    "mediumTechnique": "earthenware",
+    "objectNumber": "13.009",
+    "onView": false,
+    "place": "Origin: China",
+    "primaryMaker": "Unknown Maker, Chinese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Stoneware with iron underglaze and turquoise glaze"
+    ],
+    "title": "Incense Burner",
+    "type": [
+      "Ceramics"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/incense-burner-13009"
+  },
+  {
+    "id": "1509781",
+    "collection": "",
+    "credit": "Museum Appropriation Fund",
+    "culture": "Italian",
+    "dating": "",
+    "datingYearFrom": "1470",
+    "datingYearTo": "1500",
+    "description": "<p>Chest</p>\n",
+    "dimensions": "50.8 x 79.4 x 33.7 cm (20 x 31 1/4 x 13 1/4 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Juniper and cedar with iron"
+    ],
+    "mediumTechnique": "juniper, cedar",
+    "objectNumber": "27.217",
+    "onView": false,
+    "place": "Place Made: Northern Italy",
+    "primaryMaker": "Unknown Maker, Italian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Juniper and cedar with iron"
+    ],
+    "title": "Chest",
+    "type": [
+      "Furniture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/chest-27217"
+  },
+  {
+    "id": "1641431",
+    "collection": "",
+    "credit": "Bequest of Martha B. Lisle",
+    "culture": "Japanese",
+    "dating": "",
+    "datingYearFrom": "1860",
+    "datingYearTo": "1899",
+    "description": "<p>Censer</p>\n",
+    "dimensions": "30.5 x 18 x 18 cm (12 x 7 1/16 x 7 1/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Hirado Mikawachi ware porcelain with iron and glaze"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "67.428ab",
+    "onView": false,
+    "place": "Origin: Japan",
+    "primaryMaker": "Unknown Maker, Japanese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1197821",
+      "https://risdmuseum.org/api/v1/collection?id=1597741"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Hirado Mikawachi ware porcelain with iron and glaze"
+    ],
+    "title": "Censer",
+    "type": [
+      "Ceramics"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/censer-67428ab-0"
+  },
+  {
+    "id": "1641436",
+    "collection": "",
+    "credit": "Bequest of Martha B. Lisle",
+    "culture": "Japanese",
+    "dating": "",
+    "datingYearFrom": "1860",
+    "datingYearTo": "1899",
+    "description": "<p>Censer</p>\n",
+    "dimensions": "30.5 x 18 x 18 cm (12 x 7 1/16 x 7 1/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Hirado Mikawachi ware porcelain with iron and glaze"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "67.428ab",
+    "onView": false,
+    "place": "Origin: Japan",
+    "primaryMaker": "Unknown Maker, Japanese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Hirado Mikawachi ware porcelain with iron and glaze"
+    ],
+    "title": "Censer",
+    "type": [
+      "Ceramics"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/censer-67428ab"
+  },
+  {
+    "id": "1641441",
+    "collection": "",
+    "credit": "Bequest of Martha B. Lisle",
+    "culture": "Japanese",
+    "dating": "",
+    "datingYearFrom": "1860",
+    "datingYearTo": "1899",
+    "description": "<p>Censer</p>\n",
+    "dimensions": "30.5 x 18 x 18 cm (12 x 7 1/16 x 7 1/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Hirado Mikawachi ware porcelain with iron and glaze"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "67.428ab",
+    "onView": false,
+    "place": "Origin: Japan",
+    "primaryMaker": "Unknown Maker, Japanese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Hirado Mikawachi ware porcelain with iron and glaze"
+    ],
+    "title": "Censer",
+    "type": [
+      "Ceramics"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/censer-67428ab"
+  },
+  {
+    "id": "1442206",
+    "collection": "",
+    "credit": "Gift of Mrs. Edward Holbrook",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1883",
+    "datingYearTo": "1883",
+    "description": "<p>Tobacco Jar</p>\n",
+    "dimensions": "Overall: 15.8 x 9.8 cm (6 1/4 x 3 7/8 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Gorham Manufacturing Company",
+        "risdAffiliation": null,
+        "years": "1831-present",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Iron and silver"
+    ],
+    "mediumTechnique": "iron, silver",
+    "objectNumber": "21.233ab",
+    "onView": false,
+    "place": "Place Made: Providence; Place Made: Rhode Island",
+    "primaryMaker": "Gorham Manufacturing Company",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Iron and silver"
+    ],
+    "title": "Tobacco Jar",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/tobacco-jar-21233ab"
+  },
+  {
+    "id": "1477211",
+    "collection": "",
+    "credit": "Gift of Mrs. Guy Fairfax Cary",
+    "culture": "English",
+    "dating": "",
+    "datingYearFrom": "1765",
+    "datingYearTo": "1815",
+    "description": "<p>Cellaret</p>\n",
+    "dimensions": "55.9 x 68.6 x 52.1 cm (22 x 27 x 20 1/2 inches) feet",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Mahogany and oak with brass mounts and tinned iron internal canisters"
+    ],
+    "mediumTechnique": "mahogany, oak, iron, brass (alloy)",
+    "objectNumber": "56.001",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker, English",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Mahogany and oak with brass mounts and tinned iron internal canisters"
+    ],
+    "title": "Cellaret",
+    "type": [
+      "Furniture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/cellaret-56001"
+  },
+  {
+    "id": "1597041",
+    "collection": "",
+    "credit": "Mary B. Jackson Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2022",
+    "datingYearTo": "2022",
+    "description": "<p>Tide Jar</p>\n",
+    "dimensions": "Height and diameter: 27.9 x 22.9 cm (11 x 9 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Adam Silverman",
+        "risdAffiliation": "(RISD BArch 1988, Architecture)",
+        "years": "b. 1963 in New York, New York",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Rhode Island beach dune clay",
+      "seaweed",
+      "driftwood ash",
+      "salt from the ocean",
+      "corn husk ash",
+      "seashells",
+      "beach rocks",
+      "iron oxide from rusty metals",
+      "and tree ash"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "2023.10",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Adam Silverman",
+    "publicDomain": false,
+    "recentAcquisition": true,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Rhode Island beach dune clay",
+      "seaweed",
+      "driftwood ash",
+      "salt from the ocean",
+      "corn husk ash",
+      "seashells",
+      "beach rocks",
+      "iron oxide from rusty metals",
+      "and tree ash"
+    ],
+    "title": "Tide Jar",
+    "type": [
+      "Ceramics"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/tide-jar-202310"
+  },
+  {
+    "id": "1598016",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "American",
+    "dating": "",
+    "datingYearFrom": "1815",
+    "datingYearTo": "1865",
+    "description": "<p>Toleware Coffeepot</p>\n",
+    "dimensions": "27.3 x 16 cm (10 3/4 x 6 5/16 inches) (height x depth) base",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Tin with paint"
+    ],
+    "mediumTechnique": "tin-plated iron, black asphaltum, polychromatic",
+    "objectNumber": "44.014",
+    "onView": false,
+    "place": "Place Made: Pennsylvania",
+    "primaryMaker": "Unknown Maker, American",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Tin with paint"
+    ],
+    "title": "Toleware Coffeepot",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/toleware-coffeepot-44014"
+  },
+  {
+    "id": "1195466",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "Northern Italian",
+    "dating": "",
+    "datingYearFrom": "1525",
+    "datingYearTo": "1575",
+    "description": "<p>Casket</p>\n",
+    "dimensions": "6 x 13 cm (2 3/8 x 5 1/8 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "iron",
+      "gilding"
+    ],
+    "mediumTechnique": "gilding, iron",
+    "objectNumber": "49.315",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker, Northern Italian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "iron",
+      "gilding"
+    ],
+    "title": "Casket",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/casket-49315"
+  },
+  {
+    "id": "1231991",
+    "collection": "",
+    "credit": "Gift of Doris Duke's Southeast Asian Art Collection",
+    "culture": "Burmese",
+    "dating": "",
+    "datingYearFrom": "1800",
+    "datingYearTo": "1899",
+    "description": "<p>Adorant</p>\n",
+    "dimensions": "149.9 x 22.9 x 12.7 cm (59 x 9 x 5 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Carved wood"
+    ],
+    "mediumTechnique": "iron, wood",
+    "objectNumber": "2004.12.28",
+    "onView": false,
+    "place": "Place Made: Thailand; Place Made: northern",
+    "primaryMaker": "Unknown Maker, Burmese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Carved wood"
+    ],
+    "title": "Adorant",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/adorant-20041228"
+  },
+  {
+    "id": "1589596",
+    "collection": "",
+    "credit": "Bequest of Isaac C. Bates",
+    "culture": "Italian",
+    "dating": "",
+    "datingYearFrom": "1600",
+    "datingYearTo": "1699",
+    "description": "<p>Ring</p>\n",
+    "dimensions": "2.5 x 2.2 x 1.5 cm (1 x 7/8 x 9/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "iron"
+    ],
+    "mediumTechnique": "iron",
+    "objectNumber": "13.575",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker, Italian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "iron"
+    ],
+    "title": "Ring",
+    "type": [
+      "Jewelry"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/ring-13575"
+  },
+  {
+    "id": "1262271",
+    "collection": "",
+    "credit": "Gift of Miss Mary Anne Greene",
+    "culture": "American",
+    "dating": "",
+    "datingYearFrom": "1760",
+    "datingYearTo": "1839",
+    "description": "<p>Celleret</p>\n",
+    "dimensions": "34.5 x 29.2 cm (13 9/16 x 11 1/2 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Wood and iron"
+    ],
+    "mediumTechnique": "wood, iron",
+    "objectNumber": "25.070",
+    "onView": false,
+    "place": "Place Made: United States of America",
+    "primaryMaker": "Unknown Maker, American",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1188691",
+      "https://risdmuseum.org/api/v1/collection?id=1304441",
+      "https://risdmuseum.org/api/v1/collection?id=1320591",
+      "https://risdmuseum.org/api/v1/collection?id=1453236",
+      "https://risdmuseum.org/api/v1/collection?id=1442481",
+      "https://risdmuseum.org/api/v1/collection?id=1598946",
+      "https://risdmuseum.org/api/v1/collection?id=1196246",
+      "https://risdmuseum.org/api/v1/collection?id=1278911",
+      "https://risdmuseum.org/api/v1/collection?id=1360761",
+      "https://risdmuseum.org/api/v1/collection?id=1272106",
+      "https://risdmuseum.org/api/v1/collection?id=1485866",
+      "https://risdmuseum.org/api/v1/collection?id=1354226",
+      "https://risdmuseum.org/api/v1/collection?id=1393441",
+      "https://risdmuseum.org/api/v1/collection?id=1425866",
+      "https://risdmuseum.org/api/v1/collection?id=1459291"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Wood and iron"
+    ],
+    "title": "Celleret",
+    "type": [
+      "Furniture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/celleret-25070"
+  },
+  {
+    "id": "1321001",
+    "collection": "",
+    "credit": "Gift of the Estate of W. Phelps Warren",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1805",
+    "datingYearTo": "1855",
+    "description": "<p>Lamp</p>\n",
+    "dimensions": "43.2 x 30.5 cm (17 x 12 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "brass (alloy)",
+      "glass",
+      "gilding",
+      "cast iron"
+    ],
+    "mediumTechnique": "cast iron, brass (alloy), glass, gilding",
+    "objectNumber": "85.075.15.1",
+    "onView": true,
+    "place": "Place Made: England",
+    "primaryMaker": "Unknown Maker",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1239186"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "brass (alloy)",
+      "glass",
+      "gilding",
+      "cast iron"
+    ],
+    "title": "Lamp",
+    "type": [
+      "Lighting Devices"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/lamp-85075151"
+  },
+  {
+    "id": "1453171",
+    "collection": "",
+    "credit": "Gift of Mrs. Joseph K. Ott in memory of Joseph K. Ott",
+    "culture": "Irish",
+    "dating": "",
+    "datingYearFrom": "1745",
+    "datingYearTo": "1775",
+    "description": "<p>Pole Screen</p>\n",
+    "dimensions": "160.7 x 59.7 cm (63 1/4 x 23 1/2 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "mahogany",
+      "brass",
+      "iron",
+      "embroidered wool"
+    ],
+    "mediumTechnique": "wool, brass (alloy), mahogany, iron",
+    "objectNumber": "2001.89",
+    "onView": false,
+    "place": "Place Made: probably; Place Made: Ireland",
+    "primaryMaker": "Unknown Maker, Irish",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Mahogany",
+      "brass",
+      "iron",
+      "embroidered wool"
+    ],
+    "title": "Pole Screen",
+    "type": [
+      "Furniture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/pole-screen-200189"
+  },
+  {
+    "id": "1469986",
+    "collection": "",
+    "credit": "Gift of the Estate of W. Phelps Warren",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1805",
+    "datingYearTo": "1855",
+    "description": "<p>Lamp</p>\n",
+    "dimensions": "27.9 x 44.5 cm (11 x 17 1/2 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "brass (alloy)",
+      "glass",
+      "gilding",
+      "cast iron"
+    ],
+    "mediumTechnique": "glass, gilding, brass (alloy), cast iron",
+    "objectNumber": "85.075.15.3",
+    "onView": true,
+    "place": "Place Made: England",
+    "primaryMaker": "Unknown Maker",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1239186"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "brass (alloy)",
+      "glass",
+      "gilding",
+      "cast iron"
+    ],
+    "title": "Lamp",
+    "type": [
+      "Lighting Devices"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/lamp-85075153"
+  },
+  {
+    "id": "1538131",
+    "collection": "",
+    "credit": "Gift of Christopher Monkhouse",
+    "culture": "American",
+    "dating": "",
+    "datingYearFrom": "1830",
+    "datingYearTo": "1869",
+    "description": "<p>Button with portrait of a young man</p>\n",
+    "dimensions": "Image: 1 cm (3/8 inches) (diameter)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Tintype with hand tinting"
+    ],
+    "mediumTechnique": "iron",
+    "objectNumber": "83.190.2",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker, American",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Tintype with hand tinting"
+    ],
+    "title": "Button with portrait of a young man",
+    "type": [
+      "Photographs"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/button-portrait-young-man-831902"
+  },
+  {
+    "id": "1548171",
+    "collection": "",
+    "credit": "Gift of Marshall H. Gould",
+    "culture": "Chinese",
+    "dating": "",
+    "datingYearFrom": "1630",
+    "datingYearTo": "1739",
+    "description": "<p>Bust</p>\n",
+    "dimensions": "Height: 35.6 cm (14 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "iron",
+      "gilding"
+    ],
+    "mediumTechnique": "gilding, iron",
+    "objectNumber": "52.059",
+    "onView": false,
+    "place": "Origin: China",
+    "primaryMaker": "Unknown Maker, Chinese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "iron",
+      "gilding"
+    ],
+    "title": "Bust",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/bust-52059"
+  },
+  {
+    "id": "1555391",
+    "collection": "",
+    "credit": "Gift of Frank G. Lesure",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1875",
+    "datingYearTo": "1885",
+    "description": "<p>Group Portrait of Athletes</p>\n",
+    "dimensions": "8.9 x 5.6 cm (3 1/2 x 2 3/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "tintype"
+    ],
+    "mediumTechnique": "iron",
+    "objectNumber": "2014.75",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "tintype"
+    ],
+    "title": "Group Portrait of Athletes",
+    "type": [
+      "Photographs"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/group-portrait-athletes-201475"
+  },
+  {
+    "id": "1589291",
+    "collection": "",
+    "credit": "Gift of Mr. and Mrs. James A. Houston",
+    "culture": "Inuit",
+    "dating": "",
+    "datingYearFrom": "1875",
+    "datingYearTo": "1925",
+    "description": "<p>Woman's Knife (Ulu)</p>\n",
+    "dimensions": "15.6 cm (6 1/8 inches) (length) blade",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "horn",
+      "copper",
+      "and iron"
+    ],
+    "mediumTechnique": "horn, iron, copper",
+    "objectNumber": "77.161",
+    "onView": true,
+    "place": "",
+    "primaryMaker": "Unknown Maker, Inuit",
+    "publicDomain": null,
+    "recentAcquisition": null,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "horn",
+      "copper",
+      "and iron"
+    ],
+    "title": "Woman&#039;s Knife (Ulu)",
+    "type": [
+      "Ethnology"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/womans-knife-ulu-77161"
+  },
+  {
+    "id": "1595416",
+    "collection": "",
+    "credit": "Gift of Mrs. Gustav Radeke",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1815",
+    "datingYearTo": "1825",
+    "description": "<p>Leaf from a Sketchbook (Studies for lithographs of ancient coins)</p>\n",
+    "dimensions": "30.8 x 19.5 cm (12 1/8 x 7 11/16 inches)",
+    "edition": "",
+    "inscription": "Marks: Stamped with the sale mark of the Delacroix sale in LR: \"E.D.\" (Lugt, 838a)",
+    "makers": [
+      {
+        "name": "Eug\u00e8ne Delacroix",
+        "risdAffiliation": null,
+        "years": "1798-1863",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Pen and iron gall ink and graphite on paper"
+    ],
+    "mediumTechnique": "null",
+    "objectNumber": "20.501",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Eug\u00e8ne Delacroix",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Pen and iron gall ink and graphite on paper"
+    ],
+    "title": "Leaf from a Sketchbook (Studies for lithographs of ancient coins)",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/leaf-sketchbook-studies-lithographs-ancient-coins-20501"
+  },
+  {
+    "id": "1639711",
+    "collection": "",
+    "credit": "Helen M. Danforth Acquisition Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2023",
+    "datingYearTo": "2023",
+    "description": "<p>Brooch</p>\n",
+    "dimensions": "7 x 5.7 x 1.9 cm (2 3/4 x 2 1/4 x 3/4 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Esther Knobel",
+        "risdAffiliation": null,
+        "years": "Israel",
+        "nationality": [
+          "Israeli"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Copper mesh stitched with iron thread",
+      "enamel",
+      "and silver"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "2024.30",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Esther Knobel",
+    "publicDomain": null,
+    "recentAcquisition": null,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Copper mesh stitched with iron thread",
+      "enamel",
+      "and silver"
+    ],
+    "title": "Brooch",
+    "type": [
+      "Jewelry"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/brooch-202430"
+  }
+]

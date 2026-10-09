@@ -1,0 +1,49 @@
+{
+	"failures": [],
+	"objects": [
+		{
+			"bounds": "[P: (7.659575, 1.12, 31.78017), S: (0.132626, 0.394, 0.228739)]",
+			"inside_case": true,
+			"name": "VirginChild15108",
+			"position": "(7.73, 1.12, 31.895)"
+		},
+		{
+			"bounds": "[P: (7.97, 0.985, 31.685), S: (0.16, 0.33, 0.16)]",
+			"inside_case": true,
+			"name": "Queens",
+			"position": "(8.05, 0.985, 31.765)"
+		},
+		{
+			"bounds": "[P: (8.282027, 0.93, 31.923), S: (0.175945, 0.464, 0.123999)]",
+			"inside_case": true,
+			"name": "Monstrance",
+			"position": "(8.37, 0.93, 31.985)"
+		},
+		{
+			"bounds": "[P: (8.3727, 0.93, 31.4877), S: (0.094601, 0.14, 0.094601)]",
+			"inside_case": true,
+			"name": "Beaker",
+			"position": "(8.42, 0.93, 31.535)"
+		},
+		{
+			"bounds": "[P: (8.3078, 0.93, 31.71), S: (0.0644, 0.089, 0.072857)]",
+			"inside_case": true,
+			"name": "Pyx",
+			"position": "(8.34, 0.93, 31.745)"
+		},
+		{
+			"bounds": "[P: (8.1175, 0.93, 31.421), S: (0.105, 0.105826, 0.167999)]",
+			"inside_case": true,
+			"name": "ChristOnWedge",
+			"position": "(8.17, 0.93, 31.505)"
+		},
+		{
+			"bounds": "[P: (7.7155, 0.93, 31.48296), S: (0.089, 0.208844, 0.118143)]",
+			"inside_case": true,
+			"name": "PaxOnStand",
+			"position": "(7.76, 0.93, 31.525)"
+		}
+	],
+	"paper_mounts": 2,
+	"passed": true
+}

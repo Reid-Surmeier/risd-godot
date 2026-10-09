@@ -11,6 +11,9 @@ const distribution = values => {
 (async()=>{
  const [url,out,cpu='1'] = process.argv.slice(2);
  const browser = await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:'new',args:['--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--no-sandbox']});
+ // If this script is killed (a wrapping `timeout`, a tool limit), Chrome would live on with the whole game in
+ // memory: five orphans held 7 GB on 8 Oct. Puppeteer closes it on SIGTERM; this watcher covers SIGKILL too.
+ require('child_process').spawn('sh',['-c',`while kill -0 ${process.pid} 2>/dev/null; do sleep 2; done; kill -9 ${browser.process().pid}`],{detached:true,stdio:'ignore'}).unref();
  try {
   const p = await browser.newPage(); await p.setViewport({width:1600,height:900}); await p.setCacheEnabled(false);
   const cdp=await p.createCDPSession(); await cdp.send('Emulation.setCPUThrottlingRate',{rate:Number(cpu)});

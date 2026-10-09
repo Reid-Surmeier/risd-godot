@@ -1,0 +1,36 @@
+{
+  "baseline": "125927da",
+  "baseline_exit": 1,
+  "baseline_failures": [
+    "fill-1440x820_page_size",
+    "fill-1440x820_pair_spans_page_both_axes",
+    "fill-1440x820_side_by_side_fly_through_left_and_larger",
+    "fill-1920x1000_page_size",
+    "fill-1920x1000_pair_spans_page_both_axes",
+    "fill-1920x1000_side_by_side_fly_through_left_and_larger",
+    "fullscreen_fills_the_page",
+    "fullscreen_pixels_cover_the_page_under_the_strip",
+    "pair_fills_page_side_by_side",
+    "resize_lays_the_pair_out_again",
+    "tenant_fills_page_area",
+    "viewer_drag_clamps_to_keep_title_bar_reachable",
+    "white_desktop_around_and_between_the_windows"
+  ],
+  "candidate_failures": [
+    "fill-1440x820_page_size",
+    "fill-1440x820_pair_spans_page_both_axes",
+    "fill-1440x820_side_by_side_fly_through_left_and_larger",
+    "fill-1920x1000_page_size",
+    "fill-1920x1000_pair_spans_page_both_axes",
+    "fill-1920x1000_side_by_side_fly_through_left_and_larger",
+    "fullscreen_fills_the_page",
+    "fullscreen_pixels_cover_the_page_under_the_strip",
+    "pair_fills_page_side_by_side",
+    "resize_lays_the_pair_out_again",
+    "tenant_fills_page_area",
+    "viewer_drag_clamps_to_keep_title_bar_reachable",
+    "white_desktop_around_and_between_the_windows"
+  ],
+  "same_failures": true,
+  "candidate_restored_sha256": "61d4550fe2476132580441d432c3fa6e354057987c8ea645925fd6ad273a7642"
+}

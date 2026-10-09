@@ -1,0 +1,242 @@
+{
+  "built": {
+    "albarello": {
+      "flags": {
+        "rear_filmed": false,
+        "sides_observed": false,
+        "source_rear_observed": true
+      },
+      "mesh_triangles": 796,
+      "source_images": [
+        "albarello_rear",
+        "albarello_front"
+      ]
+    },
+    "bookcover": {
+      "flags": {
+        "source_rear_observed": false,
+        "stands_on": "tail edge, spine to the room, as filmed; not the fore-edge"
+      },
+      "mesh_triangles": 408,
+      "source_images": [
+        "bookcover_spine",
+        "bookcover_board"
+      ]
+    },
+    "cleric": {
+      "flags": {
+        "frame_in_official_photograph": false,
+        "frame_texture": "film crop, provisional, not Muse",
+        "source_rear_observed": false
+      },
+      "mesh_triangles": 168,
+      "source_images": [
+        "cleric",
+        "cleric_frame"
+      ]
+    },
+    "diptych": {
+      "flags": {
+        "left_leaf_in_official_photograph": false,
+        "source_rear_observed": true
+      },
+      "mesh_triangles": 600,
+      "source_images": [
+        "diptych_left_native",
+        "diptych_front"
+      ]
+    },
+    "emblem": {
+      "flags": {
+        "comparative_copy_used": false,
+        "museum_photograph_available": false,
+        "open_emblem": 15,
+        "page_pixels": "IMG_6383 46.40s, straightened",
+        "source_rear_observed": false
+      },
+      "mesh_triangles": 68,
+      "source_images": [
+        "emblem_left_page",
+        "emblem_right_page"
+      ]
+    },
+    "woman": {
+      "flags": {
+        "frame_in_official_photograph": true,
+        "frame_texture": "official photograph 0, the panel's own engaged frame",
+        "source_rear_observed": true
+      },
+      "mesh_triangles": 508,
+      "source_images": [
+        "woman_rear",
+        "woman_front"
+      ]
+    }
+  },
+  "catalogue_sizes_m": {
+    "albarello_m": [
+      0.129999995231628,
+      0.24099999666214,
+      0.129999995231628
+    ],
+    "bookcover_as_displayed_m": [
+      0.10982745885849,
+      0.215045258402824,
+      0.088352657854557
+    ],
+    "bookcover_board_left_length_m": 0.0859999761901452,
+    "bookcover_board_right_length_m": 0.0859999771525735,
+    "bookcover_spine_m": [
+      0.0509999990463257,
+      0.140000000596046
+    ],
+    "cleric_depth_m": 0.0570000000298023,
+    "cleric_framed_m": [
+      0.233999997377396,
+      0.321999996900558
+    ],
+    "cleric_panel_m": [
+      0.145999997854233,
+      0.222000002861023
+    ],
+    "diptych_left_leaf_m": [
+      0.132999986410141,
+      0.24099999666214
+    ],
+    "diptych_right_leaf_m": [
+      0.132999986410141,
+      0.24099999666214
+    ],
+    "diptych_thickness_m": 0.0124999992549419,
+    "emblem_as_displayed_m": [
+      0.262296915054321,
+      0.211528182029724,
+      0.224734902381897
+    ],
+    "emblem_left_page_area_m2": 0.0289590196189238,
+    "emblem_right_page_area_m2": 0.0289589982559038,
+    "woman_m": [
+      0.247999995946884,
+      0.361999988555908,
+      0.0399999991059303
+    ]
+  },
+  "depth_accepted": false,
+  "failures": [],
+  "fine_fidelity_accepted": false,
+  "frame_metric_accepted": false,
+  "metric_accepted": false,
+  "muse_frame_accepted": false,
+  "negative_control_open": false,
+  "objects": {
+    "albarello": {
+      "closed_parts": 1,
+      "edge_pairs": 1194,
+      "solid_volume_m3": 0.0019663439489553,
+      "thinnest_part_m": 0.129999995231628,
+      "triangles": 796
+    },
+    "bookcover": {
+      "closed_parts": 16,
+      "edge_pairs": 612,
+      "solid_volume_m3": 0.000183401231411177,
+      "thinnest_part_m": 0.00226274132728577,
+      "triangles": 408
+    },
+    "cleric": {
+      "closed_parts": 14,
+      "edge_pairs": 252,
+      "solid_volume_m3": 0.0026895260331609,
+      "thinnest_part_m": 0.00999999884516001,
+      "triangles": 168
+    },
+    "diptych": {
+      "closed_parts": 24,
+      "edge_pairs": 900,
+      "solid_volume_m3": 0.000680821663962365,
+      "thinnest_part_m": 0.00400000018998981,
+      "triangles": 600
+    },
+    "diptych_mount": {
+      "closed_parts": 1,
+      "edge_pairs": 18,
+      "solid_volume_m3": 0.006449010494786,
+      "thinnest_part_m": 0.124381981790066,
+      "triangles": 12
+    },
+    "emblem": {
+      "closed_parts": 5,
+      "edge_pairs": 102,
+      "solid_volume_m3": 0.000803708285815219,
+      "thinnest_part_m": 0.0121243558824062,
+      "triangles": 68
+    },
+    "emblem_cradle": {
+      "closed_parts": 5,
+      "edge_pairs": 90,
+      "solid_volume_m3": 0.00020912938219908,
+      "thinnest_part_m": 0.00600000005215406,
+      "triangles": 60
+    },
+    "woman": {
+      "closed_parts": 33,
+      "edge_pairs": 762,
+      "solid_volume_m3": 0.0018170726501315,
+      "thinnest_part_m": 0.0160000007599592,
+      "triangles": 508
+    }
+  },
+  "placement_accepted": false,
+  "side_and_rear_accepted": false,
+  "source_files": {
+    "albarello_front": {
+      "file": "textures/drug-jar-albarello-35713-zoom-0.jpg",
+      "sha256": "4830f1451568dfb4ddfcb60ef4c0b11f0375f08e665bc8ba084273641c0e44e1"
+    },
+    "albarello_rear": {
+      "file": "textures/drug-jar-albarello-35713-zoom-1.jpg",
+      "sha256": "5aa2923a59b6aadd9a064930f4811a5bba23943b02d819b142129dacb93f61dd"
+    },
+    "bookcover_board": {
+      "file": "textures/bookcover-board.png",
+      "sha256": "01a3cf3f4b70ba41b87a58620ea5f0fe2c13a0a0a6b111f99ef5f05bb1c9ca00"
+    },
+    "bookcover_spine": {
+      "file": "textures/book-cover-34016-zoom-1.jpg",
+      "sha256": "e856d8c3530569d9f2057372f3176a4068cc070bfb39c78a8894c46b85125479"
+    },
+    "cleric": {
+      "file": "textures/portrait-cleric-45042-zoom-0.jpg",
+      "sha256": "0e7b7e4c9b9e5e57b231282d478435d27c4198b32bd1571971f728202ea0d77f"
+    },
+    "cleric_frame": {
+      "file": "textures/cleric-frame-film.png",
+      "sha256": "ea01b8110a167d4379da5e73c353e0c4a7b9fb6e3e3b2191614a76601abca84d"
+    },
+    "diptych_front": {
+      "file": "textures/diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-0.jpg",
+      "sha256": "02d0818d5601d89583eb79f24d81dc9ca1c78b2910754d7159d5f8a50d629817"
+    },
+    "diptych_left_native": {
+      "file": "textures/diptych-left-native.png",
+      "sha256": "d97cd01e74b7347ca01ce5d0de42ca52440dfbbd4417cd01b4d395b3cf68ac70"
+    },
+    "emblem_left_page": {
+      "file": "textures/emblem-left-page.png",
+      "sha256": "6ac5a0991e5587e187171f19e6e176913f162dd83d29c11daaf383cde97bece9"
+    },
+    "emblem_right_page": {
+      "file": "textures/emblem-right-page.png",
+      "sha256": "f585cf3645765ae8c20ad3c5ed139f8e4bd1ae1ad0da3b7d75e785de653842ab"
+    },
+    "woman_front": {
+      "file": "textures/portrait-woman-34861-zoom-0.jpg",
+      "sha256": "7b4066ab077a2a341f3ec20b1641274b9828fce86694ab3f73890dad345e4e9f"
+    },
+    "woman_rear": {
+      "file": "textures/portrait-woman-34861-zoom-1.jpg",
+      "sha256": "13ac925a3bd0614eedd8081f73c19b8159211346bb903f90405c79b8ed784d19"
+    }
+  },
+  "whole_room_complete": false
+}

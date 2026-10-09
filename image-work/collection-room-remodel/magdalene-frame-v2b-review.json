@@ -1,0 +1,27 @@
+{
+  "run_id": "run-56e0a4ec22f715cd28886116",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "cost_usd": "0.010000",
+  "native_sha256": "292f6d3434227b00d7db908fa33105ffac432a811ae23f073855a7fd6b132ebf",
+  "accepted": false,
+  "visual_verdict": "Corrected high pointed pentagonal opening, single roof band, three crockets on each slope, paired finial and twisted columns; no blue wear or nested chevron. Appropriate representative low polygon frame candidate. Source profile proportions/aspect and physical relief still require deterministic fitting and native/in-game checks. Not yet installed or owner-approved.",
+  "opening_bounds_px": [
+    340,
+    193,
+    760,
+    1416
+  ],
+  "opening_aspect": 0.536723163841808,
+  "guide_opening_aspect": 0.4440376569037657,
+  "next_action": "Fit source-defined pentagonal opening and outer silhouette, build closed native low polygon frame with separate authentic painted panel, then bake and compare close/wide views. No more paid calls justified before geometry inspection.",
+  "cumulative_map_actual_usd": "0.74",
+  "cumulative_map_conservative_usd": "0.75",
+  "catalogue_size_m": [
+    0.225,
+    0.495
+  ],
+  "catalogue_aspect": 0.4545454545454546,
+  "catalogue_size_interpretation": "Provisional painted-panel size, not total framed extent: guide opening aspect849/1912=.444 closely matches catalogue22.5/49.5=.455. The complete carved-frame silhouette is wider. This inference needs source-fit/in-game validation, not an assumed total framed-size assignment."
+}

@@ -1,19 +1,19 @@
 extends Control
+
+signal layout_changed
 ## Original open-book texture and its baked edge shadow, with drawing and page turns.
 ## The transparent top paper margin is the drag handle; there is no surrounding frame.
 
 const SketchbookDrawingSurface := preload("res://modules/sketchbook/drawing_surface.gd")
 const PaperTurn := preload("res://modules/sketchbook/paper_turn.gd")
 
-signal layout_changed
-
 const FOOTER := 44
-const BUTTON_SIZE := Vector2(61, 32) # the 84x44 reference button, reduced
+const BUTTON_SIZE := Vector2(61, 32)  # the 84x44 reference button, reduced
 const MIN_SIZE := Vector2(420, 380)
 # The drawable page interior inside the book image (fractions, from the web prototype).
 const HITBOX_INSET := Rect2(0.03, 0.043, 0.94, 0.911)
 const TURN_SECONDS := 0.52
-var turn_seconds := TURN_SECONDS # QA can slow it (?turn-seconds=) to photograph frames
+var turn_seconds := TURN_SECONDS  # QA can slow it (?turn-seconds=) to photograph frames
 
 var spread := 1
 var title_bar: Control
@@ -35,6 +35,7 @@ var last_turn_ms := 0
 var _resizing := false
 var _resize_anchor := Vector2.ZERO
 var _resize_origin := Vector2.ZERO
+
 
 func _ready() -> void:
 	custom_minimum_size = MIN_SIZE
@@ -98,6 +99,7 @@ void fragment() {
 	show_spread(1)
 	_layout()
 
+
 func _arrow(node_name: String, kind: String) -> TextureButton:
 	var button := TextureButton.new()
 	button.name = node_name
@@ -111,12 +113,14 @@ func _arrow(node_name: String, kind: String) -> TextureButton:
 	add_child(button)
 	return button
 
+
 func show_spread(next_spread: int) -> void:
 	spread = maxi(1, next_spread)
 	surface.show_spread(spread)
 	previous_button.disabled = spread == 1 or turning != ""
 	next_button.disabled = turning != ""
 	layout_changed.emit()
+
 
 ## The web prototype's paper turn: the outgoing half of the page lifts about the spine as a cream
 ## card carrying its ink, rotates through the viewer with perspective, and lands on the other side;
@@ -159,6 +163,7 @@ func turn_page(direction: String) -> void:
 	show_spread(spread + (1 if forward else -1))
 	set_process(true)
 
+
 func _process(delta: float) -> void:
 	if turning == "":
 		set_process(false)
@@ -167,6 +172,7 @@ func _process(delta: float) -> void:
 	turn.queue_redraw()
 	if turn.progress >= 1.0:
 		_finish_turn()
+
 
 func _finish_turn() -> void:
 	turn.visible = false
@@ -178,6 +184,7 @@ func _finish_turn() -> void:
 	next_button.disabled = false
 	set_process(false)
 	layout_changed.emit()
+
 
 func _build_turn() -> void:
 	face_viewport = SubViewport.new()
@@ -219,22 +226,27 @@ func _build_turn() -> void:
 	turn.visible = false
 	add_child(turn)
 
-## The web gutter: multiply gradient, transparent -> (112,84,53) 18% -> (76,55,34) 26% -> transparent.
+
+## The web gutter: multiply gradient, transparent -> (112,84,53) 18% ->
+## (76,55,34) 26% -> transparent.
 func _gutter_texture() -> GradientTexture2D:
 	var gradient := Gradient.new()
 	gradient.offsets = PackedFloat32Array([0.0, 0.42, 0.5, 0.58, 1.0])
-	gradient.colors = PackedColorArray([
-		Color.WHITE,
-		Color.WHITE.lerp(Color(112 / 255.0, 84 / 255.0, 53 / 255.0), 0.18),
-		Color.WHITE.lerp(Color(76 / 255.0, 55 / 255.0, 34 / 255.0), 0.26),
-		Color.WHITE,
-		Color.WHITE,
-	])
+	gradient.colors = PackedColorArray(
+		[
+			Color.WHITE,
+			Color.WHITE.lerp(Color(112 / 255.0, 84 / 255.0, 53 / 255.0), 0.18),
+			Color.WHITE.lerp(Color(76 / 255.0, 55 / 255.0, 34 / 255.0), 0.26),
+			Color.WHITE,
+			Color.WHITE,
+		]
+	)
 	var texture := GradientTexture2D.new()
 	texture.gradient = gradient
 	texture.width = 64
 	texture.height = 4
 	return texture
+
 
 func _layout() -> void:
 	var w := size.x
@@ -248,7 +260,9 @@ func _layout() -> void:
 	var page := page_rect()
 	surface.position = page.position
 	surface.size = page.size
-	gutter.position = Vector2(book.position.x + stage.x / 2.0 - 7.0, book.position.y + stage.y * 0.037)
+	gutter.position = Vector2(
+		book.position.x + stage.x / 2.0 - 7.0, book.position.y + stage.y * 0.037
+	)
 	gutter.size = Vector2(14.0, stage.y * (1.0 - 0.037 - 0.039))
 	turn.position = Vector2.ZERO
 	turn.size = size
@@ -258,9 +272,11 @@ func _layout() -> void:
 	resize_handle.position = Vector2(w - 12, h - 12)
 	layout_changed.emit()
 
+
 ## The drawable page interior in this window's local coordinates.
 func page_rect() -> Rect2:
 	return Rect2(book.position + book.size * HITBOX_INSET.position, book.size * HITBOX_INSET.size)
+
 
 func _on_resize_input(event: InputEvent) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
@@ -269,11 +285,16 @@ func _on_resize_input(event: InputEvent) -> void:
 		_resize_origin = size
 		accept_event()
 	elif event is InputEventMouseMotion and _resizing:
-		var desired: Vector2 = _resize_origin + get_parent().get_local_mouse_position() - _resize_anchor
+		var desired: Vector2 = (
+			_resize_origin + get_parent().get_local_mouse_position() - _resize_anchor
+		)
 		var minimum_scale := maxf(MIN_SIZE.x / _resize_origin.x, MIN_SIZE.y / _resize_origin.y)
-		var scale := maxf(maxf(desired.x / _resize_origin.x, desired.y / _resize_origin.y), minimum_scale)
+		var scale := maxf(
+			maxf(desired.x / _resize_origin.x, desired.y / _resize_origin.y), minimum_scale
+		)
 		size = _resize_origin * scale
 		accept_event()
+
 
 func qa_state() -> Dictionary:
 	var page := page_rect()

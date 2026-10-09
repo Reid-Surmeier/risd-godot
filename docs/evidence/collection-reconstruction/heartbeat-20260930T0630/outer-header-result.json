@@ -1,0 +1,81 @@
+{
+  "labels": [
+    "grand-white-outer-mitre-left"
+  ],
+  "annotations": {
+    "IMG_6380/000202.jpg": [
+      [
+        503,
+        375
+      ]
+    ],
+    "IMG_6380/000204.jpg": [
+      [
+        278,
+        100
+      ]
+    ],
+    "IMG_6380/000203.jpg": [
+      [
+        420,
+        204
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000202.jpg",
+    "IMG_6380/000204.jpg"
+  ],
+  "reserved": "IMG_6380/000203.jpg",
+  "localized_pose_inliers": {},
+  "points_world": [
+    [
+      -0.7367187550045267,
+      1.4481902189920495,
+      2.767360739635657
+    ]
+  ],
+  "points_local_m": [
+    [
+      -0.8917777196773322,
+      2.56592914568419,
+      4.159211761453774
+    ]
+  ],
+  "ray_angles_degrees": [
+    9.414639115794948
+  ],
+  "errors_px": {
+    "IMG_6380/000202.jpg": [
+      1.0972316364875478
+    ],
+    "IMG_6380/000204.jpg": [
+      1.6617460404121973
+    ],
+    "IMG_6380/000203.jpg": [
+      14.895202123980397
+    ]
+  },
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000202.jpg": "04fc1a2c825f3c664f8e9f08640eaded6eb9a54cbbfb9c9d775457e253dedc49",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000204.jpg": "a17f2144abdb54176d490a5094ec41f75a47c99ab4a072a59ffa42f4d8c18ecf",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000203.jpg": "54caed3a634c97945a1087164dc2499ca3b19bc55dc11231e7acc8f04d4fcd5c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/corridor-floor-v2/result.json": "e2c842dbeb77a766062c3028ff1fd141b3897e48eba57e72495a7f8163daf93e"
+  },
+  "provisional_m_per_unit": 2.6266704457139363,
+  "distance_to_frozen_corridor_plane_m": [
+    2.440045499000157
+  ],
+  "pick_sensitivity_p95_displacement_m": [
+    0.08406388092035678
+  ],
+  "diagnostic_pass": false,
+  "navigation_accepted": false,
+  "caveat": "Header corner only; no opposite jamb or full aperture. Query pixels withheld from triangulation, but camera poses are correlated in the same video. Plane distance is a header diagnostic, not a floor measurement. Pick sensitivity omits pose/scale error. Do not tune evaluated pixels or extend collision."
+}

@@ -1,0 +1,156 @@
+{
+  "phase": "after",
+  "run": 2,
+  "url": "http://127.0.0.1:8871/82adbc3e-dirty.html?qa-crt=1",
+  "renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "marks": [
+    {
+      "name": "downloads-done",
+      "t": 3252.2999999523163
+    },
+    {
+      "name": "godot-ready",
+      "t": 4693
+    },
+    {
+      "name": "pack-mounted",
+      "t": 4708.399999976158
+    },
+    {
+      "name": "game-loaded",
+      "t": 5220.100000023842
+    },
+    {
+      "name": "game-instanced",
+      "t": 5406.399999976158
+    },
+    {
+      "name": "warmup-start",
+      "t": 5406.5
+    },
+    {
+      "name": "engine-started",
+      "t": 5975.299999952316
+    },
+    {
+      "name": "launch-settled",
+      "t": 34839.799999952316
+    },
+    {
+      "name": "tabs-deferred",
+      "t": 34866.10000002384
+    },
+    {
+      "name": "game-shown",
+      "t": 36710.799999952316
+    }
+  ],
+  "readback_ms": 2595.292,
+  "profile_top": [
+    {
+      "name": "wasm-function[2238]",
+      "ms": 3485.564
+    },
+    {
+      "name": "_emscripten_glTexImage2D",
+      "ms": 3160.496
+    },
+    {
+      "name": "_godot_webgl2_glGetBufferSubData",
+      "ms": 2595.292
+    },
+    {
+      "name": "_emscripten_glGetProgramiv",
+      "ms": 2457.977
+    },
+    {
+      "name": "_emscripten_glGetShaderiv",
+      "ms": 2421.352
+    },
+    {
+      "name": "(program)",
+      "ms": 1913.535
+    },
+    {
+      "name": "blitOffscreenFramebuffer",
+      "ms": 1616.024
+    },
+    {
+      "name": "wasm-function[68092]",
+      "ms": 1144.665
+    },
+    {
+      "name": "wasm-function[67969]",
+      "ms": 799.267
+    },
+    {
+      "name": "wasm-function[6877]",
+      "ms": 733.272
+    },
+    {
+      "name": "(idle)",
+      "ms": 637.729
+    },
+    {
+      "name": "_emscripten_glBufferData",
+      "ms": 580.945
+    },
+    {
+      "name": "(anonymous)",
+      "ms": 561.716
+    },
+    {
+      "name": "wasm-function[6878]",
+      "ms": 533.748
+    },
+    {
+      "name": "isWebGLAvailable",
+      "ms": 531.094
+    }
+  ],
+  "tabs": [
+    {
+      "index": 0,
+      "key": "map",
+      "ms": 1296.3999999761581,
+      "tenant": "ok"
+    },
+    {
+      "index": 1,
+      "key": "sketchbook",
+      "ms": 2852.100000023842,
+      "tenant": "ok"
+    },
+    {
+      "index": 2,
+      "key": "3d_viewer",
+      "ms": 2004.9000000953674,
+      "tenant": "ok"
+    },
+    {
+      "index": 3,
+      "key": "video_player",
+      "ms": 547.2999999523163,
+      "tenant": "ok"
+    },
+    {
+      "index": 5,
+      "key": "playground",
+      "ms": 850.7999999523163,
+      "tenant": "ok"
+    },
+    {
+      "index": 6,
+      "key": "flowers",
+      "ms": 992.3000000715256,
+      "tenant": "ok"
+    },
+    {
+      "index": 4,
+      "key": "collection",
+      "ms": 402,
+      "tenant": "ok"
+    }
+  ],
+  "errors": []
+}

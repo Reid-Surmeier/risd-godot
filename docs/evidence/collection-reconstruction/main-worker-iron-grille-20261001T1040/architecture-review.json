@@ -1,0 +1,28 @@
+{
+  "sources": [
+    "IMG_6382 12.25s",
+    "IMG_6382 12.375s",
+    "IMG_6382 88.75s"
+  ],
+  "wide_observations": [
+    "Portal on north wall with grille to its right, low white plinth and top rear brace.",
+    "Stone wall fragment farther east beside a separate stair opening.",
+    "Pale flat ceiling, multiple track lights; precise fixture pattern remains unfinished."
+  ],
+  "source_columns_observed": 7,
+  "rows_provisional": 17,
+  "metric_accepted": false,
+  "placement_accepted": false,
+  "handedness_accepted": false,
+  "native_closed_coils": 119,
+  "grille_bool_union_checked": false,
+  "catalogue_identity": "unmatched",
+  "api_query_finding": "items_per_page100 yielded empty lists. Positive controls using25 returned known ID and Monet records; valid broad first-page searches are incomplete and cannot establish absence.",
+  "paid_calls_this_pass": 0,
+  "cost_usd_this_pass": "0.00",
+  "cumulative_actual_usd": "0.75",
+  "cumulative_conservative_usd": "0.76",
+  "visual_finding": "Final baked front/oblique/room wides inspected; open coil geometry and plinth present. Source has irregular scrolls/rivets and heavier iron than uniform native study. Exact row count, dimensions, wall offsets, support, lighting and adjacent objects remain unaccepted.",
+  "packaging_fix": "Previous checkpoint source copies renamed.gd.txt with byte-identical hashes; archive is no longer scanned as live module code. Repository checks rerun successfully.",
+  "next": "Compare reciprocal wide shots for all rooms, source-fit medieval east-wall fragment/stair doorway and track lights, then refine remaining door/object positions and room contents."
+}

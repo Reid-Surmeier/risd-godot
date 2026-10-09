@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-6ab1df413e6f3f2d8b6f",
+  "summary": "Reference 1 is the official RISD Museum photograph of Parrot, accession 2017.74.27.1. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-6ab1df413e6f3f2d8b6f",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/parrot-catalogue.png",
+      "sha256": "f8b4519155c597b022fbce70255fbe0a43345fa6ff364b4823a9bf51a8f89725",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "parrot-recipe.json",
+      "sha256": "6ab1df413e6f3f2d8b6f744b123e28a95c1efd867b92669cb1ddcc5628909dcf"
+    },
+    {
+      "applicationPath": "parrot-plan.json",
+      "sha256": "f4ceb6453e306c5e7845cffc4f096fa1f0d88bbda1673e89951f92dbf705f2d0"
+    },
+    {
+      "applicationPath": "parrot-prompt.txt",
+      "sha256": "62d6421325653b89b16be2c50b22a42441b6c56f1df817e31f94c51f4aa345a8"
+    }
+  ]
+}

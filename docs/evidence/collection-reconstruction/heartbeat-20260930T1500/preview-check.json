@@ -1,0 +1,78 @@
+{
+  "status": 200,
+  "images": [
+    {
+      "src": "source-contact.png",
+      "width": 1500,
+      "height": 1326
+    },
+    {
+      "src": "IMG_6380-000505.jpg-wide.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "000508-triangle.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "entry-wall-mask.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "entry-wall-final-000206-transfer.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "entry-wall-final-000206-near-photometric.png",
+      "width": 1080,
+      "height": 160
+    },
+    {
+      "src": "entry-wall-final-000206-far-photometric.png",
+      "width": 1080,
+      "height": 110
+    },
+    {
+      "src": "000486-pose-coverage.png",
+      "width": 720,
+      "height": 1280
+    },
+    {
+      "src": "browser-forward.png",
+      "width": 1100,
+      "height": 760
+    },
+    {
+      "src": "browser-reverse.png",
+      "width": 1100,
+      "height": 760
+    },
+    {
+      "src": "shell-resized.png",
+      "width": 1440,
+      "height": 900
+    }
+  ],
+  "errors": [],
+  "links": [
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/checkpoint.md",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/provenance.json",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/source-contact.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/IMG_6380-000505.jpg-wide.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/000508-triangle.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/entry-wall-mask.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/entry-wall-final-000206-transfer.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/entry-wall-final-000206-near-photometric.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/entry-wall-final-000206-far-photometric.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/000486-pose-coverage.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/browser-forward.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/browser-reverse.png",
+    "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T1500/shell-resized.png"
+  ],
+  "pass": true
+}

@@ -1,0 +1,35 @@
+{
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "outputs": 1,
+  "actual_cost_usd": "0.010000",
+  "run_id": "run-ed0aaab20f6b84b6db0db31b",
+  "spend_state": "unknown",
+  "retry_state": "never-resubmit",
+  "visual_verdict": "prototype only; no batch or runtime acceptance",
+  "passed": [
+    "complete frame silhouette visible",
+    "authentic painting separately mapped at catalogue aspect",
+    "GPU detail/oblique/walking captures",
+    "cutout perimeter replaces leaking rectangular side strips in isolated trial"
+  ],
+  "unverified": [
+    "exact ornament preservation",
+    "measured physical frame depth/profile",
+    "UV2 room lighting bake",
+    "browser walking integration",
+    "sculpture pass"
+  ],
+  "paths_sha256": {
+    "references/frame-photo.png": "132ff9a2cff4ae75c4989318422615c84b556e9cdbc930a1d76583358d5d15e9",
+    "references/painting-35.786.jpg": "15e93a4af2b87e64280f3008f67846d609a2c74df1a37b84b4b89a0af4b6ab7f",
+    "trial/frame.png": "3e22ccf27b2c7e061b5c48a6fcf537affe64b6a5f448c193d40db6cb222cb7ce",
+    "trial/muse-original.webp": "66c667d5786e50dc2a786f01e0435aee65b188f496d5814bf9687a6eb6ebbb76",
+    "trial/geometry.json": "0ba9b91fb4cd5ad158430b649a65824c4087136c28db99ba1f026583ad764e47"
+  },
+  "owner_feedback": {
+    "date": "2026-09-29",
+    "quote": "yeah these look good continue dont ask for permissions",
+    "scope": "Shown source/Muse/frame renders and reconstruction preview; approval to continue the visual direction. Does not verify missing navigation, sculpture, physical depth or bake checks."
+  }
+}

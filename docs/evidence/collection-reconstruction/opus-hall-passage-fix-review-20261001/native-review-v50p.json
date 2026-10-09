@@ -1,0 +1,2184 @@
+{
+	"cases": {
+		"pieta_wall_case": {
+			"all_max": [
+				-10.5937461853027,
+				1.78600001335144,
+				2.03099966049194
+			],
+			"all_min": [
+				-10.9959993362427,
+				0.969999969005585,
+				1.3689980506897
+			],
+			"own_cutaway_body": true,
+			"owner": "light Renaissance room:west",
+			"owner_face_max": [
+				-11.0389909744263,
+				3.5,
+				6.09999942779541
+			],
+			"owner_face_min": [
+				-11.0390005111694,
+				0.0,
+				-0.000000715256192052038
+			],
+			"owner_is_cutaway_body": true,
+			"shelf_max": [
+				-10.6100006103516,
+				1.07999992370605,
+				2.02499890327454
+			],
+			"shelf_min": [
+				-10.9899997711182,
+				0.969999969005585,
+				1.3749988079071
+			]
+		},
+		"saint_roch_installation": {
+			"all_max": [
+				-10.0074996948242,
+				2.09599995613098,
+				4.25000047683716
+			],
+			"all_min": [
+				-10.8099994659424,
+				0.0,
+				3.45000028610229
+			],
+			"own_cutaway_body": true,
+			"owner": "CollectionRemodel",
+			"owner_is_cutaway_body": false,
+			"shelf_max": [
+				-10.0599994659424,
+				0.600000023841858,
+				4.20000028610229
+			],
+			"shelf_min": [
+				-10.7600002288818,
+				0.0,
+				3.50000047683716
+			]
+		},
+		"triptych_wall_case": {
+			"all_max": [
+				-9.5840015411377,
+				1.92599999904633,
+				0.677501142024994
+			],
+			"all_min": [
+				-10.5160007476807,
+				0.969999969005585,
+				0.184000536799431
+			],
+			"own_cutaway_body": true,
+			"owner": "light Renaissance room:north",
+			"owner_face_max": [
+				-9.05000114440918,
+				3.5,
+				0.0610099993646145
+			],
+			"owner_face_min": [
+				-11.1000003814697,
+				0.0,
+				0.0610000006854534
+			],
+			"owner_is_cutaway_body": true,
+			"shelf_max": [
+				-9.59000110626221,
+				1.07999992370605,
+				0.670000314712524
+			],
+			"shelf_min": [
+				-10.5100011825562,
+				0.969999969005585,
+				0.190000310540199
+			]
+		}
+	},
+	"free_views": [
+		{
+			"eye": [
+				0.100000001490116,
+				1.5,
+				-32.2000007629395
+			],
+			"fov": 62.0,
+			"name": "pose-6343-0.5s-hall-door-from-grey",
+			"target": [
+				0.0,
+				1.45000004768372,
+				-27.0
+			]
+		},
+		{
+			"eye": [
+				-2.20000004768372,
+				1.5,
+				-31.6000003814697
+			],
+			"fov": 62.0,
+			"name": "pose-6343-35s-hall-door-oblique",
+			"target": [
+				0.600000023841858,
+				1.39999997615814,
+				-27.0
+			]
+		},
+		{
+			"eye": [
+				-1.5,
+				1.45000004768372,
+				-28.7000007629395
+			],
+			"fov": 70.0,
+			"name": "pose-6380-106s-hall-door-close",
+			"target": [
+				0.349999994039536,
+				1.35000002384186,
+				-26.7000007629395
+			]
+		},
+		{
+			"eye": [
+				0.0,
+				1.5,
+				-22.6000003814697
+			],
+			"fov": 50.0,
+			"name": "pose-6344-25s-door-from-hall",
+			"target": [
+				0.0,
+				1.45000004768372,
+				-26.6000003814697
+			]
+		},
+		{
+			"eye": [
+				-0.550000011920929,
+				1.45000004768372,
+				-27.5
+			],
+			"fov": 70.0,
+			"name": "pose-hall-door-inside-passage-east-leaf",
+			"target": [
+				0.930000007152557,
+				1.35000002384186,
+				-26.7000007629395
+			]
+		},
+		{
+			"eye": [
+				-9.5,
+				1.5,
+				-24.8999996185303
+			],
+			"fov": 70.0,
+			"name": "pose-6385-1s-rockefeller-door-from-west-gallery",
+			"target": [
+				-7.40000009536743,
+				1.45000004768372,
+				-26.7000007629395
+			]
+		},
+		{
+			"eye": [
+				-8.30000019073486,
+				1.5,
+				-29.6000003814697
+			],
+			"fov": 62.0,
+			"name": "pose-rockefeller-door-from-rockefeller",
+			"target": [
+				-8.05000019073486,
+				1.39999997615814,
+				-26.7000007629395
+			]
+		},
+		{
+			"eye": [
+				-6.19999980926514,
+				1.54999995231628,
+				5.30000019073486
+			],
+			"fov": 74.0,
+			"name": "pose-6383-62s-west-wall-and-corner",
+			"target": [
+				-10.6000003814697,
+				1.35000002384186,
+				1.5
+			]
+		},
+		{
+			"eye": [
+				-8.30000019073486,
+				1.54999995231628,
+				5.5
+			],
+			"fov": 74.0,
+			"name": "pose-6383-63.9s-north-wall",
+			"target": [
+				-8.69999980926514,
+				1.5,
+				0.0
+			]
+		},
+		{
+			"eye": [
+				-8.19999980926514,
+				1.5,
+				2.29999995231628
+			],
+			"fov": 60.0,
+			"name": "pose-6383-71.9s-triptych-from-east",
+			"target": [
+				-10.0500001907349,
+				1.39999997615814,
+				0.349999994039536
+			]
+		},
+		{
+			"eye": [
+				-10.0500001907349,
+				1.45000004768372,
+				1.54999995231628
+			],
+			"fov": 50.0,
+			"name": "pose-6383-30.2s-triptych-close",
+			"target": [
+				-10.0500001907349,
+				1.39999997615814,
+				0.300000011920929
+			]
+		},
+		{
+			"eye": [
+				-9.75,
+				1.41999995708466,
+				1.72000002861023
+			],
+			"fov": 50.0,
+			"name": "pose-6383-24.6s-pieta-close",
+			"target": [
+				-10.8000001907349,
+				1.29999995231628,
+				1.70000004768372
+			]
+		},
+		{
+			"eye": [
+				-9.35000038146973,
+				1.25,
+				4.75
+			],
+			"fov": 62.0,
+			"name": "pose-6383-18.3s-saint-roch",
+			"target": [
+				-10.4099998474121,
+				1.25,
+				3.84999990463257
+			]
+		},
+		{
+			"eye": [
+				-9.0,
+				1.5,
+				0.75
+			],
+			"fov": 45.0,
+			"name": "check-triptych-case-against-wall-side",
+			"target": [
+				-10.3999996185303,
+				1.45000004768372,
+				0.25
+			]
+		},
+		{
+			"eye": [
+				-9.30000019073486,
+				1.75,
+				0.0900000035762787
+			],
+			"fov": 60.0,
+			"name": "check-triptych-rear-from-wall-side",
+			"target": [
+				-10.0500001907349,
+				1.45000004768372,
+				0.300000011920929
+			]
+		},
+		{
+			"eye": [
+				-10.1999998092651,
+				1.5,
+				3.0
+			],
+			"fov": 45.0,
+			"name": "check-pieta-case-against-wall-side",
+			"target": [
+				-11.0,
+				1.45000004768372,
+				1.70000004768372
+			]
+		},
+		{
+			"eye": [
+				-3.5,
+				9.5,
+				-22.0
+			],
+			"fov": 55.0,
+			"name": "check-wall-thickness-from-above",
+			"target": [
+				-3.5,
+				0.0,
+				-26.7000007629395
+			]
+		}
+	],
+	"history_after_hall_north": {
+		"cull_mask": 8191,
+		"end_wall_meshes": 16,
+		"layer8_alpha": 1.0,
+		"on_original_material": 16
+	},
+	"inventory_hall_reveal": {
+		"depth_measured": false,
+		"leaf_fidelity_accepted": false,
+		"leaf_m": 0.95,
+		"opening_metres_accepted": false,
+		"rockefeller_leaf_built": false,
+		"wall_m": 0.76
+	},
+	"inventory_renaissance_pieta": {
+		"accession": "59.128",
+		"case_metres_accepted": false,
+		"closed_parts": 39,
+		"fine_fidelity_accepted": false,
+		"placement_accepted": false,
+		"source_rear_observed": false
+	},
+	"inventory_renaissance_triptych": {
+		"accession": "2021.131",
+		"case_metres_accepted": false,
+		"fine_frame_fidelity_accepted": false,
+		"panels": 3,
+		"placement_accepted": false,
+		"source_rear_observed": true
+	},
+	"inventory_saint_roch": {
+		"accession": "21.398",
+		"case_metres_accepted": false,
+		"closed_solid_prototype": true,
+		"fine_fidelity_accepted": false,
+		"height_m": 1.054,
+		"muse_sheet_used": false,
+		"placement_accepted": false
+	},
+	"probes": 350,
+	"reveal_pieces": [
+		{
+			"box_max": [
+				-0.905000269412994,
+				2.73000001907349,
+				-26.2999992370605
+			],
+			"box_min": [
+				-0.95000022649765,
+				0.00999999046325684,
+				-27.25
+			],
+			"children": 9,
+			"cutaway_body": true,
+			"layers": 0,
+			"tag": "Grand Gallery reveal threshold:west",
+			"walk_block": false
+		},
+		{
+			"box_max": [
+				0.949999749660492,
+				2.73000001907349,
+				-26.2999992370605
+			],
+			"box_min": [
+				0.904999792575836,
+				0.00999999046325684,
+				-27.25
+			],
+			"children": 9,
+			"cutaway_body": true,
+			"layers": 0,
+			"tag": "Grand Gallery reveal threshold:east",
+			"walk_block": false
+		},
+		{
+			"box_max": [
+				-9.01000022888184,
+				2.70000004768372,
+				-26.4899997711182
+			],
+			"box_min": [
+				-9.09000015258789,
+				0.0,
+				-26.8700008392334
+			],
+			"children": 2,
+			"cutaway_body": true,
+			"layers": 0,
+			"tag": "Rockefeller reveal threshold:west",
+			"walk_block": false
+		},
+		{
+			"box_max": [
+				-7.01000022888184,
+				2.70000004768372,
+				-26.4899997711182
+			],
+			"box_min": [
+				-7.09000015258789,
+				0.0,
+				-26.8700008392334
+			],
+			"children": 2,
+			"cutaway_body": true,
+			"layers": 0,
+			"tag": "Rockefeller reveal threshold:east",
+			"walk_block": false
+		}
+	],
+	"state": {
+		"attached": true,
+		"blocks": 45,
+		"cutaway_bodies": 131,
+		"rooms": 14,
+		"space": "gallery"
+	},
+	"top_level_flags": {
+		"grey_gallery_metric_accepted": false,
+		"grey_gallery_objects_complete": false,
+		"medieval_case_contents_complete": false,
+		"medieval_objects_complete": false,
+		"museum_metric_accepted": false,
+		"sculpture_room_objects_complete": false
+	},
+	"traces": [
+		{
+			"end": [
+				0.0,
+				-28.3200759887695
+			],
+			"frames": 84,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"up"
+			],
+			"keys": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "hall-to-grey",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.3200759887695,
+					-26.3200302124023
+				],
+				"hall": [
+					-26.280029296875,
+					-25.013334274292
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"gallery",
+				"far"
+			],
+			"start": [
+				0.0,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					0.0,
+					-26.3200302124023
+				]
+			],
+			"view_mode": 0,
+			"x_range": [
+				0.0,
+				0.0
+			]
+		},
+		{
+			"end": [
+				0.0,
+				-24.979923248291
+			],
+			"frames": 84,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"down"
+			],
+			"keys": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "grey-to-hall",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2866649627686,
+					-26.3399543762207
+				],
+				"hall": [
+					-26.2999534606934,
+					-24.979923248291
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"far",
+				"gallery"
+			],
+			"start": [
+				0.0,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					0.0,
+					-26.2999534606934
+				]
+			],
+			"view_mode": 0,
+			"x_range": [
+				0.0,
+				0.0
+			]
+		},
+		{
+			"end": [
+				-8.05000019073486,
+				-28.3200759887695
+			],
+			"frames": 84,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"up"
+			],
+			"keys": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "west-gallery-to-rockefeller",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.3200759887695,
+					-25.013334274292
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"arch",
+				"far"
+			],
+			"start": [
+				-8.05000019073486,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					-8.05000019073486,
+					-26.6000366210938
+				]
+			],
+			"view_mode": 0,
+			"x_range": [
+				-8.05000019073486,
+				-8.05000019073486
+			]
+		},
+		{
+			"end": [
+				-8.05000019073486,
+				-24.979923248291
+			],
+			"frames": 84,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"down"
+			],
+			"keys": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "rockefeller-to-west-gallery",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2866649627686,
+					-24.979923248291
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"far",
+				"arch"
+			],
+			"start": [
+				-8.05000019073486,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					-8.05000019073486,
+					-25.9799461364746
+				]
+			],
+			"view_mode": 0,
+			"x_range": [
+				-8.05000019073486,
+				-8.05000019073486
+			]
+		},
+		{
+			"end": [
+				0.550000011920929,
+				-26.6599617004395
+			],
+			"frames": 200,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"down"
+			],
+			"keys": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "grey-to-hall-off-axis-0.55",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2866649627686,
+					-26.6599617004395
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"far"
+			],
+			"start": [
+				0.550000011920929,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 0,
+			"x_range": [
+				0.550000011920929,
+				0.550000011920929
+			]
+		},
+		{
+			"end": [
+				0.699999988079071,
+				-27.0999717712402
+			],
+			"frames": 200,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"down"
+			],
+			"keys": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "grey-to-hall-off-axis-0.70",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2866649627686,
+					-27.0999717712402
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"far"
+			],
+			"start": [
+				0.699999988079071,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 0,
+			"x_range": [
+				0.699999988079071,
+				0.699999988079071
+			]
+		},
+		{
+			"end": [
+				-1.17185914516449,
+				-24.9863300323486
+			],
+			"frames": 111,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"down",
+				"left"
+			],
+			"keys": [
+				"down",
+				"left"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.53145956993103,
+			"name": "grey-to-hall-diagonal-from-east",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.5905723571777,
+					-26.3089904785156
+				],
+				"hall": [
+					-26.2807064056396,
+					-24.9863300323486
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"far",
+				"gallery"
+			],
+			"start": [
+				1.60000002384186,
+				-28.6000003814697
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					-0.379899591207504,
+					-26.2807064056396
+				]
+			],
+			"view_mode": 0,
+			"x_range": [
+				-1.17185914516449,
+				1.60000002384186
+			]
+		},
+		{
+			"end": [
+				4.44999980926514,
+				-25.75
+			],
+			"frames": 300,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"up",
+				"right"
+			],
+			"keys": [
+				"up",
+				"right"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0399998687207699,
+			"name": "hall-to-grey-diagonal",
+			"probe_field_by_z": {
+				"hall": [
+					-25.75,
+					-25.009428024292
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"gallery"
+			],
+			"start": [
+				-0.300000011920929,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 0,
+			"x_range": [
+				-0.300000011920929,
+				4.44999980926514
+			]
+		},
+		{
+			"end": [
+				-7.44999980926514,
+				-24.979923248291
+			],
+			"frames": 84,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"down"
+			],
+			"keys": [
+				"down"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "rockefeller-to-west-off-axis-0.6",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2866649627686,
+					-24.979923248291
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"far",
+				"arch"
+			],
+			"start": [
+				-7.44999980926514,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					-7.44999980926514,
+					-25.9799461364746
+				]
+			],
+			"view_mode": 0,
+			"x_range": [
+				-7.44999980926514,
+				-7.44999980926514
+			]
+		},
+		{
+			"end": [
+				-7.32721710205078,
+				-26.2727832794189
+			],
+			"frames": 300,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"up",
+				"right"
+			],
+			"keys": [
+				"up",
+				"right"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0399997197091579,
+			"name": "west-to-rockefeller-diagonal",
+			"probe_field_by_z": {
+				"+addition": [
+					-26.2727832794189,
+					-25.009428024292
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"arch"
+			],
+			"start": [
+				-8.60000038146973,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 0,
+			"x_range": [
+				-8.60000038146973,
+				-7.32721710205078
+			]
+		},
+		{
+			"end": [
+				0.0,
+				-28.3200759887695
+			],
+			"frames": 90,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"up"
+			],
+			"keys": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "follow-hall-to-grey",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.3200759887695,
+					-26.3200302124023
+				],
+				"hall": [
+					-26.280029296875,
+					-25.0
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"gallery",
+				"far"
+			],
+			"start": [
+				0.0,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					0.0,
+					-26.3200302124023
+				]
+			],
+			"view_mode": 2,
+			"x_range": [
+				0.0,
+				0.0
+			]
+		},
+		{
+			"end": [
+				0.000000000000000220436592284008,
+				-26.4999580383301
+			],
+			"frames": 300,
+			"heading_end": -3.14159265358979,
+			"held_at_end": [
+				"up"
+			],
+			"keys": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "follow-grey-to-hall",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2999992370605,
+					-26.4999580383301
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"far"
+			],
+			"start": [
+				0.0,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 2,
+			"x_range": [
+				0.0,
+				0.000000000000000220436592284008
+			]
+		},
+		{
+			"end": [
+				-8.05000019073486,
+				-28.3200759887695
+			],
+			"frames": 90,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"up"
+			],
+			"keys": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "follow-west-gallery-to-rockefeller",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.3200759887695,
+					-25.0
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"arch",
+				"far"
+			],
+			"start": [
+				-8.05000019073486,
+				-25.0
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					-8.05000019073486,
+					-26.6000366210938
+				]
+			],
+			"view_mode": 2,
+			"x_range": [
+				-8.05000019073486,
+				-8.05000019073486
+			]
+		},
+		{
+			"end": [
+				-8.05000019073486,
+				-24.979923248291
+			],
+			"frames": 90,
+			"heading_end": -3.14159265358979,
+			"held_at_end": [
+				"up"
+			],
+			"keys": [
+				"up"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400009155273438,
+			"name": "follow-rockefeller-to-west-gallery",
+			"probe_field_by_z": {
+				"+addition": [
+					-28.2999992370605,
+					-24.979923248291
+				]
+			},
+			"reached": true,
+			"spaces": [
+				"far",
+				"arch"
+			],
+			"start": [
+				-8.05000019073486,
+				-28.2999992370605
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [
+				[
+					-8.05000019073486,
+					-25.9799461364746
+				]
+			],
+			"view_mode": 2,
+			"x_range": [
+				-8.05000019073486,
+				-8.05000019073486
+			]
+		},
+		{
+			"end": [
+				0.560000002384186,
+				-26.6800003051758
+			],
+			"frames": 60,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"right"
+			],
+			"keys": [
+				"right"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0400000214576721,
+			"name": "passage-into-east-leaf",
+			"probe_field_by_z": {
+				"+addition": [
+					-26.6800003051758,
+					-26.6800003051758
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"far"
+			],
+			"start": [
+				0.0,
+				-26.6800003051758
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 0,
+			"x_range": [
+				0.0,
+				0.560000002384186
+			]
+		},
+		{
+			"end": [
+				-8.6899995803833,
+				-26.6800003051758
+			],
+			"frames": 60,
+			"heading_end": 0.0,
+			"held_at_end": [
+				"left"
+			],
+			"keys": [
+				"left"
+			],
+			"largest_flash_alpha": 0.0,
+			"largest_step_m": 0.0399999618530273,
+			"name": "passage-into-west-lining",
+			"probe_field_by_z": {
+				"+addition": [
+					-26.6800003051758,
+					-26.6800003051758
+				]
+			},
+			"reached": false,
+			"spaces": [
+				"far"
+			],
+			"start": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"step_limit_m": 0.04,
+			"swap_points": [],
+			"view_mode": 0,
+			"x_range": [
+				-8.6899995803833,
+				-8.05000019073486
+			]
+		}
+	],
+	"views": [
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.0,
+				8.61043739318848,
+				-19.2054080963135
+			],
+			"cull_mask": 7631,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "hall-passage-dollhouse-north",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				7.47459316253662,
+				8.61043739318848,
+				-26.6800003051758
+			],
+			"cull_mask": 7899,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"grey French gallery:south",
+				"Grand Gallery reveal threshold:east"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Grand Gallery reveal threshold:east"
+				}
+			],
+			"name": "hall-passage-dollhouse-west",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.000000000000000915373683021145,
+				8.61043739318848,
+				-34.1545944213867
+			],
+			"cull_mask": 7135,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "hall-passage-dollhouse-south",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-7.47459316253662,
+				8.61043739318848,
+				-26.6800003051758
+			],
+			"cull_mask": 8029,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"grey French gallery:south",
+				"Grand Gallery reveal threshold:west"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Grand Gallery reveal threshold:west"
+				}
+			],
+			"name": "hall-passage-dollhouse-east",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				6.91811466217041,
+				6.88426113128662,
+				-26.6800003051758
+			],
+			"cull_mask": 7899,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"grey French gallery:south",
+				"Grand Gallery reveal threshold:east"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Grand Gallery reveal threshold:east"
+				}
+			],
+			"name": "hall-passage-gallery-west",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-6.91811466217041,
+				6.88426113128662,
+				-26.6800003051758
+			],
+			"cull_mask": 8029,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"grey French gallery:south",
+				"Grand Gallery reveal threshold:west"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Grand Gallery reveal threshold:west"
+				}
+			],
+			"name": "hall-passage-gallery-east",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.0,
+				2.45000004768372,
+				-23.5799999237061
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "hall-passage-follow-north",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.000000000000000379640511066512,
+				2.45000004768372,
+				-29.7800006866455
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "hall-passage-follow-south",
+			"position": [
+				0.0,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": false,
+			"camera": [
+				0.0,
+				8.61043739318848,
+				-17.925407409668
+			],
+			"cull_mask": 6167,
+			"hall_field_on": true,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "hall-side-of-door-dollhouse-north",
+			"position": [
+				0.0,
+				-25.3999996185303
+			],
+			"space": "gallery",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": false,
+			"camera": [
+				0.0,
+				1.95000004768372,
+				-21.5
+			],
+			"cull_mask": 6207,
+			"hall_field_on": true,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "hall-side-of-door-follow-north",
+			"position": [
+				0.0,
+				-24.6000003814697
+			],
+			"space": "gallery",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.000000000000000915373683021145,
+				8.61043739318848,
+				-35.6745910644531
+			],
+			"cull_mask": 7135,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "grey-side-of-door-dollhouse-south",
+			"position": [
+				0.0,
+				-28.2000007629395
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.0,
+				8.61043739318848,
+				-20.7254085540771
+			],
+			"cull_mask": 7631,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [
+				"grey French gallery:south:header"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "grey-side-of-door-dollhouse-north",
+			"position": [
+				0.0,
+				-28.2000007629395
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				0.000000000000000379640511066512,
+				2.45000004768372,
+				-32.7000007629395
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "grey-side-of-door-follow-south",
+			"position": [
+				0.0,
+				-29.6000003814697
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				2.0,
+				2.45000004768372,
+				-24.8999996185303
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [
+				"grey French gallery:south"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "grey-near-south-wall-follow-north",
+			"position": [
+				2.0,
+				-28.0
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				9.87459278106689,
+				8.61043739318848,
+				-27.6000003814697
+			],
+			"cull_mask": 7899,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "grey-near-south-wall-dollhouse-west",
+			"position": [
+				2.40000009536743,
+				-27.6000003814697
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				8.61043739318848,
+				-19.2054080963135
+			],
+			"cull_mask": 7631,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "rockefeller-passage-dollhouse-north",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-0.575407028198242,
+				8.61043739318848,
+				-26.6800003051758
+			],
+			"cull_mask": 7899,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"Rockefeller:south",
+				"adjacent gallery:north",
+				"Rockefeller reveal threshold:east"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Rockefeller reveal threshold:east"
+				}
+			],
+			"name": "rockefeller-passage-dollhouse-west",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				8.61043739318848,
+				-34.1545944213867
+			],
+			"cull_mask": 7135,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "rockefeller-passage-dollhouse-south",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-15.5245933532715,
+				8.61043739318848,
+				-26.6800003051758
+			],
+			"cull_mask": 8029,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"Rockefeller:south",
+				"adjacent gallery:north",
+				"Rockefeller reveal threshold:west"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Rockefeller reveal threshold:west"
+				}
+			],
+			"name": "rockefeller-passage-dollhouse-east",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-14.9681148529053,
+				6.88426113128662,
+				-26.6800003051758
+			],
+			"cull_mask": 8029,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"Rockefeller:south",
+				"adjacent gallery:north",
+				"Rockefeller reveal threshold:west"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [
+				{
+					"still_drawn": false,
+					"tag": "Rockefeller reveal threshold:west"
+				}
+			],
+			"name": "rockefeller-passage-gallery-east",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				2.45000004768372,
+				-23.5799999237061
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "rockefeller-passage-follow-north",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				2.45000004768372,
+				-29.7800006866455
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "rockefeller-passage-follow-south",
+			"position": [
+				-8.05000019073486,
+				-26.6800003051758
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				8.61043739318848,
+				-17.7254085540771
+			],
+			"cull_mask": 6159,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "west-gallery-side-of-door-dollhouse-north",
+			"position": [
+				-8.05000019073486,
+				-25.2000007629395
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				8.61043739318848,
+				-35.6745910644531
+			],
+			"cull_mask": 7135,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "rockefeller-side-of-door-dollhouse-south",
+			"position": [
+				-8.05000019073486,
+				-28.2000007629395
+			],
+			"space": "far",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				2.45000004768372,
+				-32.5
+			],
+			"cull_mask": 8191,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "rockefeller-side-of-door-follow-south",
+			"position": [
+				-8.05000019073486,
+				-29.3999996185303
+			],
+			"space": "far",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.05000019073486,
+				2.45000004768372,
+				-20.5
+			],
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "west-gallery-side-of-door-follow-north",
+			"position": [
+				-8.05000019073486,
+				-23.6000003814697
+			],
+			"space": "arch",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-8.60000038146973,
+				8.61043739318848,
+				10.074592590332
+			],
+			"cull_mask": 6159,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-dollhouse-north",
+			"position": [
+				-8.60000038146973,
+				2.59999990463257
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-1.72540664672852,
+				8.61043739318848,
+				2.20000004768372
+			],
+			"cull_mask": 6163,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-dollhouse-west",
+			"position": [
+				-9.19999980926514,
+				2.20000004768372
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-9.60000038146973,
+				8.61043739318848,
+				-5.87459278106689
+			],
+			"cull_mask": 6167,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [
+				"adjacent gallery:south",
+				"light Renaissance room:north"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-dollhouse-south",
+			"position": [
+				-9.60000038146973,
+				1.60000002384186
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-17.074592590332,
+				8.61043739318848,
+				1.89999997615814
+			],
+			"cull_mask": 6165,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"light Renaissance room:west"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-dollhouse-east",
+			"position": [
+				-9.60000038146973,
+				1.89999997615814
+			],
+			"space": "arch",
+			"view_mode": 0
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-2.28188514709473,
+				6.88426113128662,
+				2.20000004768372
+			],
+			"cull_mask": 6163,
+			"hall_field_on": false,
+			"heading": 1.5707963267949,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-gallery-west",
+			"position": [
+				-9.19999980926514,
+				2.20000004768372
+			],
+			"space": "arch",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-9.39999961853027,
+				6.88426113128662,
+				8.91811466217041
+			],
+			"cull_mask": 6159,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-gallery-north",
+			"position": [
+				-9.39999961853027,
+				2.0
+			],
+			"space": "arch",
+			"view_mode": 1
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-6.10796928405762,
+				2.45000004768372,
+				5.59203100204468
+			],
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 0.785398163397448,
+			"hidden_cutaway_bodies": [
+				"@StaticBody3D@3746"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-follow-northwest",
+			"position": [
+				-8.30000019073486,
+				3.40000009536743
+			],
+			"space": "arch",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-9.39999961853027,
+				2.45000004768372,
+				6.0
+			],
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 0.0,
+			"hidden_cutaway_bodies": [],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-follow-north",
+			"position": [
+				-9.39999961853027,
+				2.90000009536743
+			],
+			"space": "arch",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-13.3500003814697,
+				2.45000004768372,
+				1.70000004768372
+			],
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": -1.5707963267949,
+			"hidden_cutaway_bodies": [
+				"light Renaissance room:west"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-follow-east-camera-behind-west-wall",
+			"position": [
+				-10.25,
+				1.70000004768372
+			],
+			"space": "arch",
+			"view_mode": 2
+		},
+		{
+			"addition_field_on": true,
+			"camera": [
+				-10.0500001907349,
+				2.45000004768372,
+				-1.79999995231628
+			],
+			"cull_mask": 6175,
+			"hall_field_on": false,
+			"heading": 3.14159265358979,
+			"hidden_cutaway_bodies": [
+				"adjacent gallery:south",
+				"light Renaissance room:north",
+				"@StaticBody3D@3767"
+			],
+			"leaf_or_lining_between_camera_and_visitor": [],
+			"name": "renaissance-follow-south-camera-behind-north-wall",
+			"position": [
+				-10.0500001907349,
+				1.29999995231628
+			],
+			"space": "arch",
+			"view_mode": 2
+		}
+	],
+	"visitor_light": [
+		{
+			"addition_field_on": false,
+			"file": "light-hall-24.80.png",
+			"hall_field_on": true,
+			"line": "hall",
+			"room": "Hall or stone passage",
+			"space": "gallery",
+			"z": -24.8
+		},
+		{
+			"addition_field_on": false,
+			"file": "light-hall-25.60.png",
+			"hall_field_on": true,
+			"line": "hall",
+			"room": "Hall or stone passage",
+			"space": "gallery",
+			"z": -25.6
+		},
+		{
+			"addition_field_on": false,
+			"file": "light-hall-26.10.png",
+			"hall_field_on": true,
+			"line": "hall",
+			"room": "Hall or stone passage",
+			"space": "gallery",
+			"z": -26.1
+		},
+		{
+			"addition_field_on": false,
+			"file": "light-hall-26.28.png",
+			"hall_field_on": true,
+			"line": "hall",
+			"room": "Hall or stone passage",
+			"space": "gallery",
+			"z": -26.28
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-26.32.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "Grand Gallery reveal threshold",
+			"space": "far",
+			"z": -26.32
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-26.50.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "Grand Gallery reveal threshold",
+			"space": "far",
+			"z": -26.5
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-26.68.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "Grand Gallery reveal threshold",
+			"space": "far",
+			"z": -26.68
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-26.90.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "Grand Gallery reveal threshold",
+			"space": "far",
+			"z": -26.9
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-27.04.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "Grand Gallery reveal threshold",
+			"space": "far",
+			"z": -27.04
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-27.08.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "grey French gallery",
+			"space": "far",
+			"z": -27.08
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-27.40.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "grey French gallery",
+			"space": "far",
+			"z": -27.4
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-28.20.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "grey French gallery",
+			"space": "far",
+			"z": -28.2
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-hall-29.50.png",
+			"hall_field_on": false,
+			"line": "hall",
+			"room": "grey French gallery",
+			"space": "far",
+			"z": -29.5
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-24.80.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "adjacent gallery",
+			"space": "arch",
+			"z": -24.8
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-25.60.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "adjacent gallery",
+			"space": "arch",
+			"z": -25.6
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-26.10.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "adjacent gallery",
+			"space": "arch",
+			"z": -26.1
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-26.28.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "adjacent gallery",
+			"space": "arch",
+			"z": -26.28
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-26.32.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller reveal threshold",
+			"space": "far",
+			"z": -26.32
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-26.50.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller reveal threshold",
+			"space": "far",
+			"z": -26.5
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-26.68.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller reveal threshold",
+			"space": "far",
+			"z": -26.68
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-26.90.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller reveal threshold",
+			"space": "far",
+			"z": -26.9
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-27.04.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller reveal threshold",
+			"space": "far",
+			"z": -27.04
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-27.08.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller",
+			"space": "far",
+			"z": -27.08
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-27.40.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller",
+			"space": "far",
+			"z": -27.4
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-28.20.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller",
+			"space": "far",
+			"z": -28.2
+		},
+		{
+			"addition_field_on": true,
+			"file": "light-rockefeller-29.50.png",
+			"hall_field_on": false,
+			"line": "rockefeller",
+			"room": "Rockefeller",
+			"space": "far",
+			"z": -29.5
+		}
+	]
+}

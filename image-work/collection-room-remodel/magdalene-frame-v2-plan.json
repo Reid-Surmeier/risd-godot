@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "magdalene-frame-002",
+      "prompt": "magdalene-frame-v2-prompt.txt",
+      "promptSha256": "ca721bf7536cefe817edd2936d2cdf1120459ef2539b21fca5498181276d623d",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/magdalene-frame-guide-v2.png",
+          "sha256": "b085de132870cfc2dc52ea4f324da50556886aad61a4fa0d6df2199ce605884c"
+        },
+        {
+          "path": "inventory-references/magdalene-frame-style-v2.png",
+          "sha256": "ceede2d8dc9c64870e1b7f9763f16e4e027cc5e9f3a721d2555256c2d734f23d"
+        }
+      ]
+    }
+  ]
+}

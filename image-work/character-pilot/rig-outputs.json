@@ -1,0 +1,38 @@
+{
+  "request_id": "01a0f3de-78f2-79e3-a3bc-672a3c3e8a56",
+  "outputs": [
+    {
+      "path": "rig-output-rigged_character_glb.glb",
+      "sha256": "fd081e46243f152cedbb2218d891fe120735e0b8fc01a98df8da4d0e1397d63c",
+      "bytes": 5573992
+    },
+    {
+      "path": "rig-output-basic_animations-walking_glb.glb",
+      "sha256": "5e57766a2837c53c708026be1d37ffdf82d2ffb8b5c0e25bf311af3787a6f35a",
+      "bytes": 5586764
+    },
+    {
+      "path": "rig-output-basic_animations-walking_armature_glb.glb",
+      "sha256": "d5a155640cf0b7b525cad0075788612b3c016ea641b612e3cdc972ea12483a34",
+      "bytes": 65376
+    },
+    {
+      "path": "rig-output-basic_animations-running_glb.glb",
+      "sha256": "1c8669cbb1e6397f1268b8a341532387834f8b4a252312434da9a79d56350b86",
+      "bytes": 5582160
+    },
+    {
+      "path": "rig-output-basic_animations-running_armature_glb.glb",
+      "sha256": "2b4ddfa440ae051c21579f2eccd902ecb7cfc95fbd610a4d16d05831065debe6",
+      "bytes": 60772
+    },
+    {
+      "path": "rig-output-animations-0-animation_glb.glb",
+      "sha256": "9fc699a58cc96a67d903dfb3e3f59ade38311af4ea4d680d95655bf73c93f410",
+      "bytes": 5622936
+    }
+  ],
+  "seed": null,
+  "actual_cost_usd": null,
+  "price_basis": "Listed selected-option rate retained as liability"
+}

@@ -1,0 +1,22 @@
+{
+  "picks": {
+    "12": [
+      578,
+      1008
+    ],
+    "14": [
+      553,
+      1044
+    ]
+  },
+  "reserved": "IMG_6380/000206.jpg",
+  "reserved_pixel": [
+    646,
+    995
+  ],
+  "training": [
+    12,
+    14
+  ],
+  "caveat": "New front-right rib/plinth shoulder above floor; blurred photographs. Cached poses/matches only, unchanged withheld time and pixel diagnostic. Same-video evidence; not an aperture or independent survey."
+}

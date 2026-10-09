@@ -1,0 +1,535 @@
+{
+  "log": [
+    {
+      "event": "click",
+      "t_ms": 7756,
+      "what": "native catalogue/tab click",
+      "x": 417.781127929688,
+      "y": 1060.42395019531
+    },
+    {
+      "event": "click",
+      "t_ms": 9297,
+      "what": "native catalogue/tab click",
+      "x": 704.955383300781,
+      "y": 166.687622070312
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Terracotta sculpture by Gustave Doré, made around 1876–1880; gift of Uforia, Inc.",
+        "Identity": "Museum title verified · 73.148",
+        "LocalSource": "Scan 20260811121459",
+        "Source": "Source: RISD Museum record (summary)\nhttps://risdmuseum.org/art-design/collection/love-triumphs-over-death-cupid-and-skulls-73148",
+        "Status": "3D scan available",
+        "Title": "Love Triumphs over Death (Cupid and Skulls)"
+      },
+      "event": "detail",
+      "id": "20260811121459",
+      "index": 0
+    },
+    {
+      "event": "screenshot",
+      "file": "card-01.png",
+      "t_ms": 9734
+    },
+    {
+      "event": "click",
+      "t_ms": 10130,
+      "what": "native catalogue/tab click",
+      "x": 798.819091796875,
+      "y": 166.915344238281
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This scan thumbnail has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Scan 20260811122415",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "3D scan available",
+        "Title": "Sculptural relief"
+      },
+      "event": "detail",
+      "id": "20260811122415",
+      "index": 1
+    },
+    {
+      "event": "screenshot",
+      "file": "card-02.png",
+      "t_ms": 10555
+    },
+    {
+      "event": "click",
+      "t_ms": 10922,
+      "what": "native catalogue/tab click",
+      "x": 985.844055175781,
+      "y": 167.669876098633
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Roman marble portrait head, made around 130 CE for insertion into a separate bust. Its damaged portions remain unrestored.",
+        "Identity": "Museum title verified · 59.050",
+        "LocalSource": "Scan 20260820133334",
+        "Source": "Source: RISD Museum record (summary)\nhttps://risdmuseum.org/art-design/collection/portrait-hadrian-59050",
+        "Status": "3D scan available",
+        "Title": "Portrait of Hadrian"
+      },
+      "event": "detail",
+      "id": "20260820133334",
+      "index": 3
+    },
+    {
+      "event": "screenshot",
+      "file": "card-04.png",
+      "t_ms": 11266
+    },
+    {
+      "event": "click",
+      "t_ms": 11674,
+      "what": "native catalogue/tab click",
+      "x": 892.473266601562,
+      "y": 167.243133544922
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This scan thumbnail has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Scan 20260811123051",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "3D scan available",
+        "Title": "Bearded bust"
+      },
+      "event": "detail",
+      "id": "20260811123051",
+      "index": 2
+    },
+    {
+      "event": "screenshot",
+      "file": "card-03.png",
+      "t_ms": 12107
+    },
+    {
+      "event": "click",
+      "t_ms": 12225,
+      "what": "native catalogue/tab click",
+      "x": 705.074829101562,
+      "y": 236.127548217773
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 06",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Decorated bowl"
+      },
+      "event": "detail",
+      "id": "panel-cell:06",
+      "index": 4
+    },
+    {
+      "event": "screenshot",
+      "file": "card-05.png",
+      "t_ms": 12457
+    },
+    {
+      "event": "click",
+      "t_ms": 12527,
+      "what": "native catalogue/tab click",
+      "x": 799.006042480469,
+      "y": 236.313385009766
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 07",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Bull"
+      },
+      "event": "detail",
+      "id": "panel-cell:07",
+      "index": 5
+    },
+    {
+      "event": "screenshot",
+      "file": "card-06.png",
+      "t_ms": 12767
+    },
+    {
+      "event": "click",
+      "t_ms": 12839,
+      "what": "native catalogue/tab click",
+      "x": 892.727294921875,
+      "y": 236.580703735352
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 08",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Animal-shaped vessel"
+      },
+      "event": "detail",
+      "id": "panel-cell:08",
+      "index": 6
+    },
+    {
+      "event": "screenshot",
+      "file": "card-07.png",
+      "t_ms": 13072
+    },
+    {
+      "event": "click",
+      "t_ms": 13142,
+      "what": "native catalogue/tab click",
+      "x": 986.164245605469,
+      "y": 236.928848266602
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 09",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Curved object"
+      },
+      "event": "detail",
+      "id": "panel-cell:09",
+      "index": 7
+    },
+    {
+      "event": "screenshot",
+      "file": "card-08.png",
+      "t_ms": 13377
+    },
+    {
+      "event": "click",
+      "t_ms": 13448,
+      "what": "native catalogue/tab click",
+      "x": 705.169921875,
+      "y": 305.702880859375
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 10",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Colored bust"
+      },
+      "event": "detail",
+      "id": "panel-cell:10",
+      "index": 8
+    },
+    {
+      "event": "screenshot",
+      "file": "card-09.png",
+      "t_ms": 13683
+    },
+    {
+      "event": "click",
+      "t_ms": 13755,
+      "what": "native catalogue/tab click",
+      "x": 799.154968261719,
+      "y": 305.846374511719
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Greek bronze figure of Aphrodite, dated 199–100 BCE.",
+        "Identity": "Museum title verified · 26.117",
+        "LocalSource": "Panel cell 11",
+        "Source": "Source: RISD Museum record (summary)\nhttps://risdmuseum.org/sites/default/files/museumplus/312237.pdf#page=37",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Aphrodite"
+      },
+      "event": "detail",
+      "id": "panel-cell:11",
+      "index": 9
+    },
+    {
+      "event": "screenshot",
+      "file": "card-10.png",
+      "t_ms": 13985
+    },
+    {
+      "event": "click",
+      "t_ms": 14056,
+      "what": "native catalogue/tab click",
+      "x": 892.929504394531,
+      "y": 306.052886962891
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 12",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Guardian lion"
+      },
+      "event": "detail",
+      "id": "panel-cell:12",
+      "index": 10
+    },
+    {
+      "event": "screenshot",
+      "file": "card-11.png",
+      "t_ms": 14292
+    },
+    {
+      "event": "click",
+      "t_ms": 14363,
+      "what": "native catalogue/tab click",
+      "x": 986.419067382812,
+      "y": 306.32177734375
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 13",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Small figure"
+      },
+      "event": "detail",
+      "id": "panel-cell:13",
+      "index": 11
+    },
+    {
+      "event": "screenshot",
+      "file": "card-12.png",
+      "t_ms": 14596
+    },
+    {
+      "event": "click",
+      "t_ms": 14666,
+      "what": "native catalogue/tab click",
+      "x": 705.240417480469,
+      "y": 375.382904052734
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 14",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Rider"
+      },
+      "event": "detail",
+      "id": "panel-cell:14",
+      "index": 12
+    },
+    {
+      "event": "screenshot",
+      "file": "card-13.png",
+      "t_ms": 14900
+    },
+    {
+      "event": "click",
+      "t_ms": 14972,
+      "what": "native catalogue/tab click",
+      "x": 799.265441894531,
+      "y": 375.483856201172
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 15",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Dancing figure"
+      },
+      "event": "detail",
+      "id": "panel-cell:15",
+      "index": 13
+    },
+    {
+      "event": "screenshot",
+      "file": "card-14.png",
+      "t_ms": 15205
+    },
+    {
+      "event": "click",
+      "t_ms": 15276,
+      "what": "native catalogue/tab click",
+      "x": 893.07958984375,
+      "y": 375.629119873047
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 16",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Standing figure"
+      },
+      "event": "detail",
+      "id": "panel-cell:16",
+      "index": 14
+    },
+    {
+      "event": "screenshot",
+      "file": "card-15.png",
+      "t_ms": 15508
+    },
+    {
+      "event": "click",
+      "t_ms": 15579,
+      "what": "native catalogue/tab click",
+      "x": 986.608215332031,
+      "y": 375.818298339844
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Terracotta figure of Aphrodite with gilding, dated 300–200 BCE.",
+        "Identity": "Museum title verified · 06.331",
+        "LocalSource": "Panel cell 17",
+        "Source": "Source: RISD Museum record (summary)\nhttps://risdmuseum.org/sites/default/files/museumplus/312237.pdf#page=3",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Aphrodite"
+      },
+      "event": "detail",
+      "id": "panel-cell:17",
+      "index": 15
+    },
+    {
+      "event": "screenshot",
+      "file": "card-16.png",
+      "t_ms": 15810
+    },
+    {
+      "event": "click",
+      "t_ms": 15881,
+      "what": "native catalogue/tab click",
+      "x": 705.286499023438,
+      "y": 445.136596679688
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 19",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Gold mask"
+      },
+      "event": "detail",
+      "id": "panel-cell:19",
+      "index": 16
+    },
+    {
+      "event": "screenshot",
+      "file": "card-17.png",
+      "t_ms": 16115
+    },
+    {
+      "event": "click",
+      "t_ms": 16186,
+      "what": "native catalogue/tab click",
+      "x": 799.337463378906,
+      "y": 445.194793701172
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 20",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Blue carved form"
+      },
+      "event": "detail",
+      "id": "panel-cell:20",
+      "index": 17
+    },
+    {
+      "event": "screenshot",
+      "file": "card-18.png",
+      "t_ms": 16419
+    },
+    {
+      "event": "click",
+      "t_ms": 16492,
+      "what": "native catalogue/tab click",
+      "x": 893.177368164062,
+      "y": 445.278625488281
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 21",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Bird"
+      },
+      "event": "detail",
+      "id": "panel-cell:21",
+      "index": 18
+    },
+    {
+      "event": "screenshot",
+      "file": "card-19.png",
+      "t_ms": 16730
+    },
+    {
+      "event": "click",
+      "t_ms": 16802,
+      "what": "native catalogue/tab click",
+      "x": 986.731506347656,
+      "y": 445.3876953125
+    },
+    {
+      "displayed": {
+        "Department": "Department: unknown",
+        "Description": "Museum description unknown. This image-only entry has not yet been matched to a museum record.",
+        "Identity": "Visual descriptor · museum title unknown",
+        "LocalSource": "Panel cell 22",
+        "Source": "Museum source: unknown\nThe label above describes appearance only.",
+        "Status": "No linked 3D scan · image only",
+        "Title": "Blue turtle-like form"
+      },
+      "event": "detail",
+      "id": "panel-cell:22",
+      "index": 19
+    },
+    {
+      "event": "screenshot",
+      "file": "card-20.png",
+      "t_ms": 17040
+    }
+  ],
+  "viewport": [
+    1080,
+    1080
+  ]
+}

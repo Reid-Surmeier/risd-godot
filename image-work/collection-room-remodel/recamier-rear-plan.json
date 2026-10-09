@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "recamier-rear-001",
+      "prompt": "recamier-rear-prompt.txt",
+      "promptSha256": "45c90cb1eacb6a6df0a50a7c793e412826595c6388f826b8f61d1cdec2fce5fb",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/recamier-rear-selected-0.png",
+          "sha256": "e54f01350f63c0cb7e99aadb593f1989824bda7a489cc90e5a091c92b5c3ed7a"
+        },
+        {
+          "path": "inventory-references/recamier-rear-selected-1.png",
+          "sha256": "1cf625135659f3a16c0fac91a476564967f900c1e54e3a4675b80ebdb32ac01a"
+        }
+      ]
+    }
+  ]
+}

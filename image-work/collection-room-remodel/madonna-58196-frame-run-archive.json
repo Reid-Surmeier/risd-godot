@@ -1,0 +1,24 @@
+{
+  "run_id": "run-e9664c5bbab320779c1133e6",
+  "files": {
+    "events.jsonl": "0272dcfc6ab3a304f0da02f86fffaad8b44448a5bbfa8829040d1a91e75dbd9a",
+    "state.json": "e6c0a1b7f1f4cbec5404a5f1843075cbfe3da681413190ecad688b6ef0e0dc74",
+    "request.json": "e9664c5bbab320779c1133e69be758b5bfb1f978662c43e7f1cdc90e12c92c5f",
+    "provider-response.json": "9826954b5c926dad55e241a1c26991fa3635c8d767c289068104eaa688be9287",
+    "outputs/donor-01.rgba.json": "55a85ed16fdf03040d501cf16ca6d05538b04a153f72f51b82aa0f862850ea62",
+    ".event-frames/400420dad697f2824ad745d0a8139f16f1bbe6f932812b932f6b09986083c6c7.jsonl": "49d87a34200c9df65e8b75045c572d9af8269a0d1583fe83cc82c1bbadd76bb6",
+    ".event-frames/dd9ad0d88c521256dfc12e514cad208489a7a53cfbfb134f2c6f01a2cc31498c.jsonl": "015341122cf892f85b2dcb07bb5552ae1383779a2e640b7a7a44a5bfe991747a",
+    ".event-frames/41d7a45778db4ad8d533e86b1d45da891eb7eb3fa14c2c171959d788d868c08c.jsonl": "446d981a2f319482c05126a822684cab67ac0373a5a784b79b7aa7aedea23bc6",
+    ".event-frames/7ed51e6052dc766b0ce25b68dd86929370b9b46d8af9426ce48081a462ccd5f0.jsonl": "0637ba7fdc2ba677e2159356214d78b69447c3fd2293adbb4f900318014b24e1",
+    ".event-frames/da4d01c485536aa98530ad6632144a066f5cf060ec531d2419d5c29b70a59e93.jsonl": "6802a01a2082b0847a9a95033831949ae571638f113dd20472db0dd90b778f35",
+    "materialized/image-01.webp": "ace672e922caa71f86c4c9b2b3429b3c0ffa6a2f67128a10c2bcaf68db7e541d"
+  },
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "reported_cost_usd": 0.01,
+  "spend_state": "unknown per tool summary; authenticated native image retained; never resubmit",
+  "native_sha256": "ace672e922caa71f86c4c9b2b3429b3c0ffa6a2f67128a10c2bcaf68db7e541d",
+  "cumulative_reported_actual_usd": 0.91,
+  "cumulative_conservative_usd": 0.92
+}

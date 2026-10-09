@@ -1,0 +1,68 @@
+{
+  "source": "IMG_6380.MOV t224.25s, source dimensions1080x1920",
+  "fit": "one catalogue-measured painting canvas plane; not a room reconstruction or point cloud",
+  "annotated_pixels": [
+    [
+      849.0,
+      646.0
+    ],
+    [
+      949.0,
+      650.0
+    ],
+    [
+      934.0,
+      778.0
+    ],
+    [
+      832.0,
+      776.0
+    ]
+  ],
+  "world_canvas_corners": [
+    [
+      -2.62,
+      2.596,
+      -4.319
+    ],
+    [
+      -2.62,
+      2.596,
+      -5.081
+    ],
+    [
+      -2.62,
+      1.644,
+      -5.081
+    ],
+    [
+      -2.62,
+      1.644,
+      -4.319
+    ]
+  ],
+  "assumed_focal_px": 850.0,
+  "vertical_fov_degrees": 96.95557303959633,
+  "position": [
+    4.242009076377995,
+    1.560737620517611,
+    -2.3149463638682612
+  ],
+  "target": [
+    -0.6410415862065815,
+    0.4978804950195863,
+    -2.153233787330678
+  ],
+  "up": [
+    -0.21103850621035486,
+    0.9764350446492448,
+    0.045137041078577786
+  ],
+  "fit_residual_px": [
+    1.4189258456143818,
+    1.0394440033157024,
+    1.523542461024281,
+    1.8238096369247037
+  ],
+  "uncertainty": "focal inferred to put the source camera at plausible handheld eye height inside the purple connector; not independently calibrated. Pixel annotations and room metric scale provisional. Other object/door layout comparison required"
+}

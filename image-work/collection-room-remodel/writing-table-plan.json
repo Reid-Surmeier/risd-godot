@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "writing-table-001",
+      "prompt": "writing-table-prompt.txt",
+      "promptSha256": "915ef40add7c8e37534a56ef716ae68bd7df8c3924e4c266a7b57648bdcd8c78",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/writing-table-selected-0.png",
+          "sha256": "65a1b9b4dfb179f6dbcb27eebff543ff4482bff740234f08a391ea630e6bf24e"
+        },
+        {
+          "path": "inventory-references/writing-table-selected-1.png",
+          "sha256": "aed34722ab3b3cf4bd1dc9996e0e115c53ebb43b7a212402c6d2c988e1c149dc"
+        }
+      ]
+    }
+  ]
+}

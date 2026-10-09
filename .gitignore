@@ -5,3 +5,10 @@ runs/
 node_modules/
 modules/collection_data/server/cache/
 modules/shell/prototype/gallery_walk4/identity/Rogue_rogue_texture.png
+
+# #235: keep precise animation import settings; embedded GLB texture copies are generated.
+!modules/shell/character/*.glb.import
+modules/shell/character/*_target-albedo512.png
+!modules/shell/character/audio/*.wav.import
+
+modules/shell/character/*.gd.uid

@@ -1,0 +1,565 @@
+{
+  "goal": "All rooms and objects visibly evidenced in the ten supplied videos, within Collection only",
+  "owner_direction": "2026-09-30: run Muse walls/architectural-detail passes; correct placement/layout from wide-angle shots; complete all reconstruction",
+  "videos": [
+    {
+      "video": "IMG_6381.MOV",
+      "sha256": "12df06479e7d2a7121d1647c8b14a5feba6a61362b0449c252fe9ae00fe5468d",
+      "available_2fps_frames": 198,
+      "wide_contact_sheet": "video-wide/IMG_6381.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Historic marble staircase, mirrored fireplace, curved flights, arched triple window, glass chandelier, upper case-gallery thresholds"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6378.MOV",
+      "sha256": "a79c9a65e82293d43a46d1f54034ba398bce135b839a402dcbadbf33e3ec5e52",
+      "available_2fps_frames": 360,
+      "wide_contact_sheet": "video-wide/IMG_6378.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Metcalf Auditorium: fixed seating, stage, lectern, acoustic panels, side steps, rear ramp/benches, projection booth, exit threshold"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6379.MOV",
+      "sha256": "abc4922925e560966d5987cc3208b9a819f743b7ac7bbdc8c40741a4eab38e34",
+      "available_2fps_frames": 365,
+      "wide_contact_sheet": "video-wide/IMG_6379.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "skylit piano stair hall, curved iron railing, five distinct modern wall works",
+        "upper landing opens into grey French painting gallery; lower level sign 4"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6380.MOV",
+      "sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+      "available_2fps_frames": 521,
+      "wide_contact_sheet": "video-wide/IMG_6380.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "grey French gallery: two different stair-hall entrances and Grand Gallery door",
+        "historic marble stairs/mirrored fireplace",
+        "purple elevator-5 connector to Rockefeller",
+        "Rockefeller and long European gallery"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6382.MOV",
+      "sha256": "415467db2d2216363fbccb41801851180f48bbdb3304c95861f90f3f5767020e",
+      "available_2fps_frames": 226,
+      "wide_contact_sheet": "video-wide/IMG_6382.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "medieval stone portal, iron grille, Christ head and reliefs",
+        "Madonna sculptures/paintings and centre cases"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6383.MOV",
+      "sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+      "available_2fps_frames": 147,
+      "wide_contact_sheet": "video-wide/IMG_6383.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Renaissance gallery: tapestries, paintings, triptych, ceramics/book cases, bronze sculpture"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6387.MOV",
+      "sha256": "75c4892c1a37e1c83dd7103187d1c284e13fd0ac458710f4e8fd6e14daf1c7af",
+      "available_2fps_frames": 171,
+      "wide_contact_sheet": "video-wide/IMG_6387.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "upper staircase landing, medieval-gallery doorway",
+        "modern painting gallery, window niche"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6385.MOV",
+      "sha256": "a15a2e90b2ae6152727ab1afd3c205d31f0405215e606adf678be3f5c1cf01a2",
+      "available_2fps_frames": 75,
+      "wide_contact_sheet": "video-wide/IMG_6385.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "Rockefeller doorway reverse view",
+        "European gallery dress, secretary, Delacroix painting, silver/porcelain case"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6386.MOV",
+      "sha256": "3112391373f03128f0b1a4deac345e7d30c1ed27c4d9d0d850da37d25c97351f",
+      "available_2fps_frames": 213,
+      "wide_contact_sheet": "video-wide/IMG_6386.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "European gallery: paintings, prints, textiles, four case groups, central furniture and dress"
+      ],
+      "complete": false,
+      "survey_complete": true
+    },
+    {
+      "video": "IMG_6384.MOV",
+      "sha256": "0a2255c4fbcbbb44c48202e617b3978abfed4832633c6a21c73b5861570a0530",
+      "available_2fps_frames": 209,
+      "wide_contact_sheet": "video-wide/IMG_6384.jpg",
+      "survey_review": "All available 2fps frames inspected in contiguous ordered contact sheets; object inventory is a lower bound. Reconstruction and held-out geometric validation incomplete.",
+      "regions_seen": [
+        "long European gallery: cabinets, paintings, tapestries, hanging porcelain/cases",
+        "Rockefeller doorway reverse view"
+      ],
+      "complete": false,
+      "survey_complete": true
+    }
+  ],
+  "built_study": "Connected authored Rockefeller, European gallery, Renaissance, medieval, Grand Gallery and grey French gallery loop. Existing23 Hall paintings/frames/vault reused; stairs remain threshold studies. Exact room metrics, object coverage and hidden profiles incomplete.",
+  "acceptance_remaining": [
+    "every observed room and connection inventoried",
+    "every visible object source/API matched or explicitly unresolved",
+    "Muse architecture and object assets inspected in source and held-out views",
+    "connected native room geometry, collision and camera tested in both directions",
+    "same Main Hall lighting/frame/shader recipe",
+    "hardware-specific performance and published visual evidence"
+  ],
+  "blocked_runs": [
+    {
+      "kind": "river-deities",
+      "run_id": "run-7b018ec98c334a45ef16e681",
+      "state": "submission_unreconciled; max $0.01 possibly spent; never resubmit blindly"
+    }
+  ],
+  "current_preview": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/rockefeller-architecture-v47/",
+  "gallery_inventory": "european-gallery-inventory.json",
+  "sculpture_inventory": "sculpture-room-inventory.json",
+  "survey_summary": {
+    "videos": 10,
+    "reviewed_2fps_frames": 2485,
+    "coverage": "All extracted survey frames visually inspected; review sampling is 2fps, not every native video frame.",
+    "reconstruction_complete": false
+  },
+  "hall_stairs_inventory": "hall-stairs-inventory.json",
+  "ionic_capitals": "Muse front installed in source-positioned pair; constant-depth closed silhouette, side/rear and exact dimensions unaccepted; entablature still plain",
+  "european_renaissance_door_correction": {
+    "source": "IMG_6386:102.75/104.75s",
+    "panels": 2,
+    "unequal": true,
+    "swing_into": "Renaissance",
+    "previous_error": "three equal panels, swung backwards into European gallery",
+    "accepted": false
+  },
+  "medieval_display_cases": {
+    "source": "IMG_6382 78.25/88.75/96.25s",
+    "shells_installed": 2,
+    "relative_arrangement": "Broad low relief case south-west of smaller taller stair-side case",
+    "dimensions_and_positions_accepted": false,
+    "contents_complete": false,
+    "new_generation_cost_usd": 0
+  },
+  "bertin_tivoli": {
+    "accession": "56.214",
+    "source": "IMG_6380 90.25/91.25s",
+    "placement": "Grey Hall-door wall, between Villeneuve and Pannini; metric offsets provisional",
+    "muse_frame": "bertin-frame-review.json",
+    "accepted": false
+  },
+  "perugino_madonna": {
+    "source": "IMG_6383 35.75/63.75/64.75s",
+    "catalogue_id": "1546096",
+    "accession": "16.236",
+    "title": "Madonna and Child",
+    "maker": "Pietro Perugino",
+    "catalogue_size_m": [
+      0.391,
+      0.575
+    ],
+    "identity": "Mother turned left, child right raising hand, red apple, church left and hills right matched to native35.75s; exact catalogue photo retained separately.",
+    "frame_visual_review": "Top cornice, straight pilasters, inner gold edge, dark inset, bottom plinth retained. Generated overly blue inset/pilasters need deterministic source-brown palette derivative; pronounced faceting, cornice depth/rear and band dimensions unaccepted.",
+    "placement": {
+      "room": "Renaissance north wall, right of European doorway",
+      "centre_m": [
+        -0.47,
+        1.55,
+        28.18
+      ],
+      "yaw": 0,
+      "accepted": false
+    },
+    "run_id": "run-f55959297094d15b07761914",
+    "model": "meta/muse-image",
+    "provider": "openrouter",
+    "cost_usd": "0.010000",
+    "native_sha256": "c860540d122863589663a2892cde31b59153f0700eafdb4590823fe5e8b73f95",
+    "accepted": false,
+    "metric_limit": "Small-panel affine estimates disagree; doorway dimensions remain unchanged. Coupled authored loop shifts Renaissance with all its contents; exact room fit remains unaccepted."
+  },
+  "renaissance_walls": "Neutral warm grey from source63.75/64.75; existing Muse plaster grain, Main Hall presentation and source-relative vent. Exact colour/metrics unaccepted.",
+  "connected_loop": {
+    "source": "IMG_6382 64..89.25; original Hall177.50; official floor5 topology",
+    "observed_correction": "Two gold panels left of portal are on the north wall; projecting black display edge is not a room corner.",
+    "main_hall_existing_paintings": 23,
+    "main_hall_size_m": [
+      10,
+      26.3,
+      6
+    ],
+    "medieval_north_wall_width_m": 10,
+    "provisional_metric_fit": true,
+    "purple_connector_length_m": 2.15,
+    "purple_connector_length_accepted": false,
+    "continuous_loop_segments": 33,
+    "verification": "RTX4070SUPER native154/154 and Chrome154/154 plus keyboard round trip; each33 circuit segments/32 transitions without reset; source metrics and visual acceptance remain open.",
+    "frame_time_p95_ms": {
+      "native": 31.4814814814815,
+      "browser": 30.2
+    },
+    "visual_remaining": "Walls/white trim too warm/dark, exact mounting heights/offsets and portal profile unaccepted."
+  },
+  "medieval_panels": {
+    "built_accessions": [
+      "20.207",
+      "57.301",
+      "22.047"
+    ],
+    "source_video": "IMG_6382",
+    "metric_accepted": false,
+    "frame_trial": {
+      "accession": "21.250",
+      "run_id": "run-512ec3442058ba2c246e9eea",
+      "accepted": false,
+      "cost_usd": "0.01"
+    },
+    "cumulative_map_actual_usd": "0.77",
+    "cumulative_map_conservative_usd": "0.78",
+    "next": "Build the source-constrained lion landing/modern-gallery connection from6387 reciprocal wides, retain three distinct doorways and correct floor/window/bench positions; continue missing room objects, tracks, sculptures/cases and auditorium.",
+    "corrective_frame_candidate": {
+      "run_id": "run-56e0a4ec22f715cd28886116",
+      "visual_opening_corrected": true,
+      "installed": true,
+      "accepted": false,
+      "cost_usd": "0.01",
+      "source_fit": "magdalene-frame-source-fit.json",
+      "native_mesh_closed_edges": 732,
+      "native_mesh_triangles": 488,
+      "source_silhouette_iou": 0.9939929643814844
+    },
+    "qa": {
+      "browser_checks_passed": 154,
+      "browser_errors": [],
+      "browser_frame_time_p95_ms": 30.1,
+      "baked_surfaces": 799,
+      "shell_passed": 46,
+      "shell_first_passed": 44,
+      "shell_total": 50,
+      "native_detail_views_inspected": true,
+      "placement_accepted": false
+    }
+  },
+  "medieval_architecture_review": {
+    "source": "6382 native12.25/13.25/14.25/88.75",
+    "opaque_ceiling_missing": false,
+    "hall_skylight_visible_from_wrong_room": false,
+    "grille_identity_unmatched": true,
+    "rejected_grill_accession": "27.184",
+    "evidence": "docs/evidence/collection-reconstruction/main-worker-iron-grille-20261001T1040/architecture-review.json"
+  },
+  "room_ceilings": {
+    "sources": [
+      "IMG_6383 2.25/62.25s",
+      "IMG_6382 88.75s"
+    ],
+    "omitted_ceiling_fixed": true,
+    "authored_ceilings": 2,
+    "baked_copies": 2,
+    "height_m": {
+      "Renaissance": 3.5,
+      "medieval": 4.25
+    },
+    "metric_accepted": false,
+    "track_layout_accepted": false,
+    "native_eye_and_elevated_views_inspected": true,
+    "browser_checks_passed": 174,
+    "browser_errors": [],
+    "browser_frame_time_p95_ms": 34.7222222222222,
+    "baked_surfaces": 1472,
+    "shell_passed": 46,
+    "shell_total": 50,
+    "next": "Generate/install source-preserving lion34.652; identify/capture large figurative painting; generate Duchamp-Villon Seated Woman67.089 from inspected official front/rear images, dedicated Matisse/Villon frames; refine source stair curve/rails/flight destinations, overly bright modern spotlight pools and held-out room/object offsets, then remaining rooms and auditorium."
+  },
+  "medieval_grille_trial": {
+    "run_id": "run-6d9f3b3e3a4b26e3c758f21c",
+    "provider": "openrouter",
+    "model": "meta/muse-image",
+    "count": 1,
+    "cost_usd": "0.010000",
+    "native_sha256": "50dfca1c60c1039936fad34f3d3777f8a5b265af2859460255068ed64520981c",
+    "accepted": false,
+    "installed": false,
+    "visual_verdict": "Dark iron, tall outer frame and open repeated scrolls match the source motif. Source planar inspection shows7 spiral columns; generated sheet has8. Generated18 rows, scroll handedness, one missing curl and spacing also require source verification. Reject direct installation; source-specific structural fidelity unaccepted. No extra paid retry.",
+    "source_columns_observed": 7,
+    "generated_columns_observed": 8,
+    "source_row_count_verified": false,
+    "next_action": "Verify source row count, build source-shaped7-column guide/low polygon openwork using existing Muse material; preserve each real opening and inspect front/oblique/in-room before acceptance. Catalogue identity, dimensions, support brace and exact placement unresolved.",
+    "cumulative_map_actual_usd": "0.75",
+    "cumulative_map_conservative_usd": "0.76"
+  },
+  "medieval_grille_geometry": {
+    "installed_prototype": true,
+    "accepted": false,
+    "columns_observed": 7,
+    "rows_provisional": 17,
+    "coils": 119,
+    "native_closed_edges": 30702,
+    "native_triangles": 20468,
+    "catalogue_identity": "unmatched",
+    "metric_accepted": false,
+    "handedness_accepted": false,
+    "material": "Existing OpenRouter Muse iron-post pixels; generated8-column layout rejected.",
+    "paid_calls_this_pass": 0,
+    "cost_usd_this_pass": "0.00",
+    "baked_surfaces": 825,
+    "native_front_oblique_wide_inspected": true,
+    "browser_checks": 158,
+    "browser_errors": [],
+    "shell_passed": 46,
+    "shell_total": 50,
+    "next": "Compare reciprocal wide shots for all rooms, source-fit medieval east-wall fragment/stair doorway and track lights, then refine remaining door/object positions and room contents.",
+    "evidence": "docs/evidence/collection-reconstruction/main-worker-iron-grille-20261001T1040"
+  },
+  "medieval_stair_wall": {
+    "catalogue_accessions": [
+      "41.046",
+      "41.045"
+    ],
+    "catalogue_identity_matched": true,
+    "catalogue_width_height_m": [
+      [
+        0.267,
+        0.826
+      ],
+      [
+        0.254,
+        0.864
+      ]
+    ],
+    "geometry_installed_prototype": true,
+    "geometry_accepted": false,
+    "muse_damage_fidelity_accepted": false,
+    "door_leaves": 2,
+    "hardware": "Open double leaves, black push bars/hinges/closers,green EXIT; texture reused from Muse two-panel asset",
+    "source": [
+      "IMG_6382 17.25/20.75/26.25/77.75/78.75s",
+      "Official RISD front/side photos/API"
+    ],
+    "muse_runs": [
+      "run-d3f8116583dea973b1b4a81b",
+      "run-54d9c9f23373622b070af56e"
+    ],
+    "new_paid_outputs": 2,
+    "cost_this_pass_usd": "0.02",
+    "cumulative_actual_usd": "0.77",
+    "cumulative_conservative_usd": "0.78",
+    "baked_surfaces": 900,
+    "browser_checks": 158,
+    "browser_errors": [],
+    "shell_passed": 46,
+    "shell_total": 50,
+    "next": "Build the source-constrained lion landing/modern-gallery connection from6387 reciprocal wides, retain three distinct doorways and correct floor/window/bench positions; continue missing room objects, tracks, sculptures/cases and auditorium.",
+    "evidence": "docs/evidence/collection-reconstruction/main-worker-stair-wall-20261001T1100"
+  },
+  "connected_modern_v46": {
+    "source_native_frames": 32,
+    "landing_doors": 3,
+    "landing_floor_void": true,
+    "stair_flights_studies": 2,
+    "modern_windows": 3,
+    "modern_bench": true,
+    "modern_window_wall_opening": true,
+    "catalogue_paintings_installed": [
+      "48.248",
+      "70.058",
+      "57.037",
+      "43.255"
+    ],
+    "retracted_false_match": "41.012 replaced by57.037; prior source six-apple claim wrong",
+    "placement_metric_accepted": false,
+    "stair_curve_destinations_complete": false,
+    "all_objects_complete": false,
+    "muse_runs": [
+      "run-9aee0790a3bad9ca3dc7bb83",
+      "run-65e26c80ff7874d3634914a4"
+    ],
+    "new_paid_outputs": 2,
+    "cost_this_pass_usd": "0.02",
+    "cumulative_actual_usd": "0.79",
+    "cumulative_conservative_usd": "0.80",
+    "baked_surfaces": 1472,
+    "browser_checks": 174,
+    "browser_errors": [],
+    "shell_passed": 46,
+    "shell_total": 50,
+    "evidence": "docs/evidence/collection-reconstruction/main-worker-connected-modern-20261001T1135",
+    "next": "Generate/install source-preserving lion34.652; identify/capture large figurative painting; generate Duchamp-Villon Seated Woman67.089 from inspected official front/oblique photos and video, rear shape unverified, dedicated Matisse/Villon frames; refine source stair curve/rails/flight destinations, overly bright modern spotlight pools and held-out room/object offsets, then remaining rooms and auditorium."
+  },
+  "lion_plaster_v47": {
+    "official_lion_front_installed": true,
+    "generated_lion_front_accepted": false,
+    "individual_brick_relief_complete": false,
+    "metric_accepted": false,
+    "muse_runs": [
+      "run-49b57942e799e34216bc2687",
+      "run-20fa6fddf9fc645f616f8335"
+    ],
+    "paid_outputs": 2,
+    "cost_this_pass_usd": "0.02",
+    "cumulative_actual_usd": "0.81",
+    "cumulative_conservative_usd": "0.82",
+    "prepared_sources": 205,
+    "baked_surfaces": 1486,
+    "browser_checks": 174,
+    "browser_errors": [],
+    "browser_frame_p95_ms": 34.3666666666667,
+    "shell_passed": 46,
+    "shell_total": 50,
+    "all_objects_complete": false,
+    "evidence": "docs/evidence/collection-reconstruction/main-worker-lion-plaster-20261001T1220",
+    "next": "Generate/capture Duchamp-Villon Seated Woman67.089 and its case from inspected catalogue/video; install verified Le Fauconnier Mountaineers1995.043 with source frame and dedicate Matisse/Villon frame passes; verify landing roof/stair void, source stair curve/rails/destinations and held-out room/object offsets; continue remaining rooms, case contents and auditorium."
+  },
+  "main_build_attachment_v50": {
+    "date_utc": "2026-10-01T13:40:00Z",
+    "actual_main_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+    "main_hall_rebuilt": false,
+    "hall_files_unchanged": 362,
+    "native_fullapp_capture_passed": true,
+    "headless_adapter_legs": 19,
+    "older_trials_agree": 78,
+    "older_trials_total": 87,
+    "browser_verified": false,
+    "separate_addition_bake_complete": false,
+    "rtx_failure_unresolved": true,
+    "cumulative_actual_usd": "0.86",
+    "cumulative_conservative_usd": "0.87",
+    "all_objects_complete": false,
+    "evidence": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001",
+    "report_url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/main-build-review-v49/",
+    "next": "Apply Opus wide-angle modern layout correction; bake additions separately, inspect actual full-app native, export and verify browser controls/traversal; continue remaining video coverage."
+  },
+  "medieval_case_contents_review": {
+    "date_utc": "2026-10-01T14:35:00Z",
+    "strong_matches": 4,
+    "probable_matches": 3,
+    "unidentified": 2,
+    "inventory": "medieval-case-inventory.json",
+    "source_frames_decoded": 16,
+    "all_objects_complete": false
+  },
+  "virgin_child_15108_muse": {
+    "date_utc": "2026-10-01T14:35:00Z",
+    "accession": "15.108",
+    "run_id": "run-45b7430ae44f28051bb2b9a2",
+    "provider": "OpenRouter",
+    "model": "meta/muse-image",
+    "cost_usd": "0.010000",
+    "provider_receipt_spend_state": "unknown",
+    "durable_state_cost": "0.010000",
+    "outputs": 1,
+    "native_sha256": "a14ab275b107b2b8a2e97455ef9b150b68fc347eba4b06df6b694ea6b57c96fd",
+    "visual_review": "inspected; usable preliminary low-poly front/side modelling guidance; fidelity not accepted",
+    "matches": [
+      "Seated Virgin; child on her right knee (front viewer left); open book",
+      "Blue bodice/skirt, green/orange-brown worn mantle, long hair/circlet",
+      "Stepped base and broad flattened back silhouette"
+    ],
+    "limits": [
+      "Rear hair segmentation and stepped paint areas partly inferred; native rear blurry",
+      "Separate views differ slightly in child/book silhouette",
+      "No meshes generated: sheet only",
+      "Catalogue height .394m; width/depth remain unmeasured"
+    ],
+    "geometry_installed": false,
+    "all_objects_complete": false,
+    "durable_state_cost_state": "actual"
+  },
+  "virgin_child_15108_geometry": {
+    "date_utc": "2026-10-01T14:40:00Z",
+    "evidence": "docs/evidence/collection-reconstruction/virgin-child-geometry-20261001",
+    "closed_parts": 32,
+    "triangles": 718,
+    "height_m": 0.394,
+    "native_check_passed": true,
+    "fidelity_accepted": false,
+    "room_installed": false,
+    "issues": [
+      "columnar mantle/seated-knee silhouette",
+      "unresolved face/hands/paint",
+      "first texture projection failed and removed"
+    ],
+    "next": "Independent Opus silhouette and material refinement before installation"
+  },
+  "current_preview_limitation": "Older standalone playable; latest attached fullapp bake/browser pending, not current construction",
+  "current_review_url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/main-build-review-v49/",
+  "medieval_case_object_progress": {
+    "inventory": "medieval-case-inventory.json",
+    "primary_api_independently_verified": 7,
+    "strong_matches": 4,
+    "probable_matches": 3,
+    "low_case_objects_unidentified": 2,
+    "closed_prototypes": [
+      "15.108",
+      "40.002",
+      "1992.051 (probable)",
+      "30.011 (probable)",
+      "52.002"
+    ],
+    "virgin_geometry_parts": 53,
+    "virgin_geometry_triangles": 1240,
+    "case_installation_verified": false,
+    "fine_surface_fidelity_accepted": false,
+    "muse_new_sheets": [
+      "virgin-child-15108-review.json",
+      "queens-202055-review.json"
+    ],
+    "cumulative_actual_usd": "0.87",
+    "cumulative_conservative_usd": "0.88"
+  },
+  "floor_actual_main_trial": {
+    "negative_downward_vertices": 9948,
+    "positive_floor_meshes": 1684,
+    "positive_wrong_normals": 0,
+    "visually_inspected_rooms": [
+      "modern",
+      "landing",
+      "grey"
+    ],
+    "method": "Clockwise floor face winding plus SurfaceTool.generate_normals(); reversal alone was visual false-positive",
+    "shared_main_shader_changed": false,
+    "evidence": "docs/evidence/collection-reconstruction/main-build-attachment-review-20261001/floor-winding-native-proof",
+    "source_integration_verified": false,
+    "bake_browser_verified": false
+  },
+  "latest_qa": {
+    "shell_root": "42/50;8fail",
+    "shell_committed_baseline": "41/50;all8rootfailures reproduce, plus baseline timing",
+    "native_actual_keyboard_v50d": "6/6 paired-door crossings, actual root Input",
+    "fresh_browser_verified": false,
+    "rtx_driver_fault_resolved": false
+  }
+}

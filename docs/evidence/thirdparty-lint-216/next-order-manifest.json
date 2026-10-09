@@ -1,0 +1,447 @@
+{
+  "baseline": "5a213901",
+  "count": 85,
+  "files": [
+    "modules/atlas/atlas_window.gd",
+    "modules/playground_page/playground_page.gd",
+    "modules/sculpture_viewer/viewer.gd",
+    "modules/shell/crt_display.gd",
+    "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+    "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+    "modules/shell/prototype/gallery_walk4/walk4.gd",
+    "modules/shell/shell.gd",
+    "modules/shell/window_shadows.gd",
+    "modules/sketchbook/desktop.gd",
+    "modules/sketchbook/drawing_surface.gd",
+    "modules/sketchbook/paintbox.gd",
+    "modules/sketchbook/sketchbook_window.gd",
+    "modules/tab_strip/tab_strip.gd"
+  ],
+  "findings": [
+    {
+      "file": "modules/atlas/atlas_window.gd",
+      "line": 48,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/atlas/atlas_window.gd",
+      "line": 49,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 81,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 82,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 83,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 84,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 85,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 86,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 87,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 88,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 89,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 90,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 91,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 92,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 93,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 94,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 95,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 96,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 97,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 98,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 99,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 100,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 101,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "line": 102,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 58,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 66,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 67,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 68,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "line": 109,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "line": 12,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "line": 13,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "line": 14,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "line": 15,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "line": 16,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "line": 15,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+      "line": 18,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 69,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 70,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 120,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 121,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 218,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 219,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 220,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 366,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 367,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 368,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "line": 1024,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "line": 17,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "line": 18,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "line": 28,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "line": 211,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 76,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 77,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 78,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 79,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 80,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 81,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 82,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 83,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 84,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 85,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 86,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 87,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 88,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "line": 89,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 12,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 13,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 54,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 55,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 56,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "line": 57,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 80,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 82,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 83,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 84,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 85,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 86,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 87,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "line": 88,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/sketchbook/sketchbook_window.gd",
+      "line": 8,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 13,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 14,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 15,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 16,
+      "message": "Definition out of order in global scope"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "line": 17,
+      "message": "Definition out of order in global scope"
+    }
+  ]
+}

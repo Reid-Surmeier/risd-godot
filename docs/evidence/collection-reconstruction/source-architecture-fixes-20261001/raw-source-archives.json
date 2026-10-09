@@ -1,0 +1,41 @@
+{
+  "reason": "Exact unmodified raw HTML/engine logs preserved in gzip; raw working copies kept; decompress to raw paths to reproduce worker hash manifests. Avoid changing source bytes merely to pass whitespace checks.",
+  "files": [
+    {
+      "raw": "docs/evidence/collection-reconstruction/medieval-case-install-20261001/collection-v49e-parse-corrected.log",
+      "archive": "docs/evidence/collection-reconstruction/medieval-case-install-20261001/collection-v49e-parse-corrected.log.gz",
+      "raw_sha256": "6d1c065383a27c36804949b6ffa4b09714470b112e5dacc0bd5aeb7b9c147c4e",
+      "archive_sha256": "97675e961fd50d33d8dcca49a213125f9a9fa9cc50431851baca2d489e1a15d6"
+    },
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOa.html",
+      "archive": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOa.html.gz",
+      "raw_sha256": "fa28d7df702938f0ba44015f7de7360de39d846a1c7609ab77d317c63e63af2d",
+      "archive_sha256": "70e551cc74d1105d930cf3114b45f48f26de475efce145e3945bd6d35941ed32"
+    },
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOb-bibdesc.html",
+      "archive": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOb-bibdesc.html.gz",
+      "raw_sha256": "d4e334a47799a81cfb74000a071d39c0a5ec29a33633acb98943f920077a43e9",
+      "archive_sha256": "155fa37a64f7fad16305be0e5415d3d25220b41cce7257ccf117da4b85d33510"
+    },
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOb-description.html",
+      "archive": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOb-description.html.gz",
+      "raw_sha256": "b39bdadd90378180927c19f1343682602e430b54f3fc7523c5ac4f46ffd67bc7",
+      "archive_sha256": "c28d1c07f9ff71e9a725101f827fa161f4aad4216fb315a2854c311bc0da483b"
+    },
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOb.html",
+      "archive": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-FMOb.html.gz",
+      "raw_sha256": "d2fbcb67438884dd8c2463bcbe2fd2499f1019642144f87d71211543a4ac94ad",
+      "archive_sha256": "32985099c095ad4d066cc29d05fb1ab2f2839802d7b76e6f005278de0d15c721"
+    },
+    {
+      "raw": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-copyright.html",
+      "archive": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/web/glasgow-copyright.html.gz",
+      "raw_sha256": "ab07f2c56d4114d2a3951a20c491fce39c42c07248f6608a46dfdb2946622b8b",
+      "archive_sha256": "50275dade31376966777b0aa0b459a0a171f509940e4fe7f15d91c32a74c1b58"
+    }
+  ]
+}

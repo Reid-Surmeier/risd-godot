@@ -1,0 +1,11 @@
+# Ingestion Python; every output directory is a preserved trial.
+timeout --signal=INT --kill-after=15s 550s /home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python -u modules/shell/prototype/collection_reconstruction/strict_rebuild.py
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python -u modules/shell/prototype/collection_reconstruction/strict_rebuild.py --validate
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/strict_landmarks.py
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/strict_landmarks.py --aperture-toes
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/export_view.py /home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1 /home/reidsurmeier/risd-godot-ingestion/collection-expansion/review-preview/heartbeat-20260930T0730/cloud --sparse-only
+GODOT_DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/playtest.sh shell /tmp/collection-shell-20260930T0730
+GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA DISPLAY=:0 godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 -- --selfcheck --out=/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/evidence-20260930T0730
+GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA DISPLAY=:0 node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ docs/evidence/collection-reconstruction/heartbeat-20260930T0730
+scripts/check.sh
+git diff --check

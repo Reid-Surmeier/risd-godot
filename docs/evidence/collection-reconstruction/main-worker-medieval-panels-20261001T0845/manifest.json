@@ -1,0 +1,1330 @@
+{
+  "source_sha256": {
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/bookcase-original.webp": "86b8babf21fb3a53fac0f319a08922ae449948a4a42c9c41265592b36ee5512e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/mirror-original.webp": "00846e59bf5074910066e579708a7c436ce92e8a1190471105dc419c9cefae93",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pair-mirror-original.webp": "c71a211906c85c6d8ba2a6a0f98349bbfbc467ea4931380e36fbdb176c678395",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/settee-original.webp": "7983946b822af0d0468147a4c40de8e8099d313754a69783eac37b49ca26fcc9",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/armchair-original.webp": "31342904bafa642bff6030d1e905a3091bdec2bcb4add8b55a3d080187015822",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/entrance-chair-original.webp": "9eb6fc6e12c49c78dbe651e3a826a032f909928bb2e64647409ded9ae1a94707",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/tureen-original.webp": "30939bfd34e57184c3cea0bcd0c0fb3e9f50f70f3f72b2b29bc3d892744cd7ed",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/st-george-original.webp": "c529c8402bf4782e55361de2761c40e83b801d157159a8badad6bec028f21152",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/flute-player-original.webp": "49a83de14d1c714c582e6f92f7ac93aa93c8e6d44bb3bdd2a51e633c7e424388",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/hudibras-original.webp": "8a53aeba54019473a7e8a8059e7fc6b273f289414d9aa10f273e820caa5d0bdf",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/bear-jug-original.webp": "9b2c239fde26f9683aa3660aba4326bca32cf87eb6f41f007b78cf76f9008562",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/horn-player-original.webp": "fcfa0cb3408c5aebe27ee7dde4e92dc431496b711753a7265c9e4e98e0a1c3ea",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/finch-original.webp": "31970bf1963451a2b26eed581bf1e90cae6fa886a3c3e2936e6b7fc2406f2c0f",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/finch-pair-original.webp": "79fa562d74ddcd459ec2a9b9e44b8ab142a635051075fbebbc8b816a4b081063",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/bagpiper-original.webp": "fc69cfdcb22df58358ef84d2f745a8e8bc2f704baa08232100b76ac751195070",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/bear-jug-pair-original.webp": "2b380a50dfa1aaa0cbb2f12efb11822605d6e47c194feb0957d8edbe2059e7d0",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/cream-jug-original.webp": "6170368cb3a03f038b19b6dc708b06d58a39e8f454219e7e2c42b71c0e1c9824",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/parrot-original.webp": "0043bd1f1c08cf0e1d5ffa5d9af51b83487abedba0264cc3efbcbe9ef8d845e6",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/fox-original.webp": "e57c46b3ca09908f9db4c95289d031ea5a9c89dac8619f88062b50b970de2c38",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/parrot-pair-original.webp": "4c5a6608f2c93231e4c1ae1a98f59bec43572ffe4af00a5c5edac350c65d5b7e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/agate-teapot-original.webp": "c5ad727b7f957c631f5cef94e3e571c3abf390faa886ab6b8853435162a4a4d1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/shepherd-original.webp": "6a95162e15524a6ea25ac55a7f3cd15b2946621036d1e7afb7d2c8501b716410",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/candlestick-original.webp": "b4cb551344a45e239c78dd8d2a4a56573dbb0a31cd1f422725563afeba328807",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/cow-original.webp": "b4db6a7b59cb0b9df4ca36f1d9b369c174257cf662e73393939b17a435aa0e01",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/candlestick-pair-original.webp": "ed872cc910e2638569df3568c76f9f155718232e472cd11f3594b50bd3090023",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/parrot-third-original.webp": "80eb3794be0f73f5428816ba0c1f9af04ca266665e5c806dd51b21e8435ae8dd",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/recamier-rear-original.webp": "f2170c0124e6f44a4c8117bbb3c516d112981f17be5783819f968752be582511",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/recamier-original.webp": "c57863a35e1b729ad23aff3042ff37897f1fd0e690edf450a05c6c5bf337ad35",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/ewe-lamb-original.webp": "159805847d18afa0baeb4e749028bba915e90896de2a78f414e7db8974285f44",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/sconce-left-original.webp": "f1656b69aa66bf8969ac2e19959ae3d1a39daf1494c7dff1e93802f6201c4f48",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/sconce-right-original.webp": "4ed503f0504c83a7e211081e269adca9a9f1e8b3454cfb0323eae856761242a0",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/writing-table-original.webp": "0c1b04da9e4bac4ad1dfb8e32c20ce6699ad51118f1cd79bbe6ce7ab4569e471",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-tureen-original.webp": "181ee7d703106e21367fe58e045ea6271a9c1452c1bb662c597765e12c9afd37",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-ecuelle-clean-original.webp": "5b70590db6d48ff9eb3a56994b9891061b948d9c6aee38f1661f47df29cd6071",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-basket-a-original.webp": "d38b679b50bcdd8fe6955bc3d7700d15a7de8898d6aedc13e4533f95336ef6dd",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-basket-b-original.webp": "ba7368b5a11b3df52b280a01bd076acb96fa1a95aa601e193347edf24dabac40",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-square-a-original.webp": "e990ee0ec376de62fb6ab89d66a2ca45aedd57f13886193be80c56918f30ab27",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-square-b-original.webp": "bd41aada56aac5ab2fb4500a486b11afaf01ca0f44ef7360ad09a0f6a0462f6a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-plate-a-original.webp": "c6d764aadbec29fbe6fc7d7fbabb0f1d7425861e65352391bb1a8b7eb0869040",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-plate-b-original.webp": "b5e5093035640bc4fb5a1c6d5015651910a0195d7d58fe724d3c7f3bfc1c0e4b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-saucer-a-original.webp": "1eee6a80004e35d94d634d19919ab9ee78dbfff35a6c6f2e092730c59da1e137",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-saucer-b-original.webp": "72baf9bb4e6adad716be483aed8812f02c773f68c97558888044c5b3a295fde7",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-cup-a-original.webp": "fe1ff10c92a29711452153bb89169a032bcf35b7f8c21f1d0ea19de6a571bf4e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/gold-cup-b-original.webp": "c7c1b47de2b8e5bd2284c27c4fa4496e334e7134657c657d4df813ec8d13e0d2",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pink-small-tureen-original.webp": "5de8f30fefb7596a7e64566009208fb361a0f9b585892a1b951808ffc8abd708",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pink-compote-original.webp": "bec46038fb9c91cac8d58cdf74e5810db5e62513c12e3c888f79070b427e24e7",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pink-bowl-a-original.webp": "0aa73f9252371e04d42c90b4783e9ea7daf9dd4509873b5ce85ea0ad6a4ea56d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pink-bowl-b-original.webp": "ba413ca43572c64921d66fa3358784f206312aa210eff462fef98da16e8a028a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pink-dish-original.webp": "9d0d838ca526d34bb40f4bb431e4acc5b02f09c631a7ff514fdd67320404d454",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/pink-ladle-original.webp": "6166c76adab92f2805b4bce92bedc2d11eef63d9f1f46eb68aeeee092f891204",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/secretary-original.webp": "fd8e28cf1ced14b9372ae4e9c75941b2aab0978874f14fad921cfa4499112956",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/video-inventory.json": "a8d2da8d0c7cf3b843cbeaf62aa2088d52b98a700d469260914e22395ee86e52",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/catalogue/painting-58.197.jpg": "1b08613f3475f13c853adab2db16ae4cd41779ca3ecc04b7d6b0d9ee80306b4d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/edwards-frame-original.webp": "026c7637bdd4a30683c80b71c994f80712aab59ef7f82ea8309f48fb22e92f7c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/romany-0.jpg": "1763c2162aa1c5c5810189fa35250911ef9c56347384f988744bd22d671293e9",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/romany-frame-original.webp": "d5ebdae7350201911db7f25a78b1db17bc5a9183d44fd73e597c435ef1256b96",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/grey-frames-source-fit.json": "c8d776251a3c28698ae60002f9ee37f218d0eec0a61dc4cfc40cc0ce3f9117b7",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/courbet-jura-zoom-0.jpg": "7fffc69fbf99f51855af0b7b9ff5ff26ca4d889bdf688394cc8ce3ee72d94665",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/courbet-frame-original.webp": "11c5cf4d300dec8d93f60cd19bb9337d0fcb5e46ac611ceaa74658f3124abc32",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/corot-river-zoom-0.jpg": "96fa38baff58d99bdfc391ecdebe78c7ef30c9463d69b7ff785a51a0c34be004",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/corot-frame-original.webp": "f9eb7545c390eaa57834237830e5ee3d788a13d5b7f5651ab94724cb6e8e5780",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/bertin-tivoli-zoom-0.jpg": "1c20b300c0a591c1905dbe8b0fdfb1d2bde8572f5b9d9cec93adcb7a5738e8f5",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/bertin-frame-original.webp": "5e82e83b9907e8bd32f110543265906e76dd1dbfe3911f56af0185e0712f9da1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/perugino-frame-source-fit.json": "d2215bf1f56306b7e6b94e4841643520d2dbfbf36ded79fe76ff093947de9aa6",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/perugino-madonna-zoom-0.jpg": "e07cd2d566a02507fa7801dfbc4ee9fb0a111091c299bbb11e8a397ec027f3b2",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/perugino-frame-original.webp": "c860540d122863589663a2892cde31b59153f0700eafdb4590823fe5e8b73f95",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/arabesque-wallpaper-zoom-0.jpg": "9f3cd853ae638cebb92193872d21444ce1d76fe8a32a17ba3d70b3983a779348",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/arabesque-wallpaper.json": "99f1a5660538aea70908b03cf9118377b4137743ebba4dc06bd4884b779ba032",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/white-panel-door-original.webp": "bdb409892fa25e41b6ec0942329f32c3a975c3e6e19e54152f378e69434f1546",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/european-two-panel-door-0.png": "6afc7ed275c56bbb31f06ee9eef0b3a283142188160f504164b9f26d2928bd51",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/european-two-panel-door-1.png": "30b3def59dc5dabd293f8ff2c3d6cd961c3540635e0ff6d71524f0d70288a342",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/european-two-panel-door-geometry.json": "7090a8ecd78b879f3f6206b609cd660e04078ec85068d448c46660c3bd41895e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/fetti-frame.png": "8cb1f9468f47d60f841af09754e23674c7503368f938e16489cd20a51ad5df26",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/fetti-frame-geometry.json": "0b2a46988a62dec9949715a05cd8965eb259b06d79dc620282fb64dd45cefc83",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/goltzius-frame.png": "e9a871caf0559aa3b36dd20247e614456fc21aeaad3bc4c752f20242820ba06d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/goltzius-frame-geometry.json": "92e823dc9880c92d2c4b1acc956157a779e28a162bc75a0857518271596ca516",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/romanesque-portal.png": "79eb5a16b65c51d36972268c4adb4deb53f996252b3c297c037038222963477b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/romanesque-portal-geometry.json": "887f6a383286fb559636ecd3a0b46524e7ab4da4a98a369d9829b1aecd834ee1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/tracery-arch.png": "6dcacbcd381261ebbf09f7accc6b84b6974af23b70351ed635d90ab58722b83c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/tracery-arch-geometry.json": "e9427100f65c63b30adf53b1b8c322bd9f3cb9fc2987d9ffae841b71746eb889",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/ionic-capital.png": "3092ba0b03f3ebae72784033983ea6243a2e2f72958fe4e7e45da308dbcccdc3",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/ionic-capital-geometry.json": "9140a5846a049aa27a4e57769d053442820fa070bdd216ca63e7a19586e00932",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/goltzius-cold-stone-zoom-0.jpg": "2f0d8e21101ca6f4038858bad8933fd8322b8edad9cd3a1cc9c6316dd982b260",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/sculpture-room-inventory.json": "47542c4036f91ab871b3835eeb25dc649e5b52798081b9a13f8ddb9102f36bbc",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/fetti-angels-zoom-0.jpg": "ebfd6a0d51a8ae7ee3b9d84f5fafd7eb372af3d623f74a10336afc6af65f44e3",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/bartolo-madonna-zoom-0.jpg": "48812c99e57bb2e3b82c1250bbfb878131cd5d8e21d076aad0e613c7cb795ba9",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/virgin-annunciation-zoom-0.jpg": "ba01733d919624ab21eab3cf8008f932bdb89036de8ef8c115e468ebb55bef8b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-catalogue/taking-peter-zoom-0.jpg": "71f5fd3e98c3e5f2342a5e19ebb96f76435485a3120bbf92d659a913559cf135",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/room-route-walk-v5/geometry.json": "3f7d13e83a84b236c7afadb32ea475be9eac65fda90eda637c10d0bf06930184",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/doorway_walk.gd": "bab033d2c1cb8c57b256d0386e7bf86dbf8afe832179071c02b20e0e6728dbe2",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_room.gd": "a12a15631f097a5d4368e4c04d05c1a988f2ff7d80157b49f1435252afb7e29a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_review.gd": "344286203ce02f4da5ce9134d8c00077069ebe1b089cac16d71e27f75ecb9198",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_presenter.gd": "82b03a5d6c78f793cf072aad34e1eb2df0f2bb7c4f001afd276bcf3f4d9ab512",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "0abd81d02aec5968524d5bbfc0b695b3f0c82951fe167efa11db9fa7ca9bb4e5",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/connected_hall.gd": "cac147ec1c0ced63c75f03ddeeecc9a52af5adfce6008dbbe86514af4122d8ff",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/walk4.gd": "5fb1a1d10bb55d620d222f35b388b6daae6160333224f882e3fd185903f72909",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/works.json": "250845ab9670baac01efd37fd9230182cf684c9ae096c48c0f9d6f262b5a5769",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/gaps.json": "9b982ef51c095ccbc7e0611535e3a88d701c3aeec1e7fb5acaf29877ce108ff4",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E1.png": "13413b8ba646b4b5d1b61629abc7caffd744377e2e4dae5017c706c030a21153",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W2.png": "429cab95bcb81a5c5a40738cd52d0ed3e75608148c9abaaafbd46ecf2ccb9642",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E3.png": "185efa87690c64c3705d302d143689c9c1f8f2a8ee9ce5e5bb5b28615fe6d3c6",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/N1.png": "5e71be29acfecacba969dce2eb91a90789c3cda6692590f6b99319c39a525f01",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E5.png": "b04ba179fc177aa3f3b6c536b912bcdb42ad45d52b86b8b7f96b6f5c949f88a4",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W10.png": "fbb93a0f3d3db41cf14027485e691976cadfb6533b098e8e652952815850f7cb",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W6-shaped.png": "d1052b9d06d23ca9499e6d4729e24131f788a880ce8d4ee69ebaba23ac19447b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E6.png": "6ff3fc767167981c77cabaf44f0de18e85fd75e72a608071ebb78ea459313f4e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E2.png": "3ae61a000c9f5fb6bf2a8b16975d097fe6f1ab2827309605ec120457aa1ebe8d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E8.png": "a82076d14695bc94e4f0c39b3c1741568dfa5b4975b98bca3e496eb8c046ce50",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W7.png": "b0c05b8a151f3a6c221b3b2e1c893b64e87a510681c38981393758a7b3403424",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E4.png": "17bb9260c0ec26eb315f1f1c314c6e1ae8f819ca6163cfcd43482ae879d0cfd2",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W8.png": "9a593bdb0e27e7c3ae6cc62843a22fc4abd3fd1ee1d1bb28aef32cf81076ab00",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E9.png": "58fa72efba40f605287a732f5b63970c60b1bcbd8bbedab556551147f263fe7e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W5.png": "4a95bc68c4875bc33b67272f9a7967fbd1385bd27900a1c73411c65a017e540b",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/E7.png": "4b696a88b5b8024d6a2e3ede229ce1a10864607678b57d1fe591f9ccec34571e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/S1.png": "f547a0821b1734539cafcb750b931ed2d08cc19810b2d3979350c3d48aed3de8",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W9.png": "5da275409389dd8ee00ce6e9326bdc800eebfc58800f6f0276a0942387ff8933",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W4.png": "77bb9c8fec21afb2283a48e2bc65230d8a0252eaeeaa5e8a29256599ded49ee3",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W1.png": "383547a2b4eed068bc0af070df7f4efea53975e71d2e2b3bb0c01d91392fa68c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/N2.png": "15025cde72a933fb8578f16cc921540a43ccf754fb16759eae094e5b75c40499",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/S2.png": "3e745707dcd178a5a07ca663c6ddea3f09c1e9904f53e65d24bd2fa8d3eb1b37",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/frames/W3.png": "ddee3346b9bda801c94961d32298f25ce19bd6f5cb5c09eff48b5530b0293f39",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W6.jpg": "a0c6a2e761c0810ea3d7a95280e315e79ebb304b86d0cdb0834cc1bf3f46972d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E1.jpg": "6b4c56ece9a05eefae1748c3fd62d356ec117120f7a118e8f42595c35a1003de",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E4.jpg": "18ab3327baa81bba3c7e4850cd656725ae5098e6aa2e930a3c1d3c2d7137b758",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W2.jpg": "7a35046c75b89df46199070b8e0e768f0a9b53c57c1adfcc1283d2fcc8883cc5",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W10.jpg": "6998f477c02d307d79a2a5bc4de19e7d8f5e9418074c7403c5eac4fbde1082fb",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E9.jpg": "8da057ff1dadef2eb98c5a7ff2dee05b98886d1c83e8be5906b763dc074836b0",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E7.jpg": "088338a531fb09d3bc69a02a00dd1eb90b1ee348b3405be57f82e8051b59fcbc",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E2.jpg": "83cbddbaa4df89f16f887663b2915d4be91bb787f70b79dae3f8a174d1511305",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/S2.jpg": "3f92d0e7061539a425c5cffcfb41cf641c90d1bb9f077d5c984b32605439db9d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W4.jpg": "06d5bc40dc6f6f86daf74167e83add159cc86b91956786a487998199ab63a321",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/S1.jpg": "4753a24b93633687f2352f1570ca4a47ecd16a47acaa11988112b70651282711",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W1.jpg": "7297ab9e19e4fb4c789c2eecf29d0a87fb4e39a60a28eb570ba714c557f49d34",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W5.jpg": "fa7494e712b4eaedad65073819906bee839709245174572b5daa90a691242082",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/N2.jpg": "67a399cdf73e4e40d64b39164b82f04455b9358cca8fe153bbf099a6791a7a78",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W7.jpg": "c5fe30b38218892e4e739858cea8cb0bd78527b9babd4b75b8014c874e752a9d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W3.jpg": "8419fadf3266baaaee1991e38e838627085e9009c12dd8510993050c55516d7e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W8.jpg": "f5f77ebe94d02fdb7abfa5287090aa9d0ea1af37b5b57ebc8159d4310e49a947",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E8.jpg": "a972a433c8c843244981d87b12e37bda16e970746e20c4cb7d4927027caf26bf",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E6.jpg": "ffa27dbbb9eec482aaa84c2bc529d724332fc159e5156e0f8ba64246c52a2d24",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/N1.jpg": "c47707dbd31d7148bb04cf4587e26e6dbbf17d46bb1b8ac91ebe0559fbf37359",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/W9.jpg": "cc1f210d822b28be443cddf569710d1e5c81033af91c4f2d4644c066e71f8f70",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E5.jpg": "87b294ab5ffd3ed6471466d57da5fa15a2ffbf94b6a9ec4c434aa2cf9b1d9dc9",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/canvas/E3.jpg": "f8eef09dd92d671f2589c9d06b3687c35e5a43e45a6ca15eb68a5e3d2e62e351",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/wall.png": "1d5442054d96e092675f41929cf1245a247ec677e13f23b7eccd42f0f22f0a60",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/oak.png": "ea9d9966c0295584c531e5550aab372fee9d53662ffe12fd2553014c9ebaec0e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/oak-muse.webp": "bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/door-arch.jpg": "53d5fddf4ada6e1f0c3a28a62227fc886fa528f8ed4428213b79ed82187f666f",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/stone.png": "54f9436e284d82827459666b4d73c24e6bd0b54f62b3a44c810c57f9ddb6d882",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/door-far.jpg": "1816c5e71d3c0eceee1766fdb46f7163faa61a6aa8c4dfea8748b0525cb04a14",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/skylight.png": "5de8accfe1a91a4e4e6b3951329579076ae43479227b2959375a4d7ea431c86c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/wall-muse.webp": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/floor.png": "e4bda4edcd4c83bed11cc1d38eba9d5a7924aa822a9ce0a710a71a145d49ad1f",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/PROVENANCE.md": "9c118a01af3489d1330b63cf2f49655c90b8a82d8cccf3b87463c601556f343c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/visitor.gd": "f351a4ea09c43f03ea44d3e181d512770fb5a028aabeb9cb619e2fff15e97f4a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/donor.glb": "e825437cd4d2ee9c1960b517a74a69101e33eb409ae7fa8cedc7134a998fbb7d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character.glb": "a2e6e0948dafb5b0ac10ffdc7359c64fbe04371038f0265d9cb1e1af390e54c4",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-shirt-baked.png": "98088aa8132b11367d6f249b29d6e936438e7dd4e1bca29345e72fcf003737a2",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-hair36-source-tinted.png": "3343dfb6121696acf2e684ffd24b5a1f3bc7553721ca01ccb774ba407cb3499c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/donor_rogue_texture.png": "a4032e877c3b91939f5cdbb630349c1998fdbc3211bbd587c111125500fe4cc5",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-mouth-baked.png": "c0df1123ec60316f19af09ca7c77018b35f149c52e4c4f7372d2fb138169f0b1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-eye-baked.png": "76c7f742c5762955f20ec2b73b6e3e8cd67be16b5d60544e51de457ba5aa233e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/painting_asset.gd": "0044b1ff62059e508e917cb140b2e159673972b55278e247df19eb66a222393c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/ps1.gdshader": "db206d444666151e29bb7584e2f5d3ba514c8d026b5af33b355082f3eedf4b16",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/sofa-cloth-original.webp": "aace66201d1fae3ccada9c1ce32abeb5a3093293f57bebcb6cdd289649f4dfde",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/wide-camera-fit.json": "e8a3848ef421cf2f1a62fa4aa73ded8125a2e660cf96dd3002f5113b67b52f3c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/floor_oak.gdshader": "cb832c9efc425a9d7eb3a368e7173b7114b01176fa43979553b77dde711998be",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/gamecube.gdshader": "7e7dd33a0531246cccdc05cb493a476ee416ae84e2d776d741307b223864dbda",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/crt_luminance.gdshader": "fdef0e6432af7ba7da1440363c0ddb5d920a0f53a13b6122f4992b3e8fcef2de",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/squiggle_screen.gdshader": "3821e98798ff199b366212ef1c05d1fd3627a96f9636cce57d97a8164cebf62a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/haze_screen.gdshader": "b8823c51bcaf1a3eb22586a22bf32f485f3e93e4036b1a75a207f6abf1555da1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/page.png": "247fd184ea40dd99286c7b5ef8a8d45193d307d600547fb739cf18c161ee6248",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/wall-muse.webp": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/oak-board-atlas-168-v3.webp": "65ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/ivory-plaster-original.webp": "d3686872b0da15f4bd6ede3dcb7c8991e7687ec90f0589fe5d1559737b46a8c8",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/purple-plaster-original.webp": "b93be3c69cd85bdef675e4aa096196f5c76c8ac3835f82bac27962f526efc08a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/door-architrave-original.webp": "7375be52dffd4dc255dcf0d82d171c79271e57ff539443d3f89bba0e672e846a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/baseboard-original.webp": "da61e1b18260f22f95e044dd3b053ba35bbc6a065ce3e01dd85a8fdb757d9cad",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-presentation/plugin.gd": "f723734994b92c193cce373617549b0f582b560206c8755321aceb25e524d280",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-expansion-frame/trial/frame.png": "3e22ccf27b2c7e061b5c48a6fcf537affe64b6a5f448c193d40db6cb222cb7ce",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-expansion-frame/trial/geometry.json": "0ba9b91fb4cd5ad158430b649a65824c4087136c28db99ba1f026583ad764e47",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-expansion-frame/references/painting-35.786.jpg": "15e93a4af2b87e64280f3008f67846d609a2c74df1a37b84b4b89a0af4b6ab7f",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "889450e41d99420c837e857d363f6c9103d90994e53115878d3a0d7015224dea"
+  },
+  "point_cloud_render": false,
+  "room_extents": "coupled authored parallel galleries and end-room connections; exact metrics provisional",
+  "catalogue_objects": 44,
+  "object_coverage": {
+    "scope": "All ten supplied videos are in the completion goal; the current built study covers Rockefeller and its adjoining long gallery. Other filmed rooms remain incomplete.",
+    "volume_instances": [
+      {
+        "asset": "st-george",
+        "accession": "2017.74.14",
+        "title": "St. George and the Dragon",
+        "size_m": [
+          0.203,
+          0.264,
+          0.12300000000000001
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.18,
+          1.62,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.18,
+          1.62,
+          -6.83
+        ]
+      },
+      {
+        "asset": "flute-player",
+        "accession": "2017.74.16",
+        "title": "The Flute Player",
+        "size_m": [
+          0.177,
+          0.254,
+          0.124
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.55,
+          1.62,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.55,
+          1.62,
+          -6.83
+        ]
+      },
+      {
+        "asset": "hudibras",
+        "accession": "2017.74.17",
+        "title": "Hudibras",
+        "size_m": [
+          0.223,
+          0.289,
+          0.124
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.95,
+          1.62,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.95,
+          1.62,
+          -6.83
+        ]
+      },
+      {
+        "asset": "bear-jug",
+        "accession": "2017.74.18.ab",
+        "title": "Brown Bear Jug and Cover",
+        "size_m": [
+          0.08907216494845362,
+          0.14,
+          0.05344329896907217
+        ],
+        "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+        "position": [
+          0.14,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.14,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "horn-player",
+        "accession": "2017.74.19",
+        "title": "Horn-Player",
+        "size_m": [
+          0.07,
+          0.162,
+          0.05
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.36,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.36,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "finch",
+        "accession": "2017.74.15.1",
+        "title": "Finch",
+        "size_m": [
+          0.05914876033057851,
+          0.051,
+          0.035489256198347106
+        ],
+        "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+        "position": [
+          0.44,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.44,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "finch-pair",
+        "accession": "2017.74.15.2",
+        "title": "Finch",
+        "size_m": [
+          0.05857472324723247,
+          0.051,
+          0.035144833948339484
+        ],
+        "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+        "position": [
+          0.67,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.67,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "bagpiper",
+        "accession": "2017.74.21",
+        "title": "Figure of a Bagpiper",
+        "size_m": [
+          0.07,
+          0.15,
+          0.06
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.73,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.73,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "bear-jug-pair",
+        "accession": "2017.74.22.ab",
+        "title": "Brown Bear Jug and Cover",
+        "size_m": [
+          0.07018169491525424,
+          0.162,
+          0.04210901694915254
+        ],
+        "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+        "position": [
+          0.97,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.97,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "cream-jug",
+        "accession": "2017.74.25",
+        "title": "Cream Jug",
+        "size_m": [
+          0.11699999999999999,
+          0.15,
+          0.095
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.14,
+          1.19,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.14,
+          1.19,
+          -6.83
+        ]
+      },
+      {
+        "asset": "parrot",
+        "accession": "2017.74.27.1",
+        "title": "Parrot",
+        "size_m": [
+          0.17,
+          0.165,
+          0.07
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.34,
+          1.19,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.34,
+          1.19,
+          -6.83
+        ]
+      },
+      {
+        "asset": "fox",
+        "accession": "2017.74.20",
+        "title": "Figure of a Fox",
+        "size_m": [
+          0.165,
+          0.133,
+          0.08
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.55,
+          1.19,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.55,
+          1.19,
+          -6.83
+        ]
+      },
+      {
+        "asset": "parrot-pair",
+        "accession": "2017.74.27.2",
+        "title": "Parrot",
+        "size_m": [
+          0.16,
+          0.165,
+          0.065
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.76,
+          1.19,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.76,
+          1.19,
+          -6.83
+        ]
+      },
+      {
+        "asset": "agate-teapot",
+        "accession": "2017.74.24.ab",
+        "title": "Agateware Teapot",
+        "size_m": [
+          0.19,
+          0.133,
+          0.115
+        ],
+        "dimension_basis": "catalogue height; listed 45.7cm width conflicts with shelf/video silhouette; width/depth provisional source-fit",
+        "position": [
+          0.97,
+          1.19,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.97,
+          1.19,
+          -6.83
+        ]
+      },
+      {
+        "asset": "shepherd",
+        "accession": "2017.74.23",
+        "title": "Figure of a Shepherd",
+        "size_m": [
+          0.08,
+          0.213,
+          0.08
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.14,
+          0.913,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.14,
+          0.913,
+          -6.83
+        ]
+      },
+      {
+        "asset": "candlestick",
+        "accession": "2017.74.28.1",
+        "title": "Figural Candlestick",
+        "size_m": [
+          0.12,
+          0.21,
+          0.11
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.35,
+          0.913,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.35,
+          0.913,
+          -6.83
+        ]
+      },
+      {
+        "asset": "cow",
+        "accession": "2017.74.29",
+        "title": "Model of a Cow",
+        "size_m": [
+          0.21,
+          0.13,
+          0.08
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.55,
+          0.913,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.55,
+          0.913,
+          -6.83
+        ]
+      },
+      {
+        "asset": "candlestick-pair",
+        "accession": "2017.74.28.2",
+        "title": "Figural Candlestick",
+        "size_m": [
+          0.12,
+          0.21600000000000003,
+          0.11
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.78,
+          0.913,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.78,
+          0.913,
+          -6.83
+        ]
+      },
+      {
+        "asset": "parrot-third",
+        "accession": "2017.74.26",
+        "title": "Figure of a Parrot",
+        "size_m": [
+          0.17,
+          0.156,
+          0.07
+        ],
+        "dimension_basis": "catalogue height/width/depth",
+        "position": [
+          0.98,
+          0.913,
+          -6.83
+        ],
+        "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+        "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+        "v15_position": [
+          0.98,
+          0.913,
+          -6.83
+        ]
+      },
+      {
+        "asset": "recamier",
+        "accession": "37.201",
+        "title": "Bust of Madame R\u00e9camier",
+        "size_m": [
+          0.337,
+          0.606,
+          0.235
+        ],
+        "position": [
+          -2.2,
+          1.3,
+          -5.87
+        ],
+        "yaw": 1.5707963268,
+        "source": "IMG_6380/000285.jpg; verified matching hair/neck socle and black-and-white base",
+        "status": "front/rear Muse UVs separated; catalogue total height preserved; side profile provisional",
+        "v15_position": [
+          -2.2,
+          1.3,
+          -6.25
+        ],
+        "rear_source": "official catalogue photo 3 and saved recamier-rear Muse run; no new spending"
+      },
+      {
+        "asset": "ewe-lamb",
+        "accession": "2017.74.32",
+        "title": "Ewe and Lamb",
+        "size_m": [
+          0.15,
+          0.095,
+          0.09
+        ],
+        "position": [
+          0.55,
+          1.423,
+          -6.83
+        ],
+        "source": "IMG_6380 native t152.25s crop; API 1245806 has no official photograph",
+        "status": "catalogue candidate supported by title/dimensions and video; photo verification unavailable; Muse poses more frontal than source",
+        "v15_position": [
+          0.55,
+          1.423,
+          -6.83
+        ]
+      },
+      {
+        "asset": "sconce-left",
+        "accession": "2017.74.6.3",
+        "title": "Wall light with deer",
+        "size_m": [
+          0.483,
+          0.876,
+          0.215
+        ],
+        "position": [
+          0.95,
+          2.08,
+          -0.49
+        ],
+        "yaw": 3.141592653589793,
+        "source": "IMG_6380 native t188.25s; matching official ornament",
+        "status": "Muse front reviewed; hidden relief unverified",
+        "v15_position": [
+          -2.63,
+          2.08,
+          -0.55
+        ]
+      },
+      {
+        "asset": "sconce-right",
+        "accession": "2017.74.6.4",
+        "title": "Wall light with bird",
+        "size_m": [
+          0.483,
+          0.876,
+          0.25
+        ],
+        "position": [
+          -2.18,
+          2.08,
+          -0.49
+        ],
+        "yaw": 3.141592653589793,
+        "source": "IMG_6380 native t188.25s; matching official ornament",
+        "status": "Muse front reviewed; hidden relief unverified",
+        "v15_position": [
+          -2.63,
+          2.08,
+          -3.55
+        ]
+      },
+      {
+        "asset": "writing-table",
+        "accession": "2017.74.8",
+        "title": "Writing table",
+        "size_m": [
+          0.42,
+          0.72,
+          0.26
+        ],
+        "position": [
+          -2.2,
+          0.13,
+          -3.44
+        ],
+        "yaw": 1.5707963268,
+        "source": "IMG_6380/000273 + 000277; single table between front chair and sofa",
+        "status": "Muse front reviewed; hidden surfaces provisional",
+        "v15_position": [
+          -2.2,
+          0.13,
+          -4.1
+        ],
+        "shape": "table"
+      },
+      {
+        "asset": "gold-tureen",
+        "accession": "2017.74.38.1a-c",
+        "size_m": [
+          0.35,
+          0.28,
+          0.267
+        ],
+        "position": [
+          3.32,
+          1.2,
+          -3.8
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          3.32,
+          1.2,
+          0.02
+        ]
+      },
+      {
+        "asset": "gold-ecuelle-clean",
+        "accession": "2017.74.38.3a-c",
+        "size_m": [
+          0.195,
+          0.14,
+          0.195
+        ],
+        "position": [
+          2.9,
+          1.1,
+          -3.8
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.9,
+          1.1,
+          0.02
+        ]
+      },
+      {
+        "asset": "gold-basket-a",
+        "accession": "2017.74.38.4ab",
+        "size_m": [
+          0.205,
+          0.1,
+          0.175
+        ],
+        "position": [
+          2.82,
+          1.1,
+          -4.38
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.82,
+          1.1,
+          -0.56
+        ]
+      },
+      {
+        "asset": "gold-basket-b",
+        "accession": "2017.74.38.5ab",
+        "size_m": [
+          0.205,
+          0.1,
+          0.175
+        ],
+        "position": [
+          2.82,
+          1.1,
+          -3.26
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.82,
+          1.1,
+          0.56
+        ]
+      },
+      {
+        "asset": "gold-square-a",
+        "accession": "2017.74.38.11",
+        "size_m": [
+          0.19,
+          0.037,
+          0.19
+        ],
+        "position": [
+          3.19,
+          1.1,
+          -4.38
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          3.19,
+          1.1,
+          -0.56
+        ]
+      },
+      {
+        "asset": "gold-square-b",
+        "accession": "2017.74.38.12",
+        "size_m": [
+          0.19,
+          0.039,
+          0.19
+        ],
+        "position": [
+          3.19,
+          1.1,
+          -3.26
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          3.19,
+          1.1,
+          0.56
+        ]
+      },
+      {
+        "asset": "gold-plate-a",
+        "accession": "2017.74.38.23",
+        "size_m": [
+          0.25,
+          0.025,
+          0.25
+        ],
+        "position": [
+          3.4,
+          1.19,
+          -4.35
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "pitch": -1.15,
+        "v15_position": [
+          3.4,
+          1.19,
+          -0.53
+        ]
+      },
+      {
+        "asset": "gold-plate-b",
+        "accession": "2017.74.38.25",
+        "size_m": [
+          0.25,
+          0.026,
+          0.25
+        ],
+        "position": [
+          3.4,
+          1.19,
+          -3.29
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "pitch": -1.15,
+        "v15_position": [
+          3.4,
+          1.19,
+          0.53
+        ]
+      },
+      {
+        "asset": "gold-saucer-a",
+        "accession": "2017.74.38.9",
+        "size_m": [
+          0.144,
+          0.036,
+          0.144
+        ],
+        "position": [
+          2.65,
+          1.1,
+          -4.0
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.65,
+          1.1,
+          -0.18
+        ]
+      },
+      {
+        "asset": "gold-saucer-b",
+        "accession": "2017.74.38.10",
+        "size_m": [
+          0.144,
+          0.036,
+          0.144
+        ],
+        "position": [
+          2.65,
+          1.1,
+          -3.64
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.65,
+          1.1,
+          0.18
+        ]
+      },
+      {
+        "asset": "gold-cup-a",
+        "accession": "2017.74.38.7",
+        "size_m": [
+          0.088,
+          0.067,
+          0.068
+        ],
+        "position": [
+          2.65,
+          1.134,
+          -4.0
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.65,
+          1.134,
+          -0.18
+        ]
+      },
+      {
+        "asset": "gold-cup-b",
+        "accession": "2017.74.38.8",
+        "size_m": [
+          0.087,
+          0.069,
+          0.068
+        ],
+        "position": [
+          2.65,
+          1.134,
+          -3.64
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": -1.5707963268,
+        "v15_position": [
+          2.65,
+          1.134,
+          0.18
+        ]
+      },
+      {
+        "asset": "tureen",
+        "accession": "2017.74.39.18a-c",
+        "size_m": [
+          0.42,
+          0.32,
+          0.267
+        ],
+        "position": [
+          1.25,
+          1.1,
+          -0.95
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue 45.7/48.3cm heights conflict with displayed arrangement; .32m video-fit height provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "v15_position": [
+          -2.22,
+          1.1,
+          -0.58
+        ]
+      },
+      {
+        "asset": "pink-small-tureen",
+        "accession": "2017.74.39.19a-c",
+        "size_m": [
+          0.42,
+          0.32,
+          0.25
+        ],
+        "position": [
+          2.43,
+          1.1,
+          -0.95
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue 45.7/48.3cm heights conflict with displayed arrangement; .32m video-fit height provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "v15_position": [
+          -2.22,
+          1.1,
+          0.6
+        ]
+      },
+      {
+        "asset": "pink-compote",
+        "accession": "2017.74.39.3",
+        "size_m": [
+          0.306,
+          0.097,
+          0.222
+        ],
+        "position": [
+          1.85,
+          1.1,
+          -0.7
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "v15_position": [
+          -2.47,
+          1.1,
+          0.02
+        ]
+      },
+      {
+        "asset": "pink-bowl-a",
+        "accession": "2017.74.39.12",
+        "size_m": [
+          0.205,
+          0.044,
+          0.205
+        ],
+        "position": [
+          1.6,
+          1.1,
+          -1.17
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "v15_position": [
+          -2.0,
+          1.1,
+          -0.23
+        ]
+      },
+      {
+        "asset": "pink-bowl-b",
+        "accession": "2017.74.39.13",
+        "size_m": [
+          0.205,
+          0.044,
+          0.205
+        ],
+        "position": [
+          2.12,
+          1.1,
+          -1.17
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "v15_position": [
+          -2.0,
+          1.1,
+          0.29
+        ]
+      },
+      {
+        "asset": "pink-dish",
+        "accession": "2017.74.39.2",
+        "size_m": [
+          0.289,
+          0.045,
+          0.222
+        ],
+        "position": [
+          1.85,
+          1.1,
+          -1.17
+        ],
+        "shape": "dish",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "v15_position": [
+          -2.0,
+          1.1,
+          0.02
+        ]
+      },
+      {
+        "asset": "pink-ladle",
+        "accession": "2017.74.39.20",
+        "size_m": [
+          0.15,
+          0.17,
+          0.066
+        ],
+        "position": [
+          2.3,
+          1.15,
+          -1.17
+        ],
+        "shape": "volume",
+        "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+        "dimension_basis": "catalogue dimensions; placement provisional",
+        "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+        "yaw": 3.1415926535948966,
+        "pitch": -1.5707963268,
+        "v15_position": [
+          -2.0,
+          1.15,
+          0.47
+        ]
+      },
+      {
+        "asset": "secretary",
+        "accession": "80.106",
+        "title": "Drop-Front Secretary (Secr\u00e9taire \u00e0 Abattant)",
+        "size_m": [
+          1.143,
+          1.435,
+          0.426
+        ],
+        "position": [
+          -3.24,
+          0.13,
+          0.85
+        ],
+        "source": "IMG_6385/000025; matched official sea creatures, sphinx mounts and lower lions",
+        "dimension_basis": "catalogue height/width/depth",
+        "status": "Muse front reviewed; side/rear geometry provisional",
+        "v15_position": [
+          -4.0,
+          0.13,
+          -4.54
+        ],
+        "yaw": 1.5707963267948966,
+        "shape": "cabinet"
+      }
+    ],
+    "unfilled_observations": [
+      {
+        "id": "central-vincennes-pair",
+        "source": "IMG_6380/000453.jpg",
+        "catalogue": [
+          "2017.74.31.1",
+          "2017.74.31.2"
+        ],
+        "status": "matched; Muse run unreconciled/possibly spent; no resubmission"
+      },
+      {
+        "id": "two-porcelain-services",
+        "source": "IMG_6380/000333.jpg + 000357.jpg",
+        "status": "complete per-piece arrangement pending"
+      },
+      {
+        "id": "wall-textiles-prints-sconces-tables",
+        "source": "IMG_6380/000273.jpg + 000381.jpg + 000421.jpg",
+        "status": "per-piece matching in progress"
+      },
+      {
+        "id": "long-gallery-all-objects",
+        "source": "IMG_6385 + IMG_6386",
+        "status": "source coverage reviewed; not yet instantiated"
+      }
+    ],
+    "wide_shot_layout_v16": {
+      "sources": [
+        "IMG_6380/000247.jpg",
+        "IMG_6380/000449.jpg",
+        "IMG_6384/000209.jpg",
+        "IMG_6385/000005.jpg"
+      ],
+      "changes": "gallery door on perpendicular front wall, case arrangement spans two walls, sconces on gallery-door wall; metric coordinates provisional",
+      "owner_correction": "object positions and room architecture are off; review wide shots",
+      "not_verified": "absolute room dimensions, final object-by-object image reprojection",
+      "furniture_refinement": {
+        "source": "IMG_6380 native t224.25s",
+        "method": "manual chair/table ground landmarks projected through provisional Romany-plane camera; independent wide-frame check pending",
+        "chair_z": -1.95,
+        "table_z": -3.44,
+        "bust_z": -5.87,
+        "metric_scale": "provisional; inferred focal850px, catalogue canvas plane anchor"
+      }
+    },
+    "verified_wallpaper_panels": [
+      {
+        "accession": "34.912",
+        "id": "1240221",
+        "title": "Arabesque Wallpaper",
+        "maker": "Fran\u00e7ois Louis Prieur",
+        "size_m": [
+          0.56,
+          1.145
+        ],
+        "position": [
+          3.575,
+          2.1,
+          -5.4
+        ],
+        "yaw": -1.5707963268,
+        "source": "IMG_6380 210.25s (survey frame 421)",
+        "match": "matching diamond, blue/red birds, central female figure and flower garlands; official native photo visually inspected",
+        "api_record": "inventory-catalogue/arabesque-wallpaper.json",
+        "image": "inventory-catalogue/arabesque-wallpaper-zoom-0.jpg",
+        "status": "identity and paper dimensions catalogue verified; mount dimensions and metric room placement provisional",
+        "generated_artwork": false
+      }
+    ]
+  },
+  "bookcase_dimensions_m": [
+    1.1,
+    1.515,
+    0.33
+  ],
+  "mirror_dimensions_m": [
+    0.914,
+    2.311
+  ],
+  "mirror_pair": "2017.74.4.1 and .4.2 separately matched to official front photographs; foreground cropped before metric scaling",
+  "sofa_vessels": "API-confirmed 2017.74.5, 2017.74.7.1 and 2017.74.39.18a-c; hidden profiles inferred",
+  "lighting": "Main Hall native UV2 LightmapGI workflow; see bake evidence",
+  "presentation_reuse": {
+    "source_tip": "2b0b015a",
+    "source_worktree": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164",
+    "sha256": {
+      "modules/shell/assets/collection_frame/page.png": "247fd184ea40dd99286c7b5ef8a8d45193d307d600547fb739cf18c161ee6248",
+      "modules/shell/prototype/gallery_walk4/gamecube.gdshader": "7e7dd33a0531246cccdc05cb493a476ee416ae84e2d776d741307b223864dbda",
+      "modules/shell/prototype/gallery_walk4/floor_oak.gdshader": "cb832c9efc425a9d7eb3a368e7173b7114b01176fa43979553b77dde711998be",
+      "modules/shell/prototype/gallery_walk4/ps1.gdshader": "db206d444666151e29bb7584e2f5d3ba514c8d026b5af33b355082f3eedf4b16",
+      "modules/shell/prototype/gallery_walk4/painting_asset.gd": "0044b1ff62059e508e917cb140b2e159673972b55278e247df19eb66a222393c",
+      "modules/shell/prototype/gallery_walk4/textures/wall-muse.webp": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36",
+      "modules/shell/crt_luminance.gdshader": "fdef0e6432af7ba7da1440363c0ddb5d920a0f53a13b6122f4992b3e8fcef2de",
+      "modules/shell/squiggle_screen.gdshader": "3821e98798ff199b366212ef1c05d1fd3627a96f9636cce57d97a8164cebf62a",
+      "modules/shell/haze_screen.gdshader": "b8823c51bcaf1a3eb22586a22bf32f485f3e93e4036b1a75a207f6abf1555da1",
+      "modules/shell/prototype/gallery_walk4/bake/plugin.gd": "f723734994b92c193cce373617549b0f582b560206c8755321aceb25e524d280",
+      "modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v3.webp": "65ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff"
+    }
+  }
+}

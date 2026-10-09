@@ -1,0 +1,80 @@
+{
+  "video": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+  "video_sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+  "cuda_decode": true,
+  "cpu_stages": "Orientation and PNG encoding",
+  "frames": [
+    {
+      "seconds": 2.25,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "2.25",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-ceiling-native-v1/wide-2.25.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-ceiling-native-v1/wide-2.25.png",
+      "sha256": "b7aa031a265f99918ca1a46d01a435586cc0bc9460b1beb3832e4f573b7ca59c"
+    },
+    {
+      "seconds": 38.25,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "38.25",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-ceiling-native-v1/wide-38.25.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-ceiling-native-v1/wide-38.25.png",
+      "sha256": "81deb9a30f18a526af42a30e03ddda2599a12ff128120f137053b427bf73c256"
+    },
+    {
+      "seconds": 62.25,
+      "command": [
+        "ffmpeg",
+        "-v",
+        "error",
+        "-hwaccel",
+        "cuda",
+        "-noautorotate",
+        "-ss",
+        "62.25",
+        "-i",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+        "-frames:v",
+        "1",
+        "-vf",
+        "transpose=clock",
+        "-update",
+        "1",
+        "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-ceiling-native-v1/wide-62.25.png"
+      ],
+      "output": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-ceiling-native-v1/wide-62.25.png",
+      "sha256": "06bdb5dc8b5e86f82c6fb73a3abf5745e4ab862039fa9be7b4e3fe0b49e8dce1"
+    }
+  ]
+}

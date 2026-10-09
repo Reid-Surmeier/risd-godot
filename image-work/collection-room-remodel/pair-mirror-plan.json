@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "pair-mirror-001",
+      "prompt": "pair-mirror-prompt.txt",
+      "promptSha256": "f19e074ff498b243ffe40cd1057484704e44c4c6da7d86f65547f02c158b7bc5",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "references/pair-mirror-catalogue.png",
+          "sha256": "87b1d98847b8b78598c6637e3e2f68e819e79525fe2c157581597e51f14cf519"
+        },
+        {
+          "path": "references/main-hall-style.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe"
+        }
+      ]
+    }
+  ]
+}

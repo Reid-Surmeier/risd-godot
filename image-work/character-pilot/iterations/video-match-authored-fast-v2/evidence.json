@@ -1,0 +1,117 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 10.5,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      960,
+      640
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 8,
+    "contacts_per_loop": 2,
+    "cycles": 4,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": true,
+    "suppressed_outgoing_walk_keys_in_idle": 1
+  },
+  "fps": 30,
+  "frames_per_cycle": 12,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "Before: generic planted gait",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -0.000000258353907156561,
+      "unclamped_minimum_sole_y_m": -0.000000258353907156561
+    },
+    {
+      "bones": 24,
+      "contact_events": [
+        {
+          "foot": "Left",
+          "time": 0.0,
+          "world_origin": [
+            1.40863359451294,
+            0.025,
+            0.0985937357693911
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.2,
+          "world_origin": [
+            0.879352803230286,
+            0.025,
+            0.271905012130737
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.433333333333333,
+          "world_origin": [
+            1.40067220211029,
+            0.025,
+            0.334718472957611
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 0.6,
+          "world_origin": [
+            0.879352803230286,
+            0.025,
+            0.691905088424683
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 0.833333333333333,
+          "world_origin": [
+            1.40067220211029,
+            0.025,
+            0.754718549251556
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 1.0,
+          "world_origin": [
+            0.879352803230286,
+            0.025,
+            1.11190504550934
+          ]
+        },
+        {
+          "foot": "Left",
+          "time": 1.23333333333333,
+          "world_origin": [
+            1.40067220211029,
+            0.025,
+            1.17471844673157
+          ]
+        },
+        {
+          "foot": "Right",
+          "time": 1.4,
+          "world_origin": [
+            0.879352803230286,
+            0.025,
+            1.53190524101257
+          ]
+        }
+      ],
+      "label": "Source curves: DASH1 cadence trial",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -0.0000127744669953245,
+      "unclamped_minimum_sole_y_m": -0.0000127744669953245
+    }
+  ],
+  "seconds": 0.400000005960464
+}

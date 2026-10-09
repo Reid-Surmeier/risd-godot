@@ -1,0 +1,20 @@
+Loaded
+PASS 0 minimap
+PASS 0 itinerary
+PASS 0 chat
+PASS 0 notification
+PASS 0 map
+PASS 1 sketchbook-window
+PASS 1 paintbox-window
+PASS 1 tldraw-controls-prototype
+PASS 1 embedded-3d-viewer-window
+PASS 1 global-chatroom
+PASS 1 framed-painting-window
+PASS 1 painting-flow-window
+PASS 5 chat
+PASS 5 phone
+PASS 5 FengShui
+PASS 5 WebSurfer
+PASS 5 SketchbookJournal
+PASS 4 CollectionFrame
+WINDOW193 browser PASS

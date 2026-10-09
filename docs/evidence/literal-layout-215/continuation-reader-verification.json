@@ -1,0 +1,13 @@
+{
+  "reported_at": "2026-09-30T16:00Z",
+  "source": "16:00 continuation read-only verification, delivered in owner/session steering message",
+  "scope": [
+    "five244be7e2HTTPSfiles200/hashMATCH against215manifest",
+    "input+integratedJSONerrors[]",
+    "visualviewer0/viewer2/visitor-after-movementretainedcomposition/scans/gallery",
+    "square173ff317e09 exactlytwooriginaluntracked",
+    "hosted07bd36739208641/job109968810288runner0/steps[]FAILunknowncause"
+  ],
+  "mutations": "none",
+  "limits": "No ownerapproval, handoff, newimplementationtask or writer inferred; automation remainsenabled"
+}

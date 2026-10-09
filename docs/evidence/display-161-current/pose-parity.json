@@ -1,0 +1,182 @@
+[
+  {
+    "width": 720,
+    "scene": "warm",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "warm",
+    "labels": [
+      "A",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "warm",
+    "labels": [
+      "B",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "art",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "art",
+    "labels": [
+      "A",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "art",
+    "labels": [
+      "B",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "white",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "white",
+    "labels": [
+      "A",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 720,
+    "scene": "white",
+    "labels": [
+      "B",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "warm",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "warm",
+    "labels": [
+      "A",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "warm",
+    "labels": [
+      "B",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "art",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "art",
+    "labels": [
+      "A",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "art",
+    "labels": [
+      "B",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "white",
+    "labels": [
+      "A",
+      "B"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "white",
+    "labels": [
+      "A",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  },
+  {
+    "width": 1600,
+    "scene": "white",
+    "labels": [
+      "B",
+      "C"
+    ],
+    "samples": 479,
+    "differences": []
+  }
+]

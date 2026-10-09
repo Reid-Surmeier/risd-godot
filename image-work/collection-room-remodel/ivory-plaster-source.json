@@ -1,0 +1,13 @@
+{
+  "video": "IMG_6380.MOV",
+  "time_seconds": 188.25,
+  "native_extraction": "CUDA decode, output seek after input, transpose=clock",
+  "source_png_sha256": "9a6c8d4a0d5d87eecdc5e0eff6eb2b87d95a0a951e248f12d13c30204fa3d5d2",
+  "crop_xyxy": [
+    815,
+    590,
+    1045,
+    1390
+  ],
+  "role": "reference and profile measurement only; never final room texture"
+}

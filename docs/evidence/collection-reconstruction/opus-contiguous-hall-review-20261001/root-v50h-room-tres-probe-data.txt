@@ -1,0 +1,10 @@
+probe_data = {
+"baked_exposure": 1.0,
+"bounds": AABB(-5.599816, -3.2209268, -5.849816, 27.216959, 10.886784, 43.547134),
+"bsp": PackedInt32Array(),
+"interior": false,
+"lightprobe_hash": 348714578,
+"points": PackedVector3Array(),
+"sh": PackedColorArray(),
+"tetrahedra": PackedInt32Array()
+}

@@ -1,0 +1,5 @@
+parse remodel_room.gd exit=0 script_errors=0
+parse remodel_review.gd exit=0 script_errors=0
+parse remodel_bake.gd exit=0 script_errors=0
+prepared remodel_review.gd identical to the delivered file; remodel_room.gd and remodel_bake.gd differ only by prepare_main_build_extension.py's checked string replacements
+parse prepare_remodel.py ok (ast)

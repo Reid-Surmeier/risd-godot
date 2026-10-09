@@ -1,0 +1,12 @@
+AssertionError [ERR_ASSERTION]: Tab then Space activates Previous
+
+3 !== 2
+
+    at /home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/docs/evidence/keyboard-focus-206/browser_check.cjs:26:137 {
+  generatedMessage: false,
+  code: 'ERR_ASSERTION',
+  actual: 3,
+  expected: 2,
+  operator: 'strictEqual',
+  diff: 'simple'
+}

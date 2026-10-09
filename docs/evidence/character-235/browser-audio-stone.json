@@ -1,0 +1,3308 @@
+{
+  "sample_rate": 44100,
+  "audio_chunks": [
+    {
+      "t": 2.8676643990929707,
+      "frames": 4096
+    },
+    {
+      "t": 3.053424036281179,
+      "frames": 4096
+    },
+    {
+      "t": 3.1463038548752835,
+      "frames": 4096
+    },
+    {
+      "t": 3.239183673469388,
+      "frames": 4096
+    },
+    {
+      "t": 3.332063492063492,
+      "frames": 4096
+    },
+    {
+      "t": 3.4249433106575964,
+      "frames": 4096
+    },
+    {
+      "t": 3.517823129251701,
+      "frames": 4096
+    },
+    {
+      "t": 3.610702947845805,
+      "frames": 4096
+    },
+    {
+      "t": 3.7035827664399092,
+      "frames": 4096
+    },
+    {
+      "t": 3.7964625850340137,
+      "frames": 4096
+    },
+    {
+      "t": 3.889342403628118,
+      "frames": 4096
+    },
+    {
+      "t": 3.982222222222222,
+      "frames": 4096
+    },
+    {
+      "t": 4.0751020408163265,
+      "frames": 4096
+    },
+    {
+      "t": 4.167981859410431,
+      "frames": 4096
+    },
+    {
+      "t": 4.260861678004535,
+      "frames": 4096
+    },
+    {
+      "t": 4.35374149659864,
+      "frames": 4096
+    },
+    {
+      "t": 4.446621315192743,
+      "frames": 4096
+    },
+    {
+      "t": 4.539501133786848,
+      "frames": 4096
+    },
+    {
+      "t": 4.632380952380952,
+      "frames": 4096
+    },
+    {
+      "t": 4.725260770975057,
+      "frames": 4096
+    },
+    {
+      "t": 4.818140589569161,
+      "frames": 4096
+    },
+    {
+      "t": 4.911020408163266,
+      "frames": 4096
+    },
+    {
+      "t": 5.00390022675737,
+      "frames": 4096
+    },
+    {
+      "t": 5.0967800453514736,
+      "frames": 4096
+    },
+    {
+      "t": 5.189659863945578,
+      "frames": 4096
+    },
+    {
+      "t": 5.282539682539682,
+      "frames": 4096
+    },
+    {
+      "t": 5.375419501133787,
+      "frames": 4096
+    },
+    {
+      "t": 5.468299319727891,
+      "frames": 4096
+    },
+    {
+      "t": 5.561179138321996,
+      "frames": 4096
+    },
+    {
+      "t": 5.6540589569161,
+      "frames": 4096
+    },
+    {
+      "t": 5.746938775510204,
+      "frames": 4096
+    },
+    {
+      "t": 5.839818594104308,
+      "frames": 4096
+    },
+    {
+      "t": 5.932698412698413,
+      "frames": 4096
+    },
+    {
+      "t": 6.025578231292517,
+      "frames": 4096
+    },
+    {
+      "t": 6.1184580498866215,
+      "frames": 4096
+    },
+    {
+      "t": 6.211337868480726,
+      "frames": 4096
+    },
+    {
+      "t": 6.30421768707483,
+      "frames": 4096
+    },
+    {
+      "t": 6.397097505668934,
+      "frames": 4096
+    },
+    {
+      "t": 6.489977324263038,
+      "frames": 4096
+    },
+    {
+      "t": 6.582857142857143,
+      "frames": 4096
+    },
+    {
+      "t": 6.675736961451247,
+      "frames": 4096
+    },
+    {
+      "t": 6.768616780045352,
+      "frames": 4096
+    },
+    {
+      "t": 6.861496598639456,
+      "frames": 4096
+    },
+    {
+      "t": 6.9543764172335605,
+      "frames": 4096
+    },
+    {
+      "t": 7.047256235827664,
+      "frames": 4096
+    },
+    {
+      "t": 7.1401360544217685,
+      "frames": 4096
+    },
+    {
+      "t": 7.233015873015873,
+      "frames": 4096
+    },
+    {
+      "t": 7.325895691609977,
+      "frames": 4096
+    },
+    {
+      "t": 7.418775510204082,
+      "frames": 4096
+    },
+    {
+      "t": 7.511655328798186,
+      "frames": 4096
+    },
+    {
+      "t": 7.604535147392291,
+      "frames": 4096
+    },
+    {
+      "t": 7.697414965986394,
+      "frames": 4096
+    },
+    {
+      "t": 7.790294784580499,
+      "frames": 4096
+    },
+    {
+      "t": 7.883174603174603,
+      "frames": 4096
+    },
+    {
+      "t": 7.9760544217687075,
+      "frames": 4096
+    },
+    {
+      "t": 8.068934240362811,
+      "frames": 4096
+    },
+    {
+      "t": 8.161814058956915,
+      "frames": 4096
+    },
+    {
+      "t": 8.25469387755102,
+      "frames": 4096
+    },
+    {
+      "t": 8.347573696145124,
+      "frames": 4096
+    },
+    {
+      "t": 8.440453514739229,
+      "frames": 4096
+    },
+    {
+      "t": 8.533333333333333,
+      "frames": 4096
+    },
+    {
+      "t": 8.626213151927438,
+      "frames": 4096
+    },
+    {
+      "t": 8.719092970521542,
+      "frames": 4096
+    },
+    {
+      "t": 8.811972789115647,
+      "frames": 4096
+    },
+    {
+      "t": 8.904852607709751,
+      "frames": 4096
+    },
+    {
+      "t": 8.997732426303855,
+      "frames": 4096
+    },
+    {
+      "t": 9.09061224489796,
+      "frames": 4096
+    },
+    {
+      "t": 9.183492063492064,
+      "frames": 4096
+    },
+    {
+      "t": 9.276371882086167,
+      "frames": 4096
+    },
+    {
+      "t": 9.369251700680271,
+      "frames": 4096
+    },
+    {
+      "t": 9.462131519274376,
+      "frames": 4096
+    },
+    {
+      "t": 9.55501133786848,
+      "frames": 4096
+    },
+    {
+      "t": 9.647891156462585,
+      "frames": 4096
+    },
+    {
+      "t": 9.740770975056689,
+      "frames": 4096
+    },
+    {
+      "t": 9.833650793650794,
+      "frames": 4096
+    },
+    {
+      "t": 9.926530612244898,
+      "frames": 4096
+    },
+    {
+      "t": 10.019410430839002,
+      "frames": 4096
+    },
+    {
+      "t": 10.112290249433107,
+      "frames": 4096
+    },
+    {
+      "t": 10.205170068027211,
+      "frames": 4096
+    },
+    {
+      "t": 10.298049886621316,
+      "frames": 4096
+    },
+    {
+      "t": 10.39092970521542,
+      "frames": 4096
+    },
+    {
+      "t": 10.483809523809525,
+      "frames": 4096
+    },
+    {
+      "t": 10.576689342403627,
+      "frames": 4096
+    },
+    {
+      "t": 10.669569160997732,
+      "frames": 4096
+    },
+    {
+      "t": 10.762448979591836,
+      "frames": 4096
+    },
+    {
+      "t": 10.85532879818594,
+      "frames": 4096
+    },
+    {
+      "t": 10.948208616780045,
+      "frames": 4096
+    },
+    {
+      "t": 11.04108843537415,
+      "frames": 4096
+    },
+    {
+      "t": 11.133968253968254,
+      "frames": 4096
+    },
+    {
+      "t": 11.226848072562358,
+      "frames": 4096
+    },
+    {
+      "t": 11.319727891156463,
+      "frames": 4096
+    },
+    {
+      "t": 11.412607709750567,
+      "frames": 4096
+    },
+    {
+      "t": 11.505487528344672,
+      "frames": 512
+    }
+  ],
+  "capture_context_start": 3.6919727891156464,
+  "capture_context_end": 11.517097505668934,
+  "video_frames": 225,
+  "wall_seconds": 7.832900000000372,
+  "events": [
+    {
+      "bank": "CapturedStone",
+      "browser_time": 6.46935500000045,
+      "dash": false,
+      "foot": "Right",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.419175402892523,
+      "pitch": 1,
+      "playback_id": 1,
+      "requested_bank": "Path",
+      "requested_id": 16898,
+      "source": "stone_escort_step_a.wav",
+      "stage": "Ground",
+      "start_offset": 0.023,
+      "time": 5.245175,
+      "variant": 0,
+      "t": 0.9710350000001515,
+      "legacy_snapshot_t": 0.9716550000004469,
+      "t_audio": 0.9752380952380948,
+      "clock_match_seconds": 2.6645352591003757e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 6.73514500000048,
+      "dash": false,
+      "foot": "Left",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.90291080579319,
+      "pitch": 1,
+      "playback_id": 2,
+      "requested_bank": "Path",
+      "requested_id": 16908,
+      "source": "stone_escort_step_b.wav",
+      "stage": "Ground",
+      "start_offset": 0.021,
+      "time": 5.510994,
+      "variant": 1,
+      "t": 1.2368250000001817,
+      "legacy_snapshot_t": 1.2371340000005961,
+      "t_audio": 1.2306575963718815,
+      "clock_match_seconds": 4.440892098500626e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 7.01843000000063,
+      "dash": false,
+      "foot": "Right",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.41687967094608,
+      "pitch": 1,
+      "playback_id": 3,
+      "requested_bank": "Path",
+      "requested_id": 16898,
+      "source": "stone_escort_step_a.wav",
+      "stage": "Ground",
+      "start_offset": 0.023,
+      "time": 5.794285,
+      "variant": 0,
+      "t": 1.520110000000332,
+      "legacy_snapshot_t": 1.5207049999999258,
+      "t_audio": 1.5092970521541949,
+      "clock_match_seconds": 3.552713678800501e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 7.28488000000082,
+      "dash": false,
+      "foot": "Left",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.900615037233503,
+      "pitch": 1,
+      "playback_id": 4,
+      "requested_bank": "Path",
+      "requested_id": 16928,
+      "source": "stone_escort_step_a.wav",
+      "stage": "Ground",
+      "start_offset": 0.023,
+      "time": 6.060739,
+      "variant": 3,
+      "t": 1.786560000000522,
+      "legacy_snapshot_t": 1.7875640000001862,
+      "t_audio": 1.7879365079365082,
+      "clock_match_seconds": 8.881784197001252e-16
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 7.56834000000078,
+      "dash": false,
+      "foot": "Right",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.414583801700024,
+      "pitch": 1,
+      "playback_id": 5,
+      "requested_bank": "Path",
+      "requested_id": 16898,
+      "source": "stone_escort_step_a.wav",
+      "stage": "Ground",
+      "start_offset": 0.023,
+      "time": 6.344189,
+      "variant": 0,
+      "t": 2.070020000000482,
+      "legacy_snapshot_t": 2.0712439999997017,
+      "t_audio": 2.0665759637188206,
+      "clock_match_seconds": 2.6645352591003757e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 7.8350150000006,
+      "dash": false,
+      "foot": "Left",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.898318703457241,
+      "pitch": 1,
+      "playback_id": 6,
+      "requested_bank": "Path",
+      "requested_id": 16908,
+      "source": "stone_escort_step_b.wav",
+      "stage": "Ground",
+      "start_offset": 0.021,
+      "time": 6.61087,
+      "variant": 1,
+      "t": 2.3366950000003017,
+      "legacy_snapshot_t": 2.337020000000373,
+      "t_audio": 2.3219954648526073,
+      "clock_match_seconds": 3.552713678800501e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 8.11821000000089,
+      "dash": false,
+      "foot": "Right",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.412287401562303,
+      "pitch": 1,
+      "playback_id": 7,
+      "requested_bank": "Path",
+      "requested_id": 16898,
+      "source": "stone_escort_step_a.wav",
+      "stage": "Ground",
+      "start_offset": 0.023,
+      "time": 6.894064,
+      "variant": 0,
+      "t": 2.6198900000005914,
+      "legacy_snapshot_t": 2.6209740000001496,
+      "t_audio": 2.6238548752834463,
+      "clock_match_seconds": 5.329070518200751e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 8.45161000000033,
+      "dash": true,
+      "foot": "Right",
+      "gain": 1,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.114293896038193,
+      "pitch": 1,
+      "playback_id": 8,
+      "requested_bank": "Path",
+      "requested_id": 16938,
+      "source": "stone_escort_step_a.wav",
+      "stage": "Ground",
+      "start_offset": 0.023,
+      "time": 7.227464,
+      "variant": 0,
+      "t": 2.953290000000031,
+      "legacy_snapshot_t": 2.953914000000186,
+      "t_audio": 2.948934240362812,
+      "clock_match_seconds": 5.329070518200751e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 8.75151000000071,
+      "dash": true,
+      "foot": "Left",
+      "gain": 1,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.601793276857509,
+      "pitch": 1,
+      "playback_id": 9,
+      "requested_bank": "Path",
+      "requested_id": 16948,
+      "source": "stone_escort_step_b.wav",
+      "stage": "Ground",
+      "start_offset": 0.021,
+      "time": 7.52737,
+      "variant": 1,
+      "t": 3.253190000000412,
+      "legacy_snapshot_t": 3.2535449999998143,
+      "t_audio": 3.250793650793651,
+      "clock_match_seconds": 1.7763568394002505e-15
+    },
+    {
+      "bank": "Skid",
+      "browser_time": 8.88610000000056,
+      "gain": 1,
+      "id": 16681,
+      "jump_time": -1,
+      "pitch": 1,
+      "playback_id": 4294967306,
+      "requested_id": 16681,
+      "source": "authored",
+      "stage": "Ground",
+      "start_offset": 0,
+      "surface": "Path",
+      "time": 7.661995,
+      "variant": 0,
+      "t": 3.3877800000002622,
+      "legacy_snapshot_t": 3.3884700000005594,
+      "t_audio": 3.3901133786848074,
+      "clock_match_seconds": 1.7763568394002505e-15
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 9.55147500000056,
+      "dash": true,
+      "foot": "Left",
+      "gain": 1,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.179906250208534,
+      "pitch": 1,
+      "playback_id": 11,
+      "requested_bank": "Path",
+      "requested_id": 16948,
+      "source": "stone_escort_step_b.wav",
+      "stage": "Ground",
+      "start_offset": 0.021,
+      "time": 8.327295,
+      "variant": 1,
+      "t": 4.053155000000261,
+      "legacy_snapshot_t": 4.054045,
+      "t_audio": 4.040272108843538,
+      "clock_match_seconds": 0
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 9.81921500000078,
+      "dash": false,
+      "foot": "Left",
+      "gain": 0.6,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.598531811323646,
+      "pitch": 1,
+      "playback_id": 12,
+      "requested_bank": "Path",
+      "requested_id": 16908,
+      "source": "stone_escort_step_b.wav",
+      "stage": "Ground",
+      "start_offset": 0.021,
+      "time": 8.595075,
+      "variant": 1,
+      "t": 4.3208950000004815,
+      "legacy_snapshot_t": 4.321744999999924,
+      "t_audio": 4.318911564625851,
+      "clock_match_seconds": 3.552713678800501e-15
+    },
+    {
+      "bank": "Jump",
+      "browser_time": 10.5006400000006,
+      "gain": 0.7,
+      "id": -1,
+      "jump_time": 0.05,
+      "pitch": 1,
+      "playback_id": 13,
+      "requested_id": -1,
+      "source": "authored",
+      "stage": "Ascend",
+      "start_offset": 0,
+      "surface": "Path",
+      "time": 9.276525,
+      "variant": 1,
+      "t": 5.002320000000301,
+      "legacy_snapshot_t": 5.002880000000447,
+      "t_audio": 4.992290249433107,
+      "clock_match_seconds": 3.552713678800501e-15
+    },
+    {
+      "bank": "Landing",
+      "browser_time": 11.2174850000003,
+      "gain": 0.996296670701769,
+      "id": -1,
+      "jump_time": 0.766666666666667,
+      "pitch": 1,
+      "playback_id": 14,
+      "requested_id": -1,
+      "source": "authored",
+      "stage": "Land",
+      "start_offset": 0,
+      "surface": "Path",
+      "time": 9.993375,
+      "variant": 1,
+      "t": 5.719165000000002,
+      "legacy_snapshot_t": 5.719685000000522,
+      "t_audio": 5.712108843537416,
+      "clock_match_seconds": 3.552713678800501e-14
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 12.2681700000009,
+      "dash": false,
+      "foot": "Right",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.418219089807126,
+      "pitch": 1,
+      "playback_id": 15,
+      "requested_bank": "Path",
+      "requested_id": 16918,
+      "source": "stone_escort_step_c.wav",
+      "stage": "Ground",
+      "start_offset": 0.025,
+      "time": 11.044019,
+      "variant": 2,
+      "t": 6.769850000000602,
+      "legacy_snapshot_t": 6.770389000000112,
+      "t_audio": 6.7570068027210874,
+      "clock_match_seconds": 4.263256414560601e-14
+    },
+    {
+      "bank": "CapturedStone",
+      "browser_time": 12.5352200000007,
+      "dash": false,
+      "foot": "Left",
+      "gain": 0.8,
+      "gain_offset_db": 15.9382002601611,
+      "id": -1,
+      "on_floor": true,
+      "phase": 0.900924287588629,
+      "pitch": 1,
+      "playback_id": 16,
+      "requested_bank": "Path",
+      "requested_id": 16908,
+      "source": "stone_escort_step_b.wav",
+      "stage": "Ground",
+      "start_offset": 0.021,
+      "time": 11.311079,
+      "variant": 1,
+      "t": 7.0369000000004025,
+      "legacy_snapshot_t": 7.0373890000005215,
+      "t_audio": 7.035646258503401,
+      "clock_match_seconds": 3.019806626980426e-14
+    }
+  ],
+  "metrics": [
+    {
+      "t": 0.05399000000022358,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.08944500000029798,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.10823000000044658,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.14948000000044726,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.16961000000033533,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.1834450000002983,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.2036650000000373,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.22891999999992585,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.2446200000001113,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.2636850000005211,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.28207500000018637,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.30206500000041014,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.3333500000005589,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.34511000000033487,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.36300999999977623,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.3820800000000748,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.41448500000033484,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.42983000000007454,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.4449900000002236,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.46459499999973897,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.48206000000052107,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.5020600000005215,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.531390000000596,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.5480449999999255,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.5794699999997395,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.5820499999998141,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.60206500000041,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.6333250000001858,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.6448100000005219,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.6626299999998881,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.6820549999997016,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.7032050000000742,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.7352250000005585,
+      "state": "Idle",
+      "phase": 0,
+      "y": 0,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.7499649999998512,
+      "state": "Walk",
+      "phase": 0.0288620798800166,
+      "y": 0.000831976300105453,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.7624699999997393,
+      "state": "Walk",
+      "phase": 0.0288620798800166,
+      "y": 0.000831976300105453,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.7820600000005218,
+      "state": "Walk",
+      "phase": 0.0288620798800166,
+      "y": 0.000831976300105453,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.8020600000005214,
+      "state": "Walk",
+      "phase": 0.0288620798800166,
+      "y": 0.000831976300105453,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.8464100000001489,
+      "state": "Walk",
+      "phase": 0.0288620798800166,
+      "y": 0.000831976300105453,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.8620549999997023,
+      "state": "Run",
+      "phase": 0.207541151108637,
+      "y": 0.000826416653580964,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.8820549999997018,
+      "state": "Run",
+      "phase": 0.207541151108637,
+      "y": 0.000826416653580964,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.9020600000005219,
+      "state": "Run",
+      "phase": 0.207541151108637,
+      "y": 0.000826416653580964,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.9342499999999996,
+      "state": "Run",
+      "phase": 0.207541151108637,
+      "y": 0.000826416653580964,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.947924999999814,
+      "state": "Run",
+      "phase": 0.207541151108637,
+      "y": 0.000826416653580964,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.9637850000001489,
+      "state": "Run",
+      "phase": 0.207541151108637,
+      "y": 0.000826416653580964,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 0.9843600000003354,
+      "state": "Run",
+      "phase": 0.419175402892523,
+      "y": 0.000814759638160467,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.0020700000002982,
+      "state": "Run",
+      "phase": 0.419175402892523,
+      "y": 0.000814759638160467,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.0328799999998886,
+      "state": "Run",
+      "phase": 0.419175402892523,
+      "y": 0.000814759638160467,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.0453399999998512,
+      "state": "Run",
+      "phase": 0.419175402892523,
+      "y": 0.000814759638160467,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.06469000000041,
+      "state": "Run",
+      "phase": 0.419175402892523,
+      "y": 0.000814759638160467,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.0826349999997769,
+      "state": "Run",
+      "phase": 0.419175402892523,
+      "y": 0.000814759638160467,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.1132949999999253,
+      "state": "Run",
+      "phase": 0.630809624928195,
+      "y": -0.00178822106681764,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.1353349999999631,
+      "state": "Run",
+      "phase": 0.630809624928195,
+      "y": -0.00178822106681764,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.1492149999998507,
+      "state": "Run",
+      "phase": 0.630809624928195,
+      "y": -0.00178822106681764,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.1790150000005957,
+      "state": "Run",
+      "phase": 0.630809624928195,
+      "y": -0.00178822106681764,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.1820449999999258,
+      "state": "Run",
+      "phase": 0.630809624928195,
+      "y": -0.00178822106681764,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.211240000000223,
+      "state": "Run",
+      "phase": 0.84244387671208,
+      "y": 0.000828196760267019,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.2286950000002976,
+      "state": "Run",
+      "phase": 0.84244387671208,
+      "y": 0.000828196760267019,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.2468300000000747,
+      "state": "Run",
+      "phase": 0.84244387671208,
+      "y": 0.000828196760267019,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.262530000000261,
+      "state": "Run",
+      "phase": 0.84244387671208,
+      "y": 0.000828196760267019,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.282084999999963,
+      "state": "Run",
+      "phase": 0.84244387671208,
+      "y": 0.000828196760267019,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.3020650000004101,
+      "state": "Run",
+      "phase": 0.84244387671208,
+      "y": 0.000828196760267019,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.3291699999999258,
+      "state": "Run",
+      "phase": 0.054078128495966,
+      "y": 0.000840132590383291,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.3430449999999254,
+      "state": "Run",
+      "phase": 0.054078128495966,
+      "y": 0.000840132590383291,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.3627750000003722,
+      "state": "Run",
+      "phase": 0.054078128495966,
+      "y": 0.000840132590383291,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.382100000000559,
+      "state": "Run",
+      "phase": 0.054078128495966,
+      "y": 0.000840132590383291,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.4020650000004098,
+      "state": "Run",
+      "phase": 0.054078128495966,
+      "y": 0.000840132590383291,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.4285949999997394,
+      "state": "Run",
+      "phase": 0.054078128495966,
+      "y": 0.000840132590383291,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.4455949999997388,
+      "state": "Run",
+      "phase": 0.265712348243304,
+      "y": 0.000831048702821136,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.4620800000000749,
+      "state": "Run",
+      "phase": 0.265712348243304,
+      "y": 0.000831048702821136,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.4820650000004099,
+      "state": "Run",
+      "phase": 0.265712348243304,
+      "y": 0.000831048702821136,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.5019800000004473,
+      "state": "Run",
+      "phase": 0.265712348243304,
+      "y": 0.000831048702821136,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.5276000000005592,
+      "state": "Run",
+      "phase": 0.265712348243304,
+      "y": 0.000831048702821136,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.543780000000261,
+      "state": "Run",
+      "phase": 0.265712348243304,
+      "y": 0.000831048702821136,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.5620600000005211,
+      "state": "Run",
+      "phase": 0.47734660002719,
+      "y": 0.000839195330627263,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.582054999999702,
+      "state": "Run",
+      "phase": 0.47734660002719,
+      "y": 0.000839195330627263,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.6020899999998512,
+      "state": "Run",
+      "phase": 0.47734660002719,
+      "y": 0.000839195330627263,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.6272099999999625,
+      "state": "Run",
+      "phase": 0.47734660002719,
+      "y": 0.000839195330627263,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.64431500000041,
+      "state": "Run",
+      "phase": 0.47734660002719,
+      "y": 0.000839195330627263,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.6620499999998133,
+      "state": "Run",
+      "phase": 0.47734660002719,
+      "y": 0.000839195330627263,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.6820750000001858,
+      "state": "Run",
+      "phase": 0.688980851811076,
+      "y": 0.000834557227790356,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.7116699999999252,
+      "state": "Run",
+      "phase": 0.688980851811076,
+      "y": 0.000834557227790356,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.7281250000000004,
+      "state": "Run",
+      "phase": 0.688980851811076,
+      "y": 0.000834557227790356,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.7446699999999256,
+      "state": "Run",
+      "phase": 0.688980851811076,
+      "y": 0.000834557227790356,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.7627800000002605,
+      "state": "Run",
+      "phase": 0.688980851811076,
+      "y": 0.000834557227790356,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.7820650000004097,
+      "state": "Run",
+      "phase": 0.688980851811076,
+      "y": 0.000834557227790356,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.8143300000000746,
+      "state": "Run",
+      "phase": 0.900615037233503,
+      "y": 0.000837928790133446,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.828730000000447,
+      "state": "Run",
+      "phase": 0.900615037233503,
+      "y": 0.000837928790133446,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.8462999999998138,
+      "state": "Run",
+      "phase": 0.900615037233503,
+      "y": 0.000837928790133446,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.8620700000002977,
+      "state": "Run",
+      "phase": 0.900615037233503,
+      "y": 0.000837928790133446,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.8820600000005214,
+      "state": "Run",
+      "phase": 0.900615037233503,
+      "y": 0.000837928790133446,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.9103650000002235,
+      "state": "Run",
+      "phase": 0.112249222655931,
+      "y": 0.000834543665405363,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.9273799999998884,
+      "state": "Run",
+      "phase": 0.112249222655931,
+      "y": 0.000834543665405363,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.9462050000000746,
+      "state": "Run",
+      "phase": 0.112249222655931,
+      "y": 0.000834543665405363,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.961990000000223,
+      "state": "Run",
+      "phase": 0.112249222655931,
+      "y": 0.000834543665405363,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 1.9820700000002978,
+      "state": "Run",
+      "phase": 0.112249222655931,
+      "y": 0.000834543665405363,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.013259999999776,
+      "state": "Run",
+      "phase": 0.112249222655931,
+      "y": 0.000834543665405363,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.0266100000003355,
+      "state": "Run",
+      "phase": 0.323883474439817,
+      "y": 0.00083959533367306,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.0442599999997766,
+      "state": "Run",
+      "phase": 0.323883474439817,
+      "y": 0.00083959533367306,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.06206500000041,
+      "state": "Run",
+      "phase": 0.323883474439817,
+      "y": 0.00083959533367306,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.082080000000074,
+      "state": "Run",
+      "phase": 0.323883474439817,
+      "y": 0.00083959533367306,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.102094999999739,
+      "state": "Run",
+      "phase": 0.323883474439817,
+      "y": 0.00083959533367306,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.1263950000004845,
+      "state": "Run",
+      "phase": 0.323883474439817,
+      "y": 0.00083959533367306,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.1468799999998884,
+      "state": "Run",
+      "phase": 0.535517527139328,
+      "y": 0.000838758598547429,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.1620499999998133,
+      "state": "Run",
+      "phase": 0.535517527139328,
+      "y": 0.000838758598547429,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.182075000000186,
+      "state": "Run",
+      "phase": 0.535517527139328,
+      "y": 0.000838758598547429,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.2108100000005217,
+      "state": "Run",
+      "phase": 0.535517527139328,
+      "y": 0.000838758598547429,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.2270800000000746,
+      "state": "Run",
+      "phase": 0.535517527139328,
+      "y": 0.000838758598547429,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.24575,
+      "state": "Run",
+      "phase": 0.535517527139328,
+      "y": 0.000838758598547429,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.26206500000041,
+      "state": "Run",
+      "phase": 0.74715157983884,
+      "y": 0.000836356019135565,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.2820650000004097,
+      "state": "Run",
+      "phase": 0.74715157983884,
+      "y": 0.000836356019135565,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.3111249999999997,
+      "state": "Run",
+      "phase": 0.74715157983884,
+      "y": 0.000836356019135565,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.3293749999999998,
+      "state": "Run",
+      "phase": 0.74715157983884,
+      "y": 0.000836356019135565,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.3449750000005585,
+      "state": "Run",
+      "phase": 0.74715157983884,
+      "y": 0.000836356019135565,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.3620499999998135,
+      "state": "Run",
+      "phase": 0.74715157983884,
+      "y": 0.000836356019135565,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.382080000000075,
+      "state": "Run",
+      "phase": 0.958785566176893,
+      "y": 0.000839631771668792,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.4102450000001117,
+      "state": "Run",
+      "phase": 0.958785566176893,
+      "y": 0.000839631771668792,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.4270350000001493,
+      "state": "Run",
+      "phase": 0.958785566176893,
+      "y": 0.000839631771668792,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.445990000000223,
+      "state": "Run",
+      "phase": 0.958785566176893,
+      "y": 0.000839631771668792,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.4620899999998507,
+      "state": "Run",
+      "phase": 0.958785566176893,
+      "y": 0.000839631771668792,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.482060000000521,
+      "state": "Run",
+      "phase": 0.958785566176893,
+      "y": 0.000839631771668792,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.50996999999974,
+      "state": "Run",
+      "phase": 0.17041975159932,
+      "y": 0.000833998201414943,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.5276500000003725,
+      "state": "Run",
+      "phase": 0.17041975159932,
+      "y": 0.000833998201414943,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.548084999999963,
+      "state": "Run",
+      "phase": 0.17041975159932,
+      "y": 0.000833998201414943,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.562065000000409,
+      "state": "Run",
+      "phase": 0.17041975159932,
+      "y": 0.000833998201414943,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.5820600000005207,
+      "state": "Run",
+      "phase": 0.17041975159932,
+      "y": 0.000833998201414943,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.6097300000004466,
+      "state": "Run",
+      "phase": 0.382053937021748,
+      "y": 0.000836833787616342,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.6269249999998134,
+      "state": "Run",
+      "phase": 0.382053937021748,
+      "y": 0.000836833787616342,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.645535000000148,
+      "state": "Run",
+      "phase": 0.382053937021748,
+      "y": 0.000836833787616342,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.6620449999999263,
+      "state": "Run",
+      "phase": 0.382053937021748,
+      "y": 0.000836833787616342,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.6820849999999634,
+      "state": "Run",
+      "phase": 0.382053937021748,
+      "y": 0.000836833787616342,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.711610000000336,
+      "state": "Run",
+      "phase": 0.382053937021748,
+      "y": 0.000836833787616342,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.732299999999814,
+      "state": "Dash",
+      "phase": 0.595520993167804,
+      "y": 0.000839691900182515,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.744629999999889,
+      "state": "Dash",
+      "phase": 0.595520993167804,
+      "y": 0.000839691900182515,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.7620549999997017,
+      "state": "Dash",
+      "phase": 0.595520993167804,
+      "y": 0.000839691900182515,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.7820650000004097,
+      "state": "Dash",
+      "phase": 0.595520993167804,
+      "y": 0.000839691900182515,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.8123399999998515,
+      "state": "Dash",
+      "phase": 0.595520993167804,
+      "y": 0.000839691900182515,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.826504999999889,
+      "state": "Dash",
+      "phase": 0.595520993167804,
+      "y": 0.000839691900182515,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.84525,
+      "state": "Dash",
+      "phase": 0.851794075889957,
+      "y": 0.000839688000269234,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.8620750000001856,
+      "state": "Dash",
+      "phase": 0.851794075889957,
+      "y": 0.000839688000269234,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.8820400000000372,
+      "state": "Dash",
+      "phase": 0.851794075889957,
+      "y": 0.000839688000269234,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.910009999999776,
+      "state": "Dash",
+      "phase": 0.851794075889957,
+      "y": 0.000839688000269234,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.9279500000001857,
+      "state": "Dash",
+      "phase": 0.851794075889957,
+      "y": 0.000839688000269234,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 2.944919999999925,
+      "state": "Dash",
+      "phase": 0.851794075889957,
+      "y": 0.000839688000269234,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.169504999999889,
+      "state": "Dash",
+      "phase": 0.114293896038193,
+      "y": 0.000833769561722875,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.1860499999998133,
+      "state": "Dash",
+      "phase": 0.376793675598489,
+      "y": 0.000839680898934603,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.214325000000187,
+      "state": "Dash",
+      "phase": 0.376793675598489,
+      "y": 0.000839680898934603,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.2330350000001484,
+      "state": "Dash",
+      "phase": 0.376793675598489,
+      "y": 0.000839680898934603,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.246355000000447,
+      "state": "Dash",
+      "phase": 0.376793675598489,
+      "y": 0.000839680898934603,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.265134999999777,
+      "state": "Dash",
+      "phase": 0.376793675598489,
+      "y": 0.000839680898934603,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.2988750000000007,
+      "state": "Dash",
+      "phase": 0.63929312307496,
+      "y": 0.000835242739412934,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.319685000000522,
+      "state": "Dash",
+      "phase": 0.63929312307496,
+      "y": 0.000835242739412934,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.3318250000001868,
+      "state": "Dash",
+      "phase": 0.63929312307496,
+      "y": 0.000835242739412934,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.3446349999997764,
+      "state": "Dash",
+      "phase": 0.63929312307496,
+      "y": 0.000835242739412934,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.364339999999851,
+      "state": "Dash",
+      "phase": 0.63929312307496,
+      "y": 0.000835242739412934,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.3991850000005215,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000834875565487891,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.4120350000001487,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000834875565487891,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.4313650000002234,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000834875565487891,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.4471299999998877,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000834875565487891,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.4629599999999634,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000834875565487891,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.4846799999997025,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000834875565487891,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.511810000000521,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835274870041758,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.531455000000074,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835274870041758,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.544504999999889,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835274870041758,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.5620250000003733,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835274870041758,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.584445000000297,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835274870041758,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.612004999999888,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835274870041758,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.630884999999777,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835640297736973,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.6453749999999996,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835640297736973,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.6619900000002232,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835640297736973,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.6880600000005224,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835640297736973,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.7113449999997385,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835640297736973,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.7282300000004476,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000835640297736973,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.744624999999999,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000836183899082243,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.7629500000001865,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000836183899082243,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.7820549999997013,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000836183899082243,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.813390000000595,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000836183899082243,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.828205000000075,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000836183899082243,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.8444000000003733,
+      "state": "Skid",
+      "phase": 0.864292502944766,
+      "y": 0.000836183899082243,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.8626150000002237,
+      "state": "Idle",
+      "phase": 0.864292502944766,
+      "y": 0.000835559563711286,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.882049999999813,
+      "state": "Idle",
+      "phase": 0.864292502944766,
+      "y": 0.000835559563711286,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.9125849999999627,
+      "state": "Idle",
+      "phase": 0.864292502944766,
+      "y": 0.000835559563711286,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.9276600000001487,
+      "state": "Idle",
+      "phase": 0.864292502944766,
+      "y": 0.000835559563711286,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.946110000000335,
+      "state": "Idle",
+      "phase": 0.864292502944766,
+      "y": 0.000835559563711286,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.962049999999813,
+      "state": "Idle",
+      "phase": 0.864292502944766,
+      "y": 0.000835559563711286,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 3.9820499999998145,
+      "state": "Run",
+      "phase": 0.0113755937577886,
+      "y": 0.000835872895549983,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.012225000000559,
+      "state": "Run",
+      "phase": 0.0113755937577886,
+      "y": 0.000835872895549983,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.028124999999999,
+      "state": "Run",
+      "phase": 0.0113755937577886,
+      "y": 0.000835872895549983,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.046400000000373,
+      "state": "Run",
+      "phase": 0.0113755937577886,
+      "y": 0.000835872895549983,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.2684699999997395,
+      "state": "Run",
+      "phase": 0.472712524242935,
+      "y": 0.000838439853396267,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.290860000000336,
+      "state": "Run",
+      "phase": 0.472712524242935,
+      "y": 0.000838439853396267,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.319490000000224,
+      "state": "Run",
+      "phase": 0.472712524242935,
+      "y": 0.000838439853396267,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.331620000000111,
+      "state": "Run",
+      "phase": 0.472712524242935,
+      "y": 0.000838439853396267,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.34581500000041,
+      "state": "Run",
+      "phase": 0.472712524242935,
+      "y": 0.000838439853396267,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.367790000000037,
+      "state": "Walk",
+      "phase": 0.639594248322204,
+      "y": 0.000835007289424539,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.3980300000002615,
+      "state": "Walk",
+      "phase": 0.639594248322204,
+      "y": 0.000835007289424539,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.415200000000187,
+      "state": "Walk",
+      "phase": 0.639594248322204,
+      "y": 0.000835007289424539,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.429075000000186,
+      "state": "Walk",
+      "phase": 0.639594248322204,
+      "y": 0.000835007289424539,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.444540000000037,
+      "state": "Walk",
+      "phase": 0.639594248322204,
+      "y": 0.000835007289424539,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.465745000000112,
+      "state": "Walk",
+      "phase": 0.639594248322204,
+      "y": 0.000835007289424539,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.482054999999702,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.5306600000001485,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.54646499999985,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.562549999999813,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.582054999999702,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.613245000000111,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.629850000000559,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.651009999999776,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.663669999999925,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.682075000000186,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.717560000000521,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.730509999999777,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.74959499999974,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.763360000000334,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.782054999999701,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.815650000000373,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.829629999999888,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.8485899999998505,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.864629999999888,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.882049999999813,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.912995000000112,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.9289699999997385,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.945950000000186,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 4.985424999999813,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 5.013115000000223,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 5.033450000000187,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 5.047919999999925,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 0.000836378138046712,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 5.062054999999702,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.213713020086288,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.08471999999974,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.213713020086288,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.111600000000559,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.213713020086288,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.144879999999889,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.213713020086288,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.162049999999814,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.213713020086288,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.182054999999702,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.481268525123596,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.211094999999739,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.481268525123596,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.227509999999777,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.481268525123596,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.244620000000111,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.481268525123596,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.262554999999702,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.481268525123596,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.28206500000041,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.481268525123596,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.311549999999814,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.615435123443604,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.328214999999851,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.615435123443604,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.3463049999997025,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.615435123443604,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.3620499999998135,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.615435123443604,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.385915000000038,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.615435123443604,
+      "jump_stage": "Ascend"
+    },
+    {
+      "t": 5.4114649999998505,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.616212844848633,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.427640000000595,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.616212844848633,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.444620000000112,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.616212844848633,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.467629999999888,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.616212844848633,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.4820750000001865,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.616212844848633,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.514660000000148,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.616212844848633,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.5289800000004465,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.483601629734039,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.550765000000595,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.483601629734039,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.56269000000041,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.483601629734039,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.582070000000298,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.483601629734039,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.612655000000261,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.483601629734039,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.634759999999776,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.483601629734039,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.6459299999997015,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.21760156750679,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.662054999999702,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.21760156750679,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.682075000000186,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.21760156750679,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.712544999999926,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.21760156750679,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.729334999999963,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 0.21760156750679,
+      "jump_stage": "Descend"
+    },
+    {
+      "t": 5.766310000000521,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.782084999999963,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.812245000000111,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.829830000000074,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.847129999999888,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.862054999999701,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.886799999999814,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.912605000000447,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.930429999999703,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.946200000000186,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.965549999999814,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 5.982060000000521,
+      "state": "Jump",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Land"
+    },
+    {
+      "t": 6.014185000000522,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.02783999999985,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.0485099999997765,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.062700000000186,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.083900000000373,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.111240000000224,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.128695000000297,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.147625,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.167089999999851,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.182054999999702,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.2163950000004835,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.232225000000559,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.249620000000112,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.26296499999985,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.282054999999701,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.313515000000596,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.329745000000111,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.365554999999702,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.383634999999776,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.413714999999851,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.434650000000373,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.446629999999889,
+      "state": "Idle",
+      "phase": 0.72984644090963,
+      "y": 8.92514362931252e-05,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.465275000000373,
+      "state": "Run",
+      "phase": 0.846586375616271,
+      "y": 0.000838705454953015,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.4839249999998145,
+      "state": "Run",
+      "phase": 0.846586375616271,
+      "y": 0.000838705454953015,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.51356500000041,
+      "state": "Run",
+      "phase": 0.846586375616271,
+      "y": 0.000838705454953015,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.53196499999985,
+      "state": "Run",
+      "phase": 0.846586375616271,
+      "y": 0.000838705454953015,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.547570000000299,
+      "state": "Run",
+      "phase": 0.846586375616271,
+      "y": 0.000838705454953015,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.565125,
+      "state": "Run",
+      "phase": 0.846586375616271,
+      "y": 0.000838705454953015,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.582075000000186,
+      "state": "Run",
+      "phase": 0.05542566742522,
+      "y": 0.000839637883473188,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.617044999999925,
+      "state": "Run",
+      "phase": 0.05542566742522,
+      "y": 0.000839637883473188,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.629665000000037,
+      "state": "Run",
+      "phase": 0.05542566742522,
+      "y": 0.000839637883473188,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.647839999999851,
+      "state": "Run",
+      "phase": 0.05542566742522,
+      "y": 0.000839637883473188,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.667929999999702,
+      "state": "Run",
+      "phase": 0.05542566742522,
+      "y": 0.000839637883473188,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.682429999999702,
+      "state": "Run",
+      "phase": 0.05542566742522,
+      "y": 0.000839637883473188,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.716674999999814,
+      "state": "Run",
+      "phase": 0.267052032550182,
+      "y": 0.000836250546853989,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.729145000000484,
+      "state": "Run",
+      "phase": 0.267052032550182,
+      "y": 0.000836250546853989,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.750185000000522,
+      "state": "Run",
+      "phase": 0.267052032550182,
+      "y": 0.000836250546853989,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.765000000000001,
+      "state": "Run",
+      "phase": 0.267052032550182,
+      "y": 0.000836250546853989,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.78206500000041,
+      "state": "Run",
+      "phase": 0.267052032550182,
+      "y": 0.000836250546853989,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.818169999999926,
+      "state": "Run",
+      "phase": 0.478685886165319,
+      "y": 0.000839688465930521,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.829770000000485,
+      "state": "Run",
+      "phase": 0.478685886165319,
+      "y": 0.000839688465930521,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.845820000000298,
+      "state": "Run",
+      "phase": 0.478685886165319,
+      "y": 0.000839688465930521,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.862054999999701,
+      "state": "Run",
+      "phase": 0.478685886165319,
+      "y": 0.000839688465930521,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.882060000000521,
+      "state": "Run",
+      "phase": 0.478685886165319,
+      "y": 0.000839688465930521,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.911129999999888,
+      "state": "Run",
+      "phase": 0.478685886165319,
+      "y": 0.000839688465930521,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.928330000000074,
+      "state": "Run",
+      "phase": 0.690319673418998,
+      "y": 0.000838737701997161,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.948695000000297,
+      "state": "Run",
+      "phase": 0.690319673418998,
+      "y": 0.000838737701997161,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.9629850000003355,
+      "state": "Run",
+      "phase": 0.690319673418998,
+      "y": 0.000838737701997161,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 6.982065000000409,
+      "state": "Run",
+      "phase": 0.690319673418998,
+      "y": 0.000838737701997161,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.014679999999702,
+      "state": "Run",
+      "phase": 0.690319673418998,
+      "y": 0.000838737701997161,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.049455000000075,
+      "state": "Run",
+      "phase": 0.900924287588629,
+      "y": 0.000836831284686923,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.062959999999963,
+      "state": "Run",
+      "phase": 0.900924287588629,
+      "y": 0.000836831284686923,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.082075000000186,
+      "state": "Run",
+      "phase": 0.900924287588629,
+      "y": 0.000836831284686923,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.113075000000187,
+      "state": "Run",
+      "phase": 0.900924287588629,
+      "y": 0.000836831284686923,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.130270000000484,
+      "state": "Run",
+      "phase": 0.900924287588629,
+      "y": 0.000836831284686923,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.145304999999702,
+      "state": "Run",
+      "phase": 0.900924287588629,
+      "y": 0.000836831284686923,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.164294999999925,
+      "state": "Walk",
+      "phase": 0.0726628273906035,
+      "y": 0.000837745436001569,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.182060000000522,
+      "state": "Walk",
+      "phase": 0.0726628273906035,
+      "y": 0.000837745436001569,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.213589999999851,
+      "state": "Walk",
+      "phase": 0.0726628273906035,
+      "y": 0.000837745436001569,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.227580000000074,
+      "state": "Walk",
+      "phase": 0.0726628273906035,
+      "y": 0.000837745436001569,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.246150000000373,
+      "state": "Walk",
+      "phase": 0.0726628273906035,
+      "y": 0.000837745436001569,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.262395000000485,
+      "state": "Walk",
+      "phase": 0.0726628273906035,
+      "y": 0.000837745436001569,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.282105000000447,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.309490000000224,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.327990000000224,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.344004999999887,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.362054999999701,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.382054999999703,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.410395000000484,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.429015000000597,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.443759999999777,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.4620600000005215,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.4820800000000744,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.511120000000112,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.528105000000448,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.546594999999739,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.5628300000000745,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.58209499999974,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.61125,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.627750000000001,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.645060000000521,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.663820000000298,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.682080000000074,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.710395000000485,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.7279750000005585,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.744275000000373,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.763554999999702,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.782100000000559,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.809195000000297,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    },
+    {
+      "t": 7.827049999999813,
+      "state": "Idle",
+      "phase": 0.165896558249424,
+      "y": 0.000839380430988967,
+      "jump_stage": "Ground"
+    }
+  ],
+  "profile": "original-stone-capture",
+  "method": "Actual stereo AudioWorklet PCM and native WebCodecs canvas frames share the audio-context clock; each cue clock correspondence observed at its exact performance.now call. No source/audio time shifts.",
+  "sample_starts": [],
+  "source_nodes": [
+    {
+      "type": "GainNode",
+      "buffer_size": 0
+    },
+    {
+      "type": "AudioWorkletNode",
+      "buffer_size": 0
+    }
+  ],
+  "base_latency": 0.011609977324263039,
+  "output_latency": 0.128,
+  "errors": [],
+  "renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "live_url": "https://windows-wsl.taile06c45.ts.net/character-sound-live-01a0f3a2/",
+  "pck_sha256": "7951713bf47a4eb9b71779bb1256020cb06d006c30766c32571b259180562245",
+  "audio_peak": 0.11370849609375,
+  "pcm_frames": 345088,
+  "pcm_seconds": 7.825124716553288,
+  "max_audio_thread_gap_seconds": 1.6514567491299204e-15,
+  "trimmed_pcm_frames": 32256
+}

@@ -8,14 +8,14 @@
 ## freeze rule is applied once the fade has settled.
 extends Control
 
+signal tenant_created(key: String)
+signal switch_settled(index: int)
+
 const Errors := preload("res://modules/shell/errors.gd")
 const TabStrip := preload("res://modules/tab_strip/interface.gd")
 const HoverGlow := preload("res://modules/shell/hover_glow.gd")
 const DesktopIcons := preload("res://modules/shell/desktop_icons.gd")
 const WindowShadows := preload("res://modules/shell/window_shadows.gd")
-
-signal tenant_created(key: String)
-signal switch_settled(index: int)
 
 const SOURCE_WIDTH := 5703.0  # the rebuilt taskbar (tab_strip compact layout, Issue #113)
 const BAR_HEIGHT := 186.0
@@ -23,7 +23,9 @@ const FADE_SECONDS := 0.2
 # Placeholder top header (the owner's menu-bar screenshot, 2026-09-23) above every Tab's Page,
 # fitted to the window's width.
 const HEADER_TEXTURE := "res://modules/shell/assets/top-header-placeholder.png"
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
+const FIXED_TABS: Array[String] = [
+	"map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"
+]
 const LAUNCH_TAB := "collection"
 
 var _registry: Dictionary = {}
@@ -41,7 +43,8 @@ static func create(registry: Dictionary) -> Dictionary:
 	shell._registry = registry
 	shell._pages = Control.new()
 	shell._pages.name = "PageStack"
-	var created: Dictionary = TabStrip.create(shell._pages, false)  # no "Windows Live" tab: the seven are ours
+	# no "Windows Live" tab: the seven are ours
+	var created: Dictionary = TabStrip.create(shell._pages, false)
 	if not created.ok:
 		return created
 	shell._strip = created.value
@@ -80,7 +83,8 @@ func _ready() -> void:
 			continue
 		_fixed.append({"key": key, "page": page, "tenant": null, "error": ""})
 	_apply_freeze()  # every Page starts hidden and frozen
-	# prototype: the hover glow on the strip's buttons and the seven tabs, and the two-state arrow cursor
+	# prototype: the hover glow on the strip's buttons and the seven tabs,
+	# and the two-state arrow cursor
 	HoverGlow.use_cursor()
 	HoverGlow.attach_all(_strip)
 	for tab in _strip.get_children():
@@ -90,9 +94,13 @@ func _ready() -> void:
 	var launch := FIXED_TABS.find(LAUNCH_TAB)
 	var grown: Dictionary = TabStrip.grow_tab(_strip, launch)
 	if grown.ok:  # on settle, unless a click already chose a tab while the grow ran
-		_strip.connect("tab_settled", func(_index: int):
-			if TabStrip.state(_strip).value.active == -1:
-				select_tab(launch), CONNECT_ONE_SHOT)
+		_strip.connect(
+			"tab_settled",
+			func(_index: int):
+				if TabStrip.state(_strip).value.active == -1:
+					select_tab(launch),
+			CONNECT_ONE_SHOT
+		)
 	else:
 		select_tab(launch)
 
@@ -111,7 +119,8 @@ func _fit() -> void:
 
 
 ## A selection: the Tenant is created on the first show, then the new Page cross-fades in over
-## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is applied when the fade settles.
+## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is
+## applied when the fade settles.
 func _on_tab_selected(index: int) -> void:
 	if index < _fixed.size() and _fixed[index].tenant == null and _fixed[index].error == "":
 		_create_tenant(_fixed[index])
@@ -138,23 +147,28 @@ func _on_tab_selected(index: int) -> void:
 	_fade.tween_property(target, "modulate:a", 1.0, FADE_SECONDS)
 	for p in outgoing:
 		_fade.tween_property(p, "modulate:a", 0.0, FADE_SECONDS)
-	_fade.chain().tween_callback(func():
-		for p in outgoing:
-			if is_instance_valid(p):
-				p.visible = false
-				p.modulate.a = 1.0
-		_shown = [target]
-		_switching = false
-		_apply_freeze()
-		emit_signal("switch_settled", index))
+	_fade.chain().tween_callback(
+		func():
+			for p in outgoing:
+				if is_instance_valid(p):
+					p.visible = false
+					p.modulate.a = 1.0
+			_shown = [target]
+			_switching = false
+			_apply_freeze()
+			emit_signal("switch_settled", index)
+	)
 
 
-## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus.
+## The Shell's show/hide rule: the visible Page runs, every hidden
+## Page is frozen and holds no focus.
 func _apply_freeze() -> void:
 	var focus: Control = get_viewport().gui_get_focus_owner() if is_inside_tree() else null
 	for child in _pages.get_children():
 		var page := child as Control
-		page.process_mode = Node.PROCESS_MODE_INHERIT if page.visible else Node.PROCESS_MODE_DISABLED
+		page.process_mode = (
+			Node.PROCESS_MODE_INHERIT if page.visible else Node.PROCESS_MODE_DISABLED
+		)
 		if not page.visible and focus != null and page.is_ancestor_of(focus):
 			focus.release_focus()
 
@@ -170,14 +184,16 @@ func _create_tenant(f: Dictionary) -> void:
 		return
 	f.tenant = result.value
 	f.page.add_child(f.tenant)
-	DesktopIcons.insert(f.tenant)  # prototype: the owner's desktop icons under this Page's windows
-	WindowShadows.attach(f.tenant)  # prototype: a light drop shadow under every window of this Page
+	if f.key not in ["playground", "collection"]:
+		DesktopIcons.insert(f.tenant)
+		WindowShadows.attach(f.tenant)
 	if f.key == "sketchbook":  # prototype: the hover glow on every button of the Sketchbook Page first
 		HoverGlow.attach_all(f.tenant)
 	emit_signal("tenant_created", f.key)
 
 
 # --- interface -------------------------------------------------------------------
+
 
 func select_tab(index: int) -> Dictionary:
 	return TabStrip.select_tab(_strip, index)
@@ -208,10 +224,33 @@ func state() -> Dictionary:
 		var t: Dictionary = s.tabs[i]
 		var f: Dictionary = _fixed[i] if i < _fixed.size() else {}
 		var page: Control = f.page if not f.is_empty() else null
-		tabs.append({"key": f.get("key", ""), "label": t.label, "fixed": t.fixed, "page_visible": t.page_visible,
+		tabs.append(
+			{
+				"key": f.get("key", ""),
+				"label": t.label,
+				"fixed": t.fixed,
+				"page_visible": t.page_visible,
 				"frozen": page != null and page.process_mode == Node.PROCESS_MODE_DISABLED,
-				"tenant": null if f.is_empty() else (f.error if f.error != "" else ("ok" if f.tenant != null else null)),
-				"rect": xf * t.rect, "close_rect": xf * t.close_rect if t.close_rect.size.x > 0 else Rect2()})
-	return Errors.ok({"count": s.count, "active": s.active, "opening": s.opening, "pressed": s.pressed,
-			"switching": _switching, "fixed_count": _fixed.size(), "bar_rect": Rect2(_strip.position, _strip.size * _strip.scale),
-			"stub_rect": xf * TabStrip.stub_rect(_strip), "tabs": tabs})
+				"tenant":
+				(
+					null
+					if f.is_empty()
+					else (f.error if f.error != "" else ("ok" if f.tenant != null else null))
+				),
+				"rect": xf * t.rect,
+				"close_rect": xf * t.close_rect if t.close_rect.size.x > 0 else Rect2()
+			}
+		)
+	return Errors.ok(
+		{
+			"count": s.count,
+			"active": s.active,
+			"opening": s.opening,
+			"pressed": s.pressed,
+			"switching": _switching,
+			"fixed_count": _fixed.size(),
+			"bar_rect": Rect2(_strip.position, _strip.size * _strip.scale),
+			"stub_rect": xf * TabStrip.stub_rect(_strip),
+			"tabs": tabs
+		}
+	)

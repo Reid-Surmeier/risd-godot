@@ -1,0 +1,26 @@
+{
+  "source_hashes_match": true,
+  "registered_views": 475,
+  "points": 43253,
+  "fitted_error_px": 0.6395880835827897,
+  "heldout_supported": 49,
+  "split_point_supported": 46,
+  "samples": 69,
+  "caveat": "Nearby same-video heldout localization, not independent survey accuracy.",
+  "prior_frozen_inputs_unchanged": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000202.jpg": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000205.jpg": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/images/IMG_6380/000203.jpg": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/corridor-floor-v2/result.json": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/doorway_walk.gd": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/geometry.json": true,
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7/provenance.json": true
+  },
+  "viewer_diff_empty": true
+}

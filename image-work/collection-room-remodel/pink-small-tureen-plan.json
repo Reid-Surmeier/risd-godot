@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "pink-small-tureen-001",
+      "prompt": "pink-small-tureen-prompt.txt",
+      "promptSha256": "0149984e6f9511bba657b8f5e970734ba3e4fd10a83ed30989795d9dfb8631f3",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/pink-small-tureen-selected-0.png",
+          "sha256": "3e6a167c7782fe88a2284b7d20e0765d02ae0226c5b9629fb3c643f5b3501a29"
+        }
+      ]
+    }
+  ]
+}

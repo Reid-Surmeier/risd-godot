@@ -1,0 +1,106 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+PASS 0: minimap shrink
+PASS 0: minimap grow
+PASS unchanged internal layout
+PASS 0: itinerary shrink
+PASS 0: itinerary grow
+PASS unchanged internal layout
+PASS 0: chat shrink
+PASS 0: chat grow
+PASS unchanged internal layout
+PASS 0: notification shrink
+PASS 0: notification grow
+PASS unchanged internal layout
+PASS 0: map shrink
+PASS 0: map grow
+PASS unchanged internal layout
+PASS page 0 has resize grips
+PASS resized map collapse
+PASS resized map expand
+PASS locked map rejects resize
+PASS map wheel zoom after resize
+WARNING: 2D MSAA is not yet supported for GLES3.
+     at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+     GDScript backtrace (most recent call first):
+         [0] _build_turn (res://modules/sketchbook/sketchbook_window.gd:188)
+         [1] _ready (res://modules/sketchbook/sketchbook_window.gd:81)
+         [2] _ready (res://modules/sketchbook/desktop.gd:105)
+         [3] _create_tenant (res://modules/shell/shell.gd:172)
+         [4] _on_tab_selected (res://modules/shell/shell.gd:117)
+         [5] select_tab (res://modules/tab_strip/tab_strip.gd:556)
+         [6] select_tab (res://modules/tab_strip/interface.gd:64)
+         [7] select_tab (res://modules/shell/shell.gd:184)
+         [8] select_tab (res://modules/shell/interface.gd:61)
+         [9] run (res://docs/evidence/window-effects-193/input_check.gd:33)
+         [10] _shot (res://testing/harness_base.gd:44)
+PASS 1: sketchbook-window shrink
+PASS 1: sketchbook-window grow
+PASS unchanged internal layout
+PASS 1: paintbox-window shrink
+PASS 1: paintbox-window grow
+PASS unchanged internal layout
+PASS 1: tldraw-controls-prototype shrink
+PASS 1: tldraw-controls-prototype grow
+PASS unchanged internal layout
+PASS 1: embedded-3d-viewer-window shrink
+PASS 1: embedded-3d-viewer-window grow
+PASS unchanged internal layout
+PASS 1: global-chatroom shrink
+PASS 1: global-chatroom grow
+PASS unchanged internal layout
+PASS 1: framed-painting-window shrink
+PASS 1: framed-painting-window grow
+PASS unchanged internal layout
+PASS 1: painting-flow-window shrink
+PASS 1: painting-flow-window grow
+PASS unchanged internal layout
+PASS page 1 has resize grips
+PASS draw on resized book
+WARNING: 2D MSAA is not yet supported for GLES3.
+     at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+     GDScript backtrace (most recent call first):
+         [0] _build_turn (res://modules/playground_page/journal_window.gd:147)
+         [1] _ready (res://modules/playground_page/journal_window.gd:55)
+         [2] _ready (res://modules/playground_page/playground_page.gd:184)
+         [3] _create_tenant (res://modules/shell/shell.gd:172)
+         [4] _on_tab_selected (res://modules/shell/shell.gd:117)
+         [5] select_tab (res://modules/tab_strip/tab_strip.gd:556)
+         [6] select_tab (res://modules/tab_strip/interface.gd:64)
+         [7] select_tab (res://modules/shell/shell.gd:184)
+         [8] select_tab (res://modules/shell/interface.gd:61)
+         [9] run (res://docs/evidence/window-effects-193/input_check.gd:33)
+         [10] _shot (res://testing/harness_base.gd:44)
+PASS 5: chat shrink
+PASS 5: chat grow
+PASS unchanged internal layout
+PASS 5: phone shrink
+PASS 5: phone grow
+PASS unchanged internal layout
+PASS 5: FengShui shrink
+PASS 5: FengShui grow
+PASS unchanged internal layout
+PASS 5: WebSurfer shrink
+PASS 5: WebSurfer grow
+PASS unchanged internal layout
+PASS 5: SketchbookJournal shrink
+PASS 5: SketchbookJournal grow
+PASS unchanged internal layout
+PASS page 5 has resize grips
+ENTRY_COMPLETE (0.0, 0.0, -2.6)
+PASS 4: CollectionFrame shrink
+PASS 4: CollectionFrame grow
+PASS unchanged internal layout
+FAIL resized Collection centered
+PASS page 4 has resize grips
+PASS artwork preview fills page
+PASS collection scale restored
+FAIL returned Collection centered
+WINDOW193 real-pointer failures=2

@@ -1,0 +1,36 @@
+{
+  "runtime": "9864f723",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-comment-wrap-current-01a0f2d4/",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "746c3940735a2ce2535d0610d3fffea10d0c133081f77071b51e55db965839ab",
+      "match": true
+    },
+    {
+      "file": "9864f723.html",
+      "status": 200,
+      "sha256": "1f94e60f8ef90818148359f469589d5d1dad9177b9c04bcb42e9c43977316bde",
+      "match": true
+    },
+    {
+      "file": "9864f723.pck.gz",
+      "status": 200,
+      "sha256": "94ac5aa143f26b7c1fac7714035cea9014d0250ba55638bbbb471a9f7e561221",
+      "match": true
+    },
+    {
+      "file": "9864f723.game.pck.gz",
+      "status": 200,
+      "sha256": "7aaf91731685b586c73db1f602035e17b858c21003a03cad7565a7943575b08b",
+      "match": true
+    },
+    {
+      "file": "9864f723.wasm.gz",
+      "status": 200,
+      "sha256": "4af2b76b202274e8cde2f32b12127ae02e959c666be701fcbc2ff1fceb754a4f",
+      "match": true
+    }
+  ]
+}

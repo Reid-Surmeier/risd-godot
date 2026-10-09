@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/finish-warm-bake.py", line 21, in <module>
+    if not completed:raise RuntimeError('No saved bake marker; original runner restores old assets')
+                     ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: No saved bake marker; original runner restores old assets

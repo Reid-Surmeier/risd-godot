@@ -1,0 +1,14 @@
+{
+  "success": true,
+  "source_sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804",
+  "output_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+  "head_world_z_threshold_m": 1.05,
+  "head_vertices": 1442,
+  "head_rigid_fit_rms_max_m": 7.448521477842977e-06,
+  "sample_count": 32,
+  "uv_and_geometry_unchanged": true,
+  "bones": 24,
+  "triangles": 7719,
+  "cost_usd": 0,
+  "scope": "head/cap/horn skin repair; foot contacts separate"
+}

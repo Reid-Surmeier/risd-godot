@@ -1,0 +1,22 @@
+{
+  "features": {
+    "IMG_6380_exit6fps/000013.jpg": {
+      "total": 1173,
+      "in_frozen_floor_mask": 54
+    },
+    "IMG_6380_exit6fps/000019.jpg": {
+      "total": 1796,
+      "in_frozen_floor_mask": 91
+    }
+  },
+  "source_pair_raw_matches": 318,
+  "source_pair_masked_matches": 0,
+  "source_freeze_check": true,
+  "registered_scope_guard": true,
+  "overwrite_guard": true,
+  "camera_round_trip": true,
+  "source_inputs_preserved": true,
+  "original_wall_pose_setup_replay": true,
+  "navigation_accepted": false,
+  "cost_usd": 0
+}

@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-0f5d90a295aeb994d657",
+      "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon gilded picture-frame asset matching the frame surrounding RISD Museum Domenico Fetti, Christ Ministered To by the Angels, accession 36.003, in the two video references. The references overlap and together show its real design. Preserve the plain rectangular outline and exact repeating moulding order: broad outer convex fluted/reeded gold band, darker recessed channel, raised repeating egg-and-dart / oval gadroon band, narrow inner floral bead next to the canvas. Rich aged gold, shallow faceted carved relief, restrained baked shadows in the established Main Hall game style. Complete all four sides and four corners. Inner opening is a perfectly blank pure white rectangle with portrait canvas proportions 78.1 wide by 89.5 high. Outside silhouette is perfectly flat magenta #FF00FF. No painting, people, walls, labels, shadows outside the frame, decorative extra scrolls, new ornament, perspective, grid or text. One frame only; no sheet. Native geometry supplies depth and separate authentic painting pixels.\n",
+      "procedureId": "muse-0f5d90a295aeb994d657",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "fetti-frame-recipe.json",
+          "sha256": "0f5d90a295aeb994d657adedb3800098a7dacd6ed7a089a9cc1db53e1b969349"
+        },
+        {
+          "applicationPath": "fetti-frame-plan.json",
+          "sha256": "6b98e756b4c72e01f00b5a10ef68e0ab292e4965e7f82d0ffa8c60a4c6b157c5"
+        },
+        {
+          "applicationPath": "fetti-frame-prompt.txt",
+          "sha256": "6feddf63c45aeee7e03ed2dbec4f1345f8a54f4b0ee37b6235e92f5731f7d422"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/fetti-frame-selected-0.png",
+          "sha256": "37ccb7c01d70a973f018a810a0b50c65823f3a6352751502003af7d4186cfe23",
+          "byteLength": 1974889,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/fetti-frame-selected-1.png",
+          "sha256": "b4dd759e7f82310a6edb8cb22bb68be6366f940b3d698b6a69b166fb984880f5",
+          "byteLength": 1888398,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Generate ONE complete FRONT ORTHOGRAPHIC low polygon gilded picture-frame asset matching the frame surrounding RISD Museum Domenico Fetti, Christ Ministered To by the Angels, accession 36.003, in the two video references. The references overlap and together show its real design. Preserve the plain rectangular outline and exact repeating moulding order: broad outer convex fluted/reeded gold band, darker recessed channel, raised repeating egg-and-dart / oval gadroon band, narrow inner floral bead next to the canvas. Rich aged gold, shallow faceted carved relief, restrained baked shadows in the established Main Hall game style. Complete all four sides and four corners. Inner opening is a perfectly blank pure white rectangle with portrait canvas proportions 78.1 wide by 89.5 high. Outside silhouette is perfectly flat magenta #FF00FF. No painting, people, walls, labels, shadows outside the frame, decorative extra scrolls, new ornament, perspective, grid or text. One frame only; no sheet. Native geometry supplies depth and separate authentic painting pixels.\\n\",\"objectiveId\":\"muse-0f5d90a295aeb994d657\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-0f5d90a295aeb994d657\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/fetti-frame-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1974889,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"37ccb7c01d70a973f018a810a0b50c65823f3a6352751502003af7d4186cfe23\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/fetti-frame-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1888398,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"b4dd759e7f82310a6edb8cb22bb68be6366f940b3d698b6a69b166fb984880f5\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"fetti-frame-recipe.json\",\"sha256\":\"0f5d90a295aeb994d657adedb3800098a7dacd6ed7a089a9cc1db53e1b969349\"},{\"applicationPath\":\"fetti-frame-plan.json\",\"sha256\":\"6b98e756b4c72e01f00b5a10ef68e0ab292e4965e7f82d0ffa8c60a4c6b157c5\"},{\"applicationPath\":\"fetti-frame-prompt.txt\",\"sha256\":\"6feddf63c45aeee7e03ed2dbec4f1345f8a54f4b0ee37b6235e92f5731f7d422\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "ebee8724fca764b64861e62666bad35b93dab90d812fe1f185c6e32ba740792f"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon gilded picture-frame asset matching the frame surrounding RISD Museum Domenico Fetti, Christ Ministered To by the Angels, accession 36.003, in the two video references. The references overlap and together show its real design. Preserve the plain rectangular outline and exact repeating moulding order: broad outer convex fluted/reeded gold band, darker recessed channel, raised repeating egg-and-dart / oval gadroon band, narrow inner floral bead next to the canvas. Rich aged gold, shallow faceted carved relief, restrained baked shadows in the established Main Hall game style. Complete all four sides and four corners. Inner opening is a perfectly blank pure white rectangle with portrait canvas proportions 78.1 wide by 89.5 high. Outside silhouette is perfectly flat magenta #FF00FF. No painting, people, walls, labels, shadows outside the frame, decorative extra scrolls, new ornament, perspective, grid or text. One frame only; no sheet. Native geometry supplies depth and separate authentic painting pixels.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

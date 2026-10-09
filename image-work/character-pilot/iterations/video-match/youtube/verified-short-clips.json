@@ -1,0 +1,38 @@
+{
+  "front": {
+    "sha256": "c75119f6160ea6a9edd52edf28d025bb3d5cee5ceca2ff2143d5c0b2ac15ed9c",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1",
+          "nb_frames": "24"
+        }
+      ],
+      "format": {
+        "duration": "0.800000"
+      }
+    }
+  },
+  "source_url": "https://www.youtube.com/watch?v=EwwW4Rk1wMU",
+  "note": "Re-extracted ordinary public sections after original copied clips failed ffprobe. No timing or imagery synthesis.",
+  "profile": {
+    "sha256": "e768bd0ec9df75b04da72a47a5c1cf00d530aa4e53ba9aca2702d426205a4b33",
+    "probe": {
+      "programs": [],
+      "streams": [
+        {
+          "width": 1280,
+          "height": 720,
+          "r_frame_rate": "30/1",
+          "nb_frames": "24"
+        }
+      ],
+      "format": {
+        "duration": "0.800000"
+      }
+    }
+  }
+}

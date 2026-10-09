@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "fox-001",
+      "prompt": "fox-prompt.txt",
+      "promptSha256": "33f1e6db42810b4d4a5cd5c0468740328706578dfa215f046f19572963308d30",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/fox-catalogue.png",
+          "sha256": "447a204e1ab46624f6b3016102d8e3c4b844aad81d3af89b8b644872d4a75b8e"
+        }
+      ]
+    }
+  ]
+}

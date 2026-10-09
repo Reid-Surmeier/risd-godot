@@ -1,0 +1,16 @@
+{
+  "accepted": false,
+  "date_utc": "2026-10-01",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "outputs": 1,
+  "cost_usd": "0.010000",
+  "runId": "run-6c7677a64b663135844fdbcb",
+  "native_sha256": "5e82e83b9907e8bd32f110543265906e76dd1dbfe3911f56af0185e0712f9da1",
+  "catalogue_id": "1296426",
+  "accession": "56.214",
+  "source": "IMG_6380 90.25/91.25s; official API canvas photo",
+  "visual_review": "Complete front, continuous low-polygon leaf/bud band and bead row. Generated corner steps, leaf proportions and gold tone are not exact source matches; retained as unaccepted trial, no paid retry. Existing native nine-slice frame uses source-relative provisional band widths. Left source band clipped; inferred by symmetry. Constant native 9cm rear/profile depth remains unverified.",
+  "cumulative_map_actual_usd": "0.71",
+  "cumulative_map_conservative_usd": "0.72"
+}

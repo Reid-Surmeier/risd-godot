@@ -1,0 +1,182 @@
+[
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 90,
+    "declaration": "var saved_body := ColorRect.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 91,
+    "declaration": "var saved_ids: Array = []",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 92,
+    "declaration": "var storage_status := \"loading\"",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 93,
+    "declaration": "var refresh_generation := 0",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 94,
+    "declaration": "var show_websurfer := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 95,
+    "declaration": "var show_gallery := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 96,
+    "declaration": "var show_sketchbook := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 97,
+    "declaration": "var show_fengshui := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 98,
+    "declaration": "var interactive_windows: Array[Control] = []",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 99,
+    "declaration": "var saved_scroll := ScrollContainer.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 100,
+    "declaration": "var saved_query := LineEdit.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 101,
+    "declaration": "var artwork_detail := Label.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "line": 102,
+    "declaration": "var filter_count := Label.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/shell/crt_display.gd",
+    "line": 14,
+    "declaration": "var stage_rect := Rect2()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/shell/crt_display.gd",
+    "line": 15,
+    "declaration": "var pointer_buttons := {}",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/shell/crt_display.gd",
+    "line": 16,
+    "declaration": "var touches := {}",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 82,
+    "declaration": "var reference_panel := PanelContainer.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 83,
+    "declaration": "var reference_list := HBoxContainer.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 84,
+    "declaration": "var viewer_host := Control.new()",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 85,
+    "declaration": "var saved_ids: Array = []",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 86,
+    "declaration": "var selected_reference := \"\"",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 87,
+    "declaration": "var storage_status := \"loading\"",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 88,
+    "declaration": "var refresh_generation := 0",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "line": 89,
+    "declaration": "var anri_prototype := true",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/drawing_surface.gd",
+    "line": 55,
+    "declaration": "var perf_rebuild_us := 0  # accumulated since last perf read",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/drawing_surface.gd",
+    "line": 56,
+    "declaration": "var perf_draw_us := 0",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/drawing_surface.gd",
+    "line": 57,
+    "declaration": "var perf_draws := 0",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/paintbox.gd",
+    "line": 85,
+    "declaration": "var hovering := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/paintbox.gd",
+    "line": 87,
+    "declaration": "var brush_active := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  },
+  {
+    "file": "modules/sketchbook/paintbox.gd",
+    "line": 88,
+    "declaration": "var anri_mode := false",
+    "reason": "Initialized public fields follow initialized private fields. Required initializer sequence prevents moving them; retained without rule exception."
+  }
+]

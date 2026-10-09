@@ -1,0 +1,1174 @@
+{
+  "scope": "All ten supplied videos are in the completion goal; the current built study covers Rockefeller and its adjoining long gallery. Other filmed rooms remain incomplete.",
+  "volume_instances": [
+    {
+      "asset": "st-george",
+      "mesh": "additions/rockefeller/st-george-20177414.glb",
+      "accession": "2017.74.14",
+      "title": "St. George and the Dragon",
+      "size_m": [
+        0.203,
+        0.264,
+        0.12300000000000001
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.18,
+        1.62,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.18,
+        1.62,
+        -6.83
+      ]
+    },
+    {
+      "asset": "flute-player",
+      "mesh": "additions/rockefeller/flute-player-20177416.glb",
+      "accession": "2017.74.16",
+      "title": "The Flute Player",
+      "size_m": [
+        0.177,
+        0.254,
+        0.124
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.55,
+        1.62,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.55,
+        1.62,
+        -6.83
+      ]
+    },
+    {
+      "asset": "hudibras",
+      "mesh": "additions/rockefeller/hudibras-20177417.glb",
+      "accession": "2017.74.17",
+      "title": "Hudibras",
+      "size_m": [
+        0.223,
+        0.289,
+        0.124
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.95,
+        1.62,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.95,
+        1.62,
+        -6.83
+      ]
+    },
+    {
+      "asset": "bear-jug",
+      "accession": "2017.74.18.ab",
+      "title": "Brown Bear Jug and Cover",
+      "size_m": [
+        0.08907216494845362,
+        0.14,
+        0.05344329896907217
+      ],
+      "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+      "position": [
+        0.14,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.14,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "horn-player",
+      "mesh": "additions/rockefeller/horn-player-20177419.glb",
+      "accession": "2017.74.19",
+      "title": "Horn-Player",
+      "size_m": [
+        0.07,
+        0.162,
+        0.05
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.36,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.36,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "finch",
+      "accession": "2017.74.15.1",
+      "title": "Finch",
+      "size_m": [
+        0.05914876033057851,
+        0.051,
+        0.035489256198347106
+      ],
+      "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+      "position": [
+        0.44,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.44,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "finch-pair",
+      "accession": "2017.74.15.2",
+      "title": "Finch",
+      "size_m": [
+        0.05857472324723247,
+        0.051,
+        0.035144833948339484
+      ],
+      "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+      "position": [
+        0.67,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.67,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "bagpiper",
+      "mesh": "additions/rockefeller/bagpiper-20177421.glb",
+      "accession": "2017.74.21",
+      "title": "Figure of a Bagpiper",
+      "size_m": [
+        0.07,
+        0.15,
+        0.06
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.73,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.73,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "bear-jug-pair",
+      "mesh": "additions/rockefeller/bear-jug-horn-20177422ab.glb",
+      "accession": "2017.74.22.ab",
+      "title": "Brown Bear Jug and Cover",
+      "size_m": [
+        0.07018169491525424,
+        0.162,
+        0.04210901694915254
+      ],
+      "dimension_basis": "catalogue height only; width from Muse silhouette; depth inferred",
+      "position": [
+        0.97,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.97,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "cream-jug",
+      "accession": "2017.74.25",
+      "title": "Cream Jug",
+      "size_m": [
+        0.11699999999999999,
+        0.15,
+        0.095
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.14,
+        1.19,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.14,
+        1.19,
+        -6.83
+      ]
+    },
+    {
+      "asset": "parrot",
+      "mesh": "additions/rockefeller/parrot-20177427-1.glb",
+      "accession": "2017.74.27.1",
+      "title": "Parrot",
+      "size_m": [
+        0.17,
+        0.165,
+        0.07
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.34,
+        1.19,
+        -6.83
+      ],
+      "yaw": 3.141592653589793,
+      "yaw_basis": "IMG_6380/000305.jpg: the pair stand either side of the horse group with their heads towards it, so this one shows its other flank",
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.34,
+        1.19,
+        -6.83
+      ]
+    },
+    {
+      "asset": "fox",
+      "mesh": "additions/rockefeller/fox-20177420.glb",
+      "accession": "2017.74.20",
+      "title": "Figure of a Fox",
+      "size_m": [
+        0.165,
+        0.133,
+        0.08
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.55,
+        1.19,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.55,
+        1.19,
+        -6.83
+      ]
+    },
+    {
+      "asset": "parrot-pair",
+      "mesh": "additions/rockefeller/parrot-20177427-2.glb",
+      "accession": "2017.74.27.2",
+      "title": "Parrot",
+      "size_m": [
+        0.16,
+        0.165,
+        0.065
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.76,
+        1.19,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.76,
+        1.19,
+        -6.83
+      ]
+    },
+    {
+      "asset": "agate-teapot",
+      "accession": "2017.74.24.ab",
+      "title": "Agateware Teapot",
+      "size_m": [
+        0.19,
+        0.133,
+        0.115
+      ],
+      "dimension_basis": "catalogue height; listed 45.7cm width conflicts with shelf/video silhouette; width/depth provisional source-fit",
+      "position": [
+        0.97,
+        1.19,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.97,
+        1.19,
+        -6.83
+      ]
+    },
+    {
+      "asset": "shepherd",
+      "mesh": "additions/rockefeller/shepherd-20177423.glb",
+      "accession": "2017.74.23",
+      "title": "Figure of a Shepherd",
+      "size_m": [
+        0.08,
+        0.213,
+        0.08
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.14,
+        0.913,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.14,
+        0.913,
+        -6.83
+      ]
+    },
+    {
+      "asset": "candlestick",
+      "mesh": "additions/rockefeller/candlestick-20177428-1.glb",
+      "accession": "2017.74.28.1",
+      "title": "Figural Candlestick",
+      "size_m": [
+        0.12,
+        0.21,
+        0.11
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.35,
+        0.913,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.35,
+        0.913,
+        -6.83
+      ]
+    },
+    {
+      "asset": "cow",
+      "mesh": "additions/rockefeller/cow-20177429.glb",
+      "accession": "2017.74.29",
+      "title": "Model of a Cow",
+      "size_m": [
+        0.21,
+        0.13,
+        0.08
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.55,
+        0.913,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.55,
+        0.913,
+        -6.83
+      ]
+    },
+    {
+      "asset": "candlestick-pair",
+      "mesh": "additions/rockefeller/candlestick-20177428-2.glb",
+      "accession": "2017.74.28.2",
+      "title": "Figural Candlestick",
+      "size_m": [
+        0.12,
+        0.21600000000000003,
+        0.11
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.78,
+        0.913,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.78,
+        0.913,
+        -6.83
+      ]
+    },
+    {
+      "asset": "parrot-third",
+      "mesh": "additions/rockefeller/parrot-20177426.glb",
+      "accession": "2017.74.26",
+      "title": "Figure of a Parrot",
+      "size_m": [
+        0.17,
+        0.156,
+        0.07
+      ],
+      "dimension_basis": "catalogue height/width/depth",
+      "position": [
+        0.98,
+        0.913,
+        -6.83
+      ],
+      "source": "IMG_6380/000305.jpg; accurate native t152.25s",
+      "status": "source matched; Muse front inspected; depth/rear anatomical fidelity unverified",
+      "v15_position": [
+        0.98,
+        0.913,
+        -6.83
+      ]
+    },
+    {
+      "asset": "recamier",
+      "mesh": "additions/rockefeller/recamier-37201.glb",
+      "accession": "37.201",
+      "title": "Bust of Madame R\u00e9camier",
+      "size_m": [
+        0.337,
+        0.606,
+        0.235
+      ],
+      "position": [
+        -2.2,
+        1.3,
+        -5.87
+      ],
+      "yaw": 1.5707963268,
+      "source": "IMG_6380/000285.jpg; verified matching hair/neck socle and black-and-white base",
+      "status": "front/rear Muse UVs separated; catalogue total height preserved; side profile provisional",
+      "v15_position": [
+        -2.2,
+        1.3,
+        -6.25
+      ],
+      "rear_source": "official catalogue photo 3 and saved recamier-rear Muse run; no new spending"
+    },
+    {
+      "asset": "ewe-lamb",
+      "accession": "2017.74.32",
+      "title": "Ewe and Lamb",
+      "size_m": [
+        0.15,
+        0.095,
+        0.09
+      ],
+      "position": [
+        0.55,
+        1.423,
+        -6.83
+      ],
+      "source": "IMG_6380 native t152.25s crop; API 1245806 has no official photograph",
+      "status": "catalogue candidate supported by title/dimensions and video; photo verification unavailable; Muse poses more frontal than source",
+      "v15_position": [
+        0.55,
+        1.423,
+        -6.83
+      ]
+    },
+    {
+      "asset": "sconce-left",
+      "mesh": "additions/rockefeller/sconce-2017746-3.glb",
+      "accession": "2017.74.6.3",
+      "title": "Wall light with deer",
+      "size_m": [
+        0.483,
+        0.876,
+        0.215
+      ],
+      "position": [
+        0.95,
+        2.08,
+        -0.571
+      ],
+      "yaw": 3.141592653589793,
+      "source": "IMG_6380 native t188.25s; matching official ornament",
+      "status": "Muse front reviewed; hidden relief unverified",
+      "v15_position": [
+        -2.63,
+        2.08,
+        -0.55
+      ],
+      "mesh_position_basis": "z moved out from -0.49 so the mesh's flat back sits on the wall face (#263); the blob it replaces was centred there"
+    },
+    {
+      "asset": "sconce-right",
+      "mesh": "additions/rockefeller/sconce-2017746-4.glb",
+      "accession": "2017.74.6.4",
+      "title": "Wall light with bird",
+      "size_m": [
+        0.483,
+        0.876,
+        0.25
+      ],
+      "position": [
+        -2.18,
+        2.08,
+        -0.588
+      ],
+      "yaw": 3.141592653589793,
+      "source": "IMG_6380 native t188.25s; matching official ornament",
+      "status": "Muse front reviewed; hidden relief unverified",
+      "v15_position": [
+        -2.63,
+        2.08,
+        -3.55
+      ],
+      "mesh_position_basis": "z moved out from -0.49 so the mesh's flat back sits on the wall face (#263); the blob it replaces was centred there"
+    },
+    {
+      "asset": "writing-table",
+      "accession": "2017.74.8",
+      "title": "Writing table",
+      "size_m": [
+        0.42,
+        0.72,
+        0.26
+      ],
+      "position": [
+        -2.2,
+        0.13,
+        -3.44
+      ],
+      "yaw": 1.5707963268,
+      "source": "IMG_6380/000273 + 000277; single table between front chair and sofa",
+      "status": "Muse front reviewed; hidden surfaces provisional",
+      "v15_position": [
+        -2.2,
+        0.13,
+        -4.1
+      ],
+      "shape": "table"
+    },
+    {
+      "asset": "gold-tureen",
+      "accession": "2017.74.38.1a-c",
+      "size_m": [
+        0.35,
+        0.28,
+        0.267
+      ],
+      "position": [
+        3.32,
+        1.2,
+        -3.8
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        3.32,
+        1.2,
+        0.02
+      ]
+    },
+    {
+      "asset": "gold-ecuelle-clean",
+      "accession": "2017.74.38.3a-c",
+      "size_m": [
+        0.195,
+        0.14,
+        0.195
+      ],
+      "position": [
+        2.9,
+        1.1,
+        -3.8
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.9,
+        1.1,
+        0.02
+      ]
+    },
+    {
+      "asset": "gold-basket-a",
+      "accession": "2017.74.38.4ab",
+      "size_m": [
+        0.205,
+        0.1,
+        0.175
+      ],
+      "position": [
+        2.82,
+        1.1,
+        -4.38
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.82,
+        1.1,
+        -0.56
+      ]
+    },
+    {
+      "asset": "gold-basket-b",
+      "accession": "2017.74.38.5ab",
+      "size_m": [
+        0.205,
+        0.1,
+        0.175
+      ],
+      "position": [
+        2.82,
+        1.1,
+        -3.26
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.82,
+        1.1,
+        0.56
+      ]
+    },
+    {
+      "asset": "gold-square-a",
+      "accession": "2017.74.38.11",
+      "size_m": [
+        0.19,
+        0.037,
+        0.19
+      ],
+      "position": [
+        3.19,
+        1.1,
+        -4.38
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        3.19,
+        1.1,
+        -0.56
+      ]
+    },
+    {
+      "asset": "gold-square-b",
+      "accession": "2017.74.38.12",
+      "size_m": [
+        0.19,
+        0.039,
+        0.19
+      ],
+      "position": [
+        3.19,
+        1.1,
+        -3.26
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        3.19,
+        1.1,
+        0.56
+      ]
+    },
+    {
+      "asset": "gold-plate-a",
+      "accession": "2017.74.38.23",
+      "size_m": [
+        0.25,
+        0.025,
+        0.25
+      ],
+      "position": [
+        3.4,
+        1.19,
+        -4.35
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "pitch": -1.15,
+      "v15_position": [
+        3.4,
+        1.19,
+        -0.53
+      ]
+    },
+    {
+      "asset": "gold-plate-b",
+      "accession": "2017.74.38.25",
+      "size_m": [
+        0.25,
+        0.026,
+        0.25
+      ],
+      "position": [
+        3.4,
+        1.19,
+        -3.29
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "pitch": -1.15,
+      "v15_position": [
+        3.4,
+        1.19,
+        0.53
+      ]
+    },
+    {
+      "asset": "gold-saucer-a",
+      "accession": "2017.74.38.9",
+      "size_m": [
+        0.144,
+        0.036,
+        0.144
+      ],
+      "position": [
+        2.65,
+        1.1,
+        -4.0
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.65,
+        1.1,
+        -0.18
+      ]
+    },
+    {
+      "asset": "gold-saucer-b",
+      "accession": "2017.74.38.10",
+      "size_m": [
+        0.144,
+        0.036,
+        0.144
+      ],
+      "position": [
+        2.65,
+        1.1,
+        -3.64
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.65,
+        1.1,
+        0.18
+      ]
+    },
+    {
+      "asset": "gold-cup-a",
+      "accession": "2017.74.38.7",
+      "size_m": [
+        0.088,
+        0.067,
+        0.068
+      ],
+      "position": [
+        2.65,
+        1.134,
+        -4.0
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.65,
+        1.134,
+        -0.18
+      ]
+    },
+    {
+      "asset": "gold-cup-b",
+      "accession": "2017.74.38.8",
+      "size_m": [
+        0.087,
+        0.069,
+        0.068
+      ],
+      "position": [
+        2.65,
+        1.134,
+        -3.64
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": -1.5707963268,
+      "v15_position": [
+        2.65,
+        1.134,
+        0.18
+      ]
+    },
+    {
+      "asset": "tureen",
+      "accession": "2017.74.39.18a-c",
+      "size_m": [
+        0.42,
+        0.32,
+        0.267
+      ],
+      "position": [
+        1.25,
+        1.1,
+        -0.72
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue 45.7/48.3cm heights conflict with displayed arrangement; .32m video-fit height provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "v15_position": [
+        -2.22,
+        1.1,
+        -0.58
+      ]
+    },
+    {
+      "asset": "pink-small-tureen",
+      "accession": "2017.74.39.19a-c",
+      "size_m": [
+        0.42,
+        0.32,
+        0.25
+      ],
+      "position": [
+        2.43,
+        1.1,
+        -0.72
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue 45.7/48.3cm heights conflict with displayed arrangement; .32m video-fit height provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "v15_position": [
+        -2.22,
+        1.1,
+        0.6
+      ]
+    },
+    {
+      "asset": "pink-compote",
+      "accession": "2017.74.39.3",
+      "size_m": [
+        0.306,
+        0.097,
+        0.222
+      ],
+      "position": [
+        1.85,
+        1.1,
+        -0.58
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "v15_position": [
+        -2.47,
+        1.1,
+        0.02
+      ]
+    },
+    {
+      "asset": "pink-bowl-a",
+      "accession": "2017.74.39.12",
+      "size_m": [
+        0.205,
+        0.044,
+        0.205
+      ],
+      "position": [
+        1.6,
+        1.1,
+        -0.93
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "v15_position": [
+        -2.0,
+        1.1,
+        -0.23
+      ]
+    },
+    {
+      "asset": "pink-bowl-b",
+      "accession": "2017.74.39.13",
+      "size_m": [
+        0.205,
+        0.044,
+        0.205
+      ],
+      "position": [
+        2.12,
+        1.1,
+        -0.93
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "v15_position": [
+        -2.0,
+        1.1,
+        0.29
+      ]
+    },
+    {
+      "asset": "pink-dish",
+      "accession": "2017.74.39.2",
+      "size_m": [
+        0.289,
+        0.045,
+        0.222
+      ],
+      "position": [
+        1.85,
+        1.1,
+        -0.93
+      ],
+      "shape": "dish",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "v15_position": [
+        -2.0,
+        1.1,
+        0.02
+      ]
+    },
+    {
+      "asset": "pink-ladle",
+      "accession": "2017.74.39.20",
+      "size_m": [
+        0.15,
+        0.17,
+        0.066
+      ],
+      "position": [
+        2.3,
+        1.15,
+        -0.93
+      ],
+      "shape": "volume",
+      "source": "IMG_6380 native gold t166.25s / pink t176.25s; catalogue per-piece record",
+      "dimension_basis": "catalogue dimensions; placement provisional",
+      "status": "Muse front/top visually checked; reverse UV and precise display tilt unverified",
+      "yaw": 3.1415926535948966,
+      "pitch": -1.5707963268,
+      "v15_position": [
+        -2.0,
+        1.15,
+        0.47
+      ]
+    },
+    {
+      "asset": "secretary",
+      "accession": "80.106",
+      "title": "Drop-Front Secretary (Secr\u00e9taire \u00e0 Abattant)",
+      "size_m": [
+        1.143,
+        1.435,
+        0.426
+      ],
+      "position": [
+        -3.24,
+        0.13,
+        0.85
+      ],
+      "source": "IMG_6385/000025; matched official sea creatures, sphinx mounts and lower lions",
+      "dimension_basis": "catalogue height/width/depth",
+      "status": "Muse front reviewed; side/rear geometry provisional",
+      "v15_position": [
+        -4.0,
+        0.13,
+        -4.54
+      ],
+      "yaw": 1.5707963267948966,
+      "shape": "cabinet"
+    },
+    {
+      "asset": "apostle-41046",
+      "mesh": "additions/medieval/apostle-41046.glb",
+      "accession": "41.046",
+      "title": "Apostle",
+      "size_m": [
+        0.267,
+        0.826,
+        0.12
+      ],
+      "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
+      "position": [
+        12.33,
+        1.04,
+        30.465
+      ],
+      "yaw": -1.5707963267948966,
+      "source": "IMG_6382 native17.25/26.25s and RISD official front/side photos",
+      "status": "Official appearance matched; Muse/native geometry/damage fidelity and placement unaccepted",
+      "position_basis": "Author coordinate includes+1.95x compensated by existing catalogue group shift; desired installedx10.38"
+    },
+    {
+      "asset": "apostle-41045",
+      "mesh": "additions/medieval/apostle-41045.glb",
+      "accession": "41.045",
+      "title": "Apostle",
+      "size_m": [
+        0.254,
+        0.864,
+        0.12
+      ],
+      "dimension_basis": "Catalogue width/height;.12m relief depth provisional",
+      "position": [
+        12.33,
+        1.04,
+        33.215
+      ],
+      "yaw": -1.5707963267948966,
+      "source": "IMG_6382 native17.25/26.25s and RISD official front/side photos",
+      "status": "Official appearance matched; Muse/native geometry/damage fidelity and placement unaccepted",
+      "position_basis": "Author coordinate includes+1.95x compensated by existing catalogue group shift; desired installedx10.38"
+    }
+  ],
+  "unfilled_observations": [
+    {
+      "id": "central-vincennes-pair",
+      "source": "IMG_6380/000453.jpg",
+      "catalogue": [
+        "2017.74.31.1",
+        "2017.74.31.2"
+      ],
+      "status": "matched; Muse run unreconciled/possibly spent; no resubmission"
+    },
+    {
+      "id": "two-porcelain-services",
+      "source": "IMG_6380/000333.jpg + 000357.jpg",
+      "status": "complete per-piece arrangement pending"
+    },
+    {
+      "id": "wall-textiles-prints-sconces-tables",
+      "source": "IMG_6380/000273.jpg + 000381.jpg + 000421.jpg",
+      "status": "per-piece matching in progress"
+    },
+    {
+      "id": "long-gallery-all-objects",
+      "source": "IMG_6385 + IMG_6386",
+      "status": "source coverage reviewed; not yet instantiated"
+    }
+  ],
+  "wide_shot_layout_v16": {
+    "sources": [
+      "IMG_6380/000247.jpg",
+      "IMG_6380/000449.jpg",
+      "IMG_6384/000209.jpg",
+      "IMG_6385/000005.jpg"
+    ],
+    "changes": "gallery door on perpendicular front wall, case arrangement spans two walls, sconces on gallery-door wall; metric coordinates provisional",
+    "owner_correction": "object positions and room architecture are off; review wide shots",
+    "not_verified": "absolute room dimensions, final object-by-object image reprojection",
+    "furniture_refinement": {
+      "source": "IMG_6380 native t224.25s",
+      "method": "manual chair/table ground landmarks projected through provisional Romany-plane camera; independent wide-frame check pending",
+      "chair_z": -1.95,
+      "table_z": -3.44,
+      "bust_z": -5.87,
+      "metric_scale": "provisional; inferred focal850px, catalogue canvas plane anchor"
+    }
+  },
+  "verified_wallpaper_panels": [
+    {
+      "accession": "34.912",
+      "id": "1240221",
+      "title": "Arabesque Wallpaper",
+      "maker": "Fran\u00e7ois Louis Prieur",
+      "size_m": [
+        0.56,
+        1.145
+      ],
+      "position": [
+        3.575,
+        2.1,
+        -5.4
+      ],
+      "yaw": -1.5707963268,
+      "source": "IMG_6380 210.25s (survey frame 421)",
+      "match": "matching diamond, blue/red birds, central female figure and flower garlands; official native photo visually inspected",
+      "api_record": "inventory-catalogue/arabesque-wallpaper.json",
+      "image": "inventory-catalogue/arabesque-wallpaper-zoom-0.jpg",
+      "status": "identity and paper dimensions catalogue verified; mount dimensions and metric room placement provisional",
+      "generated_artwork": false
+    }
+  ]
+}

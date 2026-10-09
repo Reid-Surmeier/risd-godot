@@ -1,0 +1,18 @@
+{
+  "repository_pass": true,
+  "default_replay_and_negative_guards_pass": true,
+  "native_checks_pass": true,
+  "browser_pass": true,
+  "shell_failures": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "collection_tab_dips_on_click",
+    "resize_refits_bar_and_tenant"
+  ],
+  "prior_pinned_pending_files": 27,
+  "viewer_diff": "",
+  "diff_check_pass": true
+}

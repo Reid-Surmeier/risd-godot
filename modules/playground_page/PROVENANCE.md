@@ -1,5 +1,13 @@
 # Provenance of modules/playground_page
 
+## Square pages (#164)
+
+The four native page layouts reproduce selected prototype #158 A at commit `542f1394`; the source is `modules/playground_page/prototype-158/index.html` at that commit. `import_square_assets.py` imports the original 12 public connection records and 25 verified RISD works. Their unchanged downloaded/copied image bytes, source URLs, providers, SHA-256 hashes and zero cost are recorded in `assets/square/provenance.json`. `assets/square/catalog.json` retains the records, connection timestamps, source identity and RISD rights evidence. Runtime copies belong here so exported games do not depend on the evidence tree. No images were generated and no paid service was used.
+
+`assets/fonts/LiberationSans-Regular.ttf` is the installed Liberation Sans regular font, used for the selected prototype's Arial-compatible typography. Source: `/usr/share/fonts/truetype/liberation/LiberationSans-Regular.ttf`; SHA-256 `4659bc0c58c5028dd488ec928d41d9265db43d9b669fc14ca8b0832daca7b144`. Its packaged licence is `assets/fonts/Liberation-LICENSE.txt`.
+
+## Retained desktop
+
 Every pixel file is the owner's, copied unchanged from this repository except `assets/filters.png`, which is a plain crop (no resampling) of an owner file. Nothing is hand-drawn or generated. The layout itself is the owner's picture of 2026-09-14, `docs/evidence/playground/layout-reference.png` (2186x1362, SHA-256 `1e3d7792f794d1775aee92c3ace579258911202dc2280ffab9955fc700caf589`, dropped as `.orca/drops/Screenshot 2026-09-14 at 8.53.22 PM.png`, ticket #62). The window positions and scales in `playground_page.gd` were measured by template-matching each file below into that picture.
 
 | File | Origin | SHA-256 | What it is |
@@ -19,3 +27,7 @@ Every pixel file is the owner's, copied unchanged from this repository except `a
 Why copies: collection_page's interface exposes only `create` and `state`, and its frozen verifier reads these files from its own `assets/` folder, so moving them into a shared module would change frozen files of a module this ticket does not name. One shared HUD-window module is a follow-up Issue.
 
 Rights: as in collection_page — the HUD windows are screenshots of a third-party game's interface supplied by the owner; the RISD Museum material's rights record is pending on ticket #35. Nothing here asserts a licence.
+
+## Korean browsing labels (#175)
+
+`assets/fonts/WenQuanYi-Hangul.ttf` is an unaltered-outline subset of the installed WenQuanYi Zen Hei face 0 (`/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc`, SHA-256 `79c18ebe7b811951e8311bad7103ebeae8c337ed9988ea69e8a78a66cfe029b9`). FontTools kept U+1100–11FF, U+3130–318F and U+AC00–D7AF with name metadata; it dropped unsupported BDF/FFTM metadata tables. Output SHA-256 `78561fd93c5c2bd5232686627e5b059e97ccaa95215aff12f81448c019837578`. The packaged copyright/embedding exception and GPL-2 text are retained beside it. Provider: installed Debian font package; cost $0; no generated visual. Used as a fallback for the existing Liberation Sans so original Korean catalog names remain readable in Web exports without depending on host fonts.

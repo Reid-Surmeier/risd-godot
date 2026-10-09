@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-01T21:04:05.388744+00:00",
+  "project": "main-build-extension-v49x",
+  "bake_completed": true,
+  "native_capture_exit": 0,
+  "root_native_views_inspected": 6,
+  "users": 1358,
+  "probes": 350,
+  "geometry": "Same H1-H4 source-relative placement accepted by Opus on unbaked v49x",
+  "lighting_accepted": false,
+  "metres_accepted": false,
+  "fine_fidelity_accepted": false,
+  "remaining_visual_findings": [
+    "Scultpure likeness and unseen backs provisional",
+    "Bench appears very dark",
+    "Corner-to-window wall length and label stand depth need additional source comparison"
+  ],
+  "images": {
+    "textiles-south-wide.png": "a563ab2289fff8d5f561bb4a19412fc0223af6e916b2a3636884ba217084f114",
+    "madonna-west-front.png": "84476c927c2adf2965b71debc709fab12d7439445c923e40b17479d54685de40",
+    "velvet-front.png": "322dafcd17719b3296be62de02814db33288a4d709ee035882e2b3bf9226d2f0",
+    "renaissance-south-west-wide.png": "33fd44b428626401c81b02dfe6a87731c71cc9b635ed3fad4af432b707c23b21",
+    "textiles-platform.png": "915621dd85be625a811d6479e97754f1ba7d39a8c5249e8601fa91742d76d83a",
+    "madonna-west-quarter.png": "2eb0f0eb76f133a1b07205852f71e596c68a5b5d2ff82dcbf1551d3bff279efc"
+  }
+}

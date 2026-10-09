@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/mirror-video.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/references/main-hall-style.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-7f48d4e0ebbbd57322027ab4/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "00846e59bf5074910066e579708a7c436ce92e8a1190471105dc419c9cefae93"
+    }
+  ],
+  "changesRequested": "Reference 1 is a real gilt rococo mirror filmed in the RISD decorative arts room. It alone defines the mirror's silhouette, asymmetric scrolls, branching leaves, pierced crest, two joined reflective lobes and gilded ornament. Reference 2 is the latest modeled Main Hall: match that clean low polygon game modeling style, with large readable planar facets, crisp gold highlight bands and soft baked shading.\nGenerate ONE complete mirror alone, perfectly straight-on orthographic, with no perspective tilt. Keep its tall narrow proportions and the complete crest, side branches and bottom flourish, with magenta margin all around. Preserve source ornament and silhouette without inventing new scrolls or reducing it to a generic rectangular frame. Replace photographic glass reflections and exit sign with restrained flat cool dark gray-blue glass, no scene or reflected text. The gold carving is a modeled low polygon relief, crisp and recognizable at walking distance. Everything outside its exact silhouette and every pierced opening must be pure flat magenta #FF00FF touching the gold directly, with no cast shadow. No wall, labels, border, text or contact sheet. This image supplies UV textures for a separately authored low polygon relief mesh, not a billboard room.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-7f48d4e0ebbbd57322027ab4",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-7f48d4e0ebbbd57322027ab4"
+}

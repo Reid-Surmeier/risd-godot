@@ -1,0 +1,1244 @@
+{
+ "method": "Not a reconstruction and not a calibration. Each frame is rectified from the wall's own long straight lines (ceiling, baseboard, door head; casing and corner uprights), then scaled by the Courbet canvas (catalogue 0.733 x 0.597 m) hanging on that wall. Positions along the wall need only the lines and the canvas width; the lens focal length enters only where a height is used as the ruler.",
+ "monte_carlo": {
+  "draws": 4000,
+  "sigma_px": {
+   "station_x": 3.0,
+   "line": 1.5,
+   "canvas_y": 2.0
+  },
+  "focal_px": [
+   1150,
+   200
+  ],
+  "seed": 20261001,
+  "covers": "pick noise and focal length only; not blur bias, sight-edge loss or the frames standing proud of the wall"
+ },
+ "frames": {
+  "A1": {
+   "file": "frames/A1-6380-038.300.png",
+   "sha256": "e017f171aeb36b55294ac39429948c7ca29a60ef38dc4408267e6fb2358d26c0",
+   "video": "IMG_6380.MOV",
+   "seconds": 38.3,
+   "view": "From the east side of the grey gallery, panning north. South end of the west wall.",
+   "width_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.733,
+     "p16_p84": [
+      0.733,
+      0.733
+     ],
+     "p2.5_p97.5": [
+      0.733,
+      0.733
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.59,
+     "p16_p84": [
+      0.563,
+      0.617
+     ],
+     "p2.5_p97.5": [
+      0.537,
+      0.647
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.024,
+     "p16_p84": [
+      0.986,
+      1.063
+     ],
+     "p2.5_p97.5": [
+      0.952,
+      1.105
+     ]
+    },
+    "stile_w": {
+     "median": 0.09,
+     "p16_p84": [
+      0.057,
+      0.122
+     ],
+     "p2.5_p97.5": [
+      0.026,
+      0.153
+     ]
+    },
+    "casR_to_courbet_centre": {
+     "median": 2.609,
+     "p16_p84": [
+      2.525,
+      2.695
+     ],
+     "p2.5_p97.5": [
+      2.456,
+      2.796
+     ]
+    },
+    "corner_to_casing": {
+     "median": 0.191,
+     "p16_p84": [
+      0.135,
+      0.247
+     ],
+     "p2.5_p97.5": [
+      0.083,
+      0.301
+     ]
+    },
+    "corner_to_clear_south": {
+     "median": 0.279,
+     "p16_p84": [
+      0.215,
+      0.348
+     ],
+     "p2.5_p97.5": [
+      0.151,
+      0.408
+     ]
+    },
+    "corner_to_clear_north": {
+     "median": 2.121,
+     "p16_p84": [
+      2.038,
+      2.208
+     ],
+     "p2.5_p97.5": [
+      1.958,
+      2.303
+     ]
+    },
+    "clear_width": {
+     "median": 1.84,
+     "p16_p84": [
+      1.758,
+      1.927
+     ],
+     "p2.5_p97.5": [
+      1.687,
+      2.013
+     ]
+    },
+    "corner_to_casing_north": {
+     "median": 2.21,
+     "p16_p84": [
+      2.124,
+      2.301
+     ],
+     "p2.5_p97.5": [
+      2.045,
+      2.399
+     ]
+    },
+    "swc_to_courbet_centre": {
+     "median": 4.819,
+     "p16_p84": [
+      4.663,
+      4.983
+     ],
+     "p2.5_p97.5": [
+      4.53,
+      5.163
+     ]
+    },
+    "barn_frame_w": {
+     "median": 0.974,
+     "p16_p84": [
+      0.935,
+      1.016
+     ],
+     "p2.5_p97.5": [
+      0.898,
+      1.058
+     ]
+    },
+    "barn_canvas_w": {
+     "median": 0.721,
+     "p16_p84": [
+      0.685,
+      0.755
+     ],
+     "p2.5_p97.5": [
+      0.654,
+      0.792
+     ]
+    },
+    "barn_centre_to_courbet_centre": {
+     "median": 1.575,
+     "p16_p84": [
+      1.523,
+      1.629
+     ],
+     "p2.5_p97.5": [
+      1.477,
+      1.687
+     ]
+    },
+    "casR_to_barn_frame": {
+     "median": 0.555,
+     "p16_p84": [
+      0.521,
+      0.592
+     ],
+     "p2.5_p97.5": [
+      0.489,
+      0.628
+     ]
+    },
+    "canvas_centre_above_baseboard": {
+     "median": 1.34,
+     "p16_p84": [
+      1.286,
+      1.398
+     ],
+     "p2.5_p97.5": [
+      1.236,
+      1.461
+     ]
+    },
+    "baseboard_top_to_ceiling": {
+     "median": 3.312,
+     "p16_p84": [
+      3.187,
+      3.447
+     ],
+     "p2.5_p97.5": [
+      3.063,
+      3.578
+     ]
+    }
+   },
+   "height_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.742,
+     "p16_p84": [
+      0.709,
+      0.778
+     ],
+     "p2.5_p97.5": [
+      0.676,
+      0.814
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.597,
+     "p16_p84": [
+      0.597,
+      0.597
+     ],
+     "p2.5_p97.5": [
+      0.597,
+      0.597
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.037,
+     "p16_p84": [
+      0.996,
+      1.081
+     ],
+     "p2.5_p97.5": [
+      0.955,
+      1.129
+     ]
+    },
+    "stile_w": {
+     "median": 0.091,
+     "p16_p84": [
+      0.058,
+      0.123
+     ],
+     "p2.5_p97.5": [
+      0.026,
+      0.156
+     ]
+    },
+    "casR_to_courbet_centre": {
+     "median": 2.641,
+     "p16_p84": [
+      2.548,
+      2.742
+     ],
+     "p2.5_p97.5": [
+      2.462,
+      2.852
+     ]
+    },
+    "corner_to_casing": {
+     "median": 0.193,
+     "p16_p84": [
+      0.137,
+      0.251
+     ],
+     "p2.5_p97.5": [
+      0.085,
+      0.305
+     ]
+    },
+    "corner_to_clear_south": {
+     "median": 0.283,
+     "p16_p84": [
+      0.218,
+      0.352
+     ],
+     "p2.5_p97.5": [
+      0.155,
+      0.417
+     ]
+    },
+    "corner_to_clear_north": {
+     "median": 2.148,
+     "p16_p84": [
+      2.054,
+      2.246
+     ],
+     "p2.5_p97.5": [
+      1.969,
+      2.353
+     ]
+    },
+    "clear_width": {
+     "median": 1.864,
+     "p16_p84": [
+      1.774,
+      1.958
+     ],
+     "p2.5_p97.5": [
+      1.691,
+      2.058
+     ]
+    },
+    "corner_to_casing_north": {
+     "median": 2.24,
+     "p16_p84": [
+      2.141,
+      2.342
+     ],
+     "p2.5_p97.5": [
+      2.053,
+      2.45
+     ]
+    },
+    "swc_to_courbet_centre": {
+     "median": 4.881,
+     "p16_p84": [
+      4.7,
+      5.069
+     ],
+     "p2.5_p97.5": [
+      4.538,
+      5.282
+     ]
+    },
+    "barn_frame_w": {
+     "median": 0.986,
+     "p16_p84": [
+      0.944,
+      1.034
+     ],
+     "p2.5_p97.5": [
+      0.9,
+      1.081
+     ]
+    },
+    "barn_canvas_w": {
+     "median": 0.729,
+     "p16_p84": [
+      0.693,
+      0.768
+     ],
+     "p2.5_p97.5": [
+      0.659,
+      0.809
+     ]
+    },
+    "barn_centre_to_courbet_centre": {
+     "median": 1.595,
+     "p16_p84": [
+      1.539,
+      1.657
+     ],
+     "p2.5_p97.5": [
+      1.483,
+      1.724
+     ]
+    },
+    "casR_to_barn_frame": {
+     "median": 0.563,
+     "p16_p84": [
+      0.527,
+      0.6
+     ],
+     "p2.5_p97.5": [
+      0.495,
+      0.64
+     ]
+    },
+    "canvas_centre_above_baseboard": {
+     "median": 1.357,
+     "p16_p84": [
+      1.321,
+      1.399
+     ],
+     "p2.5_p97.5": [
+      1.284,
+      1.438
+     ]
+    },
+    "baseboard_top_to_ceiling": {
+     "median": 3.355,
+     "p16_p84": [
+      3.269,
+      3.445
+     ],
+     "p2.5_p97.5": [
+      3.188,
+      3.538
+     ]
+    }
+   }
+  },
+  "A2": {
+   "file": "frames/A2-6380-038.901.png",
+   "sha256": "8cfddcbcfab01fbb55067b81b2c8058ede182c7250c4b47df610b4fc999d78fd",
+   "video": "IMG_6380.MOV",
+   "seconds": 38.901,
+   "view": "Same pan 0.6 s later, nearly square-on. North end of the west wall. Same camera position as A1, so not an independent view.",
+   "width_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.733,
+     "p16_p84": [
+      0.733,
+      0.733
+     ],
+     "p2.5_p97.5": [
+      0.733,
+      0.733
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.603,
+     "p16_p84": [
+      0.575,
+      0.633
+     ],
+     "p2.5_p97.5": [
+      0.547,
+      0.665
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.011,
+     "p16_p84": [
+      0.967,
+      1.061
+     ],
+     "p2.5_p97.5": [
+      0.922,
+      1.11
+     ]
+    },
+    "stile_w": {
+     "median": 0.096,
+     "p16_p84": [
+      0.068,
+      0.124
+     ],
+     "p2.5_p97.5": [
+      0.042,
+      0.152
+     ]
+    },
+    "casR_to_courbet_centre": {
+     "median": 2.586,
+     "p16_p84": [
+      2.49,
+      2.692
+     ],
+     "p2.5_p97.5": [
+      2.4,
+      2.808
+     ]
+    },
+    "barn_frame_w": {
+     "median": 0.988,
+     "p16_p84": [
+      0.943,
+      1.036
+     ],
+     "p2.5_p97.5": [
+      0.899,
+      1.084
+     ]
+    },
+    "barn_canvas_w": {
+     "median": 0.725,
+     "p16_p84": [
+      0.687,
+      0.765
+     ],
+     "p2.5_p97.5": [
+      0.654,
+      0.81
+     ]
+    },
+    "barn_centre_to_courbet_centre": {
+     "median": 1.561,
+     "p16_p84": [
+      1.502,
+      1.627
+     ],
+     "p2.5_p97.5": [
+      1.448,
+      1.693
+     ]
+    },
+    "casR_to_barn_frame": {
+     "median": 0.547,
+     "p16_p84": [
+      0.513,
+      0.583
+     ],
+     "p2.5_p97.5": [
+      0.482,
+      0.62
+     ]
+    },
+    "courbet_centre_to_nwc": {
+     "median": 1.136,
+     "p16_p84": [
+      1.088,
+      1.19
+     ],
+     "p2.5_p97.5": [
+      1.042,
+      1.246
+     ]
+    },
+    "canvas_centre_above_baseboard": {
+     "median": 1.349,
+     "p16_p84": [
+      1.298,
+      1.406
+     ],
+     "p2.5_p97.5": [
+      1.25,
+      1.467
+     ]
+    },
+    "baseboard_top_to_ceiling": {
+     "median": 3.431,
+     "p16_p84": [
+      3.304,
+      3.574
+     ],
+     "p2.5_p97.5": [
+      3.188,
+      3.729
+     ]
+    }
+   },
+   "height_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.726,
+     "p16_p84": [
+      0.691,
+      0.761
+     ],
+     "p2.5_p97.5": [
+      0.658,
+      0.8
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.597,
+     "p16_p84": [
+      0.597,
+      0.597
+     ],
+     "p2.5_p97.5": [
+      0.597,
+      0.597
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.001,
+     "p16_p84": [
+      0.961,
+      1.044
+     ],
+     "p2.5_p97.5": [
+      0.922,
+      1.086
+     ]
+    },
+    "stile_w": {
+     "median": 0.095,
+     "p16_p84": [
+      0.068,
+      0.123
+     ],
+     "p2.5_p97.5": [
+      0.042,
+      0.151
+     ]
+    },
+    "casR_to_courbet_centre": {
+     "median": 2.562,
+     "p16_p84": [
+      2.48,
+      2.649
+     ],
+     "p2.5_p97.5": [
+      2.398,
+      2.737
+     ]
+    },
+    "barn_frame_w": {
+     "median": 0.978,
+     "p16_p84": [
+      0.938,
+      1.019
+     ],
+     "p2.5_p97.5": [
+      0.9,
+      1.064
+     ]
+    },
+    "barn_canvas_w": {
+     "median": 0.717,
+     "p16_p84": [
+      0.682,
+      0.754
+     ],
+     "p2.5_p97.5": [
+      0.651,
+      0.791
+     ]
+    },
+    "barn_centre_to_courbet_centre": {
+     "median": 1.545,
+     "p16_p84": [
+      1.495,
+      1.6
+     ],
+     "p2.5_p97.5": [
+      1.447,
+      1.657
+     ]
+    },
+    "casR_to_barn_frame": {
+     "median": 0.542,
+     "p16_p84": [
+      0.509,
+      0.575
+     ],
+     "p2.5_p97.5": [
+      0.478,
+      0.609
+     ]
+    },
+    "courbet_centre_to_nwc": {
+     "median": 1.124,
+     "p16_p84": [
+      1.082,
+      1.172
+     ],
+     "p2.5_p97.5": [
+      1.038,
+      1.221
+     ]
+    },
+    "canvas_centre_above_baseboard": {
+     "median": 1.336,
+     "p16_p84": [
+      1.295,
+      1.379
+     ],
+     "p2.5_p97.5": [
+      1.261,
+      1.425
+     ]
+    },
+    "baseboard_top_to_ceiling": {
+     "median": 3.399,
+     "p16_p84": [
+      3.3,
+      3.503
+     ],
+     "p2.5_p97.5": [
+      3.211,
+      3.613
+     ]
+    }
+   }
+  },
+  "B1": {
+   "file": "frames/B1-6381-090.968.png",
+   "sha256": "527b61d626e6b314a6436e5cbee5e05148656e311c632f042b15f29d53b2bf0b",
+   "video": "IMG_6381.MOV",
+   "seconds": 90.968,
+   "view": "Held out. Other video, from the marble stair east of the columns, looking west and down. Phone was upside down; coordinates are after a 180 degree turn. A column hides the barn painting.",
+   "width_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.733,
+     "p16_p84": [
+      0.733,
+      0.733
+     ],
+     "p2.5_p97.5": [
+      0.733,
+      0.733
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.579,
+     "p16_p84": [
+      0.526,
+      0.636
+     ],
+     "p2.5_p97.5": [
+      0.478,
+      0.697
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.032,
+     "p16_p84": [
+      0.962,
+      1.11
+     ],
+     "p2.5_p97.5": [
+      0.902,
+      1.195
+     ]
+    },
+    "stile_w": {
+     "median": 0.114,
+     "p16_p84": [
+      0.065,
+      0.162
+     ],
+     "p2.5_p97.5": [
+      0.018,
+      0.212
+     ]
+    },
+    "casR_to_courbet_centre": {
+     "median": 2.626,
+     "p16_p84": [
+      2.475,
+      2.797
+     ],
+     "p2.5_p97.5": [
+      2.342,
+      2.986
+     ]
+    },
+    "corner_to_casing": {
+     "median": 0.211,
+     "p16_p84": [
+      0.148,
+      0.276
+     ],
+     "p2.5_p97.5": [
+      0.087,
+      0.341
+     ]
+    },
+    "corner_to_clear_south": {
+     "median": 0.325,
+     "p16_p84": [
+      0.241,
+      0.408
+     ],
+     "p2.5_p97.5": [
+      0.168,
+      0.495
+     ]
+    },
+    "corner_to_clear_north": {
+     "median": 2.154,
+     "p16_p84": [
+      2.011,
+      2.317
+     ],
+     "p2.5_p97.5": [
+      1.887,
+      2.478
+     ]
+    },
+    "clear_width": {
+     "median": 1.827,
+     "p16_p84": [
+      1.693,
+      1.982
+     ],
+     "p2.5_p97.5": [
+      1.569,
+      2.131
+     ]
+    },
+    "corner_to_casing_north": {
+     "median": 2.269,
+     "p16_p84": [
+      2.115,
+      2.435
+     ],
+     "p2.5_p97.5": [
+      1.989,
+      2.616
+     ]
+    },
+    "swc_to_courbet_centre": {
+     "median": 4.897,
+     "p16_p84": [
+      4.606,
+      5.215
+     ],
+     "p2.5_p97.5": [
+      4.361,
+      5.565
+     ]
+    },
+    "courbet_centre_to_nwc": {
+     "median": 1.124,
+     "p16_p84": [
+      1.05,
+      1.204
+     ],
+     "p2.5_p97.5": [
+      0.983,
+      1.289
+     ]
+    },
+    "wall_length": {
+     "median": 6.016,
+     "p16_p84": [
+      5.678,
+      6.405
+     ],
+     "p2.5_p97.5": [
+      5.364,
+      6.829
+     ]
+    },
+    "canvas_centre_above_baseboard": {
+     "median": 1.375,
+     "p16_p84": [
+      1.285,
+      1.482
+     ],
+     "p2.5_p97.5": [
+      1.204,
+      1.598
+     ]
+    },
+    "baseboard_top_to_ceiling": {
+     "median": 3.629,
+     "p16_p84": [
+      3.403,
+      3.894
+     ],
+     "p2.5_p97.5": [
+      3.193,
+      4.17
+     ]
+    }
+   },
+   "height_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.755,
+     "p16_p84": [
+      0.688,
+      0.833
+     ],
+     "p2.5_p97.5": [
+      0.628,
+      0.916
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.597,
+     "p16_p84": [
+      0.597,
+      0.597
+     ],
+     "p2.5_p97.5": [
+      0.597,
+      0.597
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.066,
+     "p16_p84": [
+      0.978,
+      1.169
+     ],
+     "p2.5_p97.5": [
+      0.895,
+      1.277
+     ]
+    },
+    "stile_w": {
+     "median": 0.118,
+     "p16_p84": [
+      0.067,
+      0.169
+     ],
+     "p2.5_p97.5": [
+      0.019,
+      0.223
+     ]
+    },
+    "casR_to_courbet_centre": {
+     "median": 2.712,
+     "p16_p84": [
+      2.505,
+      2.952
+     ],
+     "p2.5_p97.5": [
+      2.313,
+      3.202
+     ]
+    },
+    "corner_to_casing": {
+     "median": 0.217,
+     "p16_p84": [
+      0.152,
+      0.286
+     ],
+     "p2.5_p97.5": [
+      0.089,
+      0.355
+     ]
+    },
+    "corner_to_clear_south": {
+     "median": 0.335,
+     "p16_p84": [
+      0.248,
+      0.423
+     ],
+     "p2.5_p97.5": [
+      0.169,
+      0.518
+     ]
+    },
+    "corner_to_clear_north": {
+     "median": 2.224,
+     "p16_p84": [
+      2.036,
+      2.435
+     ],
+     "p2.5_p97.5": [
+      1.859,
+      2.666
+     ]
+    },
+    "clear_width": {
+     "median": 1.888,
+     "p16_p84": [
+      1.715,
+      2.085
+     ],
+     "p2.5_p97.5": [
+      1.555,
+      2.283
+     ]
+    },
+    "corner_to_casing_north": {
+     "median": 2.342,
+     "p16_p84": [
+      2.146,
+      2.563
+     ],
+     "p2.5_p97.5": [
+      1.963,
+      2.808
+     ]
+    },
+    "swc_to_courbet_centre": {
+     "median": 5.051,
+     "p16_p84": [
+      4.661,
+      5.5
+     ],
+     "p2.5_p97.5": [
+      4.294,
+      5.972
+     ]
+    },
+    "courbet_centre_to_nwc": {
+     "median": 1.159,
+     "p16_p84": [
+      1.065,
+      1.268
+     ],
+     "p2.5_p97.5": [
+      0.979,
+      1.382
+     ]
+    },
+    "wall_length": {
+     "median": 6.209,
+     "p16_p84": [
+      5.74,
+      6.763
+     ],
+     "p2.5_p97.5": [
+      5.308,
+      7.335
+     ]
+    },
+    "canvas_centre_above_baseboard": {
+     "median": 1.422,
+     "p16_p84": [
+      1.336,
+      1.522
+     ],
+     "p2.5_p97.5": [
+      1.261,
+      1.623
+     ]
+    },
+    "baseboard_top_to_ceiling": {
+     "median": 3.748,
+     "p16_p84": [
+      3.497,
+      4.034
+     ],
+     "p2.5_p97.5": [
+      3.286,
+      4.335
+     ]
+    }
+   }
+  },
+  "C1": {
+   "file": "frames/C1-6380-001.600.png",
+   "sha256": "a38577155ef9a31df8065bd98d7ecfad530496b63779f6538043413b78b90bff",
+   "video": "IMG_6380.MOV",
+   "seconds": 1.6,
+   "view": "Close and sharp, about two metres from the Courbet. Canvas is over 400 px wide. North-west corner read at the baseboard.",
+   "width_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.733,
+     "p16_p84": [
+      0.733,
+      0.733
+     ],
+     "p2.5_p97.5": [
+      0.733,
+      0.733
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.596,
+     "p16_p84": [
+      0.584,
+      0.608
+     ],
+     "p2.5_p97.5": [
+      0.574,
+      0.622
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.025,
+     "p16_p84": [
+      1.012,
+      1.039
+     ],
+     "p2.5_p97.5": [
+      0.999,
+      1.052
+     ]
+    },
+    "courbet_centre_to_nwc": {
+     "median": 1.198,
+     "p16_p84": [
+      1.166,
+      1.235
+     ],
+     "p2.5_p97.5": [
+      1.138,
+      1.275
+     ]
+    }
+   },
+   "height_ruler_m": {
+    "courbet_canvas_w": {
+     "median": 0.734,
+     "p16_p84": [
+      0.719,
+      0.749
+     ],
+     "p2.5_p97.5": [
+      0.704,
+      0.762
+     ]
+    },
+    "courbet_canvas_h": {
+     "median": 0.597,
+     "p16_p84": [
+      0.597,
+      0.597
+     ],
+     "p2.5_p97.5": [
+      0.597,
+      0.597
+     ]
+    },
+    "courbet_frame_w": {
+     "median": 1.028,
+     "p16_p84": [
+      1.008,
+      1.046
+     ],
+     "p2.5_p97.5": [
+      0.987,
+      1.061
+     ]
+    },
+    "courbet_centre_to_nwc": {
+     "median": 1.202,
+     "p16_p84": [
+      1.178,
+      1.225
+     ],
+     "p2.5_p97.5": [
+      1.156,
+      1.249
+     ]
+    }
+   }
+  }
+ },
+ "ratio_frames": {
+  "grey_corner_to_casing_in_stiles_D1": [
+   1.65,
+   1.63,
+   1.64
+  ],
+  "rockefeller_corner_to_casing_in_stiles_F1": 2.62,
+  "note": "Image ratios of adjacent widths on one wall; no perspective correction and no metres."
+ },
+ "ratio_frame_sha256": {
+  "D1": "e21b421966e6a65fdafe1e7fa3036a6dad66cf6aaa14e6ce1e2af72e686edb63",
+  "F1": "d026a5d385ad7da2d126b1cb9c5de29664b3a46e0d447b5a9109b16449bd6a49"
+ },
+ "wall_length_m": {
+  "A1+A2": {
+   "median": 5.956,
+   "p16_p84": [
+    5.794,
+    6.133
+   ],
+   "p2.5_p97.5": [
+    5.642,
+    6.311
+   ]
+  },
+  "A1+C1": {
+   "median": 6.018,
+   "p16_p84": [
+    5.859,
+    6.185
+   ],
+   "p2.5_p97.5": [
+    5.718,
+    6.372
+   ]
+  },
+  "B1": {
+   "median": 6.016,
+   "p16_p84": [
+    5.678,
+    6.405
+   ],
+   "p2.5_p97.5": [
+    5.364,
+    6.829
+   ]
+  }
+ },
+ "held_out_error_m": {
+  "corner_to_casing": 0.02,
+  "corner_to_clear_south": 0.046,
+  "clear_width": -0.013,
+  "corner_to_clear_north": 0.033,
+  "swc_to_courbet_centre": 0.078,
+  "courbet_frame_w": 0.008,
+  "courbet_centre_to_nwc": -0.012,
+  "courbet_centre_to_nwc_close_frame_C1": 0.062,
+  "wall_length": 0.06
+ },
+ "failure_cases": {
+  "frame_taken_for_canvas": {
+   "courbet_frame_outer_width_m": 1.023,
+   "catalogue_canvas_width_m": 0.733,
+   "every_distance_scaled_by": 0.717,
+   "wall_length_would_read_m": 4.31,
+   "note": "Reading the gilt frame's outer edge as the 0.733 m canvas shrinks every distance by this factor."
+  },
+  "canvas_only_homography_C1": {
+   "courbet_centre_to_nwc_m": {
+    "median": 1.195,
+    "p16_p84": [
+     1.159,
+     1.233
+    ],
+    "p2.5_p97.5": [
+     1.126,
+     1.275
+    ]
+   },
+   "wall_line_fit_same_frame_m": {
+    "median": 1.198,
+    "p16_p84": [
+     1.166,
+     1.235
+    ],
+    "p2.5_p97.5": [
+     1.138,
+     1.275
+    ]
+   },
+   "note": "medieval-panel-fit.py pattern: four canvas corners alone, at 400 px across, reaching 0.85 m to the baseboard corner. Short reach, sharp frame: it holds."
+  },
+  "canvas_only_homography_A2": {
+   "casing_to_courbet_centre_m": {
+    "median": 2.582,
+    "p16_p84": [
+     2.25,
+     3.025
+    ],
+    "p2.5_p97.5": [
+     2.001,
+     3.661
+    ]
+   },
+   "wall_line_fit_same_frame_m": {
+    "median": 2.586,
+    "p16_p84": [
+     2.49,
+     2.692
+    ],
+    "p2.5_p97.5": [
+     2.4,
+     2.808
+    ]
+   },
+   "note": "Same pattern on a 115 px canvas reaching 2.6 m to the doorway: 2 px of corner noise becomes this spread. This is why the wall's own lines carry the perspective and the canvas only sets the scale."
+  }
+ },
+ "flags": {
+  "metric_accepted": false,
+  "calibrated_room_metric": false,
+  "physical_loop_accepted": false,
+  "connector_length_accepted": false,
+  "door_at_south_west_corner": true
+ }
+}

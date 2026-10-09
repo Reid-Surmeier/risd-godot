@@ -1,0 +1,21 @@
+{
+  "selected_sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9",
+  "reviewer": "Codex",
+  "inspected": [
+    "gameview-final-45/frame-008.png",
+    "walk-comparison-45/poses.png",
+    "effects-control-45/effects.png",
+    "rig-diagnosis/review-rest-front.png",
+    "rig-diagnosis/review-rest-side.png",
+    "rig-diagnosis/review-rest-back.png",
+    "texture-projection/before-face.png",
+    "texture-projection/after-face.png"
+  ],
+  "findings": [
+    "Head and horns keep shape in reviewed poses; no open collar tear, profile jaw crease remains.",
+    "Corrected soles are grounded in reviewed walk poses; dense native contact checks supplement visual inspection.",
+    "Dust is visible next to the contacting shoe and idle event control passes.",
+    "Muse projected face remains softer; reject as default."
+  ],
+  "owner_acceptance": "pending; this is prototype evidence, not runtime signoff"
+}

@@ -1,0 +1,36 @@
+{
+  "runtime": "244be7e2",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-literals-current-01a0f2f0/",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "601166629d175068c6dc5556785492dc959b7cde0c42d15bc4d05a9ac08ec848",
+      "match": true
+    },
+    {
+      "file": "244be7e2.html",
+      "status": 200,
+      "sha256": "52f6b25923c3acc7f6e66fba07ab2351ed46b9e8ae2d1aa4c14eeed73fe2c605",
+      "match": true
+    },
+    {
+      "file": "244be7e2.pck.gz",
+      "status": 200,
+      "sha256": "a9a694423bee349f352e1de89f40774cc1668dbec702e3620852423ba9c63e90",
+      "match": true
+    },
+    {
+      "file": "244be7e2.game.pck.gz",
+      "status": 200,
+      "sha256": "e0e6ef99021904dcf372b45a8812843ee300fde1601bdbd86434438a5f6f6bcb",
+      "match": true
+    },
+    {
+      "file": "244be7e2.wasm.gz",
+      "status": 200,
+      "sha256": "fcfc7e4de1c100077dec0cd95e8eb8d44bf9710ed944117298b9b228f4e2438e",
+      "match": true
+    }
+  ]
+}

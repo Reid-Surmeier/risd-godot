@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-b3f597e1aebac9e62b2f",
+  "summary": "Create one complete orthographic FRONT view of only the original frame surrounding RISD Le Fauconnier Mountaineers Attacked by Bears1995.043 in references1 and2. Reference1 shows its complete oblique placement; reference2 shows its thin lower rail and upper rail closely. Keep a very narrow plain dark brown wood rectangular outer rail and a thin muted gold/cream inner lip, flat linear rails, straight mitred corners and restrained low polygon facets. No carving, beads, fancy corners, crest, decorative ornament or broad gold band. Painting opening must be landscape aspect305.4:239.6. Remove all painting content, walls, doors, floor, lights, labels, perspective and shadows. Aperture pure solid white; surrounding background pure magenta#FF00FF. Show the complete isolated frame with margins. The real artwork is preserved separately and inserted by deterministic native assembly.\n",
+  "procedureId": "muse-b3f597e1aebac9e62b2f",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/fauconnier-frame-video-0.png",
+      "sha256": "ccaef6e136f346a76ba1b0a55d7844c592ad257d444ade59660b5812ab297cca",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/fauconnier-frame-video-1.png",
+      "sha256": "836004bb8a39752edbbdfcc81f9c86a300942e4850e8e9828c2228c5c7d6ebde",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "fauconnier-frame-recipe.json",
+      "sha256": "b3f597e1aebac9e62b2ffea7080836c620c1995d9305b90d923fb209ef21a1e0"
+    },
+    {
+      "applicationPath": "fauconnier-frame-plan.json",
+      "sha256": "a695d066c33e740e51aa713554bfcef1649b622f556c3e5bc4afe615f27effa7"
+    },
+    {
+      "applicationPath": "fauconnier-frame-prompt.txt",
+      "sha256": "bb025fd5a6be8dcf951c899760f314c59c936fb13186bdc27ef5dffe414a96f1"
+    }
+  ]
+}

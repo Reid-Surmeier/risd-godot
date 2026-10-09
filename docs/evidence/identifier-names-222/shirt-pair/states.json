@@ -1,0 +1,322 @@
+[
+  {
+    "name": "baseline",
+    "url": "https://windows-wsl.taile06c45.ts.net/risd-values-current-01a0f35e/6d126dbb.html",
+    "state": {
+      "display_size": [
+        1080,
+        1080
+      ],
+      "logical_size": [
+        1080,
+        1080
+      ],
+      "shell": {
+        "active": 4,
+        "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+        "count": 7,
+        "fixed_count": 7,
+        "opening": false,
+        "pressed": -1,
+        "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+        "switching": false,
+        "tabs": [
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "map",
+            "label": "map",
+            "page_visible": false,
+            "rect": [
+              76.2557525634766,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "sketchbook",
+            "label": "sketchbook",
+            "page_visible": false,
+            "rect": [
+              212.87028503418,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "3d_viewer",
+            "label": "3d_viewer",
+            "page_visible": false,
+            "rect": [
+              349.484832763672,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "video_player",
+            "label": "video_player",
+            "page_visible": false,
+            "rect": [
+              486.099365234375,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": false,
+            "key": "collection",
+            "label": "collection",
+            "page_visible": true,
+            "rect": [
+              622.7138671875,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "playground",
+            "label": "playground",
+            "page_visible": false,
+            "rect": [
+              759.328430175781,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "flowers",
+            "label": "flowers",
+            "page_visible": false,
+            "rect": [
+              895.942932128906,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": null
+          }
+        ]
+      },
+      "stage_rect": [
+        0,
+        0,
+        1080,
+        1080
+      ],
+      "tenant": {},
+      "window_grips": [
+        {
+          "grip": [
+            1048,
+            994,
+            32,
+            32
+          ],
+          "name": "CollectionFrame",
+          "rect": [
+            0,
+            54,
+            1080,
+            972
+          ],
+          "scale": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "errors": []
+  },
+  {
+    "name": "candidate",
+    "url": "https://windows-wsl.taile06c45.ts.net/risd-names-current-01a0f379/2208eaba.html",
+    "state": {
+      "display_size": [
+        1080,
+        1080
+      ],
+      "logical_size": [
+        1080,
+        1080
+      ],
+      "shell": {
+        "active": 4,
+        "bar_rect": "[P: (0.0, 1044.776), S: (1080.0, 35.22357)]",
+        "count": 7,
+        "fixed_count": 7,
+        "opening": false,
+        "pressed": -1,
+        "stub_rect": "[P: (762.041, 1057.086), S: (47.34351, 21.77795)]",
+        "switching": false,
+        "tabs": [
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "map",
+            "label": "map",
+            "page_visible": false,
+            "rect": [
+              76.2557525634766,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "sketchbook",
+            "label": "sketchbook",
+            "page_visible": false,
+            "rect": [
+              212.87028503418,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "3d_viewer",
+            "label": "3d_viewer",
+            "page_visible": false,
+            "rect": [
+              349.484832763672,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "video_player",
+            "label": "video_player",
+            "page_visible": false,
+            "rect": [
+              486.099365234375,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": false,
+            "key": "collection",
+            "label": "collection",
+            "page_visible": true,
+            "rect": [
+              622.7138671875,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "playground",
+            "label": "playground",
+            "page_visible": false,
+            "rect": [
+              759.328430175781,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": "ok"
+          },
+          {
+            "close_rect": "[P: (0.0, 0.0), S: (0.0, 0.0)]",
+            "fixed": true,
+            "frozen": true,
+            "key": "flowers",
+            "label": "flowers",
+            "page_visible": false,
+            "rect": [
+              895.942932128906,
+              1042.24475097656,
+              136.614532470703,
+              36.264949798584
+            ],
+            "tenant": null
+          }
+        ]
+      },
+      "stage_rect": [
+        0,
+        0,
+        1080,
+        1080
+      ],
+      "tenant": {},
+      "window_grips": [
+        {
+          "grip": [
+            1048,
+            994,
+            32,
+            32
+          ],
+          "name": "CollectionFrame",
+          "rect": [
+            0,
+            54,
+            1080,
+            972
+          ],
+          "scale": [
+            1,
+            1
+          ]
+        }
+      ]
+    },
+    "errors": []
+  }
+]

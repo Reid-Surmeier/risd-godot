@@ -1,0 +1,30 @@
+{
+  "picks": {
+    "IMG_6380/000202.jpg": [
+      [
+        533,
+        406
+      ]
+    ],
+    "IMG_6380/000205.jpg": [
+      [
+        122,
+        105
+      ]
+    ],
+    "IMG_6380/000203.jpg": [
+      [
+        445,
+        243
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000202.jpg",
+    "IMG_6380/000205.jpg"
+  ],
+  "reserved": "IMG_6380/000203.jpg",
+  "labels": [
+    "grand-white-inner-header-left"
+  ]
+}

@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "gold-saucer-b-001",
+      "prompt": "gold-saucer-b-prompt.txt",
+      "promptSha256": "d89e9d7aaab4cb67702ce276f982c5e1cf27bd3b00784df6dbb66239b14bac14",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-saucer-b-selected-0.png",
+          "sha256": "e04f0e42ab9ec91dfbbfa209ae70d49339fc6149297ddcaa0dff23b47524e145"
+        }
+      ]
+    }
+  ]
+}

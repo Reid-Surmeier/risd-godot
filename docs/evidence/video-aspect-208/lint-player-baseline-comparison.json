@@ -1,0 +1,11 @@
+{
+  "baseline": "125927da",
+  "gdlint": "4.5.0",
+  "baseline_problems": 26,
+  "candidate_problems": 26,
+  "same_source_findings": true,
+  "new": [],
+  "lint_discovery_pipeline_exit": 141,
+  "workflow_equivalent_local_check": "PASS but lint discovery skips under pipefail",
+  "cloud_run": "failure before steps"
+}

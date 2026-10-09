@@ -1,0 +1,64 @@
+{
+  "id": "f544e690-f279-4e92-9622-b8e6f570930a",
+  "ok": true,
+  "result": {
+    "automation": {
+      "id": "a1be0f89-1291-42d6-9a69-a52b950b80d6",
+      "name": "RISD map completion — continue owner session",
+      "prompt": "Continue the existing RISD session toward full implementation of Wayfinder map 149. Read /home/reidsurmeier/.local/state/risd-wayfinder-heartbeat/checkpoint.md and live Git/issues. Latest owner direction: restore the older two-window 3D Viewer layout; put all four current scans in its main player and original sidebar; retain the enlarged hover preview as the only UI addition. Owner explicitly accepted existing scan condition for now, superseding the earlier visual-quality block on 154/157. Preserve verified museum metadata and source hashes. Continue in existing integrate-square-164 build worktree; preserve square-containment-173 and do not start duplicate writers. Character and real world assets remain in scope. Final integrated build still requires hands-on owner approval. Finish current Viewer correction and evidence, then 167 architecture, 168 surfaces, 161 finish, 162 full review. Update build/v0.1.0 and PR166 with checks, pictures and a working private shared build before closing issues. Keep checkpoint current; disable this automation only after verified complete map. Honor rights, provider and spend rules.",
+      "precheck": {
+        "command": "python3 /home/reidsurmeier/.local/state/risd-wayfinder-heartbeat/wake.py",
+        "timeoutSeconds": 60
+      },
+      "agentId": "codex",
+      "runContext": {
+        "kind": "workspace-run",
+        "projectId": "github:reid-surmeier/risd-godot",
+        "hostId": "local",
+        "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "path": "/home/reidsurmeier/risd-godot"
+      },
+      "sourceContext": {
+        "kind": "task-source",
+        "provider": "github",
+        "projectId": "github:reid-surmeier/risd-godot",
+        "hostId": "local",
+        "projectHostSetupId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "repoId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+        "providerIdentity": {
+          "provider": "github",
+          "owner": "Reid-Surmeier",
+          "repo": "risd-godot"
+        },
+        "accountLabel": null
+      },
+      "projectId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec",
+      "executionTargetType": "local",
+      "executionTargetId": "local",
+      "schedulerOwner": "local_host_service",
+      "workspaceMode": "existing",
+      "workspaceId": "4a7a066f-b8c6-465b-a134-b25f0804f2ec::/home/reidsurmeier/risd-godot",
+      "baseBranch": null,
+      "reuseSession": true,
+      "timezone": "America/New_York",
+      "rrule": "*/30 * * * *",
+      "dtstart": 1790621845500,
+      "enabled": true,
+      "nextRunAt": 1790793000000,
+      "missedRunPolicy": "run_once_within_grace",
+      "missedRunGraceMinutes": 720,
+      "createdAt": 1790541246559,
+      "updatedAt": 1790791522623,
+      "lastRunAt": 1790791522623
+    },
+    "owner": {
+      "selector": {
+        "kind": "self"
+      }
+    }
+  },
+  "_meta": {
+    "runtimeId": "836751f2-da21-4536-bf86-780bd8c3bcdf"
+  }
+}

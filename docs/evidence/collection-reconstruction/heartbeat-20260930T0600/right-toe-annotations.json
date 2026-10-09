@@ -1,0 +1,22 @@
+{
+  "picks": {
+    "12": [
+      568,
+      1060
+    ],
+    "14": [
+      506,
+      1095
+    ]
+  },
+  "reserved": "IMG_6380/000206.jpg",
+  "reserved_pixel": [
+    626,
+    1043
+  ],
+  "training": [
+    12,
+    14
+  ],
+  "caveat": "Right exterior white casing toe only, not the inner aperture. Nearby same-video views; frozen query pixels, original 102.5s exclusion retained."
+}

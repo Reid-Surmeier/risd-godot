@@ -1,0 +1,34 @@
+{
+  "repo-check.log": {
+    "source": "/tmp/collection-remodel-check-final.log",
+    "raw_sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e"
+  },
+  "shell-playtest.log": {
+    "source": "/tmp/collection-remodel-shell-final.log",
+    "raw_sha256": "2c2efe937572882d0e759178ebd23f6eed0fce2ecb8ef0fa389bb87a55cd2031"
+  },
+  "shell-first-run.log": {
+    "source": "/tmp/collection-remodel-shell.log",
+    "raw_sha256": "74fc1558145a58c45b6bb42c75952ca63817d76f0443d8b2ef55f4008c04f3ed"
+  },
+  "native-walk.log": {
+    "source": "/tmp/collection-remodel-v5-native.log",
+    "raw_sha256": "f81199b18b14033b434967e1aef8709a811bdc8d00baf6a931b6c80891a417f0"
+  },
+  "native-visual.log": {
+    "source": "/tmp/collection-remodel-v5-visual.log",
+    "raw_sha256": "8114d0a7a5301d342cc4973d30193a526d0e448f5e7808b2cb7abafc98152a5d"
+  },
+  "browser-walk.log": {
+    "source": "/tmp/collection-remodel-v5-browser.log",
+    "raw_sha256": "cf0a0715314bf68c94febf92057a1cdbe60c6a397a23797933f9914f7d68fd9b"
+  },
+  "web-export.log": {
+    "source": "/tmp/collection-remodel-v5-export.log",
+    "raw_sha256": "79c37e8acda5e836c9dbac0e56827da8742d3d55617e24e59489070262326dc1"
+  },
+  "first-export-failure.log": {
+    "source": "/tmp/collection-remodel-v3-export.log",
+    "raw_sha256": "5c67f23a7c3a6b86301038ccd0900e7035dc6f4ea7b5518180b3fd4841241368"
+  }
+}

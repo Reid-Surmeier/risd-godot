@@ -1,0 +1,36 @@
+{
+  "runtime": "6cb7e87e",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-order-current-01a0f327/",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "3f6971d532749f106a3e0a313f37eaaa2b2c2917ae3058efd0e29b034e38abf7",
+      "match": true
+    },
+    {
+      "file": "6cb7e87e.html",
+      "status": 200,
+      "sha256": "7304d082f113c8be886ad1ab34b4d651c6d2a1b0aa33d8b14b18242c56cde338",
+      "match": true
+    },
+    {
+      "file": "6cb7e87e.pck.gz",
+      "status": 200,
+      "sha256": "0caaa28d8aebb19eee860b1ef0ae3d28e3665b13ee009795234d1a1e3f881651",
+      "match": true
+    },
+    {
+      "file": "6cb7e87e.game.pck.gz",
+      "status": 200,
+      "sha256": "98696aea71f1f11e0b823ec7602a639043ba7e0ae2e676f61bbd49905eccd6df",
+      "match": true
+    },
+    {
+      "file": "6cb7e87e.wasm.gz",
+      "status": 200,
+      "sha256": "5beb51c3a8f5b818c3d0fa518d6098f2a914e766ebacd40141da4525b123a423",
+      "match": true
+    }
+  ]
+}

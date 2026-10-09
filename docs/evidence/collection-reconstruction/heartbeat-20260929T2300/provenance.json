@@ -1,0 +1,89 @@
+{
+  "provider": "local NumPy/pycolmap/Pillow; FFmpeg CUDA native-resolution decode",
+  "cost_usd": 0,
+  "paid_calls": 0,
+  "input_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/result.json": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-aperture-v1/database.db": "2d95ae0dc2e99250493b91a6a2fafebd19212a572a96b03e9a89430ebff39c44",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/audit.json": "3133af036bb76f9f99f8db61b5b7354910d171c0bb4dadbba19ca8ae515e9847",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000013.jpg": "56c308f8015aab6eea50e3d2ecbd324c0a8c7822b5326b5bcaf50c895ac37c7e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000015.jpg": "0e694c29f0d3eef9c71308cca1270504df4525ff315b546058640ba61e9fc02a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000018.jpg": "c8d1d99174a00064a2e7be47876bc3c59e25cbe87032c5848e7f47dd9dd6cf02"
+  },
+  "generator_sha256": {
+    "modules/shell/prototype/collection_reconstruction/threshold_landmarks.py": "1e2ca811cf6d179f2e3da4165b4edc1fd9b42b15542edaf05b12ad56e02ff2a5",
+    "modules/shell/prototype/collection_reconstruction/measurements.py": "32773fa308512df3288ae28571da7071269bbdbc89c46f32aca68c153c55c01a"
+  },
+  "native_extraction": {
+    "command": [
+      "ffmpeg",
+      "-n",
+      "-hide_banner",
+      "-loglevel",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-hwaccel_output_format",
+      "cuda",
+      "-noautorotate",
+      "-ss",
+      "250",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+      "-t",
+      "3.1",
+      "-vf",
+      "scale_cuda=1920:1080:format=yuv420p,hwdownload,format=yuv420p,fps=6,select=eq(n\\,12)+eq(n\\,14)+eq(n\\,17)",
+      "-fps_mode",
+      "vfr",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-source-native-v1/%02d.png"
+    ],
+    "mapping": {
+      "01.png": "000013.jpg",
+      "02.png": "000015.jpg",
+      "03.png": "000018.jpg"
+    },
+    "source_sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+    "note": "CUDA decode/scale at native 1920x1080. Same fps filter/order and source seek as doorway_revisit.py; not new views."
+  },
+  "native_source_frames_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-source-native-v1/01.png": "e19be6d7ec035c6b57b5137fd7f82e294be6f95f6da909f51474cd9a45d5ef0e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-source-native-v1/02.png": "1cee8e83de1ee05dfb8ec5cc87864eeed282a9c3c3a5c7eac2b8085dfe86942a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/threshold-source-native-v1/03.png": "9386eb3c5ba230cc714cbbab15a2db2d2609bc5f691f09356365b621e88bc17c"
+  },
+  "artifact_sha256": {
+    "browser.png": "e3c25e4cabb37a2c10c6ae5021efeb2dd3380112b38eb34b28173764473960ab",
+    "shell-resized.png": "f5489e0038c4f9e69a276f229dcca753b723d654de5f4d456686525beff09a56",
+    "native-02-floor.png": "22f992c9589729e115dd73e7c39a4dcc8d0682cd53c51f80b657a41b870ef03f",
+    "000018.png": "23ac29feb7d981fee8f758dff4394ca7529deaaec73d8a8aa7886579d432e36e",
+    "annotations.json": "d567515fce551d6d3f64f5a0cec88f976f0516e05bf79d150187e9ce81e52edb",
+    "repository-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "000015.png": "23b4fff51553d422cda33b03868aec6ed3f2b76b6cc20668413bff066d46c075",
+    "native-extraction.json": "53d14347efbf8088be9963cd64a7a24740c4da8851ab4685f7e1c8723aa7ae40",
+    "000013.png": "82cb825a6a5cf9a047347fa922235a415f606420c4a5a9ca948b12d25fb143bc",
+    "threshold-plan.png": "5dc4f993fb8060266127d8005ce0152d672f5b09ed4427f71439a9749032cbe1",
+    "shell-playtest.log": "19ab35350f96350884a37e591a0762d13337a1b7b9e75ff22eb7dbc551974d13",
+    "result.json": "e340ca6397cf5c643c6590aacf5363c85224c1f1bae11241cf91398373ebeaf4",
+    "native-01-floor.png": "833daad6c4d622131f51e14a0b6e6ace6804444449b030679475b8c2b736f649",
+    "native-03-floor.png": "e23df3874e4d054e02d23b7fa095df0abbdb414463de86be690cb7cd72c7cbac",
+    "index.html": "2cfb2e782c0ae4f0a3d8ff5c83b3d29a63c8fd94601e918fe6bd3740db384e9e",
+    "browser.json": "1e6eb2cd3783180f754ff66876a5454cca8a6d12213aad4bd8aa02378050c4bc"
+  },
+  "checks": {
+    "synthetic_plane_recovery": "passed",
+    "displaced_plane_negative_control": "passed",
+    "synthetic_ray_roundtrip": "passed",
+    "shifted_pixel_negative_control": "passed",
+    "frozen_model_hashes": "match completed holdout audit",
+    "repository": "passed; eight ObjectDB leak instances warned",
+    "shell": "same seven failed check names as preceding tick",
+    "images": "all three overlays, plan, native crops and Shell resize inspected",
+    "browser": "HTTP 200 page and all seven images; Chrome screenshot inspected"
+  },
+  "navigation_accepted": false
+}

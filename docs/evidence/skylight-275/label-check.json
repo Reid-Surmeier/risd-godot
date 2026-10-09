@@ -1,0 +1,279 @@
+{
+  "labels": [
+    {
+      "frame": "IMG_6379 127.0s",
+      "canvas": "69.094",
+      "corners_px": [
+        [
+          302,
+          373
+        ],
+        [
+          544,
+          392
+        ],
+        [
+          532,
+          640
+        ],
+        [
+          303,
+          630
+        ]
+      ],
+      "label_center_px": [
+        514,
+        820
+      ],
+      "horizontal_from_canvas_center_m": 1.009,
+      "above_lower_m": 1.219,
+      "estimated_error_m": 0.2,
+      "inherited_canvas_center_above_lower_m": 4.11,
+      "method": "canvas-plane homography; seven outline points for Mangold"
+    },
+    {
+      "frame": "IMG_6379 127.0s",
+      "canvas": "73.018",
+      "corners_px": [
+        [
+          720,
+          375
+        ],
+        [
+          689,
+          464
+        ],
+        [
+          689,
+          560
+        ],
+        [
+          717,
+          628
+        ],
+        [
+          771,
+          628
+        ],
+        [
+          836,
+          479
+        ],
+        [
+          785,
+          337
+        ]
+      ],
+      "label_center_px": [
+        783,
+        907
+      ],
+      "horizontal_from_canvas_center_m": 0.802,
+      "above_lower_m": 0.832,
+      "estimated_error_m": 0.35,
+      "inherited_canvas_center_above_lower_m": 4.3,
+      "method": "canvas-plane homography; seven outline points for Mangold"
+    },
+    {
+      "frame": "IMG_6379 154.5s",
+      "canvas": "73.018",
+      "corners_px": [
+        [
+          497,
+          405
+        ],
+        [
+          452,
+          511
+        ],
+        [
+          457,
+          626
+        ],
+        [
+          496,
+          708
+        ],
+        [
+          590,
+          736
+        ],
+        [
+          689,
+          574
+        ],
+        [
+          601,
+          379
+        ]
+      ],
+      "label_center_px": [
+        632,
+        1050
+      ],
+      "horizontal_from_canvas_center_m": 0.981,
+      "above_lower_m": 1.133,
+      "estimated_error_m": 0.35,
+      "inherited_canvas_center_above_lower_m": 4.3,
+      "method": "canvas-plane homography; seven outline points for Mangold"
+    },
+    {
+      "frame": "IMG_6379 54.0s",
+      "canvas": "2026.3",
+      "corners_px": [
+        [
+          142,
+          113
+        ],
+        [
+          564,
+          107
+        ],
+        [
+          548,
+          544
+        ],
+        [
+          217,
+          534
+        ]
+      ],
+      "label_center_px": [
+        383,
+        644
+      ],
+      "horizontal_from_canvas_center_m": -0.022,
+      "above_lower_m": 3.254,
+      "estimated_error_m": 0.2,
+      "inherited_canvas_center_above_lower_m": 4.53,
+      "method": "canvas-plane homography; seven outline points for Mangold"
+    },
+    {
+      "frame": "IMG_6379 6.5s",
+      "canvas": "2000.17",
+      "corners_px": [
+        [
+          219,
+          564
+        ],
+        [
+          289,
+          662
+        ],
+        [
+          264,
+          855
+        ],
+        [
+          190,
+          808
+        ]
+      ],
+      "label_center_px": [
+        263,
+        955
+      ],
+      "horizontal_from_canvas_center_m": 1.309,
+      "above_lower_m": 2.046,
+      "estimated_error_m": 0.4,
+      "inherited_canvas_center_above_lower_m": 4.3,
+      "method": "canvas-plane homography; seven outline points for Mangold"
+    },
+    {
+      "frame": "IMG_6379 159.5s",
+      "canvas": "2025.19",
+      "corners_px": [
+        [
+          370,
+          67
+        ],
+        [
+          783,
+          75
+        ],
+        [
+          731,
+          535
+        ],
+        [
+          390,
+          514
+        ]
+      ],
+      "label_center_px": [
+        880,
+        650
+      ],
+      "horizontal_from_canvas_center_m": 1.483,
+      "above_lower_m": 3.251,
+      "estimated_error_m": 0.3,
+      "inherited_canvas_center_above_lower_m": 4.45,
+      "method": "canvas-plane homography; seven outline points for Mangold"
+    }
+  ],
+  "spacing": [
+    {
+      "frame": "IMG_6379 127.0s",
+      "canvas": "73.018",
+      "corner_line_px": [
+        [
+          680,
+          300
+        ],
+        [
+          642,
+          870
+        ]
+      ],
+      "center_from_northwest_corner_m": 1.66,
+      "estimated_error_m": 0.3
+    },
+    {
+      "frame": "IMG_6379 154.5s",
+      "canvas": "73.018",
+      "corner_line_px": [
+        [
+          409,
+          294
+        ],
+        [
+          410,
+          930
+        ]
+      ],
+      "center_from_northwest_corner_m": 1.808,
+      "estimated_error_m": 0.3
+    },
+    {
+      "frame": "IMG_6379 159.5s",
+      "canvas": "2025.19",
+      "corner_samples_px": [
+        [
+          18.0,
+          0.0
+        ],
+        [
+          78.0,
+          380.0
+        ],
+        [
+          110.0,
+          575.0
+        ],
+        [
+          162.0,
+          767.0
+        ]
+      ],
+      "center_from_northeast_corner_m": [
+        2.115,
+        2.145,
+        2.158,
+        2.058
+      ],
+      "chosen_along_m": 2.1,
+      "estimated_error_m": 0.3
+    }
+  ],
+  "accepted": false
+}

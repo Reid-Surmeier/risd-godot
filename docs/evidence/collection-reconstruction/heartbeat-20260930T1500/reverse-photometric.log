@@ -1,0 +1,26 @@
+[
+  {
+    "image": "IMG_6380/000486.jpg",
+    "pose_fit_features": 0,
+    "patches": [],
+    "pose_supported": false,
+    "status": "insufficient upper-image pose correspondences"
+  },
+  {
+    "image": "IMG_6380/000496.jpg",
+    "pose_fit_features": 7,
+    "patches": [],
+    "pose_supported": false,
+    "status": "insufficient upper-image pose correspondences"
+  },
+  {
+    "image": "IMG_6380/000206.jpg",
+    "pose_fit_features": 40,
+    "patches": [],
+    "pose_supported": false,
+    "pose_inliers": 24,
+    "pose_test_features": 27,
+    "pose_test_below4px": 15,
+    "status": "upper-image pose lacks unused-point support"
+  }
+]

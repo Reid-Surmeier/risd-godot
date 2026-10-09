@@ -1,0 +1,68 @@
+{
+  "video": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+  "video_sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+  "commands": [
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-noautorotate",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+      "-ss",
+      "35.75",
+      "-frames:v",
+      "1",
+      "-vf",
+      "transpose=clock",
+      "-update",
+      "1",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-width-native-v1/renaissance-35.75.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-noautorotate",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+      "-ss",
+      "63.75",
+      "-frames:v",
+      "1",
+      "-vf",
+      "transpose=clock",
+      "-update",
+      "1",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-width-native-v1/renaissance-63.75.png"
+    ],
+    [
+      "ffmpeg",
+      "-v",
+      "error",
+      "-hwaccel",
+      "cuda",
+      "-noautorotate",
+      "-i",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+      "-ss",
+      "64.75",
+      "-frames:v",
+      "1",
+      "-vf",
+      "transpose=clock",
+      "-update",
+      "1",
+      "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/renaissance-width-native-v1/renaissance-64.75.png"
+    ]
+  ],
+  "sha256": {
+    "renaissance-63.75.png": "c00a2a89902b6cbf8245e57aa363b4f67426f3eb31f22a56ae84a1d37205151a",
+    "renaissance-35.75.png": "8fa8eb8a514bccbc350c38b253eed37d4ec28af7065f9a3c64b1e05a5ca21b30",
+    "renaissance-64.75.png": "3ce55e3fb9bebcd79e5e61e4c90732e781cd2319962a4e7d646e53f92158ff4b"
+  }
+}

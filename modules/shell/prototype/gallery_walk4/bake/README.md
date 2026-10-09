@@ -39,6 +39,37 @@ room black despite a valid bake; the pixel regression detects this.
 Texture imports are committed for the oak mip chain and the lightmap's required
 2D-array format. No screen-space noise, snapping or texture warping was added.
 Native bake took 18.22 seconds on this host's software Vulkan renderer.
+
+**The Hall's light (8 Oct, #266).** The owner, playing the build: "you don't have spotlights on
+objects warm glow. the main room baked lighting is so bad." The Hall is now lit as the added
+rooms are (`docs/playtest/room-builder-guide.md`, Light); the numbers are the constants at the
+top of `prepare.gd`.
+
+1. A warm spot (`SPOT_COLOR`, the rooms') on every painting, hung 2.0 m above its middle and
+   1.4 m out from the wall, aimed 0.2 m below the middle, its cone fitted to the framed work
+   plus 0.9 m of wall, fading from its middle to nothing at its rim, and dead 1.2 m past the
+   work so it never reaches the floor at the wall's foot (the orange strip along the skirting).
+2. The five ceiling fills, the daylight and the environment are at about 0.7 of the light of
+   #258 (0.40, 0.25, 0.12; they were 0.55, 0.35, 0.18): the wall between works is quieter
+   than the wall beside one, and the floor keeps nine tenths of its brightness.
+3. Canvases and frames are still drawn at their own colours, not through the lightmap. What
+   they take from their spot is the rooms' `WORK_TINT` at `WORK_LEVEL`: a warm lift of a
+   tenth. They are out of the bake's rays (`GI_MODE_DISABLED`, no shadow), as a flat work is
+   in the rooms: the wall behind a frame was unlit and the lightmap's 12 cm texels bled that
+   dark out as a smudge on each side of the frame. The bake has 48 lightmap users, not 137.
+
+**The bake runs on the GPU (8 Oct).** Vulkan inside WSL is lavapipe, a CPU renderer; with a
+spot on every painting the bake took 8 to 50 minutes there. `run.py` now bakes in the Windows
+build of the same Godot (`WIN_GODOT`, opened in place over `\\wsl.localhost`) when it is present
+and reports the same version as `godot`: 76 s for the whole run, 16 to 21 s of it baking, on the
+RTX 4070 SUPER (the log's `Using Device` line names the card). `BAKE_ON=cpu` keeps it on
+lavapipe. Run it under the host lock the room rebuilds use, so two bakes never overlap:
+`flock /tmp/risd-rebuild-rooms.lock python3 modules/shell/prototype/gallery_walk4/bake/run.py`.
+The Windows editor has no desktop in WSL's session: the log fills with "Couldn't create Vulkan
+swapchain", which does not affect the bake. It crashed once in two runs after "Done baking",
+before saving; `run.py` put the previous bake back and the second run saved. The editor also
+re-imports the room's textures as block-compressed "3D" textures; `run.py` puts every `.import`
+outside `baked/` back, and `godot --headless --import` afterwards rebuilds the cache from them.
 Initial camera/bake pass: 0 paid requests. Material continuation: 2 Muse requests
 through OpenRouter, $0.02 total, with unchanged native image bytes.
 
@@ -132,3 +163,32 @@ scene reports zero runtime lights. This is visual refinement, not an exact
 Nintendo appearance claim. Before/after evidence is packaged with the final
 refinement report; no generated source pixels were edited and no paid calls
 were made for this pass.
+
+## Light after the New Horizons museum (#238)
+
+`prepare.gd` bakes little fill, one cream-white spot per painting with a cone sized from the
+frame's width, and daylight straight down through the glazing as a pool on the floor. It also
+writes `baked/lamps.json`, the lamp list the floor highlight reads, from the same values.
+`measure_light.gd` reads the five light targets of
+`docs/research/2026-10-01-acnh-museum-polish-spec.md` (section 4, step 3) from the standard
+dollhouse view of each long wall and prints PASS or FAIL per target; it also reads the
+visitor at five places. After a bake run `godot --headless --editor --import --path .` before
+looking: the editor leaves the previous lightmap texture in the import cache, so the game
+shows the old light without any error. Values, numbers and pictures:
+`docs/evidence/museum-238/light-hall/NOTES.md`.
+
+## The approved light restored (#258)
+
+The owner played the #238 light on 7 Oct and asked for the Hall's original light back. The
+lamp values in `prepare.gd` are again those of the bake he approved on 26-30 Sep (`dbfe2393`,
+unchanged until `b40d0091`): fill 0.55 `#ffe1b2`, spots 6.8 at 25 degrees `#ffd391` aimed at
+each painting's centre, daylight 0.35 across the Hall, environment 0.18, skirting and cornice
+glow 0.55 and 0.35. The white label cards and the shallow portal stay, so the Hall was baked
+again rather than given its old lightmap back. `measure_light.gd` still reads the #238
+targets; this light fails them on purpose and the script is not an acceptance check.
+`baked/lamps.json` is still written and still has no reader.
+
+Trap, seen: the bake editor turns the frames' and two textures' `.import` files back to VRAM
+compression with mipmaps (20 files), undoing the lossy import the Web pack budget relies on.
+After a bake, `git checkout` those `.import` files, then run the headless import.
+Pictures and the cause of the wall patches: `docs/evidence/hall-lighting-258/NOTES.md`.

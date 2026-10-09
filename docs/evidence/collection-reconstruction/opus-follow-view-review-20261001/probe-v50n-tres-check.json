@@ -1,0 +1,9 @@
+{
+ "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n/collection_rooms/addition_baked/room.tres",
+ "sha256": "6a896f3abf00d89293c46df9c6050aecd55a4d9767e08e3b299dee014fc00b89",
+ "probes": 352,
+ "tetrahedra": 1661,
+ "users": 1229,
+ "points_equal_to_v49l_within_0.0015": true,
+ "l0_equal_to_v49l_within_0.0015": true
+}

@@ -1,0 +1,28 @@
+{
+  "attempts": [
+    {
+      "id": "saint-roch-21398-001",
+      "prompt": "saint-roch-21398-prompt.txt",
+      "promptSha256": "6f159f86224559e12065b703e9d4ad200308bd74bcae157ba4fab876dcf6616d",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/saint-roch-21398-official-0.png",
+          "sha256": "7a1f7cb99abbf481089c2413d315bd9e68c06c1bee1fec389375715c885be181"
+        },
+        {
+          "path": "inventory-references/saint-roch-21398-official-1.png",
+          "sha256": "8dce04fc2ae62b1a4bfe3a71b8ea24c722f2e840050bf766b04e2f00bd958ac0"
+        },
+        {
+          "path": "inventory-references/saint-roch-21398-official-2.png",
+          "sha256": "9c410e8ec06681577e6fd5f51b0f527d19fd6793e9dae18acf14ceaa8891bd49"
+        },
+        {
+          "path": "inventory-references/saint-roch-21398-official-3.png",
+          "sha256": "cfb1c3482b4a6e8c3b2921e16985f94f62e9a7880f5e2eeb262bd2756949989a"
+        }
+      ]
+    }
+  ]
+}

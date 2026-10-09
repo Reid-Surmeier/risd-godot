@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-b135ab280d1bbe2d2aff",
+  "summary": "Generate ONE square seamless low-polygon game albedo material for the violet painted plaster wall in reference 1, matching the restrained baked Main Hall style in reference 2. Only smooth purple plaster fills the whole image, softly desaturated medium lilac/violet, extremely faint broad hand-painted polygon tonal changes. Uniform diffuse lighting without cast shadow or gradient, no seams, cracks, blocks, bricks, marble veins, molding, door, elevator, sign, labels, furniture, floor, people or framed art. Source photo is shape/color reference only; generate clean new material pixels for native room walls. Not a photograph or room image; a flat evenly lit square tiling plaster albedo texture.\n",
+  "procedureId": "muse-b135ab280d1bbe2d2aff",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/purple-plaster-selected-0.png",
+      "sha256": "e7e0e20dfef86021bbef503992010e4668d16a29557e1fb6d6d9d5a64fabe38f",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/purple-plaster-selected-1.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "purple-plaster-recipe.json",
+      "sha256": "b135ab280d1bbe2d2aff2f3fb6f34d7cf36002a18925f1862dad94d73da8ca6f"
+    },
+    {
+      "applicationPath": "purple-plaster-plan.json",
+      "sha256": "cffe4a9be4af1fddd1c3451cc3fe087cf83c12cbc49b03a37cf9fa729f4aa420"
+    },
+    {
+      "applicationPath": "purple-plaster-prompt.txt",
+      "sha256": "a78a1c1c656e17e4fc84acfa8eeeb6170ca187fd8c9077132fbe2d66b989b2fe"
+    }
+  ]
+}

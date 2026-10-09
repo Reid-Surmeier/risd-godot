@@ -1,0 +1,24 @@
+ERROR: Condition "!classes.has(ti.gdtype->get_super_type_name())" is true.
+   at: _add_class (core/object/class_db.cpp:948)
+   at: ~PagedAllocator (./core/templates/paged_allocator.h:170)
+ERROR: Invalid getter 'NoiseTexture3D::get_width' for property 'width'.
+   at: add_property (core/object/class_db.cpp:1447)
+ERROR: Invalid getter 'NoiseTexture3D::get_height' for property 'height'.
+   at: add_property (core/object/class_db.cpp:1447)
+ERROR: Invalid getter 'NoiseTexture3D::get_depth' for property 'depth'.
+   at: add_property (core/object/class_db.cpp:1447)
+ERROR: Condition "!classes.has(ti.gdtype->get_super_type_name())" is true.
+   at: _add_class (core/object/class_db.cpp:948)
+ERROR: Invalid getter 'NoiseTexture2D::get_width' for property 'width'.
+   at: add_property (core/object/class_db.cpp:1447)
+ERROR: Invalid getter 'NoiseTexture2D::get_height' for property 'height'.
+   at: add_property (core/object/class_db.cpp:1447)
+ERROR: Condition "!classes.has(ti.gdtype->get_super_type_name())" is true.
+   at: _add_class (core/object/class_db.cpp:948)
+ERROR: Condition "!classes.has(ti.gdtype->get_super_type_name())" is true.
+   at: _add_class (core/object/class_db.cpp:948)
+malloc(): largebin double linked list corrupted (nextsize)
+scripts/playtest.sh: line 13: 292934 Aborted                 (core dumped) "$GODOT_BIN" --path . --script "res://modules/$MODULE/playtest/harness.gd" --display-driver x11 --rendering-driver opengl3 -- "--out-dir=$OUT" 2>&1
+     292935 Done                    | tee "$OUT/godot.log"
+     292936 Done                    | grep -vE '^\s*$'
+     292937 Done                    | tail -20

@@ -1,0 +1,690 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (81 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | architecture-asset.png[39m[0m
+[   1% ] [90m[1m_update_scan_actions[22m | bertin-hall-wall.png[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | bertin-in-room.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | bookcase-asset.png[39m[0m
+[   4% ] [90m[1m_update_scan_actions[22m | bookcase-detail.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | bookcase-oblique.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | bust-asset.png[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | bust-detail.png[39m[0m
+[   9% ] [90m[1m_update_scan_actions[22m | bust-front-uv.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | bust-rear-uv.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | bust-side-uv.png[39m[0m
+[  13% ] [90m[1m_update_scan_actions[22m | corot-in-room.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | courbet-in-room.png[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | door-sconce-detail.png[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | entrance-chair-detail.png[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | european-door-detail.png[39m[0m
+[  19% ] [90m[1m_update_scan_actions[22m | european-door-reverse.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | fetti-in-room.png[39m[0m
+[  21% ] [90m[1m_update_scan_actions[22m | gallery-far-door.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | gallery-piers.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | gallery-wide.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | gallery.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | gold-service-asset.png[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | gold-service-detail.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | goltzius-in-room.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | grey-door-corner.png[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | grey-gallery-wide.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | grey-purple-reverse.png[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | grey-walk.png[39m[0m
+[  35% ] [90m[1m_update_scan_actions[22m | hall-grey-join.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | hall-portal-join.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | hall-portal-walk.png[39m[0m
+[  39% ] [90m[1m_update_scan_actions[22m | hall-source-camera.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | hall-walk.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | hall-west-paintings.png[39m[0m
+[  42% ] [90m[1m_update_scan_actions[22m | hall-wide-arch.png[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | hall-wide-far.png[39m[0m
+[  45% ] [90m[1m_update_scan_actions[22m | ionic-capital-front.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | ionic-capital-oblique.png[39m[0m
+[  47% ] [90m[1m_update_scan_actions[22m | loop-overview.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | medieval-apostle-left.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | medieval-apostle-right.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | medieval-cases-east.png[39m[0m
+[  52% ] [90m[1m_update_scan_actions[22m | medieval-cases-portal.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | medieval-frame-front.png[39m[0m
+[  54% ] [90m[1m_update_scan_actions[22m | medieval-frame-oblique.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | medieval-grille-front.png[39m[0m
+[  57% ] [90m[1m_update_scan_actions[22m | medieval-grille-oblique.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | medieval-north-panel-wide.png[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | medieval-panel-bartolo.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | medieval-panel-magdalene.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | medieval-panel-peter.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | medieval-panel-virgin.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | medieval-portal-wall-wide.png[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | medieval-stair-door-detail.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | medieval-stair-wall-wide.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | medieval-walk.png[39m[0m
+[  69% ] [90m[1m_update_scan_actions[22m | medieval-wide.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | mirror-detail.png[39m[0m
+[  71% ] [90m[1m_update_scan_actions[22m | perugino-in-room.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | perugino-walking.png[39m[0m
+[  74% ] [90m[1m_update_scan_actions[22m | pink-service-asset.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | pink-service-detail.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | portal-angle.png[39m[0m
+[  78% ] [90m[1m_update_scan_actions[22m | portal-front.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | purple-grey-wide.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | purple-wall-detail.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | renaissance-door-corner.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | renaissance-door-wall.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | renaissance-walk.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | renaissance-wide.png[39m[0m
+[  86% ] [90m[1m_update_scan_actions[22m | room.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | settee-detail.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | tracery-angle.png[39m[0m
+[  90% ] [90m[1m_update_scan_actions[22m | tracery-front.png[39m[0m
+[  91% ] [90m[1m_update_scan_actions[22m | wallpaper-asset.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | wide-gallery-entry.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | wide-gold-pedestal.png[39m[0m
+[  95% ] [90m[1m_update_scan_actions[22m | wide-purple-entry.png[39m[0m
+[  96% ] [90m[1m_update_scan_actions[22m | wide-settee-portrait.png[39m[0m
+[  97% ] [90m[1m_update_scan_actions[22m | wide-source-camera.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (81 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   1% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   2% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   4% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   6% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   7% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   8% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  10% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  13% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  14% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  15% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  17% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  19% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  20% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  21% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  23% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  24% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  26% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  28% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  29% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  30% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  31% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  32% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  34% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  35% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  39% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  40% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  41% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  42% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  43% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  45% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  47% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  48% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  51% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  52% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  54% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  56% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  57% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  58% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  59% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  64% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  65% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  67% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  68% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  69% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  70% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  71% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  73% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  74% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  76% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  78% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  79% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  80% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  82% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  84% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  85% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  86% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  87% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  89% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  90% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  91% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  92% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  93% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  95% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  96% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  97% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | perugino-walking.png[39m[0m
+[   1% ] [90m[1mreimport[22m | perugino-in-room.png[39m[0m
+[   2% ] [90m[1mreimport[22m | mirror-detail.png[39m[0m
+[   3% ] [90m[1mreimport[22m | medieval-wide.png[39m[0m
+[   4% ] [90m[1mreimport[22m | medieval-walk.png[39m[0m
+[   6% ] [90m[1mreimport[22m | medieval-stair-wall-wide.png[39m[0m
+[   7% ] [90m[1mreimport[22m | medieval-stair-door-detail.png[39m[0m
+[   8% ] [90m[1mreimport[22m | medieval-portal-wall-wide.png[39m[0m
+[   9% ] [90m[1mreimport[22m | medieval-panel-virgin.png[39m[0m
+[  10% ] [90m[1mreimport[22m | medieval-panel-peter.png[39m[0m
+[  12% ] [90m[1mreimport[22m | medieval-panel-magdalene.png[39m[0m
+[  13% ] [90m[1mreimport[22m | medieval-panel-bartolo.png[39m[0m
+[  14% ] [90m[1mreimport[22m | medieval-north-panel-wide.png[39m[0m
+[  15% ] [90m[1mreimport[22m | medieval-grille-oblique.png[39m[0m
+[  17% ] [90m[1mreimport[22m | medieval-grille-front.png[39m[0m
+[  18% ] [90m[1mreimport[22m | medieval-frame-oblique.png[39m[0m
+[  19% ] [90m[1mreimport[22m | medieval-frame-front.png[39m[0m
+[  20% ] [90m[1mreimport[22m | medieval-cases-portal.png[39m[0m
+[  21% ] [90m[1mreimport[22m | medieval-cases-east.png[39m[0m
+[  23% ] [90m[1mreimport[22m | medieval-apostle-right.png[39m[0m
+[  24% ] [90m[1mreimport[22m | wide-source-camera.png[39m[0m
+[  25% ] [90m[1mreimport[22m | wide-settee-portrait.png[39m[0m
+[  26% ] [90m[1mreimport[22m | wide-purple-entry.png[39m[0m
+[  28% ] [90m[1mreimport[22m | wide-gold-pedestal.png[39m[0m
+[  29% ] [90m[1mreimport[22m | wide-gallery-entry.png[39m[0m
+[  30% ] [90m[1mreimport[22m | wallpaper-asset.png[39m[0m
+[  31% ] [90m[1mreimport[22m | tracery-front.png[39m[0m
+[  32% ] [90m[1mreimport[22m | tracery-angle.png[39m[0m
+[  34% ] [90m[1mreimport[22m | settee-detail.png[39m[0m
+[  35% ] [90m[1mreimport[22m | room.png[39m[0m
+[  36% ] [90m[1mreimport[22m | renaissance-wide.png[39m[0m
+[  37% ] [90m[1mreimport[22m | renaissance-walk.png[39m[0m
+[  39% ] [90m[1mreimport[22m | renaissance-door-wall.png[39m[0m
+[  40% ] [90m[1mreimport[22m | renaissance-door-corner.png[39m[0m
+[  41% ] [90m[1mreimport[22m | purple-wall-detail.png[39m[0m
+[  42% ] [90m[1mreimport[22m | purple-grey-wide.png[39m[0m
+[  43% ] [90m[1mreimport[22m | portal-front.png[39m[0m
+[  45% ] [90m[1mreimport[22m | portal-angle.png[39m[0m
+[  46% ] [90m[1mreimport[22m | pink-service-detail.png[39m[0m
+[  47% ] [90m[1mreimport[22m | pink-service-asset.png[39m[0m
+[  48% ] [90m[1mreimport[22m | gallery-piers.png[39m[0m
+[  50% ] [90m[1mreimport[22m | gallery-far-door.png[39m[0m
+[  51% ] [90m[1mreimport[22m | fetti-in-room.png[39m[0m
+[  52% ] [90m[1mreimport[22m | european-door-reverse.png[39m[0m
+[  53% ] [90m[1mreimport[22m | european-door-detail.png[39m[0m
+[  54% ] [90m[1mreimport[22m | entrance-chair-detail.png[39m[0m
+[  56% ] [90m[1mreimport[22m | door-sconce-detail.png[39m[0m
+[  57% ] [90m[1mreimport[22m | courbet-in-room.png[39m[0m
+[  58% ] [90m[1mreimport[22m | corot-in-room.png[39m[0m
+[  59% ] [90m[1mreimport[22m | bust-side-uv.png[39m[0m
+[  60% ] [90m[1mreimport[22m | bust-rear-uv.png[39m[0m
+[  62% ] [90m[1mreimport[22m | bust-front-uv.png[39m[0m
+[  63% ] [90m[1mreimport[22m | bust-detail.png[39m[0m
+[  64% ] [90m[1mreimport[22m | bust-asset.png[39m[0m
+[  65% ] [90m[1mreimport[22m | bookcase-oblique.png[39m[0m
+[  67% ] [90m[1mreimport[22m | bookcase-detail.png[39m[0m
+[  68% ] [90m[1mreimport[22m | bookcase-asset.png[39m[0m
+[  69% ] [90m[1mreimport[22m | bertin-in-room.png[39m[0m
+[  70% ] [90m[1mreimport[22m | bertin-hall-wall.png[39m[0m
+[  71% ] [90m[1mreimport[22m | architecture-asset.png[39m[0m
+[  73% ] [90m[1mreimport[22m | medieval-apostle-left.png[39m[0m
+[  74% ] [90m[1mreimport[22m | loop-overview.png[39m[0m
+[  75% ] [90m[1mreimport[22m | ionic-capital-oblique.png[39m[0m
+[  76% ] [90m[1mreimport[22m | ionic-capital-front.png[39m[0m
+[  78% ] [90m[1mreimport[22m | hall-wide-far.png[39m[0m
+[  79% ] [90m[1mreimport[22m | hall-wide-arch.png[39m[0m
+[  80% ] [90m[1mreimport[22m | hall-west-paintings.png[39m[0m
+[  81% ] [90m[1mreimport[22m | hall-walk.png[39m[0m
+[  82% ] [90m[1mreimport[22m | hall-source-camera.png[39m[0m
+[  84% ] [90m[1mreimport[22m | hall-portal-walk.png[39m[0m
+[  85% ] [90m[1mreimport[22m | hall-portal-join.png[39m[0m
+[  86% ] [90m[1mreimport[22m | hall-grey-join.png[39m[0m
+[  87% ] [90m[1mreimport[22m | grey-walk.png[39m[0m
+[  89% ] [90m[1mreimport[22m | grey-purple-reverse.png[39m[0m
+[  90% ] [90m[1mreimport[22m | grey-gallery-wide.png[39m[0m
+[  91% ] [90m[1mreimport[22m | grey-door-corner.png[39m[0m
+[  92% ] [90m[1mreimport[22m | goltzius-in-room.png[39m[0m
+[  93% ] [90m[1mreimport[22m | gold-service-detail.png[39m[0m
+[  95% ] [90m[1mreimport[22m | gold-service-asset.png[39m[0m
+[  96% ] [90m[1mreimport[22m | gallery.png[39m[0m
+[  97% ] [90m[1mreimport[22m | gallery-wide.png[39m[0m
+[  98% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (81 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1msavepack[22m | Started Packing (102 steps)[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/agate-teapot-volume.png-52e62f1a0b620c07f21f63b56dd4254f.s3tc.ctex[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/agate-teapot-volume.png.import[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/apostle-41045-volume.png-8bbcc575cfeefcfa63230ecab8529137.s3tc.ctex[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/apostle-41045-volume.png.import[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/apostle-41046-volume.png-d4df31c99fb0dce50c4cdccbfdb3c6fd.s3tc.ctex[39m[0m
+[   1% ] [90m[1msavepack[22m | Storing File: res://assets/apostle-41046-volume.png.import[39m[0m
+[   2% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/armchair-cloth.png-394d2e1d8e3faa1df25a58a3e7dc03f3.s3tc.ctex[39m[0m
+[   2% ] [90m[1msavepack[22m | Storing File: res://assets/armchair-cloth.png.import[39m[0m
+[   2% ] [90m[1msavepack[22m | Storing File: res://assets/armchair-outline.json[39m[0m
+[   3% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/armchair-part-0.png-4e3991ced844307531f54e3e14a1d2ef.s3tc.ctex[39m[0m
+[   3% ] [90m[1msavepack[22m | Storing File: res://assets/armchair-part-0.png.import[39m[0m
+[   3% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/armchair-part-1.png-0c6f026ed8e276f3f9fca9993ffa7e70.s3tc.ctex[39m[0m
+[   3% ] [90m[1msavepack[22m | Storing File: res://assets/armchair-part-1.png.import[39m[0m
+[   4% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/armchair-part-2.png-4eef50d143db76896b0f252b813cdaae.s3tc.ctex[39m[0m
+[   4% ] [90m[1msavepack[22m | Storing File: res://assets/armchair-part-2.png.import[39m[0m
+[   4% ] [90m[1msavepack[22m | Storing File: res://assets/armchair-parts.json[39m[0m
+[   4% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/armchair.png-05348e303c5bd3ada48b91f2abfe455a.ctex[39m[0m
+[   4% ] [90m[1msavepack[22m | Storing File: res://assets/armchair.png.import[39m[0m
+[   5% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bagpiper-volume.png-d109d471eae5ee889419dbb42c82f5c9.s3tc.ctex[39m[0m
+[   5% ] [90m[1msavepack[22m | Storing File: res://assets/bagpiper-volume.png.import[39m[0m
+[   5% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/baseboard.png-ed89a24b92473ab23240b118d9054efc.s3tc.ctex[39m[0m
+[   5% ] [90m[1msavepack[22m | Storing File: res://assets/baseboard.png.import[39m[0m
+[   6% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bear-jug-pair-volume.png-76d4dd4fca035a63c1b1c0d37498d969.s3tc.ctex[39m[0m
+[   6% ] [90m[1msavepack[22m | Storing File: res://assets/bear-jug-pair-volume.png.import[39m[0m
+[   6% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bear-jug-volume.png-75b36965d3bfd2a956da59f7c654c7ea.s3tc.ctex[39m[0m
+[   6% ] [90m[1msavepack[22m | Storing File: res://assets/bear-jug-volume.png.import[39m[0m
+[   7% ] [90m[1msavepack[22m | Storing File: res://assets/bertin-frame-geometry.json[39m[0m
+[   7% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bertin-frame.png-b4357318f64fecd62234a26eee13def5.s3tc.ctex[39m[0m
+[   7% ] [90m[1msavepack[22m | Storing File: res://assets/bertin-frame.png.import[39m[0m
+[   7% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/bookcase.png-3ebea661e863b0e07e0b1b330dd43e93.s3tc.ctex[39m[0m
+[   7% ] [90m[1msavepack[22m | Storing File: res://assets/bookcase.png.import[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/candlestick-pair-volume.png-a554085b68634ca92b7060bbd715e63e.s3tc.ctex[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://assets/candlestick-pair-volume.png.import[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/candlestick-volume.png-509f7b2dc27be83dd650b817d616fa63.s3tc.ctex[39m[0m
+[   8% ] [90m[1msavepack[22m | Storing File: res://assets/candlestick-volume.png.import[39m[0m
+[   9% ] [90m[1msavepack[22m | Storing File: res://assets/catalogue-objects.json[39m[0m
+[   9% ] [90m[1msavepack[22m | Storing File: res://assets/corot-frame-geometry.json[39m[0m
+[  10% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/corot-frame.png-f0848314934329f0b58b3b537a41d50b.s3tc.ctex[39m[0m
+[  10% ] [90m[1msavepack[22m | Storing File: res://assets/corot-frame.png.import[39m[0m
+[  10% ] [90m[1msavepack[22m | Storing File: res://assets/courbet-frame-geometry.json[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/courbet-frame.png-d730b750e7f3575724b8e6a825d0fb69.s3tc.ctex[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://assets/courbet-frame.png.import[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/cow-volume.png-e18916c8fad2747892539b15cd94250c.s3tc.ctex[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://assets/cow-volume.png.import[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/cream-jug-volume.png-e9629006c7c23d12640646fbd69752c9.s3tc.ctex[39m[0m
+[  11% ] [90m[1msavepack[22m | Storing File: res://assets/cream-jug-volume.png.import[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/door-architrave.png-62bd92ea67573d4d67c7eb72b016df4a.s3tc.ctex[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://assets/door-architrave.png.import[39m[0m
+[  12% ] [90m[1msavepack[22m | Storing File: res://assets/edwards-frame-geometry.json[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/edwards-frame.png-255ef43f18c3cd140759350224087531.s3tc.ctex[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://assets/edwards-frame.png.import[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-cloth.png-c63c8948d9ad183d5ed8cbcbec2ea7f5.s3tc.ctex[39m[0m
+[  13% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-cloth.png.import[39m[0m
+[  14% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-outline.json[39m[0m
+[  14% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-part-0.png-5b63b2b20aa587cddaa51073af763e63.s3tc.ctex[39m[0m
+[  14% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-part-0.png.import[39m[0m
+[  14% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-part-1.png-816f77513a290785951e1ca0c967d050.s3tc.ctex[39m[0m
+[  14% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-part-1.png.import[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-part-2.png-46217ea39fd6716bdfef9d75bfd7e918.s3tc.ctex[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-part-2.png.import[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-part-3.png-752c60abf77b11ee32c718c69fed73d8.s3tc.ctex[39m[0m
+[  15% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-part-3.png.import[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-part-4.png-381582a4d9f7bebf60421d46cfc72b19.s3tc.ctex[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-part-4.png.import[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair-part-5.png-3bb426bc77488fe21c5ba13639836c27.s3tc.ctex[39m[0m
+[  16% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-part-5.png.import[39m[0m
+[  17% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair-parts.json[39m[0m
+[  17% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/entrance-chair.png-8612c41f39fabbfd04f828df01327f2d.ctex[39m[0m
+[  17% ] [90m[1msavepack[22m | Storing File: res://assets/entrance-chair.png.import[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/european-two-panel-door-0.png-854920e679a32b59944ac3671f3f0a53.s3tc.ctex[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://assets/european-two-panel-door-0.png.import[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/european-two-panel-door-1.png-85d85dc57c725461c92fe38ceb8f98f3.s3tc.ctex[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://assets/european-two-panel-door-1.png.import[39m[0m
+[  18% ] [90m[1msavepack[22m | Storing File: res://assets/european-two-panel-door-geometry.json[39m[0m
+[  19% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ewe-lamb-volume.png-490b81ed8cbcd67089cc3e3e37e3289f.s3tc.ctex[39m[0m
+[  19% ] [90m[1msavepack[22m | Storing File: res://assets/ewe-lamb-volume.png.import[39m[0m
+[  19% ] [90m[1msavepack[22m | Storing File: res://assets/fetti-frame-geometry.json[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/fetti-frame.png-d99fe393342687d14e50e2e5b07cb443.s3tc.ctex[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://assets/fetti-frame.png.import[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/finch-pair-volume.png-0f3748215ed7794feeefa1fe29fab11c.s3tc.ctex[39m[0m
+[  20% ] [90m[1msavepack[22m | Storing File: res://assets/finch-pair-volume.png.import[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/finch-volume.png-de023a0ad47dda53a3dc33d20859cb4f.s3tc.ctex[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://assets/finch-volume.png.import[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/flute-player-volume.png-1965c5e8ed38e95be38fc84e36f08aed.s3tc.ctex[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://assets/flute-player-volume.png.import[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/fox-volume.png-e7186a8cc69526159143bed8f5ac50f5.s3tc.ctex[39m[0m
+[  21% ] [90m[1msavepack[22m | Storing File: res://assets/fox-volume.png.import[39m[0m
+[  22% ] [90m[1msavepack[22m | Storing File: res://assets/frame-geometry.json[39m[0m
+[  22% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/frame.png-b49da370ab5b416325f31bcd38e64bfc.s3tc.ctex[39m[0m
+[  22% ] [90m[1msavepack[22m | Storing File: res://assets/frame.png.import[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-basket-a-volume.png-e1c591b4cf95f66d6568f4e77a017568.s3tc.ctex[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://assets/gold-basket-a-volume.png.import[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-basket-b-volume.png-6a0e5a2292f2c1a56f34ff160d8ef9f8.s3tc.ctex[39m[0m
+[  23% ] [90m[1msavepack[22m | Storing File: res://assets/gold-basket-b-volume.png.import[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-cup-a-volume.png-2ed67abe5bce4dd0a2d3a4256457f10b.s3tc.ctex[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://assets/gold-cup-a-volume.png.import[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-cup-b-volume.png-665635dadc168e5b5db44ea21b0a6880.s3tc.ctex[39m[0m
+[  24% ] [90m[1msavepack[22m | Storing File: res://assets/gold-cup-b-volume.png.import[39m[0m
+[  25% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-ecuelle-clean-volume.png-e4601d8e26f3e828b64c05851b3ce0b6.s3tc.ctex[39m[0m
+[  25% ] [90m[1msavepack[22m | Storing File: res://assets/gold-ecuelle-clean-volume.png.import[39m[0m
+[  25% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-plate-a-volume.png-ac1e99f37b0ce61b8227d039e172e167.s3tc.ctex[39m[0m
+[  25% ] [90m[1msavepack[22m | Storing File: res://assets/gold-plate-a-volume.png.import[39m[0m
+[  25% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-plate-b-volume.png-f478f3245acb778c4b1a505087e6cd43.s3tc.ctex[39m[0m
+[  25% ] [90m[1msavepack[22m | Storing File: res://assets/gold-plate-b-volume.png.import[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-saucer-a-volume.png-90742f46fa25b55c92cdbd32c9deb77d.s3tc.ctex[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://assets/gold-saucer-a-volume.png.import[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-saucer-b-volume.png-1942c9e9e3426ef92de7b35c840d7d9a.s3tc.ctex[39m[0m
+[  26% ] [90m[1msavepack[22m | Storing File: res://assets/gold-saucer-b-volume.png.import[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-square-a-volume.png-0ff1de8a9a1862685d6d3cff5d5a8842.s3tc.ctex[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://assets/gold-square-a-volume.png.import[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-square-b-volume.png-94b166fb86dbfc2b87f7f8fd10181bd4.s3tc.ctex[39m[0m
+[  27% ] [90m[1msavepack[22m | Storing File: res://assets/gold-square-b-volume.png.import[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/gold-tureen-volume.png-2ec071f437856d93741daf646014aa18.s3tc.ctex[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://assets/gold-tureen-volume.png.import[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://assets/goltzius-frame-geometry.json[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/goltzius-frame.png-170698022f21f2c493d86f77100087bb.s3tc.ctex[39m[0m
+[  28% ] [90m[1msavepack[22m | Storing File: res://assets/goltzius-frame.png.import[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/horn-player-volume.png-04c177568dbf89a1c0a114dbb963ce31.s3tc.ctex[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://assets/horn-player-volume.png.import[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/hudibras-volume.png-404d6c58fdbaf70d0c6f29e5c90b3e1c.s3tc.ctex[39m[0m
+[  29% ] [90m[1msavepack[22m | Storing File: res://assets/hudibras-volume.png.import[39m[0m
+[  30% ] [90m[1msavepack[22m | Storing File: res://assets/ionic-capital-geometry.json[39m[0m
+[  30% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/ionic-capital.png-ac7b581e75d48453d91f973ba14ae826.s3tc.ctex[39m[0m
+[  30% ] [90m[1msavepack[22m | Storing File: res://assets/ionic-capital.png.import[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://assets/magdalene-frame.json[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/magdalene-frame.png-0ca2fd9492c14f36372317297ff0704b.s3tc.ctex[39m[0m
+[  31% ] [90m[1msavepack[22m | Storing File: res://assets/magdalene-frame.png.import[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://assets/medieval-grille-geometry.json[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/medieval-grille-metal.png-c7b4e290eacec6b53d8c9dd86476d4ec.s3tc.ctex[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://assets/medieval-grille-metal.png.import[39m[0m
+[  32% ] [90m[1msavepack[22m | Storing File: res://assets/mirror-outline.json[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/mirror.png-d6dc28dcbed13c71804192551d55f50d.s3tc.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://assets/mirror.png.import[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-16.236.jpg-4acd9f952c94b9a9d2ba6c7a1273d119.s3tc.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://assets/painting-16.236.jpg.import[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-20.207.jpg-a76c47f374b4dc3853d0335c874d284d.s3tc.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://assets/painting-20.207.jpg.import[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-21.250.png-ad03deafb1be9db90e9ed984dc5c6390.s3tc.ctex[39m[0m
+[  33% ] [90m[1msavepack[22m | Storing File: res://assets/painting-21.250.png.import[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-22.047.jpg-2c5bb5431a3e3b53a9894cbf07f47ac9.s3tc.ctex[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://assets/painting-22.047.jpg.import[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-24.089.jpg-843ee5d465f401a4900320180379fab4.s3tc.ctex[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://assets/painting-24.089.jpg.import[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-35.786.jpg-4595b260b47ef693ed1e332873b46301.s3tc.ctex[39m[0m
+[  34% ] [90m[1msavepack[22m | Storing File: res://assets/painting-35.786.jpg.import[39m[0m
+[  35% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-36.003.jpg-dcee2d7bc13d1c0abbd03d672d58590b.s3tc.ctex[39m[0m
+[  35% ] [90m[1msavepack[22m | Storing File: res://assets/painting-36.003.jpg.import[39m[0m
+[  35% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-43.571.jpg-16445296bbe7bf57671427fe7b8ca1e9.s3tc.ctex[39m[0m
+[  35% ] [90m[1msavepack[22m | Storing File: res://assets/painting-43.571.jpg.import[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-56.214.jpg-02ebedca2f697edc5c8f5a3a1866eee3.s3tc.ctex[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://assets/painting-56.214.jpg.import[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-57.301.jpg-c4d5670d8e4947cc6fa89246f558bf54.s3tc.ctex[39m[0m
+[  36% ] [90m[1msavepack[22m | Storing File: res://assets/painting-57.301.jpg.import[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-58.197.jpg-38d2cc6306a3ff8def0dbc7257f9b8ea.s3tc.ctex[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://assets/painting-58.197.jpg.import[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-61.006.jpg-015c4b12ee448d47b38616c3e619e018.s3tc.ctex[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://assets/painting-61.006.jpg.import[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/painting-2009.9.jpg-c042b9a606b2e8cbfd9f86b97eb82c03.s3tc.ctex[39m[0m
+[  37% ] [90m[1msavepack[22m | Storing File: res://assets/painting-2009.9.jpg.import[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://assets/pair-mirror-outline.json[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pair-mirror.png-26804e220133aa3fae4eea86ea138da4.s3tc.ctex[39m[0m
+[  38% ] [90m[1msavepack[22m | Storing File: res://assets/pair-mirror.png.import[39m[0m
+[  39% ] [90m[1msavepack[22m | Storing File: res://assets/panel-20.207.json[39m[0m
+[  39% ] [90m[1msavepack[22m | Storing File: res://assets/panel-22.047.json[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://assets/panel-57.301.json[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/parrot-pair-volume.png-bac9545539d6ec00c7e5bbabefd08bd1.s3tc.ctex[39m[0m
+[  40% ] [90m[1msavepack[22m | Storing File: res://assets/parrot-pair-volume.png.import[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/parrot-third-volume.png-30c650b27626aa319cd2350bdb7cf38f.s3tc.ctex[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://assets/parrot-third-volume.png.import[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/parrot-volume.png-dc27f9b107b28f84f26e13d16e54d1a1.s3tc.ctex[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://assets/parrot-volume.png.import[39m[0m
+[  41% ] [90m[1msavepack[22m | Storing File: res://assets/perugino-frame-geometry.json[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/perugino-frame.png-2465045595d0927653cbb671071a84fc.s3tc.ctex[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://assets/perugino-frame.png.import[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pink-bowl-a-volume.png-03666786da6198ec6eb6b085707afec9.s3tc.ctex[39m[0m
+[  42% ] [90m[1msavepack[22m | Storing File: res://assets/pink-bowl-a-volume.png.import[39m[0m
+[  43% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pink-bowl-b-volume.png-089dc775088da3aa7a48ada657954daf.s3tc.ctex[39m[0m
+[  43% ] [90m[1msavepack[22m | Storing File: res://assets/pink-bowl-b-volume.png.import[39m[0m
+[  43% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pink-compote-volume.png-a14cf10e7dfdc2632b3c5c5cf1a1d0cc.s3tc.ctex[39m[0m
+[  43% ] [90m[1msavepack[22m | Storing File: res://assets/pink-compote-volume.png.import[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pink-dish-volume.png-1429a5abca2d161e41190affc8b9882b.s3tc.ctex[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://assets/pink-dish-volume.png.import[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pink-ladle-volume.png-7bf8a337b1dd40025b1f153e461f01af.s3tc.ctex[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://assets/pink-ladle-volume.png.import[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/pink-small-tureen-volume.png-a0075ca8db8c3f71c3675a594f4c00b4.s3tc.ctex[39m[0m
+[  44% ] [90m[1msavepack[22m | Storing File: res://assets/pink-small-tureen-volume.png.import[39m[0m
+[  45% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/recamier-volume.png-d529b4f697e2ad43c3ee0e8cc9673f79.s3tc.ctex[39m[0m
+[  45% ] [90m[1msavepack[22m | Storing File: res://assets/recamier-volume.png.import[39m[0m
+[  45% ] [90m[1msavepack[22m | Storing File: res://assets/romanesque-portal-geometry.json[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/romanesque-portal.png-4e4d1d8816de99d01ac27c69bfd57bca.s3tc.ctex[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://assets/romanesque-portal.png.import[39m[0m
+[  46% ] [90m[1msavepack[22m | Storing File: res://assets/romany-frame-geometry.json[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/romany-frame.png-99c0086961c2aae74ff15ad7297f723d.s3tc.ctex[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://assets/romany-frame.png.import[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/sconce-left-volume.png-5bb0a0ee52c20055d9cdaee019b5b93f.s3tc.ctex[39m[0m
+[  47% ] [90m[1msavepack[22m | Storing File: res://assets/sconce-left-volume.png.import[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/sconce-right-volume.png-1032575486dd42e6652d528a94bbb439.s3tc.ctex[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://assets/sconce-right-volume.png.import[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://assets/sculpture-room-inventory.json[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/secretary-volume.png-a86e679eacf3777aba19da751508fed7.s3tc.ctex[39m[0m
+[  48% ] [90m[1msavepack[22m | Storing File: res://assets/secretary-volume.png.import[39m[0m
+[  49% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee-cloth.png-e1a32ff4f6e66770e9695a0a326e48e7.s3tc.ctex[39m[0m
+[  49% ] [90m[1msavepack[22m | Storing File: res://assets/settee-cloth.png.import[39m[0m
+[  49% ] [90m[1msavepack[22m | Storing File: res://assets/settee-outline.json[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee-part-0.png-d1792f28d8ff2912d0989dcbf52c4925.s3tc.ctex[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://assets/settee-part-0.png.import[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee-part-1.png-67e45c32a40b21932db2602869e5bbcc.s3tc.ctex[39m[0m
+[  50% ] [90m[1msavepack[22m | Storing File: res://assets/settee-part-1.png.import[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee-part-2.png-90738bf7a4fa0fe5486a05cd48b69e03.s3tc.ctex[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://assets/settee-part-2.png.import[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee-part-3.png-bf2b646f4d4f488fb7475af4f6072c03.s3tc.ctex[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://assets/settee-part-3.png.import[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee-part-4.png-30736c538fbefa5234035896ac3bd2f1.s3tc.ctex[39m[0m
+[  51% ] [90m[1msavepack[22m | Storing File: res://assets/settee-part-4.png.import[39m[0m
+[  52% ] [90m[1msavepack[22m | Storing File: res://assets/settee-parts.json[39m[0m
+[  52% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/settee.png-0bcd9da9d4bc10a79fae6f258557f93e.ctex[39m[0m
+[  52% ] [90m[1msavepack[22m | Storing File: res://assets/settee.png.import[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/shepherd-volume.png-e5673b41cfbb817cf3af1a2883f3988d.s3tc.ctex[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://assets/shepherd-volume.png.import[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/sofa-cloth.webp-717b29af6b99bb342d75447ceec8ac05.ctex[39m[0m
+[  53% ] [90m[1msavepack[22m | Storing File: res://assets/sofa-cloth.webp.import[39m[0m
+[  54% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/st-george-volume.png-bbc6435bed74eb7b9ace7382d059f6a8.s3tc.ctex[39m[0m
+[  54% ] [90m[1msavepack[22m | Storing File: res://assets/st-george-volume.png.import[39m[0m
+[  54% ] [90m[1msavepack[22m | Storing File: res://assets/tracery-arch-geometry.json[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/tracery-arch.png-aa0381769063b775bb427cf2d365a734.s3tc.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://assets/tracery-arch.png.import[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/tureen-volume.png-bfff615361fa2d07f6ba91627dd05733.s3tc.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://assets/tureen-volume.png.import[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/tureen.png-f2022bcecea4fd0f2390c081d87506f9.ctex[39m[0m
+[  55% ] [90m[1msavepack[22m | Storing File: res://assets/tureen.png.import[39m[0m
+[  56% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wallpaper-34.912.jpg-a4ae8e0b05b9cca911b6db01f6fe6dbf.s3tc.ctex[39m[0m
+[  56% ] [90m[1msavepack[22m | Storing File: res://assets/wallpaper-34.912.jpg.import[39m[0m
+[  56% ] [90m[1msavepack[22m | Storing File: res://assets/wallpaper-34.912.json[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/white-panel-door-0.png-05f1c2e1df842e10743e7de50f58b9f5.s3tc.ctex[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://assets/white-panel-door-0.png.import[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/white-panel-door-1.png-d0a8cdcf7d77cf8526618c2c108625c4.s3tc.ctex[39m[0m
+[  57% ] [90m[1msavepack[22m | Storing File: res://assets/white-panel-door-1.png.import[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/white-panel-door-2.png-cb91bfde2c42305b0f85e0cbc73191ed.s3tc.ctex[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://assets/white-panel-door-2.png.import[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://assets/wide-camera-fit.json[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/writing-table-volume.png-16f3531916ef29b6c90f4babda75a5f3.s3tc.ctex[39m[0m
+[  58% ] [90m[1msavepack[22m | Storing File: res://assets/writing-table-volume.png.import[39m[0m
+[  59% ] [90m[1msavepack[22m | Storing File: res://bake/plugin.gdc[39m[0m
+[  59% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W10.jpg-da6ac9c7419b459c42785dc683e0b294.s3tc.ctex[39m[0m
+[  59% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W10.jpg.import[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W1.png-7058a54890645ca183f6170adef98e8d.s3tc.ctex[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W1.png.import[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/stone.png-df21f01aba0fdd9fdaf5a729990aa6d0.ctex[39m[0m
+[  60% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/stone.png.import[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W9.jpg-e03f3ae30b0ca44cb1f29d9973d2811f.s3tc.ctex[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W9.jpg.import[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/donor.glb-82dcbd97f890f6b17ba7687fa66be589.scn[39m[0m
+[  61% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/donor.glb.import[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S2.png-999395982a4fce3139fe37def185e870.s3tc.ctex[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/S2.png.import[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/door-far.jpg-48b55b4f65736a20ee3bcb82d661b9a6.ctex[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/door-far.jpg.import[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E8.png-51ade24cd8d1af29a39868bc8d943947.s3tc.ctex[39m[0m
+[  62% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E8.png.import[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-board-atlas-168-v3.webp-a295ad0cbf5eba4238970341a984951c.s3tc.ctex[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://presentation/oak-board-atlas-168-v3.webp.import[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W5.jpg-1c2deb33d22eb0ca56622ad9e2eef339.s3tc.ctex[39m[0m
+[  63% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W5.jpg.import[39m[0m
+[  64% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W4.png-2a6632b56a86de0824ff7022d021e468.s3tc.ctex[39m[0m
+[  64% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W4.png.import[39m[0m
+[  64% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E5.png-f5ced63db48e89b8754c5504b492d044.s3tc.ctex[39m[0m
+[  64% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E5.png.import[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N2.png-8f5d5b9b4f60c6de4344ffe61a061048.s3tc.ctex[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/N2.png.import[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E6.jpg-c3d7bda6d9628e0dcac6e8a0de38bb73.s3tc.ctex[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E6.jpg.import[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E4.png-9b640e1f133fc4271f22205894f801a9.s3tc.ctex[39m[0m
+[  65% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E4.png.import[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-muse.webp-2dc1d679d29a875155a389c616a9588d.ctex[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://textures/oak-muse.webp.import[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://presentation/haze_screen.gdshader[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wall-plaster.png-537462dfcceb56d25a43374a04a7d9f1.s3tc.ctex[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://presentation/wall-plaster.png.import[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W3.png-4eca9a06ddf001b63fc519e5269e704e.s3tc.ctex[39m[0m
+[  66% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W3.png.import[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E3.png-5ce4528fb94210ca3bcd5465a0b54b5c.s3tc.ctex[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E3.png.import[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E9.jpg-fab4fb5caca648067cedda4cd62b82fa.s3tc.ctex[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E9.jpg.import[39m[0m
+[  67% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/ps1.gdshader[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/character_risd-163-shirt-baked.png-96ff607d57cb1746a71b258a552a6fb6.ctex[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-shirt-baked.png.import[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W2.jpg-3d2b1066e11aed9b7029fa640f011dae.s3tc.ctex[39m[0m
+[  68% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W2.jpg.import[39m[0m
+[  69% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W3.jpg-110d65ed16e824fdfd97faea2a987ac2.s3tc.ctex[39m[0m
+[  69% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W3.jpg.import[39m[0m
+[  69% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/walk4.gdc[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/neutral-plaster.png-e2ceb03b16e5088cb70998daef7a0ac6.s3tc.ctex[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://presentation/neutral-plaster.png.import[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N2.jpg-584a8a46e3c786b60f08dad04ee7fff0.s3tc.ctex[39m[0m
+[  70% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/N2.jpg.import[39m[0m
+[  71% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-b9102c3aee022ce6766fcbd2c7ed0711-remodel_room.scn[39m[0m
+[  71% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/door-arch.jpg-f2c8df6c363fbd5488632ec76fd44813.ctex[39m[0m
+[  71% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/door-arch.jpg.import[39m[0m
+[  71% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W4.jpg-80382ff55a2b3353c9de3318fbdd3cca.s3tc.ctex[39m[0m
+[  71% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W4.jpg.import[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/skylight.png-b5ce732c1fdc77630c6f0dc92629e2c8.ctex[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/skylight.png.import[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W1.jpg-839637172a083a2dd609d0007fb4a2ef.s3tc.ctex[39m[0m
+[  72% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W1.jpg.import[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W8.jpg-ea88f51e1e7aef6a1ba1d594eb6eeebe.s3tc.ctex[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W8.jpg.import[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S1.png-a91e1b801d922d0c182f62822520bda8.s3tc.ctex[39m[0m
+[  73% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/S1.png.import[39m[0m
+[  74% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/character.glb-e12061b755981e8fcd4acf8c146c4818.scn[39m[0m
+[  74% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb.import[39m[0m
+[  74% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/painting_asset.gdc[39m[0m
+[  74% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/page.png-a2b27ebebc833d099ff119879c4a0a1b.ctex[39m[0m
+[  74% ] [90m[1msavepack[22m | Storing File: res://presentation/page.png.import[39m[0m
+[  75% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak.png-b9b1b852d74c9124d4d6624912978c21.ctex[39m[0m
+[  75% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/oak.png.import[39m[0m
+[  75% ] [90m[1msavepack[22m | Storing File: res://connected_hall.gdc[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://presentation/gamecube.gdshader[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W7.png-6fe691eb3ee3872e5b4209562e89015d.s3tc.ctex[39m[0m
+[  76% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W7.png.import[39m[0m
+[  77% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-65fd2ec3b0b065f81a4f2bb58bc496c3-remodel_presenter.scn[39m[0m
+[  77% ] [90m[1msavepack[22m | Storing File: res://remodel_room.gdc[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W10.png-31575cc7771cb5266f4a6603b719b23c.s3tc.ctex[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W10.png.import[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://geometry.json[39m[0m
+[  78% ] [90m[1msavepack[22m | Storing File: res://remodel_bake.gdc[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/purple-plaster.png-1806a497c070f3f680b6a1450ea8d7da.s3tc.ctex[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://presentation/purple-plaster.png.import[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E8.jpg-d916aaaf70507fd95bc50b187737b824.s3tc.ctex[39m[0m
+[  79% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E8.jpg.import[39m[0m
+[  80% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W7.jpg-d8cbff156a568ea36aef974f3332089a.s3tc.ctex[39m[0m
+[  80% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W7.jpg.import[39m[0m
+[  80% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wall.png-fe2e03005f310e633ff0f5161787e653.ctex[39m[0m
+[  80% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/wall.png.import[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N1.png-ff2c267b785a769604f341e12eb29f38.s3tc.ctex[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/N1.png.import[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E7.jpg-e39febefd43278d6d093e1ed869f619b.s3tc.ctex[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E7.jpg.import[39m[0m
+[  81% ] [90m[1msavepack[22m | Storing File: res://doorway_walk.gdc[39m[0m
+[  82% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/oak-muse.webp-61be9fa16fdf8ab46025bc8d38bebbd8.ctex[39m[0m
+[  82% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/oak-muse.webp.import[39m[0m
+[  82% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/character_risd-163-hair36-source-tinted.png-e0aae40f6fc7a25a6fad0df504b4dbd5.ctex[39m[0m
+[  82% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-hair36-source-tinted.png.import[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W6.jpg-98f866b9e5c12611c48f2dc90b7d2db2.ctex[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/W6.jpg.import[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W9.png-723a1a61f7314844815dbffef1c73f3b.s3tc.ctex[39m[0m
+[  83% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W9.png.import[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://presentation/squiggle_screen.gdshader[39m[0m
+[  84% ] [90m[1msavepack[22m | Storing File: res://remodel_presenter.gdc[39m[0m
+[  85% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E2.png-351724124ff2c7a3628432f43bd66a80.s3tc.ctex[39m[0m
+[  85% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E2.png.import[39m[0m
+[  85% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W6-shaped.png-6f0bfe9b1cda35421452448ab55b5430.s3tc.ctex[39m[0m
+[  85% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W6-shaped.png.import[39m[0m
+[  85% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/gaps.json[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E6.png-41248d0f3fe6dfbe2a85711fd781f724.s3tc.ctex[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E6.png.import[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W2.png-a8001e5693bee4ca8765bb68bdd4eca2.s3tc.ctex[39m[0m
+[  86% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W2.png.import[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S1.jpg-5de8cff95e6e84a6ac334ed8e473dc9a.s3tc.ctex[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/S1.jpg.import[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/S2.jpg-42d359fa68135f9394c173b8253b3481.s3tc.ctex[39m[0m
+[  87% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/S2.jpg.import[39m[0m
+[  88% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/floor.png-6719ac5795b2903ae6c9f001b0592fd5.ctex[39m[0m
+[  88% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/floor.png.import[39m[0m
+[  88% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/donor_rogue_texture.png-d08c50a5daee1e78284593e8c69cfb10.ctex[39m[0m
+[  88% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/donor_rogue_texture.png.import[39m[0m
+[  88% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W5.png-8b446398982ed45cf9ec83b8b2d5fe05.s3tc.ctex[39m[0m
+[  88% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W5.png.import[39m[0m
+[  89% ] [90m[1msavepack[22m | Storing File: res://presentation/floor_oak.gdshader[39m[0m
+[  89% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gdc[39m[0m
+[  90% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E9.png-756f39c7b0b2953679b619a547aef8a8.s3tc.ctex[39m[0m
+[  90% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E9.png.import[39m[0m
+[  90% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/character_risd-163-mouth-baked.png-4a525a5a84fa3055a76bb6c84b7464e9.ctex[39m[0m
+[  90% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-mouth-baked.png.import[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E5.jpg-3e9d50436d4ca6b91b164a824108a77f.s3tc.ctex[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E5.jpg.import[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wall-muse.webp-9ab8856f456b1281683061f64c05a88a.s3tc.ctex[39m[0m
+[  91% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/textures/wall-muse.webp.import[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E1.png-33f7881a80e009a211f80eb7f9c22224.s3tc.ctex[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E1.png.import[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/works.json[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/character_risd-163-eye-baked.png-31f77100bf5ba4c72d2963f44f5ef05a.ctex[39m[0m
+[  92% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-eye-baked.png.import[39m[0m
+[  93% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/wall-muse.webp-a77cf024147d7b0459700fbe897e1928.ctex[39m[0m
+[  93% ] [90m[1msavepack[22m | Storing File: res://presentation/wall-muse.webp.import[39m[0m
+[  93% ] [90m[1msavepack[22m | Storing File: res://presentation/crt_luminance.gdshader[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/N1.jpg-d45addc852aff56d48f736da1699ea03.s3tc.ctex[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/N1.jpg.import[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E7.png-b16ed1f8384f6f0b8f7ec9d336ff33b7.s3tc.ctex[39m[0m
+[  94% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/E7.png.import[39m[0m
+[  95% ] [90m[1msavepack[22m | Storing File: res://remodel_review.gdc[39m[0m
+[  95% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/W8.png-4c5ec5fca3faa367d23a207c4b324d00.s3tc.ctex[39m[0m
+[  95% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/frames/W8.png.import[39m[0m
+[  95% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/room.exr-5510312a4ecf7ead78330478c6c0ad75.bptc.ctexarray[39m[0m
+[  95% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/baked/room.exr.import[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/baked/room.lmbake[39m[0m
+[  96% ] [90m[1msavepack[22m | Storing File: res://.godot/exported/133200997/export-c3e3c5173d5ab415c4f0d2133f7a793e-room.scn[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E1.jpg-b486284ea2d4890f7cb33a36037e9976.s3tc.ctex[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E1.jpg.import[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E2.jpg-4e60336ccfd9806b072eb503e4dd1d7c.s3tc.ctex[39m[0m
+[  97% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E2.jpg.import[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E3.jpg-f8a461190775844501075ec736bdf8c4.s3tc.ctex[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E3.jpg.import[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://.godot/imported/E4.jpg-04e766f9caa3d7bee21ca465f73f5c7b.s3tc.ctex[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/canvas/E4.jpg.import[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://bake/plugin.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/walk4.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://remodel_room.tscn.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/painting_asset.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://connected_hall.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://remodel_presenter.tscn.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://remodel_room.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://remodel_bake.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://doorway_walk.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://remodel_presenter.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://remodel_review.gd.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://modules/shell/prototype/gallery_walk4/baked/room.tscn.remap[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://.godot/global_script_class_cache.cfg[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://.godot/uid_cache.bin[39m[0m
+[  98% ] [90m[1msavepack[22m | Storing File: res://project.binary[39m[0m
+[92m[ DONE ][39m [1msavepack[22m
+[0m

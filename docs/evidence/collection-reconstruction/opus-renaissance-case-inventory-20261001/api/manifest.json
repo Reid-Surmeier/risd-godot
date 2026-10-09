@@ -1,0 +1,114 @@
+[
+ {
+  "file": "onview-riemenschneider.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Riemenschneider&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "9d7aec935f52ded3118e2b84a142e2e599bbf2ce38c9538a11d4a9dc72a3a10c",
+  "fetched_utc": "2026-10-01T15:17:51Z"
+ },
+ {
+  "file": "onview-pieta.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Piet%C3%A0&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 1,
+  "sha256": "9d7aec935f52ded3118e2b84a142e2e599bbf2ce38c9538a11d4a9dc72a3a10c",
+  "fetched_utc": "2026-10-01T15:17:53Z"
+ },
+ {
+  "file": "search-montenay.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Montenay&has_images=1&items_per_page=25",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T15:17:54Z"
+ },
+ {
+  "file": "onview-portrait-of-a-man.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Portrait+of+a+Man&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 4,
+  "sha256": "7ec460a738ad820e331c19206496c162c0322334abd2cccbff3ba4bea72cd7a6",
+  "fetched_utc": "2026-10-01T15:17:55Z"
+ },
+ {
+  "file": "onview-tapestry.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=tapestry&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 8,
+  "sha256": "d36db56acdfc721e43af3ebe963bc3825b5f3bf9aabc9f6160802f8a35c1d4fb",
+  "fetched_utc": "2026-10-01T15:17:57Z"
+ },
+ {
+  "file": "onview-book-cover.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Book+cover&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 2,
+  "sha256": "8c786476f4148c3e6f74d6a576d4ceaabaf6c9b6d5227d0fe526c412da947e61",
+  "fetched_utc": "2026-10-01T15:18:15Z"
+ },
+ {
+  "file": "search-emblematum.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Emblematum&has_images=1&items_per_page=25",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T15:18:16Z"
+ },
+ {
+  "file": "search-woeiriot.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Woeiriot&has_images=1&items_per_page=25",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T15:18:17Z"
+ },
+ {
+  "file": "onview-netherlandish.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Netherlandish&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 6,
+  "sha256": "5c9112c9b3ac4981a06c3ab5fce93c187fc71280171e26076f6bebf95297fb02",
+  "fetched_utc": "2026-10-01T15:18:19Z"
+ },
+ {
+  "file": "onview-flemish.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Flemish&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 10,
+  "sha256": "1b09a6f7a493400fa5bc7b82315c1bcf3cfc119a42e9baf34211ef232498f4de",
+  "fetched_utc": "2026-10-01T15:18:20Z"
+ },
+ {
+  "file": "onview-young-man.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Young+Man&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T15:18:22Z"
+ },
+ {
+  "file": "onview-velvet.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=velvet&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 4,
+  "sha256": "1a93118fdcb801eaf20589b5dc69aa3faa11bd7adf1de0f2e60ca3dabcffc6e2",
+  "fetched_utc": "2026-10-01T15:25:50Z"
+ },
+ {
+  "file": "onview-stag.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=stag&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 0,
+  "sha256": "4f53cda18c2baa0c0354bb5f9a3ecbe5ed12ab4d8e11ba873c2f11161202b945",
+  "fetched_utc": "2026-10-01T15:25:52Z"
+ },
+ {
+  "file": "onview-textile-length.json",
+  "url": "https://risdmuseum.org/api/v1/collection?search_api_fulltext=Textile+length&has_images=1&items_per_page=25&field_on_view=1",
+  "status": 200,
+  "rows": 8,
+  "sha256": "ab8dbf3d0be8e6547f7f6499b1b5993bd7698e60dc22210ed24e568904c9e910",
+  "fetched_utc": "2026-10-01T15:25:53Z"
+ }
+]

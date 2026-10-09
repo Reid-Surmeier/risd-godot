@@ -1,0 +1,15 @@
+1790655759192 error Failed to load resource: the server responded with a status of 404 (File not found)
+1790655762281 log Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+1790655767997 log OpenGL API OpenGL ES 3.0 (WebGL 2.0 (OpenGL ES 3.0 Chromium)) - Compatibility - Using Device: WebKit - WebKit WebGL
+1790655768268 log Build configuration: Emscripten 4.0.20, single-threaded, no GDExtension support.
+1790655923780 log REST bounds=0.18734590709209..17.0174369812012 soles=194
+1790655923841 log CLIP Idle length=1.06666672229767
+1790655923842 log CLIP Walking_A length=1.06666672229767
+1790655923843 log CLIP Interact length=1.29999995231628
+1790655945739 error WARNING: 2D MSAA is not yet supported for GLES3.
+1790655945739 error    at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+1790655958441 error WARNING: 2D MSAA is not yet supported for GLES3.
+1790655958442 error    at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+LOAD_PERF [{"name":"downloads-done","t":3768},{"name":"godot-ready","t":10159.300000011921},{"name":"pack-mounted","t":10172.399999976158},{"name":"game-loaded","t":10773.899999976158},{"name":"game-instanced","t":11116.399999976158},{"name":"warmup-start","t":11116.5},{"name":"engine-started","t":12640.300000011921},{"name":"launch-settled","t":182492.69999998808},{"name":"tab-0-start","t":182492.69999998808},{"name":"tab-0-selected","t":184917.89999997616},{"name":"tab-0-drawn","t":186909.09999996424},{"name":"tab-1-start","t":186909.19999998808},{"name":"tab-1-selected","t":188649.89999997616},{"name":"tab-1-drawn","t":193711.5},{"name":"tab-2-start","t":193711.59999996424},{"name":"tab-2-selected","t":195283.5},{"name":"tab-2-drawn","t":198155.30000001192},{"name":"tab-3-start","t":198155.30000001192},{"name":"tab-3-selected","t":198421.09999996424},{"name":"tab-3-drawn","t":199636.30000001192},{"name":"tab-5-start","t":199636.30000001192},{"name":"tab-5-selected","t":200330.69999998808},{"name":"tab-5-drawn","t":201525.19999998808},{"name":"tab-4-start","t":201525.39999997616},{"name":"tab-4-selected","t":201526.39999997616},{"name":"tab-4-drawn","t":203558.80000001192},{"name":"tabs-warm","t":203558.89999997616},{"name":"game-shown","t":211389.59999996424}]
+1790655975268 log ENTRY_COMPLETE (0.0, 0.0, -2.6)
+COLLECTION_BROWSER PASS five viewport shapes and real movement input; inspect captures

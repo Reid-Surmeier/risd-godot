@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-fbc2e2c06d400b9c1ae7",
+  "summary": "Reference photographs show RISD object 2017.74.7.1, the only authority for its design and proportions. Final reference is the existing Main Hall game style: clean low polygon planar forms, soft painted shading, restrained surface detail, warm palette. Generate one orthographic straight-on FRONT view of this exact armchair, alone, isolated on flat pure magenta #FF00FF, generous margin, full object and every leg / handle / lid intact. Keep the reference ornament, actual silhouette, upholstery floral pattern and wood color or painted porcelain motifs. Make the finish a clean low polygon museum game asset, no photographic noise. Do not invent ornament, letters, floor, walls, other objects, shadow outside the silhouette or perspective tilt. No contact sheet. This supplies UV texture for separately modeled three-dimensional geometry, not a whole-room picture.\n",
+  "procedureId": "muse-fbc2e2c06d400b9c1ae7",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/armchair-catalogue-0.png",
+      "sha256": "0354bdd4b58a9c636a284ad8070b0cd42cd87cca6848f6eedea7672c0e939077",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/armchair-catalogue-1.png",
+      "sha256": "77a4608a015e0ab8a5f6144f430d9670212bbd35c8b4fec8ba48edf208893fd9",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "armchair-recipe.json",
+      "sha256": "fbc2e2c06d400b9c1ae732675b2dd6585026b4fc0b1050528476370e6f93d100"
+    },
+    {
+      "applicationPath": "armchair-plan.json",
+      "sha256": "6294b3705186440a00ea01dd784a2297eb8f7f4ba94f773b151ceab807e07a8a"
+    },
+    {
+      "applicationPath": "armchair-prompt.txt",
+      "sha256": "0a84e20b1b904daae14055bf27598ab860c2a456353bab4a3464e36dda58a052"
+    }
+  ]
+}

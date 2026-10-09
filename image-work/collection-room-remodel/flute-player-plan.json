@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "flute-player-001",
+      "prompt": "flute-player-prompt.txt",
+      "promptSha256": "5920cb5a44c76bc4118fa986e8cce4269bb6596715cdf1b005871e7c078ccd67",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/flute-player-catalogue.png",
+          "sha256": "d288376ce0fb30f69c5356c90c8bb5beebd73893dc3f81912819ce0b3646da00"
+        }
+      ]
+    }
+  ]
+}

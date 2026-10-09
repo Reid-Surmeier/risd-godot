@@ -1,0 +1,39 @@
+{
+ "task": "task_ad82b2cbf489",
+ "dispatch": "ctx_cb11600fbded",
+ "written_utc": "2026-10-01",
+ "all_metric_placement_map_fidelity_flags": false,
+ "lighting_judged": false,
+ "reviewed": {
+  "main-build-extension-v49v/remodel_room.gd": "2cf266f83142d6b73c6cdbfe4c505c423fe05b5c2b22c759144b7f7a3e52644b",
+  "main-build-extension-v49w/remodel_room.gd": "1547d961d7001c1dbc941480b5b68c89100a1047525c9a7d69313fcc0fbbc151",
+  "renaissance_wall_assets.gd prepared": "7202f9efbab106055d23af264e76c1ceb29162733f0bddd745251c55e74800d5",
+  "geometry.json": "5d2230abd7d70c8c8fc97af8d44c241af42e6490c9c625141e1f70b0a0030da2",
+  "verified/IMG_6383.MOV": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+  "main-build-extension-v49x/remodel_room.gd": "206627cec17131f3988fc7bd55aa18b8781a9bbe2e4c62e586c5153966f610e1"
+ },
+ "files": {
+  "REPORT.md": "799ca3b8d6ad78698d4a811d3ea06e3dce713895f393f534240b18ac17b19579",
+  "build-wides-and-checks-v49v.jpg": "4b33530c98c6837dfa1c9a26bee3cbaa22239ba99bcc1d4d5fea2ef8ca8eb367",
+  "footage-beside-build-east-cases.jpg": "24ebf091ecfac987c2ac82acaab042fe123f04132dd78018210d094a16b4800f",
+  "footage-beside-build-walls.jpg": "d309a51575b65ec8c574318f0908d1eb010927ebe142527daa2b0fb24133ddc0",
+  "footage-v49v-v49w.jpg": "040d7d5f2a3e7f73e56c57ad83047a7f3b8436916ad680219e74815ed366b0d2",
+  "footage-v49w-v49x-window.jpg": "2edd680860f6652b018c28297a6c34cc77ce4bca3b4504d733198d1634fb4132",
+  "live-api-check.json": "1a3f14fac07a0c56871c39e757eef7155ad02391882dd38c68236dbffa70dbb6",
+  "measured-gaps-v49v.json": "c76150f391a38f54c594459830c1e21e479f9e273de30ce774a16405ae6cf0e0",
+  "measured-gaps-v49w.json": "376c4dd91f7bddfb1b5db628cbdf9380d15997922c055b3c9eed4ddfbbff6d90",
+  "native-install-v49v.json": "37c77a791767c72517f25886f28b4ee0c88f136f1e70a5985c3fa6fb9f11022c",
+  "native-install-v49w.json": "b2455ae89c8b01396209307fddb8dd042c344d893ade9a47bd19034aa48e3973",
+  "native-install-v49x.json": "4463f64ba2ec2583e3db83842bcdad8ddb2c2d8c7a50e5f37945df549466e593",
+  "raw-captures-jpeg.tar.gz": "caf3d020ae752a43afe0433973cd4d9b743d27486b6e0b436a07faefefcfca8b",
+  "raw-logs.tar.gz": "d5a588c55becc2c91463e49aaf1f27c415d4d20b0a41423aedda414f9cb680a1",
+  "review_install.gd": "7f4c2da6327cc2e16fd395f9984b4f9b7e1237dce729ebcd83c48646e94395fc",
+  "root-six-native-views-v49v.jpg": "bd9a29e5239653346db00867cbc3843f0885153f07198d004dd4daebee329713",
+  "sheet.py": "a146b502692634c3bc3c322063a7fba1cc272f5f7fb9cae57c84966d9fa40491",
+  "source-east-wall-order.jpg": "846adb33e662ee10f95426acb848814077ac8431bbc1c7fe418fdd8eabc1196d",
+  "source-height-readings.jpg": "45ec53f3cd1dbc749a55200cd6c80e49bf4c25fbaccbf2fae9b9486e1af339cf",
+  "source-height-readings.json": "d9ef3066dbe2e137059a59ce0f983ebdec6fc24174d0c97b8e5004604e27f85d",
+  "source-wides.jpg": "fbfedcfd5c2112a3109f6bb987391dd468dcfb83874d6637e2ff849df95aa3f7",
+  "static-install-v49v.json": "974efe25e838404ef3cf04e743c1d89b242ffeb3e505a68485a8e3ccd50c249a"
+ }
+}

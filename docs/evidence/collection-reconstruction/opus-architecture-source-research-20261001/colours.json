@@ -1,0 +1,852 @@
+{
+ "owner 6380 38.3s grey gallery": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review/docs/evidence/collection-reconstruction/opus-grey-register-fit-20261001/frames/A1-6380-038.300.png",
+  "source": "owner video, 2026",
+  "patches": {
+   "white": {
+    "box": [
+     760,
+     1512,
+     840,
+     1536
+    ],
+    "srgb": [
+     211,
+     205,
+     193
+    ],
+    "hex": "d3cdc1",
+    "red_over_blue": 1.09,
+    "luminance": 0.614,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     640,
+     1040,
+     820,
+     1140
+    ],
+    "srgb": [
+     151,
+     148,
+     138
+    ],
+    "hex": "97948a",
+    "red_over_blue": 1.09,
+    "luminance": 0.296,
+    "luminance_vs_white_trim": 0.48
+   },
+   "floor": {
+    "box": [
+     350,
+     1640,
+     850,
+     1800
+    ],
+    "srgb": [
+     168,
+     152,
+     102
+    ],
+    "hex": "a89866",
+    "red_over_blue": 1.65,
+    "luminance": 0.317,
+    "luminance_vs_white_trim": 0.52
+   },
+   "black": {
+    "box": [
+     340,
+     1200,
+     460,
+     1380
+    ],
+    "srgb": [
+     25,
+     19,
+     5
+    ],
+    "hex": "191305",
+    "red_over_blue": 5.0,
+    "luminance": 0.007,
+    "luminance_vs_white_trim": 0.01
+   },
+   "casing_in_shade": {
+    "box": [
+     285,
+     1170,
+     298,
+     1290
+    ],
+    "srgb": [
+     205,
+     198,
+     169
+    ],
+    "hex": "cdc6a9",
+    "red_over_blue": 1.21,
+    "luminance": 0.562,
+    "luminance_vs_white_trim": 0.92
+   }
+  }
+ },
+ "owner 6380 101.6s corner": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review/docs/evidence/collection-reconstruction/opus-grey-register-fit-20261001/frames/D1-6380-101.601.png",
+  "source": "owner video, 2026",
+  "patches": {
+   "white": {
+    "box": [
+     488,
+     700,
+     520,
+     1100
+    ],
+    "srgb": [
+     226,
+     218,
+     200
+    ],
+    "hex": "e2dac8",
+    "red_over_blue": 1.13,
+    "luminance": 0.705,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     410,
+     700,
+     460,
+     1100
+    ],
+    "srgb": [
+     190,
+     182,
+     168
+    ],
+    "hex": "beb6a8",
+    "red_over_blue": 1.13,
+    "luminance": 0.472,
+    "luminance_vs_white_trim": 0.67
+   },
+   "floor": {
+    "box": [
+     650,
+     1350,
+     1000,
+     1700
+    ],
+    "srgb": [
+     198,
+     181,
+     122
+    ],
+    "hex": "c6b57a",
+    "red_over_blue": 1.62,
+    "luminance": 0.465,
+    "luminance_vs_white_trim": 0.66
+   },
+   "black": {
+    "box": [
+     640,
+     600,
+     700,
+     900
+    ],
+    "srgb": [
+     22,
+     12,
+     4
+    ],
+    "hex": "160c04",
+    "red_over_blue": 5.5,
+    "luminance": 0.004,
+    "luminance_vs_white_trim": 0.01
+   }
+  }
+ },
+ "owner 6380 240.3s connector": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review/docs/evidence/collection-reconstruction/opus-grey-register-fit-20261001/frames/F1-6380-240.268.png",
+  "source": "owner video, 2026",
+  "patches": {
+   "white": {
+    "box": [
+     770,
+     700,
+     810,
+     1200
+    ],
+    "srgb": [
+     211,
+     205,
+     192
+    ],
+    "hex": "d3cdc0",
+    "red_over_blue": 1.1,
+    "luminance": 0.613,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     900,
+     700,
+     1040,
+     1000
+    ],
+    "srgb": [
+     143,
+     133,
+     119
+    ],
+    "hex": "8f8577",
+    "red_over_blue": 1.2,
+    "luminance": 0.239,
+    "luminance_vs_white_trim": 0.39
+   },
+   "floor": {
+    "box": [
+     150,
+     1350,
+     600,
+     1700
+    ],
+    "srgb": [
+     209,
+     196,
+     157
+    ],
+    "hex": "d1c49d",
+    "red_over_blue": 1.33,
+    "luminance": 0.555,
+    "luminance_vs_white_trim": 0.91
+   },
+   "black": {
+    "box": [
+     560,
+     650,
+     690,
+     900
+    ],
+    "srgb": [
+     48,
+     51,
+     47
+    ],
+    "hex": "30332f",
+    "red_over_blue": 1.02,
+    "luminance": 0.032,
+    "luminance_vs_white_trim": 0.05
+   },
+   "purple": {
+    "box": [
+     15,
+     700,
+     60,
+     1000
+    ],
+    "srgb": [
+     95,
+     76,
+     81
+    ],
+    "hex": "5f4c51",
+    "red_over_blue": 1.17,
+    "luminance": 0.082,
+    "luminance_vs_white_trim": 0.13
+   }
+  }
+ },
+ "owner 6380 120.0s connector": {
+  "file": "SCRATCH/col/c-120.0.png",
+  "source": "owner video, 2026",
+  "patches": {
+   "white": {
+    "box": [
+     680,
+     750,
+     1000,
+     1250
+    ],
+    "srgb": [
+     187,
+     176,
+     158
+    ],
+    "hex": "bbb09e",
+    "red_over_blue": 1.18,
+    "luminance": 0.441,
+    "luminance_vs_white_trim": 1.0
+   },
+   "purple": {
+    "box": [
+     270,
+     400,
+     520,
+     950
+    ],
+    "srgb": [
+     82,
+     54,
+     81
+    ],
+    "hex": "523651",
+    "red_over_blue": 1.01,
+    "luminance": 0.05,
+    "luminance_vs_white_trim": 0.11
+   },
+   "floor": {
+    "box": [
+     100,
+     1250,
+     500,
+     1550
+    ],
+    "srgb": [
+     225,
+     210,
+     166
+    ],
+    "hex": "e1d2a6",
+    "red_over_blue": 1.36,
+    "luminance": 0.649,
+    "luminance_vs_white_trim": 1.47
+   }
+  }
+ },
+ "owner 6380 103.0s connector": {
+  "file": "SCRATCH/col/c-103.0.png",
+  "source": "owner video, 2026",
+  "patches": {
+   "white": {
+    "box": [
+     880,
+     700,
+     930,
+     1300
+    ],
+    "srgb": [
+     192,
+     189,
+     188
+    ],
+    "hex": "c0bdbc",
+    "red_over_blue": 1.02,
+    "luminance": 0.512,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     960,
+     650,
+     1060,
+     1400
+    ],
+    "srgb": [
+     186,
+     186,
+     189
+    ],
+    "hex": "bababd",
+    "red_over_blue": 0.98,
+    "luminance": 0.492,
+    "luminance_vs_white_trim": 0.96
+   },
+   "black": {
+    "box": [
+     20,
+     500,
+     120,
+     900
+    ],
+    "srgb": [
+     17,
+     13,
+     10
+    ],
+    "hex": "110d0a",
+    "red_over_blue": 1.7,
+    "luminance": 0.004,
+    "luminance_vs_white_trim": 0.01
+   },
+   "floor": {
+    "box": [
+     300,
+     1100,
+     700,
+     1500
+    ],
+    "srgb": [
+     216,
+     204,
+     162
+    ],
+    "hex": "d8cca2",
+    "red_over_blue": 1.33,
+    "luminance": 0.604,
+    "luminance_vs_white_trim": 1.18
+   }
+  }
+ },
+ "official Grand Gallery photo": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/public-source-snapshots-20261001/grand-gallery-event.jpg",
+  "source": "risdmuseum.org rent-museum, file dated 2017-10-05",
+  "patches": {
+   "white": {
+    "box": [
+     773,
+     285,
+     781,
+     370
+    ],
+    "srgb": [
+     223,
+     221,
+     211
+    ],
+    "hex": "dfddd3",
+    "red_over_blue": 1.06,
+    "luminance": 0.721,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     700,
+     220,
+     760,
+     290
+    ],
+    "srgb": [
+     74,
+     82,
+     110
+    ],
+    "hex": "4a526e",
+    "red_over_blue": 0.67,
+    "luminance": 0.086,
+    "luminance_vs_white_trim": 0.12
+   },
+   "floor": {
+    "box": [
+     950,
+     480,
+     1020,
+     600
+    ],
+    "srgb": [
+     172,
+     141,
+     100
+    ],
+    "hex": "ac8d64",
+    "red_over_blue": 1.72,
+    "luminance": 0.287,
+    "luminance_vs_white_trim": 0.4
+   },
+   "cornice": {
+    "box": [
+     250,
+     62,
+     600,
+     80
+    ],
+    "srgb": [
+     215,
+     220,
+     218
+    ],
+    "hex": "d7dcda",
+    "red_over_blue": 0.99,
+    "luminance": 0.707,
+    "luminance_vs_white_trim": 0.98
+   }
+  }
+ },
+ "official European Galleries installation view": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-main-build-review/docs/evidence/collection-reconstruction/opus-architecture-source-research-20261001/snapshots/european-galleries-installation-view.jpg",
+  "source": "risdmuseum.org european-galleries, on view from 2017-09-02",
+  "patches": {
+   "white": {
+    "box": [
+     1080,
+     700,
+     1140,
+     712
+    ],
+    "srgb": [
+     178,
+     155,
+     133
+    ],
+    "hex": "b29b85",
+    "red_over_blue": 1.34,
+    "luminance": 0.346,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     400,
+     100,
+     800,
+     220
+    ],
+    "srgb": [
+     130,
+     112,
+     94
+    ],
+    "hex": "82705e",
+    "red_over_blue": 1.38,
+    "luminance": 0.171,
+    "luminance_vs_white_trim": 0.49
+   },
+   "floor": {
+    "box": [
+     1000,
+     820,
+     1300,
+     950
+    ],
+    "srgb": [
+     159,
+     122,
+     73
+    ],
+    "hex": "9f7a49",
+    "red_over_blue": 2.18,
+    "luminance": 0.218,
+    "luminance_vs_white_trim": 0.63
+   },
+   "platform": {
+    "box": [
+     400,
+     860,
+     900,
+     900
+    ],
+    "srgb": [
+     177,
+     165,
+     154
+    ],
+    "hex": "b1a59a",
+    "red_over_blue": 1.15,
+    "luminance": 0.386,
+    "luminance_vs_white_trim": 1.12
+   }
+  }
+ },
+ "render grey gallery (patched, unbaked)": {
+  "file": "SCRATCH/final2/new-plain-render/evidence/grey-west-wall-source.png",
+  "source": "this prototype",
+  "patches": {
+   "white": {
+    "box": [
+     436,
+     200,
+     452,
+     500
+    ],
+    "srgb": [
+     207,
+     184,
+     136
+    ],
+    "hex": "cfb888",
+    "red_over_blue": 1.52,
+    "luminance": 0.493,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     560,
+     250,
+     660,
+     500
+    ],
+    "srgb": [
+     123,
+     114,
+     98
+    ],
+    "hex": "7b7262",
+    "red_over_blue": 1.26,
+    "luminance": 0.171,
+    "luminance_vs_white_trim": 0.35
+   },
+   "floor": {
+    "box": [
+     300,
+     700,
+     900,
+     750
+    ],
+    "srgb": [
+     247,
+     197,
+     136
+    ],
+    "hex": "f7c588",
+    "red_over_blue": 1.82,
+    "luminance": 0.615,
+    "luminance_vs_white_trim": 1.25
+   },
+   "black": {
+    "box": [
+     230,
+     280,
+     300,
+     520
+    ],
+    "srgb": [
+     27,
+     23,
+     23
+    ],
+    "hex": "1b1717",
+    "red_over_blue": 1.17,
+    "luminance": 0.009,
+    "luminance_vs_white_trim": 0.02
+   },
+   "leaf": {
+    "box": [
+     40,
+     300,
+     150,
+     330
+    ],
+    "srgb": [
+     200,
+     176,
+     139
+    ],
+    "hex": "c8b08b",
+    "red_over_blue": 1.44,
+    "luminance": 0.452,
+    "luminance_vs_white_trim": 0.92
+   }
+  }
+ },
+ "render connector (patched, unbaked)": {
+  "file": "SCRATCH/final2/new-plain-render/evidence/rockefeller-connector-source.png",
+  "source": "this prototype",
+  "patches": {
+   "white": {
+    "box": [
+     86,
+     200,
+     110,
+     600
+    ],
+    "srgb": [
+     182,
+     162,
+     122
+    ],
+    "hex": "b6a27a",
+    "red_over_blue": 1.49,
+    "luminance": 0.372,
+    "luminance_vs_white_trim": 1.0
+   },
+   "purple": {
+    "box": [
+     540,
+     30,
+     620,
+     60
+    ],
+    "srgb": [
+     113,
+     83,
+     111
+    ],
+    "hex": "71536f",
+    "red_over_blue": 1.02,
+    "luminance": 0.108,
+    "luminance_vs_white_trim": 0.29
+   },
+   "black": {
+    "box": [
+     760,
+     200,
+     850,
+     600
+    ],
+    "srgb": [
+     27,
+     23,
+     23
+    ],
+    "hex": "1b1717",
+    "red_over_blue": 1.17,
+    "luminance": 0.009,
+    "luminance_vs_white_trim": 0.02
+   },
+   "floor": {
+    "box": [
+     400,
+     700,
+     700,
+     750
+    ],
+    "srgb": [
+     251,
+     201,
+     139
+    ],
+    "hex": "fbc98b",
+    "red_over_blue": 1.81,
+    "luminance": 0.641,
+    "luminance_vs_white_trim": 1.72
+   }
+  }
+ },
+ "render Main Hall far door (retained bake)": {
+  "file": "SCRATCH/final2/new-out-render/evidence/hall-wide-far.png",
+  "source": "actual Main Hall, saved bake",
+  "patches": {
+   "white": {
+    "box": [
+     396,
+     300,
+     410,
+     550
+    ],
+    "srgb": [
+     240,
+     214,
+     182
+    ],
+    "hex": "f0d6b6",
+    "red_over_blue": 1.32,
+    "luminance": 0.7,
+    "luminance_vs_white_trim": 1.0
+   },
+   "wall": {
+    "box": [
+     200,
+     60,
+     350,
+     180
+    ],
+    "srgb": [
+     68,
+     81,
+     90
+    ],
+    "hex": "44515a",
+    "red_over_blue": 0.76,
+    "luminance": 0.079,
+    "luminance_vs_white_trim": 0.11
+   },
+   "floor": {
+    "box": [
+     300,
+     650,
+     800,
+     740
+    ],
+    "srgb": [
+     255,
+     201,
+     137
+    ],
+    "hex": "ffc989",
+    "red_over_blue": 1.86,
+    "luminance": 0.648,
+    "luminance_vs_white_trim": 0.93
+   },
+   "baseboard": {
+    "box": [
+     100,
+     580,
+     350,
+     596
+    ],
+    "srgb": [
+     236,
+     202,
+     162
+    ],
+    "hex": "eccaa2",
+    "red_over_blue": 1.46,
+    "luminance": 0.627,
+    "luminance_vs_white_trim": 0.9
+   }
+  }
+ },
+ "Nintendo 420s art gallery": {
+  "file": "SCRATCH/research/ytf-084.jpg",
+  "source": "Play Nintendo video ut0TNSximc4",
+  "patches": {
+   "wall": {
+    "box": [
+     20,
+     30,
+     55,
+     100
+    ],
+    "srgb": [
+     38,
+     50,
+     39
+    ],
+    "hex": "263227",
+    "red_over_blue": 0.97,
+    "luminance": 0.028
+   },
+   "floor": {
+    "box": [
+     125,
+     150,
+     225,
+     176
+    ],
+    "srgb": [
+     55,
+     37,
+     23
+    ],
+    "hex": "372517",
+    "red_over_blue": 2.39,
+    "luminance": 0.022
+   }
+  }
+ },
+ "Nintendo 395s art gallery": {
+  "file": "SCRATCH/research/ytf-079.jpg",
+  "source": "Play Nintendo video ut0TNSximc4",
+  "patches": {
+   "wall": {
+    "box": [
+     20,
+     20,
+     110,
+     100
+    ],
+    "srgb": [
+     75,
+     6,
+     15
+    ],
+    "hex": "4b060f",
+    "red_over_blue": 5.0,
+    "luminance": 0.017
+   },
+   "frame": {
+    "box": [
+     132,
+     46,
+     138,
+     104
+    ],
+    "srgb": [
+     134,
+     101,
+     50
+    ],
+    "hex": "866532",
+    "red_over_blue": 2.68,
+    "luminance": 0.146
+   }
+  }
+ }
+}

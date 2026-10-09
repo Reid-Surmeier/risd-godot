@@ -1,0 +1,37 @@
+{
+ "task": "task_a76c334f7ddf",
+ "dispatch": "ctx_fa9b20c01976",
+ "written_utc": "2026-10-01",
+ "all_metric_placement_map_fidelity_flags": false,
+ "lighting_judged": false,
+ "reviewed": {
+  "frozen-movement-sha256-v50u.json": "20e4685b10377e570a83bb9d06965d304a28d6832f843a2b1ab7769bdceece6b",
+  "frozen-movement-source-v50u.tar.gz": "9228c8809d75c1dc3a7901a0bb066f8e86cadf0537e25db0e9484783b203900b",
+  "main_build_walk.gd v50u": "ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86",
+  "main_build_walk.gd v50r": "e617858e65e2d4e8bf7dd2609c03a1e16961b5df0159afdddd1f90137519bbbe"
+ },
+ "files": {
+  "REPORT.md": "d450fc9a169a9457f6d3a7ab6076f3e13bd23d2419758165c56016a9380c860e",
+  "click-paths-v50r-beside-v50u.png": "fd31d6943236dad4235333c7f10af189d8f6e13f071cd7cd29f8e78bbb76580e",
+  "door-frame-cutaway-v50r-vs-v50u.json": "2b825e79b204d542fad5b7724758f14822d3bd8ea6e6a846c75625f2e4c6be98",
+  "door-frames-head-on-v50u.jpg": "156dba464fdbebd5986e491e4de34b94e5360e33da195aa5ffb2d40dfd9ce0f0",
+  "door-frames-side-on-v50r-beside-v50u.jpg": "fe5598b516001d62445c1b10b2f2bbbaa65443236c454c3df55675f2b6e50b0d",
+  "frozen3-v50u.json": "cbc84205f4c7eca78596bc1b7f0a5794ae1b058a48c89941d2fd6c901771bf59",
+  "full-app-static-v50r-vs-v50u.json": "c2846662aee17a2201c91df9381a74798c0bbacc995b5597e62d00dca9f8f557",
+  "native-clicks-2-v50r.json": "4d8acd9a31cc91f9ee2143e28eba163e919b852be4790a0d9c97ac3352f3fb20",
+  "native-clicks-2-v50u.json": "08d63d9f8cca0d39e43df47f07a146374f2daada8b28d94f9d6673e8afab380e",
+  "native-passage-v50u.json": "0e5bc20b46dbf768645880a3265d897fdbc94f39a57a583794c627193048ecf7",
+  "native-target-jamb-v50r.json": "aee298b6ca0846604fd90dfbe7dc0b9707401d7002dcbe288d2a493c7d329500",
+  "native-target-jamb-v50u.json": "34df2a365e9dd1ef662c76a12053cdbb651e1e52c56c52522ca8520dcad56f71",
+  "plot_clicks.py": "d79347cff2df6e1fe56031712c0b6a70583b7e10727f54ec69f8cc420b4efa02",
+  "plot_paths.py": "1b8e6b367ed935d119539a82b1f697b55235bf001f36658b90900876195e357e",
+  "raw-captures-jpeg.tar.gz": "c7984d11bd26fbc3ab74b362fd01bbf9d696e3c2258a092414480ebf6fa3fe79",
+  "raw-logs.tar.gz": "d6800dd7fcd0efd33db138f7b75e142b4671e0b915e62e1c0961bc5d5d68b16f",
+  "review_clicks2.gd": "4c01faba4c3c7a2c6c9d1161bb00c4491b1edae64422617fb65f73c9e663af81",
+  "review_passage.gd": "4a061f85b5a0dd0eac52856adaae9753e3dafaeb0c47e6e8f8dda8d3d4988ad4",
+  "review_target_jamb.gd": "c9b46ac7e7f1d1507e07e977af817d2d127c9ccb16adfef0ac6428b16ca5ef5d",
+  "sheet.py": "a146b502692634c3bc3c322063a7fba1cc272f5f7fb9cae57c84966d9fa40491",
+  "walk-paths-v50r-beside-v50u.png": "d8a273eda6ac73c22d907fe036df0e9caf5e8aa35f38cfcc65ec924ee69f89b2",
+  "wall-crossing-check-v50u.json": "36b6e684c7ce3f2c6ef1972a246bf2bfe0eaf853af0d3f97de51586eb97993d7"
+ }
+}

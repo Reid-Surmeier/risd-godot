@@ -1,0 +1,53 @@
+{
+  "source_sparse_sha256": {
+    "points3D.bin": "1f7206ea1873df1d126e4bad5b3306112384dd253737f84f52bb6c6b0da15a16",
+    "frames.bin": "a81ae341d30588dccfa50607e62dbcec1dda0cb37c7e9222759859ad8f015f3a",
+    "images.bin": "dbe038f78f7b6d3f100a913ba6e067b5576d00cb4c2f2df85b0ae022f7b4dbba",
+    "rigs.bin": "39eec21ded9800b8551c793bbf7a429040d103f926e5415e9ba757d2b56abc7a",
+    "cameras.bin": "d502f26a76dc4da54c5a1cfdfa11ea053f6a896b8d79d89713f4c9d472f18d92"
+  },
+  "raw_log_sha256": {
+    "head-render.log": "58bc960b48beed6e68799017c4867d03e3c1937a67d24d8ce4bb5498f9a10094",
+    "mapping.log": "bc313e2f5c230511db8700d117fd3062eaf74e26d2fe1732a18ef6361446bdfb",
+    "repo-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "native-walk.log": "706db9466805e196271d27f1c5db23b7b826f91001f43cf30882138cede27c58"
+  },
+  "log_normalization": "Trailing whitespace removed from archived output.",
+  "new_cost_usd": 0,
+  "map_generation_recorded_usd": 0.02,
+  "rejection": "No physical floor acceptance: lower-query candidates 1/0/2, all tested transfers above 8px. Upper query pixels excluded wholesale, preventing feature reuse through conflicting odd/even tentative matches.",
+  "files_sha256": {
+    "bookcase-reserved-000409.png": "376ac99c1e900a18c6fa70000d5b098d726ce7ef29bb0b7263d025716518cd73",
+    "pending-preserved.json": "aca47d132aab72cb0db6739fccb8b4fc21be6b659481fb1c73a16be691613a5d",
+    "head-render.log": "58bc960b48beed6e68799017c4867d03e3c1937a67d24d8ce4bb5498f9a10094",
+    "floor-result.json": "6fdcd621bc290d9f5a836a869acfa6cb161d9bc090776607ee14e491de6c0a65",
+    "native-walk-result.json": "9c695f8c783b8d77a771fdf5cb6eee80986f5b06ca6f6fa35276c8f3605346e2",
+    "browser-browser-forward.png": "3ef8bfc39cc723fa6029dae77df522a6fd4c5176f364bc377ce3d3939345e4e8",
+    "head-checks.json": "1590807c2d499e79f09cc89343daad812e7c03299dcb815f28edca97187c9cf6",
+    "head-front.png": "023b81ea3771c18c687d48599b139ecb126866891dce45f929218a5d075f1bc4",
+    "room-plan.png": "ee2663eaedea78068badf09c0405d4542e3076f3b3c72057e7402bce5216a780",
+    "mapping.log": "bc313e2f5c230511db8700d117fd3062eaf74e26d2fe1732a18ef6361446bdfb",
+    "preview-check.json": "042e6b5a6902ec47c2e65ab8ff0c9b6016a6bf2a9263cd99d7ae83798e76decd",
+    "bookcase-annotations.json": "84b3d77e6e2c39e2e48a3c73757e9f46363d93aedfb0da79cf5e4eb1a26e850a",
+    "head-walking.png": "38da0c8bf2fc65d6f3af7b41234e82e69d848f848d94d782da499b7a06e4ad53",
+    "capture-selection.json": "8c24e1ab5a889ede23f916d42c4f3f655b2cc83b3c29668ef619a496f0c94585",
+    "native-phase-4.png": "cce369fa369ee123c9cb7c7fb541d6201b83780275459acbc63acd80e12cbbb7",
+    "floor-000206.png": "50bd1f020ddd5b389154ad3132ad1a3494e205cf8c20e135e5c8d62835ce2f87",
+    "head-profile.png": "041183401ba590bae2f16990728761d09fdf3613b637b904b350c652b2085cb0",
+    "bookcase-result.json": "69424fe97188ed8fd979c0c21c872b69f1af9a500a502907a539a8bd5539f449",
+    "capture-capture-validation.json": "7a0e8d6028593487a02a8703308895ce015f94f976a4844496ec8d059962c145",
+    "caption-walk.png": "498116d4c9e6d96a9093e1556e73256103fb3e1699373d1cd69b9c907ca70244",
+    "head-rear.png": "e8bb84733a826818d03f6cffa9b7d8b959f7db4cdaf71900c9e60bdfc791dcf6",
+    "floor-000209.png": "08fd3824c6c5ecac27156e2a373f7bc12cfc6b17f60b215da46f203441c78c50",
+    "verified-geometry-equivalence.json": "3e7b6929f4594be16c07e2c680ead30503e3d3d6bf4bb305142641039e79e548",
+    "repo-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "native-walk.log": "706db9466805e196271d27f1c5db23b7b826f91001f43cf30882138cede27c58",
+    "preview-preview.png": "e6f2a2215b973e2ac23b551532bc3bf4cf7223afeee9c81eebf4ed82592ee12e",
+    "caption-check.json": "412e180585bd43888cb218b5172ce55f2b4f94fce321caf7fdfd2d6371b0bdf0",
+    "browser-browser-result.json": "87bc00948dfd2f5f0890f20f7d40197f15e3ad44714fc278816df6b6e83b0871",
+    "capture-result.json": "6ca112491a938b834064530b4086c688342a51a004e3c878d4def93b61063233",
+    "browser-browser-reverse.png": "0812cd3b74824f51c499783c8740cddf5c27a79c5af96322109d8ffcff566c04",
+    "room-geometry.json": "3f7d13e83a84b236c7afadb32ea475be9eac65fda90eda637c10d0bf06930184",
+    "head-oblique.png": "d489ad3803cb7730c57a97eb9b86eac4fdf0b4a208a65d3013fc67248bb0f611"
+  }
+}

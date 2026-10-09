@@ -8,7 +8,7 @@ class_name SoundCuesInterface
 extends RefCounted
 
 const Errors := preload("res://modules/sound_cues/errors.gd")
-const _Impl := preload("res://modules/sound_cues/sound_cues.gd")
+const _IMPL := preload("res://modules/sound_cues/sound_cues.gd")
 
 const BUTTON := "button"
 const REFILL := "refill"
@@ -20,7 +20,7 @@ const SPLASH := "splash"
 
 ## Build the single sound manager. Returns err(ASSET_MISSING) when a canonical stream is absent.
 static func create() -> Dictionary:
-	return _Impl.create()
+	return _IMPL.create()
 
 
 ## Attach the manager to `root`, including controls and cue requesters added later.

@@ -1,0 +1,2908 @@
+[
+	{
+		"at": [
+			15.303,
+			3.39,
+			4.389
+		],
+		"color": "ffb870",
+		"cone": 20.022,
+		"energy": 7.783,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			16.543,
+			1.619,
+			4.389
+		],
+		"works": [
+			"41.012"
+		]
+	},
+	{
+		"at": [
+			15.318,
+			3.39,
+			8.24
+		],
+		"color": "ffb870",
+		"cone": 23.639,
+		"energy": 7.69,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			16.543,
+			1.64,
+			8.24
+		],
+		"works": [
+			"23.072"
+		]
+	},
+	{
+		"at": [
+			12.8,
+			3.39,
+			11.283
+		],
+		"color": "ffb870",
+		"cone": 32.782,
+		"energy": 7.91,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			12.8,
+			1.59,
+			12.543
+		],
+		"works": [
+			"59.027"
+		]
+	},
+	{
+		"at": [
+			14.89,
+			3.39,
+			4.415
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.646,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			14.89,
+			1.65,
+			3.197
+		],
+		"works": [
+			"2007.68",
+			"42.190"
+		]
+	},
+	{
+		"at": [
+			11.923,
+			3.39,
+			11.096
+		],
+		"color": "ffb870",
+		"cone": 24.266,
+		"energy": 7.633,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			10.707,
+			1.653,
+			11.096
+		],
+		"works": [
+			"1998.107"
+		]
+	},
+	{
+		"at": [
+			11.925,
+			3.39,
+			8.44
+		],
+		"color": "ffb870",
+		"cone": 25.102,
+		"energy": 7.646,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			10.707,
+			1.65,
+			8.44
+		],
+		"works": [
+			"57.236"
+		]
+	},
+	{
+		"at": [
+			11.923,
+			3.39,
+			5.496
+		],
+		"color": "ffb870",
+		"cone": 25.429,
+		"energy": 7.632,
+		"kind": "spot",
+		"room": "Impressionist gallery A",
+		"target": [
+			10.707,
+			1.653,
+			5.496
+		],
+		"works": [
+			"42.219"
+		]
+	},
+	{
+		"at": [
+			15.458,
+			3.2,
+			19.5
+		],
+		"color": "ffb870",
+		"cone": 26.176,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			16.543,
+			1.65,
+			19.5
+		],
+		"works": [
+			"60.095"
+		]
+	},
+	{
+		"at": [
+			13.337,
+			3.2,
+			21.058
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			13.337,
+			1.65,
+			22.143
+		],
+		"works": [
+			"35.770",
+			"2010.57"
+		]
+	},
+	{
+		"at": [
+			11.5,
+			3.2,
+			21.051
+		],
+		"color": "ffb870",
+		"cone": 21.106,
+		"energy": 6.855,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			11.5,
+			1.64,
+			22.143
+		],
+		"works": [
+			"2021.101"
+		]
+	},
+	{
+		"at": [
+			12.25,
+			3.2,
+			13.949
+		],
+		"color": "ffb870",
+		"cone": 25.909,
+		"energy": 6.855,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			12.25,
+			1.64,
+			12.857
+		],
+		"works": [
+			"1999.3"
+		]
+	},
+	{
+		"at": [
+			13.9,
+			3.2,
+			13.949
+		],
+		"color": "ffb870",
+		"cone": 26.994,
+		"energy": 6.855,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			13.9,
+			1.64,
+			12.857
+		],
+		"works": [
+			"72.096"
+		]
+	},
+	{
+		"at": [
+			11.79,
+			3.2,
+			19.704
+		],
+		"color": "ffb870",
+		"cone": 29.474,
+		"energy": 6.801,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			10.707,
+			1.652,
+			19.704
+		],
+		"works": [
+			"44.541"
+		]
+	},
+	{
+		"at": [
+			11.792,
+			3.2,
+			15.4
+		],
+		"color": "ffb870",
+		"cone": 27.502,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "Impressionist gallery B",
+		"target": [
+			10.707,
+			1.65,
+			15.4
+		],
+		"works": [
+			"33.053"
+		]
+	},
+	{
+		"at": [
+			-0.83,
+			3.2,
+			-3.639
+		],
+		"color": "ffb870",
+		"cone": 32.998,
+		"energy": 9.152,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			0.628,
+			1.117,
+			-3.639
+		],
+		"works": [
+			"@Node3D@3477",
+			"34.912",
+			"gold-basket-a",
+			"gold-square-a",
+			"gold-plate-a",
+			"gold-saucer-a",
+			"gold-cup-a"
+		]
+	},
+	{
+		"at": [
+			-2.765,
+			3.2,
+			-2.41
+		],
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 8.573,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-1.399,
+			1.249,
+			-2.41
+		],
+		"works": [
+			"2017.74.31.2"
+		]
+	},
+	{
+		"at": [
+			-0.717,
+			3.2,
+			-2.126
+		],
+		"color": "ffb870",
+		"cone": 21.172,
+		"energy": 8.445,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			0.629,
+			1.278,
+			-2.126
+		],
+		"works": [
+			"gold-tureen",
+			"gold-ecuelle-clean",
+			"gold-cup-b",
+			"gold-saucer-b",
+			"gold-plate-b",
+			"gold-square-b",
+			"gold-basket-b"
+		]
+	},
+	{
+		"at": [
+			-0.256,
+			3.2,
+			-0.421
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 5.15,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-0.256,
+			2.028,
+			0.399
+		],
+		"works": [
+			"pink-small-tureen",
+			"pink-ladle",
+			"pink-bowl-b",
+			"pink-dish",
+			"pink-compote",
+			"pink-bowl-a",
+			"tureen",
+			"2017.74.6.3"
+		]
+	},
+	{
+		"at": [
+			-3.98,
+			3.2,
+			-0.111
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 5.26,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-3.98,
+			2.003,
+			0.727
+		],
+		"works": [
+			"2016.80.91",
+			"2016.80.89",
+			"2017.74.6.4"
+		]
+	},
+	{
+		"at": [
+			-2.864,
+			3.2,
+			-3.732
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.487,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-2.864,
+			1.724,
+			-4.765
+		],
+		"works": [
+			"@Node3D@3488",
+			"@Node3D@3494",
+			"@Node3D@3365",
+			"bear-jug",
+			"cream-jug",
+			"2017.74.23",
+			"2017.74.14"
+		]
+	},
+	{
+		"at": [
+			-1.337,
+			3.2,
+			-4.429
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 5.645,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-1.337,
+			1.915,
+			-5.328
+		],
+		"works": [
+			"2017.74.27.1",
+			"2017.74.28.1",
+			"2017.74.19",
+			"finch",
+			"ewe-lamb",
+			"2017.74.16",
+			"2017.74.29",
+			"2017.74.20",
+			"58.197",
+			"finch-pair",
+			"2017.74.21",
+			"2017.74.27.2",
+			"2017.74.28.2",
+			"2017.74.17",
+			"2017.74.22.ab",
+			"agate-teapot",
+			"2017.74.26"
+		]
+	},
+	{
+		"at": [
+			0.451,
+			3.2,
+			-3.732
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.487,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			0.451,
+			1.724,
+			-4.765
+		],
+		"works": [
+			"@Node3D@3368",
+			"@Node3D@3474",
+			"@Node3D@3471"
+		]
+	},
+	{
+		"at": [
+			-2.444,
+			3.2,
+			-1.19
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.414,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-3.625,
+			1.513,
+			-1.19
+		],
+		"works": [
+			"@Node3D@3517",
+			"@Node3D@3511",
+			"@Node3D@3508",
+			"@Node3D@3505",
+			"@Node3D@3514",
+			"@Node3D@3520",
+			"44.226",
+			"@Node3D@3576"
+		]
+	},
+	{
+		"at": [
+			-0.239,
+			3.2,
+			-2.41
+		],
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 8.573,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-1.605,
+			1.249,
+			-2.41
+		],
+		"works": [
+			"2017.74.31.1"
+		]
+	},
+	{
+		"at": [
+			-2.395,
+			3.2,
+			-3.678
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.722,
+		"kind": "spot",
+		"room": "Rockefeller",
+		"target": [
+			-3.625,
+			1.443,
+			-3.678
+		],
+		"works": [
+			"@Node3D@3457",
+			"@Node3D@3454",
+			"@Node3D@3460",
+			"@Node3D@3451",
+			"2009.9",
+			"@Node3D@3463",
+			"37.201",
+			"@Node3D@3491"
+		]
+	},
+	{
+		"at": [
+			8.369,
+			3.6,
+			-8.264
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.554,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			9.732,
+			1.653,
+			-8.264
+		],
+		"works": [
+			"2025.19"
+		]
+	},
+	{
+		"at": [
+			2.101,
+			3.6,
+			-8.529
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 13.265,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			2.101,
+			0.581,
+			-10.642
+		],
+		"works": [
+			"73.018"
+		]
+	},
+	{
+		"at": [
+			5.0,
+			3.6,
+			-9.307
+		],
+		"color": "ffb870",
+		"cone": 33.64,
+		"energy": 8.378,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			5.0,
+			1.694,
+			-10.642
+		],
+		"works": [
+			"2026.3"
+		]
+	},
+	{
+		"at": [
+			8.023,
+			3.6,
+			-8.927
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 10.766,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			8.023,
+			1.15,
+			-10.642
+		],
+		"works": [
+			"2000.17"
+		]
+	},
+	{
+		"at": [
+			2.538,
+			3.6,
+			-8.26
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 12.993,
+		"kind": "spot",
+		"room": "Skylight Gallery",
+		"target": [
+			0.468,
+			0.643,
+			-8.26
+		],
+		"works": [
+			"69.094"
+		]
+	},
+	{
+		"at": [
+			-0.713,
+			3.2,
+			2.73
+		],
+		"color": "ffb870",
+		"cone": 24.208,
+		"energy": 7.207,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.435,
+			1.56,
+			2.73
+		],
+		"works": [
+			"2025.86"
+		]
+	},
+	{
+		"at": [
+			-1.831,
+			3.2,
+			5.15
+		],
+		"color": "ffb870",
+		"cone": 23.211,
+		"energy": 10.274,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-0.194,
+			0.862,
+			5.15
+		],
+		"works": [
+			"2017.46"
+		]
+	},
+	{
+		"at": [
+			-0.925,
+			3.2,
+			8.251
+		],
+		"color": "ffb870",
+		"cone": 30.24,
+		"energy": 7.207,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.223,
+			1.56,
+			8.251
+		],
+		"works": [
+			"37.009"
+		]
+	},
+	{
+		"at": [
+			-0.753,
+			3.2,
+			11.365
+		],
+		"color": "ffb870",
+		"cone": 24.993,
+		"energy": 7.207,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.395,
+			1.56,
+			11.365
+		],
+		"works": [
+			"53.349"
+		]
+	},
+	{
+		"at": [
+			-0.743,
+			3.2,
+			13.039
+		],
+		"color": "ffb870",
+		"cone": 29.265,
+		"energy": 7.145,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.395,
+			1.574,
+			13.039
+		],
+		"works": [
+			"57.281"
+		]
+	},
+	{
+		"at": [
+			-0.747,
+			3.2,
+			14.811
+		],
+		"color": "ffb870",
+		"cone": 24.404,
+		"energy": 7.169,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.395,
+			1.569,
+			14.811
+		],
+		"works": [
+			"34.1371"
+		]
+	},
+	{
+		"at": [
+			-0.7,
+			3.2,
+			16.662
+		],
+		"color": "ffb870",
+		"cone": 29.913,
+		"energy": 7.18,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.444,
+			1.566,
+			16.662
+		],
+		"works": [
+			"46.256"
+		]
+	},
+	{
+		"at": [
+			-0.744,
+			3.2,
+			18.808
+		],
+		"color": "ffb870",
+		"cone": 33.578,
+		"energy": 7.15,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.395,
+			1.573,
+			18.808
+		],
+		"works": [
+			"69.197"
+		]
+	},
+	{
+		"at": [
+			-0.689,
+			3.2,
+			20.843
+		],
+		"color": "ffb870",
+		"cone": 24.673,
+		"energy": 7.053,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.435,
+			1.595,
+			20.843
+		],
+		"works": [
+			"21.482"
+		]
+	},
+	{
+		"at": [
+			-0.738,
+			3.2,
+			23.423
+		],
+		"color": "ffb870",
+		"cone": 28.894,
+		"energy": 7.112,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.395,
+			1.582,
+			23.423
+		],
+		"works": [
+			"54.186"
+		]
+	},
+	{
+		"at": [
+			-0.743,
+			3.2,
+			26.055
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.142,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			0.395,
+			1.575,
+			26.055
+		],
+		"works": [
+			"84.198.1032",
+			"57.167"
+		]
+	},
+	{
+		"at": [
+			-0.294,
+			3.2,
+			26.712
+		],
+		"color": "ffb870",
+		"cone": 29.107,
+		"energy": 7.366,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-0.294,
+			1.524,
+			27.885
+		],
+		"works": [
+			"16.237",
+			"73.079"
+		]
+	},
+	{
+		"at": [
+			-2.079,
+			3.2,
+			23.108
+		],
+		"color": "ffb870",
+		"cone": 19.703,
+		"energy": 8.314,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-2.079,
+			1.308,
+			24.433
+		],
+		"works": [
+			"@Node3D@4712",
+			"44.674"
+		]
+	},
+	{
+		"at": [
+			-2.605,
+			3.2,
+			15.943
+		],
+		"color": "ffb870",
+		"cone": 17.129,
+		"energy": 9.38,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-2.605,
+			1.066,
+			17.437
+		],
+		"works": [
+			"75.023"
+		]
+	},
+	{
+		"at": [
+			-3.977,
+			3.2,
+			19.85
+		],
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 9.732,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-3.977,
+			0.985,
+			21.4
+		],
+		"works": [
+			"51.502",
+			"@Node3D@4665",
+			"1989.085"
+		]
+	},
+	{
+		"at": [
+			-4.158,
+			3.2,
+			20.78
+		],
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 9.538,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.158,
+			1.03,
+			22.3
+		],
+		"works": [
+			"@Node3D@4658",
+			"35.703",
+			"@Node3D@4637",
+			"54.147.9"
+		]
+	},
+	{
+		"at": [
+			-4.35,
+			3.2,
+			26.431
+		],
+		"color": "ffb870",
+		"cone": 20.274,
+		"energy": 8.464,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.35,
+			1.274,
+			27.779
+		],
+		"works": [
+			"06.057"
+		]
+	},
+	{
+		"at": [
+			-4.584,
+			3.2,
+			4.239
+		],
+		"color": "ffb870",
+		"cone": 25.859,
+		"energy": 9.47,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.584,
+			1.045,
+			2.731
+		],
+		"works": [
+			"2000.103.3",
+			"42.072"
+		]
+	},
+	{
+		"at": [
+			-4.952,
+			3.2,
+			5.767
+		],
+		"color": "ffb870",
+		"cone": 22.972,
+		"energy": 10.336,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.952,
+			0.848,
+			4.121
+		],
+		"works": [
+			"@Node3D@3604"
+		]
+	},
+	{
+		"at": [
+			-3.447,
+			3.2,
+			11.018
+		],
+		"color": "ffb870",
+		"cone": 16.777,
+		"energy": 9.198,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-3.447,
+			1.107,
+			9.552
+		],
+		"works": [
+			"@Node3D@4554",
+			"2016.62",
+			"european-east-figure-turkish-man",
+			"@Node3D@4565",
+			"european-east-platter-saldanha",
+			"european-east-figure-turkish-woman",
+			"@Node3D@4543",
+			"2014.33",
+			"european-east-pineapple-teapot"
+		]
+	},
+	{
+		"at": [
+			-0.45,
+			3.2,
+			2.885
+		],
+		"color": "ffb870",
+		"cone": 25.362,
+		"energy": 6.064,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-0.45,
+			1.82,
+			1.919
+		],
+		"works": [
+			"1990.060"
+		]
+	},
+	{
+		"at": [
+			-3.144,
+			3.2,
+			23.39
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.026,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.423,
+			1.374,
+			23.39
+		],
+		"works": [
+			"55.091",
+			"2024.17.5",
+			"85.075.8",
+			"@Node3D@4644"
+		]
+	},
+	{
+		"at": [
+			-3.117,
+			3.2,
+			21.343
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.881,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.373,
+			1.407,
+			21.343
+		],
+		"works": [
+			"@Node3D@4651",
+			"43.351",
+			"2024.17.6",
+			"51.272",
+			"@Node3D@4676",
+			"61.006"
+		]
+	},
+	{
+		"at": [
+			-2.581,
+			3.2,
+			21.101
+		],
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 9.931,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-4.163,
+			0.94,
+			21.101
+		],
+		"works": [
+			"european-east-small-metal-2",
+			"european-east-small-dish",
+			"european-east-small-metal-1",
+			"european-east-small-metal-0"
+		]
+	},
+	{
+		"at": [
+			-3.964,
+			3.2,
+			17.666
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 7.535,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.164,
+			1.485,
+			17.666
+		],
+		"works": [
+			"67.106.31",
+			"67.106.8",
+			"47.625",
+			"45.188"
+		]
+	},
+	{
+		"at": [
+			-4.04,
+			3.2,
+			16.335
+		],
+		"color": "ffb870",
+		"cone": 30.257,
+		"energy": 6.929,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.144,
+			1.623,
+			16.335
+		],
+		"works": [
+			"32.010",
+			"85.075.6",
+			"73.060",
+			"52.533"
+		]
+	},
+	{
+		"at": [
+			-4.176,
+			3.2,
+			14.28
+		],
+		"color": "ffb870",
+		"cone": 27.308,
+		"energy": 7.339,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.345,
+			1.53,
+			14.28
+		],
+		"works": [
+			"36.003"
+		]
+	},
+	{
+		"at": [
+			-4.379,
+			3.2,
+			12.267
+		],
+		"color": "ffb870",
+		"cone": 32.576,
+		"energy": 6.377,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.395,
+			1.749,
+			12.267
+		],
+		"works": [
+			"42.042"
+		]
+	},
+	{
+		"at": [
+			-4.431,
+			3.2,
+			10.505
+		],
+		"color": "ffb870",
+		"cone": 30.475,
+		"energy": 6.054,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.395,
+			1.822,
+			10.505
+		],
+		"works": [
+			"53.115",
+			"24.508"
+		]
+	},
+	{
+		"at": [
+			-2.149,
+			3.2,
+			9.279
+		],
+		"color": "ffb870",
+		"cone": 21.165,
+		"energy": 9.503,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-3.663,
+			1.038,
+			9.279
+		],
+		"works": [
+			"@Node3D@4536",
+			"2016.124",
+			"2016.102.2",
+			"09.351"
+		]
+	},
+	{
+		"at": [
+			-4.225,
+			3.2,
+			8.057
+		],
+		"color": "ffb870",
+		"cone": 26.498,
+		"energy": 7.03,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.345,
+			1.6,
+			8.057
+		],
+		"works": [
+			"35.786"
+		]
+	},
+	{
+		"at": [
+			-4.419,
+			3.2,
+			5.771
+		],
+		"color": "ffb870",
+		"cone": 28.539,
+		"energy": 6.504,
+		"kind": "spot",
+		"room": "adjacent gallery",
+		"target": [
+			-5.455,
+			1.72,
+			5.771
+		],
+		"works": [
+			"63.066.45"
+		]
+	},
+	{
+		"at": [
+			8.565,
+			3.95,
+			30.465
+		],
+		"color": "ffb870",
+		"cone": 16.675,
+		"energy": 10.973,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			10.313,
+			1.453,
+			30.465
+		],
+		"works": [
+			"41.046"
+		]
+	},
+	{
+		"at": [
+			5.75,
+			3.95,
+			31.737
+		],
+		"color": "ffb870",
+		"cone": 16.0,
+		"energy": 11.988,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			7.66,
+			1.222,
+			31.737
+		],
+		"works": [
+			"2014.110",
+			"1992.051",
+			"52.002",
+			"30.011",
+			"2020.55",
+			"15.108",
+			"40.002"
+		]
+	},
+	{
+		"at": [
+			8.575,
+			3.95,
+			33.215
+		],
+		"color": "ffb870",
+		"cone": 17.125,
+		"energy": 10.889,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			10.31,
+			1.472,
+			33.215
+		],
+		"works": [
+			"41.045"
+		]
+	},
+	{
+		"at": [
+			8.542,
+			2.0,
+			31.981
+		],
+		"color": "ffb870",
+		"cone": 27.295,
+		"energy": 5.597,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			8.542,
+			1.757,
+			33.516
+		],
+		"works": [
+			"59.131",
+			"69.196"
+		]
+	},
+	{
+		"at": [
+			5.83,
+			3.95,
+			32.358
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.22,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			5.83,
+			2.079,
+			33.667
+		],
+		"works": [
+			"43.195"
+		]
+	},
+	{
+		"at": [
+			2.931,
+			3.95,
+			32.162
+		],
+		"color": "ffb870",
+		"cone": 31.892,
+		"energy": 9.613,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			2.931,
+			1.762,
+			33.694
+		],
+		"works": [
+			"20.254",
+			"16.243"
+		]
+	},
+	{
+		"at": [
+			1.652,
+			3.95,
+			30.157
+		],
+		"color": "ffb870",
+		"cone": 19.557,
+		"energy": 11.328,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			1.652,
+			1.372,
+			28.353
+		],
+		"works": [
+			"21.250",
+			"22.047"
+		]
+	},
+	{
+		"at": [
+			2.955,
+			3.95,
+			32.91
+		],
+		"color": "ffb870",
+		"cone": 22.484,
+		"energy": 10.977,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			1.206,
+			1.452,
+			32.91
+		],
+		"works": [
+			"37.114"
+		]
+	},
+	{
+		"at": [
+			2.538,
+			3.95,
+			29.27
+		],
+		"color": "ffb870",
+		"cone": 21.047,
+		"energy": 11.206,
+		"kind": "spot",
+		"room": "dark medieval room",
+		"target": [
+			0.753,
+			1.4,
+			29.27
+		],
+		"works": [
+			"20.207",
+			"57.301"
+		]
+	},
+	{
+		"at": [
+			9.237,
+			3.2,
+			-0.14
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.339,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			9.237,
+			1.757,
+			0.87
+		],
+		"works": [
+			"1998.35",
+			"56.214"
+		]
+	},
+	{
+		"at": [
+			8.7,
+			3.2,
+			-2.133
+		],
+		"color": "ffb870",
+		"cone": 20.465,
+		"energy": 9.661,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			8.7,
+			1.002,
+			-0.594
+		],
+		"works": [
+			"23.005"
+		]
+	},
+	{
+		"at": [
+			7.253,
+			3.2,
+			-0.14
+		],
+		"color": "ffb870",
+		"cone": 33.137,
+		"energy": 6.405,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			7.253,
+			1.743,
+			0.88
+		],
+		"works": [
+			"56.094"
+		]
+	},
+	{
+		"at": [
+			4.205,
+			3.2,
+			-0.131
+		],
+		"color": "ffb870",
+		"cone": 23.352,
+		"energy": 6.349,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			4.205,
+			1.755,
+			0.88
+		],
+		"works": [
+			"56.099"
+		]
+	},
+	{
+		"at": [
+			8.916,
+			3.2,
+			-3.824
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.126,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			8.916,
+			1.806,
+			-4.8
+		],
+		"works": [
+			"2023.53",
+			"73.120"
+		]
+	},
+	{
+		"at": [
+			10.406,
+			3.2,
+			-3.801
+		],
+		"color": "ffb870",
+		"cone": 30.032,
+		"energy": 6.207,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			10.406,
+			1.787,
+			-4.79
+		],
+		"works": [
+			"24.089"
+		]
+	},
+	{
+		"at": [
+			5.075,
+			3.2,
+			-2.406
+		],
+		"color": "ffb870",
+		"cone": 32.746,
+		"energy": 6.683,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			4.01,
+			1.679,
+			-2.406
+		],
+		"works": [
+			"43.539"
+		]
+	},
+	{
+		"at": [
+			5.084,
+			3.2,
+			-4.02
+		],
+		"color": "ffb870",
+		"cone": 33.458,
+		"energy": 6.682,
+		"kind": "spot",
+		"room": "grey French gallery",
+		"target": [
+			4.02,
+			1.68,
+			-4.02
+		],
+		"works": [
+			"43.571"
+		]
+	},
+	{
+		"at": [
+			-1.174,
+			3.2,
+			29.641
+		],
+		"color": "ffb870",
+		"cone": 25.881,
+		"energy": 7.6,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			0.036,
+			1.47,
+			29.641
+		],
+		"works": [
+			"22.201",
+			"45.042",
+			"34.016",
+			"2023.17",
+			"34.861",
+			"35.713"
+		]
+	},
+	{
+		"at": [
+			-1.149,
+			3.2,
+			33.274
+		],
+		"color": "ffb870",
+		"cone": 23.658,
+		"energy": 7.762,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			0.087,
+			1.434,
+			33.274
+		],
+		"works": [
+			"51.105",
+			"46.391",
+			"2017.29",
+			"57.302",
+			"34.024"
+		]
+	},
+	{
+		"at": [
+			-1.778,
+			3.2,
+			32.671
+		],
+		"color": "ffb870",
+		"cone": 28.488,
+		"energy": 8.644,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			-1.778,
+			1.233,
+			34.048
+		],
+		"works": [
+			"23.307X"
+		]
+	},
+	{
+		"at": [
+			-3.225,
+			3.2,
+			32.837
+		],
+		"color": "ffb870",
+		"cone": 29.199,
+		"energy": 8.13,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			-3.225,
+			1.35,
+			34.132
+		],
+		"works": [
+			"29.280"
+		]
+	},
+	{
+		"at": [
+			-4.5,
+			3.2,
+			29.453
+		],
+		"color": "ffb870",
+		"cone": 22.71,
+		"energy": 7.404,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			-4.5,
+			1.515,
+			28.273
+		],
+		"works": [
+			"2021.131"
+		]
+	},
+	{
+		"at": [
+			-0.47,
+			3.2,
+			29.411
+		],
+		"color": "ffb870",
+		"cone": 24.993,
+		"energy": 7.163,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			-0.47,
+			1.57,
+			28.27
+		],
+		"works": [
+			"16.236"
+		]
+	},
+	{
+		"at": [
+			-3.33,
+			3.2,
+			32.756
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 8.503,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			-4.684,
+			1.265,
+			32.756
+		],
+		"works": [
+			"58.196",
+			"21.398"
+		]
+	},
+	{
+		"at": [
+			-3.97,
+			3.2,
+			29.8
+		],
+		"color": "ffb870",
+		"cone": 18.425,
+		"energy": 7.872,
+		"kind": "spot",
+		"room": "light Renaissance room",
+		"target": [
+			-5.224,
+			1.408,
+			29.8
+		],
+		"works": [
+			"59.128"
+		]
+	},
+	{
+		"at": [
+			14.6,
+			3.8,
+			29.73
+		],
+		"color": "ffb870",
+		"cone": 32.664,
+		"energy": 9.226,
+		"kind": "spot",
+		"room": "lion stair landing",
+		"target": [
+			14.6,
+			1.701,
+			28.26
+		],
+		"works": [
+			"lion-panel"
+		]
+	},
+	{
+		"at": [
+			15.273,
+			4.395,
+			-1.972
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 9.653,
+		"kind": "spot",
+		"room": "marble stair hall",
+		"target": [
+			15.873,
+			7.008,
+			-1.972
+		],
+		"works": [
+			"2011.60"
+		]
+	},
+	{
+		"at": [
+			15.904,
+			4.849,
+			-3.299
+		],
+		"color": "ffb870",
+		"cone": 30.725,
+		"energy": 13.623,
+		"kind": "spot",
+		"room": "marble stair hall",
+		"target": [
+			15.904,
+			1.749,
+			-1.129
+		],
+		"works": [
+			"83.152"
+		]
+	},
+	{
+		"at": [
+			14.852,
+			3.2,
+			24.85
+		],
+		"color": "ffb870",
+		"cone": 20.01,
+		"energy": 8.457,
+		"kind": "spot",
+		"room": "modern painting gallery",
+		"target": [
+			16.199,
+			1.276,
+			24.85
+		],
+		"works": [
+			"67.089"
+		]
+	},
+	{
+		"at": [
+			14.812,
+			3.2,
+			26.845
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "modern painting gallery",
+		"target": [
+			14.812,
+			1.65,
+			27.93
+		],
+		"works": [
+			"70.058",
+			"48.248"
+		]
+	},
+	{
+		"at": [
+			12.0,
+			3.2,
+			23.632
+		],
+		"color": "ffb870",
+		"cone": 27.057,
+		"energy": 7.295,
+		"kind": "spot",
+		"room": "modern painting gallery",
+		"target": [
+			12.0,
+			1.54,
+			22.47
+		],
+		"works": [
+			"57.037"
+		]
+	},
+	{
+		"at": [
+			13.65,
+			3.2,
+			23.555
+		],
+		"color": "ffb870",
+		"cone": 28.059,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "modern painting gallery",
+		"target": [
+			13.65,
+			1.65,
+			22.47
+		],
+		"works": [
+			"43.255"
+		]
+	},
+	{
+		"at": [
+			11.955,
+			3.2,
+			24.75
+		],
+		"color": "ffb870",
+		"cone": 34.0,
+		"energy": 6.811,
+		"kind": "spot",
+		"room": "modern painting gallery",
+		"target": [
+			10.87,
+			1.65,
+			24.75
+		],
+		"works": [
+			"1995.043"
+		]
+	},
+	{
+		"at": [
+			-1.5,
+			3.2,
+			-2.36
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.653,
+		"kind": "fill",
+		"room": "Rockefeller",
+		"target": [
+			-1.5,
+			0.0,
+			-2.36
+		]
+	},
+	{
+		"at": [
+			-1.5,
+			2.0,
+			-2.36
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.163,
+		"kind": "up",
+		"room": "Rockefeller",
+		"target": [
+			-1.5,
+			3.5,
+			-2.36
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			3.2,
+			4.43
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.898,
+		"kind": "fill",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			0.0,
+			4.43
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.0,
+			4.43
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.225,
+		"kind": "up",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			3.5,
+			4.43
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			3.2,
+			9.69
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.898,
+		"kind": "fill",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			0.0,
+			9.69
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.0,
+			9.69
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.225,
+		"kind": "up",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			3.5,
+			9.69
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			3.2,
+			14.95
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.898,
+		"kind": "fill",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			0.0,
+			14.95
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.0,
+			14.95
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.225,
+		"kind": "up",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			3.5,
+			14.95
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			3.2,
+			20.21
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.898,
+		"kind": "fill",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			0.0,
+			20.21
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.0,
+			20.21
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.225,
+		"kind": "up",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			3.5,
+			20.21
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			3.2,
+			25.47
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.898,
+		"kind": "fill",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			0.0,
+			25.47
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.0,
+			25.47
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.225,
+		"kind": "up",
+		"room": "adjacent gallery",
+		"target": [
+			-2.5,
+			3.5,
+			25.47
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			3.2,
+			31.15
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.93,
+		"kind": "fill",
+		"room": "light Renaissance room",
+		"target": [
+			-2.5,
+			0.0,
+			31.15
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.0,
+			31.15
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.233,
+		"kind": "up",
+		"room": "light Renaissance room",
+		"target": [
+			-2.5,
+			3.5,
+			31.15
+		]
+	},
+	{
+		"at": [
+			3.05,
+			3.95,
+			31.15
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.397,
+		"kind": "fill",
+		"room": "dark medieval room",
+		"target": [
+			3.05,
+			0.0,
+			31.15
+		]
+	},
+	{
+		"at": [
+			3.05,
+			2.75,
+			31.15
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.099,
+		"kind": "up",
+		"room": "dark medieval room",
+		"target": [
+			3.05,
+			4.25,
+			31.15
+		]
+	},
+	{
+		"at": [
+			8.05,
+			3.95,
+			31.15
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.397,
+		"kind": "fill",
+		"room": "dark medieval room",
+		"target": [
+			8.05,
+			0.0,
+			31.15
+		]
+	},
+	{
+		"at": [
+			8.05,
+			2.75,
+			31.15
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.099,
+		"kind": "up",
+		"room": "dark medieval room",
+		"target": [
+			8.05,
+			4.25,
+			31.15
+		]
+	},
+	{
+		"at": [
+			13.35,
+			3.8,
+			30.104
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.759,
+		"kind": "fill",
+		"room": "lion stair landing",
+		"target": [
+			13.35,
+			0.0,
+			30.104
+		]
+	},
+	{
+		"at": [
+			13.35,
+			2.6,
+			30.104
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.19,
+		"kind": "up",
+		"room": "lion stair landing",
+		"target": [
+			13.35,
+			4.1,
+			30.104
+		]
+	},
+	{
+		"at": [
+			13.35,
+			2.9,
+			34.111
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.759,
+		"kind": "fill",
+		"room": "lion stair landing",
+		"target": [
+			13.35,
+			0.0,
+			34.111
+		]
+	},
+	{
+		"at": [
+			13.35,
+			1.9,
+			34.111
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.19,
+		"kind": "up",
+		"room": "lion stair landing",
+		"target": [
+			13.35,
+			3.2,
+			34.111
+		]
+	},
+	{
+		"at": [
+			2.775,
+			3.2,
+			-0.18
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.76,
+		"kind": "fill",
+		"room": "purple elevator-5 connector",
+		"target": [
+			2.775,
+			0.0,
+			-0.18
+		]
+	},
+	{
+		"at": [
+			2.775,
+			2.0,
+			-0.18
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.19,
+		"kind": "up",
+		"room": "purple elevator-5 connector",
+		"target": [
+			2.775,
+			3.5,
+			-0.18
+		]
+	},
+	{
+		"at": [
+			7.45,
+			3.2,
+			-1.96
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.864,
+		"kind": "fill",
+		"room": "grey French gallery",
+		"target": [
+			7.45,
+			0.0,
+			-1.96
+		]
+	},
+	{
+		"at": [
+			7.45,
+			2.0,
+			-1.96
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.216,
+		"kind": "up",
+		"room": "grey French gallery",
+		"target": [
+			7.45,
+			3.5,
+			-1.96
+		]
+	},
+	{
+		"at": [
+			13.15,
+			3.445,
+			-1.96
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.56,
+		"kind": "fill",
+		"room": "marble stair hall",
+		"target": [
+			13.15,
+			0.0,
+			-1.96
+		]
+	},
+	{
+		"at": [
+			13.15,
+			2.245,
+			-1.96
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.14,
+		"kind": "up",
+		"room": "marble stair hall",
+		"target": [
+			13.15,
+			3.745,
+			-1.96
+		]
+	},
+	{
+		"at": [
+			17.35,
+			5.5,
+			-1.96
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.56,
+		"kind": "fill",
+		"room": "marble stair hall",
+		"target": [
+			17.35,
+			0.0,
+			-1.96
+		]
+	},
+	{
+		"at": [
+			17.35,
+			4.3,
+			-1.96
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.14,
+		"kind": "up",
+		"room": "marble stair hall",
+		"target": [
+			17.35,
+			5.8,
+			-1.96
+		]
+	},
+	{
+		"at": [
+			2.725,
+			3.578,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.712,
+		"kind": "fill",
+		"room": "Skylight Gallery",
+		"target": [
+			2.725,
+			0.0,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			2.725,
+			2.378,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.178,
+		"kind": "up",
+		"room": "Skylight Gallery",
+		"target": [
+			2.725,
+			3.878,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			7.475,
+			3.578,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.712,
+		"kind": "fill",
+		"room": "Skylight Gallery",
+		"target": [
+			7.475,
+			0.0,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			7.475,
+			2.378,
+			-8.26
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.178,
+		"kind": "up",
+		"room": "Skylight Gallery",
+		"target": [
+			7.475,
+			3.878,
+			-8.26
+		]
+	},
+	{
+		"at": [
+			13.7,
+			3.027,
+			25.2
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 1.044,
+		"kind": "fill",
+		"room": "modern painting gallery",
+		"target": [
+			13.7,
+			0.0,
+			25.2
+		]
+	},
+	{
+		"at": [
+			13.7,
+			1.9,
+			25.2
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.261,
+		"kind": "up",
+		"room": "modern painting gallery",
+		"target": [
+			13.7,
+			3.327,
+			25.2
+		]
+	},
+	{
+		"at": [
+			16.9,
+			3.2,
+			30.5
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.21,
+		"kind": "fill",
+		"room": "white sculpture gallery threshold study limit",
+		"target": [
+			16.9,
+			0.0,
+			30.5
+		]
+	},
+	{
+		"at": [
+			16.9,
+			2.0,
+			30.5
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.053,
+		"kind": "up",
+		"room": "white sculpture gallery threshold study limit",
+		"target": [
+			16.9,
+			3.5,
+			30.5
+		]
+	},
+	{
+		"at": [
+			13.625,
+			3.2,
+			15.1
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.835,
+		"kind": "fill",
+		"room": "Impressionist gallery B",
+		"target": [
+			13.625,
+			0.0,
+			15.1
+		]
+	},
+	{
+		"at": [
+			13.625,
+			2.0,
+			15.1
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.209,
+		"kind": "up",
+		"room": "Impressionist gallery B",
+		"target": [
+			13.625,
+			3.5,
+			15.1
+		]
+	},
+	{
+		"at": [
+			13.625,
+			3.2,
+			19.9
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.835,
+		"kind": "fill",
+		"room": "Impressionist gallery B",
+		"target": [
+			13.625,
+			0.0,
+			19.9
+		]
+	},
+	{
+		"at": [
+			13.625,
+			2.0,
+			19.9
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.209,
+		"kind": "up",
+		"room": "Impressionist gallery B",
+		"target": [
+			13.625,
+			3.5,
+			19.9
+		]
+	},
+	{
+		"at": [
+			12.45,
+			2.9,
+			2.04
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.264,
+		"kind": "fill",
+		"room": "Impressionist passage",
+		"target": [
+			12.45,
+			0.0,
+			2.04
+		]
+	},
+	{
+		"at": [
+			12.45,
+			1.9,
+			2.04
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.066,
+		"kind": "up",
+		"room": "Impressionist passage",
+		"target": [
+			12.45,
+			3.2,
+			2.04
+		]
+	},
+	{
+		"at": [
+			13.625,
+			3.39,
+			5.455
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.948,
+		"kind": "fill",
+		"room": "Impressionist gallery A",
+		"target": [
+			13.625,
+			0.0,
+			5.455
+		]
+	},
+	{
+		"at": [
+			13.625,
+			2.19,
+			5.455
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.237,
+		"kind": "up",
+		"room": "Impressionist gallery A",
+		"target": [
+			13.625,
+			3.69,
+			5.455
+		]
+	},
+	{
+		"at": [
+			13.625,
+			3.39,
+			10.285
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.948,
+		"kind": "fill",
+		"room": "Impressionist gallery A",
+		"target": [
+			13.625,
+			0.0,
+			10.285
+		]
+	},
+	{
+		"at": [
+			13.625,
+			2.19,
+			10.285
+		],
+		"color": "fff0e0",
+		"cone": 85.0,
+		"energy": 0.237,
+		"kind": "up",
+		"room": "Impressionist gallery A",
+		"target": [
+			13.625,
+			3.69,
+			10.285
+		]
+	},
+	{
+		"at": [
+			5.55,
+			2.35,
+			1.42
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.345,
+		"kind": "fill",
+		"room": "Grand Gallery reveal threshold",
+		"target": [
+			5.55,
+			0.0,
+			1.42
+		]
+	},
+	{
+		"at": [
+			-2.5,
+			2.44,
+			1.42
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.15,
+		"kind": "fill",
+		"room": "Rockefeller reveal threshold",
+		"target": [
+			-2.5,
+			0.0,
+			1.42
+		]
+	},
+	{
+		"at": [
+			5.55,
+			2.44,
+			-5.36
+		],
+		"color": "fff0e0",
+		"cone": 88.0,
+		"energy": 0.45,
+		"kind": "fill",
+		"room": "Skylight Gallery reveal threshold",
+		"target": [
+			5.55,
+			0.0,
+			-5.36
+		]
+	},
+	{
+		"at": [
+			20.2,
+			5.9,
+			-1.96
+		],
+		"color": "eff5ff",
+		"cone": 60.0,
+		"energy": 4.0,
+		"kind": "daylight",
+		"room": "marble stair hall",
+		"target": [
+			15.0,
+			0.5,
+			-1.96
+		]
+	}
+]

@@ -1,0 +1,139 @@
+{
+  "issue": 235,
+  "inputs": {
+    "walk.glb": {
+      "sha256": "7345fcdc3ffc5b93158a5c70ef2cf9249cbb91cca7bb15d76ff3e6bc140e041d",
+      "source_path": "image-work/character-pilot/iterations/video-match/fitted-walk/footplant-candidate.glb"
+    },
+    "run.glb": {
+      "sha256": "f752810d64747b955680554d67cc6e8697373e1214d2b15e1b24724dd76ed6bb",
+      "source_path": "image-work/character-pilot/iterations/video-match/fitted-run/footplant-candidate.glb"
+    },
+    "dash.glb": {
+      "sha256": "85267be21c327998b4bd64a32c1a72d1282ce2c44c61a90bfbe098483ee743d0",
+      "source_path": "image-work/character-pilot/iterations/video-match/fitted-dash/footplant-candidate.glb"
+    },
+    "skid.glb": {
+      "sha256": "211afac6e1e890e497de5e54f21ad80b9d2f45436db908349d3341bdc5b04016",
+      "source_path": "image-work/character-pilot/iterations/video-match/fitted-skid/footplant-candidate.glb"
+    },
+    "axe.glb": {
+      "sha256": "c84ea31798ba74ad388b110c28aa0cbc89d45010b141c21a3c196f9db8c63699",
+      "source_path": "image-work/character-pilot/iterations/video-match/fitted-axe/footplant-candidate.glb"
+    },
+    "net.glb": {
+      "sha256": "620690d7e47361b05d3db6ab1f59c74994302271d94d22e4095bdbf8867ee6c4",
+      "source_path": "image-work/character-pilot/iterations/video-match/fitted-net/footplant-candidate.glb"
+    },
+    "hand-atlas.png": {
+      "sha256": "61a76e1d580c23a2b3c357ca544051a55c26bf8ae00d0fc332431f7329c45517",
+      "source_path": "image-work/character-pilot/iterations/video-match/hand-atlas-profile/hand-atlas.png"
+    },
+    "audio/indoor_step_a.wav": {
+      "sha256": "6f17e6df149cff1fd781ac8888377d7800343f3533e934e897fccbb29289a421",
+      "source_url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "source_range_seconds": [
+        388.893,
+        389.078
+      ],
+      "processing": "AAC-decoded mono22050Hz crop; no filtering, normalization, denoise or pitch change",
+      "identification": "floor unidentified; first visible indoor upward traverse"
+    },
+    "audio/indoor_step_b.wav": {
+      "sha256": "79a1eaf9cca7b74af8058d41663d10ac455af4e3548d14ccb770ba82c25e996b",
+      "source_url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "source_range_seconds": [
+        389.163,
+        389.348
+      ],
+      "processing": "AAC-decoded mono22050Hz crop; no filtering, normalization, denoise or pitch change",
+      "identification": "floor unidentified; next alternating contact"
+    },
+    "audio/indoor_step_c.wav": {
+      "sha256": "1fa7738233aa2fad137ef26b474d28bed8404fa50c23b261f8ce953533bfb698",
+      "source_url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "source_range_seconds": [
+        389.465,
+        389.65
+      ],
+      "processing": "AAC-decoded mono22050Hz crop; no filtering, normalization, denoise or pitch change",
+      "identification": "floor unidentified; contact during turn"
+    },
+    "audio/indoor_step_d.wav": {
+      "sha256": "f6ac206b2abd2b9dda59605e90ceecc15a65facc55dfa5247525509b1d02ea3c",
+      "source_url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "source_range_seconds": [
+        389.819,
+        390.004
+      ],
+      "processing": "AAC-decoded mono22050Hz crop; no filtering, normalization, denoise or pitch change",
+      "identification": "floor unidentified; final upward traverse contact"
+    },
+    "audio/house_door_close.wav": {
+      "sha256": "3deaff721523a6afac064042e0e8fc76405b1ceb7e836200222dc8dc7d45811a",
+      "source_url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "source_range_seconds": [
+        386.49,
+        387.03
+      ],
+      "processing": "AAC-decoded mono 22050 Hz crop; no filtering, normalization, denoise or pitch change",
+      "identification": "Visible house door closing during entry; dominant transient at 386.5204 s, tail to 387.0 s. Outdoor music fades during transition; residual background was not independently removed. This is not the four-stage door sequence."
+    },
+    "audio/stone_escort_step_a.wav": {
+      "sha256": "4bb97ffea4d3e2e92d0efb203930583c9c45f614ca323e1c7d3eb4b346ecfb9e",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "source_range_seconds": [
+        605.015,
+        605.2
+      ],
+      "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change",
+      "identification": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned"
+    },
+    "audio/stone_escort_step_b.wav": {
+      "sha256": "ab7f44cef959067e9bd1bc2228bcadc100451579a3219a36fda9aea51e31828c",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "source_range_seconds": [
+        605.288,
+        605.473
+      ],
+      "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change",
+      "identification": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned"
+    },
+    "audio/stone_escort_step_c.wav": {
+      "sha256": "6bf5a2fb187e257c5697ad6b43654fdd9f54f791eca457210829e5c8f5e224e3",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "source_range_seconds": [
+        605.542,
+        605.727
+      ],
+      "processing": "AAC decoded mono PCM16 22050Hz; raw crop only, no denoise, filtering, normalization or pitch change",
+      "identification": "captured GameCube original station stone paving escort cue; player/NPC identity and exact bank variation unassigned"
+    }
+  },
+  "pck_sha256": "7951713bf47a4eb9b71779bb1256020cb06d006c30766c32571b259180562245",
+  "import_fps": 240,
+  "animation_optimizer": false,
+  "package_code_sha256": {
+    "sound.gd": "27edade82f058379732c7a7bbf80485da30b57d40eb923fb9f27aab76e05166f",
+    "demo.gd": "001c3d528780816c7492ea1377e1f2fb7fe25af668cf3aaa7af48ca4190e3899",
+    "controller_check.gd": "0fbbdc6a8054a61cfe520fd6e73c8d8b6d25b56c1b3ebc24235c52e9fdf0848c",
+    "appearance_check.gd": "df8f4d3077b6ebf2451c9e2c3bd92411823ef666ae39ec2818aac0f2129310dc",
+    "driven_check.gd": "0410f4dafa9d62231c7c5c6a22010629caaba98f7761c36c3a9d37b5813bbf4b",
+    "locomotion.gd": "7ebffe36eec34caa1ee132c78eee75c5cdf49c8d7fb60ccce90c3c3bd51d1203",
+    "quality_check.gd": "e64f3fbb906066bf19dd0ba34f157e7f8df4f2a64139eb996dc38c4b9e913e75",
+    "audio_check.gd": "08acced35b6d456a84c75f6566664e0389f119bfb08fb412e40d810eef96ff98",
+    "contact_check.gd": "1afd60586d3daeb2a355db2c7ec6257ff8abb3b9ef94479665f5e2094ae47555",
+    "record.gd": "30e8511dcf88b203a99dbcd08daad1dc70dccc53b4cfe51573d3d799bad98a72",
+    "tool_clearance_check.gd": "74c0c52d4f7b3028718b18bfaa3dc6b90b74f2510549f852821afb87971e28ca"
+  },
+  "animation_import_sha256": {
+    "axe.glb.import": "10e81d194172b52291f7b06f805eb652d489bd8a0f58aa40f2db15ec3b9a0246",
+    "skid.glb.import": "3e7c89f4308301a52b05f565e8008dfb8056fc7c613d26dd1255e790d64c3db4",
+    "run.glb.import": "9b104a5cf7a5c8573dd1bffa635b48b2b8da31a9aa142a39045d16b0637f3aab",
+    "net.glb.import": "ca6b82df601d397c4e7c7a78696aa0bcbc5ea23ba8c28fb7a058c635a0a75921",
+    "dash.glb.import": "d840af2a492469b76770362ff266dd1b83c4984f5e3f96434c6fa2f66a60982c",
+    "walk.glb.import": "0d72e7af0b0615e6df204bae6e7e7e8953be7cceae0af684ea6a406545206398"
+  },
+  "packager_sha256": "76f56aabbd2a82ebb9ca80cb2e0767df91c9747cf5b56e1b4ded07ae7d7304fd",
+  "additional_cost_usd": 0
+}

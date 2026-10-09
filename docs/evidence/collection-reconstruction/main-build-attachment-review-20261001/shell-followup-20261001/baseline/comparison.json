@@ -1,0 +1,27 @@
+{
+  "base_tip": "3529af2b",
+  "base_passed": 41,
+  "root_passed": 42,
+  "base_failed": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "page_cross_fades_through_in_between_greys",
+    "collection_tab_dips_on_click",
+    "grey_to_collection_settles_in_about_200ms",
+    "resize_refits_bar_and_tenant"
+  ],
+  "root_failed": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "page_cross_fades_through_in_between_greys",
+    "collection_tab_dips_on_click",
+    "resize_refits_bar_and_tenant"
+  ],
+  "new_failures": []
+}

@@ -1,0 +1,65 @@
+{
+  "runtime": "f2b5453a",
+  "files": [
+    {
+      "file": "f2b5453a.audio.position.worklet.js",
+      "size": 2973,
+      "sha256": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8"
+    },
+    {
+      "file": "f2b5453a.audio.worklet.js",
+      "size": 7298,
+      "sha256": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3"
+    },
+    {
+      "file": "f2b5453a.game.pck",
+      "size": 281422020,
+      "sha256": "0c72e68bea6e10f8cf954dec81c13e557682b686644574adcfa6c87c11502b96"
+    },
+    {
+      "file": "f2b5453a.game.pck.gz",
+      "size": 185092381,
+      "sha256": "a7574a04c2e8927a5a7cd55477ea62ada482913156700b278084b3143b49e32e",
+      "https_verified": true
+    },
+    {
+      "file": "f2b5453a.html",
+      "size": 17473,
+      "sha256": "f89c950bbee7b8400557b264a13343321751b682a4c5609e66f43080ac7c4acb",
+      "https_verified": true
+    },
+    {
+      "file": "f2b5453a.js",
+      "size": 279815,
+      "sha256": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba"
+    },
+    {
+      "file": "f2b5453a.pck",
+      "size": 11484,
+      "sha256": "5d32f622f3936d9ede3f4826ac39dfee6a373bd8116d141fd576a2f81fcb71cf"
+    },
+    {
+      "file": "f2b5453a.pck.gz",
+      "size": 9613,
+      "sha256": "41edcf40dc0f502045638fc27096b6e7e38d11e6c4e95e5f17e38f167826c7c2",
+      "https_verified": true
+    },
+    {
+      "file": "f2b5453a.png",
+      "size": 21443,
+      "sha256": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e"
+    },
+    {
+      "file": "f2b5453a.wasm",
+      "size": 39514754,
+      "sha256": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0"
+    },
+    {
+      "file": "f2b5453a.wasm.gz",
+      "size": 10084300,
+      "sha256": "4d87d847b497d22552abdfc3d41bf14cf4e8e86022726a8a50c89710f5c3c003",
+      "https_verified": true
+    }
+  ],
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-map149-grips-01a0f078/"
+}

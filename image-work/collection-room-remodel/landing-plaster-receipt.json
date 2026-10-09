@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/landing-plaster-video-native.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/landing-plaster-style-main-hall.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-20fa6fddf9fc645f616f8335/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "c58b89f37f64f619bb4e97975f97241a32c360e7a120c72b0040958bfa059bad"
+    }
+  ],
+  "changesRequested": "Using reference1 for the museum wall paint and reference2 for the restrained low-polygon visual direction, generate one seamless square albedo texture of only the smooth warm-grey painted plaster visible around the doorway. Even flat diffuse lighting: do not bake sunlight, spotlights, shadows, corners, ceiling, doorway, mouldings, floor, sculpture, labels, grain, stains or cracks into the texture. Tiny restrained broad low-polygon tone changes only, less than three percent contrast; no visible triangular patchwork, polygons outlined as triangles, mottled clouds, marble, stone pattern or beige parchment. The museum walls are quiet matte grey plaster. Fill the entire canvas, edge-to-edge, no margin or text. Colours should stay close to the smooth neutral warm grey of reference1, uniformly lit. The application supplies the existing museum lighting and shaders, so this texture must contain no lighting gradients.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-20fa6fddf9fc645f616f8335",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-20fa6fddf9fc645f616f8335"
+}

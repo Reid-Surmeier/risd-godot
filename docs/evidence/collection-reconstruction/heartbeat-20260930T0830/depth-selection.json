@@ -1,0 +1,18 @@
+{
+  "views": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg",
+    "IMG_6380_exit6fps/000020.jpg",
+    "IMG_6380/000244.jpg",
+    "IMG_6380/000245.jpg",
+    "IMG_6380/000505.jpg"
+  ],
+  "source": "sfm-strict-doorway-v1",
+  "reserved_excluded": [
+    "IMG_6380_exit6fps/000021.jpg",
+    "IMG_6380_exit6fps/000025.jpg"
+  ],
+  "size": 640,
+  "provider": "local CUDA COLMAP",
+  "cost_usd": 0
+}

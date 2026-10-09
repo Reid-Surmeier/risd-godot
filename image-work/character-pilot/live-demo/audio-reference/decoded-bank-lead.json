@@ -1,0 +1,43 @@
+{
+  "source_page": "https://hcs64.com/mboard/forum.php?showthread=64579",
+  "uploader": "WDLmaster",
+  "uploader_post": "2024-09-07 12:07 PM EDT",
+  "archive_url": "https://drive.google.com/file/d/1M2fUPjUmXV2UbGltqGcsNLrWXLBFbC27/view",
+  "archive_title": "Animal Crossing samples.zip",
+  "archive_bytes_from_head": 22150270,
+  "full_archive_downloaded": false,
+  "audio_payload_downloaded_bytes": 0,
+  "retained_audio_bytes": 0,
+  "inspection": "HTTP206 byte ranges for ZIP central directory, metadata only",
+  "central_directory_range": [
+    22044339,
+    22150247
+  ],
+  "central_directory_bytes": 105909,
+  "central_directory_sha256": "392eb5224c32305d284e15ae232f1a246e146e3a9bf3ab0dfb157002aeaee8de",
+  "wav_entries": 1157,
+  "wavetable_counts": {
+    "T0": 65,
+    "T1": 17,
+    "T2": 93,
+    "T3": 181,
+    "T4": 211,
+    "T5": 590
+  },
+  "example_names": [
+    "T0W0.wav",
+    "T0W1.wav",
+    "T0W10.wav",
+    "T0W11.wav",
+    "T0W12.wav",
+    "T0W13.wav"
+  ],
+  "file_labels": "TnWm numeric names; no footstep/gait/terrain labels or readme",
+  "uploader_claim": "Decoded GameCube Animal Crossing samples; exported at32000Hz without per-instrument tuning",
+  "game_revision": "unverified",
+  "identified_footstep_file": null,
+  "sound_id_to_wave_mapping": null,
+  "recovered_rendered_cue": false,
+  "status": "Useful primary decoded-sample lead; no candidate promoted to runtime without waveform identification and tuning/cue mapping",
+  "cost_usd": 0
+}

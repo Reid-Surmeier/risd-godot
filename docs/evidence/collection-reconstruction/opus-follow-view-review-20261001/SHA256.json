@@ -1,0 +1,244 @@
+{
+ "made": "2026-10-01",
+ "note": "sha256 of every file this review read or wrote. Root files are root's working tree at READY for v49l / v50n; nothing outside this folder was written by the reviewer.",
+ "root_commit": "00f857d52b44ddf667c83569e9f794bc1416d7cd",
+ "root_frozen_manifest_v50n": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/frozen-root-sha256-v50n.json",
+  "sha256": "03972a4b54700dc6bf135e9da4453d6ac88c3ed47e191064664c583e33e93a4b",
+  "entries_rehashed": {
+   "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": {
+    "manifest": "186d7e48747b5237dd091b65f328d8d8e99d9fcb8cadb6f028a5153a1a475995",
+    "on_disk": "186d7e48747b5237dd091b65f328d8d8e99d9fcb8cadb6f028a5153a1a475995",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/remodel_room.gd": {
+    "manifest": "442d4fbe401db87dad69709900f1977ab173e1f5f2cedae163c05e7c322cad8f",
+    "on_disk": "442d4fbe401db87dad69709900f1977ab173e1f5f2cedae163c05e7c322cad8f",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": {
+    "manifest": "31571f57bb0d1111d799d3073320137bbe651d312aad34ee238eec63b4f3bbca",
+    "on_disk": "31571f57bb0d1111d799d3073320137bbe651d312aad34ee238eec63b4f3bbca",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": {
+    "manifest": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa",
+    "on_disk": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/remodel_review.gd": {
+    "manifest": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+    "on_disk": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": {
+    "manifest": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+    "on_disk": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/architecture_check.gd": {
+    "manifest": "ea616926cc8edfe4f897ce11b1b8cd7eccc4c2eb8ea656e26462833ad00205ff",
+    "on_disk": "ea616926cc8edfe4f897ce11b1b8cd7eccc4c2eb8ea656e26462833ad00205ff",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/main_build_check.gd": {
+    "manifest": "a9aca7e946b669a636157f1c3554d07be40572b2ae728d100592285a103304d4",
+    "on_disk": "a9aca7e946b669a636157f1c3554d07be40572b2ae728d100592285a103304d4",
+    "equal": true
+   },
+   "docs/evidence/collection-reconstruction/opus-main-build-adapter-20261001/make_local_fullapp.py": {
+    "manifest": "c0ff927907547fa7e67f763fda01a21a4d0cc2f87d43883aa0676bb65ffe41dc",
+    "on_disk": "c0ff927907547fa7e67f763fda01a21a4d0cc2f87d43883aa0676bb65ffe41dc",
+    "equal": true
+   },
+   "docs/evidence/collection-reconstruction/opus-main-build-adapter-20261001/relocate_lightmap.gd": {
+    "manifest": "147789fa2b25b8a64cb76d7dd3f5aa6b572839202b57030cb18fa297f98fd6e0",
+    "on_disk": "147789fa2b25b8a64cb76d7dd3f5aa6b572839202b57030cb18fa297f98fd6e0",
+    "equal": true
+   },
+   "modules/shell/prototype/collection_reconstruction/saint_roch_asset.gd": {
+    "manifest": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+    "on_disk": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+    "equal": true
+   },
+   "image-work/collection-room-remodel/sculpture-room-inventory.json": {
+    "manifest": "91122a17801b67af302ce8cfaf1ef739dc23a4497fa342f8bc0f9eda42275186",
+    "on_disk": "91122a17801b67af302ce8cfaf1ef739dc23a4497fa342f8bc0f9eda42275186",
+    "equal": true
+   }
+  }
+ },
+ "root_frozen_manifest_v50m": {
+  "file": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/frozen-root-sha256-v50m.json",
+  "sha256": "7cbc488f8b026add86cea7f16a403407f9d4d3460a41b7fa7235d7cbee2fc60c",
+  "entries": {
+   "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "64c813e3c7e406a9e7c1327e7f10d23e7902330ea55a42277cb5dc8eb96ad02e",
+   "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "077aaf21af1c7b9fb4964be9cb5abdfe0baad81ee5f62a5f79e86af507a026ec",
+   "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "31571f57bb0d1111d799d3073320137bbe651d312aad34ee238eec63b4f3bbca",
+   "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa",
+   "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+   "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+   "modules/shell/prototype/collection_reconstruction/architecture_check.gd": "cb2f809eaf2ba7422605a7bdbf1b5163d6ef939a4057c286d7452fbf62a70e89",
+   "modules/shell/prototype/collection_reconstruction/main_build_check.gd": "3cebcffdbd8014f208baf4bc3385d428521a90adee311ec9bd270e7bda9cd1ce",
+   "docs/evidence/collection-reconstruction/opus-main-build-adapter-20261001/make_local_fullapp.py": "c0ff927907547fa7e67f763fda01a21a4d0cc2f87d43883aa0676bb65ffe41dc",
+   "docs/evidence/collection-reconstruction/opus-main-build-adapter-20261001/relocate_lightmap.gd": "147789fa2b25b8a64cb76d7dd3f5aa6b572839202b57030cb18fa297f98fd6e0",
+   "modules/shell/prototype/collection_reconstruction/saint_roch_asset.gd": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+   "image-work/collection-room-remodel/sculpture-room-inventory.json": "91122a17801b67af302ce8cfaf1ef739dc23a4497fa342f8bc0f9eda42275186"
+  },
+  "note": "verified 12 of 12 on disk at 18:03 UTC, before root moved on to v50n"
+ },
+ "root_source_archives": {
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/frozen-source-v50l.tar.gz": "919438d5e0804cba2a8522e251d67f1a0650c82dcbfc12416adc7810aad6b0c9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/frozen-source-v50m.tar.gz": "b5a1a1ea98b75a068c0788255796c89147d6a8c3620951ed5e84b050e259671b",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/frozen-source-v50n.tar.gz": "07e6ef294966a7d964b608812356c56e7098795da2cb6324615e65b8d254f7a9"
+ },
+ "builds": {
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-extension-v49l/addition_baked/room.lmbake": "38f31bba26ebe491b38f901ab01742dc1c487ef851317afa6c9b34a25aeaec06",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-extension-v49l/geometry.json": "24c9ae3416355f378635c39b0e5852fa6bf2f129eb55ef898fb1fcc8de755731",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n/collection_rooms/addition_baked/room.tres": "6a896f3abf00d89293c46df9c6050aecd55a4d9767e08e3b299dee014fc00b89",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n/collection_rooms/geometry.json": "24c9ae3416355f378635c39b0e5852fa6bf2f129eb55ef898fb1fcc8de755731",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n/collection_rooms/remodel_room.gd": "67f0b6c1535f9ba483a48049b3da0c5020106bc9ac0b2e705e0f1e866f1364a0",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n/collection_rooms/saint_roch_asset.gd": "98d607557bd3ddec8e000ad320241cc0bc7337f05619ad605f35dfc8321a61cc",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50n/modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "186d7e48747b5237dd091b65f328d8d8e99d9fcb8cadb6f028a5153a1a475995",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50m/modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "64c813e3c7e406a9e7c1327e7f10d23e7902330ea55a42277cb5dc8eb96ad02e",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50m/collection_rooms/addition_baked/room.tres": "b5005c3b932b4721b69f7c092ecd9101cfe5dd684209ce0da16cebac36e81c69",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-reference-20261001/main-build-source.json": "231eaa18fac40e9734ab11c3daa9f2b91826420d817f942963b54664c0de3348",
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50h/native-evidence/hall-collection.png": "0459b57ca6d2c3183fe454b931597c891096a5075a7487cccb45791bca1420c5"
+ },
+ "root_proofs_read": {
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/keyboard-evidence-v50n/keyboard.json": "c796969251956ff88f039cf2bc1c1d20240e599b8cbe23b4e7a53b5ead3a65d9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/keyboard-evidence-v50m/keyboard.json": "c796969251956ff88f039cf2bc1c1d20240e599b8cbe23b4e7a53b5ead3a65d9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/v50n-final-logs.json": "8d48eed9efa2046d06afab98ec96cdb069cdafc7c5dff18fd91a607b26b111df",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/v50m-native-logs.json": "910bb825ce41912f8f68f48d367474f5acb220bef68d264243e89c8738874ad5",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-regression-logs.json": "5a341ab235b2ea6e43fec0e55f6e29f28ae950632a2ea7deb5360698f755cd62",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/metadata-sync-v50m.json": "44a6a0cf83f2086cedb49008e5c6d3b854258b2f91dcd47c5497478017a56d26",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/native-views.json": "53b76da7e6e67287008bf378f4ca03f802dde20cfe9b2875f38a3494588470e7",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/offset-evidence-v50n/bar-ray-hits.json": "aa64e908c7993f96dd87332d3e8b5a25fb18fe5bb8f3baacbd2a2eb8c4536ea8",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/offset-evidence-v50m/bar-ray-hits.json": "93f4250439f42ba73b0669170903726f98da24d6b70c0ab5da2b53461f3fe3e8",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-follow-views.json": "374fbda12a5b982203eb85a1472816904f89652bf3b512a02aa47717a1b0c74b",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/connector-black-collection.png": "18ff897387318cdca285af7319dd08ea00811915a09fbab0b580190803b6987e",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/grey-collection.png": "2f2ab612c35b158058b77cf16783c0c52c4339716e549316a8614dcfee931521",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/grey-columns-west-collection.png": "c2ffd655bd8ea3fb1e0e20786a8400236c85a5cb969e24404fc81060fcec21ce",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/grey-courbet-collection.png": "10f94a3544515a65f8ae1afc5f4aab57eafde2644cda4e130d7438122c43196e",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/grey-hall-doorway-collection.png": "4da7eac3df06b846ea3af6a700c18ba68e9c96e0f911003a1888bba4a7e93728",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/grey-north-facing-collection.png": "5aa901cb9ca5f8d3a1bac29cf4e7b603510f32795057087c4fb605b867928b32",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/hall-collection.png": "1fd2487e83810d0b12ba84d03d33107df2c1796fe6243e68b62547cb4fd2b82d",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/hall-grey-reciprocal-collection.png": "54c4c5944a4dbb59e1e871d3578257dab33f2c3c6b1c00faee0ca641322a8782",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/hall-lower-collection.png": "5f384b8ebd962c6772eb6058f5439ecd2bb35c7f4db3811402443c2ce5e69f3c",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/landing-collection.png": "958b9b65f238a233d8aaf95e120e68505ea340bebe9907662f17fb9f0a098ad4",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/medieval-collection.png": "a0c60a004af4f81c5ff6cad4159bb75eb30a5cbfe2e992aba3ce49658f7573f4",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/medieval-lowcase-collection.png": "f926ce57a9d3ab17b6bada50d399aed06f580724eff8397b358649fc77b461c9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/medieval-tallcase-collection.png": "f475ce4d752c71d83e420dc6da302bd4407322b40aa84b29a2c16101b9a30edc",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/modern-case-collection.png": "558f6bb788aa1c10e9be0021f9bbdf272e0c3448adbcdc127a711f8cfdb7e074",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/modern-layout-collection.png": "6b7cc060dc14fa906b6db133000bd40b8c19a7280d134625f48929a4d8e649c9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/renaissance-room-collection.png": "f209e22d1efaeeefbb9b26fc8c66bea2ccd7577bab8b1affb5b5bfd719daa657",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/saint-roch-overhead-collection.png": "e61df3a4243981f966e88db0a700869fff515e252a532695c4e6601eb6bed861",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/native-evidence-v50n/saint-roch-room-collection.png": "4bad5f0838dd3a9d2050389a5786599c0683ecd5aea3756c2ec8273f5706d2e7",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/offset-evidence-v50n/native-renaissance-bar-diagnostic.png": "901a56fffae246922aec8298886ba13189e58c5a8ce1d0cfebdabfed4b30eaa3",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/offset-evidence-v50n/native-saint-roch-follow.png": "59773d4073957715436e7e7dbd0a443e41643ce1ae632c120f79b4357b3eb082",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/offset-evidence-v50n/native-saint-roch-offset.png": "01c6c76e7c51373151084359ec43309388bcd3fb3a57d0db9d21db753ba82e5a",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-connector-dollhouse-south.png": "e9003505abf5c562d680c3c5d884e788d1c6c221dd5dee05967025e2b4d92ca2",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-grey-follow-south-after-walking-north.png": "b90ba1bdb1ffef430a9a765084525d02d85fb46f73ec5452e349da66775edb6e",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-grey-follow-south-fresh.png": "b90ba1bdb1ffef430a9a765084525d02d85fb46f73ec5452e349da66775edb6e",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-hall-mid-follow-north.png": "56ea9350f4876a3d22f3f03ef542c22c38e8d0238f0bad7960b47d58414e3c5a",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-hall-near-door-gallery-north.png": "8c2308063908e1b79de7694307954dd021c4515f7310e3e4e9ea49d6db2c8ce4",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-rockefeller-to-west-gallery.png": "d0dfcb2f24c3752661b7e7b7559f190ce594601162f4683534f6878e6f93e640",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/follow-evidence-v50n/native-west-gallery-to-rockefeller.png": "c4b6f3ab96080934c3afc4cbfc883d3593ce2227cffc1057edd62ec967fc1b66",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-main-build-check.log.gz": "afe98659ba6b51e6aa9affef9dc27efa7d96be1f1e6dde2accb93e149ccee0dc",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-keyboard-check.log.gz": "48bf0e92a9b0dfec44b8e43e23df3fef82cdb9a9e1123be7f864ab2cf285dd7b",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-native-capture.log.gz": "b04b437773a481efe287a4a8315037b461507a7064a830bde49efbc5f9db28c9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-follow-capture.log.gz": "d38bb38b3bad772dbfadfdac317e50a4dba589eaf10928e306fef207424b200b",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-offset-capture.log.gz": "d38bb38b3bad772dbfadfdac317e50a4dba589eaf10928e306fef207424b200b",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-copy.log.gz": "31e54ed774ef165a3acb441e7aa023ff024b0ab1da50c6c58ce2c0c5cf59baf9",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-initial-import.log.gz": "4e9445c96aa7ae07e51abbeaa0c24f80679c29057c4f0b6a6fdb80a7f867fe5c",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-repo-check.log.gz": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50n-final-repo-check.log.gz": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v49l-architecture-check.log.gz": "d253a4e0eee1c1905c49074e56641b14914f0f5202888b83431c996b546352a7",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v49l-bake.log.gz": "4973baaa7d038ab5804a581e2e158d74be507c4fdb8ee0325f32511e5f9ab305",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50l-negative-follow-check.log.gz": "44e7903637a9d78c851d6c059d355126e24e0da1ede1b29c853d62589a806b80",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v50m-main-build-check.log.gz": "822587313e6811ae7472d261f540830ba2b7c9b0fd435cb055d7715ca42265f0",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/contiguous-hall-fixes-20261001/raw-logs/collection-v49k-architecture-check.log.gz": "ec58a2cc5776bef3cd9603c8c8a4684c59bb8d591ab74a608f5cf294d746f2d6"
+ },
+ "sources": {
+  "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/REPORT.md": "502ff19e3421966e2635c6ff2208d895342b1d04a43af689e24edd1cd50e446a",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-0.jpg": "abe58d5d9cc7b7515a497b8cc113a6ef385210ac04c785787dbb58cdd5e87ab8",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-1.jpg": "4d7b25f357de3e5c86af77a68eb1fa6fc84edf8bd249d2689f359c9bf1125bd6",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-2.jpg": "0de2f720aa0f45a0d6fd33cbbd255c015f3f21f80519279620d0960f87577ebb",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398-zoom-3.jpg": "5abf7bd0f1b36374e63a9926ca3d7a3ba49674fcce240d6970011f30c3481b42",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/sheets/R04-saint-roch-21.398.jpg": "2090676e84ef040d63d158769901f5d2bd4907dd8a2a876dd4f8bd796d80ec00",
+  "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/frames/IMG_6383-018.30.jpg": "2a211a64b86d804a915cf29a272fbe1170428b4bc26fd12fa317762e254d716e"
+ },
+ "original_video_frames": {
+  "source-6383-18.3s.jpg": "verified/IMG_6383.MOV at 18.3 s",
+  "source-6383-62.0s.jpg": "verified/IMG_6383.MOV at 62.0 s",
+  "extracted_with": "ffmpeg -ss <t> -i <video> -frames:v 1 (hashes under outputs)"
+ },
+ "tools_reused_from_earlier_review": {
+  "../opus-contiguous-hall-review-20261001/lmbake_probe.py": "7e97b7226d8c18d17fcc9522ff19673248f294828b8011beb735224938c802c5",
+  "../opus-grey-integration-review-20261001/full_app_static.py": "9d7a6357f346760e32427c0bb210cef379eb1bc566869629501423d07f131a7f"
+ },
+ "outputs": {
+  "REPORT.md": "d1773164b663c15bc3a25b17557396cc9650db3a37e923b611555395fd47b67d",
+  "full-app-static-v50n.json": "a5a8b1ff4ae34c4c61e619e19230351b486ac81fae9ea4d0f3c49aef8effa7d3",
+  "hall-view-v50h-vs-v50n.json": "83dec3d2cfc52b3248b48281439e0b1d2f07eb3117358a9893e7e9a04286d65c",
+  "native-doors-and-groups-v50n.jpg": "31b8aa00786ca7fb3812d7ee9a1cb54984bd34e6ef14fc11672168faf6846ba9",
+  "native-group-door-v50m-vs-v50n.jpg": "a2d2d54d615a9c99141a8521b3c9fabf1d07a099de6118298734ac16c540e30c",
+  "native-saint-roch-v50n.jpg": "d79ae318bffe0a3f400dc23a1091513738f1674ee40a3fcfd49f8fe451991214",
+  "probe-addition-v49l.json": "22ce801884f761c880bf2f1b569ee190b5f4b2e6864da3d0d019340656c1ebbf",
+  "probe-v50n-tres-check.json": "9da00bda0d264dc8958553f00095c4f7438e168cf8ec5e617f3433a4dfbd93f0",
+  "review_plinth.gd": "1ee3f5d4076cb17eb2b04ad5945c90b0e309fa756f09e9131f4b29bc0560a831",
+  "review_views.gd": "4d7c5d2d6a7f54b5928e1f98761fcaec65a0c93b05d0221533cc71873d927406",
+  "root-v50n-native-18-views.jpg": "f38c40d685233ef3f1589f632f07dd2eccb3e75849dd2cad1341827b6407ace9",
+  "saint-roch-source-vs-v50n.jpg": "d8cc72cc68230f8734e958d5287cbb16739688fc0bd4bd79e419d1fac850f43d",
+  "source-6383-18.3s.jpg": "5265e90a8538917e4a10c4f376231ec41233c108a348f67918cd7a2df9217106",
+  "source-6383-62.0s.jpg": "e2ff735d3dc1259922d13121c2690f1f0f1cdac5765f7db8a1029ec66d1db948",
+  "source-saint-roch-installation-and-official.jpg": "6cbcddbbb574d4acda15a5c5be8dffc9c46460f01c48aa57d987e7dc233ed0fa",
+  "v50m/native-bars-after-one-pose-update-2.png": "0e5bafe13bca4a4820567b32f2f74e72128345c9e0b03c46720b9379fb93c762",
+  "v50m/native-bars-teleported-0.png": "fc2d4b04fa3ac4b465ee8ca142bdbeb47561e2c255fd5afff4544a80dffc83bc",
+  "v50m/native-bars-teleported-1.png": "9d37445cbc492893d65c2c8e3f545ba523b552e1ededeb7306ef65bc22d86b30",
+  "v50m/native-bars-v50m.json": "ac2e30adcc614637ca44506f979c79a114bff02ec60dfed1aadbe8d7a138b3b1",
+  "v50m/native-bars-v50m.log": "0e646a6681919d90cf614e09ea9be8df9c8dee05358164be221f8b13abc37e43",
+  "v50m/native-connector-dollhouse-south.png": "9d0dc61ddeced2ab2168150bfd21c3882f854c0ea3fc52089036a42660be5cbf",
+  "v50m/native-grey-follow-south-after-facing-north.png": "69f4f0ffdd35525ff2058dd65ea604b46705421e1363acbea051ee463522d60c",
+  "v50m/native-grey-follow-south-fresh.png": "69f4f0ffdd35525ff2058dd65ea604b46705421e1363acbea051ee463522d60c",
+  "v50m/native-hall-from-far-rooms-v50m.jpg": "f18c0878cc695a00133b5a9dc39a1cbba8790ac10e8bd08819198c2892664c6d",
+  "v50m/native-plinth-v50m.json": "eeae19b8d3259edd9391837251ee3c39696ec23803e5444fd56e86ee49700231",
+  "v50m/native-plinth-v50m.log": "4ff9dbb9b13f24f9bafb0e7cf8ee41c6a06034bc7675aec16243eba660e4a500",
+  "v50m/native-review-v50m.json": "d5dd8423ad99d544a5302b4135b50e41a4d4a4a42e84c72ac3091b8eeb26557a",
+  "v50m/native-review-v50m.log": "278be4f32a3b2de2439afd2937054d672c8eeb2df20c2a7632637056d1fb4303",
+  "v50m/native-roch-dollhouse-north.png": "2ba438c5311b9ff43954e5cf02024db7086999ce153c9faf7ed0e86aa94693ca",
+  "v50m/native-roch-dollhouse-south.png": "bcd8f52862c3386e122d2aac0124a52bc4fd56751e3c00678918da83d35554f0",
+  "v50m/native-roch-dollhouse-west.png": "0859d31128a44a495dafb99247231d0c6667b6ccd5265753bdbf3af88ba0f6bb",
+  "v50m/native-roch-follow-northwest.png": "815a9cd5e7993019be0ee635242dafddff9f3617046060686c911d75d3e2a20f",
+  "v50m/native-roch-follow-west.png": "c4cfc4b896f018c105e57d71e49f456bd3ee5089b0c85c0d3353099b121f798c",
+  "v50m/native-roch-gallery-view-west.png": "4fb3c1cc247bd74d3f8cbad3668aadde7e9035c1726e7f66a5167e3f9e24b18d",
+  "v50m/native-rockefeller-dollhouse-south.png": "13e9f6eafde7b91b83b0ac68f407ae023636ddd3c61db557e0be53aaed2f4ccd",
+  "v50m/native-rockefeller-gallery-view-east.png": "6aa815ad0fb8abbead5a673aec43714624feff7b318fcaf47f08d1631877d797",
+  "v50m/native-saint-roch-v50m.jpg": "dbb3ca99a138c8b3c175101f8a92f1155465131a608d6bd6be3549df967905de",
+  "v50m/native-west-gallery-dollhouse-north.png": "29dc71eeb663a524e4e9d06e86707e2fd4a22adbee799d6cb72f0867246881d2",
+  "v50m/review_v50m.gd": "60623f76f312b8b3972edcfa872898e876149ea8a034be4643dc6a3151e9b47a",
+  "v50m/review_v50m_bars.gd": "7a98e680ee3fdfb64e843be69df64ef7e0b2b4cb6808a238c0ccbeef4f0668ae",
+  "v50m/review_v50m_plinth.gd": "ca0cc7b6ef3120c592f7353b7431e6406a582605b83667ad501d1cff22cf28e2",
+  "v50n/native-connector-dollhouse-south.png": "091158449c6b7e130c6008cff135c820865e7ce98f0eed46bc64d566970ac7e5",
+  "v50n/native-grey-follow-south-after-facing-north.png": "4bacd404f0e21fec908e9d0513ce209ce6f77c90f1b03cb8ba77c6212eeba508",
+  "v50n/native-grey-follow-south-fresh.png": "4bacd404f0e21fec908e9d0513ce209ce6f77c90f1b03cb8ba77c6212eeba508",
+  "v50n/native-plinth.json": "6ac88eb3054c3b10c90d532736b801122719fcf0845874bd82bb013cac74e0ff",
+  "v50n/native-renaissance-dollhouse-south-near-north-wall.png": "24939077d445b197164f31c93e7d1c834a1f23cd03a6d992e6b4aa4c224aca66",
+  "v50n/native-review-plinth.log": "eca189b9340d615cb99005c10fc80550d07786665514f0b7eff218ea3a4b1092",
+  "v50n/native-review-views.log": "f46de212914c221770e804e82107f738d01bb357fb3525271e4cf8285fe5e6a4",
+  "v50n/native-review.json": "bd1472de37ac31e4d65a4d40ee2372c9743032e9c8182b93891313aea63d4870",
+  "v50n/native-roch-dollhouse-north.png": "c1c3272c2e23d5c00c4a9c424d755f6bdb22e7ac80be0910af912559b391f7b6",
+  "v50n/native-roch-dollhouse-south.png": "e0a0ca52131e197320dd9206d6211fe8039cbfb290f6c0ab8b75f82909be5527",
+  "v50n/native-roch-dollhouse-west.png": "69ee50d65e1af57332133ad40cf6b508f0d426f7ef1bba430bd825349a9db789",
+  "v50n/native-roch-follow-northwest.png": "a65f2715810a7d26c5cc858588271e916bc224e1fe25e456646cd7944aae3116",
+  "v50n/native-roch-follow-west.png": "041003502232b51ad815809a78b7882cad91b12a1ca40bde77fbc78dcb3ecbb0",
+  "v50n/native-roch-gallery-view-west.png": "4837b71a3fafcde596ba6c9ff4d9c4ffb450674504e31f6c257c6cc3c5f5652e",
+  "v50n/native-rockefeller-dollhouse-south.png": "f52efa6ac9146971a4b5417fa9777e1fcc5740f4dd76ac556d70801793f0d4de",
+  "v50n/native-rockefeller-follow-south-to-west-gallery.png": "0548cace8336846c260f95be0d589f17fcd4494a3d569da93b100e83e9ad862e",
+  "v50n/native-rockefeller-gallery-view-east.png": "d0d6cf4ac4f21c9f0689a4b80da21c87a7dbfc019e30331bc1188c102182e26c",
+  "v50n/native-west-gallery-dollhouse-north.png": "d4ee28be0f72c22964c164f73e387553029b9070bfba218d1114ee5794199fef",
+  "v50n/native-west-gallery-follow-north-to-rockefeller.png": "a4a6053f6a77654b4571f07d2d7838fd3df5a1d7336915686013bdfb22bbc328"
+ },
+ "missing": []
+}

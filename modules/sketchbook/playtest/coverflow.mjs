@@ -3,7 +3,7 @@ import assert from 'node:assert/strict';
 import {mkdir,writeFile,readFile} from 'node:fs/promises';
 const {chromium}=await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
 const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH,args:['--enable-unsafe-swiftshader']});
-const page=await browser.newPage({viewport:{width:1600,height:1000}});
+const page=await browser.newPage({viewport:{width:1080,height:1080}});
 const errors=[];
 page.on('console',message=>{if(/SCRIPT ERROR|^ERROR:/.test(message.text()))errors.push(message.text())});
 page.on('pageerror',error=>errors.push(error.message));
@@ -17,7 +17,8 @@ const rect=value=>Array.isArray(value)?value:value.match(/-?\d+(?:\.\d+)?/g).map
 const screen=async point=>{const q=await state();return point.map((p,i)=>p*q.display_size[i]/q.logical_size[i])};
 const click=async point=>page.mouse.click(...await screen(point));
 const center=value=>{const r=rect(value);return[r[0]+r[2]/2,r[1]+r[3]/2]};
-const tab=async index=>{await click(center((await state()).shell.tabs[index].rect));await page.waitForFunction(i=>window.shellCrtQa?.shell.active===i&&!window.shellCrtQa.shell.switching,index);await wait(350)};
+// SquareChrome owns the visible buttons; the Shell state still reports its hidden legacy strip.
+const tab=async index=>{await click([100+index*127+63.5,1053]);await page.waitForFunction(i=>window.shellCrtQa?.shell.active===i&&!window.shellCrtQa.shell.switching,index);await wait(350)};
 const selected=async index=>page.waitForFunction(i=>window.shellCrtQa?.tenant.painting_viewer?.selected===i&&Math.abs(window.shellCrtQa.tenant.painting_viewer.position-i)<.01,index);
 // Pick an exposed face point, checking the visible polygons in reverse draw order.
 const face=async index=>{
@@ -149,7 +150,7 @@ try{
  assert.ok(q.tenant.painting_viewer.ticks-saved.painting_viewer.ticks<35,'hidden tab freezes animation');
  assert.equal(q.tenant.strokes,1);
  await page.screenshot({path:`${output}/book-and-viewer.png`});
- await page.setViewportSize({width:1200,height:800});await wait(1200);
+ await page.setViewportSize({width:900,height:900});await wait(1200);
  q=await state();const r=q.tenant.painting_viewer_rect;
  assert.ok(r[0]>=0&&r[1]>=0&&r[0]+r[2]<=q.logical_size[0]+1);
  await page.screenshot({path:`${output}/compact.png`});

@@ -1,0 +1,32 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "vertical_fov_degrees": 20
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 0,
+    "contacts_per_loop": 0,
+    "cycles": 3,
+    "idle_control": false,
+    "kind": "contact-timed deterministic native mesh dust puffs"
+  },
+  "fps": 30,
+  "frames_per_cycle": 32,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "Before: provider skin",
+      "minimum_sole_y_m": -0.091779813170433
+    },
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "After: rigid chibi head",
+      "minimum_sole_y_m": -0.0917787924408913
+    }
+  ],
+  "seconds": 1.06666672229767
+}

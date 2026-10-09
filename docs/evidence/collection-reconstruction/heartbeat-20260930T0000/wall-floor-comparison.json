@@ -1,0 +1,256 @@
+{
+  "training": {
+    "casing-left": {
+      "13": [
+        52,
+        794
+      ],
+      "18": [
+        127,
+        858
+      ]
+    },
+    "casing-right": {
+      "13": [
+        459,
+        766
+      ],
+      "18": [
+        630,
+        872
+      ]
+    },
+    "purple-reentrant": {
+      "10": [
+        334,
+        734
+      ],
+      "13": [
+        531,
+        782
+      ]
+    },
+    "purple-door5-toe": {
+      "10": [
+        463,
+        861
+      ],
+      "13": [
+        710,
+        981
+      ]
+    }
+  },
+  "reserved": {
+    "12": {
+      "casing-left": [
+        18,
+        789
+      ],
+      "casing-right": [
+        413,
+        748
+      ],
+      "purple-reentrant": [
+        479,
+        761
+      ],
+      "purple-door5-toe": [
+        640,
+        935
+      ]
+    },
+    "15": {
+      "casing-left": [
+        101,
+        815
+      ],
+      "casing-right": [
+        534,
+        808
+      ],
+      "purple-reentrant": [
+        620,
+        830
+      ]
+    }
+  },
+  "labels": [
+    "casing-left",
+    "casing-right",
+    "purple-reentrant",
+    "purple-door5-toe"
+  ],
+  "points_world": [
+    [
+      0.44497124342518085,
+      1.6647619217900567,
+      1.4406824200456316
+    ],
+    [
+      0.42480505274273245,
+      2.402193378950418,
+      1.614968959438807
+    ],
+    [
+      0.442128827836947,
+      2.52295999736831,
+      1.6867178596165122
+    ],
+    [
+      0.29031556950799847,
+      2.3590562231541066,
+      2.173872348992144
+    ]
+  ],
+  "center_world": [
+    0.40055517337821467,
+    2.2372428803157227,
+    1.7290603970232736
+  ],
+  "normal_world": [
+    -0.9658261189281091,
+    0.056442614254438445,
+    -0.25297062930781267
+  ],
+  "ray_angles_degrees": [
+    8.355649444029684,
+    6.910397084473228,
+    2.93540694352983,
+    5.6762812974582015
+  ],
+  "plane_spread_singular_values_m": [
+    2.005563679244628,
+    1.115316662422212,
+    0.05257649858833647
+  ],
+  "plane_residuals_m": [
+    0.005934605031103371,
+    0.03874563030391075,
+    0.034973806978647756,
+    0.0021627817058400296
+  ],
+  "reserved_threshold_knot_distance_m": 0.03232766319404884,
+  "provisional_m_per_unit": 2.6266704457139363,
+  "source_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-calibrated-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000010.jpg": "70cde33d715da11c8a0821a9ffaceec3c60f1a2a8e2a641cd81c23769adf5b7a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000012.jpg": "281e4b94377f1ebbd8c1564bb57bc68ec6d2a64f05a226f6472fafc5a5957abe",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000013.jpg": "56c308f8015aab6eea50e3d2ecbd324c0a8c7822b5326b5bcaf50c895ac37c7e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000015.jpg": "0e694c29f0d3eef9c71308cca1270504df4525ff315b546058640ba61e9fc02a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-doorway-v1/images/IMG_6380_exit6fps/000018.jpg": "c8d1d99174a00064a2e7be47876bc3c59e25cbe87032c5848e7f47dd9dd6cf02"
+  },
+  "errors": [
+    {
+      "frame": 10,
+      "landmark": "purple-reentrant",
+      "reserved": false,
+      "error_px": 0.8635659285743328
+    },
+    {
+      "frame": 10,
+      "landmark": "purple-door5-toe",
+      "reserved": false,
+      "error_px": 2.831863134351635
+    },
+    {
+      "frame": 12,
+      "landmark": "casing-left",
+      "reserved": true,
+      "error_px": 8.896567565087096
+    },
+    {
+      "frame": 12,
+      "landmark": "casing-right",
+      "reserved": true,
+      "error_px": 1.9777749597895342
+    },
+    {
+      "frame": 12,
+      "landmark": "purple-reentrant",
+      "reserved": true,
+      "error_px": 3.1062363506482864
+    },
+    {
+      "frame": 12,
+      "landmark": "purple-door5-toe",
+      "reserved": true,
+      "error_px": 3.6429001162465986
+    },
+    {
+      "frame": 13,
+      "landmark": "casing-left",
+      "reserved": false,
+      "error_px": 1.5811465735712604
+    },
+    {
+      "frame": 13,
+      "landmark": "casing-right",
+      "reserved": false,
+      "error_px": 1.2180860670207367
+    },
+    {
+      "frame": 13,
+      "landmark": "purple-reentrant",
+      "reserved": false,
+      "error_px": 0.9540468267063973
+    },
+    {
+      "frame": 13,
+      "landmark": "purple-door5-toe",
+      "reserved": false,
+      "error_px": 3.530825235439688
+    },
+    {
+      "frame": 15,
+      "landmark": "casing-left",
+      "reserved": true,
+      "error_px": 3.36255758930812
+    },
+    {
+      "frame": 15,
+      "landmark": "casing-right",
+      "reserved": true,
+      "error_px": 1.2828022100028276
+    },
+    {
+      "frame": 15,
+      "landmark": "purple-reentrant",
+      "reserved": true,
+      "error_px": 4.1686676821909145
+    },
+    {
+      "frame": 18,
+      "landmark": "casing-left",
+      "reserved": false,
+      "error_px": 1.7727460109717346
+    },
+    {
+      "frame": 18,
+      "landmark": "casing-right",
+      "reserved": false,
+      "error_px": 1.7198285954101311
+    }
+  ],
+  "withheld_frame15_pose_inliers": 282,
+  "pick_sensitivity": {
+    "uniform_radius_px": 3,
+    "trials": 300,
+    "percentiles": [
+      5,
+      50,
+      95
+    ],
+    "normal_deviation_degrees": [
+      0.5937000425866175,
+      2.5283804429571095,
+      7.0361210765585405
+    ]
+  },
+  "navigation_accepted": false,
+  "caveat": "Frame 12 reserves manual geometry picks only: its pose contributed to SfM. Frame 15 was withheld from SfM, but is from the same correlated video and was used in previous trials. Blurry wall/baseboard junctions and provisional scale remain. Pixel perturbation is sensitivity, not a confidence interval or gravity calibration."
+}

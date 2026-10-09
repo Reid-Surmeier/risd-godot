@@ -1,0 +1,91 @@
+{
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "trials": [
+    {
+      "trial": "doorway-aperture-v1",
+      "annotations": {
+        "IMG_6380_exit6fps/000013.jpg": [
+          [
+            84,
+            770
+          ],
+          [
+            431,
+            746
+          ]
+        ],
+        "IMG_6380_exit6fps/000019.jpg": [
+          [
+            150,
+            851
+          ],
+          [
+            598,
+            859
+          ]
+        ],
+        "IMG_6380_exit6fps/000021.jpg": [
+          [
+            106,
+            899
+          ],
+          [
+            608,
+            924
+          ]
+        ]
+      },
+      "training": [
+        "IMG_6380_exit6fps/000013.jpg",
+        "IMG_6380_exit6fps/000019.jpg"
+      ],
+      "reserved": "IMG_6380_exit6fps/000021.jpg",
+      "omitted_training": [
+        "IMG_6380_exit6fps/000018.jpg"
+      ],
+      "points_world": [
+        [
+          0.5073803087348123,
+          1.7907710388303677,
+          1.287272449735865
+        ],
+        [
+          0.5198717804369031,
+          2.4826838031648477,
+          1.378226983311568
+        ]
+      ],
+      "ray_angles_degrees": [
+        9.419942345005552,
+        7.915784360383489
+      ],
+      "errors_px": {
+        "IMG_6380_exit6fps/000013.jpg": [
+          0.3202201663136469,
+          0.23238631630660467
+        ],
+        "IMG_6380_exit6fps/000019.jpg": [
+          0.3821128530439527,
+          0.3345129111461411
+        ],
+        "IMG_6380_exit6fps/000021.jpg": [
+          14.342450559407792,
+          9.42795997761794
+        ]
+      },
+      "diagnostic_pass": false,
+      "threshold_px": 8,
+      "old_query_errors_px": null,
+      "input_sha256": "54745a22a7a5921b74bf50a4658420d10860d1c073dc479d6bcfeab3ed1eae3f"
+    }
+  ],
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Old picks frozen; camera poses/points rebuilt without exit6fps 18/48. Reserved manual pixels excluded from triangulation, not independent captures. Threshold/floor anchors previously fitted with excluded frame 18 must be remeasured. No inherited world-coordinate floor/collision transplant or independent scale acceptance."
+}

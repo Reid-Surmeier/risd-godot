@@ -1,0 +1,260 @@
+[
+  {
+    "source": "collection-v50l-main-build-check.log",
+    "source_sha256": "16ccf0be84a9f8da5ce0fc1de6ddd15076fafda113dbdcc8e90d7a8c7d421361",
+    "archive": "raw-logs/earlier/collection-v50l-main-build-check.log.gz",
+    "archive_sha256": "91c2b27b9505bd3b6769c6ec72f8a1451791e1498a54bb94483fa8f8ccc0d878"
+  },
+  {
+    "source": "collection-v49j-initial-import.log",
+    "source_sha256": "2fcc106e5db562f7a202d4c7c1dc892910b7ae0d215a5bde3f57bb87dbdecc76",
+    "archive": "raw-logs/earlier/collection-v49j-initial-import.log.gz",
+    "archive_sha256": "7f9bab4a95752ba865e35e812347fb08f9785b67cedc44787ee12183dd5b78df"
+  },
+  {
+    "source": "collection-v49i-architecture-check.log",
+    "source_sha256": "f5a5bb07ddea9b9e047d0da17f7fcf7a390083da1ee30e2887a4b0ed399e5c06",
+    "archive": "raw-logs/earlier/collection-v49i-architecture-check.log.gz",
+    "archive_sha256": "62c631b6126b071d357ed377ca424c15f9a1c91c8bf93b1aa64149c8fea31655"
+  },
+  {
+    "source": "collection-v49i-bake-import.log",
+    "source_sha256": "f15ffd4c558b01611d562c8c257508942bdc2dc542124f423ae2a592a46edfa6",
+    "archive": "raw-logs/earlier/collection-v49i-bake-import.log.gz",
+    "archive_sha256": "e43c689a9d9dd83a2f2e309af70df886382da11cacf37db241c16b7b11aa3a53"
+  },
+  {
+    "source": "collection-v49j-prepare.log",
+    "source_sha256": "8ea1312a6696f9f091e802c97d586c13f065eeb66d5ea4f7eb78f58dcbb0cec3",
+    "archive": "raw-logs/earlier/collection-v49j-prepare.log.gz",
+    "archive_sha256": "f1a25b1fecc3f51dc64b96cf284d7cf7efbe1a777195b27d6c17f89d52a0b0e4"
+  },
+  {
+    "source": "collection-v50j-architecture-capture.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50j-architecture-capture.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "collection-v49i-bake.log",
+    "source_sha256": "81bcb18b5945aecf2a4d6754a4827c784da609e2788b2e9f979a63e9e47d6509",
+    "archive": "raw-logs/earlier/collection-v49i-bake.log.gz",
+    "archive_sha256": "430dbbd4ac7544b2818bd1769a08a9e38c34423338bc24c46c1aebd9c1cfe0d3"
+  },
+  {
+    "source": "collection-v50k-architecture-capture-corrected.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50k-architecture-capture-corrected.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "collection-v50k-hall-rebind-capture.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50k-hall-rebind-capture.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "collection-v49i-negative-architecture-check.log",
+    "source_sha256": "4f31c828d3bae28e3404347612345c7187557ce11a0a206afac10fd19c48ec74",
+    "archive": "raw-logs/earlier/collection-v49i-negative-architecture-check.log.gz",
+    "archive_sha256": "78f83f4404b9b5fa878f57002c2a487ed88a50dbd4bb0f6dc6d46e8ed6e475d7"
+  },
+  {
+    "source": "collection-v49j-bake-prime.log",
+    "source_sha256": "cf313dab179198220e6a6ca6095e2e4bf7667940672f7a8e2d8226f8dbbd0908",
+    "archive": "raw-logs/earlier/collection-v49j-bake-prime.log.gz",
+    "archive_sha256": "7f641f046d25b098cdfb757e9f782ac733a16895394932c31b72fc5a296d0f98"
+  },
+  {
+    "source": "collection-v49j-bake-prepare.log",
+    "source_sha256": "426d59cd6270d821071bd9f8d6b27c59e0b2745483b1e0015fdb76abd0597366",
+    "archive": "raw-logs/earlier/collection-v49j-bake-prepare.log.gz",
+    "archive_sha256": "13f89e563b7b1586dd139c61e10e6c6b430432fcc5aca01d750027145f3c1d5d"
+  },
+  {
+    "source": "collection-v50l-copy.log",
+    "source_sha256": "1126395f67257512d747546ff0351c75223199f0bc640e0c5b87551561049687",
+    "archive": "raw-logs/earlier/collection-v50l-copy.log.gz",
+    "archive_sha256": "82a58b7f908ade2dc665389470dc9400fe993857ca7d517766df5af3a9054d6b"
+  },
+  {
+    "source": "collection-v49j-bake-import.log",
+    "source_sha256": "f15ffd4c558b01611d562c8c257508942bdc2dc542124f423ae2a592a46edfa6",
+    "archive": "raw-logs/earlier/collection-v49j-bake-import.log.gz",
+    "archive_sha256": "e43c689a9d9dd83a2f2e309af70df886382da11cacf37db241c16b7b11aa3a53"
+  },
+  {
+    "source": "collection-v49i-bake-prime-import.log",
+    "source_sha256": "0e9619b3491283555b643b1bdec015bda2ac1c8f308977064c61eb06e57c665d",
+    "archive": "raw-logs/earlier/collection-v49i-bake-prime-import.log.gz",
+    "archive_sha256": "00e87e814f9da9707334c6a5a66ea81a7d377eb6c16f27381585c1f346091401"
+  },
+  {
+    "source": "collection-v49i-prepare.log",
+    "source_sha256": "aa1aa3d004fe12c4f605cac5d3a39a7bc29cff50af651eebb59ded9d04882493",
+    "archive": "raw-logs/earlier/collection-v49i-prepare.log.gz",
+    "archive_sha256": "a29abfafa93869e1e776fb7108798db4936fcdc1a4abc6b3dfc9e94c8797c79c"
+  },
+  {
+    "source": "collection-v50j-doorway-capture.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50j-doorway-capture.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "collection-v50i-copy.log",
+    "source_sha256": "797979b7b58b8fa1fb445373aac83905e9c71eca2741ef994dd35782f824fab1",
+    "archive": "raw-logs/earlier/collection-v50i-copy.log.gz",
+    "archive_sha256": "901f6633598a24f5393fbbf11df49c18b9c05ab3d91c4fd32a6ecf54c2221815"
+  },
+  {
+    "source": "collection-v49i-baked-architecture-check.log",
+    "source_sha256": "4c2f7b6c205cc7d52e095eea01a9985e69f0188517ee52367d8df2e98b49faee",
+    "archive": "raw-logs/earlier/collection-v49i-baked-architecture-check.log.gz",
+    "archive_sha256": "2f35e275c5ad0ec1fc3a691a38ccbbd1c1f041418f5677372b2f8acd10681936"
+  },
+  {
+    "source": "collection-v50k-initial-import.log",
+    "source_sha256": "292810dd588e7d3434f093d6d7ee1e0eb12ea8a234c20e24d9774d0a33ddb1e7",
+    "archive": "raw-logs/earlier/collection-v50k-initial-import.log.gz",
+    "archive_sha256": "b1e280629169a8a6d2f765e896c2afefe2f729542e610bd26c7ca70dc195cae9"
+  },
+  {
+    "source": "collection-v50k-copy.log",
+    "source_sha256": "6929f5a8e2eb1c3a7cedc9c6fe3d4721b42c0e5b85692e18611a9f0a37b63d6a",
+    "archive": "raw-logs/earlier/collection-v50k-copy.log.gz",
+    "archive_sha256": "806d31334e079e72b1acf4eaf9d7cae04b1762910c5b75ffa3c3fe1632b7f507"
+  },
+  {
+    "source": "collection-v49j-bake-prime-import.log",
+    "source_sha256": "0e9619b3491283555b643b1bdec015bda2ac1c8f308977064c61eb06e57c665d",
+    "archive": "raw-logs/earlier/collection-v49j-bake-prime-import.log.gz",
+    "archive_sha256": "00e87e814f9da9707334c6a5a66ea81a7d377eb6c16f27381585c1f346091401"
+  },
+  {
+    "source": "collection-v50k-architecture-capture.log",
+    "source_sha256": "10967793359a4250bfc6e19da6babb864c05e4cdb95985b9b7808170ff9b80a7",
+    "archive": "raw-logs/earlier/collection-v50k-architecture-capture.log.gz",
+    "archive_sha256": "2b9c1b71d4a5823be86409212f4bb9b062018b0c7240052cab210d33c1e247fe"
+  },
+  {
+    "source": "collection-v50j-copy.log",
+    "source_sha256": "7f05e84e367169c3b32285e4432ae43d94d211a787403d1e1e1f1bacf8d095b4",
+    "archive": "raw-logs/earlier/collection-v50j-copy.log.gz",
+    "archive_sha256": "c5ec5bfec8d44e1b45ff6cae0251b03841ed4763e79d26d23e8452047618fe7c"
+  },
+  {
+    "source": "collection-v50j-initial-import.log",
+    "source_sha256": "d9afbc708b8c3ce014d349431c91580f82c9d1d4ae89c206fb904a4da9b7d193",
+    "archive": "raw-logs/earlier/collection-v50j-initial-import.log.gz",
+    "archive_sha256": "af871ccaefba38d41f6f50b0227349b9350ce60579f13250c5d2581cc8cb16d8"
+  },
+  {
+    "source": "collection-v49i-baked-architecture-check-corrected.log",
+    "source_sha256": "db952ed88df2b96afe9cb70e7ec81441e4f6d4bc311bed1145adff8a07015e78",
+    "archive": "raw-logs/earlier/collection-v49i-baked-architecture-check-corrected.log.gz",
+    "archive_sha256": "1dc6f600ac09a87c7d76f8c1a2a3a99d29ce5a245cae63a3e9a04da9859397e0"
+  },
+  {
+    "source": "collection-v49j-bake.log",
+    "source_sha256": "6b62a2c5b6db930ce0478d65a8a9a21658419fbde18429080b0c47842ae1b17e",
+    "archive": "raw-logs/earlier/collection-v49j-bake.log.gz",
+    "archive_sha256": "0383f220cf3c57682de8c975be7d09ed70953d2e7243e82969e5041e1ea37554"
+  },
+  {
+    "source": "collection-v50k-repo-check.log",
+    "source_sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "archive": "raw-logs/earlier/collection-v50k-repo-check.log.gz",
+    "archive_sha256": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5"
+  },
+  {
+    "source": "collection-v49i-bake-prepare.log",
+    "source_sha256": "996e7763c2ba60c13997c19b3740eaf4d172b7b4b3aa4c4f2956c7c088646206",
+    "archive": "raw-logs/earlier/collection-v49i-bake-prepare.log.gz",
+    "archive_sha256": "2124df6ae8ed358c1efc0512876d3b7c799b43d558c718e024180bea9fb97ecc"
+  },
+  {
+    "source": "collection-v50i-native-capture.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50i-native-capture.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "collection-v49j-architecture-check.log",
+    "source_sha256": "b024ea82d6a4b7f1baf74e3cf09c3810459cd01c11433b748d47ef4438f2242e",
+    "archive": "raw-logs/earlier/collection-v49j-architecture-check.log.gz",
+    "archive_sha256": "d04803b7cae5bb750ac5a11d05945dec0d26950593529307492c62d01a34e121"
+  },
+  {
+    "source": "collection-v49j-bake-run.log",
+    "source_sha256": "70a8259497fa5f33f1039eb3e11f76b9743bfd525f5c9b48f4cf5823b05f40d5",
+    "archive": "raw-logs/earlier/collection-v49j-bake-run.log.gz",
+    "archive_sha256": "6b99ac6bb8f172ee596e48e2f38507d0cec42a3cbada110d9bbc57fc1ea778fa"
+  },
+  {
+    "source": "collection-v50i-keyboard-check.log",
+    "source_sha256": "9239606ae2440ac2bb7fb9a0ce1223b1b0b210805f3979b501bb96f924fe02ee",
+    "archive": "raw-logs/earlier/collection-v50i-keyboard-check.log.gz",
+    "archive_sha256": "a5bf2b92105a9ccae8c7cd17e5cb58e5943d806d483286abdfb3604d6f0421dc"
+  },
+  {
+    "source": "collection-v49i-repo-check.log",
+    "source_sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "archive": "raw-logs/earlier/collection-v49i-repo-check.log.gz",
+    "archive_sha256": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5"
+  },
+  {
+    "source": "collection-v50j-keyboard-check.log",
+    "source_sha256": "9239606ae2440ac2bb7fb9a0ce1223b1b0b210805f3979b501bb96f924fe02ee",
+    "archive": "raw-logs/earlier/collection-v50j-keyboard-check.log.gz",
+    "archive_sha256": "a5bf2b92105a9ccae8c7cd17e5cb58e5943d806d483286abdfb3604d6f0421dc"
+  },
+  {
+    "source": "collection-v49i-bake-run.log",
+    "source_sha256": "6cc5db2096326ba944de7c81fb895613d01e8397e135874b5eb5c00f5b834675",
+    "archive": "raw-logs/earlier/collection-v49i-bake-run.log.gz",
+    "archive_sha256": "b1cb123f09fb29d464b488f3600e2ffd3a6b2dc1817a633c8182c4b00d8bddf1"
+  },
+  {
+    "source": "collection-v50i-initial-import.log",
+    "source_sha256": "9420aecee54df77cd61db75d6e12913850e04bec29e58f76c7752a4c42072dd4",
+    "archive": "raw-logs/earlier/collection-v50i-initial-import.log.gz",
+    "archive_sha256": "7ad466193ad15cce4b6f0245c27d25d3fa0ad3e420f9659913481eb83c195034"
+  },
+  {
+    "source": "collection-v49i-initial-import.log",
+    "source_sha256": "66af479a82b4fb1ab70feeecf3dccd2defeac54c225e828ada2ce1ea60cee35c",
+    "archive": "raw-logs/earlier/collection-v49i-initial-import.log.gz",
+    "archive_sha256": "4aa1001210356a27b2e70f7beda866727d71a821cef8d3caa039f5523d750445"
+  },
+  {
+    "source": "collection-v50l-initial-import.log",
+    "source_sha256": "9420aecee54df77cd61db75d6e12913850e04bec29e58f76c7752a4c42072dd4",
+    "archive": "raw-logs/earlier/collection-v50l-initial-import.log.gz",
+    "archive_sha256": "7ad466193ad15cce4b6f0245c27d25d3fa0ad3e420f9659913481eb83c195034"
+  },
+  {
+    "source": "collection-v49i-bake-prime.log",
+    "source_sha256": "cf313dab179198220e6a6ca6095e2e4bf7667940672f7a8e2d8226f8dbbd0908",
+    "archive": "raw-logs/earlier/collection-v49i-bake-prime.log.gz",
+    "archive_sha256": "7f641f046d25b098cdfb757e9f782ac733a16895394932c31b72fc5a296d0f98"
+  },
+  {
+    "source": "collection-v50k-doorway-capture.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50k-doorway-capture.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "collection-v50j-native-capture.log",
+    "source_sha256": "30accb694b32f237b8049b7e51e23cd131a2734df142a07e4282f11a6329671e",
+    "archive": "raw-logs/earlier/collection-v50j-native-capture.log.gz",
+    "archive_sha256": "16c64c683f217327e14433d72d38025bebc08dc6a0957a6a04e143d58887277d"
+  },
+  {
+    "source": "shell-playtest/godot.log",
+    "source_sha256": "ea3176bf205350b0803d4a558a4b02c3a4dfae6d8db575751556b850b088cd6d",
+    "archive": "raw-logs/earlier/shell-playtest/godot.log.gz",
+    "archive_sha256": "f9eaceb39941cd8ed5f981be973ccd9b7e0caaec4f8688ed50908e96c254f905"
+  }
+]

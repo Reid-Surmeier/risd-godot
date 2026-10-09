@@ -1,0 +1,21 @@
+{
+  "date_utc": "2026-10-01T15:01:00.944759+00:00",
+  "accession": "2020.55",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "run_id": "run-2ee4b0d0613d42f31ef80703",
+  "output_count": 1,
+  "cost_usd": "0.010000",
+  "durable_cost_state": "actual",
+  "provider_spend_state": "unknown",
+  "retry_state": "never-resubmit",
+  "native_sha256": "1e3cd72922649181dc3620f6f0160182cc0c04f01628ba97e056e132958ec8ab",
+  "visual_review": "Root inspected; preliminary front/boat modelling guide only",
+  "limits": [
+    "Invented floral rear rejected: video opposite face has second Christ roundel",
+    "Both boat sides repeated, west face unobserved",
+    "Lid/feet too ornamented for plain closed low-poly helper; simplify conservatively",
+    "No geometry installed, no placement/fidelity acceptance"
+  ],
+  "geometry_installed": false
+}

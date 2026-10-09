@@ -1,0 +1,2 @@
+108:FAIL added rooms without a floor: ["white sculpture gallery threshold study limit"]
+125:ADAPTER_CHECK FAILED ["added rooms without a floor: [\"white sculpture gallery threshold study limit\"]"]

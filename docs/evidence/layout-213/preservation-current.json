@@ -1,0 +1,41 @@
+{
+  "baseline": "9864f723",
+  "files": [
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/playground_page/square_pages.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/painting_flow.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    },
+    {
+      "file": "prototype/mr-baby-paint-audio/main.gd",
+      "tree_tokens_comments_hashes": "PASS"
+    }
+  ]
+}

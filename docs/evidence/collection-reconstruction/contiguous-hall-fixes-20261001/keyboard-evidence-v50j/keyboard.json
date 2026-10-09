@@ -1,0 +1,85 @@
+{
+	"failures": [],
+	"rows": [
+		{
+			"closest_m": 0.0799996256828308,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "arch",
+			"test": "landing-modern"
+		},
+		{
+			"closest_m": 0.0799996256828308,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "arch",
+			"test": "modern-landing"
+		},
+		{
+			"closest_m": 0.0400018692016602,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "arch",
+			"test": "landing-sculpture"
+		},
+		{
+			"closest_m": 0.0400018692016602,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "arch",
+			"test": "sculpture-landing"
+		},
+		{
+			"closest_m": 0.0400018692016602,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "arch",
+			"test": "medieval-landing"
+		},
+		{
+			"closest_m": 0.0400018692016602,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "arch",
+			"test": "landing-medieval"
+		},
+		{
+			"closest_m": 0.0799636840820312,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "far",
+			"test": "grey-piano"
+		},
+		{
+			"closest_m": 0.0799636840820312,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "far",
+			"test": "piano-grey"
+		},
+		{
+			"closest_m": 0.0599575042724609,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "far",
+			"test": "hall-grey"
+		},
+		{
+			"closest_m": 0.0599575042724609,
+			"key_released": true,
+			"passed": true,
+			"root_key_delivered": true,
+			"space": "gallery",
+			"test": "grey-hall"
+		}
+	]
+}

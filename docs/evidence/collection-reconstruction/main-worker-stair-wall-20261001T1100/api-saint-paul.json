@@ -1,0 +1,553 @@
+[
+  {
+    "id": "1578756",
+    "collection": "",
+    "credit": "The Gorham Collection. Gift of Textron Inc.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1894",
+    "datingYearTo": "1894",
+    "description": "<p>Saint Paul Spoon</p>\n",
+    "dimensions": "16.3 x 3.5 x 2 cm (6 7/16 x 1 3/8 x 13/16 inches)",
+    "edition": "",
+    "inscription": "Marked: STERLING / [lion] [anchor] G.",
+    "makers": [
+      {
+        "name": "Gorham Manufacturing Company",
+        "risdAffiliation": null,
+        "years": "1831-present",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "silver"
+    ],
+    "mediumTechnique": "sterling silver",
+    "objectNumber": "1991.126.565.6",
+    "onView": false,
+    "place": "Place Made: Providence; Place Made: Rhode Island",
+    "primaryMaker": "Gorham Manufacturing Company",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1578741"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "silver"
+    ],
+    "title": "Saint Paul Spoon",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/saint-paul-spoon-19911265656"
+  },
+  {
+    "id": "1509941",
+    "collection": "",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1632",
+    "datingYearTo": "1636",
+    "description": "<p>The Infant Christ and Saint John Playing with the Lamb</p>\n",
+    "dimensions": "Plate: 34 x 45.6 cm (13 3/8 x 17 15/16 inches)",
+    "edition": "",
+    "inscription": "Original--Recto:in pencil, LR:11-In Plate--Initialed, LC:C.I.; in LL:P.P.Rub. delin./&amp; excudit.; in center of bottom:CVM PRIVILEGIIS.; in LR:C. Iegher. sculp.\nMarks: RISD Museum stamp in brown ink on verso Watermark:Cross over the letter B",
+    "makers": [
+      {
+        "name": "Christoffel Jegher",
+        "risdAffiliation": null,
+        "years": "1596-1652/53",
+        "nationality": [
+          "Flemish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Peter Paul Rubens",
+        "risdAffiliation": null,
+        "years": "1577-1640",
+        "nationality": [
+          "Flemish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Woodcut on paper"
+    ],
+    "mediumTechnique": "woodcut",
+    "objectNumber": "49.120",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Christoffel Jegher",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "ii/iii",
+    "support": [
+      "Light weight cream laid paper"
+    ],
+    "technique": [
+      "Woodcut on paper"
+    ],
+    "title": "The Infant Christ and Saint John Playing with the Lamb",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/infant-christ-and-saint-john-playing-lamb-49120"
+  },
+  {
+    "id": "1551311",
+    "collection": "",
+    "credit": "Collector's Acquisition Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1600",
+    "datingYearTo": "1699",
+    "description": "<p>The Supposed Finding of the Remains of Saint Peter and Saint Paul</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Giovanni Benedetto Castiglione",
+        "risdAffiliation": null,
+        "years": "1609 - 1664",
+        "nationality": [
+          "Italian"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "etching"
+    ],
+    "mediumTechnique": "etching",
+    "objectNumber": "68.154",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Giovanni Benedetto Castiglione",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "etching"
+    ],
+    "title": "The Supposed Finding of the Remains of Saint Peter and Saint Paul",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/supposed-finding-remains-saint-peter-and-saint-paul-68154"
+  },
+  {
+    "id": "1192666",
+    "collection": "",
+    "credit": "Museum Collection",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1739",
+    "datingYearTo": "1739",
+    "description": "<p>Holy Family and Four Saints<br>Titiani Vecelii, Paul Caliarii, Jacobi Robusti et Jacobi de Ponte; Opera Selection a Joanne Baptista Jackson, Angelo, Ligano Coelata et Coloribus Adumbrata</p>\n",
+    "dimensions": "55.6 x 39.4 cm (21 7/8 x 15 1/2 inches) (plate)",
+    "edition": "",
+    "inscription": "Original--Recto:numbered in pencil in center of right margin:4In Plate--Inscribed, in LC:GPerillustri et Nobili Viro D no. D no./BOURCHIER WREY BARRONETTO/Generoso Artium Liberalium Fautori.in sui Obsequium D.D.D.J.B. Jackson/P:C: Veronese\nMarks: Stamped in brown ink on verso:R.I.S.D./MUSEUM/OF ART surrounded by PROVIDENCE/RHODE ISLAND",
+    "makers": [
+      {
+        "name": "Paolo Veronese",
+        "risdAffiliation": null,
+        "years": "1528-1588",
+        "nationality": [
+          "Italian"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "John Baptist Jackson",
+        "risdAffiliation": null,
+        "years": "1701-ca. 1780",
+        "nationality": [
+          "British"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "chiaroscuro woodcut"
+    ],
+    "mediumTechnique": "chiaroscuro woodcut",
+    "objectNumber": "47.396.5",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "John Baptist Jackson",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1406876"
+    ],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "chiaroscuro woodcut"
+    ],
+    "title": "Holy Family and Four Saints",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/holy-family-and-four-saints-473965"
+  },
+  {
+    "id": "1256016",
+    "collection": "",
+    "credit": "The Gorham Collection. Gift of Textron Inc.",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>Saint Paul Spoon</p>\n",
+    "dimensions": "",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Gorham Manufacturing Company",
+        "risdAffiliation": null,
+        "years": "1831-present",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "sterling silver"
+    ],
+    "mediumTechnique": "sterling silver",
+    "objectNumber": "1991.126.566.6",
+    "onView": false,
+    "place": "Place Made: Providence; Place Made: Rhode Island",
+    "primaryMaker": "Gorham Manufacturing Company",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1351841"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "sterling silver"
+    ],
+    "title": "Saint Paul Spoon",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/saint-paul-spoon-19911265666"
+  },
+  {
+    "id": "1475031",
+    "collection": "",
+    "credit": "Museum Collection",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1742",
+    "datingYearTo": "1742",
+    "description": "<p>The Virgin in the Clouds and Six Saints<br>Titiani Vecelii, Paul Caliarii, Jacobi Robusti et Jacobi de Ponte; Opera Selection a Joanne Baptista Jackson, Angelo, Ligano Coelata et Coloribus Adumbrata</p>\n",
+    "dimensions": "58.4 x 34.5 cm (23 x 13 9/16 inches) (plate)",
+    "edition": "",
+    "inscription": "Original--Recto:numbered in pencil in center of right margin: 8In Plate--Inscribed, in LC:J:B: Jackson Del: Sculp. &amp;c. 1742.;in shngle, center of image:TITIANUS/FACIEBAT; Inscribed in UL:Ill mo. atq: Excell. mo. D.no D. no PHILLIPPO FARSETTI Nob. Ven./Tabellam hanc a Titiano Viccellio jam depictam in /gratissimi animi, cultusq. perpetui testimonium, / Mecoenati, ac Sospiti munificentissimo/humilat, et consecrat J.B. Jackson\nMarks: Stamped in brown ink on verso:R.I.S.D./MUSEUM/OF ART surrounded by PROVIDENCE/RHODE ISLAND",
+    "makers": [
+      {
+        "name": "Titian",
+        "risdAffiliation": null,
+        "years": "1488/90-1576",
+        "nationality": [
+          "Italian; Venetian"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "John Baptist Jackson",
+        "risdAffiliation": null,
+        "years": "1701-ca. 1780",
+        "nationality": [
+          "British"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "chiaroscuro woodcut"
+    ],
+    "mediumTechnique": "chiaroscuro woodcut",
+    "objectNumber": "47.396.9",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "John Baptist Jackson",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1406876"
+    ],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "chiaroscuro woodcut"
+    ],
+    "title": "The Virgin in the Clouds and Six Saints",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/virgin-clouds-and-six-saints-473969"
+  },
+  {
+    "id": "1486216",
+    "collection": "",
+    "credit": "Anonymous gift in memory of Nelly F. Conant",
+    "culture": "English",
+    "dating": "",
+    "datingYearFrom": "1800",
+    "datingYearTo": "1855",
+    "description": "<p>Saint Pauls School Plate</p>\n",
+    "dimensions": "20 cm (7 7/8 inches) (diameter)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "W. Adams",
+        "risdAffiliation": null,
+        "years": "1798-1865",
+        "nationality": [
+          "English"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [],
+    "mediumTechnique": "",
+    "objectNumber": "38.179",
+    "onView": false,
+    "place": "Place Made: Staffordshire",
+    "primaryMaker": "W. Adams",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [],
+    "title": "Saint Pauls School Plate",
+    "type": [
+      "Ceramics"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/saint-pauls-school-plate-38179"
+  },
+  {
+    "id": "1491611",
+    "collection": "",
+    "credit": "Gift of Mrs. Gustav Radeke",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1491",
+    "datingYearTo": "1491",
+    "description": "<p>Conversion of Saint Paul</p>\n",
+    "dimensions": "Image: 14.1 x 11 cm (5 9/16 x 4 5/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Anton Koberger",
+        "risdAffiliation": null,
+        "years": "ca. 1445-1513",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Michael Wolgemut",
+        "risdAffiliation": null,
+        "years": "1434-1519",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      },
+      {
+        "name": "Wilhelm Pleydenwurff",
+        "risdAffiliation": null,
+        "years": "ca. 1458-1494",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Woodcut with hand-coloring on laid paper"
+    ],
+    "mediumTechnique": "hand coloring",
+    "objectNumber": "30.085",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Michael Wolgemut",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Light weight cream laid paper"
+    ],
+    "technique": [
+      "Woodcut with hand-coloring on laid paper"
+    ],
+    "title": "Conversion of Saint Paul",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/conversion-saint-paul-30085"
+  },
+  {
+    "id": "1523401",
+    "collection": "",
+    "credit": "Gift of Mr. and Mrs. Paul van K. Thomson",
+    "culture": "Italian",
+    "dating": "",
+    "datingYearFrom": "1700",
+    "datingYearTo": "1799",
+    "description": "<p>Virgin and Child with Saints</p>\n",
+    "dimensions": "38.1 x 29.2 cm (15 x 11 1/2 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Oil on canvas"
+    ],
+    "mediumTechnique": "oil paint",
+    "objectNumber": "58.006",
+    "onView": false,
+    "place": "Place Made: Italy",
+    "primaryMaker": "Unknown Maker, Italian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "canvas"
+    ],
+    "technique": [
+      "Oil on canvas"
+    ],
+    "title": "Virgin and Child with Saints",
+    "type": [
+      "Paintings"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/virgin-and-child-saints-58006"
+  },
+  {
+    "id": "1506041",
+    "collection": "",
+    "credit": "Gift of the Fazzano Brothers",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1510",
+    "datingYearTo": "1510",
+    "description": "<p>Saint Veronica between Saints Peter and Paul<br>The Small Passion</p>\n",
+    "dimensions": "12.7 x 9.8 cm (5 x 3 7/8 inches) (plate) image",
+    "edition": "",
+    "inscription": "Lettered within image UC: \"1510\" and LR: \"AD\"\nVerso: collector's stamp of Max Egon II, prince of F\u00fcrstenberg (1863-1941; Lugt 995)",
+    "makers": [
+      {
+        "name": "Albrecht D\u00fcrer",
+        "risdAffiliation": null,
+        "years": "1471\u20131528, b. in Nuremberg, Germany",
+        "nationality": [
+          "German"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "woodcut"
+    ],
+    "mediumTechnique": "woodcut",
+    "objectNumber": "84.198.1241",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Albrecht D\u00fcrer",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "Meder 147",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "woodcut"
+    ],
+    "title": "Saint Veronica between Saints Peter and Paul",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/saint-veronica-between-saints-peter-and-paul-841981241"
+  }
+]

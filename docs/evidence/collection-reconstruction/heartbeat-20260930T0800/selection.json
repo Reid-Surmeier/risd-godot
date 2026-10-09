@@ -1,0 +1,16 @@
+{
+  "point_ids": [
+    13116,
+    13515,
+    13117,
+    13091
+  ],
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg"
+  ],
+  "reserved": "IMG_6380_exit6fps/000021.jpg",
+  "witness": "IMG_6380_exit6fps/000023.jpg",
+  "selection": "Visible floor texture features identified in witness23, then checked on train13/19. Query21 projections not inspected before selection. Original manual failure preserved; this is a separate tracked-feature diagnostic.",
+  "navigation_accepted": false
+}

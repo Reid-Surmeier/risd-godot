@@ -1,0 +1,394 @@
+[
+  {
+    "id": "1208426",
+    "collection": "",
+    "credit": "Gift of Sumner Stone",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1600",
+    "datingYearTo": "1799",
+    "description": "<p>Figure Study</p>\n",
+    "dimensions": "Sheet: 12.7 x 9.7 cm (5 x 3 13/16 inches)",
+    "edition": "",
+    "inscription": "Initialled in ink, LR.",
+    "makers": [
+      {
+        "name": "David Teniers II",
+        "risdAffiliation": null,
+        "years": "1610-1690",
+        "nationality": [
+          "Flemish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Black chalk on paper",
+      "mounted on two larger sheets"
+    ],
+    "mediumTechnique": "pencil",
+    "objectNumber": "1989.008",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "David Teniers II",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Paper (mounted down twice)"
+    ],
+    "technique": [
+      "Black chalk on paper",
+      "mounted on two larger sheets"
+    ],
+    "title": "Figure Study",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/figure-study-1989008"
+  },
+  {
+    "id": "1281476",
+    "collection": "",
+    "credit": "Museum Collection",
+    "culture": "Chinese",
+    "dating": "",
+    "datingYearFrom": "1700",
+    "datingYearTo": "1899",
+    "description": "<p>Landscape with Figures of Immortals</p>\n",
+    "dimensions": "60.3 x 48 x 2.2 cm (23 3/4 x 18 7/8 x 7/8 inches) (Height is approx. of combined 2 pieces)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Carved Stone"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "50.268",
+    "onView": false,
+    "place": "Origin: China",
+    "primaryMaker": "Unknown Maker, Chinese",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1495571"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Carved Stone"
+    ],
+    "title": "Landscape with Figures of Immortals",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/landscape-figures-immortals-50268"
+  },
+  {
+    "id": "1392586",
+    "collection": "",
+    "credit": "Gift of Jim Dine",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1962",
+    "datingYearTo": "1965",
+    "description": "<p>Elongated Figure<br>Images From a Locked Ward</p>\n",
+    "dimensions": "51.1 x 66 cm (20 1/8 x 26 inches) (sheet)",
+    "edition": "",
+    "inscription": "Inscribed in graphite, LL: \"1st state - squeezed figure / elongated figure / elongated figure / stone destroyed (broken) / after 3rd state\" ; LR: \"Mazur\" -- on print, proof has been retouched with white chalk/watercolor",
+    "makers": [
+      {
+        "name": "Michael Mazur",
+        "risdAffiliation": null,
+        "years": "1935\u20132009, b. in New York, New York",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph (retouched proof)"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "80.266.27",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Michael Mazur",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight beige wove paper"
+    ],
+    "technique": [
+      "lithograph (retouched proof)"
+    ],
+    "title": "Elongated Figure",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/elongated-figure-8026627"
+  },
+  {
+    "id": "1405586",
+    "collection": "",
+    "credit": "Anonymous gift",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1760",
+    "datingYearTo": "1869",
+    "description": "<p>Figures by a Stone Pier</p>\n",
+    "dimensions": "20 x 27.8 cm (7 7/8 x 10 15/16 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "David Cox the Elder",
+        "risdAffiliation": null,
+        "years": "1783-1859",
+        "nationality": [
+          "English"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "watercolor"
+    ],
+    "mediumTechnique": "watercolor",
+    "objectNumber": "75.116.15",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "David Cox the Elder",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Heavy paper"
+    ],
+    "technique": [
+      "watercolor"
+    ],
+    "title": "Figures by a Stone Pier",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/figures-stone-pier-7511615"
+  },
+  {
+    "id": "1458736",
+    "collection": "",
+    "credit": "Gift of Jim Dine",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1962",
+    "datingYearTo": "1965",
+    "description": "<p>Elongated Figure<br>Images From a Locked Ward</p>\n",
+    "dimensions": "51.1 x 66 cm (20 1/8 x 26 inches) (sheet)",
+    "edition": "",
+    "inscription": "Inscribed in graphite, LL: \"Stone broken after 3rd proofing\" and \"final state.\" Inscribed in green pencil, LL: \"Raise print on paper 1/4.\" Inscribed in graphite, LR: \"Mazur.\" In bottom right corner, in graphite, \"Brownish.\" In green pencil, \"Ready for printing.\" In UL and UR corners, arrows in green pencil. In UR corner, in green pencil, \"even\"",
+    "makers": [
+      {
+        "name": "Michael Mazur",
+        "risdAffiliation": null,
+        "years": "1935\u20132009, b. in New York, New York",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "lithograph"
+    ],
+    "mediumTechnique": "lithograph",
+    "objectNumber": "80.266.28",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Michael Mazur",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight beige wove paper"
+    ],
+    "technique": [
+      "lithograph"
+    ],
+    "title": "Elongated Figure",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/elongated-figure-8026628"
+  },
+  {
+    "id": "1306371",
+    "collection": "",
+    "credit": "Gift of Miss Ellen D. Sharpe",
+    "culture": "Pre-Columbian",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>Seated figure</p>\n",
+    "dimensions": "15.2 x 11.4 x 8.9 cm (6 x 4 1/2 x 3 1/2 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Stone"
+    ],
+    "mediumTechnique": "stone",
+    "objectNumber": "47.404",
+    "onView": false,
+    "place": "Place Made: Mexico",
+    "primaryMaker": "Unknown Maker, Pre-Columbian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Stone"
+    ],
+    "title": "Seated figure",
+    "type": [
+      "Stonework"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/seated-figure-47404"
+  },
+  {
+    "id": "1338961",
+    "collection": "",
+    "credit": "Museum Appropriation Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "",
+    "datingYearTo": "",
+    "description": "<p>Female Figure</p>\n",
+    "dimensions": "94 x 71.1 x 24.1 cm (37 x 28 x 9 1/2 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Jean Goujon",
+        "risdAffiliation": null,
+        "years": "1515-1572",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Stone"
+    ],
+    "mediumTechnique": "stone",
+    "objectNumber": "35.011",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Jean Goujon",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Stone"
+    ],
+    "title": "Female Figure",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/female-figure-35011"
+  },
+  {
+    "id": "1588966",
+    "collection": "",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "culture": "Canadian",
+    "dating": "",
+    "datingYearFrom": "1900",
+    "datingYearTo": "1999",
+    "description": "<p>Figure of Eskimo Woman</p>\n",
+    "dimensions": "16.2 cm (6 3/8 inches) (height)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Edwin Nicholas Hancock",
+        "risdAffiliation": null,
+        "years": "20th century",
+        "nationality": [
+          "Canadian"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "possibly Stone"
+    ],
+    "mediumTechnique": "",
+    "objectNumber": "46.092",
+    "onView": false,
+    "place": "Newfoundland",
+    "primaryMaker": "Edwin Nicholas Hancock",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "possibly Stone"
+    ],
+    "title": "Figure of Eskimo Woman",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/figure-eskimo-woman-46092"
+  }
+]

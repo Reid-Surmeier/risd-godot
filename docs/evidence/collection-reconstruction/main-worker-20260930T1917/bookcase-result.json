@@ -1,0 +1,174 @@
+{
+  "points_world": {
+    "top_left": [
+      -1.3257981542149004,
+      4.623727969539559,
+      3.234467684041465
+    ],
+    "top_right": [
+      -1.484545007517361,
+      3.1417008780766857,
+      4.153400204187341
+    ],
+    "foot_left": [
+      0.9488596541202378,
+      4.683907007564833,
+      3.638367495484589
+    ],
+    "foot_right": [
+      0.8657730727856235,
+      3.2202308084008378,
+      4.466163121972635
+    ]
+  },
+  "basis_rows": [
+    [
+      -0.057003091205202354,
+      -0.8458666426787659,
+      0.5303397688241044
+    ],
+    [
+      -0.9877305057540509,
+      -0.029578332800963215,
+      -0.15334135199469995
+    ],
+    [
+      0.14539290077544498,
+      -0.532573699155402,
+      -0.8338022303712274
+    ]
+  ],
+  "origin_world": [
+    0.9488596541202378,
+    4.683907007564833,
+    3.638367495484589
+  ],
+  "height_scale_m_per_unit": 0.6471280158512556,
+  "width_scale_m_per_unit": 0.6285740140324324,
+  "scale_disagreement_percent": 2.951760875349496,
+  "perturbation": "500 trials, independent Gaussian sigma=2 upright pixels",
+  "height_scale_p05_p95": [
+    0.6385389997347614,
+    0.6556398230108712
+  ],
+  "ray_angles_degrees": {
+    "top_left": 29.779710740422885,
+    "top_right": 14.441339742907468,
+    "foot_left": 24.10527498911549,
+    "foot_right": 16.088025120409288
+  },
+  "source_errors_px": {
+    "top_left": [
+      1.4471683127997845,
+      1.9495565990674686
+    ],
+    "top_right": [
+      0.05661942532977828,
+      0.08633013430026325
+    ],
+    "foot_left": [
+      0.5622869201354236,
+      0.7271024882013726
+    ],
+    "foot_right": [
+      0.509589917034433,
+      0.7511386043665972
+    ]
+  },
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/points3D.bin": "1f7206ea1873df1d126e4bad5b3306112384dd253737f84f52bb6c6b0da15a16",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/frames.bin": "a81ae341d30588dccfa50607e62dbcec1dda0cb37c7e9222759859ad8f015f3a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/images.bin": "dbe038f78f7b6d3f100a913ba6e067b5576d00cb4c2f2df85b0ae022f7b4dbba",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/rigs.bin": "39eec21ded9800b8551c793bbf7a429040d103f926e5415e9ba757d2b56abc7a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/cameras.bin": "d502f26a76dc4da54c5a1cfdfa11ea053f6a896b8d79d89713f4c9d472f18d92",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000292.jpg": "df9ba106d9f1e54845c85dcc7b4456c9a73d880dd2079ad85d1a014a44081c48",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000297.jpg": "d72f36cd5dee86ee77118b8495d75271e4cfa8e137ff210724c756296d53ae13",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000409.jpg": "3e4d56ae0e86a0e8478f22faf6487a589a613213a14ddf0cce2a29cc7618f129"
+  },
+  "source_views": [
+    "IMG_6380/000292.jpg",
+    "IMG_6380/000297.jpg"
+  ],
+  "provider": "local NumPy/pycolmap",
+  "cost_usd": 0,
+  "scale_accepted": false,
+  "navigation_accepted": false,
+  "caveat": "Front rail/feet triangulated as separate 3D features. Catalogue overall dimensions 1.515h x 1.100w x .330d include the rear pierced rail; front picks are not proven overall extrema. Height scale is a prototype candidate; width disagreement and unseen depth prevent physical acceptance. Both cameras belong to the training clip; no independent capture validation.",
+  "reserved_manual_errors_px": {
+    "IMG_6380/000409.jpg": {
+      "top_left": 1.7056431142962334,
+      "top_right": 2.949031503476769,
+      "foot_left": 3.678570497867883,
+      "foot_right": 1.7483004900439005
+    }
+  },
+  "selection": {
+    "source_views": [
+      "IMG_6380/000292.jpg",
+      "IMG_6380/000297.jpg"
+    ],
+    "picks": {
+      "top_left": [
+        [
+          284,
+          410
+        ],
+        [
+          115,
+          378
+        ]
+      ],
+      "top_right": [
+        [
+          598,
+          418
+        ],
+        [
+          623,
+          380
+        ]
+      ],
+      "foot_left": [
+        [
+          307,
+          895
+        ],
+        [
+          169,
+          982
+        ]
+      ],
+      "foot_right": [
+        [
+          574,
+          829
+        ],
+        [
+          562,
+          955
+        ]
+      ]
+    },
+    "reserved": {
+      "IMG_6380/000409.jpg": {
+        "top_left": [
+          301,
+          395
+        ],
+        "top_right": [
+          515,
+          410
+        ],
+        "foot_left": [
+          339,
+          902
+        ],
+        "foot_right": [
+          515,
+          777
+        ]
+      }
+    },
+    "annotation_note": "v1 left corner mixed rear/front stepped geometry. v2 front-left side/front junction checked in source detail crops. Reserved 409 manual left corner corrected after inspection of v1 projection; not blind validation."
+  }
+}

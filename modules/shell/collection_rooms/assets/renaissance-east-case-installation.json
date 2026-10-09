@@ -1,0 +1,64 @@
+{
+  "scope": "two provisional wall-hung Renaissance cases; original verified IMG_6383 at41.2/49.8 and55.6/56.0s",
+  "source_room_extent": "geometry.json light Renaissance room east wall x.55, z28.1..34.2, door31.2..32.33",
+  "authoring_room_shift_z": 9.25,
+  "case_a": {
+    "wall_anchor_authoring": [
+      0.477,
+      0,
+      20.4
+    ],
+    "yaw": -1.57079632679,
+    "width_depth": [
+      1.2,
+      0.56
+    ],
+    "deck_top": 1.08,
+    "hood_top": 1.98,
+    "objects_left_to_right": [
+      "diptych22.201",
+      "bookcover34.016",
+      "emblem2023.17",
+      "albarello35.713"
+    ],
+    "portraits": [
+      "45.042",
+      "34.861"
+    ]
+  },
+  "case_b": {
+    "wall_anchor_authoring": [
+      0.477,
+      0,
+      24.015
+    ],
+    "yaw": -1.57079632679,
+    "width_depth": [
+      1.2,
+      0.56
+    ],
+    "deck_top": 1.08,
+    "hood_top": 1.98,
+    "plates": [
+      "46.391",
+      "57.302"
+    ],
+    "deck_left_to_right": [
+      "51.105",
+      "2017.29",
+      "probable34.024"
+    ]
+  },
+  "metric_accepted": false,
+  "placement_accepted": false,
+  "fine_fidelity_accepted": false,
+  "whole_room_complete": false,
+  "cleric_muse_frame": {
+    "source": "cleric-45042-frame-review.json",
+    "native": "06fd8563acabbecaf05704c5c1348d1ff05db36410f9faeeadc251b133efde2c",
+    "fitted": "03dadd3e6395644af35daa03ace7c04798f3acec85c39ef056369d71ca595386",
+    "accepted": false,
+    "fit_script_sha256": "8e1a0b69032c2e5126c4b85b989fb9932b74ff128de92296d41af01034f05476"
+  },
+  "portrait_relative_size_conflict": "video ratio1.19width/1.30height vs catalogue1.06/1.12; preserve catalogue size and flags false"
+}

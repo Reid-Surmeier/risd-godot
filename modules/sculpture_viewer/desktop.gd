@@ -1,8 +1,11 @@
 ## The 3D Viewer Tenant: the RISD Museum setup screen (Issue #110) — a white 2540x1680 ground with
-## the setup panel window (the approved raster: header, the 40-object grid, form, Global Chatroom and
+## the setup panel window (the approved raster: header, the 40-object
+## grid, form, Global Chatroom and
 ## friends list, drag only) whose animated objects turn on hover, and the 800x680 viewer window
-## (viewer.gd) with the live Buddha scan where the screen's mock-up viewer stood — filling the Page at
-## one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it through
+## (viewer.gd) with the live Buddha scan where the screen's mock-up
+## viewer stood — filling the Page at
+## one uniform scale (#63). Windows drag by their handles, raise on
+## click and stack. Reach it through
 ## interface.gd only.
 ##
 ## Ported from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c
@@ -13,6 +16,7 @@
 ## and the drag clamp is against the desktop, as the prototype's was.
 extends Control
 
+const Catalogue := preload("res://modules/sculpture_viewer/catalogue.gd")
 const Errors := preload("res://modules/sculpture_viewer/errors.gd")
 
 const ROOT := "res://modules/sculpture_viewer/"
@@ -20,43 +24,30 @@ const ROOT := "res://modules/sculpture_viewer/"
 ## paintbox-3d-risd-five-rows-text-refined-2x-v12.png halved).
 const DESKTOP_SIZE := Vector2(2540, 1680)
 const CATALOGUE_RIGHT_GAP := 87.0  # owner layout 2026-09-25
-const CATALOGUE_AT := Vector2(2540 - 1050, 31)  # owner layout 2026-09-25: the setup window flush right (DESKTOP_SIZE.x - PANEL_SIZE.x)
-const PANEL_SIZE := Vector2(1050, 1680)  # assets/setup/panel-2x.png, the raster's x 0..2100 at 2x
+# owner layout 2026-09-25: the setup window flush right (DESKTOP_SIZE.x - PANEL_SIZE.x)
+const CATALOGUE_AT := Vector2(2540 - 1050, 31)
+const PANEL_SIZE := Vector2(1050, 1320)  # assets/setup/panel-2x.png, the raster's x 0..2100 at 2x
 const VIEWER_SIZE := Vector2(800, 680)
 ## The mock-up viewer's frame in that raster: x 2143..4857, y 78.. at 2x.
-const VIEWER_AT := Vector2(-36, 25)  # the viewer on the left, over the icon strip (owner layout 2026-09-25)
+# the viewer on the left, over the icon strip (owner layout 2026-09-25)
+const VIEWER_AT := Vector2(-36, 25)
 const VIEWER_SCALE := 1357.0 / 800.0
-## Grid cells whose object turns on hover: top-left in the desktop's 1x pixels (template-matched
-## against the raster, exact), and the number of frames in assets/setup/turn/<name>.png, packed
-## eight 216x200 tiles per row. Frame 0 is the approved icon.
-const CELL_SIZE := Vector2(108, 100)
-const TURNING := {
-	"01-staff": [Vector2(40, 205), 41],
-	"02-green-sculpture": [Vector2(165, 205), 73],
-	"03-horse-rider": [Vector2(291, 205), 13],
-	"04-gold-couch": [Vector2(418, 205), 61],
-	"05-bust": [Vector2(531, 205), 73],
-	"06-bowl": [Vector2(650, 205), 50],
-	"07-bull": [Vector2(761, 205), 24],
-	"08-dog": [Vector2(888, 205), 24],
-	"1557236": [Vector2(165, 385), 73],
-	"1552311": [Vector2(418, 385), 73],
-	"1532371": [Vector2(531, 385), 73],
-	"1487831": [Vector2(650, 385), 73],
-	"1581601": [Vector2(761, 385), 25],
-	"1573591": [Vector2(888, 385), 73],
-	"1554066": [Vector2(165, 575), 73],
-	"1548171": [Vector2(291, 575), 73],
-	"1264886": [Vector2(418, 575), 25],
-	"1344456": [Vector2(531, 575), 25],
-}
 const REQUIRED := [
-	"assets/setup/panel-2x.png", "assets/clean-ui/background.png", "assets/clean-ui/timer-source.png",
-	"assets/control-motion/previous.png", "assets/control-motion/next.png", "assets/control-motion/play-pause.png",
-	"assets/control-motion/audio.png", "assets/control-motion/menu.png", "assets/control-motion/scrubber.png",
-	"assets/control-motion/track-empty.png", "assets/control-motion/track-fill.png",
-	"assets/models/proton-buddha-3124123123.glb", "assets/models/3124123123.jpg",
-	"shaders/player_base.gdshader", "shaders/control_face.gdshader",
+	"assets/setup/panel-2x.png",
+	"assets/clean-ui/background.png",
+	"assets/clean-ui/timer-source.png",
+	"assets/control-motion/previous.png",
+	"assets/control-motion/next.png",
+	"assets/control-motion/play-pause.png",
+	"assets/control-motion/audio.png",
+	"assets/control-motion/menu.png",
+	"assets/control-motion/scrubber.png",
+	"assets/control-motion/track-empty.png",
+	"assets/control-motion/track-fill.png",
+	"assets/models/proton-buddha-3124123123.glb",
+	"assets/models/3124123123.jpg",
+	"shaders/player_base.gdshader",
+	"shaders/control_face.gdshader",
 ]
 
 var key := ""
@@ -65,10 +56,15 @@ var inputs := 0
 var desktop := Control.new()
 var windows: Array[Control] = []
 var catalogue: Control
+var cards_view: Control
 var viewer_window: Control
 var viewer: Control
+var hover_viewer: Control
 var dragged_window: Control
 var drag_offset := Vector2.ZERO
+var resized_window: Control
+var resize_start := Vector2.ZERO
+var resize_scale := 1.0
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -106,7 +102,11 @@ func _ready() -> void:
 	desktop.add_child(paper)
 	catalogue = _window("setup-window", CATALOGUE_AT, PANEL_SIZE)
 	var artwork := TextureRect.new()
-	artwork.texture = load(ROOT + "assets/setup/panel-2x.png")
+	var panel := AtlasTexture.new()
+	panel.atlas = load(ROOT + "assets/setup/panel-2x.png")
+	panel.region = Rect2(Vector2.ZERO, PANEL_SIZE * 2)
+	panel.filter_clip = true
+	artwork.texture = panel
 	artwork.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
 	artwork.size = catalogue.size
 	artwork.mouse_filter = Control.MOUSE_FILTER_IGNORE
@@ -116,20 +116,51 @@ func _ready() -> void:
 	catalogue.mouse_default_cursor_shape = Control.CURSOR_DRAG
 	catalogue.gui_input.connect(func(event): _drag_handle_input(event, catalogue))
 	catalogue.tooltip_text = "Drag to move the setup window"
-	for cell_name in TURNING:
-		var cell = load(ROOT + "turn_cell.gd").new()
-		cell.name = "turn-" + cell_name
-		cell.atlas = load(ROOT + "assets/setup/turn/%s.png" % cell_name)
-		cell.frames = TURNING[cell_name][1]
-		cell.position = TURNING[cell_name][0]
-		cell.size = CELL_SIZE
-		cell.texture_filter = CanvasItem.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS
-		catalogue.add_child(cell)
+	cards_view = Catalogue.new()
+	catalogue.add_child(cards_view)
+	cards_view.position = Vector2.ZERO
+	cards_view.size = PANEL_SIZE
+	for entry in [
+		["chat-window", Rect2(15, 1320, 665, 315)], ["friends-window", Rect2(700, 1320, 330, 315)]
+	]:
+		var rect: Rect2 = entry[1]
+		var window := _window(entry[0], CATALOGUE_AT + rect.position, rect.size)
+		window.set_meta("setup_offset", rect.position)
+		var picture := TextureRect.new()
+		var texture := AtlasTexture.new()
+		texture.atlas = panel.atlas
+		texture.region = Rect2(rect.position * 2, rect.size * 2)
+		texture.filter_clip = true
+		picture.texture = texture
+		picture.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+		picture.size = rect.size
+		picture.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		window.add_child(picture)
+		window.mouse_default_cursor_shape = Control.CURSOR_DRAG
+		window.tooltip_text = "Drag to move this window"
+		window.gui_input.connect(func(event): _drag_handle_input(event, window))
 	viewer_window = _window("viewer-window", VIEWER_AT, VIEWER_SIZE)
 	viewer_window.scale = Vector2(VIEWER_SCALE, VIEWER_SCALE)
 	viewer = load(ROOT + "viewer.gd").new()
 	viewer.name = "viewer"
 	viewer_window.add_child(viewer)
+	cards_view.selection_changed.connect(viewer.show_scan)
+	viewer.show_scan(cards_view.IDS[0])
+	hover_viewer = load(ROOT + "viewer.gd").new()
+	hover_viewer.preview_only = true
+	hover_viewer.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	cards_view.add_child(hover_viewer)
+	hover_viewer.position = Vector2(-1150, 1246)
+	hover_viewer.scale = Vector2.ONE * 0.72
+	hover_viewer.hide()
+	hover_viewer.set_process(false)
+	cards_view.hover_changed.connect(
+		func(id: String):
+			hover_viewer.visible = not id.is_empty()
+			hover_viewer.set_process(not id.is_empty())
+			if not id.is_empty():
+				hover_viewer.show_scan(id)
+	)
 	# These strips never cover the sculpture, arrow buttons or transport controls.
 	for rect in [Rect2(12, 4, 776, 32), Rect2(12, 644, 776, 28)]:
 		var handle := Control.new()
@@ -139,6 +170,34 @@ func _ready() -> void:
 		handle.tooltip_text = "Drag the frame to move the viewer"
 		handle.gui_input.connect(func(event): _drag_handle_input(event, viewer_window))
 		viewer_window.add_child(handle)
+	for window in windows:
+		var grip := Button.new()
+		grip.name = "ResizeGrip"
+		grip.draw.connect(
+			func():
+				for inset in [16, 24, 32]:
+					grip.draw_line(
+						Vector2(inset, 40), Vector2(40, inset), Color("#dddddd"), 2.0, true
+					)
+		)
+		grip.position = window.size - Vector2(48, 48)
+		grip.size = Vector2(48, 48)
+		grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+		grip.tooltip_text = "Drag to resize proportionally"
+		grip.gui_input.connect(
+			func(event):
+				if (
+					event is InputEventMouseButton
+					and event.button_index == MOUSE_BUTTON_LEFT
+					and event.pressed
+				):
+					resized_window = window
+					resize_start = desktop.make_canvas_position_local(event.global_position)
+					resize_scale = window.scale.x
+					window.set_meta("adjusted", true)
+					grip.accept_event()
+		)
+		window.add_child(grip)
 	resized.connect(_fit)
 	_fit()
 
@@ -146,17 +205,37 @@ func _ready() -> void:
 ## The desktop fills the Page (#63): one uniform scale s = min(page / DESKTOP_SIZE) for all the
 ## window art, the desktop's own pixels spanning the whole Page (size / s). The setup window and the
 ## viewer keep the places the setup screen gives them, the viewer exactly over the mock-up it
-## replaces. Laid out again on every resize (a dragged window goes back to its place).
+## replaces. User-adjusted windows retain their position/scale on resize, clamped to the Page.
 func _fit() -> void:
 	if size.x < 2 or size.y < 2:
 		return
 	dragged_window = null
+	resized_window = null
 	var s := minf(size.x / DESKTOP_SIZE.x, size.y / DESKTOP_SIZE.y)
 	desktop.scale = Vector2(s, s)
 	desktop.position = Vector2.ZERO
 	desktop.size = size / s
-	catalogue.position = Vector2(desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y)  # right, with the owner's gap
-	viewer_window.position = VIEWER_AT
+	if not catalogue.get_meta("adjusted", false):
+		catalogue.position = Vector2(
+			desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y
+		)
+	if not viewer_window.get_meta("adjusted", false):
+		viewer_window.position = Vector2(maxf(0, VIEWER_AT.x), VIEWER_AT.y)
+	for window in windows:
+		if window.has_meta("setup_offset") and not window.get_meta("adjusted", false):
+			window.position = (
+				Vector2(desktop.size.x - PANEL_SIZE.x - CATALOGUE_RIGHT_GAP, CATALOGUE_AT.y)
+				+ window.get_meta("setup_offset")
+			)
+		window.scale = (
+			Vector2.ONE
+			* minf(
+				window.scale.x, minf(desktop.size.x / window.size.x, desktop.size.y / window.size.y)
+			)
+		)
+		window.position = window.position.clamp(
+			Vector2.ZERO, (desktop.size - window.size * window.scale).max(Vector2.ZERO)
+		)
 
 
 func _window(window_name: String, origin: Vector2, dimensions: Vector2) -> Control:
@@ -171,6 +250,7 @@ func _window(window_name: String, origin: Vector2, dimensions: Vector2) -> Contr
 
 func _drag_handle_input(event: InputEvent, window: Control) -> void:
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and event.pressed:
+		window.set_meta("adjusted", true)
 		dragged_window = window
 		drag_offset = desktop.make_canvas_position_local(event.global_position) - window.position
 		window.accept_event()
@@ -184,12 +264,38 @@ func _process(_delta: float) -> void:
 ## prototype, less the paintbox key cycling).
 func _input(event: InputEvent) -> void:
 	inputs += 1
+	if resized_window != null:
+		if event is InputEventMouseMotion:
+			var delta := desktop.make_canvas_position_local(event.position) - resize_start
+			var dimensions := resized_window.size
+			var available := desktop.size - resized_window.position
+			var maximum := minf(available.x / dimensions.x, available.y / dimensions.y)
+			var factor := resize_scale + delta.dot(dimensions) / dimensions.length_squared()
+			resized_window.scale = Vector2.ONE * clampf(factor, minf(0.5, maximum), maximum)
+			get_viewport().set_input_as_handled()
+		elif (
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and not event.pressed
+		):
+			resized_window = null
+			get_viewport().set_input_as_handled()
+		return
 	if dragged_window != null:
 		if event is InputEventMouseMotion:
-			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(Vector2.ZERO)
-			dragged_window.position = (desktop.make_canvas_position_local(event.position) - drag_offset).clamp(_margin_low(), limit)
+			var limit := (desktop.size - dragged_window.size * dragged_window.scale).max(
+				Vector2.ZERO
+			)
+			dragged_window.position = (
+				(desktop.make_canvas_position_local(event.position) - drag_offset)
+				. clamp(_margin_low(), limit)
+			)
 			get_viewport().set_input_as_handled()
-		elif event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+		elif (
+			event is InputEventMouseButton
+			and event.button_index == MOUSE_BUTTON_LEFT
+			and not event.pressed
+		):
 			dragged_window = null
 			get_viewport().set_input_as_handled()
 		return
@@ -205,8 +311,12 @@ func _input(event: InputEvent) -> void:
 
 
 func _notification(what: int) -> void:
-	if what == NOTIFICATION_WM_WINDOW_FOCUS_OUT:
+	if (
+		what in [NOTIFICATION_WM_WINDOW_FOCUS_OUT, NOTIFICATION_APPLICATION_FOCUS_OUT]
+		or (what == NOTIFICATION_VISIBILITY_CHANGED and not is_visible_in_tree())
+	):
 		dragged_window = null
+		resized_window = null
 
 
 ## A Control's rect in global pixels, its own and its ancestors' scale applied.
@@ -218,14 +328,51 @@ static func _global_rect(c: Control) -> Rect2:
 func state() -> Dictionary:
 	var s: Dictionary = viewer.qa_state()
 	var controls := {}
-	for entry in [["previous", viewer.previous_button], ["next", viewer.next_button], ["play-pause", viewer.play_button],
-			["scrubber", viewer.progress_slider], ["audio", viewer.audio_button], ["menu", viewer.menu_button]]:
+	for entry in [
+		["previous", viewer.previous_button],
+		["next", viewer.next_button],
+		["play-pause", viewer.play_button],
+		["scrubber", viewer.progress_slider],
+		["audio", viewer.audio_button],
+		["menu", viewer.menu_button]
+	]:
 		controls[entry[0]] = _global_rect(entry[1])
-	s.merge({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "desktop_scale": desktop.scale.x,
-			"pointer_scale": desktop.scale.x * viewer_window.scale.x, "front_window": windows.back().name, "dragging": dragged_window != null,
-			"catalogue_rect": _global_rect(catalogue), "viewer_rect": _global_rect(viewer_window),
-			"viewport_rect": _global_rect(viewer.viewport_container), "controls": controls,
-			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode})
+	s.merge(
+		{
+			"key": key,
+			"ticks": ticks,
+			"inputs": inputs,
+			"size": size,
+			"desktop_scale": desktop.scale.x,
+			"pointer_scale": desktop.scale.x * viewer_window.scale.x,
+			"front_window": windows.back().name,
+			"dragging": dragged_window != null,
+			"catalogue_rect": _global_rect(catalogue),
+			"viewer_rect": _global_rect(viewer_window),
+			"viewport_rect": _global_rect(viewer.viewport_container),
+			"controls": controls,
+			"viewport_update_mode": viewer.viewport_container.get_child(0).render_target_update_mode
+		}
+	)
+	var catalogue_data: Dictionary = cards_view.catalogue_state()
+	s.merge(catalogue_data)
+	s["3d_preview_available"] = viewer.model_loaded and not viewer.scan_id.is_empty()
+	s["hover_model_id"] = hover_viewer.scan_id if hover_viewer.visible else ""
+	s["hover_model_loaded"] = hover_viewer.visible and hover_viewer.model_loaded
+	s["separate_preview_world"] = viewer.camera.get_world_3d() != hover_viewer.camera.get_world_3d()
+	var cards := []
+	for i in 20:
+		cards.append(cards_view.get_global_transform() * cards_view._card_rect(i))
+	s.merge(
+		{
+			"cards": cards,
+			"rows": 5,
+			"columns": 4,
+			"selected_name": cards_view.APPEARANCE[cards_view.selected],
+			"department": "unverified",
+			"hover_tick": cards_view.tick
+		}
+	)
 	return Errors.ok(s)
 
 

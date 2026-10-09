@@ -1,0 +1,14 @@
+{
+  "model_hashes_match": true,
+  "model_views": 475,
+  "model_points": 43253,
+  "reprojection_px": 0.6395880835827897,
+  "heldout_supported": 49,
+  "heldout_samples": 69,
+  "split_point_supported": 46,
+  "holdout_rerun": false,
+  "independent_survey_accuracy": false,
+  "measurements_selfcheck": "ingestion .venv/bin/python modules/shell/prototype/collection_reconstruction/measurements.py",
+  "selfcheck_pass": true,
+  "old_empty_query_TypeError_reproduced": true
+}

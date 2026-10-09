@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "fetti-frame-001",
+      "prompt": "fetti-frame-prompt.txt",
+      "promptSha256": "6feddf63c45aeee7e03ed2dbec4f1345f8a54f4b0ee37b6235e92f5731f7d422",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/fetti-frame-selected-0.png",
+          "sha256": "37ccb7c01d70a973f018a810a0b50c65823f3a6352751502003af7d4186cfe23"
+        },
+        {
+          "path": "inventory-references/fetti-frame-selected-1.png",
+          "sha256": "b4dd759e7f82310a6edb8cb22bb68be6366f940b3d698b6a69b166fb984880f5"
+        }
+      ]
+    }
+  ]
+}

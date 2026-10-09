@@ -1,0 +1,17 @@
+{
+  "run_id": "run-f044332d91c6c643c123a27c",
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "outputs": 1,
+  "actual_cost_usd": "0.010000",
+  "sha256": "b93be3c69cd85bdef675e4aa096196f5c76c8ac3835f82bac27962f526efc08a",
+  "visual_review": "Native raster inspected. It contains only lilac plaster facets, with stronger contrast than the source smooth paint. Deterministic contrast reduction and mirrored edge tiling used for prototype.",
+  "source": "IMG_6380 at120.25s; Main Hall style second reference",
+  "colour": "Prototype tone RGB126,99,147; source mid-wall median90,61,93 is shadowed/white-balance affected. Exact colour acceptance unresolved.",
+  "assembly": "512x512 mirrored tile; 12percent luminance variation; edge equality assertion in prepare_remodel.py",
+  "runtime_review": "v26 full native bake and PNG inspected. Smooth muted purple remains visible at connector threshold; exact colour, extended corridor/elevator and final look acceptance pending.",
+  "accepted": false,
+  "cumulative_map_actual_usd": "0.65",
+  "conservative_including_unresolved_submission_usd": "0.66",
+  "unresolved_run_never_retried": "run-7b018ec98c334a45ef16e681"
+}

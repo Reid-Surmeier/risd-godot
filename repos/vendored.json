@@ -2,6 +2,16 @@
   "_generated_by": "vendor-source",
   "repos": [
     {
+      "name": "colmap",
+      "url": "https://github.com/colmap/colmap",
+      "prefix": "repos/colmap",
+      "ref": "4.2.1",
+      "commit": "bd1fcf654d2dd8fefa1466999c190a246f83f4b9",
+      "vendored_at": "2026-09-29T18:08:51.562Z",
+      "size_mb": 21,
+      "pins": null
+    },
+    {
       "name": "effect",
       "url": "https://github.com/Effect-TS/effect",
       "prefix": "repos/effect",

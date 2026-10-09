@@ -1,0 +1,29 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-fast-v2/footplant-candidate.glb",
+      "label": "Source poses: bind-angle bias",
+      "sha256": "aa85a0df688ffa75fa75c1242868c6d4562c25ed3afbfce98b9f6afb58ba80e1"
+    },
+    {
+      "source": "video-match/authored-fast-v3/footplant-candidate.glb",
+      "label": "Source poses: calibrated limb axes",
+      "sha256": "4b666380f16660319094a942eefa5c07456e0d04e2abfed081d357a3bd3bba08"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 4,
+  "effects": true,
+  "controller_speed_m_s": 1.05,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.2,
+      "foot": "Right"
+    }
+  ]
+}

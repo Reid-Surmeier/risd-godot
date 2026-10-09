@@ -1,0 +1,47 @@
+{
+  "accession": "58.197",
+  "title": "Portrait of Mrs. Edwards",
+  "maker": "John Constable",
+  "canvas_m": [
+    0.637,
+    0.76
+  ],
+  "source": "IMG_6380/000405.jpg",
+  "source_sha256": "7f9450198d8a8d4ee9567c38d259b454f145bf99644ed442a8ffa467555ea541",
+  "canvas_corners_upright_px": [
+    [
+      512.0,
+      88.0
+    ],
+    [
+      629.0,
+      115.0
+    ],
+    [
+      605.0,
+      308.0
+    ],
+    [
+      490.0,
+      296.0
+    ]
+  ],
+  "homography": [
+    [
+      4.683351307411383,
+      0.47162589200238725,
+      -2285.695658869903
+    ],
+    [
+      -0.853282154893513,
+      3.2972067154085964,
+      300.40956137045737
+    ],
+    [
+      -0.0004242081710061958,
+      -0.00016351103795627452,
+      1.0
+    ]
+  ],
+  "frame_profile": "front plane reference only; 9cm authored depth unmeasured"
+}

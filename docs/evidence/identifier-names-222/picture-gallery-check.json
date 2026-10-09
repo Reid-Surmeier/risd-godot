@@ -1,0 +1,61 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-names-pictures-01a0f379/",
+  "images": [
+    {
+      "file": "viewer-2-preview.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-4.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "fit-1080x1920.png",
+      "width": 1080,
+      "height": 1920
+    },
+    {
+      "file": "tab-0.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-1.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-2.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-3.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-5.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-6.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "gallery-portal.png",
+      "width": 1080,
+      "height": 1080
+    }
+  ],
+  "video": {
+    "duration": 6.9,
+    "readyState": 4,
+    "currentTime": 0.962516,
+    "paused": false
+  }
+}

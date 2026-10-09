@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "gold-plate-a-001",
+      "prompt": "gold-plate-a-prompt.txt",
+      "promptSha256": "65258f0413f5f5afc262ba55b3d9bbcaeaa99ba7bbcf309e89e6ddcb758b189a",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/gold-plate-a-selected-0.png",
+          "sha256": "729d9cf7a9b4ae8023f044ca5da1c25f7cc6b04670e9e9be357b1ceec96c9675"
+        }
+      ]
+    }
+  ]
+}

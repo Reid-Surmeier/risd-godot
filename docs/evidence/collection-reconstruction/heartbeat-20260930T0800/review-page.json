@@ -1,0 +1,38 @@
+{
+  "status": 200,
+  "images": [
+    {
+      "loaded": true,
+      "src": "13-prediction.png"
+    },
+    {
+      "loaded": true,
+      "src": "19-prediction.png"
+    },
+    {
+      "loaded": true,
+      "src": "23-prediction.png"
+    },
+    {
+      "loaded": true,
+      "src": "23-track-residuals-depth-checked.png"
+    },
+    {
+      "loaded": true,
+      "src": "13-source-candidates.png"
+    },
+    {
+      "loaded": true,
+      "src": "23-third-candidate.png"
+    },
+    {
+      "loaded": true,
+      "src": "browser-forward.png"
+    },
+    {
+      "loaded": true,
+      "src": "browser-reverse.png"
+    }
+  ],
+  "errors": []
+}

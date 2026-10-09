@@ -1,0 +1,70 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Your video card drivers seem not to support the required OpenGL version, switching to OpenGLES.
+     at: DisplayServerX11 (platform/linuxbsd/x11/display_server_x11.cpp:7201)
+OpenGL API OpenGL ES 3.2 Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Mesa - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+WARNING: 2D MSAA is not yet supported for GLES3.
+     at: render_target_set_msaa (drivers/gles3/storage/texture_storage.cpp:3210)
+     GDScript backtrace (most recent call first):
+         [0] _build_turn (res://modules/sketchbook/sketchbook_window.gd:188)
+         [1] _ready (res://modules/sketchbook/sketchbook_window.gd:81)
+         [2] _ready (res://modules/sketchbook/desktop.gd:102)
+         [3] _create_tenant (res://modules/shell/shell.gd:172)
+         [4] _on_tab_selected (res://modules/shell/shell.gd:117)
+         [5] select_tab (res://modules/tab_strip/tab_strip.gd:556)
+         [6] select_tab (res://modules/tab_strip/interface.gd:64)
+         [7] select_tab (res://modules/shell/shell.gd:184)
+         [8] select_tab (res://modules/shell/interface.gd:61)
+         [9] run (res://docs/evidence/window-effects-193/input_check.gd:33)
+PASS 1: sketchbook-window shrink
+PASS 1: sketchbook-window grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS 1: paintbox-window shrink
+PASS 1: paintbox-window grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS 1: tldraw-controls-prototype shrink
+PASS 1: tldraw-controls-prototype grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS 1: embedded-3d-viewer-window shrink
+PASS 1: embedded-3d-viewer-window grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS 1: global-chatroom shrink
+PASS 1: global-chatroom grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS 1: framed-painting-window shrink
+PASS 1: framed-painting-window grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS 1: painting-flow-window shrink
+PASS 1: painting-flow-window grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS page 1 has resize grips
+PASS page-fit grip follows corner
+PASS page-fit grip follows corner
+PASS page-fit grip follows corner
+PASS page-fit grip follows corner
+PASS page-fit grip follows corner
+PASS page-fit grip follows corner
+PASS page-fit grip follows corner
+PASS draw on resized book
+ENTRY_COMPLETE (0.0, 0.0, -2.6)
+PASS 4: CollectionFrame shrink
+PASS 4: CollectionFrame grow
+PASS unchanged internal layout
+PASS grip follows resized corner
+PASS resized Collection centered
+PASS page 4 has resize grips
+PASS artwork preview fills page
+PASS collection scale restored
+PASS returned Collection centered
+WINDOW193 real-pointer failures=0

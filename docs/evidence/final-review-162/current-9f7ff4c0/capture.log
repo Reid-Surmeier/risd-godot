@@ -1,0 +1,6 @@
+Error: net::ERR_CERT_VERIFIER_CHANGED at https://windows-wsl.taile06c45.ts.net/risd-window-effects-01a0ee18/?qa-crt=1
+    at navigate (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:187:27)
+    at async Deferred.race (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/util/Deferred.js:33:20)
+    at async CdpFrame.goto (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/cdp/Frame.js:153:25)
+    at async CdpPage.goto (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:582:20)
+    at async /home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/docs/evidence/final-review-162/current-0a58dc7e/capture-tabs.cjs:4:331

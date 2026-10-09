@@ -1,0 +1,86 @@
+[
+ {
+  "clip": "IMG_6387.MOV",
+  "frame": 27,
+  "seconds": 13.0,
+  "sha256": "be4b1329a6beb6e03ab1f138ec8c4244dbfe6d6988ab5b1ea00f2025f60688c6"
+ },
+ {
+  "clip": "IMG_6387.MOV",
+  "frame": 89,
+  "seconds": 44.0,
+  "sha256": "9f3091af3c16aaea812aa13aec4dfa368d89029e61ba9165e5dbbb0358db005c"
+ },
+ {
+  "clip": "IMG_6383.MOV",
+  "frame": 134,
+  "seconds": 66.5,
+  "sha256": "3d3325e452a0503f2f0cbfaf18b7abbd8cba68f80181e220c4b5e5056ceb535b"
+ },
+ {
+  "clip": "IMG_6382.MOV",
+  "frame": 157,
+  "seconds": 78.0,
+  "sha256": "1987b3d59f417341aa00c1e5291cde7f16dc004ab0030c7d9b97d15f12869368"
+ },
+ {
+  "clip": "IMG_6382.MOV",
+  "frame": 29,
+  "seconds": 14.0,
+  "sha256": "3beaa7111035c4c4748fb0a74cf23499c8738e36e6d0d78e80ef2e8ff326e294"
+ },
+ {
+  "clip": "IMG_6382.MOV",
+  "frame": 49,
+  "seconds": 24.0,
+  "sha256": "b375fd59d2f2f1cff3c224dfda02d0f532f7d894b3453711b1500c85a7583940"
+ },
+ {
+  "clip": "IMG_6384.MOV",
+  "frame": 25,
+  "seconds": 12.0,
+  "sha256": "ff5679d70afee4c5ed865bd98a8114ed8155a9e959b34c8cf8b338c8ee63511e"
+ },
+ {
+  "clip": "IMG_6380.MOV",
+  "frame": 77,
+  "seconds": 38.0,
+  "sha256": "2d908cf74997c53c28662d2d05acd0a5fccb3ce22ffe0badb86694f441cef4e7"
+ },
+ {
+  "clip": "IMG_6380.MOV",
+  "frame": 203,
+  "seconds": 101.0,
+  "sha256": "54caed3a634c97945a1087164dc2499ca3b19bc55dc11231e7acc8f04d4fcd5c"
+ },
+ {
+  "clip": "IMG_6379.MOV",
+  "frame": 344,
+  "seconds": 171.5,
+  "sha256": "4b6b371f978b1130f62b90549f2be724056301c9c9fe218f74f0c7a943e56c21"
+ },
+ {
+  "clip": "IMG_6381.MOV",
+  "frame": 181,
+  "seconds": 90.0,
+  "sha256": "0d712c3368dec1a92ba14cf23f862d9c4d7f52c3a2daf59ea4ca9ef7c5ace7c0"
+ },
+ {
+  "clip": "IMG_6380.MOV",
+  "frame": 497,
+  "seconds": 248.0,
+  "sha256": "828f9b44e16e5a2125ea7d806bcd9052fa4e2e2b06d189895147a5668bd7add6"
+ },
+ {
+  "clip": "IMG_6384.MOV",
+  "frame": 29,
+  "seconds": 14.0,
+  "sha256": "1cb045dab245cd36b635e058d749e4b1b049008ff37a3d13bbcf150be78b26e4"
+ },
+ {
+  "clip": "IMG_6383.MOV",
+  "frame": 123,
+  "seconds": 61.0,
+  "sha256": "368d62e54e13ee1969e6445cb48efa47faf6aaed7867af05038dcf714b2ee8d0"
+ }
+]

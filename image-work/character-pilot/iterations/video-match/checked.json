@@ -1,0 +1,584 @@
+{
+  "additional_paid_calls": 0,
+  "additional_cost_usd": 0,
+  "exact_visual_match": false,
+  "models": {
+    "authored-walk-v5": {
+      "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 9.09459245690414e-08,
+          "floor_penetration_max_m": 4.66369073137685e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.103757932782173,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.119803607463837,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.040006335824728,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.012073241174221,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.800000011920929,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 4.21731812139114e-07,
+          "floor_penetration_max_m": 6.70623776386492e-05,
+          "authored_event_sole_height_m": {
+            "Right": 9.53674259562831e-08,
+            "Left": 4.76837129781416e-08
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.601897835731506,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.58274507522583,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.582672297954559,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.582158327102661,
+              "worst_bone": "head_end"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-fast-v5": {
+      "sha256": "960fbb79be603898140a6bf0c75cf0611228623fda24258deebd127f1c985ee6",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 9.09459245690414e-08,
+          "floor_penetration_max_m": 4.66369073137685e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.103757932782173,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.119803607463837,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.040006335824728,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.012073241174221,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.400000005960464,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 7.20976004231488e-07,
+          "floor_penetration_max_m": 0.000396865594666451,
+          "authored_event_sole_height_m": {
+            "Left": -1.43051138934425e-07,
+            "Right": -7.15255694672123e-08
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 2.68432474136353,
+              "worst_bone": "LeftHand"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 1.38347029685974,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 1.39885663986206,
+              "worst_bone": "RightToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 1.44785797595978,
+              "worst_bone": "RightToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-fast-v6": {
+      "sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 9.09459245690414e-08,
+          "floor_penetration_max_m": 4.66369073137685e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.103757932782173,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.119803607463837,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.040006335824728,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.012073241174221,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.466666668653488,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 4.17498512206294e-07,
+          "floor_penetration_max_m": 0.000308923714328557,
+          "authored_event_sole_height_m": {
+            "Left": -1.38282771899867e-07,
+            "Right": -1.02519983613547e-07
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 2.05858874320984,
+              "worst_bone": "LeftHand"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 1.01880979537964,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 1.03545463085175,
+              "worst_bone": "RightToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 1.07254672050476,
+              "worst_bone": "RightToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-walk-v7": {
+      "sha256": "5006878bba36715986e311b5b8876f886e5a6876372457f745923a9250c4c281",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 9.09459245690414e-08,
+          "floor_penetration_max_m": 4.66369073137685e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.103757932782173,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.119803607463837,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.040006335824728,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.012073241174221,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.800000011920929,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 4.23279715278113e-07,
+          "floor_penetration_max_m": 6.8283079599496e-05,
+          "authored_event_sole_height_m": {
+            "Right": 1.14440915410796e-07,
+            "Left": 3.81469718035987e-08
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.603209257125854,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.583150267601013,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.583069264888763,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.582536220550537,
+              "worst_bone": "head_end"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-walk-v8": {
+      "sha256": "5cbb8ed012eaf44f7ddae27dbc312c4ac55cf913429f19f019e9659b60664b48",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 0.0,
+          "floor_penetration_max_m": 3.52859501617786e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.100779332220554,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.116195321083069,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.0388452298939228,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.0118410522118211,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.800000011920929,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 2.40735630541167e-07,
+          "floor_penetration_max_m": 3.88336156902369e-05,
+          "authored_event_sole_height_m": {
+            "Left": -1.33514404865309e-07,
+            "Right": -2.38418564890708e-08
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.599676668643951,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.586414098739624,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.586415231227875,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.586108028888702,
+              "worst_bone": "head_end"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-fast-v8": {
+      "sha256": "a99701f9d5e30065b9860fcdfff028918fbfb6a1a0527fd92da9abd9a3f3aefb",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 0.0,
+          "floor_penetration_max_m": 3.52859501617786e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.100779332220554,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.116195321083069,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.0388452298939228,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.0118410522118211,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.466666668653488,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 3.60411007704897e-07,
+          "floor_penetration_max_m": 0.000270721910055727,
+          "authored_event_sole_height_m": {
+            "Left": -8.82148754044465e-08,
+            "Right": -1.23977656585339e-07
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 1.97044885158539,
+              "worst_bone": "LeftHand"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.955790281295776,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.957651197910309,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.978626549243927,
+              "worst_bone": "RightToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-walk-v9": {
+      "sha256": "33749bcea656023d609d6de64167a4496cce40db67bbe067ebad35024e58cce3",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 9.60662731586126e-08,
+          "floor_penetration_max_m": 3.2424927098873e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.0954675376415253,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.110000498592854,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.0368223339319229,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.0110130133107305,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.800000011920929,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 4.2150551848863e-07,
+          "floor_penetration_max_m": 6.04915621806867e-05,
+          "authored_event_sole_height_m": {
+            "Right": 6.67572024326546e-08,
+            "Left": 0.0
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.600817680358887,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.582962870597839,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.582884848117828,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.582361459732056,
+              "worst_bone": "head_end"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    },
+    "authored-fast-v9": {
+      "sha256": "23d4b1bad4349eac138344a107447002e5adc1563c542be6cef535565978c385",
+      "native_probe": {
+        "idle": {
+          "seconds": 4.03333330154419,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 9.60662731586126e-08,
+          "floor_penetration_max_m": 3.2424927098873e-07,
+          "authored_event_sole_height_m": {},
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 0.0954675376415253,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.110000498592854,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.0368223339319229,
+              "worst_bone": "LeftToeBase"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.0110130133107305,
+              "worst_bone": "LeftToeBase"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        },
+        "walk": {
+          "seconds": 0.466666668653488,
+          "sample_count": 257,
+          "endpoint_vertex_error_max_m": 3.63783698276166e-07,
+          "floor_penetration_max_m": 0.000288510316750035,
+          "authored_event_sole_height_m": {
+            "Left": -3.57627847336062e-08,
+            "Right": -5.24520871181267e-08
+          },
+          "velocity_convergence": [
+            {
+              "delta_seconds": 0.01,
+              "maximum_joint_velocity_jump_mps": 1.9446507692337,
+              "worst_bone": "LeftHand"
+            },
+            {
+              "delta_seconds": 0.003,
+              "maximum_joint_velocity_jump_mps": 0.925301551818848,
+              "worst_bone": "LeftHand"
+            },
+            {
+              "delta_seconds": 0.001,
+              "maximum_joint_velocity_jump_mps": 0.909291803836823,
+              "worst_bone": "head_end"
+            },
+            {
+              "delta_seconds": 0.0003,
+              "maximum_joint_velocity_jump_mps": 0.910083174705505,
+              "worst_bone": "head_end"
+            }
+          ],
+          "planar_stance_lock_verified": false
+        }
+      }
+    }
+  },
+  "foot_trials": {
+    "authored-walk-v7": {
+      "geometry_vertices_changed": 0,
+      "source_contact_order_matches": false,
+      "uv_texture_skin_topology_bytes_unchanged": true,
+      "selected": false
+    },
+    "authored-walk-v8": {
+      "geometry_vertices_changed": 972,
+      "source_contact_order_matches": true,
+      "uv_texture_skin_topology_bytes_unchanged": true,
+      "selected": false
+    },
+    "authored-fast-v8": {
+      "geometry_vertices_changed": 972,
+      "source_contact_order_matches": true,
+      "uv_texture_skin_topology_bytes_unchanged": true,
+      "selected": false
+    },
+    "authored-walk-v9": {
+      "geometry_vertices_changed": 972,
+      "source_contact_order_matches": false,
+      "uv_texture_skin_topology_bytes_unchanged": true,
+      "selected": false
+    },
+    "authored-fast-v9": {
+      "geometry_vertices_changed": 972,
+      "source_contact_order_matches": true,
+      "uv_texture_skin_topology_bytes_unchanged": true,
+      "selected": false
+    }
+  },
+  "aggregate_liability_usd": 1.54
+}

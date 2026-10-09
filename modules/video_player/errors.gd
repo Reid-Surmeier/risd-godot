@@ -2,7 +2,8 @@
 class_name VideoPlayerErrors
 extends RefCounted
 
-## A pixel file, a control manifest or a font the player loads is not in the project (detail: its path).
+## A pixel file, a control manifest or a font the player loads is not in
+## the project (detail: its path).
 const ASSET_MISSING := "video_player.asset_missing"
 ## One of the five preview videos in media/ is not there (detail: its path). Nothing is built.
 const MEDIA_MISSING := "video_player.media_missing"

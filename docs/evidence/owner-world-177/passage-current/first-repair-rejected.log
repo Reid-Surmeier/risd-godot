@@ -1,0 +1,12 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+UNMATCHED (-72130, -200, 157200)(-72120, -200, 157200) count=6
+UNMATCHED (-107480, -200, 113356)(-72130, -200, 157200) count=4
+UNMATCHED (-72130, -200, 233560)(-72120, -200, 233560) count=6
+UNMATCHED (-107480, -200, 189723)(-72130, -200, 233560) count=4
+UNMATCHED (-72130, -200, 309930)(-72120, -200, 309930) count=6
+UNMATCHED (-107480, -200, 266091)(-72130, -200, 309930) count=4
+UNMATCHED (-72120, -200, 157200)(-48083, -200, 141640) count=4
+UNMATCHED (-72120, -200, 233560)(-48083, -200, 218008) count=4
+UNMATCHED (-72120, -200, 309930)(-48083, -200, 294375) count=4
+[{"limits":"(0.0, 6.65)","mesh":"Surface010","unmatched_interior_edges":9,"vertices":7905}]

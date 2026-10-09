@@ -1,0 +1,26 @@
+[
+  {
+    "path": "native.log",
+    "sha256": "cf18cbf86a6d43d5e9036e75aa1b3e6f2e1b9840b89e6b4318fea5c0a3182d28"
+  },
+  {
+    "path": "negative-control-front-on-rear.log",
+    "sha256": "7987302913ba7e9e8a2312036be760441eab3ab64259f7dc509b986c342a8dfd"
+  },
+  {
+    "path": "negative-control-open-shell.log",
+    "sha256": "b605bbc5811187b95dccddce80d6157237703dfd28cad4479b0a3eaec524e755"
+  },
+  {
+    "path": "repo-check.log",
+    "sha256": "261bf011944897438701c4407857679c21294bd1771f6d570d33259b75c0b328"
+  },
+  {
+    "path": "trials/pass-0-parse-error.log",
+    "sha256": "634c6a2d2c29b2d399aebe591b34c2c51027be5cbddc5deafebd61a22374447b"
+  },
+  {
+    "path": "trials/pass-1-check-read-compressed-normals.log",
+    "sha256": "253e13010ff22d92d5ff3ee46f034d1a7d28d7797477493cc26580b4425c1401"
+  }
+]

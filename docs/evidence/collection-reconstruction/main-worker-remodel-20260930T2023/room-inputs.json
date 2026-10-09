@@ -1,0 +1,41 @@
+{
+  "source_sha256": {
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/bookcase-original.webp": "86b8babf21fb3a53fac0f319a08922ae449948a4a42c9c41265592b36ee5512e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/mirror-original.webp": "00846e59bf5074910066e579708a7c436ce92e8a1190471105dc419c9cefae93",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/room-route-walk-v5/geometry.json": "3f7d13e83a84b236c7afadb32ea475be9eac65fda90eda637c10d0bf06930184",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/doorway_walk.gd": "922240937678d8deaed3086ce1ca28902dc18d6a5e48a38dec2b9d7d92c9574c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_room.gd": "d0558414466d0f247fa6828caa119b1516fbec3f8c3e095511b49fdbaeede5f8",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/remodel_review.gd": "b1a0e704f2671dac06abaa20ebb848626bab04883e8ae57ffeb0b63c5b8cc691",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/PROVENANCE.md": "9c118a01af3489d1330b63cf2f49655c90b8a82d8cccf3b87463c601556f343c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/visitor.gd": "f351a4ea09c43f03ea44d3e181d512770fb5a028aabeb9cb619e2fff15e97f4a",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/donor.glb": "e825437cd4d2ee9c1960b517a74a69101e33eb409ae7fa8cedc7134a998fbb7d",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character.glb": "a2e6e0948dafb5b0ac10ffdc7359c64fbe04371038f0265d9cb1e1af390e54c4",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-shirt-baked.png": "98088aa8132b11367d6f249b29d6e936438e7dd4e1bca29345e72fcf003737a2",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-hair36-source-tinted.png": "3343dfb6121696acf2e684ffd24b5a1f3bc7553721ca01ccb774ba407cb3499c",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/donor_rogue_texture.png": "a4032e877c3b91939f5cdbb630349c1998fdbc3211bbd587c111125500fe4cc5",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-mouth-baked.png": "c0df1123ec60316f19af09ca7c77018b35f149c52e4c4f7372d2fb138169f0b1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/main-hall-visitor159/inputs/character_risd-163-eye-baked.png": "76c7f742c5762955f20ec2b73b6e3e8cd67be16b5d60544e51de457ba5aa233e",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/painting_asset.gd": "3141d33359efd0f8004dcc535f3d5f850eccfb09a1400891e37c5ab5b17030a7",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/ps1.gdshader": "071ddec30590fb8f916aa5fc30f4219b76df507fbc8b320026289c895cb88080",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/oak-muse.webp": "bb6f54cd7f4f423babaaacf8107dc735bb7fcb45118cacba9725bbbd3cb600c1",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/gallery_walk4/textures/wall-muse.webp": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/trial/sofa-cloth-original.webp": "aace66201d1fae3ccada9c1ce32abeb5a3093293f57bebcb6cdd289649f4dfde",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-expansion-frame/trial/frame.png": "3e22ccf27b2c7e061b5c48a6fcf537affe64b6a5f448c193d40db6cb222cb7ce",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-expansion-frame/trial/geometry.json": "0ba9b91fb4cd5ad158430b649a65824c4087136c28db99ba1f026583ad764e47",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-expansion-frame/references/painting-35.786.jpg": "15e93a4af2b87e64280f3008f67846d609a2c74df1a37b84b4b89a0af4b6ab7f"
+  },
+  "point_cloud_render": false,
+  "room_extents": "provisional captured spacing guide; no new connectors",
+  "bookcase_dimensions_m": [
+    1.1,
+    1.515,
+    0.33
+  ],
+  "mirror_dimensions_m": [
+    0.78,
+    1.95
+  ],
+  "mirror_pair": "repeated source mirror proxy; second identity and size unverified",
+  "sofa_vessels": "provisional sofa geometry with source-guided Muse cloth; vessels are authored placeholders",
+  "lighting": "Muse baked asset appearance plus provisional live room light; offline UV2 pending"
+}

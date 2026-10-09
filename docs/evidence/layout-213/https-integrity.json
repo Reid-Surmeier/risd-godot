@@ -1,0 +1,36 @@
+{
+  "runtime": "bd870c2d",
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-layout-current-01a0f2f0/",
+  "files": [
+    {
+      "file": "index.html",
+      "status": 200,
+      "sha256": "38417f1fd4de5b960b7f10b59137b4a18bc3818178f7991e6c457d8549e480fc",
+      "match": true
+    },
+    {
+      "file": "bd870c2d.html",
+      "status": 200,
+      "sha256": "aeafedbbacc8495ffcd1e38439e238e4f6a989bdd4971ae876068c66f1b1c79f",
+      "match": true
+    },
+    {
+      "file": "bd870c2d.pck.gz",
+      "status": 200,
+      "sha256": "fd5086b88f2f2b253a488bee495f5bd758c4dff392010f3dc33c740eeb581a54",
+      "match": true
+    },
+    {
+      "file": "bd870c2d.game.pck.gz",
+      "status": 200,
+      "sha256": "2b4713842c0a5599d1a2bf0daabbcf3b4e4fdefea5ddde5357cd03169f3c113a",
+      "match": true
+    },
+    {
+      "file": "bd870c2d.wasm.gz",
+      "status": 200,
+      "sha256": "ad8f6edf94c9db2d4814d53402ef9f3f3962bec93eebda63d85db0955588cff7",
+      "match": true
+    }
+  ]
+}

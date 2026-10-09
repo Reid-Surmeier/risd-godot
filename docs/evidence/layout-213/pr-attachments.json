@@ -1,0 +1,16 @@
+{
+  "comment": "https://github.com/Reid-Surmeier/risd-godot/pull/166#issuecomment-5914630568",
+  "body": "Current exact runtime bd870c2d: retained Viewer and enlarged hover, gallery and centered portrait after native-compatible source layout. All four scans remain available; final hands-on owner approval stays open. Private review only.\n\n![Current Viewer and hover](https://github.com/user-attachments/assets/aa75c95b-174e-4af7-a5d1-2c879c204e6e)\n\n![Current gallery and visitor](https://github.com/user-attachments/assets/55c2bf84-78a9-49ea-bde6-0af98151e7f8)\n\n![Current contained portrait](https://github.com/user-attachments/assets/547b2152-206a-4f8c-9a99-be102c59f770)\n\n![Current Map](https://github.com/user-attachments/assets/41abf268-1b66-4c82-8e63-0eb7d9e9495e)\n\n![Current Sketchbook](https://github.com/user-attachments/assets/2866d6d7-20d2-4ad4-a323-addee854c7cf)\n\n![Current four-scan Viewer](https://github.com/user-attachments/assets/66e22139-4010-4be5-9ca8-22b6f27cdc38)\n\n![Current Video Player](https://github.com/user-attachments/assets/3f4f08fa-a001-4e60-a8d8-dd86e6be94e7)\n\n![Current Playground](https://github.com/user-attachments/assets/356cc41c-521f-4dfc-bceb-a9e985d71086)\n\n![Current Flowers](https://github.com/user-attachments/assets/d5cbbbaf-e7da-4edc-881b-2c4a3655045b)\n\n![Current gallery portal](https://github.com/user-attachments/assets/f5689a56-f561-4d3d-968e-0c2cd260e27c)",
+  "image_refs": [
+    "https://github.com/user-attachments/assets/aa75c95b-174e-4af7-a5d1-2c879c204e6e",
+    "https://github.com/user-attachments/assets/55c2bf84-78a9-49ea-bde6-0af98151e7f8",
+    "https://github.com/user-attachments/assets/547b2152-206a-4f8c-9a99-be102c59f770",
+    "https://github.com/user-attachments/assets/41abf268-1b66-4c82-8e63-0eb7d9e9495e",
+    "https://github.com/user-attachments/assets/2866d6d7-20d2-4ad4-a323-addee854c7cf",
+    "https://github.com/user-attachments/assets/66e22139-4010-4be5-9ca8-22b6f27cdc38",
+    "https://github.com/user-attachments/assets/3f4f08fa-a001-4e60-a8d8-dd86e6be94e7",
+    "https://github.com/user-attachments/assets/356cc41c-521f-4dfc-bceb-a9e985d71086",
+    "https://github.com/user-attachments/assets/d5cbbbaf-e7da-4edc-881b-2c4a3655045b",
+    "https://github.com/user-attachments/assets/f5689a56-f561-4d3d-968e-0c2cd260e27c"
+  ]
+}

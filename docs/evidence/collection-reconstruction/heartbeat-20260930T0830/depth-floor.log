@@ -1,0 +1,140 @@
+{
+  "source": "IMG_6380_exit6fps/000019.jpg",
+  "annotations": {
+    "source": "IMG_6380_exit6fps/000019.jpg",
+    "patches": {
+      "near": [
+        [
+          50,
+          495
+        ],
+        [
+          290,
+          495
+        ],
+        [
+          325,
+          620
+        ],
+        [
+          20,
+          620
+        ]
+      ],
+      "far": [
+        [
+          115,
+          350
+        ],
+        [
+          235,
+          350
+        ],
+        [
+          250,
+          425
+        ],
+        [
+          110,
+          425
+        ]
+      ]
+    },
+    "image_sha256": "fb15aa5bf797c77b7d09da3368bd2eb2a356d2f17094571ede49bfd9f7fb530a",
+    "note": "Source-visible near/far wood only, excludes cabinet/pedestal contacts and threshold. Freeze before depth parsing; corrected-model CUDA depth; no independent scale or collision acceptance."
+  },
+  "annotations_sha256": "4edbc685dd4b40ab4e52fafec146064dfea9a291d56a105df1d2c70806bdd590",
+  "depth_sha256": "07719a0d62fc19e29a2dccbc2a67f66a05ec536b790058feb3a1b13d3cfbb4ab",
+  "patches": [
+    {
+      "patch": "near",
+      "polygon": [
+        [
+          50,
+          495
+        ],
+        [
+          290,
+          495
+        ],
+        [
+          325,
+          620
+        ],
+        [
+          20,
+          620
+        ]
+      ],
+      "polygon_pixels": 34461,
+      "valid_samples": 13310,
+      "valid_fraction": 0.38623371347320157,
+      "fit_samples": 6787,
+      "check_samples": 6523,
+      "center_world": [
+        0.4573572192497105,
+        1.9858498445289623,
+        1.6901865363885573
+      ],
+      "normal_world": [
+        -0.9802187236167291,
+        0.0387360358753607,
+        -0.19408960146245088
+      ],
+      "check_residual_p50_p90_world_units": [
+        0.0043761759328882315,
+        0.01165079720767774
+      ],
+      "status": "candidate plane only; block pixels remain correlated"
+    },
+    {
+      "patch": "far",
+      "polygon": [
+        [
+          115,
+          350
+        ],
+        [
+          235,
+          350
+        ],
+        [
+          250,
+          425
+        ],
+        [
+          110,
+          425
+        ]
+      ],
+      "polygon_pixels": 9956,
+      "valid_samples": 8710,
+      "valid_fraction": 0.8748493370831659,
+      "fit_samples": 4351,
+      "check_samples": 4359,
+      "center_world": [
+        0.5425138494881978,
+        2.136729333597662,
+        1.0792255025510786
+      ],
+      "normal_world": [
+        -0.989469024771486,
+        0.01847279572013567,
+        -0.14356115364556954
+      ],
+      "check_residual_p50_p90_world_units": [
+        0.005443405669783379,
+        0.01418940681967671
+      ],
+      "status": "candidate plane only; block pixels remain correlated"
+    }
+  ],
+  "near_far_normal_angle_degrees": 3.164297174286045,
+  "triangle_normal_difference_degrees": [
+    5.76491775254489,
+    4.865428870903763
+  ],
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Six training images only, corrected sparse model; reserved21/25 excluded from depth. Untrimmed SVD plane candidates and spatial block checks, no tuned inlier selection. Sparse cameras and dense pixels remain correlated. No old scale/floor transplant, independent planarity, room extent, physical tolerance or collision acceptance."
+}

@@ -1,0 +1,91 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	var output:String=OS.get_cmdline_user_args()[0]
+	DirAccess.make_dir_recursive_absolute(output)
+	root.size=Vector2i(1440,1000)
+	var app=load("res://modules/shell/demo.tscn").instantiate()
+	root.add_child(app)
+	for i in 150:await process_frame
+	var walk=app.find_child("GalleryWalk",true,false)
+	assert(walk!=null and walk.state().attached)
+	walk.set_process(false)
+	var plan:Dictionary=JSON.parse_string(FileAccess.get_file_as_string("res://collection_rooms/geometry.json"))
+	var rooms:Dictionary={}
+	for room in plan.rooms:rooms[room.label]=room
+	var landing:Dictionary=rooms["lion stair landing"]
+	if not landing.openings.has("north"):
+		print("FULLAPP_KEYBOARD_NEGATIVE: old landing lacks the source-backed north doorway")
+		quit(1)
+		return
+	var doorx:float=(landing.openings.north[0]+landing.openings.north[1])/2.0
+	var doorz:float=landing.bounds[2]
+	var sculpturez:float=(landing.openings.east[0]+landing.openings.east[1])/2.0
+	var sculptx:float=landing.bounds[1]
+	var medievalz:float=(landing.openings.west[0]+landing.openings.west[1])/2.0
+	var medx:float=landing.bounds[0]
+	var tests:Array=[
+		["landing-modern",Vector3(doorx,0,doorz+1.0),KEY_UP,Vector3(doorx,0,doorz-1.0)],
+		["modern-landing",Vector3(doorx,0,doorz-1.0),KEY_DOWN,Vector3(doorx,0,doorz+1.0)],
+		["landing-sculpture",Vector3(sculptx-1.0,0,sculpturez),KEY_RIGHT,Vector3(sculptx+1.0,0,sculpturez)],
+		["sculpture-landing",Vector3(sculptx+1.0,0,sculpturez),KEY_LEFT,Vector3(sculptx-1.0,0,sculpturez)],
+		["medieval-landing",Vector3(medx-1.0,0,medievalz),KEY_RIGHT,Vector3(medx+1.0,0,medievalz)],
+		["landing-medieval",Vector3(medx+1.0,0,medievalz),KEY_LEFT,Vector3(medx-1.0,0,medievalz)]
+	]
+	tests.append_array([
+		["grey-piano",Vector3(5.55,0,-3.4),KEY_UP,Vector3(5.55,0,-5.0),"far","far"],
+		["piano-grey",Vector3(5.55,0,-5.0),KEY_DOWN,Vector3(5.55,0,-3.4),"far","far"],
+		["hall-grey",Vector3(5.55,0,2.9),KEY_UP,Vector3(5.55,0,1.0),"gallery","far"],
+		["grey-hall",Vector3(5.55,0,1.0),KEY_DOWN,Vector3(5.55,0,2.9),"far","gallery"]
+	])
+	tests.append_array([
+		["rockefeller-west",Vector3(-2.5,0,1.0),KEY_DOWN,Vector3(-2.5,0,2.8),"far","arch"],
+		["west-rockefeller",Vector3(-2.5,0,2.8),KEY_UP,Vector3(-2.5,0,1.0),"arch","far"]
+	])
+	var report:Array=[]
+	var failures:Array=[]
+	for test in tests:
+		walk._entrance_waiting=false
+		walk._entrance_active=false
+		walk._target=null
+		walk._target_yaw=null
+		walk._path.clear()
+		walk._velocity=Vector3.ZERO
+		walk._held.clear()
+		walk._space=test[4] if test.size()>4 else "arch"
+		walk._pos=test[1]+walk.ATTACH
+		walk._last_pos=walk._pos
+		walk._kid.position=walk._pos
+		walk.view_mode=0
+		walk.view_yaw=0.0
+		walk._view_turn_remaining=0.0
+		walk._update_camera(1.0)
+		var event:=InputEventKey.new()
+		event.keycode=test[2]
+		event.physical_keycode=test[2]
+		event.pressed=true
+		Input.parse_input_event(event)
+		await process_frame
+		var delivered:bool=not walk._held.is_empty()
+		var target:Vector3=test[3]+walk.ATTACH
+		var closest:float=walk._pos.distance_to(target)
+		for i in 120:
+			walk._process(1.0/30.0)
+			closest=minf(closest,walk._pos.distance_to(target))
+			if closest<0.08:break
+		event.pressed=false
+		Input.parse_input_event(event)
+		await process_frame
+		var released:bool=walk._held.is_empty()
+		var passed:bool=delivered and released and closest<0.08 and walk._space==(test[5] if test.size()>5 else "arch")
+		report.append({"test":test[0],"root_key_delivered":delivered,"key_released":released,"closest_m":closest,"space":walk._space,"passed":passed})
+		if not passed:failures.append(test[0])
+		for i in 3:await process_frame
+		await RenderingServer.frame_post_draw
+		root.get_texture().get_image().save_png(output.path_join(test[0]+".png"))
+	FileAccess.open(output.path_join("keyboard.json"),FileAccess.WRITE).store_string(JSON.stringify({"rows":report,"failures":failures},"\t")+"\n")
+	print("FULLAPP_KEYBOARD ",JSON.stringify(report))
+	quit(0 if failures.is_empty() else 1)

@@ -1,0 +1,55 @@
+{
+  "date_utc": "2026-09-30",
+  "provider": "local Godot 4.7.2 / NumPy / pycolmap / Chromium",
+  "paid_calls": 0,
+  "cost_usd": 0,
+  "source_sha256": {
+    "modules/shell/prototype/collection_reconstruction/corridor_floor.py": "be3f42c57889cbedc02a2ac23438c841cbc6774ea019b3e4397613e1260538c6",
+    "modules/shell/prototype/collection_reconstruction/wall_floor_landmarks.py": "67b55f934c605662c8cfd706d9788c09152d65b1c123fa6b95db89be292233ce",
+    "modules/shell/prototype/collection_reconstruction/prepare_doorway_walk.py": "6f720ec92f1b1426e0905e24786fefddab486c454e109a99bad49e823a5c26ef",
+    "modules/shell/prototype/collection_reconstruction/doorway_walk.gd": "ba36f42941e334296fd3b8f33c38e23ce8b84ccc9ec20e4a0a2fea1abcde1ae4",
+    "modules/shell/prototype/collection_reconstruction/doorway_walk.tscn": "ebe7b35878f2747b3e590a6bd3dc4d90db8eb6f9d5965e7c3bf59922cd6dfcdd",
+    "modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs": "213ec0148bec7fede5d8f2d6ebb9f9bdebc4f78f31618742852dbb5b4545363a"
+  },
+  "artifacts_sha256": {
+    "browser-forward.png": "4dd989eab39d117868bf5b42865f0dc75fb738dab129ce3b581bcdb76532f8ff",
+    "shell-comparison.json": "1835c74d6bbcd0ea1209f9eaf07b0c9796f04e1ab06452c2db60769c3eca76fd",
+    "browser-result.json": "5d05bb87b23d5cfcd63af03d64da01c4dc6c2c0aa25f65a1918f0d2031329f84",
+    "wall-floor-comparison.json": "b3e0b03d24b0edcd7e1edf0888d78992b05461b792bb04f50bb11dfc317cf163",
+    "shell-resized.png": "f5489e0038c4f9e69a276f229dcca753b723d654de5f4d456686525beff09a56",
+    "walk-geometry.json": "c3d4e9a12ddfa22b2e4ec21d2909932e40cc4f8991691e67bedf78f9f0125d9f",
+    "native-phase-1.png": "6e5dc0bbed7166e32e650c21b10f882da68450cecd96cd9fd40d47065347c1bf",
+    "native-result.json": "8638d6f0f504f88031abe62bf81f4c9b4982f901fbc682e1ea12c3e916fa2a3c",
+    "native-phase-0.png": "01bcb23045f8b095ec543a38f208b544553a7bcf293dd6cc592995734b9655e9",
+    "repository-check.log": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "native-gpu.log": "d9e99dbb6de0c814e65d55ed9a835cefa7517ed5fda9da2470103757431cb7bf",
+    "browser-jamb.png": "e3a109599084c171add73bbebe48e55a00c922970ce9d4fbc1dd105d2b436170",
+    "wall-floor-reserved.png": "0c099e2ce55acaa72b74115d65e36f7b0981edbe5f4986563d6882e0ac823e9e",
+    "walk-inputs.json": "cede4126f1a51bb4398560ed6582e2d1f09beaa3f11961341931bdcb7e658ac3",
+    "browser-reverse.png": "a18ef0d3c4f85e9a3a96495966365e29dedfbaf6a3e9b7ef1d51ac5b40dee73a",
+    "native-phase-2.png": "93f307534af7a3a22b1649c0fd94840c7dfaf5c53d1500fdbd232c5106dd15eb",
+    "web-export.log": "8bcdcd5f3bd7ee2ab0b68697c9090f771959c4bc7dc011969493d87473a67fe7",
+    "corridor-floor-result.json": "e2c842dbeb77a766062c3028ff1fd141b3897e48eba57e72495a7f8163daf93e",
+    "shell-playtest.log": "b5e767d7be262b6e5ef99fb8782f5aa8545ede38470c435bf6a892645d1cd92f",
+    "corridor-reserved.png": "3fe522ff0c0b8d874ac2e6c90edce9392714990dafc850667e48dbd873dc0012",
+    "walk-plan.png": "63e5046f010a79752b81ee66e3cae2e2b309ec5a54174e1c901230c71d807403",
+    "index.html": "9f3a258b612f63310e1bdd76928637c04239820203c8431118e78ab83612bf54"
+  },
+  "web_export_sha256": {
+    "index.png.import": "d395447cb83de743e651d59a300a37335c85b21d98971860f6877ca3a915f7ae",
+    "index.audio.position.worklet.js": "be33985bc7160d6bf9646f259cd86b259cd67b02ccb297ee5c44f8ac84327bc8",
+    "index.pck": "f3b0cbbd4659e45d88c82e24ff297b6ef9ed1b5802ad7fd75193fa8a5e48713e",
+    "index.audio.worklet.js": "5b476a9c9ce642c0ee4256436d1bc31d9c38f868aca0f9a8e2a57c18d2dec2a3",
+    "index.png": "3cb4495c0b98dfbe4b663cbf2b6836473572339beb66d902367893162a70be0e",
+    "index.wasm": "fc74679e3b97f76878947fcd4fbe1268cbfa6188182a2e33bbc3f5dc9bfa57d0",
+    "index.js": "33c94cb3175f3333b82e2a3be5e8e86f77986f0aa2042b1631f6367a4e5bb6ba",
+    "index.html": "c26a1c52642c70460512b6ff1ae1f10e2441e8d03a26d047ff659dd2203a9c14"
+  },
+  "input_provenance": "walk-inputs.json",
+  "scope": "Bounded doorway traversal study only; no whole rooms or runtime integration",
+  "paid_receipts_unchanged": {
+    "combined_recorded_usd": 0.02,
+    "retry_state": "never-resubmit"
+  },
+  "log_normalization": "ANSI escapes and trailing whitespace removed from copied logs; original runs remain in ingestion and /tmp."
+}

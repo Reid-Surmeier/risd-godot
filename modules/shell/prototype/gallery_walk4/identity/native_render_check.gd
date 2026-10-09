@@ -1,10 +1,13 @@
 extends SceneTree
 
-## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd
+## godot --rendering-method gl_compatibility --path . --script
+## res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd
 const HOME := "res://modules/shell/prototype/gallery_walk4/identity/"
+
 
 func _initialize() -> void:
 	call_deferred("_run")
+
 
 func _run() -> void:
 	var stage := Node3D.new()
@@ -39,12 +42,18 @@ func _run() -> void:
 	for source in ["visitor_identity.glb", "Rogue.source.glb"]:
 		var character = load(HOME + source).instantiate()
 		stage.add_child(character)
-		var player: AnimationPlayer = character.find_children("*", "AnimationPlayer", true, false)[0]
+		var player: AnimationPlayer = (
+			character.find_children("*", "AnimationPlayer", true, false)[0]
+		)
 		player.play("Idle")
 		await process_frame
 		await process_frame
 		var image := root.get_viewport().get_texture().get_image()
-		var output := "visitor_identity_godot.png" if source == "visitor_identity.glb" else "rogue_control_godot.png"
+		var output := (
+			"visitor_identity_godot.png"
+			if source == "visitor_identity.glb"
+			else "rogue_control_godot.png"
+		)
 		image.save_png(ProjectSettings.globalize_path(HOME + output))
 		print("RENDER ", source, " ", image.get_width(), "x", image.get_height())
 		character.queue_free()

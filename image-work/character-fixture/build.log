@@ -1,0 +1,63 @@
+15:38:06 | INFO: Data are loaded, start creating Blender stuff
+15:38:06 | INFO: Blender create Mesh node Cube.199
+15:38:06 | INFO: Blender create Mesh node Cube.202
+15:38:06 | INFO: Blender create Mesh node PrototypePete_body.025
+15:38:06 | INFO: Blender create Mesh node Cube.210
+15:38:06 | INFO: Blender create Mesh node Cube.194
+15:38:06 | INFO: Blender create Mesh node Cube.187
+15:38:06 | INFO: Blender create Mesh node Cylinder.002
+15:38:06 | INFO: Blender create Mesh node Cube.015
+15:38:06 | INFO: Blender create Mesh node Cube.004
+15:38:06 | INFO: Blender create Mesh node Cylinder.008
+15:38:06 | INFO: Blender create Mesh node Cylinder.006
+15:38:06 | INFO: Blender create Mesh node Plane.007
+15:38:06 | INFO: glTF import finished in 0.36s
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+Fra:1 Mem:112.24M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | shirt body
+Fra:1 Mem:112.31M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | mouth
+Fra:1 Mem:112.31M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | nose
+Fra:1 Mem:112.32M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | ear.001
+Fra:1 Mem:112.33M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye glint.001
+Fra:1 Mem:112.33M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye pupil.001
+Fra:1 Mem:112.35M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye white.001
+Fra:1 Mem:112.36M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | ear
+Fra:1 Mem:112.37M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye glint
+Fra:1 Mem:112.37M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye pupil
+Fra:1 Mem:112.39M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye white
+Fra:1 Mem:112.40M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | cap soft tip
+Fra:1 Mem:112.41M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | cap band
+Fra:1 Mem:112.42M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | cap crown
+Fra:1 Mem:112.44M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | hair
+Fra:1 Mem:112.45M (Peak 112.47M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | head
+Fra:1 Mem:112.48M (Peak 112.48M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:112.47M (Peak 112.48M) | Time:497443:38:07.25 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading shirt albedo bake
+Fra:1 Mem:112.28M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | shirt body
+Fra:1 Mem:112.34M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | mouth
+Fra:1 Mem:112.34M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | nose
+Fra:1 Mem:112.35M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | ear.001
+Fra:1 Mem:112.35M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye glint.001
+Fra:1 Mem:112.36M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye pupil.001
+Fra:1 Mem:112.37M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye white.001
+Fra:1 Mem:112.38M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | ear
+Fra:1 Mem:112.39M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye glint
+Fra:1 Mem:112.39M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye pupil
+Fra:1 Mem:112.40M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | eye white
+Fra:1 Mem:112.41M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | cap soft tip
+Fra:1 Mem:112.42M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | cap band
+Fra:1 Mem:112.43M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | cap crown
+Fra:1 Mem:112.44M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | hair
+Fra:1 Mem:112.46M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Synchronizing object | head
+Fra:1 Mem:112.48M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Initializing
+Fra:1 Mem:112.47M (Peak 147.16M) | Time:497443:38:07.99 | Mem:0.00M, Peak:0.00M | Scene | Updating Images | Loading shirt AO bake
+Info: Baking map saved to internal image, save it externally or pack it
+Info: Baking map saved to internal image, save it externally or pack it
+INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
+15:38:09 | INFO: Starting glTF 2.0 export
+15:38:09 | INFO: Extracting primitive: Sphere
+15:38:09 | INFO: Primitives created: 10
+15:38:16 | INFO: Finished glTF 2.0 export in 6.592105150222778 s
+
+Info: Saved "fixture.blend"
+OUTPUT /home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-fixture/fixture.glb parts joined 29 bytes 3896080
+
+Blender quit

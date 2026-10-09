@@ -1,0 +1,16 @@
+## headless instantiate smoke
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Queens: 4 meshes, 2020.55, matched
+Christ: 1 meshes, 2014.110, probable
+ChristOnWedge: children [&"mount", &"Christ"], ivory origin (0.0, 0.025208, 0.074022)
+exit 0 (want 0)
+## sabotage: height-1cm-short
+failures: ['queens bounds (0.16, 0.32, 0.16) differ from catalogue 16 x 33 x 16 cm', 'ring finial stands on the lid, facing front, and tops the object']
+exit 1 (want 1)
+## sabotage: missing-foot
+failures: ['queens needs four feet, has 3', 'feet must stand in four different quadrants', 'lid, collar, neck and skirt are chrome; feet and ring are cast']
+exit 1 (want 1)
+## sabotage: christ-marked-matched
+failures: ['christ identity must stay probable and its depth unlisted']
+exit 1 (want 1)
+## controls passed

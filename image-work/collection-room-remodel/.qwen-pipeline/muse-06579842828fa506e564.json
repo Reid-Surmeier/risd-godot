@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-06579842828fa506e564",
+  "summary": "The reference photographs are the sole authority for RISD Museum Dragons-in Compartments pattern covered sauce tureen and stand, accession 2017.74.39.19a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-06579842828fa506e564",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/pink-small-tureen-selected-0.png",
+      "sha256": "3e6a167c7782fe88a2284b7d20e0765d02ae0226c5b9629fb3c643f5b3501a29",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "pink-small-tureen-recipe.json",
+      "sha256": "06579842828fa506e564e12c811d5e917f34a9f7d3f114d6c063df1c12db974d"
+    },
+    {
+      "applicationPath": "pink-small-tureen-plan.json",
+      "sha256": "bb5891b3a8bf32735e6ecd15b323381d3128fa18d1ecc1af80cb93f316d045bd"
+    },
+    {
+      "applicationPath": "pink-small-tureen-prompt.txt",
+      "sha256": "0149984e6f9511bba657b8f5e970734ba3e4fd10a83ed30989795d9dfb8631f3"
+    }
+  ]
+}

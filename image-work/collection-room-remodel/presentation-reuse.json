@@ -1,0 +1,17 @@
+{
+  "source_tip": "2b0b015a",
+  "source_worktree": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164",
+  "sha256": {
+    "modules/shell/assets/collection_frame/page.png": "247fd184ea40dd99286c7b5ef8a8d45193d307d600547fb739cf18c161ee6248",
+    "modules/shell/prototype/gallery_walk4/gamecube.gdshader": "7e7dd33a0531246cccdc05cb493a476ee416ae84e2d776d741307b223864dbda",
+    "modules/shell/prototype/gallery_walk4/floor_oak.gdshader": "cb832c9efc425a9d7eb3a368e7173b7114b01176fa43979553b77dde711998be",
+    "modules/shell/prototype/gallery_walk4/ps1.gdshader": "db206d444666151e29bb7584e2f5d3ba514c8d026b5af33b355082f3eedf4b16",
+    "modules/shell/prototype/gallery_walk4/painting_asset.gd": "0044b1ff62059e508e917cb140b2e159673972b55278e247df19eb66a222393c",
+    "modules/shell/prototype/gallery_walk4/textures/wall-muse.webp": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36",
+    "modules/shell/crt_luminance.gdshader": "fdef0e6432af7ba7da1440363c0ddb5d920a0f53a13b6122f4992b3e8fcef2de",
+    "modules/shell/squiggle_screen.gdshader": "3821e98798ff199b366212ef1c05d1fd3627a96f9636cce57d97a8164cebf62a",
+    "modules/shell/haze_screen.gdshader": "b8823c51bcaf1a3eb22586a22bf32f485f3e93e4036b1a75a207f6abf1555da1",
+    "modules/shell/prototype/gallery_walk4/bake/plugin.gd": "f723734994b92c193cce373617549b0f582b560206c8755321aceb25e524d280",
+    "modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v3.webp": "65ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff"
+  }
+}

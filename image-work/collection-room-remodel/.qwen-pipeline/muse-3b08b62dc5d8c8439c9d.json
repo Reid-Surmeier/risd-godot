@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-3b08b62dc5d8c8439c9d",
+  "summary": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon Ionic column CAPITAL matching the white-painted historic RISD grey-gallery column top in reference1 and its architectural context in reference2. Preserve the paired downward-curling spiral volutes left and right, shallow curved band between them, short round neck beneath, and thin rectangular square abacus above. The actual shaft is smooth and unfluted; include only a very short neck, not a whole column. Warm off-white painted plaster, restrained facet shading consistent with reference3 museum game, simple shallow moulding relief. Complete silhouette and all scrolls, generous magenta #FF00FF outside background. One capital only, no entablature, shaft, base, wall, floor, people, labels, detached parts or cast shadow outside silhouette. Frontal orthographic view, no perspective. Do not add Corinthian leaves, heads, statues or gilding. Native closed geometry will supply depth; preserve the characteristic twin-scroll silhouette.\n",
+  "procedureId": "muse-3b08b62dc5d8c8439c9d",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/ionic-capital-selected-0.png",
+      "sha256": "110eba8774838c282d14b303de3ffb72c1c8fb3a5f7c60f900502f51bc74ff0f",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/ionic-capital-selected-1.png",
+      "sha256": "29335bc280b870c4179042ba65fab9d66a0faf00c9633a09070a3cbad8f40bcf",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "inventory-references/ionic-capital-selected-2.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "ionic-capital-recipe.json",
+      "sha256": "3b08b62dc5d8c8439c9d7e7f6d3466fa03b43b932f58e7b48752def417a40e95"
+    },
+    {
+      "applicationPath": "ionic-capital-plan.json",
+      "sha256": "5e45c3a8a203322fd337dfdf6b9807c8a279ca138880886235e3d0c055364640"
+    },
+    {
+      "applicationPath": "ionic-capital-prompt.txt",
+      "sha256": "c0674b8e71c9e1b1a3dc37786c034cc211cbc3afc6b9fa034165175d80f228d9"
+    }
+  ]
+}

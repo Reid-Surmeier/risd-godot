@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "bear-jug-pair-001",
+      "prompt": "bear-jug-pair-prompt.txt",
+      "promptSha256": "fe5d20be3ee65c48a3d909e07d917245277cf105c4c0bcf7c016c30548177cd7",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/bear-jug-pair-catalogue.png",
+          "sha256": "5312d6bdf44f32db548b0c0826b452cb75f7d59dbbb01b9555714a408e20b5bc"
+        }
+      ]
+    }
+  ]
+}

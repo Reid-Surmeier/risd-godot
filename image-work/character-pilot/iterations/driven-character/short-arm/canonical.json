@@ -1,0 +1,23 @@
+{
+  "source_sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84",
+  "output_sha256": "2b18637a0537ad3bad3f636da76df70d5b753948559326daa44cddf1bcdb8010",
+  "bones": 24,
+  "uv_unchanged": true,
+  "before": {
+    "arm_leg": 1.0213344746201964,
+    "hip_shoulder": 0.41449664163235983,
+    "leg": 0.39909767432868004,
+    "arm": 0.4076122135326247
+  },
+  "after": {
+    "arm_leg": 1.0596707848731366,
+    "hip_shoulder": 0.7777737586224456,
+    "leg": 0.3990976464640007,
+    "arm": 0.42291211626952924
+  },
+  "source_scale": 0.00046952667568080005,
+  "shoe_scale": 0.8,
+  "arm_visual_scale": 0.72,
+  "geometry_acceptance": "prototype; joint ratios are not a silhouette verdict",
+  "paid_calls": 0
+}

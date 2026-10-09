@@ -1,0 +1,4 @@
+[2026-10-01 07:44:32] INFO: Fetched (200) <GET https://risdmuseum.org/art-design/collection> (referer: https://www.google.com/)
+[2026-10-01 07:44:32] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?field_on_view=1&search_api_fulltext=Oil+on+canvas&items_per_page=100&page=0> (referer: https://www.google.com/)
+[2026-10-01 07:44:32] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?field_on_view=1&search_api_fulltext=Oil+on+canvas&items_per_page=100&page=1> (referer: https://www.google.com/)
+[2026-10-01 07:44:32] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?field_on_view=1&search_api_fulltext=Oil+on+canvas&items_per_page=100&page=2> (referer: https://www.google.com/)

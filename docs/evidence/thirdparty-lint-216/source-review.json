@@ -1,0 +1,23 @@
+{
+  "baseline": "244be7e2",
+  "candidate": "dbc80466",
+  "standards": {
+    "new_findings": 0,
+    "verified": "153\u2192152 actual targets: only exact upstreamSDK removed; three source/license/resource hashes match main/provenance; native SDK PASS"
+  },
+  "spec": {
+    "implementation_findings": 0,
+    "verified": "actual110tracked-owned/113full FAIL; nine upstream findings excluded; current244 runtime proof reused",
+    "pending": [],
+    "technical_evidence_gaps": 0,
+    "final_independent_review": "Actual counts, exact private/current browser proof and live ten GitHub image references verified by read-only Spec reviewer",
+    "publication": "5a213901 pushed; PR166 head/body and map149 open-body exact readback; checkpoint refreshed"
+  },
+  "ponytail": {
+    "findings": 0,
+    "fixed": 0,
+    "accepted": 0,
+    "result": "Lean already. Ship."
+  },
+  "rights": "Commercial/attribution rights remain unresolved; no approval inferred"
+}

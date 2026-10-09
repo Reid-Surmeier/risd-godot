@@ -1,0 +1,107 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-3b08b62dc5d8c8439c9d",
+      "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon Ionic column CAPITAL matching the white-painted historic RISD grey-gallery column top in reference1 and its architectural context in reference2. Preserve the paired downward-curling spiral volutes left and right, shallow curved band between them, short round neck beneath, and thin rectangular square abacus above. The actual shaft is smooth and unfluted; include only a very short neck, not a whole column. Warm off-white painted plaster, restrained facet shading consistent with reference3 museum game, simple shallow moulding relief. Complete silhouette and all scrolls, generous magenta #FF00FF outside background. One capital only, no entablature, shaft, base, wall, floor, people, labels, detached parts or cast shadow outside silhouette. Frontal orthographic view, no perspective. Do not add Corinthian leaves, heads, statues or gilding. Native closed geometry will supply depth; preserve the characteristic twin-scroll silhouette.\n",
+      "procedureId": "muse-3b08b62dc5d8c8439c9d",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "ionic-capital-recipe.json",
+          "sha256": "3b08b62dc5d8c8439c9d7e7f6d3466fa03b43b932f58e7b48752def417a40e95"
+        },
+        {
+          "applicationPath": "ionic-capital-plan.json",
+          "sha256": "5e45c3a8a203322fd337dfdf6b9807c8a279ca138880886235e3d0c055364640"
+        },
+        {
+          "applicationPath": "ionic-capital-prompt.txt",
+          "sha256": "c0674b8e71c9e1b1a3dc37786c034cc211cbc3afc6b9fa034165175d80f228d9"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/ionic-capital-selected-0.png",
+          "sha256": "110eba8774838c282d14b303de3ffb72c1c8fb3a5f7c60f900502f51bc74ff0f",
+          "byteLength": 119318,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 475,
+            "height": 325
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/ionic-capital-selected-1.png",
+          "sha256": "29335bc280b870c4179042ba65fab9d66a0faf00c9633a09070a3cbad8f40bcf",
+          "byteLength": 1631212,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-002",
+          "applicationPath": "inventory-references/ionic-capital-selected-2.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+          "byteLength": 657879,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/2/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 720,
+            "height": 720
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Generate ONE complete FRONT ORTHOGRAPHIC low polygon Ionic column CAPITAL matching the white-painted historic RISD grey-gallery column top in reference1 and its architectural context in reference2. Preserve the paired downward-curling spiral volutes left and right, shallow curved band between them, short round neck beneath, and thin rectangular square abacus above. The actual shaft is smooth and unfluted; include only a very short neck, not a whole column. Warm off-white painted plaster, restrained facet shading consistent with reference3 museum game, simple shallow moulding relief. Complete silhouette and all scrolls, generous magenta #FF00FF outside background. One capital only, no entablature, shaft, base, wall, floor, people, labels, detached parts or cast shadow outside silhouette. Frontal orthographic view, no perspective. Do not add Corinthian leaves, heads, statues or gilding. Native closed geometry will supply depth; preserve the characteristic twin-scroll silhouette.\\n\",\"objectiveId\":\"muse-3b08b62dc5d8c8439c9d\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-3b08b62dc5d8c8439c9d\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/ionic-capital-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":119318,\"inspectedMedia\":{\"height\":325,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":475},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"110eba8774838c282d14b303de3ffb72c1c8fb3a5f7c60f900502f51bc74ff0f\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/ionic-capital-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1631212,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"29335bc280b870c4179042ba65fab9d66a0faf00c9633a09070a3cbad8f40bcf\",\"slot\":\"reference-001\"},{\"applicationPath\":\"inventory-references/ionic-capital-selected-2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":657879,\"inspectedMedia\":{\"height\":720,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":720},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/2/image_url/url\",\"sha256\":\"5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe\",\"slot\":\"reference-002\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"ionic-capital-recipe.json\",\"sha256\":\"3b08b62dc5d8c8439c9d7e7f6d3466fa03b43b932f58e7b48752def417a40e95\"},{\"applicationPath\":\"ionic-capital-plan.json\",\"sha256\":\"5e45c3a8a203322fd337dfdf6b9807c8a279ca138880886235e3d0c055364640\"},{\"applicationPath\":\"ionic-capital-prompt.txt\",\"sha256\":\"c0674b8e71c9e1b1a3dc37786c034cc211cbc3afc6b9fa034165175d80f228d9\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "db146fcf707e6f70e45cd0146036957284fd44c80feabc4148ffa7b72ef05c57"
+  },
+  "normalView": {
+    "objective": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon Ionic column CAPITAL matching the white-painted historic RISD grey-gallery column top in reference1 and its architectural context in reference2. Preserve the paired downward-curling spiral volutes left and right, shallow curved band between them, short round neck beneath, and thin rectangular square abacus above. The actual shaft is smooth and unfluted; include only a very short neck, not a whole column. Warm off-white painted plaster, restrained facet shading consistent with reference3 museum game, simple shallow moulding relief. Complete silhouette and all scrolls, generous magenta #FF00FF outside background. One capital only, no entablature, shaft, base, wall, floor, people, labels, detached parts or cast shadow outside silhouette. Frontal orthographic view, no perspective. Do not add Corinthian leaves, heads, statues or gilding. Native closed geometry will supply depth; preserve the characteristic twin-scroll silhouette.\n",
+    "evidence": "3 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

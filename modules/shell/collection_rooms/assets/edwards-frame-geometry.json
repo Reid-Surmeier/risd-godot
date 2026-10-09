@@ -1,0 +1,16 @@
+{
+  "canvas_m": [
+    0.637,
+    0.76
+  ],
+  "margins_px": [
+    113,
+    172,
+    173,
+    113
+  ],
+  "opening_aspect": 0.7646573080099092,
+  "catalogue_aspect": 0.8381578947368421,
+  "profile": "native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry",
+  "source_fit": null
+}

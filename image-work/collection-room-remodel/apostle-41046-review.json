@@ -1,0 +1,19 @@
+{
+  "run_id": "run-d3f8116583dea973b1b4a81b",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "cost_usd": "0.010000",
+  "native_sha256": "596e35d1f8ae020237f7110fa79c52d865a0b0af289284b77490f9abe3053214",
+  "accepted": false,
+  "visual_verdict": "Broad faceted limestone, turned head/halo and diagonal arm match general source motif. Generation repairs eroded facial detail and adds smoother folds/ornament in lower broken body; not accepted as exact source-preserving sculpture. A provisional style/geometry study only; do not mark complete. Hidden depth and full damage fidelity unverified.",
+  "catalogue_accession": "41.046",
+  "catalogue_size_m": [
+    0.267,
+    0.826
+  ],
+  "placement_source": "Left of medieval stair door; native6382 17.25s",
+  "new_paid_calls": 1,
+  "cumulative_actual_usd": "0.76",
+  "cumulative_conservative_usd": "0.77"
+}

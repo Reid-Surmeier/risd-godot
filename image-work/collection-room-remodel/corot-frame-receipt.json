@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/corot-frame-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/corot-frame-selected-1.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-8902003cc69f35806e2c3472/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "f9eb7545c390eaa57834237830e5ee3d788a13d5b7f5651ab94724cb6e8e5780"
+    }
+  ],
+  "changesRequested": "Generate ONE complete front orthographic low polygon gilded picture frame matching RISD Corot Banks of a River24.089 in the source photo. Simple narrow rectangular frame: dark outer raised edge, flat lightly textured gold band, narrow inner raised gold lip. No broad rococo scrolls. Restrained shallow facets and aged warm gold in the museum game style. Complete all four sides/corners. Perfectly blank white inner opening, canvas46cm wide31.9cm tall. Flat magenta #FF00FF outside silhouette. No painting, other frames, walls, labels, people, perspective or shadow outside silhouette; one frame only.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-8902003cc69f35806e2c3472",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-8902003cc69f35806e2c3472"
+}

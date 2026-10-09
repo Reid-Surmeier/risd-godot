@@ -1,0 +1,37 @@
+{
+ "full_app": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50e",
+ "hall_source_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+ "hall_files_listed": 362,
+ "hall_files_hash_equal": 362,
+ "non_import_hash_equal": 343,
+ "non_import_total": 343,
+ "changed_or_missing": [],
+ "geometry_equals_delivery_build": true,
+ "diff_vs_delivery_project_remodel_room.gd": {
+  "lines": 43,
+  "sample": [
+   "+const VirginChild := preload(\"res://virgin_child_asset.gd\")",
+   "+const CaseMetal := preload(\"res://medieval_metal_assets.gd\")",
+   "+const CasePair := preload(\"res://medieval_ceramic_ivory_assets.gd\")",
+   "-\tfor spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],",
+   "+\tfor case_spec in [[Vector3(5.45,0,22.7),Vector2(2.0,1.15),.88,.30],",
+   "-\t\tvar at:Vector3=spec[0]",
+   "-\t\tvar footprint:Vector2=spec[1]",
+   "-\t\tvar base_height:float=spec[2]",
+   "-\t\tvar glass_height:float=spec[3]",
+   "+\t\tvar at:Vector3=case_spec[0]",
+   "+\t\tvar footprint:Vector2=case_spec[1]",
+   "+\t\tvar base_height:float=case_spec[2]",
+   "+\t\tvar glass_height:float=case_spec[3]",
+   "+\t\t# ponytail: by-eye deck positions; catalogue heights fixed, mounts/spacing await source fitting."
+  ]
+ },
+ "diff_vs_delivery_project_remodel_review.gd": {
+  "lines": 0,
+  "sample": []
+ },
+ "diff_vs_delivery_project_remodel_bake.gd": {
+  "lines": 0,
+  "sample": []
+ }
+}

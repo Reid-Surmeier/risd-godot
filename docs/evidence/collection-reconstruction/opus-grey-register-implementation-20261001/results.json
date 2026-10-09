@@ -1,0 +1,316 @@
+{
+ "checks": {
+  "base-source/ is root's four files as received": {
+   "ok": true,
+   "detail": ""
+  },
+  "root's four files still equal the recorded baseline": {
+   "ok": true,
+   "detail": "root has not edited them since"
+  },
+  "prepare_remodel.py parses and prepared the project": {
+   "ok": true,
+   "detail": ""
+  },
+  "remodel_room.gd parses in Godot 4.7.2": {
+   "ok": true,
+   "detail": ""
+  },
+  "remodel_review.gd parses in Godot 4.7.2": {
+   "ok": true,
+   "detail": ""
+  },
+  "remodel_bake.gd parses in Godot 4.7.2": {
+   "ok": true,
+   "detail": ""
+  },
+  "new: scene builds with no script error": {
+   "ok": true,
+   "detail": ""
+  },
+  "base: scene builds with no script error": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: no two rooms overlap in plan": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "patched: all openings paired with the adjoining room": {
+   "ok": true,
+   "detail": "26 opening sides paired []"
+  },
+  "patched: one doorway interval in four places": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: south return .30 m beside the grey door": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: Rockefeller z [-5, 1.8], on the Hall north line": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: European gallery 26.3 m, the Hall's length": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: grey west wall 6.0 m inside 5.4..6.6": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: Ionic and piano thresholds on the grey north line": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: Main Hall bounds and doors unchanged": {
+   "ok": true,
+   "detail": ""
+  },
+  "patched: metric, calibration, physical-loop and connector-length flags false": {
+   "ok": true,
+   "detail": ""
+  },
+  "root base: no two rooms overlap in plan": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "root base: all openings paired with the adjoining room": {
+   "ok": true,
+   "detail": "26 opening sides paired []"
+  },
+  "root base: one doorway interval in four places": {
+   "ok": true,
+   "detail": "negative control: must not hold on root base"
+  },
+  "root base: south return .30 m beside the grey door": {
+   "ok": true,
+   "detail": "negative control: must not hold on root base"
+  },
+  "root base: Rockefeller z [-5, 1.8], on the Hall north line": {
+   "ok": true,
+   "detail": "negative control: must not hold on root base"
+  },
+  "root base: European gallery 26.3 m, the Hall's length": {
+   "ok": true,
+   "detail": "negative control: must not hold on root base"
+  },
+  "root base: grey west wall 6.0 m inside 5.4..6.6": {
+   "ok": true,
+   "detail": "negative control: must not hold on root base"
+  },
+  "root base: Ionic and piano thresholds on the grey north line": {
+   "ok": true,
+   "detail": "negative control: must not hold on root base"
+  },
+  "medieval, Renaissance, Hall, landing, modern and their thresholds unchanged in geometry.json": {
+   "ok": true,
+   "detail": "['light Renaissance room', 'dark medieval room', 'Grand Gallery', 'lion stair landing', 'modern painting gallery', 'white sculpture gallery threshold study limit', 'modern adjoining gallery threshold study limit']"
+  },
+  "built scene: same objects in the same order as root base": {
+   "ok": true,
+   "detail": "411 / 411 top-level objects"
+  },
+  "built scene: every object moved by exactly its expected shift, or not at all": {
+   "ok": true,
+   "detail": "moved by z {1.29: 5, 1.6: 28, 2.2: 280, 2.46: 3, 2.58: 1}; unmoved and exact 1353; walls of the six changed rooms 224; wrong []"
+  },
+  "built scene: no mesh, shape, rotation, texture or catalogue tag changed outside those walls": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "retained Hall: 139 native meshes, identical to root base": {
+   "ok": true,
+   "detail": "261 Hall nodes"
+  },
+  "built collision: grey French gallery:west leaves the doorway [-0.34, 1.5]": {
+   "ok": true,
+   "detail": "[[-4.2, -0.34], [1.5, 1.8]]"
+  },
+  "built collision: Rockefeller:east leaves the doorway [-0.34, 1.5]": {
+   "ok": true,
+   "detail": "[[-5.0, -0.34], [1.5, 1.8]]"
+  },
+  "built collision: both connector headers span the doorway": {
+   "ok": true,
+   "detail": ""
+  },
+  "built collision: grey north wall, its door header and the piano threshold header at z -4.2": {
+   "ok": true,
+   "detail": "[-4.2, -4.2, -4.2, -4.2]"
+  },
+  "connector details inside the moved connector": {
+   "ok": true,
+   "detail": "black panels 4, elevator leaves 2, number 1"
+  },
+  "two columns: north one 1.6 m from the moved north wall, south one unmoved": {
+   "ok": true,
+   "detail": "[[11.05, 1.4, -2.6], [11.05, 1.4, 0.2]]"
+  },
+  "paintings at their expected places": {
+   "ok": true,
+   "detail": "[]"
+  },
+  "Courbet centre 4.86 m from the south-west corner and 1.14 m from the north-west corner": {
+   "ok": true,
+   "detail": ""
+  },
+  "apostles and lion present (their exactness is covered above)": {
+   "ok": true,
+   "detail": "[[14.6, 1.7005, 28.22], [10.311, 1.453, 30.4652], [10.311, 1.472, 33.2169]]"
+  },
+  "walk: patched build fails nothing that root base passes": {
+   "ok": true,
+   "detail": "240 results; failing in both, in the medieval room only: ['loop_16', 'loop_back_16', 'medieval_between_cases_clear', 'medieval_stairs_aisle_clear']"
+  },
+  "walk: connector, grey, piano, Ionic, Hall, European and Rockefeller joins pass both ways": {
+   "ok": true,
+   "detail": "32 results"
+  },
+  "walk: retained-Hall loop forward and back passes everywhere root base does": {
+   "ok": true,
+   "detail": "33 legs each way; the one leg failing in both builds crosses root's retained portal guard in the medieval room"
+  },
+  "walk: plain prototype project, every trial and the loop both ways": {
+   "ok": true,
+   "detail": "240 results, 0 failed"
+  },
+  "walk: cases, benches, leaves, grille and the stair void guard still block": {
+   "ok": true,
+   "detail": "['central_display_blocked', 'gold_service_base_blocked', 'hall_bench_blocked', 'iron_grille_blocks_visitor', 'landing_guard_blocked', 'medieval_low_case_blocked', 'medieval_tall_case_blocked', 'modern_bench_blocked', 'renaissance_bench_blocked', 'renaissance_left_leaf_blocked', 'renaissance_right_leaf_blocked', 'right_wall_blocked', 'sofa_wall_blocked']"
+  },
+  "walk: landing, modern and medieval-door trials unchanged and passing": {
+   "ok": true,
+   "detail": "32 results"
+  },
+  "negative control: the patched trials cannot be walked in root base": {
+   "ok": true,
+   "detail": "41 more failures in root base: ['decorative_room', 'gold_service_base_blocked', 'loop_29', 'loop_30', 'loop_31', 'loop_32', 'loop_back_01', 'loop_back_02', 'loop_back_03', 'loop_back_04', 'loop_back_05', 'loop_back_06', 'loop_back_07', 'loop_back_08', 'loop_back_09', 'loop_back_10', 'loop_back_11', 'loop_back_12', 'loop_back_13', 'loop_back_14', 'loop_back_15', 'loop_back_17', 'loop_back_18', 'loop_back_19', 'loop_back_20', 'loop_back_21', 'loop_back_22', 'loop_back_23', 'loop_back_24', 'loop_back_25', 'loop_back_26', 'loop_back_27', 'loop_back_28', 'loop_back_29', 'loop_back_30', 'loop_back_31', 'loop_back_32', 'purple_grey_back', 'purple_grey_out', 'right_door_back', 'right_door_out']"
+  },
+  "floor normals up in the patched retained-Hall project (root's diagnostic)": {
+   "ok": true,
+   "detail": "1617 floor meshes, 0 wrong normals"
+  },
+  "floor normals up in the patched plain project (root's diagnostic)": {
+   "ok": true,
+   "detail": "1618 floor meshes, 0 wrong normals"
+  },
+  "negative control: root base fails the floor-normal diagnostic": {
+   "ok": true,
+   "detail": "1684 floor meshes, 9948 wrong normals"
+  },
+  "panel() is root's visually verified trial, line for line": {
+   "ok": true,
+   "detail": ""
+  },
+  "bake prepare step runs and every fill light and probe it places is inside a room": {
+   "ok": true,
+   "detail": "278 lights and probes; outside any room: []; no lightmap was baked"
+  },
+  "retained Hall: all 362 source files hash-equal to the saved Hall as prepared": {
+   "ok": true,
+   "detail": ""
+  },
+  "retained Hall: every non-import file still hash-equal after the runs": {
+   "ok": true,
+   "detail": "343 files; Godot may rewrite the other 19 .import files"
+  },
+  "retained Hall: 23 paintings in its own works.json": {
+   "ok": true,
+   "detail": ""
+  },
+  "actual Main Hall worktree at the recorded tip, no tracked change": {
+   "ok": true,
+   "detail": "317b8f3b8dac"
+  }
+ },
+ "passed": 56,
+ "total": 56,
+ "patched_sha256": {
+  "prepare_remodel.py": "2ac1eb0095e0bcced07b35b3043cd99a21a51182e61d9285b017604a4085cf05",
+  "remodel_room.gd": "24c41899ba14fc1b6844ae65c22f142c68205c2a6f3d9cba01f553b99d21a045",
+  "remodel_review.gd": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+  "remodel_bake.gd": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa"
+ },
+ "base_sha256": {
+  "prepare_remodel.py": "0dda4d9937664554bbe40619477c1b738b02da9571a33cf53a63a2139e402da4",
+  "remodel_room.gd": "e46f6fa6875293485f7442efb665ca322fe1cf284885c0fef0d20e586a5752a0",
+  "remodel_review.gd": "aa519d52f96b74782fcdb38c4b6f942a9a99f4d7ef59155ca0f34a77ed11e7de",
+  "remodel_bake.gd": "5aa7a7d8712f87243a59a68c14f0543f31ec5324a7c7f023241e5393aa1ddd77"
+ },
+ "walk": {
+  "patched_failed": [
+   "loop_16",
+   "loop_back_16",
+   "medieval_between_cases_clear",
+   "medieval_stairs_aisle_clear"
+  ],
+  "root_base_failed": [
+   "loop_16",
+   "loop_back_16",
+   "medieval_between_cases_clear",
+   "medieval_stairs_aisle_clear"
+  ],
+  "patched_plain_project_failed": [],
+  "root_base_with_patched_trials_failed": [
+   "decorative_room",
+   "gold_service_base_blocked",
+   "loop_16",
+   "loop_29",
+   "loop_30",
+   "loop_30_camera",
+   "loop_31",
+   "loop_32",
+   "loop_back_01",
+   "loop_back_02",
+   "loop_back_02_camera",
+   "loop_back_03",
+   "loop_back_04",
+   "loop_back_05",
+   "loop_back_06",
+   "loop_back_07",
+   "loop_back_08",
+   "loop_back_09",
+   "loop_back_10",
+   "loop_back_11",
+   "loop_back_12",
+   "loop_back_13",
+   "loop_back_14",
+   "loop_back_15",
+   "loop_back_16",
+   "loop_back_17",
+   "loop_back_18",
+   "loop_back_19",
+   "loop_back_20",
+   "loop_back_21",
+   "loop_back_22",
+   "loop_back_23",
+   "loop_back_24",
+   "loop_back_25",
+   "loop_back_26",
+   "loop_back_27",
+   "loop_back_28",
+   "loop_back_29",
+   "loop_back_30",
+   "loop_back_31",
+   "loop_back_32",
+   "medieval_between_cases_clear",
+   "medieval_stairs_aisle_clear",
+   "purple_grey_back",
+   "purple_grey_out",
+   "purple_grey_out_camera",
+   "right_door_back",
+   "right_door_out",
+   "right_door_out_camera"
+  ],
+  "results": 240
+ },
+ "godot": "4.7.2.stable.official.ed1daf0bf",
+ "not_checked": [
+  "lightmap bake (the saved addition bake does not match the moved surfaces)",
+  "browser export",
+  "production Collection factory",
+  "scripts/check.sh"
+ ]
+}

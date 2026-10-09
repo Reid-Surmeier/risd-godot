@@ -1,0 +1,12 @@
+{
+  "baseline_tracked": 110,
+  "current_tracked": 55,
+  "current_full": 58,
+  "order_before": 85,
+  "order_after": 30,
+  "safe_removed": 55,
+  "remaining_other_authored": 25,
+  "original_untracked": 3,
+  "rules_unchanged": true,
+  "check_result": "FAIL"
+}

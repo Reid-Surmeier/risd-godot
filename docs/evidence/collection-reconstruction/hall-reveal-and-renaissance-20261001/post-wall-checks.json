@@ -1,0 +1,26 @@
+{
+  "utc": "2026-10-01T20:43:17.211726+00:00",
+  "scripts_check_exit": 0,
+  "first_check_exit": 1,
+  "first_failure": "A superseded private east-case proposal .gd stored under docs triggered the seam scanner; exact7filearchive now preserves all bytes and active source is in owningmodule.",
+  "git_diff_check_exit": 0,
+  "shell_playtest_exit": 1,
+  "shell_playtest_pass": 42,
+  "shell_playtest_fail": 8,
+  "shell_failures": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "page_cross_fades_through_in_between_greys",
+    "collection_tab_dips_on_click",
+    "resize_refits_bar_and_tenant"
+  ],
+  "prior_playtest": "43pass/7fail; resize failure added to current run; harness/renderer/UI unchanged, cause unverified.",
+  "shell_interface_errors_tests_unchanged": true,
+  "known_headless_exit_warning": "8 ObjectDB instances leaked at exit",
+  "room_architecture_exit": 0,
+  "room_native_views_inspected": 6,
+  "room_lighting": "bake in progress; no light acceptance"
+}

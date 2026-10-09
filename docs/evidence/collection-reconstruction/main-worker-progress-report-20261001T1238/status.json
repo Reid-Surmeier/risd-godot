@@ -1,0 +1,22 @@
+{
+  "date_utc": "2026-10-01 12:38",
+  "published_commit": "12defc0446d5fa1bd4c50e9c598decfef7a7130d",
+  "published_build": "v47",
+  "draft_build": "v48b",
+  "videos_available": 10,
+  "survey_frames": 2485,
+  "fully_reconstructed_videos": 0,
+  "browser_checks_passed": 174,
+  "browser_errors": [],
+  "shell_passed": 46,
+  "shell_total": 50,
+  "draft_bake_complete": false,
+  "full_reconstruction_complete": false,
+  "heartbeat_enabled": false,
+  "worker": "This session only",
+  "new_paid_outputs": 3,
+  "new_cost_usd": "0.03",
+  "cumulative_actual_usd": "0.84",
+  "cumulative_conservative_usd": "0.85",
+  "next": "Correct Villon rectangular-border assembly artifact, bake all five modern paintings, run browser/Shell checks and publish; then gold seated figure/case and source stair/doorway/layout refinement."
+}

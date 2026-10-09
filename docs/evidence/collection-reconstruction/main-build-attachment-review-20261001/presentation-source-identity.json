@@ -1,0 +1,30 @@
+{
+  "date_utc": "2026-10-01T14:16:00Z",
+  "main_build_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+  "resources": {
+    "floor_oak.gdshader": {
+      "main_build_path": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/prototype/gallery_walk4/floor_oak.gdshader",
+      "new_room_source": "image-work/collection-room-remodel/main-hall-presentation/floor_oak.gdshader",
+      "sha256": "cb832c9efc425a9d7eb3a368e7173b7114b01176fa43979553b77dde711998be",
+      "same_bytes": true
+    },
+    "gamecube.gdshader": {
+      "main_build_path": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/prototype/gallery_walk4/gamecube.gdshader",
+      "new_room_source": "image-work/collection-room-remodel/main-hall-presentation/gamecube.gdshader",
+      "sha256": "7e7dd33a0531246cccdc05cb493a476ee416ae84e2d776d741307b223864dbda",
+      "same_bytes": true
+    },
+    "oak-board-atlas-168-v3.webp": {
+      "main_build_path": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/prototype/gallery_walk4/textures/oak-board-atlas-168-v3.webp",
+      "new_room_source": "image-work/collection-room-remodel/main-hall-presentation/oak-board-atlas-168-v3.webp",
+      "sha256": "65ba2455f048c900562678cc42dcc55d89b608deef763e5e35e7d708e3d8a9ff",
+      "same_bytes": true
+    },
+    "wall-muse.webp": {
+      "main_build_path": "/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/modules/shell/prototype/gallery_walk4/textures/wall-muse.webp",
+      "new_room_source": "image-work/collection-room-remodel/main-hall-presentation/wall-muse.webp",
+      "sha256": "f3191776008e78ab6a3306fa164bf10b91af1a4ed43a2ac621e1cc95f8b68f36",
+      "same_bytes": true
+    }
+  }
+}

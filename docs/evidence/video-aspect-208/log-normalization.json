@@ -1,0 +1,23 @@
+[
+  {
+    "readable": "player-baseline.log",
+    "raw": "player-baseline.log.gz",
+    "raw_sha256": "2049966c841399433b72960caf524aee95a11e8a18058aab24f5b41cfa2bff57",
+    "normalized_sha256": "704c0d95200d6a010902fe0523b86651421f30d3dea80fb9b6173d8c32b6c88d",
+    "normalization": "remove trailing whitespace/extra blank EOF only; original retained gzip"
+  },
+  {
+    "readable": "player-playtest.log",
+    "raw": "player-playtest.log.gz",
+    "raw_sha256": "4200105165a1e90c872ad7f17240177421dccfe262db4bbbbc58284f2d1cb432",
+    "normalized_sha256": "43946a5b533328171ca956e3641b97239bf64c60d2e6c75c18c0ac378531928e",
+    "normalization": "remove trailing whitespace/extra blank EOF only; original retained gzip"
+  },
+  {
+    "readable": "pr-attachments.md",
+    "raw": "pr-attachments.md.gz",
+    "raw_sha256": "47d6bc23445fffab461711db2cb6446891d54ee90779036ff0464cdad501273d",
+    "normalized_sha256": "fafd86dfe21ade2cad39f1bcd9ca94a1c8bba1bc6fb2203fd9642b667d239cc5",
+    "normalization": "remove trailing whitespace/extra blank EOF only; original retained gzip"
+  }
+]

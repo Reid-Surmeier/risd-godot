@@ -1,0 +1,15 @@
+{
+  "utc": "2026-10-01 21:04 UTC",
+  "scripts_check_exit": 0,
+  "git_diff_check_exit": 0,
+  "shell_playtest": {
+    "passed": 42,
+    "total": 50,
+    "exit": 1,
+    "failures": 8,
+    "new_resize_failure_cause": "unverified"
+  },
+  "owner_pending_unchanged": 50,
+  "paid_new_this_checkpoint": 0,
+  "worker_reclaimable_count": 0
+}

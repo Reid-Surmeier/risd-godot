@@ -7,7 +7,8 @@
 ## prototypes/video-player-usability/main.gd. Left behind: the A/B/C variant remnants, the
 ## hidden state strip, the command-line capture and reference-check paths, the JavaScriptBridge
 ## publishes (now state()), the unused thumbnails/ files. Changed for the Page seam (#24, #31):
-## the viewer is scaled to fit the Page and centred, again on every resize (#63; the prototype scaled its whole
+## the viewer is scaled to fit the Page and centred, again on every resize (#63;
+## the prototype scaled its whole
 ## window the same way, 1536x1632 shown at 768x816); fullscreen fills the Page instead of the
 ## OS window; the video pauses while the Page is hidden and resumes on show; the rendering is
 ## linear-filtered as the prototype's project was; the media are the checked-in 480-wide
@@ -18,7 +19,8 @@ extends Control
 const Errors := preload("res://modules/video_player/errors.gd")
 
 const ROOT := "res://modules/video_player/"
-const CANVAS_SIZE := Vector2(1536, 1632)  # the owner's plate; controls keep their canvas coordinates
+# the owner's plate; controls keep their canvas coordinates
+const CANVAS_SIZE := Vector2(1536, 1632)
 ## The plate's two windows (#63), cut with their own chrome and shadow: Fly Through (the video) and
 ## Information (transport, title, Save, tiles). The Information window grows in height by one
 ## plain white row of its body (INFO_STRETCH_Y); Fly Through grows both ways by its straight frame
@@ -27,7 +29,7 @@ const FLY_RECT := Rect2(64, 54, 1406, 802)
 const INFO_RECT := Rect2(282, 888, 938, 658)
 const INFO_STRETCH_Y := 1100.0
 const MARGIN := 24.0  # native px around the pair
-const GAP := 32.0     # native px between the windows, as on the plate
+const GAP := 32.0  # native px between the windows, as on the plate
 const VIDEO_RECT := Rect2(82, 106, 1366, 732)  # the video inside the viewer, canvas px
 const VIDEOS := [
 	{"id": "1191767929", "title": "The Observer"},
@@ -77,6 +79,9 @@ var info_top: Control
 var info_bottom: Control
 var info_drag: Control
 var video: VideoStreamPlayer
+var movie_fit: AspectRatioContainer
+var movie_image: TextureRect
+var movie_letterbox: ColorRect
 var transport: Control
 var play_button: TextureButton
 var mute_button: TextureButton
@@ -105,10 +110,15 @@ static func create(deps: Dictionary) -> Dictionary:
 	for v in VIDEOS:
 		if not OS.has_feature("web") and not FileAccess.file_exists(ROOT + "media/%s.ogv" % v.id):
 			return Errors.err(Errors.MEDIA_MISSING, ROOT + "media/%s.ogv" % v.id)
-	if not ResourceLoader.exists(ROOT + "assets/fly-through-v7.png"):  # an imported texture: only its .ctex is in an export
+	# an imported texture: only its .ctex is in an export
+	if not ResourceLoader.exists(ROOT + "assets/fly-through-v7.png"):
 		return Errors.err(Errors.ASSET_MISSING, ROOT + "assets/fly-through-v7.png")
-	for path in ["assets/source-controls/manifest.json", "assets/seedance-motion/manifest.json",
-			"assets/fonts/LiberationSans-Regular.bytes", "assets/fonts/LiberationSans-Bold.bytes"]:  # raw files, exported by the include filter
+	for path in [
+		"assets/source-controls/manifest.json",
+		"assets/seedance-motion/manifest.json",
+		"assets/fonts/LiberationSans-Regular.bytes",
+		"assets/fonts/LiberationSans-Bold.bytes"
+	]:  # raw files, exported by the include filter
 		if not FileAccess.file_exists(ROOT + path):
 			return Errors.err(Errors.ASSET_MISSING, ROOT + path)
 	var t = load(ROOT + "video_player.gd").new()
@@ -137,7 +147,9 @@ func _process(delta: float) -> void:
 	ticks += 1
 	_advance_motion(delta)
 	if fetching_id != "" and fetch.get_body_size() > 0:
-		loading_overlay.material.set_shader_parameter("progress", float(fetch.get_downloaded_bytes()) / fetch.get_body_size())
+		loading_overlay.material.set_shader_parameter(
+			"progress", float(fetch.get_downloaded_bytes()) / fetch.get_body_size()
+		)
 	if video.stream != null and video.is_playing() and not video.paused and not dragging_seek:
 		var length := video.get_stream_length()
 		if length > 0.0:
@@ -187,8 +199,14 @@ func _on_visibility_changed() -> void:
 ## lays the pair out again, a dragged window included.
 func _fit_viewer() -> void:
 	dragging_viewer = false
-	var side := Vector2(FLY_RECT.size.x + GAP + INFO_RECT.size.x, FLY_RECT.size.y) + Vector2.ONE * 2.0 * MARGIN
-	var stack := Vector2(FLY_RECT.size.x, FLY_RECT.size.y + GAP + INFO_RECT.size.y) + Vector2.ONE * 2.0 * MARGIN
+	var side := (
+		Vector2(FLY_RECT.size.x + GAP + INFO_RECT.size.x, FLY_RECT.size.y)
+		+ Vector2.ONE * 2.0 * MARGIN
+	)
+	var stack := (
+		Vector2(FLY_RECT.size.x, FLY_RECT.size.y + GAP + INFO_RECT.size.y)
+		+ Vector2.ONE * 2.0 * MARGIN
+	)
 	var s_side := minf(size.x / side.x, size.y / side.y)
 	var s_stack := minf(size.x / stack.x, size.y / stack.y)
 	arrangement = "side" if s_side >= s_stack else "stacked"
@@ -270,9 +288,21 @@ func _draw_fly_chrome() -> void:
 func _draw_info_chrome() -> void:
 	var top := INFO_STRETCH_Y - INFO_RECT.position.y
 	var bottom := INFO_RECT.end.y - INFO_STRETCH_Y - 10.0
-	_patch(info_chrome, Rect2(INFO_RECT.position, Vector2(INFO_RECT.size.x, top)), Rect2(0, 0, INFO_RECT.size.x, top))
-	_patch(info_chrome, Rect2(INFO_RECT.position.x, INFO_STRETCH_Y, INFO_RECT.size.x, 10), Rect2(0, top, INFO_RECT.size.x, 10 + info_extra))
-	_patch(info_chrome, Rect2(INFO_RECT.position.x, INFO_STRETCH_Y + 10, INFO_RECT.size.x, bottom), Rect2(0, info.size.y - bottom, INFO_RECT.size.x, bottom))
+	_patch(
+		info_chrome,
+		Rect2(INFO_RECT.position, Vector2(INFO_RECT.size.x, top)),
+		Rect2(0, 0, INFO_RECT.size.x, top)
+	)
+	_patch(
+		info_chrome,
+		Rect2(INFO_RECT.position.x, INFO_STRETCH_Y, INFO_RECT.size.x, 10),
+		Rect2(0, top, INFO_RECT.size.x, 10 + info_extra)
+	)
+	_patch(
+		info_chrome,
+		Rect2(INFO_RECT.position.x, INFO_STRETCH_Y + 10, INFO_RECT.size.x, bottom),
+		Rect2(0, info.size.y - bottom, INFO_RECT.size.x, bottom)
+	)
 
 
 func _build_surface() -> void:
@@ -342,6 +372,22 @@ func _build_surface() -> void:
 	video.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	video.finished.connect(_on_video_finished)
 	surface.add_child(video)
+	# Keep the playback/input rect; native container fits the decoded movie inside it (#208).
+	video.self_modulate = Color(1, 1, 1, 0)
+	movie_letterbox = ColorRect.new()
+	movie_letterbox.color = Color("#f0f0f0")
+	movie_letterbox.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	video.add_child(movie_letterbox)
+	movie_letterbox.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	movie_fit = AspectRatioContainer.new()
+	movie_fit.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	video.add_child(movie_fit)
+	movie_fit.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
+	movie_image = TextureRect.new()
+	movie_image.name = "movie-image"
+	movie_image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
+	movie_image.mouse_filter = Control.MOUSE_FILTER_IGNORE
+	movie_fit.add_child(movie_image)
 
 	loading_overlay = ColorRect.new()  # the loading dots over the video while it downloads (Web only)
 	loading_overlay.name = "video-loading"
@@ -381,7 +427,11 @@ func _build_transport() -> void:
 	transport.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	transport.size = CANVAS_SIZE
 	info_top.add_child(transport)
-	for item in [["seek-clean", Rect2(424, 981, 29, 31)], ["volume-clean", Rect2(1035, 975, 23, 38)], ["timer-clean", Rect2(823, 981, 73, 24)]]:
+	for item in [
+		["seek-clean", Rect2(424, 981, 29, 31)],
+		["volume-clean", Rect2(1035, 975, 23, 38)],
+		["timer-clean", Rect2(823, 981, 73, 24)]
+	]:
 		var picture := TextureRect.new()
 		picture.texture = load(ROOT + "assets/source-controls/%s.png" % item[0])
 		picture.position = item[1].position
@@ -499,6 +549,9 @@ func _select_video(index: int) -> void:
 	else:
 		loading_overlay.visible = false
 		video.stream = stream
+		movie_image.texture = video.get_video_texture()
+		if movie_image.texture != null and movie_image.texture.get_height() > 0:
+			movie_fit.ratio = movie_image.texture.get_size().aspect()
 		video.paused = false
 		video.play()
 		video.stream_position = 0.0
@@ -507,13 +560,18 @@ func _select_video(index: int) -> void:
 	title_label.tooltip_text = VIDEOS[selected_video].title
 	play_button.texture_normal = source_faces.pause
 	active_motion.erase(play_button)
-	save_button.tooltip_text = "Saved for this session" if saved.get(selected_video, false) else "Save this video for this session"
+	save_button.tooltip_text = (
+		"Saved for this session"
+		if saved.get(selected_video, false)
+		else "Save this video for this session"
+	)
 	last_action = "selected video %d" % (selected_video + 1)
 	interaction_count += 1
 	_update_thumbnail_frames()
 
 
-## The video's stream: from the project on desktop, from WEB_MEDIA_DIR on the Web (null until fetched).
+## The video's stream: from the project on desktop, from WEB_MEDIA_DIR
+## on the Web (null until fetched).
 func _video_stream(id: String) -> VideoStream:
 	if not OS.has_feature("web"):
 		return load(ROOT + "media/%s.ogv" % id) as VideoStream
@@ -542,10 +600,14 @@ func _fetch_video(id: String) -> void:
 	fetching_id = id
 	var media_url: String = JavaScriptBridge.eval("new URL('media/', document.baseURI).href")
 	if fetch.request(media_url + "%s.ogv" % id) != OK:
-		_on_video_fetched(HTTPRequest.RESULT_CANT_CONNECT, 0, PackedStringArray(), PackedByteArray())
+		_on_video_fetched(
+			HTTPRequest.RESULT_CANT_CONNECT, 0, PackedStringArray(), PackedByteArray()
+		)
 
 
-func _on_video_fetched(result: int, code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+func _on_video_fetched(
+	result: int, code: int, _headers: PackedStringArray, body: PackedByteArray
+) -> void:
 	var id := fetching_id
 	fetching_id = ""
 	var file: FileAccess = null
@@ -553,7 +615,12 @@ func _on_video_fetched(result: int, code: int, _headers: PackedStringArray, body
 		DirAccess.make_dir_recursive_absolute(WEB_MEDIA_DIR)
 		file = FileAccess.open(WEB_MEDIA_DIR + "%s.ogv" % id, FileAccess.WRITE)
 	if file == null:  # never retried automatically: picking the tile again retries
-		push_error("video_player: download of video %s failed (result %d, HTTP %d, write %s)" % [id, result, code, FileAccess.get_open_error()])
+		push_error(
+			(
+				"video_player: download of video %s failed (result %d, HTTP %d, write %s)"
+				% [id, result, code, FileAccess.get_open_error()]
+			)
+		)
 		loading_overlay.visible = false
 		last_action = "video %s failed to download" % id
 		return
@@ -591,6 +658,7 @@ func _toggle_mute() -> void:
 ## of everything and takes the pointer so nothing under it is clicked; back restores its place.
 func _toggle_fullscreen() -> void:
 	fullscreen = not fullscreen
+	movie_letterbox.color = Color.BLACK if fullscreen else Color("#f0f0f0")
 	if fullscreen:
 		surface.move_child(video, -1)
 		video.top_level = true
@@ -647,7 +715,9 @@ func _update_thumbnail_frames(hovered := -1) -> void:
 	for index in thumbnail_frames.size():
 		var active := index == selected_video
 		var width := 2 if active or index == hovered else 0
-		thumbnail_frames[index].add_theme_stylebox_override("panel", _panel_style(Color.TRANSPARENT, Color("#737373"), width, 0))
+		thumbnail_frames[index].add_theme_stylebox_override(
+			"panel", _panel_style(Color.TRANSPARENT, Color("#737373"), width, 0)
+		)
 
 
 func _animate_button(button: TextureButton, entered: bool) -> void:
@@ -671,10 +741,14 @@ func _on_title_drag_input(event: InputEvent, window: Control, handle: Control) -
 	elif event is InputEventKey and event.pressed:
 		var direction := Vector2.ZERO
 		match event.keycode:
-			KEY_LEFT: direction = Vector2.LEFT
-			KEY_RIGHT: direction = Vector2.RIGHT
-			KEY_UP: direction = Vector2.UP
-			KEY_DOWN: direction = Vector2.DOWN
+			KEY_LEFT:
+				direction = Vector2.LEFT
+			KEY_RIGHT:
+				direction = Vector2.RIGHT
+			KEY_UP:
+				direction = Vector2.UP
+			KEY_DOWN:
+				direction = Vector2.DOWN
 		if direction != Vector2.ZERO:
 			window.position += direction * (80.0 if event.shift_pressed else 20.0)
 			_clamp_window(window, handle)
@@ -684,7 +758,11 @@ func _on_title_drag_input(event: InputEvent, window: Control, handle: Control) -
 func _input(event: InputEvent) -> void:
 	if not dragging_viewer:
 		return
-	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT and not event.pressed:
+	if (
+		event is InputEventMouseButton
+		and event.button_index == MOUSE_BUTTON_LEFT
+		and not event.pressed
+	):
 		dragging_viewer = false
 	elif event is InputEventMouseMotion:
 		if not event.button_mask & MOUSE_BUTTON_MASK_LEFT:
@@ -703,15 +781,23 @@ func _notification(what: int) -> void:
 ## prototype did on its window, at the pair's scale.
 func _clamp_window(window: Control, handle: Control) -> void:
 	var s := viewer_scale
-	window.position.x = clampf(window.position.x, 200.0 - handle.get_rect().end.x * s, size.x - 200.0 - handle.position.x * s)
-	window.position.y = clampf(window.position.y, -handle.position.y * s, size.y - handle.get_rect().end.y * s)
+	window.position.x = clampf(
+		window.position.x,
+		200.0 - handle.get_rect().end.x * s,
+		size.x - 200.0 - handle.position.x * s
+	)
+	window.position.y = clampf(
+		window.position.y, -handle.position.y * s, size.y - handle.get_rect().end.y * s
+	)
 
 
 func _update_timer() -> void:
 	if video.stream == null:
 		return
 	timer_label.text = _format_time(video.stream_position)
-	timer_label.tooltip_text = "%s / %s" % [_format_time(video.stream_position), _format_time(video.get_stream_length())]
+	timer_label.tooltip_text = (
+		"%s / %s" % [_format_time(video.stream_position), _format_time(video.get_stream_length())]
+	)
 
 
 func _format_time(seconds: float) -> String:
@@ -723,51 +809,78 @@ func _grect(c: Control) -> Rect2:
 	return c.get_global_transform() * Rect2(Vector2.ZERO, c.size)
 
 
-## The grabber of a source slider, where HSlider draws it: ratio * (track - grabber) along, centred across.
+## The grabber of a source slider, where HSlider draws it: ratio * (track -
+## grabber) along, centred across.
 func _knob_rect(slider: HSlider) -> Rect2:
 	var icon: Texture2D = source_faces[slider.name]
 	var gs := icon.get_size()
-	var local := Rect2(Vector2(slider.ratio * (slider.size.x - gs.x), (slider.size.y - gs.y) / 2.0), gs)
+	var local := Rect2(
+		Vector2(slider.ratio * (slider.size.x - gs.x), (slider.size.y - gs.y) / 2.0), gs
+	)
 	return slider.get_global_transform() * local
 
 
 func state() -> Dictionary:
 	var tiles := []
 	for i in thumbnail_buttons.size():
-		tiles.append({"index": i, "enabled": not thumbnail_buttons[i].disabled, "rect": _grect(thumbnail_buttons[i])})
-	return Errors.ok({
-		"key": key, "ticks": ticks, "size": size,
-		"viewer": {"position": surface.position, "scale": viewer_scale, "rect": _grect(surface)},
-		"information": {"position": info.position, "rect": _grect(info)},
-		"arrangement": arrangement,
-		"selected_video": selected_video,
-		"video_id": VIDEOS[selected_video].id,
-		"title": VIDEOS[selected_video].title,
-		"playing": video.is_playing() and not video.paused,
-		"paused": video.paused,
-		"hidden_paused": hidden_paused,
-		"muted": muted,
-		"volume": video.volume,
-		"fullscreen": fullscreen,
-		"stream_position": video.stream_position,
-		"stream_length": video.get_stream_length(),
-		"saved": saved.get(selected_video, false),
-		"video_rect": _grect(video),
-		"thumbnail_count": thumbnail_buttons.size(),
-		"linked_video_count": VIDEOS.size(),
-		"tiles": tiles,
-		"controls": {"play": _grect(play_button), "seek": _grect(seek), "seek_knob": _knob_rect(seek),
-				"timer": _grect(timer_label), "mute": _grect(mute_button), "volume": _grect(volume),
-				"volume_knob": _knob_rect(volume), "fullscreen": _grect(fullscreen_button),
-				"save": _grect(save_button), "minimize": _grect(expand_button), "title_bar": _grect(title_drag),
-				"info_title_bar": _grect(info_drag)},
-		"generated_motion_controls": model_frames.size(),
-		"motion_play_count": motion_play_count,
-		"drag_intent_count": drag_intent_count,
-		"dragging_viewer": dragging_viewer,
-		"interaction_count": interaction_count,
-		"last_action": last_action,
-	})
+		tiles.append(
+			{
+				"index": i,
+				"enabled": not thumbnail_buttons[i].disabled,
+				"rect": _grect(thumbnail_buttons[i])
+			}
+		)
+	return (
+		Errors
+		. ok(
+			{
+				"key": key,
+				"ticks": ticks,
+				"size": size,
+				"viewer":
+				{"position": surface.position, "scale": viewer_scale, "rect": _grect(surface)},
+				"information": {"position": info.position, "rect": _grect(info)},
+				"arrangement": arrangement,
+				"selected_video": selected_video,
+				"video_id": VIDEOS[selected_video].id,
+				"title": VIDEOS[selected_video].title,
+				"playing": video.is_playing() and not video.paused,
+				"paused": video.paused,
+				"hidden_paused": hidden_paused,
+				"muted": muted,
+				"volume": video.volume,
+				"fullscreen": fullscreen,
+				"stream_position": video.stream_position,
+				"stream_length": video.get_stream_length(),
+				"saved": saved.get(selected_video, false),
+				"video_rect": _grect(video),
+				"thumbnail_count": thumbnail_buttons.size(),
+				"linked_video_count": VIDEOS.size(),
+				"tiles": tiles,
+				"controls":
+				{
+					"play": _grect(play_button),
+					"seek": _grect(seek),
+					"seek_knob": _knob_rect(seek),
+					"timer": _grect(timer_label),
+					"mute": _grect(mute_button),
+					"volume": _grect(volume),
+					"volume_knob": _knob_rect(volume),
+					"fullscreen": _grect(fullscreen_button),
+					"save": _grect(save_button),
+					"minimize": _grect(expand_button),
+					"title_bar": _grect(title_drag),
+					"info_title_bar": _grect(info_drag)
+				},
+				"generated_motion_controls": model_frames.size(),
+				"motion_play_count": motion_play_count,
+				"drag_intent_count": drag_intent_count,
+				"dragging_viewer": dragging_viewer,
+				"interaction_count": interaction_count,
+				"last_action": last_action,
+			}
+		)
+	)
 
 
 func _panel_style(fill: Color, border: Color, border_width: int, radius: int) -> StyleBoxFlat:
@@ -784,10 +897,14 @@ func _panel_style(fill: Color, border: Color, border_width: int, radius: int) ->
 
 # Source pixels are idle authority. Moving feedback is sampled Seedance imagery.
 func _load_source_controls() -> void:
-	var manifest: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "assets/source-controls/manifest.json"))
+	var manifest: Dictionary = JSON.parse_string(
+		FileAccess.get_file_as_string(ROOT + "assets/source-controls/manifest.json")
+	)
 	for k in manifest.controls:
 		source_faces[k] = load(ROOT + "assets/source-controls/%s.png" % k)
-	var generated: Dictionary = JSON.parse_string(FileAccess.get_file_as_string(ROOT + "assets/seedance-motion/manifest.json"))
+	var generated: Dictionary = JSON.parse_string(
+		FileAccess.get_file_as_string(ROOT + "assets/seedance-motion/manifest.json")
+	)
 	for k in generated.controls:
 		model_frames[k] = {}
 		for state in generated.controls[k]:
@@ -804,8 +921,10 @@ func _source_font(weight: String) -> FontFile:
 
 
 func _source_key(k: String) -> String:
-	if k == "play-pause": return "play" if video != null and video.paused else "pause"
-	if k == "mute": return "mute" if muted else "speaker"
+	if k == "play-pause":
+		return "play" if video != null and video.paused else "pause"
+	if k == "mute":
+		return "mute" if muted else "speaker"
 	return k
 
 
@@ -832,7 +951,8 @@ func _source_slider(k: String, rect: Rect2, initial: float) -> HSlider:
 
 func _start_source_motion(control: Control, state: String) -> void:
 	var k := _source_key(control.name)
-	if not model_frames.has(k) or not model_frames[k].has(state): return
+	if not model_frames.has(k) or not model_frames[k].has(state):
+		return
 	active_motion[control] = {"key": k, "state": state, "elapsed": 0.0}
 	motion_play_count += 1
 
@@ -864,7 +984,9 @@ func _set_volume(value: float) -> void:
 
 func _toggle_save() -> void:
 	saved[selected_video] = not saved.get(selected_video, false)
-	save_button.tooltip_text = "Saved for this session" if saved[selected_video] else "Save this video for this session"
+	save_button.tooltip_text = (
+		"Saved for this session" if saved[selected_video] else "Save this video for this session"
+	)
 	last_action = "saved" if saved[selected_video] else "unsaved"
 	interaction_count += 1
 	_start_source_motion(save_button, "settled")

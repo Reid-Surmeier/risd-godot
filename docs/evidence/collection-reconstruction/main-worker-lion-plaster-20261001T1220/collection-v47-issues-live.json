@@ -1,0 +1,58 @@
+[
+  {
+    "body": "## Destination\n\nA build-ready specification for expanding the Collection page\u2019s existing walkable RISD gallery into one connected museum map, grounded in the five newest Proton reference videos and corroborating museum sources. Resolve reconstruction, artwork identity, Muse frame/sculpture treatment, texture baking and navigation through reviewable prototypes before production.\n\n## Notes\n\n- Owner hardware requirement: use the RTX 4070 SUPER (12 GB) for supported video decode/resize, reconstruction feature extraction/matching and rendering/baking. Probe actual CUDA support; record GPU commands and any unavoidable CPU stages. Do not reuse the historical CPU SfM setup by default.\n- Owner correction: Collection page map only. The 3D Viewer tab is unchanged. Preserve the existing Animal Crossing-like visitor and established visual direction unless a separately scoped decision requires change.\n- Continue the existing [Grand Gallery map](https://github.com/Reid-Surmeier/risd-godot/issues/116); this is the additional-room effort excluded there. Do not inherit old visual approvals as approval of new work.\n- Source location correction: `/my-files/video refrence.` lists empty; September 29 videos are in Proton Photos timeline. Download via `proton-drive photo download`, retain remote IDs, upload/capture times, hashes and local paths. Local intake: `~/risd-godot-ingestion/collection-expansion/`. The five most recently uploaded originals (IMG_6378\u2013IMG_6382) are downloaded and hash-verified. Five other videos from the same museum batch (IMG_6383\u2013IMG_6387) are supplemental references; downloading these does not silently expand the room scope. See the intake ticket for visual evidence and remaining survey work.\n- Skills: wayfinder, research, prototype, grilling, domain-modeling; image-generation-pipeline for Muse, share for review links. This map permits throwaway visual/navigation prototypes as decision evidence, not production integration. HITL decisions remain open until actual owner feedback.\n- Existing recipe: reference-rectified Muse frame edits, separate authentic painting images, low-poly frame depth and inset, UV1 textures plus UV2 offline lighting. Audit the DIS/product procedure against saved recipes; do not substitute advertising instructions for museum assets. Video pixels are measurement/reference, not final room textures.\n- Paid generation: Muse through OpenRouter only; one representative output first, recorded prompt/source/output hashes and cost, no blind retry of ambiguous spend. Stay below $5 total for this map\u2019s initial experiments without further authorization.\n- Proposed quality floor: inspect real browser renders at walking and close-up distances, held-out video comparisons, correct artwork identity and aspect ratio, visible frame relief, sculpture silhouette from several angles, coherent material scale and bake continuity. Walk every connection both ways; check collision, camera occlusion and trapped paths. Record cold-load/frame-time/memory on named hardware; thresholds must be fixed before production. Run repository/gallery checks on eventual integrated changes and retain before/after evidence. No generic \u201clooks good\u201d closure.\n- Open owner choice: whether unseen connectors may be invented. Until resolved, label gaps and do not invent museum topology.\n\n## Decisions so far\n\n- [Research: verify RISD sources and the reusable Muse reconstruction pipeline](https://github.com/Reid-Surmeier/risd-godot/issues/180): live RISD API/image access verified with Scrapling; reuse source-preserving Muse edits and offline texture/lightmap workflow; GPU reconstruction capability still needs a probe.\n\n## Not yet specified\n\n- Exact room count and coverage, uncertain connections, scale anchors and occluded geometry after video intake.\n- Artwork-by-artwork matches, sculpture complexity and placement uncertainty once spaces are identified.\n- Final production batches, asset budgets, module ownership and any explicitly authorized frozen-interface changes after prototypes.\n\n## Out of scope\n\n- Changes to the 3D Viewer tab, unrelated Tabs, character replacement, whole-museum reconstruction beyond evidenced expansion, and production integration during charting.\n",
+    "labels": [
+      {
+        "id": "LA_kwDOUIZrc88AAAACy1cNCA",
+        "name": "wayfinder:map",
+        "description": "",
+        "color": "5319E7"
+      }
+    ],
+    "number": 178,
+    "state": "OPEN",
+    "title": "Map: expand the Collection museum into connected reference-built rooms"
+  },
+  {
+    "body": "## Question\n\nHow should unobserved connections be handled, and what measurable visual/navigation/performance criteria define an acceptable connected Collection museum?\n\n## Acceptance criteria\n\nUse actual owner discussion; recommend real evidenced topology with explicitly unresolved gaps. Define room coverage, source-fidelity tolerances, named browser/device and performance budgets; settle the low-resolution look against the existing accepted gallery rather than assuming literal 8-bit rendering.\n\n## Scope and verification\n\nDecision evidence for the Collection museum expansion only. Preserve 3D Viewer. Link source artifacts and report passed, failed and unverified checks. No production integration. Follow the parent map\u2019s spend and evidence rules.",
+    "labels": [
+      {
+        "id": "LA_kwDOUIZrc88AAAACy1cNNw",
+        "name": "wayfinder:grilling",
+        "description": "",
+        "color": "BFD4F2"
+      }
+    ],
+    "number": 181,
+    "state": "OPEN",
+    "title": "Decide: real museum connections and the expansion quality contract"
+  },
+  {
+    "body": "## Question\n\nCan video-derived room geometry and verified openings produce a coherent walkable connected space using the current visitor and camera?\n\n## Acceptance criteria\n\nUse extracted keyframes and cross-view constraints; document uncertain scale, compare reconstruction to held-out views. Show floor plan and runnable browser walk in both directions through one real connection, collision/camera checks and measured performance. Owner reacts to the artifact; no fabricated topology presented as fact.\n\n## Scope and verification\n\nDecision evidence for the Collection museum expansion only. Preserve 3D Viewer. Link source artifacts and report passed, failed and unverified checks. No production integration. Follow the parent map\u2019s spend and evidence rules.",
+    "labels": [
+      {
+        "id": "LA_kwDOUIZrc88AAAACy1cNIw",
+        "name": "wayfinder:prototype",
+        "description": "",
+        "color": "5319E7"
+      }
+    ],
+    "number": 182,
+    "state": "OPEN",
+    "title": "Prototype: reconstruct and walk a connected pair of museum rooms"
+  },
+  {
+    "body": "## Question\n\nCan one representative frame and one identifiable sculpture retain their real form in the established low-resolution look when placed in reconstructed space?\n\n## Acceptance criteria\n\nReuse final reference-preserving frame recipe; keep original museum painting image separate. Show source, generated pass, geometry, UV texture and in-game bake at walking/detail distances. Sculpture needs several viewpoints, correct scale/pedestal, silhouette and orientation; disclose unseen surfaces. One Muse output first with provenance/spend. Inspect bake seams, blur, ornament invention and palette consistency; owner feedback required before batches.\n\n## Scope and verification\n\nDecision evidence for the Collection museum expansion only. Preserve 3D Viewer. Link source artifacts and report passed, failed and unverified checks. No production integration. Follow the parent map\u2019s spend and evidence rules.",
+    "labels": [
+      {
+        "id": "LA_kwDOUIZrc88AAAACy1cNIw",
+        "name": "wayfinder:prototype",
+        "description": "",
+        "color": "5319E7"
+      }
+    ],
+    "number": 183,
+    "state": "OPEN",
+    "title": "Prototype: preserve frame and sculpture identity through Muse and baked textures"
+  }
+]

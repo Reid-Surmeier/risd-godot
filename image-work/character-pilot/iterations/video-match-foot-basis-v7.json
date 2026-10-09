@@ -1,0 +1,19 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-walk-v5/footplant-candidate.glb",
+      "label": "Structural Foot basis"
+    },
+    {
+      "source": "video-match/authored-walk-v7/footplant-candidate.glb",
+      "label": "Standing Foot basis: experimental"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "import_fps": 240
+}

@@ -1,0 +1,10 @@
+# Run from the prototype workspace; completed reports reject overwrite.
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/entry_floor_tracks.py docs/evidence/collection-reconstruction/heartbeat-20260930T1530/entry-floor-selection.json /tmp/collection-entry-floor-new
+/home/reidsurmeier/risd-godot-ingestion/collection-expansion/.venv/bin/python modules/shell/prototype/collection_reconstruction/entry_floor_tracks.py docs/evidence/collection-reconstruction/heartbeat-20260930T1530/entry-floor-interior-selection.json /tmp/collection-entry-floor-interior-new
+# Native extraction exact argv/source/output hashes: native-floor-extraction.json.
+mkdir -p /tmp/collection-doorway-native-new
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA godot --path /home/reidsurmeier/risd-godot-ingestion/collection-expansion/doorway-walk-v7 --display-driver x11 --rendering-method gl_compatibility -- --selfcheck --out=/tmp/collection-doorway-native-new
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA node modules/shell/prototype/collection_reconstruction/doorway_walk_browser.cjs https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/ /tmp/collection-doorway-browser-new 1100
+env -u LIBGL_ALWAYS_SOFTWARE DISPLAY=:0 GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA scripts/check.sh
+env -u LIBGL_ALWAYS_SOFTWARE GALLIUM_DRIVER=d3d12 MESA_D3D12_DEFAULT_ADAPTER_NAME=NVIDIA GODOT_DISPLAY=:0 scripts/playtest.sh shell /tmp/collection-shell-new
+git diff --check

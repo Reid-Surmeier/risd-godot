@@ -1,0 +1,95 @@
+{
+  "retrieved": "2026-09-30",
+  "method": "Scrapling Fetcher, official RISD API and official carousel photos",
+  "objects": {
+    "settee": {
+      "id": "1475376",
+      "accession": "2017.74.5",
+      "title": "Settee",
+      "maker": "Unknown Maker, English",
+      "dimensions": "94 x 139 x 77 cm (37 x 54 3/4 x 30 5/16 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/settee-2017745",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1475376",
+      "api_sha256": "80d7aae6013d83e0c39e3ff8d5f969ca857768c5d5e860693f08298e73b9f29a",
+      "match": "source-video silhouette, upholstery and ornament compared visually"
+    },
+    "armchair": {
+      "id": "1278016",
+      "accession": "2017.74.7.1",
+      "title": "Armchair",
+      "maker": "Unknown Maker, English",
+      "dimensions": "93 x 82 x 57 cm (36 5/8 x 32 5/16 x 22 7/16 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/armchair-20177471",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1278016",
+      "api_sha256": "916c211cff143dd96b8be2b7756c36bf8399b3448b9aa247d34b4137b0b0a257",
+      "match": "source-video silhouette, upholstery and ornament compared visually"
+    },
+    "tureen": {
+      "id": "1521901",
+      "accession": "2017.74.39.18a-c",
+      "title": "Dragons-in Compartments pattern covered tureen and stand",
+      "maker": "Worcester Porcelain Company",
+      "dimensions": "45.7 x 55.9 x 35.6 cm (18 x 22 x 14 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-covered-tureen-and-stand-2017743918a-c",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1521901",
+      "api_sha256": "3d1444d735ea8238389172e84c18023ef3223fab4f0f99c7da33d9d2327b6d7f",
+      "match": "source-video silhouette, upholstery and ornament compared visually"
+    },
+    "mirror": {
+      "id": "1558601",
+      "accession": "2017.74.4.1",
+      "title": "Mirror",
+      "maker": "Unknown Maker, English",
+      "dimensions": "231.1 x 91.4 cm (91 x 36 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/mirror-20177441",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1558601",
+      "api_sha256": "d9c69645d4b54f04dee86456c044d0445c060a7d71fdbb461ddf35cea20bfcf5",
+      "match": "source-video silhouette, upholstery and ornament compared visually"
+    },
+    "writing-table": {
+      "id": "1195066",
+      "accession": "2017.74.8",
+      "title": "Writing Table",
+      "maker": "Unknown Maker, English",
+      "dimensions": "72 x 42 x 26 cm (28 3/8 x 16 9/16 x 10 1/4 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/writing-table-2017748",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1195066",
+      "api_sha256": "60d3dd7ef16ba1c46eff1dcbfc24b982fadf425978a93e61c8c0bf63ebe3bc33",
+      "match": "candidate only; video round half-circle table not proven this catalogue object"
+    },
+    "edwards": {
+      "id": "1538871",
+      "accession": "58.197",
+      "title": "Portrait of Mrs. Edwards",
+      "maker": "John Constable",
+      "dimensions": "76 x 63.7 cm (29 15/16 x 25 1/16 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/portrait-mrs-edwards-58197",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1538871",
+      "api_sha256": "833b6a7fc1e28e66f2141f305b1a62bf4640813b0b724cf8750ec077b3607026",
+      "match": "Bonnet, frilled neckline, brooch and hands match IMG_6380/292 and 405"
+    },
+    "pair-mirror": {
+      "id": "1558596",
+      "accession": "2017.74.4.2",
+      "title": "Mirror",
+      "dimensions": "231.1 x 91.4 cm (91 x 36 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/mirror-20177442",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1558596",
+      "api_sha256": "95bb5c2d817b6e2a013eb9188bd8c853ead0d53376de73f2dd49ffb56007c2ee",
+      "match": "Source video silhouette and carving compared visually against official full-front image"
+    },
+    "entrance-chair": {
+      "id": "1426301",
+      "accession": "2017.74.12",
+      "title": "Armchair",
+      "dimensions": "94 x 68 x 58 cm (37 x 26 3/4 x 22 13/16 inches)",
+      "url": "https://risdmuseum.org/art-design/collection/armchair-20177412",
+      "api_url": "https://risdmuseum.org/api/v1/collection?id=1426301",
+      "api_sha256": "ee9a2061d648d711a0a857280fbea71c4f191d8d77966ac9ba706b581decbaad",
+      "match": "Source video silhouette and carving compared visually against official full-front image"
+    }
+  },
+  "mirror_pair": "Separate .4.1 and .4.2 identities, visually matched left/right ornament; matching dimensions from API",
+  "on_view_parameter": "field_on_view=1; on_view=1 is ignored",
+  "rights": "Private prototype only; catalogue flags retained in untouched responses"
+}

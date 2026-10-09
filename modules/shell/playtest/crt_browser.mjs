@@ -1,82 +1,85 @@
-// PLAYWRIGHT_MODULE=/absolute/path/to/playwright/index.mjs node modules/shell/playtest/crt_browser.mjs URL
+// #173: the exported square and retained Tenants, exercised through browser input.
+// PLAYWRIGHT_MODULE=/absolute/playwright/index.mjs node modules/shell/playtest/crt_browser.mjs URL
 import assert from 'node:assert/strict';
-import {mkdirSync, writeFileSync} from 'node:fs';
-const {chromium} = await import(process.env.PLAYWRIGHT_MODULE || 'playwright');
-const out = 'docs/evidence/crt';
-mkdirSync(out, {recursive:true});
-const url = new URL(process.argv[2]); url.searchParams.set('qa-crt','1');
-const browser = await chromium.launch({executablePath:'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+import {mkdirSync,writeFileSync} from 'node:fs';
+const {chromium}=await import(process.env.PLAYWRIGHT_MODULE||'playwright');
+const out='docs/evidence/structure-173';mkdirSync(out,{recursive:true});
+const url=new URL(process.argv[2]);url.searchParams.set('qa-crt','1');
+const browser=await chromium.launch({executablePath:process.env.CHROMIUM_PATH||'/usr/bin/google-chrome',args:['--no-sandbox','--use-angle=swiftshader','--enable-unsafe-swiftshader']});
+const errors=[],matrix=[];
 try {
- const page = await browser.newPage({viewport:{width:1440,height:972},deviceScaleFactor:1});
- const errors=[];
+ const page=await browser.newPage({viewport:{width:1080,height:1080},hasTouch:true,deviceScaleFactor:1});
  page.on('pageerror',e=>errors.push(e.message));
- page.on('console',m=>{if(m.type()==='error' && !/404|2D MSAA|render_target_set_msaa/.test(m.text()))errors.push(m.text());});
+ page.on('console',m=>{if(m.type()==='error'&&!/404|2D MSAA|render_target_set_msaa/.test(m.text()))errors.push(m.text());});
  await page.goto(url.href);
+ await page.waitForFunction(()=>window.shellCrtQa?.shell.active===4&&!window.shellCrtQa.shell.switching,null,{timeout:240000});
+ await page.waitForFunction(()=>!document.getElementById('status'),null,{timeout:120000});
+ await page.keyboard.press('F8');await page.waitForFunction(()=>window.crtQaState?.enabled===false);
+ assert.equal((await page.evaluate(()=>window.shellCrtQa)).shell.active,4,'CRT toggle retains Page');
+ await page.keyboard.press('F8');await page.waitForFunction(()=>window.crtQaState?.enabled===true);
  const state=()=>page.evaluate(()=>window.shellCrtQa);
- await page.waitForFunction(()=>window.shellCrtQa?.shell.active===4 && !window.shellCrtQa.shell.switching);
- assert.deepEqual(await page.evaluate(()=>window.crtQaState),{enabled:true,curve:.018,screen_scale:1});
- await page.waitForFunction(()=>window.shellCrtQa.tenant.search.images_loaded===2);
- await page.keyboard.press('F9'); await page.waitForFunction(()=>window.squiggleQaState?.enabled===false);
- await page.waitForTimeout(700);
- const on=await page.screenshot({path:out+'/collection-crt.png'});
- const initial=(await state()).shell;
- await page.keyboard.press('F8'); await page.waitForTimeout(400);
- const off=await page.screenshot({path:out+'/collection-off.png'});
- assert.deepEqual((await state()).shell,initial,'F8 preserves all tab states');
- const metrics=await page.evaluate(async([a,b])=>{
-  async function decode(s){const i=new Image();i.src='data:image/png;base64,'+s;await i.decode();const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const x=c.getContext('2d');x.drawImage(i,0,0);return x.getImageData(0,0,c.width,c.height).data;}
-  const [on,off]=await Promise.all([decode(a),decode(b)]);let whiteChange=0,change=0;
-  for(let i=0;i<on.length;i++)if(i%4!==3){change+=Math.abs(on[i]-off[i]);if(i<1440*3*4)whiteChange+=Math.abs(on[i]-off[i]);}
-  let onY=0,offY=0;
-  const linear=v=>v<=10.31475?v/3294.6:((v/255+.055)/1.055)**2.4;
-  for(let y=290;y<302;y++)for(let x=150;x<250;x++)for(let c=0;c<3;c++){
-   const i=(y*1440+x)*4+c,w=[.2126,.7152,.0722][c];onY+=linear(on[i])*w;offY+=linear(off[i])*w;
+ const rect=r=>Array.isArray(r)?r:r.match(/-?\d+(?:\.\d+)?/g).map(Number);
+ const center=r=>{const [x,y,w,h]=rect(r);return [x+w/2,y+h/2];};
+ function screen([x,y],s){
+  const [ox,oy,dw,dh]=s.stage_rect;
+  const qx=x/1080-.5,qy=y/1080-.5,a=.018*(qx*qx+qy*qy),c=1+.018/4;
+  const k=2*c/(1+Math.sqrt(1+4*a*c));return [ox+(qx*k+.5)*dw,oy+(qy*k+.5)*dh];
+ }
+ const settle=()=>page.waitForTimeout(450);
+ async function click(point,touch=false){const p=screen(point,await state());if(touch)await page.touchscreen.tap(...p);else await page.mouse.click(...p);await settle();}
+ async function tab(i,touch=false){await click(center((await state()).shell.tabs[i].rect),touch);await page.waitForFunction(i=>window.shellCrtQa.shell.active===i&&!window.shellCrtQa.shell.switching,i);}
+ async function drag(from,to){const s=await state();await page.mouse.move(...screen(from,s));await page.mouse.down();await page.mouse.move(...screen(to,s),{steps:10});await page.mouse.up();await settle();}
+ async function wheel(point){await page.mouse.move(...screen(point,await state()));await page.mouse.wheel(0,-100);await settle();}
+ async function shot(name){return page.screenshot({path:`${out}/${name}.png`});}
+ for(const [width,height] of [[1080,1080],[1920,1080],[1080,1920],[720,486],[486,720]]){
+  const id=`${width}x${height}`;await page.setViewportSize({width,height});
+  await page.waitForFunction(([w,h])=>window.shellCrtQa?.display_size[0]===w&&window.shellCrtQa?.display_size[1]===h,[width,height]);
+  const s=await state(),side=Math.min(width,height);assert.deepEqual(s.logical_size,[1080,1080]);
+  assert.deepEqual(s.stage_rect,[(width-side)/2,(height-side)/2,side,side]);
+  for(let i=0;i<7;i++){await tab(i);await shot(`${id}-tab-${i}`);}
+  // Read actual screenshot pixels outside the square; every sample must be white.
+  const png=await shot(`${id}-exterior`);
+  const exterior=await page.evaluate(async([encoded,r])=>{
+   const image=new Image();image.src='data:image/png;base64,'+encoded;await image.decode();
+   const canvas=document.createElement('canvas');canvas.width=image.width;canvas.height=image.height;
+   const ctx=canvas.getContext('2d');ctx.drawImage(image,0,0);const d=ctx.getImageData(0,0,canvas.width,canvas.height).data;
+   let bad=0,samples=0;for(let y=0;y<canvas.height;y+=7)for(let x=0;x<canvas.width;x+=7){
+    if(x>=r[0]&&x<r[0]+r[2]&&y>=r[1]&&y<r[1]+r[3])continue;
+    samples++;const p=(y*canvas.width+x)*4;if(d[p]!==255||d[p+1]!==255||d[p+2]!==255)bad++;
+   }return {bad,samples};
+  },[png.toString('base64'),s.stage_rect]);assert.equal(exterior.bad,0,`white exterior ${id}`);
+  await tab(4,true); // actual browser touch, including nonzero stage offset
+  await click([1065,1057]);assert.equal((await state()).shell.active,0,'Home');
+  await click([36,1057]);await page.keyboard.press('Home');await page.keyboard.press('Enter');await settle();assert.equal((await state()).shell.active,0,'Start keyboard selection');
+  await page.keyboard.press('Escape');await settle(); // dismiss the Start popup before the next viewport capture
+  // atlas_window.gd intentionally filters Playwright's synthetic device -1 mouse events;
+  // native Atlas acceptance covers Map drag, pan, zoom, resize, collapse and lock.
+  let t=(await state()).tenant;
+  // Verify exterior release terminates the Map drag (review regression).
+  if(width!==height){
+   t=(await state()).tenant;const r=rect(t.frame_global),p=[r[0]+r[2]/2,r[1]+8];
+   await page.mouse.move(...screen(p,await state()));await page.mouse.down();await page.mouse.move(2,2);await page.mouse.up();await settle();
+   assert.equal((await state()).tenant.action,'','drag released outside');
+   const active=(await state()).shell.active;await page.mouse.click(2,2);await settle();assert.equal((await state()).shell.active,active,'exterior click ignored');
   }
-  return {mean_change:change/(1440*972*3),white_change:whiteChange/(1440*3*3),near_white_luminance_change:Math.abs(onY-offY)/offY};
- },[on.toString('base64'),off.toString('base64')]);
- assert.ok(metrics.near_white_luminance_change<.02,'Near-white brightness preserved: '+JSON.stringify(metrics));
- assert.ok(metrics.mean_change>.3,'CRT visible'); assert.ok(metrics.white_change<.1,'White stays white');
- await page.keyboard.press('F8');
- function screen(x,y,s){
-  const [w,h]=s.logical_size,[dw,dh]=s.display_size,aspect=h/w;
-  const qx=(x/w-.5)/aspect,qy=y/h-.5,a=.018*(qx*qx+qy*qy),c=1+.018/4;
-  const k=2*c/(1+Math.sqrt(1+4*a*c));return [(qx*k*aspect+.5)*dw,(qy*k+.5)*dh];
+  await tab(2);t=(await state()).tenant;await click(center(t.cards[0]));t=(await state()).tenant;assert.equal(t.model_loaded,true);assert.ok(rect(t.viewport_rect)[2]>100);
+  await click(center(t.cards[19]));assert.equal((await state()).tenant.selected,19);
+  let vr=rect(t.viewer_rect),vf=[vr[0]+vr[2]*.4,vr[1]+8];await drag(vf,[vf[0]+15,vf[1]+22]);
+  t=(await state()).tenant;assert.ok(rect(t.viewer_rect)[1]>vr[1]+10,'Viewer window drag');
+  const view=center(t.viewport_rect),pitch=t.pitch;await drag(view,[view[0]+30,view[1]+20]);assert.notEqual((await state()).tenant.pitch,pitch,'Viewer orbit');
+  const distance=(await state()).tenant.distance;await wheel(view);assert.ok((await state()).tenant.distance<distance,'Viewer zoom');
+  await tab(0);await tab(2);assert.equal((await state()).tenant.selected,19,'Viewer selection retained');
+  await tab(5);t=(await state()).tenant;const main=rect(t.main_window),start=[main[0]+main[2]*.4,main[1]+6];
+  await drag(start,[start[0]+12,start[1]+12]);assert.ok(rect((await state()).tenant.main_window)[0]>main[0]+5,'Playground main window drag');
+  for(const name of ['explore','all','channels','search']){await click(center((await state()).tenant.navigation['Page_'+name]));assert.equal((await state()).tenant.page,name);await shot(`${id}-playground-${name}`);}
+  await tab(1);t=(await state()).tenant;const strokes=t.strokes,[px,py,pw,ph]=rect(t.page_rect);
+  await drag([px+pw*.35,py+ph*.4],[px+pw*.48,py+ph*.5]);assert.equal((await state()).tenant.strokes,strokes+1,'Sketchbook paint regression');
+  matrix.push({width,height,stage:s.stage_rect,exterior,status:'pass'});console.log(`PASS ${id}`);
  }
- async function openTab(index){const s=await state(),[x,y,w,h]=s.shell.tabs[index].rect;await page.mouse.click(...screen(x+w/2,y+h/2,s));await page.waitForFunction(i=>window.shellCrtQa.shell.active===i&&!window.shellCrtQa.shell.switching,index);}
- for(const index of [0,1,2,3,4,5]) {await openTab(index);await page.screenshot({path:out+`/tab-${index}.png`});}
- await openTab(2);
- let hoverState=await state();
- const [ax,ay,aw,ah]=hoverState.tenant.controls.audio.match(/-?\d+(?:\.\d+)?/g).map(Number);
- const top=screen(ax,ay,hoverState),bottom=screen(ax+aw,ay+ah,hoverState);
- const clip={x:Math.floor(top[0])-2,y:Math.floor(top[1])-2,width:Math.ceil(bottom[0]-top[0])+4,height:Math.ceil(bottom[1]-top[1])+4};
- await page.mouse.move(5,5);await page.waitForTimeout(600);
- const idle=await page.screenshot({clip});
- await page.mouse.move(...screen(ax+aw/2,ay+ah/2,hoverState));await page.waitForTimeout(600);
- const hover=await page.screenshot({clip});
- assert.ok(!idle.equals(hover),'Viewer control visibly responds to hover');
- await page.mouse.move(5,5);await page.waitForTimeout(600);
- assert.ok(idle.equals(await page.screenshot({clip})),'Viewer hover clears after leaving');
- await openTab(1);
- let s=await state(); const [px,py,pw,ph]=s.tenant.page_rect;
- const strokes=s.tenant.strokes;
- await page.mouse.move(...screen(px+pw*.25,py+ph*.35,s));await page.mouse.down();
- await page.mouse.move(...screen(px+pw*.40,py+ph*.45,s),{steps:16});await page.mouse.up();
- await page.waitForFunction(n=>window.shellCrtQa.tenant.strokes===n+1,strokes);
- s=await state();const [tx,ty,tw,th]=s.tenant.title_rect,previous=s.tenant.window_rect;
- await page.mouse.move(...screen(tx+tw*.4,ty+th*.5,s));await page.mouse.down();await page.mouse.move(...screen(tx+tw*.4-35,ty+th*.5+15,s),{steps:10});await page.mouse.up();
- await page.waitForFunction(r=>Math.abs(window.shellCrtQa.tenant.window_rect[0]-(r[0]-35))<2,previous);
- await page.screenshot({path:out+'/sketchbook-painted.png'});
- const viewports=[];
- for(const [width,height] of [[1920,1080],[720,486],[1200,600]]){
-  await page.setViewportSize({width,height});await page.waitForFunction(([w,h])=>window.shellCrtQa.display_size[0]===w&&window.shellCrtQa.display_size[1]===h,[width,height]);
-  await openTab(4);await page.waitForTimeout(300);
-  const shot=await page.screenshot({path:out+`/fit-${width}x${height}.png`});
-  const dark=await page.evaluate(async(s)=>{const i=new Image();i.src='data:image/png;base64,'+s;await i.decode();const c=document.createElement('canvas');c.width=i.width;c.height=i.height;const x=c.getContext('2d');x.drawImage(i,0,0);const d=x.getImageData(0,0,c.width,c.height).data;const black=(x,y)=>{const p=(y*c.width+x)*4;return Math.max(d[p],d[p+1],d[p+2])<24?1:0;};return [Array.from({length:c.width},(_,x)=>black(x,0)),Array.from({length:c.width},(_,x)=>black(x,c.height-1)),Array.from({length:c.height},(_,y)=>black(0,y)),Array.from({length:c.height},(_,y)=>black(c.width-1,y))].map(a=>a.reduce((x,y)=>x+y,0)/a.length);},shot.toString('base64'));
-  assert.ok(dark.every(n=>n<.3),'No black bars: '+JSON.stringify(dark));viewports.push({width,height,dark_edge_fraction:dark});
-  // Bottom bar must remain clickable after fitting the smaller browser.
-  await openTab(1);
- }
- url.searchParams.set('crt','0');await page.goto(url.href);await page.waitForFunction(()=>window.crtQaState?.enabled===false&&window.shellCrtQa?.shell.active===4);
- assert.deepEqual(errors,[]);
- const report={status:'pass',url:process.argv[2],metrics,viewports,errors};writeFileSync(out+'/report.json',JSON.stringify(report,null,2)+'\n');console.log(JSON.stringify(report));
-}finally{await browser.close();}
+ const candidate=url.pathname.split('/').at(-1).replace(/\.html$/,'');
+ assert.deepEqual(errors,[]);writeFileSync(`${out}/browser.json`,JSON.stringify({candidate,url:'local scratch export; no owner-facing URL',controls:['seven Tabs and Home/Start selection','five viewport sizes and white exterior pixel samples','touch Tab selection with nonzero stage offset','Map exterior release','Viewer selection, window drag, orbit, zoom, and retained selection','Playground window drag and four pages','Sketchbook paint'],matrix,errors},null,2)+'\n');
+} catch(error) {
+ const pages=browser.contexts().flatMap(c=>c.pages());
+ if(pages[0]){await pages[0].screenshot({path:`${out}/failure.png`});writeFileSync(`${out}/failure.json`,JSON.stringify({error:String(error),state:await pages[0].evaluate(()=>window.shellCrtQa),errors},null,2));}
+ throw error;
+} finally {await browser.close();}

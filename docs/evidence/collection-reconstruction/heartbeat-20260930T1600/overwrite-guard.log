@@ -1,0 +1,8 @@
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/modules/shell/prototype/collection_reconstruction/native_floor_tracks.py", line 18, in <module>
+    out.mkdir(exist_ok=False)
+    ~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "/home/reidsurmeier/.local/share/uv/python/cpython-3.14.7-linux-x86_64-gnu/lib/python3.14/pathlib/__init__.py", line 1011, in mkdir
+    os.mkdir(self, mode)
+    ~~~~~~~~^^^^^^^^^^^^
+FileExistsError: [Errno 17] File exists: '/home/reidsurmeier/risd-godot-ingestion/collection-expansion/native-floor-tracks-v1'

@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-ef43262e5eb77f37a1bb",
+  "summary": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Cup, accession 2017.74.38.7. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-ef43262e5eb77f37a1bb",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/gold-cup-a-selected-0.png",
+      "sha256": "9c10a8f0f63a472058a4de29147b7cbc11718afa5503267a8be2ba01a0808917",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "gold-cup-a-recipe.json",
+      "sha256": "ef43262e5eb77f37a1bbaa52f8618e65c34b97b260bfb98f6516ae159edc6615"
+    },
+    {
+      "applicationPath": "gold-cup-a-plan.json",
+      "sha256": "d5b46f6ba63c5a880fc11ddfd2d511c7831204846e922e21fd1201be2e81fc3a"
+    },
+    {
+      "applicationPath": "gold-cup-a-prompt.txt",
+      "sha256": "2b3793056d826da3ea1874d016f63e6518298cfd20a4bac295d7808c2dbfd3bc"
+    }
+  ]
+}

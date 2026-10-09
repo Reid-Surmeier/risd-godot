@@ -3,8 +3,20 @@
 from pathlib import Path
 import subprocess
 import argparse
+import os
+import re
+import threading
 
 root = Path(__file__).resolve().parents[5]
+# Vulkan inside WSL is lavapipe, a CPU renderer (about 8 minutes a bake). The Windows build of the same Godot
+# reaches the RTX and opens this checkout over \\wsl.localhost; BAKE_ON=cpu keeps the bake on lavapipe.
+windows_godot = os.environ.get('WIN_GODOT', '/mnt/c/Users/reidsurmeier2/godot-bake/bin/Godot_v4.7.2-stable_win64_console.exe')
+
+
+def version(godot):
+    return subprocess.run([godot, '--version'], capture_output=True, text=True, timeout=30).stdout.strip()
+
+
 parser = argparse.ArgumentParser(description=__doc__)
 parser.add_argument('--white', action='store_true', help='Bake the separate white navigation-room capture.')
 name = 'white' if parser.parse_args().white else 'room'
@@ -16,10 +28,39 @@ if '[editor_plugins]' in original:
 baked = root / 'modules/shell/prototype/gallery_walk4/baked'
 previous = {path: path.read_bytes() if path.exists() else None
             for path in (baked / (name + ext) for ext in ('.tscn', '.lmbake', '.exr', '.exr.import'))}
+# The editor re-imports every texture the room uses "as used in 3D": block-compressed, with mipmaps. The works'
+# photographs must stay as they were imported, so every .import outside baked/ is put back when the editor is gone.
+imports = {path: path.read_bytes() for path in baked.parent.rglob('*.import') if baked not in path.parents}
 try:
     subprocess.run(['godot', '--path', str(root), '--rendering-method', 'gl_compatibility', '--script', prepare], check=True, timeout=120)
     project.write_text(original + '\n[gallery_bake]\nscene="' + name + '"\n\n[editor_plugins]\nenabled=PackedStringArray("res://modules/shell/prototype/gallery_walk4/bake/plugin.cfg")\n')
-    subprocess.run(['godot', '--editor', '--path', str(root), '--rendering-method', 'mobile', '--max-fps', '10'], check=True, timeout=600)
+    # Only the very build that `godot` is may bake in its place: a different engine version writes different scenes.
+    on_gpu = (os.environ.get('BAKE_ON', 'gpu') == 'gpu' and os.access(windows_godot, os.X_OK)
+              and version(windows_godot) == version('godot') != '')
+    print('bake on the GPU (Windows Godot)' if on_gpu else 'bake on the CPU (lavapipe)', flush=True)
+    command = ([windows_godot, '--editor', '--path', subprocess.check_output(['wslpath', '-w', str(root)], text=True).strip()]
+               if on_gpu else ['godot', '--editor', '--path', str(root)])
+    command += ['--rendering-method', 'mobile', '--max-fps', '10',
+                'res://modules/shell/prototype/gallery_walk4/baked/' + name + '.tscn']
+    process = subprocess.Popen(command, stdout=subprocess.PIPE, stderr=subprocess.STDOUT, text=True)
+    deadline = threading.Timer(1800, process.kill)
+    deadline.start()
+    saved = False
+    try:
+        for line in process.stdout:
+            print(line, end='', flush=True)
+            # Emitted only after the plugin validates users and saves the scene.
+            saved |= re.fullmatch(r'BAKE_OK users=[1-9][0-9]*\n?', line) is not None
+        code = process.wait()
+    finally:
+        deadline.cancel()
+        if process.poll() is None:
+            process.kill()
+            process.wait()
+    if not saved:
+        raise RuntimeError(f'Editor exited {code} without a saved bake')
+    if code:
+        print(f'BAKE_EDITOR_EXIT {code} after save; retained outputs require rendered verification')
 except BaseException:
     for path, content in previous.items():
         if content is None:
@@ -29,3 +70,6 @@ except BaseException:
     raise
 finally:
     project.write_text(original)
+    for path, content in imports.items():
+        if path.read_bytes() != content:
+            path.write_bytes(content)

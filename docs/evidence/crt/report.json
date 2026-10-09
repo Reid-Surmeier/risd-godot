@@ -1,10 +1,11 @@
 {
   "status": "pass",
-  "url": "https://windows-wsl.taile06c45.ts.net/risd-desktop-godot-f57d02de/35b38cf.html",
+  "candidate": "d91add3d",
+  "url": "local scratch export; no owner-facing URL",
   "metrics": {
-    "mean_change": 9.492473755906111,
+    "mean_change": 2.882081618655693,
     "white_change": 0,
-    "near_white_luminance_change": 0.0009285788626108187
+    "near_white_luminance_change": 0
   },
   "viewports": [
     {

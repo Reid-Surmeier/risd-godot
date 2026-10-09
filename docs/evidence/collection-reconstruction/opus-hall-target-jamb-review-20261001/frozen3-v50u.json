@@ -1,0 +1,23 @@
+[
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/main_build_walk.gd",
+  "manifest": "ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86",
+  "live_root": "ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86",
+  "tarball": "ca218f3e2a7f3aa15aa432f09e91c7fa840dc9648999a4e1882216e577dfaa86",
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/passage_keyboard_check.gd",
+  "manifest": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76",
+  "live_root": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76",
+  "tarball": "54ca0566c73b6ed309d70fa0cb3a0968f7c20b07abff5ac45b9fbd0972290d76",
+  "ok": true
+ },
+ {
+  "path": "modules/shell/prototype/collection_reconstruction/passage_target_check.gd",
+  "manifest": "73961e34154348a2367223f91af348e84a707df1f78641919d985e8d33191e6f",
+  "live_root": "73961e34154348a2367223f91af348e84a707df1f78641919d985e8d33191e6f",
+  "tarball": "73961e34154348a2367223f91af348e84a707df1f78641919d985e8d33191e6f",
+  "ok": true
+ }
+]

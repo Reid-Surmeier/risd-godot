@@ -1,0 +1,3269 @@
+{
+  "58.196": {
+    "title": "Madonna and Child with Saint Barbara and Saint Catherine",
+    "maker": "Unknown Maker, Possibly Netherlandish",
+    "date": "ca. 1525",
+    "medium": "Oil on panel",
+    "dimensions": "91.4 x 87 cm (36 x 34 1/4 inches)",
+    "accession": "58.196",
+    "credit": "Museum Works of Art Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/renaissance-wall/madonna-58196-front.png",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/madonna-and-child-saint-barbara-and-saint-catherine-58196.html.gz (saved copy of https://risdmuseum.org/art-design/collection/madonna-and-child-saint-barbara-and-saint-catherine-58196); the page prints the maker line as \"Unknown Maker, Possibly\" and gives \"Possibly, Netherlandish\" under Culture, joined here"
+  },
+  "45.042": {
+    "title": "Portrait of a Cleric",
+    "maker": "Bruges Master",
+    "date": "ca. 1490",
+    "medium": "Oil on panel",
+    "dimensions": "22.2 x 14.6 x 5.7 cm (8 3/4 x 5 3/4 x 2 1/4 inches)",
+    "accession": "45.042",
+    "credit": "Museum purchase with funds from Mrs. Gustav Radeke, Manton B. Metcalf, Museum Works of Art Fund and Museum Appropriation Fund, by exchange, and Museum Special Reserve Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/renaissance-case-a/textures/portrait-cleric-45042-zoom-0.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/portrait-cleric-45042.html.gz (saved copy of https://risdmuseum.org/art-design/collection/portrait-cleric-45042)"
+  },
+  "34.861": {
+    "title": "Portrait of a Woman",
+    "maker": "Jan Joest; Attributed to Jan Mostaert",
+    "date": "ca. 1520",
+    "medium": "Oil on panel",
+    "dimensions": "36.2 x 24.8 cm (14 1/4 x 9 3/4 inches)",
+    "accession": "34.861",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/renaissance-case-a/textures/portrait-woman-34861-zoom-0.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/portrait-woman-34861.html.gz (saved copy of https://risdmuseum.org/art-design/collection/portrait-woman-34861)"
+  },
+  "22.201": {
+    "title": "Diptych with scenes of the Nativity, the Crucifixion, and the Last Judgement",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1275-1325",
+    "medium": "Ivory with traces of polychromy (colored paint)",
+    "dimensions": "Panel: 24.1 x 13.3 cm (9 1/2 x 5 1/4 inches) (each)",
+    "accession": "22.201",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/22.201.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/diptych-scenes-nativity-crucifixion-and-last-judgement-22201.html.gz (saved copy of https://risdmuseum.org/art-design/collection/diptych-scenes-nativity-crucifixion-and-last-judgement-22201). The picture is the museum's first photograph (renaissance-case-a/textures/diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-0.jpg) cut to the leaf it shows, x 614 to 1211 and y 18 to 1070: the other half of that photograph is a blank white leaf."
+  },
+  "34.016": {
+    "title": "Book cover",
+    "maker": "Unknown Maker, German",
+    "date": "1500-1550",
+    "medium": "Silver with niello and gilding",
+    "dimensions": "14 x 8.6 x 5.1 cm (5 1/2 x 3 3/8 x 2 inches)",
+    "accession": "34.016",
+    "credit": "Gift of Messrs. E. & A. Silberman",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/34.016-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/book-cover-34016",
+    "image_resolution": {
+      "original_pixels": [
+        4064,
+        3068
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/book-cover-34016",
+      "source_url": "https://iiif.micr.io/twNLL/full/!4064,4064/0/default.jpg",
+      "source_pixels": [
+        4064,
+        3068
+      ],
+      "source_sha256": "6f46132e90e6de6a872c5c60806fadb78c442bfb157abf33f6faca30a9cf0b35",
+      "crop_px": [
+        0,
+        0,
+        4064,
+        3068
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3087.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/renaissance-case-a/textures/bookcover-board.png",
+          "required_long_side": 256,
+          "pixels": [
+            157,
+            256
+          ],
+          "sha256": "5bebcc82a2ec4842e69f6ee55727f86a225ab0de15717e027c8a08ea22e3c90d",
+          "quad_px": [
+            [
+              1289.1839599609375,
+              1395.93994140625
+            ],
+            [
+              1927.637939453125,
+              622.8040161132812
+            ],
+            [
+              3692.592041015625,
+              1509.4560546875
+            ],
+            [
+              3115.528076171875,
+              2377.699951171875
+            ]
+          ]
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/34.016-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            676
+          ],
+          "sha256": "453b077ba5dd77de93c9d121b8a9ca34b4ab248b998c047f1b6adda05bc68aea"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/34.016.jpg",
+          "required_long_side": 4064,
+          "pixels": [
+            4064,
+            3068
+          ],
+          "sha256": "cd3c72481a895bd8f08b86a1f2f27e8afb6de2ca17ea16b8573661519b5c481b"
+        }
+      },
+      "work_render_px": [
+        106,
+        157
+      ]
+    },
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/34.016.jpg"
+  },
+  "2023.17": {
+    "title": "One Hundred Christian Emblems (Emblematum Christianorum Centuria)",
+    "maker": "Georgette de Montenay, author; Pierre Woeiriot, engraver",
+    "date": "1584",
+    "medium": "Letterpress and engraving",
+    "dimensions": "197 x 147 mm (197 x 147 mm)",
+    "accession": "2023.17",
+    "credit": "Museum purchase: gift of Ambassador J. W. Middendorf II and Esther Mauran Acquisitions Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2023.17.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-unmatched-paper-research-20261001/photos/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317.html.gz (saved copy of https://risdmuseum.org/art-design/collection/one-hundred-christian-emblems-emblematum-christianorum-centuria-202317). No museum photograph: the live page has none (fetched 8 Oct 2026 with the Scrapling MCP make_request). The picture is the owner's film, IMG_6383.MOV at 46.40 s (frame 25 after 45.6 s), HLG tone-mapped, the whole open book cut to 480 x 410 px at native size from x 0 y 846; not enlarged."
+  },
+  "35.713": {
+    "title": "Drug Jar (Albarello)",
+    "maker": "Unknown Maker, Italian",
+    "date": "ca.1550",
+    "medium": "Earthenware with tin glaze and enamels",
+    "dimensions": "24.1 x 13 cm (9 1/2 x 5 1/8 inches)",
+    "accession": "35.713",
+    "credit": "Bequest of Susan Martin Allien",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/renaissance-case-a/textures/drug-jar-albarello-35713-zoom-0.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/drug-jar-albarello-35713.html.gz (saved copy of https://risdmuseum.org/art-design/collection/drug-jar-albarello-35713)"
+  },
+  "46.391": {
+    "title": "Bella Donna Plate",
+    "maker": "Probably Castel Durante",
+    "date": "ca. 1535-1540",
+    "medium": "Earthenware with tin glaze and enamels",
+    "dimensions": "Diameter: 22.5 cm (8 7/8 inches)",
+    "accession": "46.391",
+    "credit": "Gift of Mrs. Jesse H. Metcalf",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/46.391.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/bella-donna-plate-46391.html.gz (saved copy of https://risdmuseum.org/art-design/collection/bella-donna-plate-46391)"
+  },
+  "57.302": {
+    "title": "Bella Donna Plate",
+    "maker": "Unknown Maker, Italian",
+    "date": "1500-1550",
+    "medium": "Earthenware with tin glaze and enamels",
+    "dimensions": "Diameter: 23.2 cm (9 1/8 inches)",
+    "accession": "57.302",
+    "credit": "Gift of Mr. Robert Lehman",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/57.302.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/bella-donna-plate-57302.html.gz (saved copy of https://risdmuseum.org/art-design/collection/bella-donna-plate-57302)"
+  },
+  "51.105": {
+    "title": "Death of the Virgin",
+    "maker": "Unknown Maker, German",
+    "date": "ca. 1460",
+    "medium": "Silver",
+    "dimensions": "Diameter: 11.1 cm (4 3/8 inches)",
+    "accession": "51.105",
+    "credit": "Museum Works of Art Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/51.105.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/death-virgin-51105.html.gz (saved copy of https://risdmuseum.org/art-design/collection/death-virgin-51105)"
+  },
+  "2017.29": {
+    "title": "The Virgin as the Woman of the Apocalypse",
+    "maker": "Unknown Maker, German",
+    "date": "late 1400s",
+    "medium": "Clear glass with silver stain and enamel, modern blue glass",
+    "dimensions": "Diameter: 190 mm (190 mm)",
+    "accession": "2017.29",
+    "credit": "Gift of Mary Jane and Glenn Creamer",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2017.29.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/virgin-woman-apocalypse-201729.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-woman-apocalypse-201729)"
+  },
+  "34.024": {
+    "title": "Virgin and Child with Clerics and Donors",
+    "maker": "Pierre Reymond, enameler",
+    "date": "ca.1513-after 1584",
+    "medium": "Polychrome enamel and gold on copper",
+    "dimensions": "12.9 x 10.7 cm (5 1/16 x 4 3/16 inches)",
+    "accession": "34.024",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/34.024.jpg",
+    "source": "Accepted for #271 from the repo's recorded candidate: the picture shown and the model in the room are the museum's photograph of 34.024, and its label copy opens with the same sentence as that of the roundel 2017.29 beside it (docs/research/2026-10-01-museum-object-manifest.md, \"Left unidentified\"). The film does not resolve the scene, so the match is inferred, not read off the case label. Fields: docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/virgin-and-child-clerics-and-donors-34024.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-and-child-clerics-and-donors-34024); tombstone re-read on the live page, fetched 8 Oct 2026 with the Scrapling MCP make_request."
+  },
+  "2021.131": {
+    "title": "Madonna Enthroned, with Saints and Angels",
+    "maker": "Lippo di Benivieni",
+    "date": "ca. 1320",
+    "medium": "Tempera with gold ground on wood panel (triptych)",
+    "dimensions": "67 x 72.5 cm (26 3/8 x 28 9/16 inches) (open)",
+    "accession": "2021.131",
+    "credit": "Gift of Ambassador J. William Middendorf II",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2021.131.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/madonna-enthroned-saints-and-angels-2021131.html.gz (saved copy of https://risdmuseum.org/art-design/collection/madonna-enthroned-saints-and-angels-2021131)"
+  },
+  "23.307X": {
+    "title": "Velvet Cover",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1600",
+    "medium": "Silk-velvet ground with silver- and gilt-silver-wrapped silk thread embroidery (couching stitch)",
+    "dimensions": "127 cm (50 inches) (length)",
+    "accession": "23.307X",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/23.307X.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/velvet-cover-23307x.html.gz (saved copy of https://risdmuseum.org/art-design/collection/velvet-cover-23307x)"
+  },
+  "29.280": {
+    "title": "The Woodcutters",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1500-1510",
+    "medium": "Wool tapestry weave",
+    "dimensions": "152.4 x 94 cm (60 x 37 inches)",
+    "accession": "29.280",
+    "credit": "Gift of Dr. and Mrs. Murray S. Danforth",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/29.280.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/woodcutters-29280.html.gz (saved copy of https://risdmuseum.org/art-design/collection/woodcutters-29280)"
+  },
+  "lion-panel": {
+    "title": "Panel with Striding Lion",
+    "maker": "Unknown Maker, Neo-Babylonian",
+    "date": "604-562 BCE",
+    "medium": "Brick with glaze",
+    "dimensions": "104.1 x 228.6 cm (41 x 90 inches)",
+    "accession": "34.652",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/lion-panel-official.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/panel-striding-lion-34652 (live page read 2026-10-01; date printed only there; the other fields also in modules/shell/collection_rooms/assets/lion-panel-catalogue.json)"
+  },
+  "48.248": {
+    "title": "Still Life",
+    "maker": "Georges Braque",
+    "date": "1918",
+    "medium": "Oil on canvas",
+    "dimensions": "46.4 x 72.1 cm (18 1/4 x 28 3/8 inches)",
+    "accession": "48.248",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-48.248.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/still-life-48248 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/braque-still-life.json)"
+  },
+  "70.058": {
+    "title": "Head of a Woman",
+    "maker": "Jacques Villon",
+    "date": "1914",
+    "medium": "Oil on canvas",
+    "dimensions": "54.8 x 46 cm (21 9/16 x 18 1/8 inches)",
+    "accession": "70.058",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/villon-official-original.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/head-woman-70058 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/villon-head-woman.json)"
+  },
+  "1995.043": {
+    "title": "Mountaineers Attacked by Bears",
+    "maker": "Henri Victor Gabriel Le Fauconnier",
+    "date": "1910-1912",
+    "medium": "Oil on canvas",
+    "dimensions": "239.6 x 305.4 x 4.4 cm (94 5/16 x 120 1/4 x 1 3/4 inches)",
+    "accession": "1995.043",
+    "credit": "Gift of the Peau de L'Ours II Society in celebration of Daniel Robbins",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-1995.043.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/mountaineers-attacked-bears-1995043 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/fauconnier-mountaineers.json)"
+  },
+  "57.037": {
+    "title": "The Green Pumpkin",
+    "maker": "Henri Matisse",
+    "date": "ca. 1916",
+    "medium": "Oil on canvas",
+    "dimensions": "80 x 64.5 cm (31 1/2 x 25 3/8 inches)",
+    "accession": "57.037",
+    "credit": "Anonymous gift",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-57.037.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/green-pumpkin-57037 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/matisse-green-pumpkin.json); the page also lists the titles La Courge, Der Kürbis and La Fênètre sur le jardin (The Garden Window)"
+  },
+  "43.255": {
+    "title": "On the Banks of a River (Au Bord d'une Rivière)",
+    "maker": "Paul Cézanne",
+    "date": "ca. 1904-1905",
+    "medium": "Oil on canvas",
+    "dimensions": "61 x 73.7 cm (24 x 29 inches)",
+    "accession": "43.255",
+    "credit": "Museum Special Reserve Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-43.255.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/banks-river-au-bord-dune-riviere-43255 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/cezanne-banks-river.json)"
+  },
+  "2017.74.14": {
+    "title": "St. George and the Dragon",
+    "maker": "Ralph Wood the younger",
+    "date": "ca. 1770",
+    "medium": "Earthenware with glaze and metal",
+    "dimensions": "26.4 x 20.3 x 12.3 cm (10 3/8 x 8 x 4 13/16 inches)",
+    "accession": "2017.74.14",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/st-george.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:st-george.html (saved copy of https://risdmuseum.org/art-design/collection/st-george-and-dragon-20177414)"
+  },
+  "2017.74.16": {
+    "title": "The Flute Player",
+    "maker": "Ralph Wood the younger",
+    "date": "ca. 1770",
+    "medium": "Earthenware with glaze",
+    "dimensions": "25.4 x 17.7 x 12.4 cm (10 x 6 15/16 x 4 7/8 inches)",
+    "accession": "2017.74.16",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/flute-player.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:flute-player.html (saved copy of https://risdmuseum.org/art-design/collection/flute-player-20177416)"
+  },
+  "2017.74.17": {
+    "title": "Hudibras",
+    "maker": "Ralph Wood the younger, maker; John Voyez, modeler",
+    "date": "ca. 1770",
+    "medium": "Earthenware with glaze",
+    "dimensions": "28.9 x 22.3 x 12.4 cm (11 3/8 x 8 3/4 x 4 7/8 inches)",
+    "accession": "2017.74.17",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/hudibras.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:hudibras.html (saved copy of https://risdmuseum.org/art-design/collection/hudibras-20177417)"
+  },
+  "bear-jug": {
+    "title": "Brown Bear Jug and Cover",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1730",
+    "medium": "Stoneware with glaze",
+    "dimensions": "14 cm (5 1/2 inches)",
+    "accession": "2017.74.18.ab",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/bear-jug.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:bear-jug.html (saved copy of https://risdmuseum.org/art-design/collection/brown-bear-jug-and-cover-20177418ab)"
+  },
+  "2017.74.19": {
+    "title": "Horn-Player",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1745",
+    "medium": "Earthenware with glaze",
+    "dimensions": "16.2 x 7 x 5 cm (6 3/8 x 2 3/4 x 1 15/16 inches)",
+    "accession": "2017.74.19",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/horn-player.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:horn-player.html (saved copy of https://risdmuseum.org/art-design/collection/horn-player-20177419)"
+  },
+  "finch": {
+    "title": "Finch",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1750",
+    "medium": "Earthenware with glaze",
+    "dimensions": "5.1 cm (2 inches)",
+    "accession": "2017.74.15.1",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/finch.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:finch.html (saved copy of https://risdmuseum.org/art-design/collection/finch-201774151)"
+  },
+  "finch-pair": {
+    "title": "Finch",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1750",
+    "medium": "Earthenware with glaze",
+    "dimensions": "5.1 cm (2 inches)",
+    "accession": "2017.74.15.2",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/finch-pair.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:finch-pair.html (saved copy of https://risdmuseum.org/art-design/collection/finch-201774152)"
+  },
+  "2017.74.21": {
+    "title": "Figure of a Bagpiper",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1745",
+    "medium": "Earthenware with glaze",
+    "dimensions": "15 x 7 x 6 cm (5 7/8 x 2 3/4 x 2 3/8 inches)",
+    "accession": "2017.74.21",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/bagpiper.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:bagpiper.html (saved copy of https://risdmuseum.org/art-design/collection/figure-bagpiper-20177421)"
+  },
+  "2017.74.22.ab": {
+    "title": "Brown Bear Jug and Cover",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1730",
+    "medium": "Stoneware with glaze",
+    "dimensions": "16.2 cm (6 3/8 inches)",
+    "accession": "2017.74.22.ab",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/bear-jug-pair.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:bear-jug-pair.html (saved copy of https://risdmuseum.org/art-design/collection/brown-bear-jug-and-cover-20177422ab)"
+  },
+  "cream-jug": {
+    "title": "Cream Jug",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1745",
+    "medium": "Earthenware with glaze",
+    "dimensions": "15 x 11.7 x 9.5 cm (5 7/8 x 4 5/8 x 3 3/4 inches)",
+    "accession": "2017.74.25",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/cream-jug.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:cream-jug.html (saved copy of https://risdmuseum.org/art-design/collection/cream-jug-20177425)"
+  },
+  "2017.74.27.1": {
+    "title": "Parrot",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1820",
+    "medium": "Earthenware with glaze",
+    "dimensions": "16.5 x 17 x 7 cm (6 1/2 x 6 11/16 x 2 3/4 inches)",
+    "accession": "2017.74.27.1",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/parrot.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:parrot.html (saved copy of https://risdmuseum.org/art-design/collection/parrot-201774271)"
+  },
+  "2017.74.20": {
+    "title": "Figure of a Fox",
+    "maker": "Ralph Wood the younger, maker; John Voyez, modeler",
+    "date": "ca. 1770",
+    "medium": "Earthenware with glaze",
+    "dimensions": "13.3 x 16.5 x 8 cm (5 1/4 x 6 1/2 x 3 1/8 inches)",
+    "accession": "2017.74.20",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/fox.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:fox.html (saved copy of https://risdmuseum.org/art-design/collection/figure-fox-20177420)"
+  },
+  "2017.74.27.2": {
+    "title": "Parrot",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1820",
+    "medium": "Earthenware with glaze",
+    "dimensions": "16.5 x 16 x 6.5 cm (6 1/2 x 6 5/16 x 2 9/16 inches)",
+    "accession": "2017.74.27.2",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/parrot-pair.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:parrot-pair.html (saved copy of https://risdmuseum.org/art-design/collection/parrot-201774272)"
+  },
+  "agate-teapot": {
+    "title": "Agateware Teapot",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1745",
+    "medium": "Earthenware with glaze",
+    "dimensions": "13.3 x 45.7 cm (5 1/4 x 18 inches)",
+    "accession": "2017.74.24.ab",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/agate-teapot.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:agate-teapot.html (saved copy of https://risdmuseum.org/art-design/collection/agateware-teapot-20177424ab)"
+  },
+  "2017.74.23": {
+    "title": "Figure of a Shepherd",
+    "maker": "Ralph Wood the younger, maker; John Voyez, modeler",
+    "date": "ca. 1770",
+    "medium": "Earthenware with glaze",
+    "dimensions": "21.3 x 8 x 8 cm (8 3/8 x 3 1/8 x 3 1/8 inches)",
+    "accession": "2017.74.23",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/shepherd.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:shepherd.html (saved copy of https://risdmuseum.org/art-design/collection/figure-shepherd-20177423)"
+  },
+  "2017.74.28.1": {
+    "title": "Figural Candlestick",
+    "maker": "Unknown Maker, English",
+    "date": "late 1800s",
+    "medium": "Earthenware with glaze",
+    "dimensions": "21 x 12 x 11 cm (8 1/4 x 4 3/4 x 4 5/16 inches)",
+    "accession": "2017.74.28.1",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/candlestick.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:candlestick.html (saved copy of https://risdmuseum.org/art-design/collection/figural-candlestick-201774281)"
+  },
+  "2017.74.29": {
+    "title": "Model of a Cow",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1760",
+    "medium": "Earthenware with glaze",
+    "dimensions": "13 x 21 x 8 cm (5 1/8 x 8 1/4 x 3 1/8 inches)",
+    "accession": "2017.74.29",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/cow.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:cow.html (saved copy of https://risdmuseum.org/art-design/collection/model-cow-20177429)"
+  },
+  "2017.74.28.2": {
+    "title": "Figural Candlestick",
+    "maker": "Unknown Maker, English",
+    "date": "ca. late 1800s",
+    "medium": "Earthenware with glaze",
+    "dimensions": "21.6 x 12 x 11 cm (8 1/2 x 4 3/4 x 4 5/16 inches)",
+    "accession": "2017.74.28.2",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/candlestick-pair.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:candlestick-pair.html (saved copy of https://risdmuseum.org/art-design/collection/figural-candlestick-201774282)"
+  },
+  "2017.74.26": {
+    "title": "Figure of a Parrot",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1760",
+    "medium": "Earthenware with glaze",
+    "dimensions": "15.6 x 17 x 7 cm (6 1/8 x 6 11/16 x 2 3/4 inches)",
+    "accession": "2017.74.26",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/parrot-third.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:parrot-third.html (saved copy of https://risdmuseum.org/art-design/collection/figure-parrot-20177426)"
+  },
+  "37.201": {
+    "title": "Bust of Madame Récamier",
+    "maker": "Joseph Chinard",
+    "date": "1805-1812",
+    "medium": "Marble",
+    "dimensions": "60.6 x 33.7 x 23.5 cm (23 7/8 x 13 1/4 x 9 1/4 inches)",
+    "accession": "37.201",
+    "credit": "Gift of Mrs. Harold Brown",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/recamier.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:recamier.html (saved copy of https://risdmuseum.org/art-design/collection/bust-madame-recamier-37201)"
+  },
+  "ewe-lamb": {
+    "title": "Ewe and Lamb",
+    "maker": "Unknown Maker, British",
+    "date": "ca. 1755",
+    "medium": "Earthenware with glaze",
+    "dimensions": "9.5 x 15 x 9 cm (3 3/4 x 5 7/8 x 3 9/16 inches)",
+    "accession": "2017.74.32",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/ewe-lamb-volume.png",
+    "source": "Accepted for #271 from the repo's recorded candidate: 19 of the 20 objects on the bookcase are matched by photograph and Ewe and Lamb is the one remaining page that carries the bookcase label copy (docs/research/2026-10-01-museum-object-manifest.md, \"Left unidentified\"), so the match is inferred by elimination. Fields: image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:ewe-lamb.html (saved copy of https://risdmuseum.org/art-design/collection/ewe-and-lamb-20177432); tombstone re-read on the live page, fetched 8 Oct 2026 with the Scrapling MCP make_request. No museum photograph: the page has none. The picture is the owner's film, IMG_6380.MOV at 148.53 s (frame 47 after 147.0 s), HLG tone-mapped, cut to 126 x 92 px at native size from x 536 y 630; not enlarged."
+  },
+  "2017.74.6.3": {
+    "title": "Wall Sconce",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1755",
+    "medium": "Gilded wood",
+    "dimensions": "87.6 x 48.3 x 21.5 cm (34 1/2 x 19 x 8 7/16 inches)",
+    "accession": "2017.74.6.3",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/sconce-left.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:sconce-left.html (saved copy of https://risdmuseum.org/art-design/collection/wall-sconce-20177463)"
+  },
+  "2017.74.6.4": {
+    "title": "Wall Sconce",
+    "maker": "Unknown Maker, English",
+    "date": "ca. 1755",
+    "medium": "Gilded wood",
+    "dimensions": "87.6 x 48.3 x 25 cm (34 1/2 x 19 x 9 13/16 inches)",
+    "accession": "2017.74.6.4",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/sconce-right.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:sconce-right.html (saved copy of https://risdmuseum.org/art-design/collection/wall-sconce-20177464)"
+  },
+  "gold-tureen": {
+    "title": "Rockefeller Service Soup Tureen with Cover on Stand",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "28 x 35 x 26.7 cm (11 x 13 3/4 x 10 1/2 inches)",
+    "accession": "2017.74.38.1a-c",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-tureen.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-tureen.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-soup-tureen-cover-stand-201774381a-c)"
+  },
+  "gold-ecuelle-clean": {
+    "title": "Rockefeller Service Ecuelle with Cover",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "14 x 19.5 x 19.5 cm (5 1/2 x 7 11/16 x 7 11/16 inches) (assembled)",
+    "accession": "2017.74.38.3a-c",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-ecuelle-clean.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-ecuelle.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-ecuelle-cover-201774383a-c)"
+  },
+  "gold-basket-a": {
+    "title": "Rockefeller Service Pierced Basket and Stand",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "10 x 20.5 x 17.5 cm (3 15/16 x 8 1/16 x 6 7/8 inches)",
+    "accession": "2017.74.38.4ab",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-basket-a.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-basket-a.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-pierced-basket-and-stand-201774384ab)"
+  },
+  "gold-basket-b": {
+    "title": "Rockefeller Service Pierced Basket and Stand",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "assembled 10 x 20.5 x 17.5 cm (3 15/16 x 8 1/16 x 6 7/8 inches)",
+    "accession": "2017.74.38.5ab",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-basket-b.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-basket-b.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-pierced-basket-and-stand-201774385ab)"
+  },
+  "gold-square-a": {
+    "title": "Rockefeller Service Square Dish",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "3.7 x 19 x 19 cm (1 7/16 x 7 1/2 x 7 1/2 inches)",
+    "accession": "2017.74.38.11",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-square-a.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-square-a.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-square-dish-2017743811)"
+  },
+  "gold-square-b": {
+    "title": "Rockefeller Service Square Dish",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "3.9 x 19 x 19 cm (1 9/16 x 7 1/2 x 7 1/2 inches)",
+    "accession": "2017.74.38.12",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-square-b.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-square-b.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-square-dish-2017743812)"
+  },
+  "gold-plate-a": {
+    "title": "Rockefeller Service Dinner Plate",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "2.5 x 25 x 25 cm (1 x 9 13/16 x 9 13/16 inches)",
+    "accession": "2017.74.38.23",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-plate-a.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-plate-a.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-dinner-plate-2017743823)"
+  },
+  "gold-plate-b": {
+    "title": "Rockefeller Service Dinner Plate",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "2.6 x 25 x 25 cm (1 x 9 13/16 x 9 13/16 inches)",
+    "accession": "2017.74.38.25",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-plate-b.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-plate-b.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-dinner-plate-2017743825)"
+  },
+  "gold-saucer-a": {
+    "title": "Rockefeller Service Saucer",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "3.6 x 14.4 x 14.4 cm (1 7/16 x 5 11/16 x 5 11/16 inches)",
+    "accession": "2017.74.38.9",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-saucer-a.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-saucer-a.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-saucer-201774389)"
+  },
+  "gold-saucer-b": {
+    "title": "Rockefeller Service Saucer",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "3.9 x 14.4 x 14.4 cm (1 9/16 x 5 11/16 x 5 11/16 inches)",
+    "accession": "2017.74.38.10",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-saucer-b.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-saucer-b.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-saucer-2017743810)"
+  },
+  "gold-cup-a": {
+    "title": "Rockefeller Service Cup",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "6.7 x 8.8 x 6.8 cm (2 5/8 x 3 7/16 x 2 11/16 inches)",
+    "accession": "2017.74.38.7",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-cup-a.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-cup-a.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-cup-201774387)"
+  },
+  "gold-cup-b": {
+    "title": "Rockefeller Service Cup",
+    "maker": "Unknown Maker, Chinese export",
+    "date": "ca. 1790",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "6.9 x 8.7 x 6.8 cm (2 11/16 x 3 7/16 x 2 11/16 inches)",
+    "accession": "2017.74.38.8",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/gold-cup-b.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:gold-cup-b.html (saved copy of https://risdmuseum.org/art-design/collection/rockefeller-service-cup-201774388)"
+  },
+  "tureen": {
+    "title": "Dragons-in Compartments pattern covered tureen and stand",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "45.7 x 55.9 x 35.6 cm (18 x 22 x 14 inches)",
+    "accession": "2017.74.39.18a-c",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/tureen.jpg",
+    "source": "image-work/collection-room-remodel/catalogue/official-page-sources.tar.gz:tureen.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-covered-tureen-and-stand-2017743918a-c)"
+  },
+  "pink-small-tureen": {
+    "title": "Dragons-in Compartments pattern covered sauce tureen and stand",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "48.3 x 55.9 x 30.5 cm (19 x 22 x 12 inches)",
+    "accession": "2017.74.39.19a-c",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/pink-small-tureen.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-small-tureen.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-covered-sauce-tureen-and-stand-2017743919a-c)"
+  },
+  "pink-compote": {
+    "title": "Dragons-in Compartments pattern compote",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "9.7 x 30.6 x 22.2 cm (3 13/16 x 12 1/16 x 8 3/4 inches)",
+    "accession": "2017.74.39.3",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/pink-compote.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-compote.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-compote-201774393)"
+  },
+  "pink-bowl-a": {
+    "title": "Dragons-in Compartments pattern square bowl",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "4.4 x 20.5 x 20.5 cm (1 3/4 x 8 1/16 x 8 1/16 inches)",
+    "accession": "2017.74.39.12",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/pink-bowl-a.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-bowl-a.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-square-bowl-2017743912)"
+  },
+  "pink-bowl-b": {
+    "title": "Dragons-in Compartments pattern square bowl",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "4.4 x 20.5 x 20.5 cm (1 3/4 x 8 1/16 x 8 1/16 inches)",
+    "accession": "2017.74.39.13",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/pink-bowl-b.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-bowl-b.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-square-bowl-2017743913)"
+  },
+  "pink-dish": {
+    "title": "Dragons-in Compartments pattern dish",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "4.5 x 28.9 x 22.2 cm (1 3/4 x 11 3/8 x 8 3/4 inches)",
+    "accession": "2017.74.39.2",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/pink-dish.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-dish.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-dish-201774392)"
+  },
+  "pink-ladle": {
+    "title": "Dragons-in Compartments pattern ladle",
+    "maker": "Worcester Porcelain Company",
+    "date": "ca. 1810",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "17 x 15 x 6.6 cm (6 11/16 x 5 7/8 x 2 5/8 inches)",
+    "accession": "2017.74.39.20",
+    "credit": "Gift and Bequest from the Collection of David and Peggy Rockefeller",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/pink-ladle.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:pink-ladle.html (saved copy of https://risdmuseum.org/art-design/collection/dragons-compartments-pattern-ladle-2017743920)"
+  },
+  "41.046": {
+    "title": "Apostle",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1110",
+    "medium": "Limestone",
+    "dimensions": "82.6 x 26.7 cm (32 1/2 x 10 1/2 inches)",
+    "accession": "41.046",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/apostle-41046.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/apostle-41046 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/apostle-41046.json)"
+  },
+  "41.045": {
+    "title": "Apostle",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1110",
+    "medium": "Limestone",
+    "dimensions": "86.4 x 25.4 cm (34 x 10 inches)",
+    "accession": "41.045",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/apostle-41045.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/apostle-41045 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/apostle-41045.json)"
+  },
+  "2020.55": {
+    "title": "God Save the Queens",
+    "maker": "Léopold L. Foulem",
+    "date": "1994-1997",
+    "medium": "Ceramic with decals, glaze, and metal",
+    "dimensions": "33 x 16 x 16 cm (13 x 6 5/16 x 6 5/16 inches)",
+    "accession": "2020.55",
+    "credit": "Georgianna Sayles Aldrich Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2020.55.jpg",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/god-save-queens-202055.html.gz (saved copy of https://risdmuseum.org/art-design/collection/god-save-queens-202055)"
+  },
+  "67.089": {
+    "title": "Seated Woman",
+    "maker": "Raymond Duchamp-Villon; Roman Bronze Works, foundry",
+    "date": "cast 1915",
+    "medium": "Bronze, gold wash",
+    "dimensions": "71.1 x 20.3 x 24.1 cm (28 x 8 x 9 1/2 inches)",
+    "accession": "67.089",
+    "credit": "Mary B. Jackson Fund and Museum Membership Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/67.089.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/seated-woman-67089 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/seated-woman-duchamp-villon.json)"
+  },
+  "43.571": {
+    "title": "Jura Landscape (Paysage de Jura)",
+    "maker": "Gustave Courbet",
+    "date": "1869",
+    "medium": "Oil on canvas",
+    "dimensions": "59.7 x 73.3 cm (23 1/2 x 28 7/8 inches)",
+    "accession": "43.571",
+    "credit": "Museum Appropriation Fund, by exchange and Walter H. Kimbell Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-43.571.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/jura-landscape-paysage-de-jura-43571 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/courbet-jura.json)"
+  },
+  "24.089": {
+    "title": "Banks of a River Dominated in the Distance by Hills",
+    "maker": "Jean-Baptiste-Camille Corot",
+    "date": "ca. 1871-1873",
+    "medium": "Oil on canvas",
+    "dimensions": "31.9 x 46 x 3.8 cm (12 9/16 x 18 1/8 x 1 1/2 inches)",
+    "accession": "24.089",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-24.089.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/banks-river-dominated-distance-hills-24089 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/corot-river.json)"
+  },
+  "56.214": {
+    "title": "Tivoli",
+    "maker": "Jean-Victor Bertin",
+    "date": "ca. 1835-1842",
+    "medium": "Oil on canvas",
+    "dimensions": "48.9 x 65.1 cm (19 1/4 x 25 5/8 inches)",
+    "accession": "56.214",
+    "credit": "Gift of Mr. Robert R. Endicott",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-56.214.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/tivoli-56214 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/bertin-tivoli.json)"
+  },
+  "58.197": {
+    "title": "Portrait of Mrs. Edwards",
+    "maker": "John Constable",
+    "date": "ca. 1818",
+    "medium": "Oil on canvas",
+    "dimensions": "76 x 63.7 cm (29 15/16 x 25 1/16 inches)",
+    "accession": "58.197",
+    "credit": "Corporate Membership Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-58.197.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/portrait-mrs-edwards-58197 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/catalogue/edwards.json)"
+  },
+  "2009.9": {
+    "title": "Portrait of the Dancer, Auguste Vestris",
+    "maker": "Adèle Romany",
+    "date": "1793",
+    "medium": "Oil on canvas",
+    "dimensions": "95.2 x 76.2 cm (37 1/2 x 30 inches)",
+    "accession": "2009.9",
+    "credit": "Purchased with the Edith C. Erlenmeyer Bequest and the Helen M. Danforth Acquisition Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-2009.9.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/official-responses.tar.gz:romany.html (saved copy of https://risdmuseum.org/art-design/collection/portrait-dancer-auguste-vestris-20099)"
+  },
+  "34.912": {
+    "title": "Arabesque Wallpaper",
+    "maker": "Attributed to François Louis Prieur, designer; Jean-Baptiste Réveillon, manufacturer",
+    "date": "ca. 1780",
+    "medium": "Woodblock print on paper",
+    "dimensions": "114.5 x 56 cm (45 1/16 x 22 1/16 inches)",
+    "accession": "34.912",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/wallpaper-34.912.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/arabesque-wallpaper-34912 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/arabesque-wallpaper.json)"
+  },
+  "35.786": {
+    "title": "Arabs Traveling",
+    "maker": "Eugène Delacroix",
+    "date": "1855",
+    "medium": "Oil on canvas",
+    "dimensions": "54.1 x 65.1 cm (21 5/16 x 25 5/8 inches)",
+    "accession": "35.786",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-35.786.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/arabs-traveling-35786 (live page read 2026-10-01; date printed only there; the other fields also in docs/research/collection-scale-anchors.md)"
+  },
+  "36.003": {
+    "title": "Christ Ministered To by the Angels",
+    "maker": "Domenico Fetti",
+    "date": "ca. 1620",
+    "medium": "Oil on canvas",
+    "dimensions": "89.5 x 78.1 cm (35 1/4 x 30 3/4 inches)",
+    "accession": "36.003",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-36.003.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/christ-ministered-angels-36003 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/fetti-angels.json)"
+  },
+  "61.006": {
+    "title": "Christ on the Cold Stone with Two Angels",
+    "maker": "Hendrick Goltzius",
+    "date": "1602",
+    "medium": "Oil on copper",
+    "dimensions": "51 x 34.5 cm (20 1/16 x 13 9/16 inches) (measure of the copper panel support)",
+    "accession": "61.006",
+    "credit": "Museum Gift Fund, Museum Works of Art Fund and Corporate Membership Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-61.006.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/christ-cold-stone-two-angels-61006 (live page read 2026-10-01; date printed only there; the other fields also in image-work/collection-room-remodel/inventory-catalogue/goltzius-cold-stone.json)"
+  },
+  "16.236": {
+    "title": "Madonna and Child",
+    "maker": "Circle of Pietro Perugino, artist",
+    "date": "ca. 1490",
+    "medium": "Tempera",
+    "dimensions": "57.5 x 39.1 cm (22 5/8 x 15 3/8 inches)",
+    "accession": "16.236",
+    "credit": "Gift of Manton B. Metcalf",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-16.236.jpg",
+    "source": "image-work/collection-room-remodel/inventory-catalogue/perugino-madonna.html.gz (saved copy of https://risdmuseum.org/art-design/collection/madonna-and-child-16236)"
+  },
+  "20.207": {
+    "title": "Madonna and Child",
+    "maker": "Bartolo di Fredi Cini",
+    "date": "ca. 1380",
+    "medium": "Tempera and gold on panel",
+    "dimensions": "90.2 x 63.5 cm (35 1/2 x 25 inches)",
+    "accession": "20.207",
+    "credit": "Anonymous gift",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-20.207.jpg",
+    "source": "docs/evidence/collection-reconstruction/main-worker-connected-loop-20261001T0735/bartolo-madonna.html.gz (saved copy of https://risdmuseum.org/art-design/collection/madonna-and-child-20207)"
+  },
+  "57.301": {
+    "title": "Virgin of the Annunciation",
+    "maker": "Matteo di Giovanni di Bartolo",
+    "date": "ca. 1474",
+    "medium": "Tempera and gold on wood panel",
+    "dimensions": "73.7 x 41.9 x 3.2 cm (29 x 16 1/2 x 1 1/4 inches)",
+    "accession": "57.301",
+    "credit": "Gift of Mr. Robert Lehman",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-57.301.jpg",
+    "source": "docs/evidence/collection-reconstruction/main-worker-connected-loop-20261001T0735/virgin-annunciation.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-annunciation-57301)"
+  },
+  "22.047": {
+    "title": "The Taking of Saint Peter",
+    "maker": "Jacopo di Cione",
+    "date": "1370-1371",
+    "medium": "Tempera and gold on panel",
+    "dimensions": "38.7 x 54 cm (15 1/4 x 21 1/4 inches)",
+    "accession": "22.047",
+    "credit": "Gift of Manton B. Metcalf",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-22.047.jpg",
+    "source": "docs/evidence/collection-reconstruction/main-worker-connected-loop-20261001T0735/taking-peter.html.gz (saved copy of https://risdmuseum.org/art-design/collection/taking-saint-peter-22047)"
+  },
+  "21.250": {
+    "title": "Mary Magdalene",
+    "maker": "Lippo Memmi",
+    "date": "ca. 1330",
+    "medium": "Tempera and gold on panel",
+    "dimensions": "49.5 x 22.5 cm (19 1/2 x 8 7/8 inches)",
+    "accession": "21.250",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/painting-21.250.png",
+    "source": "docs/evidence/collection-reconstruction/main-worker-connected-loop-20261001T0735/memmi-magdalene.html.gz (saved copy of https://risdmuseum.org/art-design/collection/mary-magdalene-21250)"
+  },
+  "european-east-platter-saldanha": {
+    "title": "Saldanha Platter",
+    "maker": "Unknown Maker, Chinese",
+    "date": "ca. 1760",
+    "medium": "Porcelain with enamels and glaze",
+    "dimensions": "Length: 29.5 cm (11 5/8 inches)",
+    "accession": "55.023.6H",
+    "credit": "The Helena Woolworth McCann Collection. Gift of the Winfield Foundation",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/european-east/platter-55.023.6H.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/saldanha-platter-550236h, fetched 8 Oct 2026 with the Scrapling MCP make_request. The room builder (european_east_additions.gd) holds this card as a candidate, so it carried no number; the picture it shows is the museum's photograph of 55.023.6H, and the caption now says what that photograph is."
+  },
+  "2017.46": {
+    "title": "Commode",
+    "maker": "Charles Cressent",
+    "date": "ca. 1725–1730",
+    "medium": "Oak and pine with rosewood and satinwood veneers, gilt-bronze mounts and marble top",
+    "dimensions": "86.4 x 144.8 x 64.8 cm",
+    "accession": "2017.46",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2017.46-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/commode-201746",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/2017.46.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        4932,
+        3372
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/commode-201746",
+      "source_url": "https://iiif.micr.io/AanBB/296,516,4932,3372/4087,/0/default.jpg",
+      "source_pixels": [
+        4087,
+        2794
+      ],
+      "source_sha256": "2b27cc22caa3cb1c82fb08202d75b1baff4bf0eec1f5c114e61f5e2811675057",
+      "crop_px": [
+        0,
+        0,
+        4087,
+        2794
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2799.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/commode-2017.46.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            320,
+            219
+          ],
+          "sha256": "e5c279606310d8331c6ec3c02467729c2be246381588dca8f76f5db4f106da7b"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/2017.46-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            613
+          ],
+          "sha256": "443734fd1d2ad31fbbd958d1b6694a073dc1ebe96ef028fdea962e69322ac249"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/2017.46.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            2794
+          ],
+          "sha256": "c10e358c0ee7265360ba97d98a289dcce076a58909387e2a5042ac7148c73e47"
+        }
+      },
+      "original_region_px": [
+        296,
+        516,
+        4932,
+        3372
+      ],
+      "work_render_px": [
+        244,
+        240
+      ]
+    }
+  },
+  "2016.62": {
+    "title": "Plate with Colebrooke Impaling Hudson Coat of Arms",
+    "maker": "Unknown Maker, Chinese",
+    "date": "ca. 1732-1742",
+    "medium": "Porcelain with enamels and gilding",
+    "dimensions": "",
+    "accession": "2016.62",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2016.62-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/plate-colebrooke-impaling-hudson-coat-arms-201662",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/2016.62.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        4197,
+        3830
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/plate-colebrooke-impaling-hudson-coat-arms-201662",
+      "source_url": "https://iiif.micr.io/WbOow/full/!4204,4204/0/default.jpg",
+      "source_pixels": [
+        4204,
+        3837
+      ],
+      "source_sha256": "e44a886153117b350bbb363f38a630c91c5487701ef0283a0be82198fbfcdd0b",
+      "crop_px": [
+        1,
+        1,
+        4198,
+        3831
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3733.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/plate-2016.62.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            234
+          ],
+          "sha256": "db097e9826f0b08ea5f6ba32bbcb8beed29b7e1c298c35f93f95555c58b5a771"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/2016.62-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            818
+          ],
+          "sha256": "3ae7686e75996aee4dc70eafcb8e48236b2a188dd62c0b8f912cb58cc28810d0"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/2016.62.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3730
+          ],
+          "sha256": "d01562f23b393a92afc1c7d58e173cc91085b8c42187b0d08660ea9a765c97a9"
+        }
+      },
+      "work_render_px": [
+        8,
+        162
+      ]
+    }
+  },
+  "54.186": {
+    "title": "Venus and Adonis",
+    "maker": "Nicolas Poussin",
+    "date": "ca. 1628",
+    "medium": "Oil on canvas",
+    "dimensions": "76.2 x 101 cm",
+    "accession": "54.186",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/54.186-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/venus-and-adonis-54186",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/54.186.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        10701,
+        8067
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/venus-and-adonis-54186",
+      "source_url": "https://iiif.micr.io/TpFJT/full/!4320,4320/0/default.jpg",
+      "source_pixels": [
+        4320,
+        3256
+      ],
+      "source_sha256": "a08e7d2fa9df32e4ca39aec92cb6c652755abec44f4974da4ef7cdfcb7f51258",
+      "crop_px": [
+        1,
+        0,
+        4314,
+        3251
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3079.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/painting-54.186.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            320,
+            241
+          ],
+          "sha256": "0d1e9d8709c4a0c4505db5ca66730f1d7636ae8b1755974f4000f6274b20646d"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/54.186-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            675
+          ],
+          "sha256": "74730c18acdd7d3e48568db0cd2330d2a38f9cce39f832a7d1a553835e405ac5"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/54.186.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3081
+          ],
+          "sha256": "8da20430cacb3be665c8dfef57a7c175130a533ca16a16d9eb103fc6a5c9f73a"
+        }
+      },
+      "work_render_px": [
+        243,
+        201
+      ]
+    }
+  },
+  "34.1371": {
+    "title": "A Meal at Home",
+    "maker": "Pietro Longhi",
+    "date": "ca. 1753",
+    "medium": "Oil on canvas",
+    "dimensions": "61.9 x 50.5 cm",
+    "accession": "34.1371",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/34.1371-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/meal-home-341371",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/34.1371.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        2667,
+        3254
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/meal-home-341371",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/7LKFoHBR/",
+      "source_pixels": [
+        2672,
+        3258
+      ],
+      "source_sha256": "a11820e548b6a90853945c2561669f55c41359cc8710b820ebb01ce15570b8c2",
+      "crop_px": [
+        0,
+        0,
+        2667,
+        3254
+      ],
+      "zoom_full_px": [
+        3451.0,
+        4210.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/painting-34.1371.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            210,
+            256
+          ],
+          "sha256": "f3ba00a12762f299328146e5f36e08325649a515734de5caf64ff0f871650865"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/34.1371-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            734,
+            896
+          ],
+          "sha256": "16aa32894e7ce1042b85d0e45142a7c7174d558c416c04ce5e324640445eaf04"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/34.1371.jpg",
+          "required_long_side": 3254,
+          "pixels": [
+            2667,
+            3254
+          ],
+          "sha256": "0fa4b5b3bd2e0e9685945ec432f3cee4464f2308e67d9e83ba73dbe21e0c68db"
+        }
+      },
+      "work_render_px": [
+        172,
+        201
+      ]
+    }
+  },
+  "69.197": {
+    "title": "Crucifixion",
+    "maker": "Unknown Maker, Spanish",
+    "date": "ca. 1490",
+    "medium": "Tempera and gold on panel",
+    "dimensions": "143.8 x 113 cm",
+    "accession": "69.197",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/69.197-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/crucifixion-69197",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/69.197.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        2797,
+        3627
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/crucifixion-69197",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/ONg27DnH/",
+      "source_pixels": [
+        3432,
+        4080
+      ],
+      "source_sha256": "df0081b6c544606baadb3c627500050e53c078d814b430d843f18f05bf5dc1b0",
+      "crop_px": [
+        323,
+        271,
+        3120,
+        3898
+      ],
+      "zoom_full_px": [
+        3280.0,
+        4210.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/painting-69.197.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            247,
+            320
+          ],
+          "sha256": "ed787c3a5eae762449fe556fad914180750e0c984d9566f5dab660b7761d3097"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/69.197-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            691,
+            896
+          ],
+          "sha256": "898bc66c1d9753afb7a2169b8df9bbf72bc4a8ba64c93165e9681bfdb8d6123c"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/69.197.jpg",
+          "required_long_side": 3627,
+          "pixels": [
+            2797,
+            3627
+          ],
+          "sha256": "731bd48ca5b151463832f559766ba8ae608d002f5102717af048d91d1abb58f3"
+        }
+      },
+      "work_render_px": [
+        197,
+        239
+      ]
+    }
+  },
+  "57.281": {
+    "title": "Portrait of an English Gentleman",
+    "maker": "Anton Raphael Mengs",
+    "date": "ca. 1754",
+    "medium": "Oil on canvas",
+    "dimensions": "99.1 x 73.3 cm",
+    "accession": "57.281",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/57.281-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/portrait-english-gentleman-57281",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/57.281.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        4756,
+        6453
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-english-gentleman-57281",
+      "source_url": "https://iiif.micr.io/ydRVU/full/!4320,4320/0/default.jpg",
+      "source_pixels": [
+        3184,
+        4320
+      ],
+      "source_sha256": "47f34934bc55484caa9079d9e7a7de13c0f765c49c068ad1bfe230ce86c1f778",
+      "crop_px": [
+        0,
+        1,
+        3179,
+        4315
+      ],
+      "zoom_full_px": [
+        3103.0,
+        4210.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/painting-57.281.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            236,
+            320
+          ],
+          "sha256": "463c0d844edef3512d3f49e804b64fefedce689667277e680f5da89cab65c04b"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/57.281-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            660,
+            896
+          ],
+          "sha256": "b671076abccf92772af16461fedf9d4a111d7ce17e46a12bd167952eb240ce8f"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/57.281.jpg",
+          "required_long_side": 4210,
+          "pixels": [
+            3102,
+            4210
+          ],
+          "sha256": "5e4c04f0788f0187e9615cff8ea33308e679bb2026e4ce047a82d15ce9dcabbd"
+        }
+      },
+      "work_render_px": [
+        172,
+        215
+      ]
+    }
+  },
+  "56.094": {
+    "title": "The Colosseum",
+    "maker": "Giovanni Paolo Pannini",
+    "date": "1725-1775",
+    "medium": "Oil on canvas",
+    "dimensions": "41.3 x 74.6 cm",
+    "accession": "56.094",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/56.094-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/colosseum-56094",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/56.094.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        3803,
+        2064
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/colosseum-56094",
+      "source_url": "https://iiif.micr.io/joeAV/full/!3806,3806/0/default.jpg",
+      "source_pixels": [
+        3806,
+        2067
+      ],
+      "source_sha256": "a38169129bbc62a09e4cae5f7c004861690b4d8872e9000d96c3f7617f65df02",
+      "crop_px": [
+        0,
+        0,
+        3803,
+        2064
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2220.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/grey/pannini-56.094.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            139
+          ],
+          "sha256": "a3f5386c8249007a795ab0d8fd0c0585d58f455f2371625e41e867c5c272f3c9"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/56.094-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            486
+          ],
+          "sha256": "afc407f2d6e73ce9bca968ec281f6341e136f21ec4f4cef44aecec99dd0aa568"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/56.094.jpg",
+          "required_long_side": 3803,
+          "pixels": [
+            3803,
+            2064
+          ],
+          "sha256": "6775afcfa50021af7437bbb8ed9a019a4bd94d660448e15463bc18add132c570"
+        }
+      },
+      "work_render_px": [
+        341,
+        161
+      ],
+      "canvas_render_px": [
+        191.0,
+        105.0
+      ]
+    }
+  },
+  "35.703": {
+    "title": "Plate",
+    "maker": "Unknown Maker, Italian",
+    "date": "ca. 1535-1555",
+    "medium": "Earthenware with tin glaze",
+    "dimensions": "Diameter 27 cm",
+    "accession": "35.703",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/35.703-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/plate-35703",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/35.703.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        3967,
+        3807
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/plate-35703",
+      "source_url": "https://iiif.micr.io/FFpLf/full/!3974,3974/0/default.jpg",
+      "source_pixels": [
+        3974,
+        3814
+      ],
+      "source_sha256": "d83f297a8c110b5c3218d0d0c0f9528af49b1da677728d0bd05cc34775349e73",
+      "crop_px": [
+        1,
+        1,
+        3968,
+        3808
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3924.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/plate-35.703.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            246
+          ],
+          "sha256": "73b92df624b7221f91d442b723dccaa0c176799fcfc6d5bcb1b38d142c4548f2"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/35.703-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            860
+          ],
+          "sha256": "809d7d63589a034b1f36f133ca00e871dfdd456b62c0b5a4962c6527f3bc79c8"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/35.703.jpg",
+          "required_long_side": 3967,
+          "pixels": [
+            3967,
+            3807
+          ],
+          "sha256": "e0087ab9a8b77b9e23e155daec845ba75f579c775bc4a22bc72faa22c5719590"
+        }
+      },
+      "work_render_px": [
+        15,
+        162
+      ]
+    }
+  },
+  "75.023": {
+    "title": "Writing Desk (Schreibtisch)",
+    "maker": "Unknown Maker, German",
+    "date": "ca. 1590",
+    "medium": "Ebony, oak, ivory and mother-of-pearl",
+    "dimensions": "45.1 x 60.6 x 33.3 cm",
+    "accession": "75.023",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/75.023-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/writing-desk-schreibtisch-75023",
+    "image_resolution": {
+      "original_pixels": [
+        4063,
+        3240
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/writing-desk-schreibtisch-75023",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/9SdyghEI/",
+      "source_pixels": [
+        4954,
+        4081
+      ],
+      "source_sha256": "5bbbc6e960c16b203ec2825b622caeba219b9db145ae3c0cdf732372116d9eaa",
+      "crop_px": [
+        422,
+        455,
+        4485,
+        3695
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3258.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/cabinet-75.023.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            204
+          ],
+          "sha256": "8c5446e639449bf3cbcbef89d66d956458e72d15dbbb64dc0c64218d3ee262fd"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/75.023-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            715
+          ],
+          "sha256": "9aac3aed9bc88a7d2d6b99d66680a441e8d89243000aa7166eac807df6a309bc"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/75.023.jpg",
+          "required_long_side": 4063,
+          "pixels": [
+            4063,
+            3240
+          ],
+          "sha256": "5b0047f3aa25ef9f143d90821e5bc84a7260f90408afa9c184564abaab2a1292"
+        }
+      },
+      "work_render_px": [
+        149,
+        169
+      ]
+    },
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/75.023.jpg"
+  },
+  "84.198.1032": {
+    "title": "River Landscape with Mercury Abducting Psyche",
+    "maker": "After Pieter Bruegel I",
+    "date": "ca. 1595",
+    "medium": "Etching on paper",
+    "dimensions": "Plate 27.6 x 34.6 cm",
+    "accession": "84.198.1032",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/84.198.1032-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/river-landscape-mercury-abducting-psyche-841981032",
+    "image_resolution": {
+      "original_pixels": [
+        6025,
+        4920
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/river-landscape-mercury-abducting-psyche-841981032",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/EJ98DUcc/",
+      "source_pixels": [
+        8176,
+        6132
+      ],
+      "source_sha256": "b3ea57d4dd3529af3656f15d4c84dfc1d96b601870190acd678cf95f66d70d88",
+      "crop_px": [
+        955,
+        410,
+        6980,
+        5330
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3340.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/print-84.198.1032.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            209
+          ],
+          "sha256": "f5ef9670d7e541d7501191ba048597bdd80f5666386c37572bb857ed010a60d0"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/84.198.1032-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            732
+          ],
+          "sha256": "d15d5fc598c572b80b014079458f376a037d8247b57608b7ccb660ea23a77204"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/84.198.1032.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3337
+          ],
+          "sha256": "a244fc418a95ef7ee47121d7e97f7f73dc4c9e20330ebb82933afdacf2e88c87"
+        }
+      },
+      "work_render_px": [
+        188,
+        154
+      ]
+    },
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/84.198.1032.jpg"
+  },
+  "73.120": {
+    "title": "Landscape",
+    "maker": "Charles François Daubigny",
+    "date": "1871",
+    "medium": "Oil on panel",
+    "dimensions": "38.1 x 67.2 cm",
+    "accession": "73.120",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/73.120-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/landscape-73120",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/73.120.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        5526,
+        3114
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/landscape-73120",
+      "source_url": "https://iiif.micr.io/fBwZF/full/!4320,4320/0/default.jpg",
+      "source_pixels": [
+        4320,
+        2491
+      ],
+      "source_sha256": "d26502b0547b5ecd5a902352035cbd658532a10c3cf5bc9cb5f72121c033beb5",
+      "crop_px": [
+        42,
+        55,
+        4278,
+        2442
+      ],
+      "zoom_full_px": [
+        4087.0,
+        2303.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/grey/daubigny-73.120.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            320,
+            180
+          ],
+          "sha256": "8aec12616703aa220e4756fc48e74e626f1029e92a0d60b839052d755fb39d2e"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/73.120-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            505
+          ],
+          "sha256": "499f9b65b5dd47d6bec9d76149f8c450f60308d6b1c786fe3b2d6c4aca455f2e"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/73.120.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            2303
+          ],
+          "sha256": "5a24f697f6c9ed260b72394cefcc6206ce8fe0696c89b9a860161878b817fa42"
+        }
+      },
+      "work_render_px": [
+        362,
+        157
+      ],
+      "canvas_render_px": [
+        211.0,
+        120.0
+      ]
+    }
+  },
+  "1998.35": {
+    "title": "View of a Roman Aqueduct, near Tivoli",
+    "maker": "Louis-Jules-Frédéric Villeneuve",
+    "date": "1827",
+    "medium": "Oil on canvas",
+    "dimensions": "50.8 x 61 x 8.3 cm (frame)",
+    "accession": "1998.35",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/1998.35-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/view-roman-aqueduct-near-tivoli-199835",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/1998.35.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        5032,
+        3797
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/view-roman-aqueduct-near-tivoli-199835",
+      "source_url": "https://iiif.micr.io/kphad/200,134,5032,3797/4087,/0/default.jpg",
+      "source_pixels": [
+        4087,
+        3084
+      ],
+      "source_sha256": "8700e9d6ca1fc12fc299e42e6ada9029099ddfbf69ec0cae3259ceed7dc4cd5c",
+      "crop_px": [
+        0,
+        0,
+        4087,
+        3084
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3083.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/grey/villeneuve-1998.35.jpg",
+          "required_long_side": 192,
+          "pixels": [
+            192,
+            145
+          ],
+          "sha256": "83c8ebda7ff40b5905b0d0157249fa4e977b358fbe880cadb967de1c7bc379be"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/1998.35-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            676
+          ],
+          "sha256": "158d2a69da93c7cd2d03de1b2cb3a243c95181ad8f8f845bcbf4388669d0fcae"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/1998.35.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3084
+          ],
+          "sha256": "2871e1e86148acd2cc7c0c4c49acf236244bd064daf07a9e141753fe161630b4"
+        }
+      },
+      "original_region_px": [
+        200,
+        134,
+        5032,
+        3797
+      ],
+      "work_render_px": [
+        308,
+        157
+      ],
+      "canvas_render_px": [
+        131.0,
+        101.0
+      ]
+    }
+  },
+  "2016.102.2": {
+    "title": "Plate with Elephant",
+    "maker": "Unknown Maker, Chinese",
+    "date": "ca. 1745-1755",
+    "medium": "Porcelain with glaze",
+    "dimensions": "",
+    "accession": "2016.102.2",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2016.102.2-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/plate-elephant-20161022",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/2016.102.2.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        5427,
+        4033
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/plate-elephant-20161022",
+      "source_url": "https://iiif.micr.io/OrxRm/full/!4320,4320/0/default.jpg",
+      "source_pixels": [
+        4320,
+        3209
+      ],
+      "source_sha256": "1bcfd64036f01ecb21b77476be5a4838e96d305005017ab2fc42b8f544307594",
+      "crop_px": [
+        3,
+        0,
+        4315,
+        3204
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3038.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/plate-2016.102.2.jpg",
+          "required_long_side": 384,
+          "pixels": [
+            384,
+            285
+          ],
+          "sha256": "cc2cff3e1ca50014a3b7d28d8a64989afc292fc4b9b440c2c561efc7942d94be"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/2016.102.2-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            666
+          ],
+          "sha256": "e7ecb786aafdabbd131985776e9a0d30da436bb460fd4b919030cf2b59d4d858"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/2016.102.2.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3037
+          ],
+          "sha256": "e354cd87ba3702d155920c6a7cb2504617b08d832faf0ca8269eee61764eaed9"
+        }
+      },
+      "work_render_px": [
+        265,
+        10
+      ]
+    }
+  },
+  "2016.124": {
+    "title": "Cake Basket",
+    "maker": "Peter Archambo I",
+    "date": "1736",
+    "medium": "Silver",
+    "dimensions": "10.5 x 31.5 x 27.5 cm",
+    "accession": "2016.124",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2016.124-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/cake-basket-2016124",
+    "image_resolution": {
+      "original_pixels": [
+        3900,
+        3655
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/cake-basket-2016124",
+      "source_url": "https://iiif.micr.io/HCHvB/554,256,3900,3655/3900,/0/default.jpg",
+      "source_pixels": [
+        3900,
+        3655
+      ],
+      "source_sha256": "aee953cf3e33a67147c2a146e4b6f9f5a78eccf8a7f25f2f3afb020a8a00005e",
+      "crop_px": [
+        0,
+        0,
+        3900,
+        3655
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3828.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/basket-2016.124.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            240
+          ],
+          "sha256": "a08333c9f1c749ed0a3fe217a00dea3308b1c3ca801638ccf7300c2c68ea93ed"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/2016.124-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            840
+          ],
+          "sha256": "1574f8888da509b39b188b8f9d0fa1603afd17b8bdcd7c9666c4d1a9d08eb173"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/2016.124.jpg",
+          "required_long_side": 3900,
+          "pixels": [
+            3900,
+            3655
+          ],
+          "sha256": "e4cf6ac918fe8270eea96870b47eadcfe65dde7b7cb8779150aec9f1c5a5a504"
+        }
+      },
+      "original_region_px": [
+        554,
+        256,
+        3900,
+        3655
+      ],
+      "work_render_px": [
+        71,
+        162
+      ]
+    },
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/2016.124.jpg"
+  },
+  "43.539": {
+    "title": "A Cart Loaded with Kegs (Le Haquet)",
+    "maker": "Jean-Louis-André-Théodore Géricault",
+    "date": "1817-1828",
+    "medium": "Oil on canvas",
+    "dimensions": "59.5 x 73.3 cm",
+    "accession": "43.539",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/43.539-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/cart-loaded-kegs-le-haquet-43539",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/43.539.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        6049,
+        4923
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/cart-loaded-kegs-le-haquet-43539",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/O2HkOSxN/",
+      "source_pixels": [
+        6054,
+        4927
+      ],
+      "source_sha256": "a3a44c9d8c6f79f5b78de06fc9f33d96a7b438465926c96e7f7c2365df835ad6",
+      "crop_px": [
+        0,
+        0,
+        6049,
+        4923
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3328.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/grey/gericault-43.539.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            208
+          ],
+          "sha256": "69e970a8b3b5f1e31ec22a793bcdc798207d72016572afc22c5cb610387ed904"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/43.539-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            729
+          ],
+          "sha256": "1469680c579b462fa818f612eb9165f8359dcbacb54f1375ec5d2eaf93c13e4b"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/43.539.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3326
+          ],
+          "sha256": "8f6f8e2443b4c98d966449a15b2fe999907d719091529b2bd6827aefa15231fa"
+        }
+      },
+      "work_render_px": [
+        310,
+        201
+      ],
+      "canvas_render_px": [
+        163.0,
+        131.0
+      ]
+    }
+  },
+  "2023.53": {
+    "title": "Landscape with shepherdess, sheep and cows",
+    "maker": "Edward Mitchell Bannister",
+    "date": "1877-1887",
+    "medium": "Oil on canvas",
+    "dimensions": "22.9 x 30.5 cm",
+    "accession": "2023.53",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/2023.53-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/landscape-shepherdess-sheep-and-cows-202353",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/2023.53.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        10510,
+        7774
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/landscape-shepherdess-sheep-and-cows-202353",
+      "source_url": "https://iiif.micr.io/XTtXT/full/!4320,4320/0/default.jpg",
+      "source_pixels": [
+        4320,
+        3196
+      ],
+      "source_sha256": "8c0acc53c13a3a80b856b8c664387ba6247c795ac61f09b95b1fc8a74f868e6d",
+      "crop_px": [
+        0,
+        0,
+        4317,
+        3193
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3025.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/grey/bannister-2023.53.jpg",
+          "required_long_side": 192,
+          "pixels": [
+            192,
+            142
+          ],
+          "sha256": "c9eaed194c9b7eea7dd7f71ba6cac49147b8f863b2298e46a0f97727b2518d74"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/2023.53-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            663
+          ],
+          "sha256": "f4cb49119007507dbbb5adb91e699eabec9afd5feaadff5093e2b56fa21677a5"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/2023.53.jpg",
+          "required_long_side": 4087,
+          "pixels": [
+            4087,
+            3023
+          ],
+          "sha256": "4f5a83cdde94b8fc9c383d107326b0b49799feb1b8467148a2ec94c6d229a35f"
+        }
+      },
+      "work_render_px": [
+        329,
+        158
+      ],
+      "canvas_render_px": [
+        126.0,
+        95.0
+      ]
+    }
+  },
+  "53.349": {
+    "title": "A Caricature Group: Sir Charles Turner, Mr. Cook, Mr. John Woodyeare, and Rev. Dr. William Drake",
+    "maker": "Joshua Reynolds",
+    "date": "ca. 1751",
+    "medium": "Oil on canvas",
+    "dimensions": "62.9 x 48.3 cm",
+    "accession": "53.349",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/53.349-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/caricature-group-sir-charles-turner-mr-cook-mr-john-woodyeare-and-rev-dr",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/53.349.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        4552,
+        5977
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/caricature-group-sir-charles-turner-mr-cook-mr-john-woodyeare-and-rev-dr",
+      "source_url": "https://iiif.micr.io/gystV/full/!4320,4320/0/default.jpg",
+      "source_pixels": [
+        3292,
+        4320
+      ],
+      "source_sha256": "146b1c03c69db175c786f25c9a37a2c0d326620a10ec95cf48bdec228e3572df",
+      "crop_px": [
+        0,
+        0,
+        3287,
+        4316
+      ],
+      "zoom_full_px": [
+        3209.0,
+        4210.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/painting-53.349.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            195,
+            256
+          ],
+          "sha256": "9798270fa905b82a9bce7f40dd43a76ed161e6ac2dcd4ff1de48969b9c0ae41f"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/53.349-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            682,
+            896
+          ],
+          "sha256": "4ea59ba1d1266724c9febef1e63da2470dd750d133c4fb389cf13cd72cde1486"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/53.349.jpg",
+          "required_long_side": 4210,
+          "pixels": [
+            3206,
+            4210
+          ],
+          "sha256": "80a3d730303ab39a28cc0fc372cd7557a04f53cb91e85e7d0ebe12506f0ac109"
+        }
+      },
+      "work_render_px": [
+        167,
+        201
+      ]
+    }
+  },
+  "56.099": {
+    "title": "The Celian Hill from the Palatine",
+    "maker": "Charles Lock Eastlake",
+    "date": "1798-1848",
+    "medium": "Oil on canvas",
+    "dimensions": "33.5 x 44.8 x 6.4 cm",
+    "accession": "56.099",
+    "identified": false,
+    "image": "res://modules/shell/collection_rooms/assets/details/56.099-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/celian-hill-palatine-56099",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/56.099.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        3720,
+        2747
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/celian-hill-palatine-56099",
+      "source_url": "https://iiif.micr.io/QfFha/full/!3723,3723/0/default.jpg",
+      "source_pixels": [
+        3723,
+        2750
+      ],
+      "source_sha256": "6d76cadd28158270b748d63c65149b38fcf38bc6f0bfb805c0d0f9c587d19338",
+      "crop_px": [
+        0,
+        0,
+        3720,
+        2747
+      ],
+      "zoom_full_px": [
+        4087.0,
+        3019.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/grey/eastlake-56.099.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            189
+          ],
+          "sha256": "5bbd0476d49a9767e6a3b95b9c483317a1779c5f270de078d1b13f72656d6b13"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/56.099-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            662
+          ],
+          "sha256": "d100f7f49b991985b176b183999fea3b3bd45d8b8cb94e17b13bac5ca2fab74e"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/56.099.jpg",
+          "required_long_side": 3720,
+          "pixels": [
+            3720,
+            2747
+          ],
+          "sha256": "61d43cffe5c03231ea01fb31d5f12a49e8125aebfd7e36acf01d9309c6f0d484"
+        }
+      },
+      "work_render_px": [
+        187,
+        156
+      ],
+      "canvas_render_px": [
+        158.0,
+        120.0
+      ]
+    },
+    "identification_basis": "by eye against IMG_6380 105.4s; the label is not legible (existing room metadata)"
+  },
+  "57.167": {
+    "title": "Perseus and Andromeda",
+    "maker": "Giuseppe Cesari, called Cavaliere d'Arpino",
+    "date": "ca. 1592",
+    "medium": "Oil on slate",
+    "dimensions": "70.5 x 54.9 cm",
+    "accession": "57.167",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/details/57.167-preview.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/perseus-and-andromeda-57167",
+    "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/57.167.jpg",
+    "image_resolution": {
+      "original_pixels": [
+        2837,
+        3746
+      ],
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/perseus-and-andromeda-57167",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/4riJdlMT/",
+      "source_pixels": [
+        2841,
+        3750
+      ],
+      "source_sha256": "b0296a1c87c76938736729e33aab910e890a3f5cfb768ad23e519d5632abe64f",
+      "crop_px": [
+        0,
+        0,
+        2837,
+        3746
+      ],
+      "zoom_full_px": [
+        3189.0,
+        4210.0
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/collection_rooms/assets/additions/european-east/painting-57.167.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            194,
+            256
+          ],
+          "sha256": "d37bceef30ebe3648571d50626d37e7843047078e6b7ef6d1a40c7b364edccd7"
+        },
+        "detail": {
+          "path": "modules/shell/collection_rooms/assets/details/57.167-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            679,
+            896
+          ],
+          "sha256": "d9fc4b45913e4667400d6edee5458863fe45bbd4f1edd3930e988a3f7db1bf48"
+        },
+        "zoom_external": {
+          "path": "modules/shell/prototype/gallery_walk4/zoom/57.167.jpg",
+          "required_long_side": 3746,
+          "pixels": [
+            2837,
+            3746
+          ],
+          "sha256": "c9b22aef746f9ed3866bd62d796b02e7fec24cdc4f004eb1ab21be61709cc103"
+        }
+      },
+      "work_render_px": [
+        166,
+        201
+      ]
+    }
+  },
+  "59.128": {
+    "title": "Pietà",
+    "maker": "Tilman Riemenschneider",
+    "date": "ca. 1515-1525",
+    "medium": "Linden wood",
+    "dimensions": "45.7 x 38.1 x 13.2 cm (18 x 15 x 5 3/16 inches)",
+    "accession": "59.128",
+    "credit": "Museum Works of Art Fund",
+    "identified": true,
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/pieta-59128.html.gz (saved copy of https://risdmuseum.org/art-design/collection/pieta-59128); title, maker, date, medium, dimensions and credit as that page prints them. The date is the page's and the case label's; the catalogue API record saved beside it (api/onview-pieta.json, id 1312736) gives the years 1480 to 1510"
+  },
+  "21.398": {
+    "title": "Saint Roch",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1500",
+    "medium": "Wood with polychromy (colored paint)",
+    "dimensions": "Height: 105.4 cm (41 1/2 inches)",
+    "accession": "21.398",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "source": "docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001/photos/saint-roch-21398.html.gz (saved copy of https://risdmuseum.org/art-design/collection/saint-roch-21398); title, maker, date, medium, dimensions and credit as that page prints them. The catalogue API record (api/cached-records.json, id 1273471) gives the years 1475 to 1525"
+  },
+  "15.108": {
+    "title": "Virgin and Child",
+    "maker": "Unknown Maker, Netherlandish",
+    "date": "ca. 1490-1500",
+    "medium": "Wood with polychrome and gilding",
+    "dimensions": "Height: 39.4 cm (15 1/2 inches)",
+    "accession": "15.108",
+    "credit": "Gift of Mrs. Gustav Radeke",
+    "identified": true,
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/virgin-and-child-15108.html.gz (saved copy of https://risdmuseum.org/art-design/collection/virgin-and-child-15108); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "40.002": {
+    "title": "Monstrance",
+    "maker": "Unknown Maker, Spanish",
+    "date": "ca. 1525",
+    "medium": "Silver with gilding",
+    "dimensions": "Height: 46.4 cm (18 1/4 inches)",
+    "accession": "40.002",
+    "credit": "Mary B. Jackson Fund",
+    "identified": true,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records this object as matched to the record",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/monstrance-40002.html.gz (saved copy of https://risdmuseum.org/art-design/collection/monstrance-40002); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "52.002": {
+    "title": "Pax",
+    "maker": "Unknown Maker, French",
+    "date": "ca. 1510",
+    "medium": "Shell and silver",
+    "dimensions": "12.1 x 8.9 x 2.2 cm (4 3/4 x 3 1/2 x 7/8 inches) without handle",
+    "accession": "52.002",
+    "credit": "Museum Works of Art Fund",
+    "identified": true,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records this object as matched to the record",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/pax-52002.html.gz (saved copy of https://risdmuseum.org/art-design/collection/pax-52002); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "1992.051": {
+    "title": "Communion Beaker",
+    "maker": "Unknown Maker, Dutch",
+    "date": "ca. 1660",
+    "medium": "silver",
+    "dimensions": "Height: 14 cm (5 1/2 inches)",
+    "accession": "1992.051",
+    "credit": "Anonymous gift in honor of Dr. and Mrs. Franklin W. Robinson",
+    "identified": false,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records the match of the object in the case to this record as probable, not confirmed",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/communion-beaker-1992051.html.gz (saved copy of https://risdmuseum.org/art-design/collection/communion-beaker-1992051); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "30.011": {
+    "title": "Pyx",
+    "maker": "Unknown Maker, French",
+    "date": "1200s",
+    "medium": "Enamel and copper with gilding",
+    "dimensions": "Height: 8.9 cm (3 1/2 inches)",
+    "accession": "30.011",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": false,
+    "identification_basis": "modules/shell/collection_rooms/medieval_metal_assets.gd records the match of the object in the case to this record as probable, not confirmed",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/pyx-30011.html.gz (saved copy of https://risdmuseum.org/art-design/collection/pyx-30011); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "2014.110": {
+    "title": "Christ in Majesty",
+    "maker": "Unknown Maker, Spanish",
+    "date": "ca. 1100-1200",
+    "medium": "ivory",
+    "dimensions": "15.9 x 6.4 cm (6 1/4 x 2 1/2 inches)",
+    "accession": "2014.110",
+    "credit": "Gift of Angela Brown Fischer from the Collection of John Nicholas Brown",
+    "identified": false,
+    "identification_basis": "modules/shell/collection_rooms/medieval_ceramic_ivory_assets.gd records the match of the object in the case to this record as probable, not confirmed",
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/christ-majesty-2014110.html.gz (saved copy of https://risdmuseum.org/art-design/collection/christ-majesty-2014110); title, maker, date, medium, dimensions and credit as that page prints them"
+  },
+  "1998.107": {
+    "title": "A Walk in the Meadows at Argenteuil",
+    "maker": "Claude Monet",
+    "date": "1873",
+    "medium": "Oil on canvas",
+    "dimensions": "53.3 x 64.8 cm",
+    "accession": "1998.107",
+    "credit": "Gift of Houghton P. Metcalf, Jr.",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-1998.107.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/walk-meadows-argenteuil-1998107; existing tracked RISD photograph prototypes/painting-coverflow/web/assets/1998-107.jpg, copied byte-for-byte; provenance in prototypes/painting-coverflow/web/paintings.json and modules/shell/PROVENANCE.md"
+  },
+  "41.012": {
+    "title": "Still Life with Apples",
+    "maker": "Paul Cézanne",
+    "date": "ca. 1878",
+    "medium": "Oil on canvas",
+    "dimensions": "23.2 x 39.7 cm",
+    "accession": "41.012",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-41.012.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/still-life-apples-41012; existing tracked RISD photograph image-work/collection-room-remodel/inventory-catalogue/cezanne-apples-zoom-0.jpg and saved primary API record cezanne-apples.json; photograph copied unchanged; provenance in modules/shell/PROVENANCE.md"
+  },
+  "42.219": {
+    "title": "The Basin at Argenteuil (Le Bassin d'Argenteuil)",
+    "maker": "Claude Monet",
+    "date": "1874",
+    "medium": "Oil on canvas",
+    "dimensions": "55.2 x 74.3 cm",
+    "accession": "42.219",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-42.219.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/basin-argenteuil-le-bassin-dargenteuil-42219; existing tracked RISD photograph prototypes/painting-coverflow/web/assets/42-219.jpg, copied unchanged; provenance in prototypes/painting-coverflow/web/paintings.json and modules/shell/PROVENANCE.md"
+  },
+  "44.541": {
+    "title": "The Seine at Giverny",
+    "maker": "Claude Monet",
+    "date": "1885",
+    "medium": "Oil on canvas",
+    "dimensions": "64.8 x 92.7 cm",
+    "accession": "44.541",
+    "credit": "Museum Appropriation Fund, by exchange",
+    "identified": true,
+    "image": "res://modules/shell/collection_rooms/assets/additions/impressionist/painting-44.541.jpg",
+    "source": "https://risdmuseum.org/art-design/collection/seine-giverny-44541; existing tracked RISD photograph prototypes/painting-coverflow/web/assets/44-541.jpg, copied unchanged; provenance in prototypes/painting-coverflow/web/paintings.json and modules/shell/PROVENANCE.md"
+  },
+  "42.190": {
+    "title": "Children in the Tuileries Gardens",
+    "maker": "Édouard Manet (French, 1832-1883)",
+    "date": "ca. 1861-1862",
+    "medium": "Oil on canvas",
+    "dimensions": "37.8 x 46 cm (14 7/8 x 18 1/8 inches)",
+    "accession": "42.190",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/children-tuileries-gardens-42190 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/42.190.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/42.190-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/42.190.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/children-tuileries-gardens-42190",
+      "source_url": "https://iiif.micr.io/HmcHD/full/!3535,3535/0/default.jpg",
+      "original_pixels": [
+        3535,
+        2890
+      ],
+      "source_pixels": [
+        3535,
+        2890
+      ],
+      "source_sha256": "fa31b3cda06305e54b5cfde437d04e8f616bee7ecf101a6929dd01fff5682a04",
+      "crop_px": [
+        0,
+        0,
+        3535,
+        2890
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-42.190.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            209
+          ],
+          "sha256": "b9adc38d471c58827b143b101a9b20e5d72b77a012f96b07c60fa94261fb455e"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/42.190-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            733
+          ],
+          "sha256": "37fd50c1e36ab2417103b3b557b804e6d02d2e6901edd68d1f76b6cd1c90b210"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/42.190.jpg",
+          "required_long_side": 3535,
+          "pixels": [
+            3535,
+            2890
+          ],
+          "sha256": "d0b8dedcfaf0397b123e3fa6826b2d84952af6e3d9b120b502d18f51928500b7"
+        }
+      }
+    }
+  },
+  "2007.68": {
+    "title": "Portrait of Édouard Manet",
+    "maker": "Carolus-Duran (Charles-Auguste-Émile Durand) (French, 1838-1917)",
+    "date": "1876",
+    "medium": "Oil on canvas",
+    "dimensions": "63.5 x 45.4 cm (25 x 17 7/8 inches)",
+    "accession": "2007.68",
+    "credit": "Purchased with the Frederick Lippitt Bequest",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/portrait-edouard-manet-200768 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/2007.68.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/2007.68-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/2007.68.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-edouard-manet-200768",
+      "source_url": "https://iiif.micr.io/mkesV/full/!3505,3505/0/default.jpg",
+      "original_pixels": [
+        2900,
+        3505
+      ],
+      "source_pixels": [
+        2900,
+        3505
+      ],
+      "source_sha256": "722701a43f7ca753191d4b99b44490e28a11a7429f83c36ed366c0060fdcc840",
+      "crop_px": [
+        0,
+        0,
+        2900,
+        3505
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-2007.68.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            212,
+            256
+          ],
+          "sha256": "f27612693d12445de1ee5852bee34f4f873ad54caa4e8082778552a5868241af"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/2007.68-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            741,
+            896
+          ],
+          "sha256": "7ecacff51927fafeef6488236aa8a2a8b64ec2992e77119f22a6710f7975c5a5"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/2007.68.jpg",
+          "required_long_side": 3505,
+          "pixels": [
+            2900,
+            3505
+          ],
+          "sha256": "29a1105b8d847808c738a10821f11e7632cdbaecc0f4a0793ad9cf3e78362bd6"
+        }
+      }
+    }
+  },
+  "57.236": {
+    "title": "The Seine Near its Estuary, Honfleur",
+    "maker": "Claude Monet (French, 1840-1926)",
+    "date": "ca. 1868",
+    "medium": "Oil on canvas",
+    "dimensions": "48.1 x 73.7 cm (18 15/16 x 29 inches)",
+    "accession": "57.236",
+    "credit": "Bequest of George Pierce Metcalf",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/57.236.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/57.236-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/57.236.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236",
+      "source_url": "https://iiif.micr.io/OYDhj/full/!4320,4320/0/default.jpg",
+      "original_pixels": [
+        5886,
+        3843
+      ],
+      "source_pixels": [
+        4320,
+        2821
+      ],
+      "source_sha256": "597e69447c80d7f06a645e4da8e2d90b3a99683305406b7428925069751ca696",
+      "crop_px": [
+        0,
+        0,
+        4320,
+        2821
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-57.236.jpg",
+          "required_long_side": 384,
+          "pixels": [
+            384,
+            251
+          ],
+          "sha256": "3683949e4501470bae0e2bc4400471e0ea22f6e6088a315ce85314dccc764378"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/57.236-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            585
+          ],
+          "sha256": "1bb021375cd2e49abd27b204fbf015d1337710658ef323b9f952b2bbfd0e9d10"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/57.236.jpg",
+          "required_long_side": 4320,
+          "pixels": [
+            4320,
+            2821
+          ],
+          "sha256": "2a57db138cd0843035e3e49fd1d1fb55eb1b8b01affebfb50112a7d22d34eb29"
+        }
+      }
+    }
+  },
+  "59.027": {
+    "title": "Repose (Le Repos)",
+    "maker": "Édouard Manet (French, 1832-1883)",
+    "date": "ca. 1871",
+    "medium": "Oil on canvas",
+    "dimensions": "150.2 x 114 cm (59 1/8 x 44 7/8 inches)",
+    "accession": "59.027",
+    "credit": "Bequest of Mrs. Edith Stuyvesant Vanderbilt Gerry",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/repose-le-repos-59027 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/59.027.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/59.027-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/59.027.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/repose-le-repos-59027",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/XGg1hcHH/",
+      "original_pixels": [
+        2260,
+        3000
+      ],
+      "source_pixels": [
+        2260,
+        3000
+      ],
+      "source_sha256": "ce5056063d7a224ed643c5f82d3d6052f187de9dabee0199303969685c307031",
+      "crop_px": [
+        0,
+        0,
+        2260,
+        3000
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-59.027.jpg",
+          "required_long_side": 448,
+          "pixels": [
+            337,
+            448
+          ],
+          "sha256": "396718e64deb9916fcbb94abad87a23a3e36b589c483990c6d636f383ceeaabf"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/59.027-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            675,
+            896
+          ],
+          "sha256": "5cd69d9c75503e0977bdd9fd8a5c6037ab81460cb23eafe4283e8ea69e3a6553"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/59.027.jpg",
+          "required_long_side": 3000,
+          "pixels": [
+            2260,
+            3000
+          ],
+          "sha256": "3b708598bc5a6d862d750c5f5830186b3dd35e215d80b888c6232512bff2e341"
+        }
+      }
+    }
+  },
+  "23.072": {
+    "title": "La Savoisienne",
+    "maker": "Edgar Degas (French, 1834-1917)",
+    "date": "ca. 1860",
+    "medium": "Oil on canvas",
+    "dimensions": "62.9 x 46.4 cm (24 3/4 x 18 1/4 inches)",
+    "accession": "23.072",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/la-savoisienne-23072 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/23.072.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/23.072-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/23.072.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/la-savoisienne-23072",
+      "source_url": "https://iiif.micr.io/JZKWE/full/!2712,2712/0/default.jpg",
+      "original_pixels": [
+        2010,
+        2712
+      ],
+      "source_pixels": [
+        2010,
+        2712
+      ],
+      "source_sha256": "14c9b77d1931783776befe97518a94ea87be0ba20c5a5202f0fe46640627cbb3",
+      "crop_px": [
+        0,
+        0,
+        2010,
+        2712
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-23.072.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            190,
+            256
+          ],
+          "sha256": "686cb825ef0b2424128115369f4b132e49f496adf693cb7d1b2ba59bc5d3e1fc"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/23.072-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            664,
+            896
+          ],
+          "sha256": "fb5da05c6094705d748a1a61a954ae4a4c06c17d0ec65e491d7c88ba52b5ce4c"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/23.072.jpg",
+          "required_long_side": 2712,
+          "pixels": [
+            2010,
+            2712
+          ],
+          "sha256": "18fec5477aac1baf8159497bedf1c5b45a9738eea0ffaf7662d8dfb4b0e0a3ac"
+        }
+      }
+    }
+  },
+  "72.096": {
+    "title": "Field and Mill at Osny",
+    "maker": "Camille Pissarro (French, 1830-1903)",
+    "date": "1884",
+    "medium": "Oil on canvas",
+    "dimensions": "54.3 x 65.6 cm (21 3/8 x 25 13/16 inches)",
+    "accession": "72.096",
+    "credit": "Gift of Mrs. Houghton P. Metcalf in memory of her husband, Houghton P. Metcalf",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/field-and-mill-osny-72096 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/72.096.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/72.096-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/72.096.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/field-and-mill-osny-72096",
+      "source_url": "https://iiif.micr.io/QBqAc/full/!3665,3665/0/default.jpg",
+      "original_pixels": [
+        3665,
+        3063
+      ],
+      "source_pixels": [
+        3665,
+        3063
+      ],
+      "source_sha256": "f0f3f9919f92ae5b7c9c821baf3dfc41e36ad754cb639b30eab499faa6bd58c6",
+      "crop_px": [
+        0,
+        0,
+        3665,
+        3063
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-72.096.jpg",
+          "required_long_side": 384,
+          "pixels": [
+            384,
+            321
+          ],
+          "sha256": "bc43ea8faabaf35face2d1119f60d133bf52ceb795d96a60cb0fa29f51fa7d49"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/72.096-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            749
+          ],
+          "sha256": "7fc7a6c3295d2763f36b65b7847dba766b9b99c069574b093715c5b0ac1054b2"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/72.096.jpg",
+          "required_long_side": 3665,
+          "pixels": [
+            3665,
+            3063
+          ],
+          "sha256": "71f576174c265495bbfc07ea1026350ae2a75a1c67d0b84760b0e5b0a5a894e3"
+        }
+      }
+    }
+  },
+  "1999.3": {
+    "title": "Busagny Farm, Osny",
+    "maker": "Paul Gauguin (French, 1848-1903)",
+    "date": "1883",
+    "medium": "Oil on canvas",
+    "dimensions": "64.8 x 54.6 cm (25 1/2 x 21 1/2 inches)",
+    "accession": "1999.3",
+    "credit": "Helen M. Danforth Acquisition Fund in honor of Houghton P. Metcalf, Jr.",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/busagny-farm-osny-19993 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/1999.3.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/1999.3-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/1999.3.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/busagny-farm-osny-19993",
+      "source_url": "https://iiif.micr.io/RPhqu/full/!3457,3457/0/default.jpg",
+      "original_pixels": [
+        2859,
+        3457
+      ],
+      "source_pixels": [
+        2859,
+        3457
+      ],
+      "source_sha256": "e15b60ddf314f4d7f398b566181ed252bd3dfdde17e4bfade844fcc2b818564a",
+      "crop_px": [
+        0,
+        0,
+        2859,
+        3457
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-1999.3.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            265,
+            320
+          ],
+          "sha256": "cb2a7e671abd81bb7005d75de6602bd723309de47eaef0ca0bceac038a0ee325"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/1999.3-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            741,
+            896
+          ],
+          "sha256": "dd5a0edd04f338a7a4c3beb1e60f862892f88bf279a66bddf7431457d466a194"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/1999.3.jpg",
+          "required_long_side": 3457,
+          "pixels": [
+            2859,
+            3457
+          ],
+          "sha256": "a1174116c50c60e9e1bae6207e4270cdb1893200c14c673ced0a7f3cddd145da"
+        }
+      }
+    }
+  },
+  "33.053": {
+    "title": "Chestnut Trees and Farm at Jas de Bouffan",
+    "maker": "Paul Cézanne (French, 1839-1906)",
+    "date": "ca. 1886",
+    "medium": "Oil on canvas",
+    "dimensions": "65.4 x 81 cm (25 3/4 x 31 7/8 inches)",
+    "accession": "33.053",
+    "credit": "Museum Appropriation Fund",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/chestnut-trees-and-farm-jas-de-bouffan-33053 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/33.053.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/33.053-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/33.053.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/chestnut-trees-and-farm-jas-de-bouffan-33053",
+      "source_url": "https://iiif.micr.io/rTWkz/full/!3420,3420/0/default.jpg",
+      "original_pixels": [
+        3420,
+        2772
+      ],
+      "source_pixels": [
+        3420,
+        2772
+      ],
+      "source_sha256": "04d91c4cd4125e4bb1eacd7564d55230d94f765e45163c75bfc37a24f939fa78",
+      "crop_px": [
+        0,
+        0,
+        3420,
+        2772
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-33.053.jpg",
+          "required_long_side": 384,
+          "pixels": [
+            384,
+            311
+          ],
+          "sha256": "8f2b0ff848fa671c913828c9fd52f916ace2a0b9d23ab6134826a70821313fbc"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/33.053-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            726
+          ],
+          "sha256": "26105f53698953f840bd82b94f1830e89d1c1c2a7a31944fc1e014887e7fded2"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/33.053.jpg",
+          "required_long_side": 3420,
+          "pixels": [
+            3420,
+            2772
+          ],
+          "sha256": "e6c3eb9bd3eb4f035e8e003bed7b556b372e11f955060fd1a3ca9ba0d363f575"
+        }
+      }
+    }
+  },
+  "2021.101": {
+    "title": "Iris in a Pitcher; Iris in a Vase",
+    "maker": "Marie Bracquemond (French, 1841-1916)",
+    "date": "ca. 1886",
+    "medium": "Oil on panel",
+    "dimensions": "33 x 23.5 cm (13 x 9 1/4 inches)",
+    "accession": "2021.101",
+    "credit": "Helen M. Danforth Acquisition Fund",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/iris-pitcher-2021101 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/2021.101.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/2021.101-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/2021.101.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/iris-pitcher-2021101",
+      "source_url": "https://iiif.micr.io/VndgB/full/!4320,4320/0/default.jpg",
+      "original_pixels": [
+        4524,
+        6354
+      ],
+      "source_pixels": [
+        3076,
+        4320
+      ],
+      "source_sha256": "5bf101b6449c2b2b263de9c1a194dd8764e36cc3b96854a7ffd2df19fab324b8",
+      "crop_px": [
+        0,
+        0,
+        3076,
+        4320
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-2021.101.jpg",
+          "required_long_side": 192,
+          "pixels": [
+            137,
+            192
+          ],
+          "sha256": "9bddb46b2c1f882ab1ffd35db074b352ae4b55257acd5603df3ed3a842f70e92"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/2021.101-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            638,
+            896
+          ],
+          "sha256": "e84ff1f571c86aeb30dc6b1a2c9e1d76f71ccd6b76645c949d76f6d590fd1c20"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/2021.101.jpg",
+          "required_long_side": 4320,
+          "pixels": [
+            3076,
+            4320
+          ],
+          "sha256": "d64043af13be9ee62184362dfa66c122f63bd1457e014f8a533348d0d6740dfc"
+        }
+      }
+    }
+  },
+  "2010.57": {
+    "title": "Child in a Red Apron",
+    "maker": "Berthe Morisot (French, 1841-1895)",
+    "date": "1886",
+    "medium": "Oil on canvas",
+    "dimensions": "60 x 49.9 cm (23 5/8 x 19 5/8 inches)",
+    "accession": "2010.57",
+    "credit": "Helen M. Danforth Acquisition Fund",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/child-red-apron-201057 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/2010.57.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/2010.57-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/2010.57.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/child-red-apron-201057",
+      "source_url": "https://iiif.micr.io/wRQGH/full/!3786,3786/0/default.jpg",
+      "original_pixels": [
+        3155,
+        3786
+      ],
+      "source_pixels": [
+        3155,
+        3786
+      ],
+      "source_sha256": "61dcf2795e7c67fc68e00027d13d62f61676fd0d3c41d96496e6252fba82956a",
+      "crop_px": [
+        0,
+        0,
+        3155,
+        3786
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-2010.57.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            267,
+            320
+          ],
+          "sha256": "cb0248d5e45673a262e5313daf70d88312748d2d098541f98d024040d246693d"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/2010.57-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            747,
+            896
+          ],
+          "sha256": "6ddd316de87c4d23f992b384cd5858cf0a27e87c16973e93deb66e8fad25d1f0"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/2010.57.jpg",
+          "required_long_side": 3786,
+          "pixels": [
+            3155,
+            3786
+          ],
+          "sha256": "43dd3b41a79ce358414443699be377f5c9c375276542b46d46946bab379ca370"
+        }
+      }
+    }
+  },
+  "35.770": {
+    "title": "View of Auvers-sur-Oise",
+    "maker": "Vincent van Gogh (Dutch, 1853–1890, b. in Zundert, Netherlands)",
+    "date": "1890",
+    "medium": "Oil on canvas",
+    "dimensions": "34 x 42.1 cm (13 3/8 x 16 9/16 inches)",
+    "accession": "35.770",
+    "credit": "Given in memory of Miss Dorothy Sturges by a Friend",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/view-auvers-sur-oise-35770 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/35.770.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/35.770-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/35.770.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/view-auvers-sur-oise-35770",
+      "source_url": "https://risdmuseum.cdn.picturepark.com/d/YqNYz7S0/",
+      "original_pixels": [
+        3000,
+        2428
+      ],
+      "source_pixels": [
+        3000,
+        2428
+      ],
+      "source_sha256": "57f99cef4841ab1923b620a0364a857097ce4e33e32570fc24faabe60c0b93a7",
+      "crop_px": [
+        47,
+        40,
+        2969,
+        2384
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-35.770.jpg",
+          "required_long_side": 256,
+          "pixels": [
+            256,
+            205
+          ],
+          "sha256": "7e400f08d40c8351d2840a5a5c14afcf2b5e694dd8131af9892222e0c5c17b7d"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/35.770-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            896,
+            719
+          ],
+          "sha256": "57710ee7e703c55d94bf2342fde9e3c4a7965e4728f6114d3368b0a5413d3d3f"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/35.770.jpg",
+          "required_long_side": 2922,
+          "pixels": [
+            2922,
+            2344
+          ],
+          "sha256": "c4d6e944cb0a45b18f376f8e8a1ad43194106e698b6b3558f509bf5b8d109e74"
+        }
+      }
+    }
+  },
+  "60.095": {
+    "title": "Simone in a Blue Bonnet",
+    "maker": "Mary Cassatt (American, 1844-1926)",
+    "date": "ca. 1903",
+    "medium": "Oil on canvas",
+    "dimensions": "61 x 52.1 cm (24 x 20 1/2 inches)",
+    "accession": "60.095",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "identified": true,
+    "source": "https://risdmuseum.org/art-design/collection/simone-blue-bonnet-60095 (live catalogue page read 2026-10-08; label text retained in docs/evidence/impressionist-images/catalogue-pages/60.095.html.gz)",
+    "image": "res://modules/shell/assets/impressionist/60.095-preview.jpg",
+    "zoom_image": "res://modules/shell/assets/impressionist/zoom/60.095.jpg",
+    "image_resolution": {
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/simone-blue-bonnet-60095",
+      "source_url": "https://iiif.micr.io/ZqERQ/full/!4007,4007/0/default.jpg",
+      "original_pixels": [
+        3350,
+        4007
+      ],
+      "source_pixels": [
+        3350,
+        4007
+      ],
+      "source_sha256": "83e2fea8cfe49f68946b444317ade28fabb0c03ec8ab4ffaccaeac2102dab189",
+      "crop_px": [
+        72,
+        96,
+        3270,
+        3943
+      ],
+      "images": {
+        "wall": {
+          "path": "modules/shell/assets/impressionist/painting-60.095.jpg",
+          "required_long_side": 320,
+          "pixels": [
+            266,
+            320
+          ],
+          "sha256": "91ffac41f6c072644532e1fb66c1b210b806789eeb58712554add48c1a8916f3"
+        },
+        "detail": {
+          "path": "modules/shell/assets/impressionist/60.095-preview.jpg",
+          "required_long_side": 896,
+          "pixels": [
+            745,
+            896
+          ],
+          "sha256": "1b1c9f79361d6a66887f483d7f6dd3b94f0f8ec74c82c06b5db3ef2a962f7b53"
+        },
+        "zoom_external": {
+          "path": "modules/shell/assets/impressionist/zoom/60.095.jpg",
+          "required_long_side": 3847,
+          "pixels": [
+            3198,
+            3847
+          ],
+          "sha256": "891d7758e14979c84361dea2fda9730fbf4e8e342866efeb0259fd72b5c995e3"
+        }
+      }
+    }
+  }
+}

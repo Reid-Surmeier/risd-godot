@@ -1,0 +1,125 @@
+"""Scratch (#266): before/after Hall pictures. Usage: hall_compare.py <before dir> <after dir> <old works.json> <new works.json>"""
+import json, re, sys
+import numpy as np
+from PIL import Image
+
+B, A, OLD, NEW = sys.argv[1:5]
+L, PXM_LONG, PXM_END = 26.3, 400 / 6.6, 100.0
+luma = lambda p: np.asarray(Image.open(p).convert('RGB'), float) @ [0.2126, 0.7152, 0.0722] / 255
+rgb = lambda p: np.asarray(Image.open(p).convert('RGB'), float) / 255
+
+def centre(rec, outer_h):  # walk4.gd _hang_center
+    s = rec['hang']; nums = [float(x) for x in re.findall(r'[0-9]+\.[0-9]+', s)]
+    v = nums[0] if nums else 1.55
+    if len(nums) > 1 and '–' in s: v = (nums[0] + nums[1]) / 2
+    return v if s.startswith('centre') else v + outer_h / 2
+
+old = {r['tag']: r for r in json.load(open(OLD))}
+new = {r['tag']: r for r in json.load(open(NEW))}
+boxes = {}  # view -> [(tag, u0, u1, v0new, v1new, v0old, v1old)]
+for p in json.load(open(A + '/paintings.json')):
+    t, (x, y, z), (ow, oh), (nx, nz) = p['tag'], p['c'], p['outer'], p['n']
+    k = old[t]['canvas_h'] / new[t]['canvas_h']
+    oh_old = oh * k
+    ow_old = old[t]['canvas_w'] + (ow - new[t]['canvas_w']) * k
+    y_old = centre(old[t], oh_old)
+    if nx > 0.5: view, pxm, u, w, h = '1-west', PXM_LONG, 800 - (z + L / 2) * PXM_LONG, 1600, 400
+    elif nx < -0.5: view, pxm, u, w, h = '2-east', PXM_LONG, 800 + (z + L / 2) * PXM_LONG, 1600, 400
+    elif nz > 0.5: view, pxm, u, w, h = '3-far', PXM_END, 500 + x * PXM_END, 1000, 660
+    else: view, pxm, u, w, h = '4-arch', PXM_END, 500 - x * PXM_END, 1000, 660
+    v = lambda yy: h / 2 - (yy - 3.1) * pxm
+    boxes.setdefault(view, []).append(dict(tag=t, pxm=pxm, u0=u - ow / 2 * pxm, u1=u + ow / 2 * pxm, vn=(v(y + oh / 2), v(y - oh / 2)),
+        vo=(v(y_old + oh_old / 2), v(y_old - oh_old / 2)), y=y, y_old=y_old, resized=abs(k - 1) > 1e-6 or old[t]['canvas_w'] != new[t]['canvas_w']))
+
+def top_edge(img, b, v_expected):  # row of the strongest vertical step near the expected top edge, in metres from it
+    u0, u1 = int(b['u0'] + (b['u1'] - b['u0']) * 0.25), int(b['u1'] - (b['u1'] - b['u0']) * 0.25)
+    r = int(0.5 * b['pxm']); c = int(round(v_expected))
+    lo, hi = max(c - r, 1), min(c + r, img.shape[0] - 1)
+    prof = img[lo - 1:hi + 1, u0:u1].mean(axis=1)
+    g = np.abs(np.diff(prof, axis=0)).sum(axis=-1) if prof.ndim > 1 else np.abs(np.diff(prof))
+    return (lo - 1 + int(np.argmax(g)) + 1 - v_expected) / b['pxm']
+
+print('| view | mean luma before | after | diff |'); print('|---|---|---|---|')
+for n in ['1-west', '2-east', '3-far', '4-arch', '5-follow', '6-oblique', '7-floor']:
+    b, a = luma(f'{B}/{n}.png'), luma(f'{A}/{n}.png')
+    print(f'| {n} | {b.mean():.3f} | {a.mean():.3f} | {a.mean() - b.mean():+.3f} |')
+
+print('\n| work | old centre | new centre | moved (m) | top edge found, before vs old box (m) | after vs new box (m) | after vs old box (m) | shifted-crop residual | unshifted |'); print('|---|---|---|---|---|---|---|---|---|')
+for view, bs in sorted(boxes.items()):
+    b_img, a_img = rgb(f'{B}/{view}.png'), rgb(f'{A}/{view}.png')
+    for b in sorted(bs, key=lambda q: q['u0']):
+        eb, ea, eao = top_edge(b_img, b, b['vo'][0]), top_edge(a_img, b, b['vn'][0]), top_edge(a_img, b, b['vo'][0])
+        res = ''
+        m = int(0.45 * b['pxm'])
+        if not b['resized']:
+            dy = int(round(b['vo'][0] - b['vn'][0]))  # rows the work moved up
+            u0, u1 = max(int(b['u0']) - m, 0), min(int(b['u1']) + m, a_img.shape[1])
+            v0, v1 = max(int(b['vn'][0]) - m, 0), min(int(b['vn'][1]) + m, a_img.shape[0] - dy - 1)
+            crop_a = a_img[v0:v1, u0:u1]
+            res = f"{np.abs(crop_a - b_img[v0 + dy:v1 + dy, u0:u1]).mean():.4f} | {np.abs(crop_a - b_img[v0:v1, u0:u1]).mean():.4f}"
+        else:
+            res = 'resized | '
+        print(f"| {b['tag']} | {b['y_old']:.2f} | {b['y']:.2f} | {b['y'] - b['y_old']:+.2f} | {eb:+.3f} | {ea:+.3f} | {eao:+.3f} | {res} |")
+
+# away from the paintings: bands of the long-wall pictures, and everything in each picture outside a generous painting zone
+print('\n| region | mean luma before | after | diff | mean RGB diff | share of pixels differing > 3 % |'); print('|---|---|---|---|---|---|')
+def region(name, view, mask):
+    b, a = rgb(f'{B}/{view}.png'), rgb(f'{A}/{view}.png')
+    lb, la = (b @ [0.2126, 0.7152, 0.0722])[mask], (a @ [0.2126, 0.7152, 0.0722])[mask]
+    d = np.abs(a - b).max(axis=-1)[mask]
+    rg = (a - b)[mask].mean(axis=0)
+    print(f"| {name} | {lb.mean():.3f} | {la.mean():.3f} | {la.mean() - lb.mean():+.4f} | {rg[0]:+.4f} {rg[1]:+.4f} {rg[2]:+.4f} | {100 * (d > 0.03).mean():.1f} % |")
+for view, pxm, w, h in [('1-west', PXM_LONG, 1600, 400), ('2-east', PXM_LONG, 1600, 400), ('3-far', PXM_END, 1000, 660), ('4-arch', PXM_END, 1000, 660)]:
+    vv, uu = np.mgrid[0:h, 0:w]
+    y = 3.1 - (vv - h / 2) / pxm
+    far = np.ones((h, w), bool)
+    for b in boxes.get(view, []):
+        m = 0.9 * pxm
+        far &= ~((uu > b['u0'] - m) & (uu < b['u1'] + m))
+    region(f'{view}: skirting (0.03-0.20 m)', view, (y > 0.03) & (y < 0.20))
+    region(f'{view}: wall above 4.6 m, below the cornice', view, (y > 4.6) & (y < 5.6))
+    region(f'{view}: cornice and above (> 5.8 m)', view, y > 5.8)
+    region(f'{view}: wall columns > 0.9 m from any frame, 0.3-4.6 m', view, far & (y > 0.3) & (y < 4.6))
+fb = np.ones((620, 1600), bool); region('7-floor: whole plan', '7-floor', fb)
+vv, uu = np.mgrid[0:620, 0:1600]; region('7-floor: middle 6 m of the floor', '7-floor', (vv > 620 * 0.2) & (vv < 620 * 0.8))
+vv, uu = np.mgrid[0:640, 0:960]; region('5-follow: lower half (floor)', '5-follow', vv > 400)
+
+# measured move: the before picture's frame box slid up and down the after picture
+print('\n| work | expected move (m) | measured move (m) | difference (m) | residual at best | one pixel (m) |'); print('|---|---|---|---|---|---|')
+worst = 0
+for view, bs in sorted(boxes.items()):
+    b_img, a_img = rgb(f'{B}/{view}.png'), rgb(f'{A}/{view}.png')
+    for b in sorted(bs, key=lambda q: q['u0']):
+        if b['resized']: continue
+        u0, u1, v0, v1 = int(round(b['u0'])), int(round(b['u1'])), int(round(b['vo'][0])), int(round(b['vo'][1]))
+        t = b_img[v0:v1, u0:u1]
+        best = min(range(-int(0.6 * b['pxm']), int(0.6 * b['pxm']) + 1), key=lambda d: np.abs(a_img[v0 - d:v1 - d, u0:u1] - t).mean() if v0 - d >= 0 and v1 - d <= a_img.shape[0] else 9)
+        res = np.abs(a_img[v0 - best:v1 - best, u0:u1] - t).mean()
+        exp = b['y'] - b['y_old']; got = best / b['pxm']; worst = max(worst, abs(got - exp))
+        print(f"| {b['tag']} | {exp:+.3f} | {got:+.3f} | {got - exp:+.3f} | {res:.4f} | {1 / b['pxm']:.3f} |")
+print('worst difference %.3f m' % worst)
+
+# measured size: the before picture's frame box stretched in width and height (2 % steps) and slid; the best fit is the size now
+import cv2
+print('\n| work | best-fit width x height against before | move at that fit (m) | expected move (m) |'); print('|---|---|---|---|')
+off = 0
+for view, bs in sorted(boxes.items()):
+    b_img, a_img = rgb(f'{B}/{view}.png').astype(np.float32), rgb(f'{A}/{view}.png').astype(np.float32)
+    b_img, a_img = cv2.GaussianBlur(b_img, (0, 0), 2.0), cv2.GaussianBlur(a_img, (0, 0), 2.0)  # so a resampled template is not favoured for being smoother
+    for b in sorted(bs, key=lambda q: q['u0']):
+        u0, u1, v0, v1 = int(round(b['u0'])), int(round(b['u1'])), int(round(b['vo'][0])), int(round(b['vo'][1]))
+        t = b_img[v0:v1, u0:u1]; cu, cv_ = (u0 + u1) / 2, (v0 + v1) / 2
+        best = (9, 1, 1, 0)
+        for sx in np.arange(0.92, 1.081, 0.02):
+            for sy in np.arange(0.92, 1.081, 0.02):
+                w, h = max(int(round(t.shape[1] * sx)), 2), max(int(round(t.shape[0] * sy)), 2)
+                ts = cv2.resize(t, (w, h), interpolation=cv2.INTER_AREA)
+                x0 = int(round(cu - w / 2))
+                for d in range(-int(0.6 * b['pxm']), int(0.6 * b['pxm']) + 1):
+                    y0 = int(round(cv_ - h / 2)) - d
+                    if y0 < 0 or y0 + h > a_img.shape[0] or x0 < 0 or x0 + w > a_img.shape[1]: continue
+                    r = float(np.abs(a_img[y0:y0 + h, x0:x0 + w] - ts).mean())
+                    if r < best[0]: best = (r, sx, sy, d)
+        off += abs(best[1] - 1) > 0.011 or abs(best[2] - 1) > 0.011
+        print(f"| {b['tag']} | {best[1]:.2f} x {best[2]:.2f} | {best[3] / b['pxm']:+.3f} | {b['y'] - b['y_old']:+.3f} |")
+print('works whose best fit is not 1.00 x 1.00: %d' % off)

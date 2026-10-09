@@ -1,0 +1,30 @@
+{
+  "baseline": "07bde70c",
+  "candidate": "244be7e2",
+  "standards": {
+    "new_findings": 0,
+    "result": "PASS17source/comments/hashes +19nativeStringbytes"
+  },
+  "spec": {
+    "implementation_findings": 0,
+    "exact_original_cases": 74,
+    "pending": [],
+    "technical_evidence_gaps": 0,
+    "verified": [
+      "installed119tracked/122full FAIL:74removed",
+      "exact18Webinput/33states errors[]",
+      "fiveHTTPS200/SHA256MATCH",
+      "tenPRattachments readback",
+      "private10images/finite6.867splayingclip"
+    ],
+    "final_independent_review": "Actual counts, exact private/current browser proof and live ten GitHub image references verified by read-only Spec reviewer",
+    "publication": "5a213901 pushed; PR166 head/body and map149 open-body exact readback; checkpoint refreshed"
+  },
+  "ponytail": {
+    "findings": 0,
+    "fixed": 0,
+    "accepted": 0,
+    "result": "Lean already. Ship."
+  },
+  "native_probe": "generated temporarily from manifest; original probe removed from tracked GD"
+}

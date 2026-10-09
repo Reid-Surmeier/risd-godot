@@ -1,0 +1,18 @@
+[
+  {
+    "component": "0",
+    "anchor": "anchors/painting-0.jpg",
+    "dimensions_m": [
+      0.651,
+      0.541
+    ],
+    "pixel_bounds": [
+      0,
+      0,
+      1323,
+      1093
+    ],
+    "views": [],
+    "accepted_views": 0
+  }
+]

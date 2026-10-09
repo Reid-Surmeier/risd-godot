@@ -36,10 +36,12 @@ class_name ShellInterface
 extends RefCounted
 
 const Errors := preload("res://modules/shell/errors.gd")
-const _Impl := preload("res://modules/shell/shell.gd")
+const _IMPL := preload("res://modules/shell/shell.gd")
 
 ## The fixed Tabs in launch order; the key is the tab_strip label key and the registry key.
-const FIXED_TABS: Array[String] = ["map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"]
+const FIXED_TABS: Array[String] = [
+	"map", "sketchbook", "3d_viewer", "video_player", "collection", "playground", "flowers"
+]
 const LAUNCH_TAB := "collection"
 ## The page cross-fade, in seconds. The value every acceptance test asserts against.
 const FADE_SECONDS := 0.2
@@ -52,7 +54,7 @@ const FADE_SECONDS := 0.2
 ## create(deps) builds it, or a Callable with the same signature. A key with no entry shows a
 ## plain white Page. Returns ok(Shell node) or the tab_strip error that stopped it.
 static func create(registry: Dictionary) -> Dictionary:
-	return _Impl.create(registry)
+	return _IMPL.create(registry)
 
 
 ## Make Tab `index` active and show its Page (cross-fade, no dip), creating its Tenant on the first
@@ -62,7 +64,8 @@ static func select_tab(shell: Control, index: int) -> Dictionary:
 
 
 ## Close a stub-opened Tab exactly as its close button does. A fixed Tab refuses with TAB_FIXED.
-## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range | tab_strip.open_in_progress).
+## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range |
+## tab_strip.open_in_progress).
 static func close_tab(shell: Control, index: int) -> Dictionary:
 	return shell.close_tab(index)
 
@@ -85,8 +88,7 @@ static func tenant_state(shell: Control, key: String) -> Dictionary:
 static func state(shell: Control) -> Dictionary:
 	return shell.state()
 
-
 ## Signals on the Shell node:
 ##   tenant_created(key: String)  — the Tenant for `key` now lives in its Page
-##   switch_settled(index: int)   — the cross-fade to Tab `index` is done and the freeze rule applied
+## switch_settled(index: int) — the cross-fade to Tab `index` is done and the freeze rule applied
 ## The strip's own signals (tab_selected and the rest) are on the strip and are not re-emitted.

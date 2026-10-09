@@ -2,7 +2,8 @@
 extends Control
 
 const Errors := preload("res://modules/flowers_page/errors.gd")
-const TITLE := "res://modules/flowers_page/assets/title.png"  # the game's title frame, captured from Ruffle at 2x
+# the game's title frame, captured from Ruffle at 2x
+const TITLE := "res://modules/flowers_page/assets/title.png"
 const GAME := Vector2(750, 422)  # the <embed> size on ferryhalim.com/orisinal/flowers/
 const MARGIN := 48.0  # page px around the window at most
 const MAX_FACTOR := 2.0
@@ -47,7 +48,9 @@ func _ready() -> void:
 
 
 func _layout() -> void:
-	factor = clampf(minf((size.x - 2.0 * MARGIN) / GAME.x, (size.y - 2.0 * MARGIN) / GAME.y), 0.1, MAX_FACTOR)
+	factor = clampf(
+		minf((size.x - 2.0 * MARGIN) / GAME.x, (size.y - 2.0 * MARGIN) / GAME.y), 0.1, MAX_FACTOR
+	)
 	window.size = (GAME * factor).round()
 	window.position = ((size - window.size) / 2.0).round()
 
@@ -60,7 +63,9 @@ func _place() -> void:
 	if is_visible_in_tree():
 		var r: Rect2 = get_global_transform_with_canvas() * window.get_rect()
 		var view := get_viewport_rect().size
-		placement = JSON.stringify({"rect": [r.position.x, r.position.y, r.size.x, r.size.y], "view": [view.x, view.y]})
+		placement = JSON.stringify(
+			{"rect": [r.position.x, r.position.y, r.size.x, r.size.y], "view": [view.x, view.y]}
+		)
 	if placement != placed:
 		placed = placement
 		JavaScriptBridge.eval("window.flowersEmbed(%s)" % placement)
@@ -72,5 +77,13 @@ func _process(_delta: float) -> void:
 
 
 func state() -> Dictionary:
-	return Errors.ok({"key": key, "ticks": ticks, "window": window.get_rect(), "factor": factor,
-			"web": OS.has_feature("web"), "placement": placed if placed != "" else "null"})
+	return Errors.ok(
+		{
+			"key": key,
+			"ticks": ticks,
+			"window": window.get_rect(),
+			"factor": factor,
+			"web": OS.has_feature("web"),
+			"placement": placed if placed != "" else "null"
+		}
+	)

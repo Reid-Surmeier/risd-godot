@@ -1,0 +1,107 @@
+{
+  "source": "IMG_6380_exit6fps/000018.jpg",
+  "depth_sha256": "64ac25806e5ea1552e2abd35e7201f3a6ea506c6780fe98ceca1698bc61771c3",
+  "image_sha256": "a4583a86bb0fb5da3efaf58de8b3927fc4decf83ed886db840ad1567ffb86785",
+  "patches": [
+    {
+      "patch": "near",
+      "polygon": [
+        [
+          60,
+          470
+        ],
+        [
+          290,
+          470
+        ],
+        [
+          335,
+          620
+        ],
+        [
+          20,
+          620
+        ]
+      ],
+      "polygon_pixels": 41291,
+      "valid_depth_samples": 27451,
+      "valid_depth_fraction": 0.6648179990797026,
+      "fit_samples": 13818,
+      "check_samples": 13633,
+      "check_support_25mm": 0.5337783319885572,
+      "check_p50_p90_m": [
+        0.023020246380462895,
+        0.06800729970673342
+      ],
+      "center_world": [
+        0.35717209030954644,
+        1.9182503042995165,
+        1.8386534556536733
+      ],
+      "normal_world": [
+        -0.9766820962713476,
+        -0.04329253141562144,
+        -0.21028038317121686
+      ]
+    },
+    {
+      "patch": "far",
+      "polygon": [
+        [
+          140,
+          335
+        ],
+        [
+          220,
+          335
+        ],
+        [
+          245,
+          395
+        ],
+        [
+          110,
+          395
+        ]
+      ],
+      "polygon_pixels": 6601,
+      "valid_depth_samples": 6567,
+      "valid_depth_fraction": 0.994849265262839,
+      "fit_samples": 3273,
+      "check_samples": 3294,
+      "check_support_25mm": 0.6745598057073466,
+      "check_p50_p90_m": [
+        0.016905736608550624,
+        0.04209662502945162
+      ],
+      "center_world": [
+        0.486761560431718,
+        2.074519440094591,
+        1.1063149048576857
+      ],
+      "normal_world": [
+        -0.9878165093886286,
+        -0.0025914983975156287,
+        -0.15560150357667227
+      ]
+    }
+  ],
+  "floor_normal_angle_degrees": 3.958067203647082,
+  "floor_relative_to_toes_m": {
+    "near": [
+      -0.031772784901576125,
+      0.12712161293584648
+    ],
+    "far": [
+      0.022382031119419433,
+      0.0886494340579152
+    ]
+  },
+  "far_minus_near_at_toes_m": [
+    0.05415481602099556,
+    -0.03847217887793128
+  ],
+  "provisional_m_per_unit": 2.6266704457139363,
+  "navigation_accepted": false,
+  "caveat": "Separate fits to existing near/far masks in one CUDA depth map. Block checks are correlated, not independent capture validation. Plane extension to doorway toes is extrapolation; metric scale remains provisional."
+}

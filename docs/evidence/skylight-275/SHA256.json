@@ -1,0 +1,139 @@
+{
+  "provider": "local Godot 4.7.2 / ffmpeg / Python; no external generation",
+  "model": null,
+  "generation_api_requests": 0,
+  "api_cost_usd": 0,
+  "draft_rebuilds": 3,
+  "reference_clip": {
+    "path": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6379.MOV",
+    "bytes": 199480923,
+    "sha256": "abc4922925e560966d5987cc3208b9a819f743b7ac7bbdc8c40741a4eab38e34"
+  },
+  "files": {
+    "docs/evidence/skylight-275/00-footage-levels.jpg": {
+      "bytes": 75537,
+      "sha256": "ef7ecd2346114a42282389434ae5c49094b2c23a045de411cf698e2f0093d6aa"
+    },
+    "docs/evidence/skylight-275/01-footage-detail.jpg": {
+      "bytes": 71655,
+      "sha256": "ed1a62dfb4245cf62bd2d87ec8b6c1372702e86d246b732cbc3f2a0a27700e82"
+    },
+    "docs/evidence/skylight-275/02-footage-stair-count.jpg": {
+      "bytes": 64084,
+      "sha256": "26a6d1d1e594040bbd57972efbc41279320b2734cf3e37bd489b2c191bc9574e"
+    },
+    "docs/evidence/skylight-275/03-shell-lower.jpg": {
+      "bytes": 92216,
+      "sha256": "ffbc9d36101f1f5c450759b8030326d18b05ec7c6580bf8ce9094d808e00b85a"
+    },
+    "docs/evidence/skylight-275/04-shell-entry.jpg": {
+      "bytes": 94596,
+      "sha256": "b4ec513295bc4fb8b9efcc616378c533d54be636f5d284702a95e43dcc30e2c2"
+    },
+    "docs/evidence/skylight-275/05-shell-stair.jpg": {
+      "bytes": 78891,
+      "sha256": "5380f3987a63b4609aec88d1b9b8a707673aad431c59d61a2aca15c7db8b4f6a"
+    },
+    "docs/evidence/skylight-275/06-shell-ceiling.jpg": {
+      "bytes": 75923,
+      "sha256": "0bd892892758c32b9d4bb34291cd6f3bfaf7ceb2d04ab553f302ab77d6f40ad3"
+    },
+    "docs/evidence/skylight-275/07-detail-rail.jpg": {
+      "bytes": 110538,
+      "sha256": "4aa7f98157a21bcab86eef17b43fdc3e6f27157169e3369757943886e25ed86b"
+    },
+    "docs/evidence/skylight-275/08-detail-stair.jpg": {
+      "bytes": 92303,
+      "sha256": "fc1ebeeafa0255527b91af6fc0a8ece36fef022c48d941e88df954144cb29d61"
+    },
+    "docs/evidence/skylight-275/09-detail-piano.jpg": {
+      "bytes": 88051,
+      "sha256": "152210a4c0f26d0a2f680dd8bd5832a541a6b953eff44afb95ebde41b5d828a3"
+    },
+    "docs/evidence/skylight-275/10-detail-lower.jpg": {
+      "bytes": 106457,
+      "sha256": "323113eaed980ef43350608bb239412cf8febe56de1fe1038d73a4180fdc2694"
+    },
+    "docs/evidence/skylight-275/11-game-two-levels.jpg": {
+      "bytes": 79789,
+      "sha256": "564747aa1abf8cffe8005814b607bbeb35978abe192a9b36b2900b35750a968f"
+    },
+    "docs/evidence/skylight-275/12-final-north-works.jpg": {
+      "bytes": 107750,
+      "sha256": "d272bf0d3e4abc341e771f839438f2fbea698b1df85fb098e015bc9a9a9a8e9f"
+    },
+    "docs/evidence/skylight-275/13-final-west-works.jpg": {
+      "bytes": 110232,
+      "sha256": "100d90b4a8e55ee127f4f70bff76b555e42c86e802eec0009f3cf3f48592aee4"
+    },
+    "docs/evidence/skylight-275/14-final-east-work.jpg": {
+      "bytes": 81750,
+      "sha256": "ec15d38cf75b141d64fd86a121395dcb5f9009079fb3768dc27a6e5cbb75a322"
+    },
+    "docs/evidence/skylight-275/15-final-piano.jpg": {
+      "bytes": 103015,
+      "sha256": "19433c81ea5f1872fd38bea0d98a333c5eb006421eca1a0a4c4c73dcd163bb74"
+    },
+    "docs/evidence/skylight-275/16-final-game-levels.jpg": {
+      "bytes": 79768,
+      "sha256": "710b1aa0d2a2625a3a7b40dab49642c704cc0037eab48efdabcce7a591bf8830"
+    },
+    "docs/evidence/skylight-275/17-final-laylights.jpg": {
+      "bytes": 86327,
+      "sha256": "9a2d9b06332ead1cfbb66a863115ef7c9ecaa9602ccd175b0264a1e7e9a58906"
+    },
+    "docs/evidence/skylight-275/18-final-lower-features.jpg": {
+      "bytes": 104676,
+      "sha256": "bb9cc179ecbba638d94d7e5120d6e0707adbe46cf4b01f4379cc73366b5d3027"
+    },
+    "modules/shell/prototype/collection_reconstruction/skylight_additions.gd": {
+      "bytes": 38860,
+      "sha256": "578faeaefe1c79778c2f2795dc0746035a5a77813f6c2d79489b671200777906"
+    },
+    "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": {
+      "bytes": 64688,
+      "sha256": "439190382930aa508ed67c54a6f7ecd594f9b9bc5b500c6d3f4289564268a04b"
+    },
+    "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": {
+      "bytes": 71318,
+      "sha256": "7f15bafdb04fb1d65a733499371bc05d4f35689758b1dd353bceca3131e0861d"
+    },
+    "image-work/collection-room-remodel/additions/skylight/congdon-pile-200017.jpg": {
+      "bytes": 529563,
+      "sha256": "9576fffd0df275eea9f15acdb4de5961166caf634a185532781be30a52d18ca4"
+    },
+    "image-work/collection-room-remodel/additions/skylight/diao-untitled-69094.jpg": {
+      "bytes": 35088,
+      "sha256": "6a17fe60728e851964ab10a53b54691328ca7aad668eed39c0847881af83c26d"
+    },
+    "image-work/collection-room-remodel/additions/skylight/feldman-foreign-sign-20263-footage.jpg": {
+      "bytes": 49539,
+      "sha256": "75b2a307dee2af93e1374b85a7a030b8ce5d9fad077c5cf3273a8657bcbf11cf"
+    },
+    "image-work/collection-room-remodel/additions/skylight/mangold-distorted-circle-73018.jpg": {
+      "bytes": 141966,
+      "sha256": "66146e9a072bde1e43b1d7753cfc675e981d51c0733a7e7592d5dc4864ee63f2"
+    },
+    "image-work/collection-room-remodel/additions/skylight/walsh-spectrum-ii-202519-footage.jpg": {
+      "bytes": 49333,
+      "sha256": "7e5f06c9592f89948a49a71581b4fcfacde37bfd2f191e0424dc5401448e93e4"
+    },
+    "docs/evidence/skylight-275/capture-room.gd": {
+      "bytes": 2346,
+      "sha256": "c6a9db165d72f86f27ebcc43facfe8d900538247b2c8cfe71e4412668a600cc0"
+    },
+    "docs/evidence/skylight-275/capture-game.gd": {
+      "bytes": 1485,
+      "sha256": "b3760a78e72818a2b2519447167a884dbbc1147ad90f5237a7451938bbe746a6"
+    },
+    "docs/evidence/skylight-275/check-walk.gd": {
+      "bytes": 2825,
+      "sha256": "68656e8e2845d297dbe3b9ab814b1be8ab43597fcd250a5b78e900303892b171"
+    },
+    "docs/evidence/skylight-275/measure.py": {
+      "bytes": 6225,
+      "sha256": "d7ea8eb0caf10622c70c9416fca13ac4b4ddddf29049b8f6d957ce6412039dc8"
+    }
+  },
+  "acceptance": false
+}

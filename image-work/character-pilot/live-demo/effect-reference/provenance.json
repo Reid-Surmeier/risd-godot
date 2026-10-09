@@ -1,0 +1,120 @@
+{
+  "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+  "repository": "ACreTeam/ac-decomp",
+  "tree_sha": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+  "complete_recursive_tree_entries": 6712,
+  "texture_status": "unavailable: source wrappers include non-public extracted asset .inc files",
+  "texture_dimensions": [
+    16,
+    16
+  ],
+  "texture_format": "G_IM_FMT_I / G_IM_SIZ_4b (I4)",
+  "missing_asset_files": [
+    "ef_dust01_0.inc",
+    "ef_dust01_1.inc",
+    "ef_dust01_2.inc",
+    "ef_dust01_3.inc",
+    "ef_dust01_00_v.inc"
+  ],
+  "decoded_png_count": 0,
+  "model_vertices": 4,
+  "model_triangles": 2,
+  "model_dimensions": null,
+  "artwork_sha256": null,
+  "vertex_data_sha256": null,
+  "sources": [
+    {
+      "path": "src/data/model/ef_dust01_00.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/data/model/ef_dust01_00.c",
+      "bytes": 3095,
+      "sha256": "53da592949c8308c92d0c5fdfb17fa568cdea05fd251cb9df03a8edd8f08d8bc"
+    },
+    {
+      "path": "src/effect/ef_dust.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/effect/ef_dust.c",
+      "bytes": 5579,
+      "sha256": "8dd201faa66636c20dc74765a03c60007cc8571eedf51cf203e3d4cc7309600a"
+    },
+    {
+      "path": "src/effect/ef_dash_asimoto.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/effect/ef_dash_asimoto.c",
+      "bytes": 7743,
+      "sha256": "27111f52a28c138705e62be775722ae0d14cf84df858c84abafd003d3c3043d8"
+    },
+    {
+      "path": "src/effect/ef_effect_control.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/effect/ef_effect_control.c",
+      "bytes": 14573,
+      "sha256": "af0323e38c80922decfd16714a0a7a9fde7155656b2a4e707758811d9b73ed10"
+    },
+    {
+      "path": "src/effect/ef_effect_lib.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/effect/ef_effect_lib.c",
+      "bytes": 8796,
+      "sha256": "316c6d21930b760b73fafc08b7d4372b31fa1cdf76567480fdc17fd6a0332ad9"
+    },
+    {
+      "path": "src/game/m_player_main_pickup_jump.c_inc",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_main_pickup_jump.c_inc",
+      "bytes": 8338,
+      "sha256": "58fd594d769563c972c9970c41a5d2bc591d21f1ae2c3cee8ea02dc9827bb66f"
+    },
+    {
+      "path": "src/game/m_player_main_mail_jump.c_inc",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_main_mail_jump.c_inc",
+      "bytes": 3293,
+      "sha256": "f2035bd8c394517d80d410acdf9954d93875b704852ea9147a4d8a999dccdd09"
+    },
+    {
+      "path": "include/m_player.h",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/include/m_player.h",
+      "bytes": 71802,
+      "sha256": "9701b447ad404107c9ecc705853fe327386d5b1a647b4923ce8b83c26c7d5a67"
+    },
+    {
+      "path": "README.md",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/README.md",
+      "bytes": 4172,
+      "sha256": "ae38ca75b89f19b6928aafe8fdd51e2e764b6c8fb17a24bf90243f6d3bb84f42"
+    },
+    {
+      "path": "LICENSE",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/LICENSE",
+      "bytes": 6555,
+      "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673"
+    },
+    {
+      "path": "docs/extract_game.md",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/docs/extract_game.md",
+      "bytes": 1753,
+      "sha256": "59b62cd9252d25ac3201c13b0602d3b8c5105807564fa8dfc6e32975b51b0b4d"
+    },
+    {
+      "path": "src/static/jaudio_NES/game/game64.c_inc",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/static/jaudio_NES/game/game64.c_inc",
+      "bytes": 124593,
+      "sha256": "65dbe25f27ecbc9b2c75c6696426948cee4bfbb14ba69acc31b0cd1b28d727ea"
+    },
+    {
+      "path": "src/game/m_player_sound.c_inc",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_sound.c_inc",
+      "bytes": 9734,
+      "sha256": "a73dc62cb3363671ce3458ec220e2bd25019e3823bdbd43334f52b6ed2049d07"
+    },
+    {
+      "path": "src/game/m_player_main_dash.c_inc",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_player_main_dash.c_inc",
+      "bytes": 8545,
+      "sha256": "4ec37c84f9a2ce8bafb709357a00bb411bcc83181048110ded0b7cb3938644ae"
+    },
+    {
+      "path": "src/game/m_actor.c",
+      "url": "https://raw.githubusercontent.com/ACreTeam/ac-decomp/09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c/src/game/m_actor.c",
+      "bytes": 31817,
+      "sha256": "ee203db5d96e135b05e50c1e2de47e0d94a37ce0efa82d8e62b2eaf1babbaa65"
+    }
+  ],
+  "license_context": "Repository license is CC0 1.0 for contributors\u2019 rights; README excludes game assets. No Nintendo masks or vertices are included or decoded. No artwork license is inferred from repository license.",
+  "cost_usd": 0,
+  "downloaded_rom": false
+}

@@ -1,0 +1,20 @@
+[2026-09-30 23:07:41] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Corot&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1504341 24.089 Banks of a River Dominated in the Distance by Hills Jean-Baptiste-Camille Corot
+[2026-09-30 23:07:42] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Courbet&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1539216 43.571 Jura Landscape (Paysage de Jura) Gustave Courbet
+[2026-09-30 23:07:42] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Rodin&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1558021 23.005 The Hand of God Auguste Rodin
+1197276 66.057 Study for the Monument to Balzac Auguste Rodin
+[2026-09-30 23:07:43] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lion&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1410181 34.652 Panel with Striding Lion Unknown Maker, Neo-Babylonian
+1184021 58.172.12 Chatelaine Gorham Manufacturing Company
+1344236 2014.33 Coffeepot Paul de Lamerie
+1597836 58.095ab Martelé Writing Table and Chair Gorham Manufacturing Company
+1211706 2016.124 Cake Basket Peter Archambo I
+1426876 1994.067 Furniture attachment in the form of a lion Unknown Maker, Greek
+1637181 13.1565 Finger ring with lion Unknown Maker, Roman
+1343996 20.058 Bracelet with lion&#039;s head terminals Unknown Maker, Greek
+1530421 2003.106 Lion&#039;s-head handle Unknown Maker, Roman
+1196121 14.039 Lion&#039;s-head waterspout Unknown Maker, Roman
+1295326 1988.003 Relief Fragment of a lion&#039;s head Unknown Maker, Etruscan
+1371251 1991.070 Toast Rack Christopher Dresser

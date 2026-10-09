@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "sconce-right-001",
+      "prompt": "sconce-right-prompt.txt",
+      "promptSha256": "a83eeaf4f905c318bb38b597050aea79827c75d62ff083e7ad270baeb2dbb919",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/sconce-right-selected-0.png",
+          "sha256": "72519b7cacefaaadd87a8918768ec0deeb13916affa55b2cf1d7b04cba994289"
+        }
+      ]
+    }
+  ]
+}

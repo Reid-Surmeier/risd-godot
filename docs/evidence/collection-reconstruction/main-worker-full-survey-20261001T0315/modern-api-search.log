@@ -1,0 +1,10 @@
+[2026-09-30 23:10:54] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lipchitz&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+[2026-09-30 23:10:55] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Braque&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1552326 48.248 Still Life Georges Braque
+[2026-09-30 23:10:55] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Juan+Gris&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+[2026-09-30 23:10:55] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=C%C3%A9zanne&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+1535181 41.012 Still Life with Apples Paul Cézanne
+1538666 43.255 On the Banks of a River (Au Bord d&#039;une Rivière) Paul Cézanne
+1538636 33.053 Chestnut Trees and Farm at Jas de Bouffan Paul Cézanne
+[2026-09-30 23:10:55] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=L%C3%A9ger&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)
+[2026-09-30 23:10:56] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Derain&field_on_view=1&items_per_page=25&page=0> (referer: https://www.google.com/)

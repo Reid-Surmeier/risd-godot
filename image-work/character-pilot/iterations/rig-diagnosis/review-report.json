@@ -1,0 +1,142 @@
+{
+  "source": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/rigid-head.glb",
+  "source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487",
+  "blender": "4.3.2",
+  "fps": 30,
+  "native_render_only": true,
+  "source_changed": false,
+  "views": [
+    {
+      "image": "review-walk-0-front.png",
+      "frame": 0,
+      "pose": "POSE",
+      "camera_offset": [
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-0-profile.png",
+      "frame": 0,
+      "pose": "POSE",
+      "camera_offset": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-8-front.png",
+      "frame": 8,
+      "pose": "POSE",
+      "camera_offset": [
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-8-profile.png",
+      "frame": 8,
+      "pose": "POSE",
+      "camera_offset": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-16-front.png",
+      "frame": 16,
+      "pose": "POSE",
+      "camera_offset": [
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-16-profile.png",
+      "frame": 16,
+      "pose": "POSE",
+      "camera_offset": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-24-front.png",
+      "frame": 24,
+      "pose": "POSE",
+      "camera_offset": [
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "image": "review-walk-24-profile.png",
+      "frame": 24,
+      "pose": "POSE",
+      "camera_offset": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "image": "review-rest-front.png",
+      "frame": null,
+      "pose": "REST",
+      "camera_offset": [
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "image": "review-rest-side.png",
+      "frame": null,
+      "pose": "REST",
+      "camera_offset": [
+        3,
+        0,
+        0
+      ]
+    },
+    {
+      "image": "review-rest-back.png",
+      "frame": null,
+      "pose": "REST",
+      "camera_offset": [
+        0,
+        3,
+        0
+      ]
+    }
+  ],
+  "cost_usd": 0,
+  "visual_review": {
+    "head_threshold_world_z_m": 1.05,
+    "inspected_images": [
+      "review-walk-0-front.png",
+      "review-walk-0-profile.png",
+      "review-walk-8-front.png",
+      "review-walk-8-profile.png",
+      "review-walk-16-front.png",
+      "review-walk-16-profile.png",
+      "review-walk-24-front.png",
+      "review-walk-24-profile.png",
+      "review-rest-front.png",
+      "review-rest-side.png",
+      "review-rest-back.png"
+    ],
+    "collar_open_gap_or_tear_observed": false,
+    "head_cap_horn_silhouette": "Consistent in the sampled front and profile poses.",
+    "remaining_shape_artifact": "Profile frame 24 has a harder diagonal lower-jaw/neck crease below the rigid region. Rest geometry is faceted around the jaw; these renders do not establish a smooth collar throughout continuous motion.",
+    "compare_threshold_1_10": "Not rendered: the requested trigger of a visible collar tear was not observed. A higher threshold would leave more lower-head vertices under mixed skinning and does not follow from this result.",
+    "acceptance_limit": "Four sampled walk poses and three rest views only. Foot contact, full-cycle motion, identity fidelity, and runtime acceptance remain separate checks."
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Before: generic planted gait"
+    },
+    {
+      "source": "video-match/authored-fast-v2/footplant-candidate.glb",
+      "label": "Source curves: DASH1 cadence trial"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 4,
+  "effects": true,
+  "controller_speed_m_s": 1.05,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.2,
+      "foot": "Right"
+    }
+  ]
+}

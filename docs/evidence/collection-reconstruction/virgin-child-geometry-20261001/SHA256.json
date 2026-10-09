@@ -1,0 +1,22 @@
+{
+  "REVIEW.md": "5e9b1898224f80a17ca0e211dcbb3c77e5804c336c51e16b06bbc5cc634cb1d9",
+  "check.gd": "6928ca8fd9ed57a820dcc59d03af1be1bd019f3a3ac97803840819b8cd9c4072",
+  "checks.json": "d9f81637e15f38f4f7b5a4575f8d527e79b2f3d5901141dab3f6fd948cab1047",
+  "failed-projection-checks.json": "7d0eaf3895596c2e259bfdb7d4e6d83f82d29d95a0921137dd9e9a20f6158c2e",
+  "failed-projection-front.png": "f4b6127a0de341261daff89d9c08eedd0b7e6c130c264b64c6fbe0eda4a21617",
+  "failed-projection-left.png": "9b7d60c53f3aca9cb57797cb93e04b8553fa5692df0c59f1d582f51c62efb91a",
+  "failed-projection-native.log": "0cf08c378f1a9db32065cab2bdfdee1729071d8663118281429a6c6dbde8255d",
+  "failed-projection-oblique.png": "58fcd50e6202a76a0cc2c483990f6e654f1cf2fcdd3ba54f98256572bee7579f",
+  "failed-projection-rear.png": "a05dfa47b415c7b26af6b129f274f6fb138c35ef70e3e6301f17703f17693e11",
+  "failed-projection-right.png": "0bcfba8f8d3e5e108beaa2127574bece2a3352ad7e469ccb35587905954dd160",
+  "failed_projection.gd": "10b6f3d9499cdcacea0d836331c44584ff329b9b2ccd6838f6487c609effe152",
+  "front.png": "68de3dd41ebed83144b5dfd7be9cde64459d0378597a58e69e6374767620d86b",
+  "left.png": "cf245fa37de71e71299cdd44b0366107732965dfd04564b1dcba05107bdbfda1",
+  "native.log": "6a304bfed243d942fc1e8340d814db97e02c57e9998c44c2b7891222a2a47e47",
+  "oblique.png": "97c3cad3e837d7decbde7b462333c7e934d47656052f685806877b41d825161c",
+  "project.godot": "9aec671c3d11e3967a9042b418503268a1011bb8fc19f73565cf5b4e63777a7f",
+  "rear.png": "6128f75ebbff1033399a4ccab646167c3033a06f1fdf68b7f9a69539a38db100",
+  "right.png": "b62aa490bf6e8087f9129e08d175be0ef3a4fb82a50fffb392c9c2be7115504a",
+  "seated_woman_asset.gd": "7b17a507fe6c68d7d6dd834a3669d1888f4fe2f587304d1e6f269ec4ce010fa7",
+  "virgin_child_asset.gd": "f14b9d8cde8f13dc186814e92d20faacee8e5bc904b05fb9810e158e2e0239b8"
+}

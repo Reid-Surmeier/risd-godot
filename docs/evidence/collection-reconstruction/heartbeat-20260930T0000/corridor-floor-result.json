@@ -1,0 +1,206 @@
+{
+  "labels": [
+    "purple-return-toe",
+    "elevator-front-toe"
+  ],
+  "annotations": {
+    "IMG_6380_exit6fps/000009.jpg": [
+      [
+        232,
+        720
+      ],
+      [
+        363,
+        832
+      ]
+    ],
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        532,
+        780
+      ],
+      [
+        703,
+        980
+      ]
+    ],
+    "IMG_6380/000238.jpg": [
+      [
+        608,
+        709
+      ],
+      [
+        663,
+        823
+      ]
+    ],
+    "IMG_6380/000241.jpg": [
+      [
+        275,
+        725
+      ],
+      [
+        394,
+        849
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380_exit6fps/000009.jpg",
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380/000238.jpg"
+  ],
+  "reserved": "IMG_6380/000241.jpg",
+  "source_sha256": {
+    "points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "image_sha256": {
+    "IMG_6380_exit6fps/000009.jpg": "2ce45c8db1a58bf677f5aae7c63b1f8d503ee7f3b72d07dcd098215482a7850b",
+    "IMG_6380_exit6fps/000013.jpg": "56c308f8015aab6eea50e3d2ecbd324c0a8c7822b5326b5bcaf50c895ac37c7e",
+    "IMG_6380/000238.jpg": "21d8404473bf5cfb5250a670299914c9e0cbb1b2f06a6363315ddb41ab18a60f",
+    "IMG_6380/000241.jpg": "2d039260c880c98516b9f4831f265fd93bff38d67da90e35f16806ee6c5cf751"
+  },
+  "points_world": [
+    [
+      0.4327049555158755,
+      2.5160017409307085,
+      1.68928566296336
+    ],
+    [
+      0.35006030764969254,
+      2.4128857827857533,
+      2.1436632121596393
+    ]
+  ],
+  "maximum_ray_angle_degrees": [
+    15.813868263135268,
+    24.566389311368507
+  ],
+  "reprojection_errors_px": {
+    "IMG_6380_exit6fps/000009.jpg": [
+      2.9680842180042126,
+      2.336597118683173
+    ],
+    "IMG_6380_exit6fps/000013.jpg": [
+      2.832466669319707,
+      1.7555791278827675
+    ],
+    "IMG_6380/000238.jpg": [
+      2.4614702988609345,
+      1.2085655280845133
+    ],
+    "IMG_6380/000241.jpg": [
+      4.806331999011903,
+      0.5250412197633793
+    ]
+  },
+  "landmark_diagnostic_pass": true,
+  "support_world": [
+    [
+      0.44497124342518085,
+      1.6647619217900567,
+      1.4406824200456316
+    ],
+    [
+      0.4327049555158755,
+      2.5160017409307085,
+      1.68928566296336
+    ],
+    [
+      0.35006030764969254,
+      2.4128857827857533,
+      2.1436632121596393
+    ]
+  ],
+  "center_world": [
+    0.40924550219691636,
+    2.197883148502173,
+    1.7578770983895435
+  ],
+  "normal_world": [
+    -0.984626365584207,
+    0.03574524077740546,
+    -0.17097718549034807
+  ],
+  "support_triangle_area_m2": 1.4449360279926038,
+  "plane_spread_singular_values_m": [
+    2.02168948072351,
+    0.8252842117225324,
+    2.2675124284367707e-16
+  ],
+  "threshold_signed_distances_m": {
+    "inner-left": 0.008339708478496714,
+    "inner-right": -0.014373427607520292,
+    "outer-left": 8.210112174363315e-17,
+    "outer-right": 0.04312153928574886,
+    "knot": -0.041859439349513056
+  },
+  "far_floor_angle_degrees": 2.373829703735902,
+  "floor_relative_to_aperture_toes_m": [
+    -0.010835755128759776,
+    -0.009317520663187568
+  ],
+  "provisional_m_per_unit": 2.6266704457139363,
+  "sensitivity": [
+    {
+      "pixel_uniform_radius": 3,
+      "samples": 300,
+      "columns": [
+        "normal_deviation_degrees",
+        "excluded_right_outer_toe_distance_m"
+      ],
+      "percentiles": [
+        5,
+        50,
+        95
+      ],
+      "values": [
+        [
+          0.36004325861618014,
+          0.008281564002712133
+        ],
+        [
+          1.2586096364883395,
+          0.0406121790152759
+        ],
+        [
+          2.5804469903343126,
+          0.07459175747181486
+        ]
+      ]
+    },
+    {
+      "pixel_uniform_radius": 6,
+      "samples": 300,
+      "columns": [
+        "normal_deviation_degrees",
+        "excluded_right_outer_toe_distance_m"
+      ],
+      "percentiles": [
+        5,
+        50,
+        95
+      ],
+      "values": [
+        [
+          0.7596579177523164,
+          0.00428179723645833
+        ],
+        [
+          2.66394167344914,
+          0.04048146611951059
+        ],
+        [
+          5.29020682274225,
+          0.094829748053213
+        ]
+      ]
+    }
+  ],
+  "navigation_accepted": false,
+  "caveat": "Manual landmarks held out of triangulation only; reserved camera already in SfM. Source blur limits toe picks. Three-point plane has zero fit residual by construction. Existing threshold anchor reused, but all other threshold points excluded. Sensitivity omits pose and scale errors. Only the observed triangle is supported, not a whole corridor or surveyed level floor."
+}

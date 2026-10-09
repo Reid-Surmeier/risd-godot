@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-9efbc6027075708cc1e8",
+  "summary": "Reference 1 is the official RISD Museum photograph of St. George and the Dragon, accession 2017.74.14. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-9efbc6027075708cc1e8",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/st-george-catalogue.png",
+      "sha256": "a8a5ba97db95e7f72e1808b84da086c62e9f7d0f56e0fa9c576221ad34644434",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "st-george-recipe.json",
+      "sha256": "9efbc6027075708cc1e80d1358b26aadd0d906c6a10642e95bbb27a29bd41bff"
+    },
+    {
+      "applicationPath": "st-george-plan.json",
+      "sha256": "51420988f52a7124103f339e87c5b2cf0701efbbe93edadbb791fc4fc62f3106"
+    },
+    {
+      "applicationPath": "st-george-prompt.txt",
+      "sha256": "c0a85b8e295b88fa28d4a9be54ae2dbd44f37bb37af9379f9036bf0277530d09"
+    }
+  ]
+}

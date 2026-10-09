@@ -1,0 +1,58 @@
+[
+  {
+    "image": "IMG_6384/000206.jpg",
+    "pose_fit_features": 121,
+    "patches": [
+      {
+        "patch": "near",
+        "observations": 0,
+        "unique_points": 0,
+        "point_ids": [],
+        "errors_px": []
+      },
+      {
+        "patch": "far",
+        "observations": 0,
+        "unique_points": 0,
+        "point_ids": [],
+        "errors_px": []
+      }
+    ],
+    "pose_supported": true,
+    "pose_inliers": 72,
+    "pose_test_features": 110,
+    "pose_test_below4px": 77,
+    "cam_from_world": [
+      [
+        0.9729682613737001,
+        -0.19028091215918896,
+        0.1308661026672158,
+        0.1017518124317506
+      ],
+      [
+        0.10759296606077412,
+        -0.12791851076143312,
+        -0.9859313405399092,
+        0.45748664750833645
+      ],
+      [
+        0.2043441117666089,
+        0.9733601743817363,
+        -0.10398776328910797,
+        -0.6791844244203391
+      ]
+    ],
+    "camera": {
+      "model": "SIMPLE_RADIAL",
+      "width": 1280,
+      "height": 720,
+      "params": [
+        594.3251305595769,
+        640.0,
+        360.0,
+        0.002137679000087821
+      ]
+    },
+    "status": "diagnostic only; report all floor matches without outlier trimming"
+  }
+]

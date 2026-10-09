@@ -1,0 +1,62 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-literals-pictures-01a0f2f0/",
+  "images": [
+    {
+      "file": "tab-0.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-1.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-2.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-3.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-4.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-5.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "tab-6.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "viewer-2-preview.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "gallery-portal.png",
+      "width": 1080,
+      "height": 1080
+    },
+    {
+      "file": "fit-1080x1920.png",
+      "width": 1080,
+      "height": 1920
+    }
+  ],
+  "video": {
+    "ready": 4,
+    "duration": 6.867,
+    "width": 1080,
+    "height": 1080
+  },
+  "currentTime": 0.603596
+}

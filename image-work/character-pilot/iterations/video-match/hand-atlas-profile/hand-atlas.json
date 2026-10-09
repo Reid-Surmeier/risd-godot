@@ -1,0 +1,9 @@
+{
+  "source_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a",
+  "output_sha256": "61a76e1d580c23a2b3c357ca544051a55c26bf8ae00d0fc332431f7329c45517",
+  "uv_coordinates_unchanged": true,
+  "gutter_pixels": 16,
+  "source_hand_texels": 7554,
+  "use": "separate hand-only shader sampler; body/head still use original shared atlas",
+  "cost_usd": 0
+}

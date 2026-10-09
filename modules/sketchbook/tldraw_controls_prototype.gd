@@ -5,9 +5,15 @@ extends PanelContainer
 
 const OPACITIES := [0.1, 0.25, 0.5, 0.75, 1.0]
 const SIZES := {"S": 2.5, "M": 4.5, "L": 8.0, "XL": 13.0}
-const BUTTON_NORMAL := preload("res://modules/sketchbook/assets/tldraw-controls/button-normal-muse.png")
-const BUTTON_HOVER := preload("res://modules/sketchbook/assets/tldraw-controls/button-hover-muse.png")
-const BUTTON_SELECTED := preload("res://modules/sketchbook/assets/tldraw-controls/button-selected-muse.png")
+const BUTTON_NORMAL := preload(
+	"res://modules/sketchbook/assets/tldraw-controls/button-normal-muse.png"
+)
+const BUTTON_HOVER := preload(
+	"res://modules/sketchbook/assets/tldraw-controls/button-hover-muse.png"
+)
+const BUTTON_SELECTED := preload(
+	"res://modules/sketchbook/assets/tldraw-controls/button-selected-muse.png"
+)
 const TITLEBAR := preload("res://modules/sketchbook/assets/tldraw-controls/titlebar-muse.png")
 
 var surface: Control
@@ -19,8 +25,10 @@ var selected_tool := "draw"
 var selected_size := "M"
 var selected_opacity := 4
 
+
 func configure(next_surface: Control) -> void:
 	surface = next_surface
+
 
 func _ready() -> void:
 	name = "tldraw-controls-prototype"
@@ -74,6 +82,7 @@ func _ready() -> void:
 	_apply_style()
 	_sync()
 
+
 func _button(text: String, hint: String) -> Button:
 	var button := Button.new()
 	button.text = text
@@ -91,6 +100,7 @@ func _button(text: String, hint: String) -> Button:
 	button.add_theme_stylebox_override("disabled", _muse_button(BUTTON_NORMAL))
 	return button
 
+
 func _choice(label: String, kind: String, value: Variant) -> Button:
 	var button := _button(label, label)
 	button.toggle_mode = true
@@ -101,24 +111,29 @@ func _choice(label: String, kind: String, value: Variant) -> Button:
 	choice_buttons.append(button)
 	return button
 
+
 func _apply_style() -> void:
 	selected_tool = "draw"
 	surface.set_tool(selected_tool)
 	surface.set_pen_style(SIZES[selected_size], OPACITIES[selected_opacity])
 	_sync()
 
+
 func _select_tool(next: String) -> void:
 	selected_tool = next
 	surface.set_tool(next)
 	_sync()
 
+
 func _select_size(next: String) -> void:
 	selected_size = next
 	_apply_style()
 
+
 func _select_opacity(next: int) -> void:
 	selected_opacity = next
 	_apply_style()
+
 
 func _sync() -> void:
 	if surface == null:
@@ -126,15 +141,19 @@ func _sync() -> void:
 	undo_button.disabled = not surface.can_undo()
 	redo_button.disabled = not surface.can_redo()
 	for button in choice_buttons:
-		var selected: bool = (button.get_meta("kind") == "tool" and button.get_meta("value") == selected_tool
+		var selected: bool = (
+			button.get_meta("kind") == "tool" and button.get_meta("value") == selected_tool
 			or button.get_meta("kind") == "size" and button.get_meta("value") == selected_size
-			or button.get_meta("kind") == "opacity" and button.get_meta("value") == selected_opacity)
+			or button.get_meta("kind") == "opacity" and button.get_meta("value") == selected_opacity
+		)
 		button.text = ("%s %s" % ["(*)" if selected else "( )", button.get_meta("label")])
 		button.button_pressed = selected
+
 
 func _exit_tree() -> void:
 	if surface != null and surface.strokes_changed.is_connected(_sync):
 		surface.strokes_changed.disconnect(_sync)
+
 
 func _style() -> StyleBoxFlat:
 	var style := StyleBoxFlat.new()
@@ -148,6 +167,7 @@ func _style() -> StyleBoxFlat:
 	style.content_margin_bottom = 7
 	return style
 
+
 func qa_state() -> Dictionary:
 	return {
 		"tool": selected_tool,
@@ -157,6 +177,7 @@ func qa_state() -> Dictionary:
 		"undo_enabled": not undo_button.disabled,
 		"redo_enabled": not redo_button.disabled,
 	}
+
 
 func _muse_button(texture: Texture2D) -> StyleBoxTexture:
 	var style := StyleBoxTexture.new()

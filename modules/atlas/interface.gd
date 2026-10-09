@@ -24,7 +24,7 @@ class_name AtlasInterface
 extends RefCounted
 
 const Errors := preload("res://modules/atlas/errors.gd")
-const _Impl := preload("res://modules/atlas/atlas_window.gd")
+const _IMPL := preload("res://modules/atlas/atlas_window.gd")
 
 
 ## Build the Map Tenant. `deps` is what the Shell passes, { "key": String }; the key is recorded.
@@ -32,19 +32,21 @@ const _Impl := preload("res://modules/atlas/atlas_window.gd")
 ## err(ASSET_MISSING, path). A missing pixel sheet, font or shader is reported by load() as it is
 ## reached.
 static func create(deps: Dictionary) -> Dictionary:
-	return _Impl.create(deps)
+	return _IMPL.create(deps)
 
 
 ## The harness probe, in the Tenant's own pixels unless said otherwise:
-## ok({ key, ticks, inputs, size: Vector2, frame: Rect2, frame_global: Rect2 (global), map_rect: Rect2 (global),
+## ok({ key, ticks, inputs, size: Vector2, frame: Rect2, frame_global: Rect2
+## (global), map_rect: Rect2 (global),
 ##      chrome_scale, locked, collapsed, action: "" | "drag" | "resize", viewport_update_mode,
 ##      panels: { minimap | itinerary | chat | notification: Rect2 }, stack: [String] (child order,
 ##      bottom to top: the four panel names and "map"), moving_window: "" | String,
-##      mode: "atlas" | "sheet", region, zoom, zoom_ratio, zoom_min, zoom_max, position: [x, y] (world),
-##      viewport: [w, h] (the SubViewport), vertical_pan_locked, visible_cities, visible_close_cities,
+## mode: "atlas" | "sheet", region, zoom, zoom_ratio, zoom_min, zoom_max, position: [x, y] (world),
+## viewport: [w, h] (the SubViewport), vertical_pan_locked, visible_cities, visible_close_cities,
 ##      visible_labels, visible_annotations, terrain_tiles, shown_cities,
 ##      controls: { name: [x, y, w, h] }, popup: { visible, position, size } }).
-## `controls` and `popup` are in the SubViewport's own global pixels (the map's HUD), not the Page's;
+## `controls` and `popup` are in the SubViewport's own global pixels
+## (the map's HUD), not the Page's;
 ## `panels` are in the Tenant's own pixels like `frame`.
 ## `ticks` counts the window's _process frames and `inputs` its _input events: both stand still
 ## while the Page is frozen.

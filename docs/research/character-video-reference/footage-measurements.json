@@ -1,0 +1,267 @@
+{
+  "source_page": "https://www.nintendo.com/en-gb/Games/Nintendo-GameCube/Animal-Crossing-267719.html",
+  "source_video": "https://assets.nintendo.eu/video/private/kg4o3bbt6kagrl1gscnf.mp4",
+  "video_sha256": "8cb2a0685a2126b4c0c3cc002b6a0e3ccae7ff0252e990c5519618a4d2d798b4",
+  "video_duration_seconds": 33.04,
+  "video_frame_rate": 25,
+  "video_size": [
+    350,
+    262
+  ],
+  "game_version": "Animal Crossing for Nintendo GameCube, official European product-page trailer; actual executable region/revision unverified",
+  "exact_star_hat_identity_match": false,
+  "observation_method": "manual review of actual25fps frames; projected2D only; registration by nose and silhouette height; no tracking fit claimed",
+  "locomotion_state": "unverified; observed0.4s likely faster than WALK1 under conditional60Hz source model",
+  "cadence_observations": [
+    {
+      "segment_seconds": [
+        25.16,
+        25.84
+      ],
+      "same_image_left_shoe_pose_times": [
+        25.36,
+        25.76
+      ],
+      "opposite_shoe_pose_time": 25.56,
+      "full_cycle_estimate_seconds": 0.4,
+      "conservative_full_cycle_range_seconds": [
+        0.32,
+        0.48
+      ],
+      "contact_times": null,
+      "contact_unknown_reason": "occluded ankle/sole and moving camera; pose recurrence is not physical contact"
+    },
+    {
+      "segment_seconds": [
+        20.16,
+        21.6
+      ],
+      "new_dust_puff_times_estimate_seconds": [
+        20.32,
+        20.48,
+        20.64,
+        20.84,
+        21.0,
+        21.16,
+        21.32,
+        21.48
+      ],
+      "timestamp_uncertainty_seconds": 0.04,
+      "full_cycle_range_seconds": [
+        0.32,
+        0.4
+      ],
+      "contact_times": null,
+      "contact_unknown_reason": "dust appearance event proxy, compression/previous puff persistence"
+    }
+  ],
+  "landmark_samples": [
+    {
+      "time_seconds": 25.36,
+      "native_frame_index": 634,
+      "image": "nintendo-trailer-25.36.png",
+      "silhouette_bbox_xyxy_px": [
+        80,
+        118,
+        121,
+        169
+      ],
+      "projected_height_px": 51,
+      "landmarks_original_pixels": {
+        "cap_crown": [
+          100,
+          122
+        ],
+        "nose": [
+          101,
+          148
+        ],
+        "image_left_shoe": [
+          98,
+          164
+        ],
+        "image_right_shoe": null,
+        "image_left_wrist": null,
+        "image_right_wrist": [
+          116,
+          155
+        ]
+      },
+      "normalized_origin_px": [
+        101,
+        169
+      ],
+      "normalized_coordinates": {
+        "cap_crown": [
+          -0.0196,
+          0.9216
+        ],
+        "nose": [
+          0.0,
+          0.4118
+        ],
+        "image_left_shoe": [
+          -0.0588,
+          0.098
+        ],
+        "image_right_shoe": null,
+        "image_left_wrist": null,
+        "image_right_wrist": [
+          0.2941,
+          0.2745
+        ]
+      },
+      "uncertainty_px": {
+        "cap_crown": 2,
+        "nose": 2,
+        "shoe": 2,
+        "wrist": 3
+      },
+      "notes": "Image-left/right are screen sides, not established anatomical identity. Shoe is visible blue-region centroid, not ankle or sole contact. Wrist uncertain skin/arm endpoint; null means occluded. Bbox includes horns."
+    },
+    {
+      "time_seconds": 25.56,
+      "native_frame_index": 639,
+      "image": "nintendo-trailer-25.56.png",
+      "silhouette_bbox_xyxy_px": [
+        82,
+        122,
+        122,
+        175
+      ],
+      "projected_height_px": 53,
+      "landmarks_original_pixels": {
+        "cap_crown": [
+          103,
+          125
+        ],
+        "nose": [
+          106,
+          148
+        ],
+        "image_left_shoe": null,
+        "image_right_shoe": [
+          112,
+          171
+        ],
+        "image_left_wrist": [
+          95,
+          157
+        ],
+        "image_right_wrist": null
+      },
+      "normalized_origin_px": [
+        106,
+        175
+      ],
+      "normalized_coordinates": {
+        "cap_crown": [
+          -0.0566,
+          0.9434
+        ],
+        "nose": [
+          0.0,
+          0.5094
+        ],
+        "image_left_shoe": null,
+        "image_right_shoe": [
+          0.1132,
+          0.0755
+        ],
+        "image_left_wrist": [
+          -0.2075,
+          0.3396
+        ],
+        "image_right_wrist": null
+      },
+      "uncertainty_px": {
+        "cap_crown": 2,
+        "nose": 2,
+        "shoe": 2,
+        "wrist": 3
+      },
+      "notes": "Image-left/right are screen sides, not established anatomical identity. Shoe is visible blue-region centroid, not ankle or sole contact. Wrist uncertain skin/arm endpoint; null means occluded. Bbox includes horns."
+    },
+    {
+      "time_seconds": 25.76,
+      "native_frame_index": 644,
+      "image": "nintendo-trailer-25.76.png",
+      "silhouette_bbox_xyxy_px": [
+        81,
+        124,
+        124,
+        176
+      ],
+      "projected_height_px": 52,
+      "landmarks_original_pixels": {
+        "cap_crown": [
+          103,
+          129
+        ],
+        "nose": [
+          106,
+          151
+        ],
+        "image_left_shoe": [
+          102,
+          171
+        ],
+        "image_right_shoe": null,
+        "image_left_wrist": null,
+        "image_right_wrist": [
+          119,
+          159
+        ]
+      },
+      "normalized_origin_px": [
+        106,
+        176
+      ],
+      "normalized_coordinates": {
+        "cap_crown": [
+          -0.0577,
+          0.9038
+        ],
+        "nose": [
+          0.0,
+          0.4808
+        ],
+        "image_left_shoe": [
+          -0.0769,
+          0.0962
+        ],
+        "image_right_shoe": null,
+        "image_left_wrist": null,
+        "image_right_wrist": [
+          0.25,
+          0.3269
+        ]
+      },
+      "uncertainty_px": {
+        "cap_crown": 2,
+        "nose": 2,
+        "shoe": 2,
+        "wrist": 3
+      },
+      "notes": "Image-left/right are screen sides, not established anatomical identity. Shoe is visible blue-region centroid, not ankle or sole contact. Wrist uncertain skin/arm endpoint; null means occluded. Bbox includes horns."
+    }
+  ],
+  "source_inferred_contacts": {
+    "normalized_cycle_phases": {
+      "Left": 0,
+      "Right": 0.5
+    },
+    "if_trial_period_seconds_is_0_4": [
+      {
+        "time": 0,
+        "foot": "Left"
+      },
+      {
+        "time": 0.2,
+        "foot": "Right"
+      }
+    ],
+    "status": "source effect scheduling, phase origin at authored frame1, not measured trailer contact"
+  },
+  "suggested_comparison": "0.40s fast-locomotion trial;0.65\u20130.8s WALK1 timing trial based on conditional normal60Hz update model, no verified trailer state"
+}

@@ -1,0 +1,75 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-83729abae9ecfbc7ae5c",
+      "objective": "Create ONE seamless tile of the real smooth warm ivory-grey painted museum plaster visible in the source crop, rendered as a restrained low polygon game material in the established Main Hall style. Flat orthographic albedo only, uniformly lit, subtle large planar tonal patches and tiny plaster grain. Match the observed light warm grey, no stones, no bricks, no cracks, no seams, no objects, no trim, no labels, no gradient, no border. Texture fills every pixel and wraps in both axes. No photograph pixels in the result.\n",
+      "procedureId": "muse-83729abae9ecfbc7ae5c",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "ivory-plaster-recipe.json",
+          "sha256": "83729abae9ecfbc7ae5c833ebcaeaceff35871897b6664a9e444ad2d173825c5"
+        },
+        {
+          "applicationPath": "ivory-plaster-plan.json",
+          "sha256": "eb372bb3c1c904eaa9c4becc9229741c3d29217ed5bf709761f5cfb1f5780bc7"
+        },
+        {
+          "applicationPath": "ivory-plaster-prompt.txt",
+          "sha256": "58ed061a6546928b8dbc2dad00bd379ae836fbee5407cb2f3933e589e9008dde"
+        }
+      ],
+      "museParameters": {
+        "size": "1760x1440"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "architecture-references/ivory-plaster-source.png",
+          "sha256": "0e2fba7e961c923009e51591f63d580ba238b76bdea6a1ce4f16cc16c1aede25",
+          "byteLength": 150053,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 230,
+            "height": 800
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1760x1440\"},\"objective\":\"Create ONE seamless tile of the real smooth warm ivory-grey painted museum plaster visible in the source crop, rendered as a restrained low polygon game material in the established Main Hall style. Flat orthographic albedo only, uniformly lit, subtle large planar tonal patches and tiny plaster grain. Match the observed light warm grey, no stones, no bricks, no cracks, no seams, no objects, no trim, no labels, no gradient, no border. Texture fills every pixel and wraps in both axes. No photograph pixels in the result.\\n\",\"objectiveId\":\"muse-83729abae9ecfbc7ae5c\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-83729abae9ecfbc7ae5c\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"architecture-references/ivory-plaster-source.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":150053,\"inspectedMedia\":{\"height\":800,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":230},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"0e2fba7e961c923009e51591f63d580ba238b76bdea6a1ce4f16cc16c1aede25\",\"slot\":\"reference-000\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"ivory-plaster-recipe.json\",\"sha256\":\"83729abae9ecfbc7ae5c833ebcaeaceff35871897b6664a9e444ad2d173825c5\"},{\"applicationPath\":\"ivory-plaster-plan.json\",\"sha256\":\"eb372bb3c1c904eaa9c4becc9229741c3d29217ed5bf709761f5cfb1f5780bc7\"},{\"applicationPath\":\"ivory-plaster-prompt.txt\",\"sha256\":\"58ed061a6546928b8dbc2dad00bd379ae836fbee5407cb2f3933e589e9008dde\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "10a73452865078589c766e67659435e0553e1f175d8dd128fe790bd24582e036"
+  },
+  "normalView": {
+    "objective": "Create ONE seamless tile of the real smooth warm ivory-grey painted museum plaster visible in the source crop, rendered as a restrained low polygon game material in the established Main Hall style. Flat orthographic albedo only, uniformly lit, subtle large planar tonal patches and tiny plaster grain. Match the observed light warm grey, no stones, no bricks, no cracks, no seams, no objects, no trim, no labels, no gradient, no border. Texture fills every pixel and wraps in both axes. No photograph pixels in the result.\n",
+    "evidence": "1 authoritative reference matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

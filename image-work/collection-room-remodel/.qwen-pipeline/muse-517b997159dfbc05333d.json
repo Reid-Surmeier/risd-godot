@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-517b997159dfbc05333d",
+  "summary": "The reference photographs are the sole authority for RISD Museum Dragons-in Compartments pattern dish, accession 2017.74.39.2. Produce ONE complete orthographic top view of this exact single object, decoration oriented exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-517b997159dfbc05333d",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/pink-dish-selected-0.png",
+      "sha256": "a5f6b1b8376b758e14ae6096d94c1eb8486c1ee4db8af8c58f286b300bd63c6f",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "pink-dish-recipe.json",
+      "sha256": "517b997159dfbc05333db2bf218527eb21aae3e5db5d863eb15bcf6677e1d53e"
+    },
+    {
+      "applicationPath": "pink-dish-plan.json",
+      "sha256": "cec37b285fc28d32d1f4bfb72d75c3801cf3dbb506d640fd8a09b871a528f42f"
+    },
+    {
+      "applicationPath": "pink-dish-prompt.txt",
+      "sha256": "33815864b4c6b4273a4386adde79d692eafd4c94b369f67f80928ba54e47db3a"
+    }
+  ]
+}

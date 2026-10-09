@@ -1,0 +1,1374 @@
+[
+  {
+    "image_rect": "[P: (185.5571, 101.9688), S: (821.3611, 462.0156)]",
+    "label": "source-0-window",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.6957, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 2,
+      "key": "video_player",
+      "last_action": "selected video 1",
+      "linked_video_count": 5,
+      "motion_play_count": 0,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 0.602108666666667,
+      "thumbnail_count": 8,
+      "ticks": 60,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 268.5938), S: (965.0, 542.8125)]",
+    "label": "source-0-fullscreen",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.761, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 3,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 1,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 0.683242037037037,
+      "thumbnail_count": 8,
+      "ticks": 64,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (185.5571, 101.9688), S: (821.3611, 462.0156)]",
+    "label": "source-1-window",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.8264, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 5,
+      "key": "video_player",
+      "last_action": "selected video 2",
+      "linked_video_count": 5,
+      "motion_play_count": 2,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 1,
+      "size": "(965.0, 972.0)",
+      "stream_length": 180.014666666667,
+      "stream_position": 0.611111111111111,
+      "thumbnail_count": 8,
+      "ticks": 98,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "Inside the Exhibition: Indigenous Artists Honor the Seal",
+      "video_id": "1187745268",
+      "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 268.5938), S: (965.0, 542.8125)]",
+    "label": "source-1-fullscreen",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.9135, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 6,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 3,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 1,
+      "size": "(965.0, 972.0)",
+      "stream_length": 180.014666666667,
+      "stream_position": 0.692592592592593,
+      "thumbnail_count": 8,
+      "ticks": 102,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "Inside the Exhibition: Indigenous Artists Honor the Seal",
+      "video_id": "1187745268",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (165.1493, 113.8401), S: (862.1766, 438.2731)]",
+    "label": "source-2-window",
+    "pass": true,
+    "source": "(480.0, 244.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.9788, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 8,
+      "key": "video_player",
+      "last_action": "selected video 3",
+      "linked_video_count": 5,
+      "motion_play_count": 4,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 2,
+      "size": "(965.0, 972.0)",
+      "stream_length": 145.666666666667,
+      "stream_position": 0.602700104377104,
+      "thumbnail_count": 8,
+      "ticks": 135,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "A Look Into Our Collection’s Polaroids by Andy Warhol",
+      "video_id": "1014865523",
+      "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 294.7292), S: (965.0, 490.5416)]",
+    "label": "source-2-fullscreen",
+    "pass": true,
+    "source": "(480.0, 244.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (392.1095, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 9,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 5,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 2,
+      "size": "(965.0, 972.0)",
+      "stream_length": 145.666666666667,
+      "stream_position": 0.687073195286194,
+      "thumbnail_count": 8,
+      "ticks": 139,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "A Look Into Our Collection’s Polaroids by Andy Warhol",
+      "video_id": "1014865523",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (185.5571, 101.9688), S: (821.3611, 462.0156)]",
+    "label": "source-3-window",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.761, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 11,
+      "key": "video_player",
+      "last_action": "selected video 4",
+      "linked_video_count": 5,
+      "motion_play_count": 6,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 3,
+      "size": "(965.0, 972.0)",
+      "stream_length": 197.784,
+      "stream_position": 0.604495666666666,
+      "thumbnail_count": 8,
+      "ticks": 172,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Making of Wallpaper",
+      "video_id": "1009870521",
+      "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 268.5938), S: (965.0, 542.8125)]",
+    "label": "source-3-fullscreen",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.8481, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 12,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 7,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 3,
+      "size": "(965.0, 972.0)",
+      "stream_length": 197.784,
+      "stream_position": 0.685977148148148,
+      "thumbnail_count": 8,
+      "ticks": 176,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Making of Wallpaper",
+      "video_id": "1009870521",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (249.726, 101.9688), S: (693.0234, 462.0156)]",
+    "label": "source-4-window",
+    "pass": true,
+    "source": "(480.0, 320.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.8046, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 14,
+      "key": "video_player",
+      "last_action": "selected video 5",
+      "linked_video_count": 5,
+      "motion_play_count": 8,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 4,
+      "size": "(965.0, 972.0)",
+      "stream_length": 180.014666666667,
+      "stream_position": 0.60307537037037,
+      "thumbnail_count": 8,
+      "ticks": 209,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "Short Cuts: Sháńdíín Sháńdíín on Diné Textiles",
+      "video_id": "1008943970",
+      "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 218.3333), S: (965.0, 643.3333)]",
+    "label": "source-4-fullscreen",
+    "pass": true,
+    "source": "(480.0, 320.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (391.9135, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 15,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 9,
+      "muted": false,
+      "paused": false,
+      "playing": true,
+      "saved": false,
+      "selected_video": 4,
+      "size": "(965.0, 972.0)",
+      "stream_length": 180.014666666667,
+      "stream_position": 0.686408703703704,
+      "thumbnail_count": 8,
+      "ticks": 213,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "Short Cuts: Sháńdíín Sháńdíín on Diné Textiles",
+      "video_id": "1008943970",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 268.5938), S: (965.0, 542.8125)]",
+    "label": "fullscreen-fit-1920x1080",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (412.2952, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 23,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 12,
+      "muted": false,
+      "paused": true,
+      "playing": false,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 21.2953956565657,
+      "thumbnail_count": 8,
+      "ticks": 292,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 268.5938), S: (965.0, 542.8125)]",
+    "label": "fullscreen-fit-1080x1920",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (412.2952, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 23,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 12,
+      "muted": false,
+      "paused": true,
+      "playing": false,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 21.2953956565657,
+      "thumbnail_count": 8,
+      "ticks": 297,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (115.0, 268.5938), S: (965.0, 542.8125)]",
+    "label": "fullscreen-fit-486x720",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (412.2952, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": true,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 23,
+      "key": "video_player",
+      "last_action": "fullscreen",
+      "linked_video_count": 5,
+      "motion_play_count": 12,
+      "muted": false,
+      "paused": true,
+      "playing": false,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 21.2953956565657,
+      "thumbnail_count": 8,
+      "ticks": 302,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": "[P: (115.0, 54.0), S: (965.0, 972.0)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  },
+  {
+    "image_rect": "[P: (185.5571, 101.9688), S: (821.3611, 462.0156)]",
+    "label": "window-return",
+    "pass": true,
+    "source": "(480.0, 270.0)",
+    "state": {
+      "arrangement": "stacked",
+      "controls": {
+        "fullscreen": "[P: (828.5078, 650.4546), S: (30.92725, 25.24677)]",
+        "info_title_bar": "[P: (307.7935, 598.0675), S: (579.4131, 30.29608)]",
+        "minimize": "[P: (1032.031, 74.82858), S: (20.19739, 22.09091)]",
+        "mute": "[P: (790.6376, 650.4546), S: (26.50909, 25.87793)]",
+        "play": "[P: (328.6221, 646.6675), S: (59.96103, 30.92725)]",
+        "save": "[P: (772.3337, 854.3221), S: (90.25714, 32.18964)]",
+        "seek": "[P: (391.1078, 654.2416), S: (236.0571, 19.56622)]",
+        "seek_knob": "[P: (412.2952, 654.2416), S: (18.30389, 19.56622)]",
+        "timer": "[P: (639.7883, 651.0858), S: (53.01819, 20.82855)]",
+        "title_bar": "[P: (141.5091, 69.77923), S: (883.5793, 31.55844)]",
+        "volume": "[P: (717.4221, 650.4546), S: (73.84674, 23.98444)]",
+        "volume_knob": "[P: (776.752, 650.4546), S: (14.51691, 23.98444)]"
+      },
+      "drag_intent_count": 0,
+      "dragging_viewer": false,
+      "fullscreen": false,
+      "generated_motion_controls": 9,
+      "hidden_paused": false,
+      "information": {
+        "position": "(186.4818, 541.5428)",
+        "rect": "[P: (301.4818, 595.5428), S: (592.0364, 415.3091)]"
+      },
+      "interaction_count": 24,
+      "key": "video_player",
+      "last_action": "windowed",
+      "linked_video_count": 5,
+      "motion_play_count": 13,
+      "muted": false,
+      "paused": true,
+      "playing": false,
+      "saved": false,
+      "selected_video": 0,
+      "size": "(965.0, 972.0)",
+      "stream_length": 218.605333333333,
+      "stream_position": 21.2953956565657,
+      "thumbnail_count": 8,
+      "ticks": 305,
+      "tiles": [
+        {
+          "enabled": true,
+          "index": 0,
+          "rect": "[P: (316.6299, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 1,
+          "rect": "[P: (386.6896, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 2,
+          "rect": "[P: (456.7493, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 3,
+          "rect": "[P: (526.8091, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": true,
+          "index": 4,
+          "rect": "[P: (596.8688, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 5,
+          "rect": "[P: (666.9286, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 6,
+          "rect": "[P: (736.9883, 906.7091), S: (69.42859, 69.42859)]"
+        },
+        {
+          "enabled": false,
+          "index": 7,
+          "rect": "[P: (807.048, 906.7091), S: (69.42859, 69.42859)]"
+        }
+      ],
+      "title": "The Observer",
+      "video_id": "1191767929",
+      "video_rect": "[P: (165.1493, 101.9688), S: (862.1766, 462.0156)]",
+      "viewer": {
+        "position": "(15.14805, 15.14805)",
+        "rect": "[P: (130.1481, 69.14806), S: (934.7039, 506.1974)]",
+        "scale": 0.631168831168831
+      },
+      "volume": 1.0
+    }
+  }
+]

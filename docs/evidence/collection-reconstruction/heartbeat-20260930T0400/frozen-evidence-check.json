@@ -1,0 +1,28 @@
+{
+  "model": {
+    "registered": 475,
+    "points": 43253,
+    "reprojection_px": 0.6395880835827896
+  },
+  "source_sha256": {
+    "sparse/0/points3D.bin": "0502ddc1b35534da15704c18f27477305b39dba3836c821795e6dee900993662",
+    "sparse/0/frames.bin": "bbd62b81f37081f98a25ca9f2e85fa18bd5cc914c410c561e0400cb32b4055c7",
+    "sparse/0/images.bin": "36a32112b9e116d78d1fb7250987ab971d3d013ad174d4f9a635e18c51967884",
+    "sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "holdout": {
+    "samples": 69,
+    "original_supported": 49,
+    "split_point_supported": 46,
+    "source_hashes_match": true,
+    "independent_capture": false
+  },
+  "originals": {
+    "count": 10,
+    "size_and_sha256_match": true,
+    "manifest_sha256": "7247a614317d7bcebeef0af1c88d32d8486c02675486d7bca23895c1135c5aed"
+  },
+  "paid_calls": 0,
+  "cost_usd": 0
+}

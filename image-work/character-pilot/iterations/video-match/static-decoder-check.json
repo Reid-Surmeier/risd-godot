@@ -1,0 +1,29 @@
+{
+  "axe": {
+    "source_frames_corrected_to": [
+      1,
+      2
+    ],
+    "static_matrices_unchanged": true,
+    "channels_unchanged": true,
+    "no_locomotion_cadence": true
+  },
+  "net": {
+    "source_frames_corrected_to": [
+      1,
+      2
+    ],
+    "static_matrices_unchanged": true,
+    "channels_unchanged": true,
+    "no_locomotion_cadence": true
+  },
+  "skid": {
+    "source_frames_corrected_to": [
+      1,
+      2
+    ],
+    "static_matrices_unchanged": true,
+    "channels_unchanged": true,
+    "no_locomotion_cadence": true
+  }
+}

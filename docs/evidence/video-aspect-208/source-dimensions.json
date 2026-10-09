@@ -1,0 +1,42 @@
+[
+  {
+    "file": "modules/video_player/media/1008943970.ogv",
+    "width": 480,
+    "height": 320,
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "3:2",
+    "r_frame_rate": "24/1"
+  },
+  {
+    "file": "modules/video_player/media/1009870521.ogv",
+    "width": 480,
+    "height": 270,
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "16:9",
+    "r_frame_rate": "24/1"
+  },
+  {
+    "file": "modules/video_player/media/1014865523.ogv",
+    "width": 480,
+    "height": 244,
+    "sample_aspect_ratio": "41663:41640",
+    "display_aspect_ratio": "683:347",
+    "r_frame_rate": "24/1"
+  },
+  {
+    "file": "modules/video_player/media/1187745268.ogv",
+    "width": 480,
+    "height": 270,
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "16:9",
+    "r_frame_rate": "24/1"
+  },
+  {
+    "file": "modules/video_player/media/1191767929.ogv",
+    "width": 480,
+    "height": 270,
+    "sample_aspect_ratio": "1:1",
+    "display_aspect_ratio": "16:9",
+    "r_frame_rate": "24/1"
+  }
+]

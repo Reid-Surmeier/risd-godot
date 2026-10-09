@@ -3,6 +3,7 @@ class_name PlaygroundPageErrors
 extends RefCounted
 
 const INVALID_DEPENDENCY := "playground_page.invalid_dependency"
+const PAGE_UNKNOWN := "playground_page.page_unknown"
 
 ## A pixel file the desktop loads (a window picture under assets/, PROVENANCE.md) is not in the
 ## project (detail: its path).

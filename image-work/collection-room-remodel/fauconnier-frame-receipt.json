@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/fauconnier-frame-video-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/fauconnier-frame-video-1.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-8064d5d53520fe1718913a50/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "16ec2f626c9883dbe23167d3d6a8ac1810e9f9421c511a84660baa37a434ee22"
+    }
+  ],
+  "changesRequested": "Create one complete orthographic FRONT view of only the original frame surrounding RISD Le Fauconnier Mountaineers Attacked by Bears1995.043 in references1 and2. Reference1 shows its complete oblique placement; reference2 shows its thin lower rail and upper rail closely. Keep a very narrow plain dark brown wood rectangular outer rail and a thin muted gold/cream inner lip, flat linear rails, straight mitred corners and restrained low polygon facets. No carving, beads, fancy corners, crest, decorative ornament or broad gold band. Painting opening must be landscape aspect305.4:239.6. Remove all painting content, walls, doors, floor, lights, labels, perspective and shadows. Aperture pure solid white; surrounding background pure magenta#FF00FF. Show the complete isolated frame with margins. The real artwork is preserved separately and inserted by deterministic native assembly.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-8064d5d53520fe1718913a50",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-8064d5d53520fe1718913a50"
+}

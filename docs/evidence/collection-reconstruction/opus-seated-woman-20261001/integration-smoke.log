@@ -1,0 +1,11 @@
+7:SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+8-          at: build_gabled_frame (res://remodel_room.gd:1343)
+--
+13:SCRIPT ERROR: Cannot call method 'store_string' on a null value.
+14-          at: build_iron_grille (res://remodel_room.gd:1252)
+--
+20:SEATED_WOMAN AuthoredSurface3226 (20.4495, 0.92, 26.8985) (20.6905, 1.631, 27.1015) front (-1.0, 0.0, -0.0)
+21:CASING @StaticBody3D@2083 modern painting gallery:east (20.95, 1.75, 23.35)
+22:CASING @StaticBody3D@2087 modern painting gallery:east (20.95, 1.75, 28.1)
+23:CASING SeatedWomanCase  (20.89, 0.0, 27.0)
+24-ERROR: Pages in use exist at exit in PagedAllocator: N20RasterizerSceneDummy21GeometryInstanceDummyE

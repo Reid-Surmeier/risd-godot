@@ -1,0 +1,12 @@
+ERROR: Unable to save export scene file to: res://.godot/exported/133200997/export-c3e3c5173d5ab415c4f0d2133f7a793e-room.scn
+ERROR: Pages in use exist at exit in PagedAllocator: N20RasterizerSceneDummy21GeometryInstanceDummyE
+ERROR: 60 resources still in use at exit (run with --verbose for details).
+ERROR: Pages in use exist at exit in PagedAllocator: N12VariantPools12BucketMediumE
+ERROR: 1 RID allocations of type 'N13RendererDummy12LightStorage16LightmapInstanceE' were leaked at exit.
+ERROR: 1 RID allocations of type 'N13RendererDummy12LightStorage8LightmapE' were leaked at exit.
+ERROR: 139 RID allocations of type 'N13RendererDummy15MaterialStorage13DummyMaterialE' were leaked at exit.
+ERROR: 7 RID allocations of type 'N13RendererDummy15MaterialStorage11DummyShaderE' were leaked at exit.
+ERROR: 139 RID allocations of type 'N13RendererDummy9DummyMeshE' were leaked at exit.
+ERROR: 57 RID allocations of type 'PN13RendererDummy14TextureStorage12DummyTextureE' were leaked at exit.
+ERROR: 140 RID allocations of type 'N17RendererSceneCull8InstanceE' were leaked at exit.
+exported build 63a1d94d -> build/web/63a1d94d.html (kept 6b41f770 beside it)

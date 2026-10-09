@@ -1,0 +1,30 @@
+ M image-work/collection-expansion-frame/review.json
+ M modules/shell/PROVENANCE.md
+ M modules/shell/prototype/collection_reconstruction/floor_track_triangle.py
+ M modules/shell/prototype/collection_reconstruction/scale_fit.py
+?? docs/evidence/collection-reconstruction/bookcase-scale.json
+?? docs/evidence/collection-reconstruction/decorative-front.png
+?? docs/evidence/collection-reconstruction/decorative-geometry.json
+?? docs/evidence/collection-reconstruction/decorative-plan.png
+?? docs/evidence/collection-reconstruction/doorway-alignment.json
+?? docs/evidence/collection-reconstruction/head-surface-front.png
+?? docs/evidence/collection-reconstruction/head-surface-oblique.png
+?? docs/evidence/collection-reconstruction/head-surface-v1-checks.json
+?? docs/evidence/collection-reconstruction/head-surface-v2-front.png
+?? docs/evidence/collection-reconstruction/head-surface-v2-oblique.png
+?? docs/evidence/collection-reconstruction/head-trial-gpu.log
+?? docs/evidence/collection-reconstruction/heartbeat-20260930T0900/shell-playtest.log
+?? docs/evidence/collection-reconstruction/heartbeat-20260930T1530/
+?? docs/evidence/collection-reconstruction/muse-sculpture-run.tar.gz
+?? docs/research/collection-decorative-anchor.md
+?? docs/research/collection-head-geometry-sources.md
+?? docs/research/collection-sculpture-anchor.md
+?? image-work/collection-expansion-sculpture/
+?? modules/shell/prototype/collection_reconstruction/__pycache__/
+?? modules/shell/prototype/collection_reconstruction/bridge.py
+?? modules/shell/prototype/collection_reconstruction/calibrated_join.py
+?? modules/shell/prototype/collection_reconstruction/doorway_revisit.py
+?? modules/shell/prototype/collection_reconstruction/head_surface.py
+?? modules/shell/prototype/collection_reconstruction/head_trial.gd
+?? modules/shell/prototype/collection_reconstruction/refine_join.py
+?? modules/shell/prototype/collection_reconstruction/room_geometry.py

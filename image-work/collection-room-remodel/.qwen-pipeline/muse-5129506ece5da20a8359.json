@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-5129506ece5da20a8359",
+  "summary": "The reference photographs are the sole authority for RISD Museum Rockefeller Service Ecuelle with Cover, accession 2017.74.38.3a-c. Produce ONE complete front view of this exact single object, facing as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional.\n",
+  "procedureId": "muse-5129506ece5da20a8359",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/gold-ecuelle-selected-0.png",
+      "sha256": "da1ca80cff13c47ad03c57cc9f64483c5d65c3e663ac563438feb193d0ffcceb",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "gold-ecuelle-recipe.json",
+      "sha256": "5129506ece5da20a8359231a536891cf85961fd8a3f8eab0f1c1013bccc05d24"
+    },
+    {
+      "applicationPath": "gold-ecuelle-plan.json",
+      "sha256": "e195cc65e7defde2e1e1dc9771095498e0859dc66d6c6753f03cee82358789fe"
+    },
+    {
+      "applicationPath": "gold-ecuelle-prompt.txt",
+      "sha256": "de260e2c004c9978cbe003f1a387725efe5cb25ff7171b88964b4b8cf608f8da"
+    }
+  ]
+}

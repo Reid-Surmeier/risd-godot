@@ -13,14 +13,14 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
  const shuffled=[...modes]; for(let i=shuffled.length-1;i>0;i--){const j=crypto.randomInt(i+1);[shuffled[i],shuffled[j]]=[shuffled[j],shuffled[i]];}
  const key=Object.fromEntries(shuffled.map((mode,i)=>[String.fromCharCode(65+i),mode]));
  fs.writeFileSync(out+'-key.json',JSON.stringify(key,null,2));
- const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:'new',args:['--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--no-sandbox']});
+ const browser=await puppeteer.launch({executablePath:'/usr/bin/google-chrome',headless:'new',protocolTimeout:300000,args:['--use-gl=angle','--use-angle=gl-egl','--ignore-gpu-blocklist','--no-sandbox']});
  try {
   const page=await browser.newPage(); const errors=[];
   page.on('pageerror',e=>errors.push(String(e)));
   page.on('console',m=>{if(m.type()==='error'){errors.push(m.text());console.error(m.text());}});
   await page.setViewport({width:1600,height:900});
   await page.goto(url.href,{waitUntil:'load',timeout:120000});
-  await page.waitForFunction(()=>window.loadPerf?.some(m=>m.name==='game-shown') && window.galleryRenderCommand,{timeout:120000});
+  await page.waitForFunction(()=>window.loadPerf?.some(m=>m.name==='game-shown') && window.galleryRenderCommand,{timeout:240000});
   await pause(3000);
   const gpu=await page.evaluate(()=>{const gl=document.createElement('canvas').getContext('webgl2');const ext=gl?.getExtension('WEBGL_debug_renderer_info');return ext?gl.getParameter(ext.UNMASKED_RENDERER_WEBGL):'unknown';});
   console.log(JSON.stringify({gpu,expected_gpu:process.env.PRODUCER_BROWSER_GPU_MODE||'unspecified'}));
@@ -44,7 +44,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
   await command({action:'chart',visible:false});
   const results=[];
   for(const width of (process.env.RENDER_WIDTHS||'1600,720').split(',').map(Number)) {
-   const height=width===1600?900:486;
+   const height=process.env.RENDER_SQUARE==='1'?width:(width===1600?900:486);
    await page.setViewport({width,height});await pause(500);
    await page.mouse.move(10,40);
    for(const [label,mode] of Object.entries(key)) {
@@ -55,6 +55,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
      await page.screenshot({path:prefix+'.png'});
      const initial=await page.evaluate(()=>window.galleryRenderState);
      if(initial.paintings!==23)throw new Error('Artwork count changed');
+     if(initial.space!==(scene==='white'?'far':'gallery'))throw new Error('Fixture landed in wrong room: '+scene+' '+initial.space);
      if(scene==='warm') {await pause(500);await page.screenshot({path:prefix+'-held.png'});}
      await page.evaluate(()=>{
       window.renderTrace=[];window.renderDeltas=[];window.renderTracing=true;
@@ -63,11 +64,20 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
        if(!window.renderTracing)return;
        const s=window.galleryRenderState;
        if(s?.replaying && s.tick!==lastTick){window.renderTrace.push(JSON.parse(JSON.stringify(s)));lastTick=s.tick;}
-       if(lastTime && s?.replaying)window.renderDeltas.push(t-lastTime);
+       if(lastTime && (s?.replaying || window.renderLiveInput))window.renderDeltas.push(t-lastTime);
        lastTime=t;requestAnimationFrame(record);
       }requestAnimationFrame(record);
      });
      const video=await page.screencast({path:prefix+'.webm',fps:30});
+     if(process.env.RENDER_REAL_INPUT==='1') {
+      await command({action:'release'});
+      await page.evaluate(()=>window.renderLiveInput=true);
+      for(const [key,ms] of [['a',2000],['d',2000],['a',1000],['d',1000]]) {
+       await page.keyboard.down(key);await pause(ms);await page.keyboard.up(key);
+      }
+      await pause(2000);await command({action:'state'});
+      await page.evaluate(()=>window.renderLiveInput=false);
+     } else {
      await command({action:'replay',scene});
      const replayStarted=Date.now();
      try {
@@ -76,6 +86,7 @@ const pause = ms => new Promise(resolve => setTimeout(resolve,ms));
       const failure=await page.evaluate(()=>({state:window.galleryRenderState,trace:window.renderTrace,deltas:window.renderDeltas}));
       fs.writeFileSync(prefix+'-failure.json',JSON.stringify({...failure,wall_ms:Date.now()-replayStarted,errors},null,2));
       await video.stop();throw error;
+     }
      }
      await video.stop();
      const evidence=await page.evaluate(()=>{window.renderTracing=false;return {trace:window.renderTrace,deltas:window.renderDeltas,final:window.galleryRenderState,dpr:devicePixelRatio};});

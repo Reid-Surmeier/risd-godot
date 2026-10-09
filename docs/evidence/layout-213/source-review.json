@@ -1,0 +1,24 @@
+{
+  "baseline": "9864f723",
+  "candidate": "bd870c2d",
+  "standards": {
+    "new_findings": 0,
+    "result": "PASS9trees/tokens/comments/hashes; no seam or runtime scope changes"
+  },
+  "spec": {
+    "implementation_findings": 0,
+    "technical_evidence_gaps": 0,
+    "pending": [
+      "final commit/publication/readback"
+    ]
+  },
+  "ponytail": {
+    "findings": 0,
+    "fixed": 0,
+    "accepted": 0,
+    "result": "Lean already. Ship."
+  },
+  "resolved_review_findings": [
+    "spec.md trailing blank removed; baseline-inclusive workingtree whitespace PASS"
+  ]
+}

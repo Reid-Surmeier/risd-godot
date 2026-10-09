@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-fe8a96b15cda3907c7ff",
+  "summary": "Reference photographs show RISD object 2017.74.12, the only authority for its design and proportions. Final reference is the existing Main Hall game style: clean low polygon planar forms, soft painted shading, restrained surface detail, warm palette. Generate one orthographic straight-on FRONT view of this exact armchair, preserving its three overlapping pierced loops and dark wood, with blue floral seat, alone, isolated on flat pure magenta #FF00FF, generous margin, full object and every leg / handle / lid intact. Keep the reference ornament, actual silhouette, upholstery floral pattern and wood color or painted porcelain motifs. Make the finish a clean low polygon museum game asset, no photographic noise. Do not invent ornament, letters, floor, walls, other objects, shadow outside the silhouette or perspective tilt. No contact sheet. This supplies UV texture for separately modeled three-dimensional geometry, not a whole-room picture.\n",
+  "procedureId": "muse-fe8a96b15cda3907c7ff",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/entrance-chair-catalogue-0.png",
+      "sha256": "9852777cb234c88231b15e19a58b2527ff75eecce0e4135c0efeec51481e9d30",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/entrance-chair-catalogue-1.png",
+      "sha256": "b6e826a47b2162847134acfff98e1613c98d4c3ca3b23536b8f6b92e0335ac9d",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "entrance-chair-recipe.json",
+      "sha256": "fe8a96b15cda3907c7ff5b443b694566daba41785ce9d40c1249417b62a6a8dc"
+    },
+    {
+      "applicationPath": "entrance-chair-plan.json",
+      "sha256": "a82588ca7cb34dffadbe878ea349b19112d9701f06960ad4007e3b57ca077175"
+    },
+    {
+      "applicationPath": "entrance-chair-prompt.txt",
+      "sha256": "f0ad26f82c5ace749a4a7d6173c0c792f2ca79655141f9469079cc0718454768"
+    }
+  ]
+}

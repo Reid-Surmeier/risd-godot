@@ -2,15 +2,18 @@
 ## working page. Left, the Digital Playground (PostPet) window; a middle column of the options,
 ## Search filters and trade windows with the Global Chatroom at the bottom; right, the Nokia phone.
 ## Every window is a raster (assets/, PROVENANCE.md), draggable by its title bar (the phone by its
-## whole surface), raised by a press, stopped at the Page's edge. Reach it through interface.gd only.
+## whole surface), raised by a press, stopped at the Page's edge.
+## Reach it through interface.gd only.
 ##
 ## Layout (ticket #63): the desktop is DESKTOP px natively (the layout picture's windows plus a
 ## MARGIN on every side, measured by template-matching each asset into the picture). The Page's size
 ## S gives s = min(S.x / D.x, S.y / D.y) for all art. The leftover on the other axis goes to the
 ## PostPet window: its rect runs to the middle column (right) and to the bottom margin, and it is
-## drawn in bands at the uniform scale, only a flat one-pixel column per band and one flat row of its
+## drawn in bands at the uniform scale, only a flat one-pixel column
+## per band and one flat row of its
 ## picture drawn wider or taller to fill (the same patch technique as the Collection
-## viewer's chrome). The middle column and the phone anchor to the right edge; the chat window anchors
+## viewer's chrome). The middle column and the phone anchor to the
+## right edge; the chat window anchors
 ## to the bottom edge, the rest to the top. Re-laid out on every resize.
 extends ColorRect
 
@@ -20,7 +23,8 @@ const ROOT := "res://modules/playground_page/"
 const WEBSURFER_ASSET := ROOT + "assets/websurfer-window.webp"
 const SKETCHBOOK_ASSET := ROOT + "assets/sketchbook-journal.png"
 const FENGSHUI_ASSET := ROOT + "assets/fengshui.png"
-# The owner's Feng Shui layout (2026-09-23, docs/evidence/playground-fengshui/layout-reference.png): its
+# The owner's Feng Shui layout (2026-09-23,
+# docs/evidence/playground-fengshui/layout-reference.png): its
 # windows measured in that picture's px on a REF page, tidied to a 24 px margin and even gaps. The
 # right column anchors right, the chat window bottom; the Feng Shui window takes the rest. Options,
 # filters, trade and PostPet are hidden: in the picture they only peeked out from under the others.
@@ -31,7 +35,8 @@ const REF_WEBSURFER := Rect2(1070, 453, 577, 502)
 const REF_PHONE := Rect2(1488, 24, 318, 635)
 const REF_CHAT := Rect2(1072, 1033, 471, 218)
 # assets/fengshui.png rows: title, menu and toolbar above FS_TOP, the element panels from FS_BOTTOM.
-# Between them only the side borders of row FS_ROW (just under the toolbar, the same frame as the title
+# Between them only the side borders of row FS_ROW (just under the
+# toolbar, the same frame as the title
 # bar, both inner dark lines included) are drawn, taller, and the Are.na page fills the
 # client columns FS_CLIENT_LEFT..FS_CLIENT_RIGHT. FS_TITLE rows drag the window.
 const FS_TOP := 134.0
@@ -42,7 +47,8 @@ const FS_CLIENT_RIGHT := 1392.0
 const FS_TITLE := 50.0
 const DESKTOP := Vector2(2171, 1185)
 const MARGIN := 24.0
-# The PostPet picture's bands (source rows) and the column each band stretches at: a column where the
+# The PostPet picture's bands (source rows) and the column each band
+# stretches at: a column where the
 # band has no horizontal step at all (title bar, balloons, the panel right of the stickers, the info
 # box right of its text), so every band grows by the same width and the edges stay aligned. Row
 # STRETCH_Y (band 3, one pixel, max horizontal-neighbour step 14 across the width) takes the height.
@@ -69,31 +75,31 @@ var inputs := 0
 var factor := 1.0
 var action := ""
 var windows: Array[Control] = []
-var _active: Control
-var _start_pointer := Vector2.ZERO
-var _start_position := Vector2.ZERO
 var data_handle: Variant
 var image_fetch: Callable
-var saved_body := ColorRect.new()
 var saved_list: Control
 var gallery_scroll: ScrollContainer
 var gallery_overlay: ColorRect
+var websurfer: Control
+var sketchbook: Control
+var fengshui: Control
+var browsing: Control
+var saved_body := ColorRect.new()
 var saved_ids: Array = []
 var storage_status := "loading"
 var refresh_generation := 0
 var show_websurfer := false
 var show_gallery := false
 var show_sketchbook := false
-var websurfer: Control
-var sketchbook: Control
 var show_fengshui := false
-var fengshui: Control
-var arena_placed := ""
 var interactive_windows: Array[Control] = []
 var saved_scroll := ScrollContainer.new()
 var saved_query := LineEdit.new()
 var artwork_detail := Label.new()
 var filter_count := Label.new()
+var _active: Control
+var _start_pointer := Vector2.ZERO
+var _start_position := Vector2.ZERO
 
 
 static func create(deps: Dictionary) -> Dictionary:
@@ -114,6 +120,12 @@ static func create(deps: Dictionary) -> Dictionary:
 	page.show_gallery = deps.get("show_gallery", false)
 	page.show_sketchbook = deps.get("show_sketchbook", false)
 	page.show_fengshui = deps.get("show_fengshui", false)
+	if page.show_fengshui:
+		var result := preload("res://modules/playground_page/square_pages.gd").create(deps)
+		if not result.ok:
+			page.free()
+			return result
+		page.browsing = result.value
 	page.name = "PlaygroundPage"
 	page.color = Color.WHITE
 	page.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT)
@@ -163,12 +175,8 @@ func _ready() -> void:
 		fengshui.draw.connect(_draw_fengshui.bind(fengshui, texture))
 		add_child(fengshui)
 		interactive_windows.append(fengshui)
-		if OS.has_feature("web"):
-			JavaScriptBridge.eval(preload("res://modules/playground_page/arena_embed.gd").script())
-		visibility_changed.connect(_place_arena)
-		tree_exiting.connect(func() -> void:
-			if OS.has_feature("web"):
-				JavaScriptBridge.eval("window.playgroundArena(null)"))
+		fengshui.add_child(browsing)
+		browsing.clip_contents = true
 	if show_websurfer:
 		websurfer = load(ROOT + "websurfer_window.gd").new()
 		websurfer.name = "WebSurfer"
@@ -207,9 +215,19 @@ func _ready() -> void:
 	resized.connect(_fit)
 	_fit()
 	_refresh_saved()
+	for window in interactive_windows:
+		_add_scale_grip(window)
 
 
 func _fit() -> void:
+	if get_meta("windows_adjusted", false):
+		set_meta("scaling", false)
+		for window in interactive_windows:
+			window.scale = Vector2.ONE * minf(window.scale.x, minf(size.x / window.size.x, \
+				size.y / window.size.y))
+			window.position = window.position.clamp(Vector2.ZERO, \
+				(size - window.size * window.scale).max(Vector2.ZERO))
+		return
 	action = ""
 	factor = minf(size.x / DESKTOP.x, size.y / DESKTOP.y)
 	var s := factor
@@ -228,7 +246,8 @@ func _fit() -> void:
 			"right_bottom":
 				position_now = Vector2(size.x - (DESKTOP.x - at.x) * s, size.y - (DESKTOP.y - at.y) * s)
 		_place_window(index, Rect2(position_now, native * s))
-	# the main window takes the leftover: to the middle column on the right, to the margin at the bottom
+	# the main window takes the leftover: to the middle column on the
+	# right, to the margin at the bottom
 	var postpet := windows[0]
 	var right := size.x - (DESKTOP.x - right_of_postpet) * s
 	var bottom := size.y - MARGIN * s
@@ -238,7 +257,8 @@ func _fit() -> void:
 	var postpet_source: Vector2 = postpet.get_meta("native")
 	saved_body.position = POSTPET_BODY.position * postpet_scale
 	var lower_right_inset := postpet_source - POSTPET_BODY.end
-	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max(Vector2.ZERO)
+	saved_body.size = (postpet.size - saved_body.position - lower_right_inset * postpet_scale).max( \
+		Vector2.ZERO)
 	if show_gallery:
 		gallery_scroll.position = Vector2(10 * s, 8 * s)
 		gallery_scroll.size = saved_body.size - Vector2(20 * s, 16 * s)
@@ -256,11 +276,13 @@ func _fit() -> void:
 	if websurfer != null:
 		var websurfer_height := minf(780.0, size.y * 0.78)
 		websurfer.size = Vector2(websurfer_height * 1616.0 / 1407.0, websurfer_height)
-		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, (size.y - websurfer.size.y) * 0.5)
+		websurfer.position = Vector2(size.x - websurfer.size.x - MARGIN * s, \
+			(size.y - websurfer.size.y) * 0.5)
 	if sketchbook != null:
 		var sketchbook_height := minf(620.0, size.y * 0.62)
 		sketchbook.size = Vector2(sketchbook_height * 1138.0 / 864.0, sketchbook_height)
-		sketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, size.y - sketchbook.size.y - MARGIN * s)
+		sketchbook.position = Vector2(size.x - sketchbook.size.x - MARGIN * s, \
+			size.y - sketchbook.size.y - MARGIN * s)
 
 
 ## Window `index` of WINDOWS at `rect`, with its title height and cleared interior scaled to match.
@@ -284,7 +306,8 @@ func _place_window(index: int, rect: Rect2) -> void:
 func _fit_fengshui() -> void:
 	var s := minf(size.x / REF.x, size.y / REF.y)
 	var right := func(rect: Rect2) -> Rect2:
-		return Rect2(size.x - (REF.x - rect.position.x) * s, rect.position.y * s, rect.size.x * s, rect.size.y * s)
+		return Rect2(size.x - (REF.x - rect.position.x) * s, rect.position.y * s, rect.size.x * s, \
+			rect.size.y * s)
 	_place_window(5, right.call(REF_PHONE))
 	var chat: Rect2 = right.call(REF_CHAT)
 	chat.position.y = size.y - (REF.y - REF_CHAT.position.y) * s
@@ -305,8 +328,13 @@ func _fit_fengshui() -> void:
 	fengshui.position = Vector2(margin, margin)
 	fengshui.size = Vector2(source.x * k, available.y)
 	fengshui.set_meta("drag_height", FS_TITLE * k)
-	fengshui.set_meta("embed", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,
+	fengshui.set_meta("embed", Rect2(FS_CLIENT_LEFT * k, FS_TOP * k, \
+		(FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k,
 			fengshui.size.y - (FS_TOP + source.y - FS_BOTTOM) * k))
+	var embed: Rect2 = fengshui.get_meta("embed")
+	browsing.set_anchors_and_offsets_preset(Control.PRESET_TOP_LEFT)
+	browsing.position = embed.position
+	browsing.size = embed.size
 	fengshui.queue_redraw()
 
 
@@ -408,7 +436,8 @@ func _gallery_image(artwork: Dictionary) -> Control:
 	surface.bg_color = Color.WHITE
 	cell.add_theme_stylebox_override("panel", surface)
 	cell.set_meta("artwork", artwork)
-	cell.set_meta("aspect", maxf(0.2, float(artwork.image.get("width", 1)) / maxf(1.0, float(artwork.image.get("height", 1)))))
+	cell.set_meta("aspect", maxf(0.2, float(artwork.image.get("width", 1)) / maxf(1.0, \
+		float(artwork.image.get("height", 1)))))
 	var image := TextureRect.new()
 	image.name = "SavedImage"
 	image.expand_mode = TextureRect.EXPAND_IGNORE_SIZE
@@ -425,7 +454,8 @@ func _gallery_image(artwork: Dictionary) -> Control:
 	hover.visible = false
 	cell.add_child(hover)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var caption := _saved_label("%s\n%s%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+	var caption := _saved_label("%s\n%s%s" % [artwork.title if artwork.title != "" else "Untitled", \
+		maker,
 		" · " + artwork.dating if artwork.dating != "" else ""])
 	caption.set_anchors_and_offsets_preset(Control.PRESET_FULL_RECT, Control.PRESET_MODE_MINSIZE, 8)
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -463,7 +493,8 @@ func _fit_gallery_tiles() -> void:
 		child.size = Vector2(width, height)
 		child.custom_minimum_size = child.size
 		heights[column] += height + gap
-	saved_list.custom_minimum_size = Vector2(gallery_scroll.size.x, heights.max() if not heights.is_empty() else 0.0)
+	saved_list.custom_minimum_size = Vector2(gallery_scroll.size.x, \
+		heights.max() if not heights.is_empty() else 0.0)
 
 
 func _build_gallery_overlay() -> void:
@@ -489,7 +520,8 @@ func _expand_gallery_artwork(artwork: Dictionary) -> void:
 	image.mouse_filter = Control.MOUSE_FILTER_IGNORE
 	gallery_overlay.add_child(image)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var caption := _saved_label("%s — %s%s\nClick to close" % [artwork.title if artwork.title != "" else "Untitled", maker,
+	var caption := _saved_label("%s — %s%s\nClick to close" % [artwork.title if artwork.title != "" \
+		else "Untitled", maker,
 		" · " + artwork.dating if artwork.dating != "" else ""])
 	caption.name = "ExpandedCaption"
 	caption.horizontal_alignment = HORIZONTAL_ALIGNMENT_CENTER
@@ -530,9 +562,11 @@ func _saved_card(artwork: Dictionary) -> Control:
 	button.tooltip_text = "View " + artwork.title
 	button.custom_minimum_size.y = 114
 	button.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	button.set_meta("search_text", (artwork.title + " " + " ".join(artwork.makers) + " " + artwork.id).to_lower())
+	button.set_meta("search_text", (artwork.title + " " + " ".join(artwork.makers) + " " + \
+		artwork.id).to_lower())
 	button.pressed.connect(func() -> void:
-		artwork_detail.text = "%s\n\n%s\n%s\n\n%s" % [artwork.title, ", ".join(artwork.makers), artwork.id, artwork.credit]
+		artwork_detail.text = "%s\n\n%s\n%s\n\n%s" % [artwork.title, ", ".join(artwork.makers), \
+			artwork.id, artwork.credit]
 		move_child(windows[3], -1))
 	var row := HBoxContainer.new()
 	button.add_child(row)
@@ -558,7 +592,8 @@ func _saved_card(artwork: Dictionary) -> Control:
 	unavailable.add_theme_font_size_override("font_size", 11)
 	image_column.add_child(unavailable)
 	var maker := "Unknown maker" if artwork.makers.is_empty() else ", ".join(artwork.makers)
-	var label := _saved_label("%s\n%s\n%s\n%s" % [artwork.title if artwork.title != "" else "Untitled", maker,
+	var label := _saved_label("%s\n%s\n%s\n%s" % [artwork.title if artwork.title != "" else \
+		"Untitled", maker,
 			artwork.id, artwork.credit if artwork.credit != "" else "Credit unavailable"])
 	label.autowrap_mode = TextServer.AUTOWRAP_WORD_SMART
 	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
@@ -662,7 +697,8 @@ func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: L
 		var live_page := instance_from_id(page_id) as Control
 		var live_target := instance_from_id(target_id) as TextureRect
 		var live_unavailable := instance_from_id(unavailable_id) as Label
-		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or (unavailable_id != 0 and live_unavailable == null):
+		if live_page == null or not live_page.is_visible_in_tree() or live_target == null or ( \
+			unavailable_id != 0 and live_unavailable == null):
 			return
 		if not result.ok:
 			if live_unavailable != null:
@@ -676,14 +712,17 @@ func _load_saved_image(manifest: Dictionary, target: TextureRect, unavailable: L
 				live_unavailable.visible = true
 			return
 		var decoded := Image.new()
-		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else (decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else decoded.load_webp_from_buffer(result.value))
+		var status := decoded.load_jpg_from_buffer(result.value) if manifest.mime == "image/jpeg" else \
+			(decoded.load_png_from_buffer(result.value) if manifest.mime == "image/png" else \
+			decoded.load_webp_from_buffer(result.value))
 		if status == OK:
 			live_target.texture = ImageTexture.create_from_image(decoded)
 		elif live_unavailable != null:
 			live_unavailable.visible = true)
 
 
-## The PostPet picture band by band at the uniform scale; in each band only its one-pixel column takes
+## The PostPet picture band by band at the uniform scale; in each band
+## only its one-pixel column takes
 ## the extra width, and only the one-pixel band STRETCH_Y_BAND takes the extra height.
 func _draw_postpet(window: Control, texture: Texture2D) -> void:
 	var src: Vector2 = texture.get_size()
@@ -698,7 +737,8 @@ func _draw_postpet(window: Control, texture: Texture2D) -> void:
 		var dx := 0.0
 		for i in 3:
 			var w: float = (xs[i + 1] - xs[i]) * k + (extra.x if i == 1 else 0.0)
-			window.draw_texture_rect_region(texture, Rect2(dx, dy, w, h), Rect2(xs[i], top, xs[i + 1] - xs[i], rows))
+			window.draw_texture_rect_region(texture, Rect2(dx, dy, w, h), Rect2(xs[i], top, \
+				xs[i + 1] - xs[i], rows))
 			dx += w
 		dy += h
 
@@ -710,42 +750,30 @@ func _draw_fengshui(window: Control, texture: Texture2D) -> void:
 	var k := window.size.x / src.x
 	var bottom := (src.y - FS_BOTTOM) * k
 	var middle := Rect2(0, FS_TOP * k, window.size.x, window.size.y - bottom - FS_TOP * k)
-	window.draw_texture_rect_region(texture, Rect2(0, 0, window.size.x, FS_TOP * k), Rect2(0, 0, src.x, FS_TOP))
-	window.draw_texture_rect_region(texture, Rect2(0, middle.end.y, window.size.x, bottom), Rect2(0, FS_BOTTOM, src.x, src.y - FS_BOTTOM))
-	window.draw_texture_rect_region(texture, Rect2(0, middle.position.y, FS_CLIENT_LEFT * k, middle.size.y), Rect2(0, FS_ROW, FS_CLIENT_LEFT, 1))
-	window.draw_texture_rect_region(texture, Rect2(FS_CLIENT_RIGHT * k, middle.position.y, window.size.x - FS_CLIENT_RIGHT * k, middle.size.y),
+	window.draw_texture_rect_region(texture, Rect2(0, 0, window.size.x, FS_TOP * k), Rect2(0, 0, \
+		src.x, FS_TOP))
+	window.draw_texture_rect_region(texture, Rect2(0, middle.end.y, window.size.x, bottom), \
+		Rect2(0, FS_BOTTOM, src.x, src.y - FS_BOTTOM))
+	window.draw_texture_rect_region(texture, Rect2(0, middle.position.y, FS_CLIENT_LEFT * k, \
+		middle.size.y), Rect2(0, FS_ROW, FS_CLIENT_LEFT, 1))
+	window.draw_texture_rect_region(texture, Rect2(FS_CLIENT_RIGHT * k, middle.position.y, \
+		window.size.x - FS_CLIENT_RIGHT * k, middle.size.y),
 			Rect2(FS_CLIENT_RIGHT, FS_ROW, src.x - FS_CLIENT_RIGHT, 1))
-	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, (FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
-
-
-## The web build lays the owner's Are.na profile (arena_embed.gd, HTML over the canvas) on the Feng
-## Shui client area, cut away wherever a window above the Feng Shui window covers it; hidden with the Page.
-func _place_arena() -> void:
-	if not OS.has_feature("web") or fengshui == null:
-		return
-	var placement := "null"
-	if is_visible_in_tree():
-		var to_view := get_global_transform_with_canvas()
-		var embed: Rect2 = fengshui.get_meta("embed", Rect2())
-		embed.position += fengshui.position
-		var holes := []
-		for window in interactive_windows:
-			if window.visible and window.get_index() > fengshui.get_index() and window.get_rect().intersects(embed):
-				holes.append(_rect_array(to_view * window.get_rect()))
-		placement = JSON.stringify({"rect": _rect_array(to_view * embed), "view": [get_viewport_rect().size.x, get_viewport_rect().size.y],
-				"holes": holes, "drag": not action.is_empty()})
-	if placement != arena_placed:
-		arena_placed = placement
-		JavaScriptBridge.eval("window.playgroundArena(%s)" % placement)
-
-
-func _rect_array(rect: Rect2) -> Array:
-	return [rect.position.x, rect.position.y, rect.size.x, rect.size.y]
+	window.draw_rect(Rect2(FS_CLIENT_LEFT * k, middle.position.y, \
+		(FS_CLIENT_RIGHT - FS_CLIENT_LEFT) * k, middle.size.y), Color.WHITE)
 
 
 ## A press raises the topmost window under the pointer; on its title bar it starts a drag.
 func _input(event: InputEvent) -> void:
 	inputs += 1
+	if get_meta("scaling", false):
+		return
+	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+		for window in interactive_windows:
+			var grip := window.get_node_or_null("ProportionalResize") as Control
+			if grip != null and grip.is_visible_in_tree() and grip.get_global_rect().has_point( \
+				event.position):
+				return
 	if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
 		var pointer := make_canvas_position_local(event.position)
 		if not event.pressed:
@@ -756,14 +784,16 @@ func _input(event: InputEvent) -> void:
 		else:
 			_active = null
 			for window in interactive_windows:
-				if window.get_rect().has_point(pointer) and (_active == null or window.get_index() > _active.get_index()):
+				if Rect2(window.position, window.size * window.scale).has_point(pointer) and (_active == \
+					null or window.get_index() > _active.get_index()):
 					_active = window
 			if _active == null:
 				return
 			move_child(_active, -1)
-			if _active == sketchbook and sketchbook.title_button_at(pointer - _active.position):
+			if _active == sketchbook and sketchbook.title_button_at((pointer - _active.position) / \
+				_active.scale):
 				return
-			if pointer.y - _active.position.y >= float(_active.get_meta("drag_height")):
+			if (pointer.y - _active.position.y) / _active.scale.y >= float(_active.get_meta("drag_height")):
 				return
 			action = "drag"
 			_start_pointer = pointer
@@ -771,13 +801,20 @@ func _input(event: InputEvent) -> void:
 		get_viewport().set_input_as_handled()
 	elif event is InputEventMouseMotion and not action.is_empty():
 		var delta: Vector2 = make_canvas_position_local(event.position) - _start_pointer
-		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), (size - _active.size).max(Vector2.ZERO))
+		_active.position = (_start_position + delta).clamp(Vector2(-offset_left, 0), \
+			(size - _active.size * _active.scale).max(Vector2.ZERO))
 		get_viewport().set_input_as_handled()
 
 
 func _process(_delta: float) -> void:
 	ticks += 1
-	_place_arena()
+
+
+
+func show_page(page: String) -> Dictionary:
+	if browsing == null:
+		return Errors.err(Errors.PAGE_UNKNOWN, page)
+	return browsing.show_page(page)
 
 
 func state() -> Dictionary:
@@ -795,8 +832,61 @@ func state() -> Dictionary:
 	for unavailable in saved_list.find_children("SavedImageUnavailable", "Label", true, false):
 		if unavailable.visible:
 			saved_images_unavailable += 1
-	return Errors.ok({"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor,
+	var result := {"key": key, "ticks": ticks, "inputs": inputs, "size": size, "factor": factor,
 			"desktop": DESKTOP, "margin": MARGIN, "action": action, "windows": list,
 			"saved_ids": saved_ids.duplicate(), "saved_images_loaded": saved_images_loaded,
 			"saved_images_unavailable": saved_images_unavailable,
-			"storage_status": storage_status})
+			"storage_status": storage_status}
+	if browsing != null:
+		var browsing_state: Dictionary = browsing.state().value
+		result.merge(browsing_state)
+		# The embedded page owns saves; retain the desktop size/input counters.
+		result.saved_ids = browsing_state.saved_ids
+		result.storage_status = browsing_state.storage_status
+		result["main_window"] = fengshui.get_global_rect()
+		result["navigation"] = {}
+		for button in browsing.navigation.get_children():
+			result.navigation[String(button.name)] = button.get_global_rect()
+	return Errors.ok(result)
+
+
+# Resize the complete window with one scale, preserving content and input coordinates.
+func _add_scale_grip(window: Control) -> void:
+	var grip := Control.new()
+	grip.name = "ProportionalResize"
+	grip.size = Vector2(32, 32)
+	grip.mouse_default_cursor_shape = Control.CURSOR_FDIAGSIZE
+	grip.tooltip_text = "Drag to resize proportionally"
+	grip.draw.connect(func():
+		grip.draw_rect(Rect2(Vector2.ZERO, grip.size), Color(0.3, 0.3, 0.3, 0.8))
+		for inset in [10, 17, 24]:
+			grip.draw_line(Vector2(inset, 28), Vector2(28, inset), Color.WHITE, 2.0))
+	window.add_child(grip)
+	var fit := func(): grip.position = window.size - grip.size
+	window.resized.connect(fit)
+	fit.call()
+	var gesture := {"active": false, "start": Vector2.ZERO, "scale": 1.0}
+	get_window().focus_exited.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	window.visibility_changed.connect(func():
+		gesture.active = false
+		set_meta("scaling", false))
+	grip.gui_input.connect(func(event):
+		if event is InputEventMouseButton and event.button_index == MOUSE_BUTTON_LEFT:
+			gesture.active = event.pressed
+			set_meta("scaling", event.pressed)
+			if event.pressed:
+				gesture.start = window.get_parent().make_canvas_position_local(event.global_position)
+				gesture.scale = window.scale.x
+				set_meta("windows_adjusted", true)
+				window.get_parent().move_child(window, -1)
+			grip.accept_event()
+		elif event is InputEventMouseMotion and gesture.active and get_meta("scaling", false):
+			var delta: Vector2 = window.get_parent().make_canvas_position_local(event.global_position) - \
+				gesture.start
+			var available: Vector2 = window.get_parent().size - window.position
+			var maximum := minf(available.x / window.size.x, available.y / window.size.y)
+			var factor: float = gesture.scale + delta.dot(window.size) / window.size.length_squared()
+			window.scale = Vector2.ONE * clampf(factor, minf(0.35, maximum), maximum)
+			grip.accept_event())

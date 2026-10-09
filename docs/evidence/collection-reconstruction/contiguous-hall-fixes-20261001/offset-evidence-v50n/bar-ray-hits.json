@@ -1,0 +1,16 @@
+[
+	{
+		"distance": 10.5884456634521,
+		"live_target": "",
+		"path": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/@Control@113/CollectionFrame/GalleryWalk/@SubViewportContainer@114/@SubViewport@115/@Node3D@4317/character/Scene/Armature/Armature_nw4f_root/Armature_Root/Armature_Trans_Root/Armature_Skl_Root/Skeleton3D/Body__mSkin",
+		"position": "(-8.3, 0.483785, 2.5)",
+		"source_path": ""
+	},
+	{
+		"distance": 11.7998752593994,
+		"live_target": "",
+		"path": "/root/CRTDesktop/Desktop/Content/Shell/PageStack/Page_collection/@Control@113/CollectionFrame/GalleryWalk/@SubViewportContainer@114/@SubViewport@115/CollectionRemodel/BakedRoom/ContinuousFloor",
+		"position": "(-5.55, 0.0, -28.1)",
+		"source_path": ""
+	}
+]

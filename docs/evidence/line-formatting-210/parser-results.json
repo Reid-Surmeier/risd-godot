@@ -1,0 +1,562 @@
+[
+  {
+    "file": "docs/evidence/display-161-current/capture-native.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/floor-selection-186/native_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/floor-selection-186/restore.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/gallery-camera-pitch/corner_pose.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/gallery-cutaway-diagnosis/background_trial.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/keyboard-focus-206/focus_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/owner-world-177/passage-current/edges.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/owner-world-177/passage-current/native.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/owner-world-177/passage-current/probe.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/owner-world-177/passage-current/repair.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/room-transition-185/probe.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/warm-room-187/check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "docs/evidence/window-effects-193/input_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/atlas/atlas.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/atlas/atlas_window.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/atlas/playtest/harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/collection_data/data.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/collection_data/http_adapter.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/collection_data/playtest/probe.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/collection_data/storage_adapter.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/flowers_page/flowers_page.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/embedded_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/journal_paper_turn.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/journal_window.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/playground_page.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/playtest/harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/playtest/square_harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/playground_page/square_pages.gd",
+    "disposition": "rejected/restored",
+    "reason": "native Playground multiline lambda indent rejection"
+  },
+  {
+    "file": "modules/playground_page/websurfer_window.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sculpture_viewer/catalogue.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sculpture_viewer/desktop.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sculpture_viewer/playtest/hover_turn.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sculpture_viewer/playtest/record_selection.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sculpture_viewer/playtest/window_resize_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sculpture_viewer/viewer.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/boot_loader.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/crt_display.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/demo.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/desktop_icons.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/hover_glow.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/interface.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/collection_fit_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/collection_preview_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/containment.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/dummy_tenant.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/icon_rail_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/visitor174_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/playtest/visitor174_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/architecture_167_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/bake/plugin.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/bake/prepare.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/cornice_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/cutaway_floor_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/dbg_tmp.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/doorway_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/doorway_prototype.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/doorway_prototype_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/final_render_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/floor_edges_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/floor_prototype_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/owner_repair_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/performance_probe.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_167_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_floor_probe.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_relief_prepare.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_sculpt_relief_prepare.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_sculpture_probe.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/portal_traversal_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/render_diagnostics_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/rig/check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/rig/contact_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/rig/render_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/rig/visitor.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/shot.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/visitor159/visitor.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/world_176_capture.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/prototype/gallery_walk4/world_176_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/shell.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/square_chrome.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/shell/window_shadows.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/desktop.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/drawing_surface.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/freehand.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/global_chatroom.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/paintbox.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/painting_flow.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/paper_turn.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/playtest/anri_palette_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/playtest/harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/playtest/tldraw_controls_check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/sketchbook_window.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sketchbook/tldraw_controls_prototype.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/sound_cues/playtest/check.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/tab_strip/interface.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/tab_strip/playtest/harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/tab_strip/tab_strip.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/video_player/playtest/harness.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "modules/video_player/video_player.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "prototype/mr-baby-paint-audio/main.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "testing/collection_data_test.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "testing/collection_page_adapter.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "testing/harness_base.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  },
+  {
+    "file": "testing/saved_destinations_test.gd",
+    "disposition": "native parse PASS",
+    "exit": 0
+  }
+]

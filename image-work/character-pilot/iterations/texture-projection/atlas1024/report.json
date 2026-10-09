@@ -1,0 +1,84 @@
+{
+  "success": true,
+  "visual_verdict": "rejected as default: no clear improvement over original material",
+  "source_sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804",
+  "front_sha256": "ca71b989a123c59f302221cf994d8e7ee11aa3d65bf44d2f0babecfc5a1ae56f",
+  "output_sha256": "54693b3db49e99b1e3e77a27842edc8690012db33b5c96e054997c8e22062338",
+  "source_bin_prefix_identical": true,
+  "geometry_uv_skin_actions_identical": true,
+  "eligible_front_faces": 352,
+  "atlas_pixels_changed": 40171,
+  "atlas_resolution": 1024,
+  "atlas_total_pixels": 1048576,
+  "blender": "4.3.2",
+  "paid_cost_usd": 0,
+  "camera": {
+    "orthographic_scale": 1.25,
+    "target": [
+      0,
+      0,
+      1.42
+    ],
+    "front_location": [
+      0,
+      -4,
+      1.42
+    ]
+  },
+  "calibration": {
+    "source_x": [
+      450,
+      1158
+    ],
+    "mesh_x": [
+      -0.46,
+      0.46
+    ],
+    "source_y": [
+      470,
+      900
+    ],
+    "mesh_z": [
+      1.4,
+      0.86
+    ]
+  },
+  "mask_ellipses": [
+    [
+      530,
+      500,
+      725,
+      705
+    ],
+    [
+      875,
+      500,
+      1080,
+      705
+    ],
+    [
+      746,
+      659,
+      858,
+      751
+    ],
+    [
+      665,
+      757,
+      947,
+      827
+    ]
+  ],
+  "source_mask_sha256": "acb2b103d1abe9288e7ed748db385464b505043ba5aa1469b61c70f43fb01d7e",
+  "mask_feather_source_pixels": 15,
+  "bake_padding_pixels": 2,
+  "whole_body_excluded": "Muse arms slope while mesh rest pose is T; projection tested only face features",
+  "remaining_limit": "Projection is planar; nose/cheeks and grazing profile require inspection. Occlusion is front face/region mask, not depth reconstruction.",
+  "portable_helper_matches_native_output": true,
+  "visual_findings": [
+    "1024 retains more sample points, but Muse source facial features remain soft.",
+    "Matched quarter-view crop shows no clear overall likeness gain.",
+    "The original 512 color was upsampled outside masks; no new side/back artwork generated.",
+    "Before/after use reloaded export PNGs and back render is pixel-identical."
+  ]
+}

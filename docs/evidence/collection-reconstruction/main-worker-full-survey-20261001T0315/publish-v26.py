@@ -1,0 +1,43 @@
+from pathlib import Path
+from PIL import Image
+import json,html,shutil
+root=Path('/home/reidsurmeier/risd-godot-ingestion/collection-expansion');out=root/'lowpoly-room-v26';share=root/'review-preview';review=share/'architecture-review-v26';review.mkdir(exist_ok=True)
+e=Path('docs/evidence/collection-reconstruction/main-worker-full-survey-20261001T0315');app=Path('image-work/collection-room-remodel')
+a=json.loads((out/'evidence/walk-result.json').read_text());b=json.loads((out/'evidence/browser-result.json').read_text());assert all(a['checks'].values()) and b['pass'];assert 'NVIDIA' in b['webgl_renderer'],b['webgl_renderer']
+shutil.copytree(out/'web',share/'rockefeller-architecture-v26',dirs_exist_ok=True)
+for p in e.glob('*.png'):
+ im=Image.open(p);im.thumbnail((1100,960));im.save(review/p.name)
+for name in ['browser-forward.png','browser-reverse.png','browser-jamb.png']:
+ shutil.copyfile(out/'evidence'/name,review/name)
+for p in ['geometry.json','manifest.json','hall-stairs-inventory.json','reconstruction-coverage.json','purple-plaster-review.json']:
+ shutil.copyfile(e/p,review/p)
+im=Image.open(app/'trial/purple-plaster-original.webp');im.thumbnail((800,800));im.save(review/'purple-plaster-muse.webp')
+shutil.copyfile(out/'presentation/purple-plaster.png',review/'purple-plaster-tile.png')
+shutil.copyfile(e/'official-auditorium.jpg',review/'official-auditorium.jpg')
+shutil.copyfile(share/'architecture-review-v25/layout.svg',review/'layout.svg')
+style='body{font:17px/1.5 system-ui;background:#f3eee3;color:#302b23;max-width:1200px;margin:40px auto;padding:20px}a{color:#335f7a}.pair{display:flex;gap:20px;align-items:flex-start;flex-wrap:wrap}.pair figure{flex:1;min-width:250px;margin:0}img{width:100%;height:auto}figcaption{margin:6px 0 24px}table{border-collapse:collapse}td,th{padding:8px;border-bottom:1px solid #bdb7a8;text-align:left}details{margin:24px 0}'
+def pair(items):return '<div class="pair">'+''.join('<figure><img loading="lazy" src="'+n+'" alt="'+html.escape(c,quote=True)+'"><figcaption>'+c+'</figcaption></figure>' for n,c in items)+'</div>'
+body='<h1>Collection reconstruction · wide-shot corrections v26</h1><p>All 2,485 extracted survey frames from the ten videos have now been inspected. Reconstruction remains unfinished: room sizes and many object positions need further fitting, most new rooms are not built, and missing displays still need catalogue matching and Muse passes.</p><p><a href="../rockefeller-architecture-v26/">Open the walkable demo</a> · WASD move · Space reset · 1/2 earlier room views. <a href="../architecture-review-v25/">Previous stone arches and room-shell review</a>.</p>'
+body+='<h2>Sofa beneath its portrait</h2>'+pair([('collection-rockefeller-west-wide-native.png','Source139.25s, IMG_6380: settee directly under Romany portrait, bust next to it.'),('wide-settee-portrait.png','Current: sofa centre now follows the portrait centre. Absolute wall offsets, upholstery/hidden profiles and frame shape remain provisional; approximate camera, not a calibrated pixel fit.')])
+body+='<h2>Gold service: solid case base</h2>'+pair([('collection-gold-case-wide-native.png','Source173.25s: ivory base extends to floor beneath the Chinese export service.'),('wide-gold-pedestal.png','Corrected native pedestal with collision; pink Worcester retains its suspended tray and legs. Case height/position and vessel profiles still provisional.')])
+body+='<h2>Purple painted wall · one Muse pass</h2>'+pair([('collection-purple-wall-wide-native.png','Source120.25s: purple wall and elevator5 by Rockefeller entry. Only the short connector threshold is currently modelled.'),('purple-wall-detail.png','Baked prototype wall. Smooth contrast reduction keeps the source paint character; extended corridor, elevator, signage and exact colour are not complete.')])+pair([('purple-plaster-muse.webp','Native Muse output · OpenRouter meta/muse-image · $0.01. Facets were too strong for source smooth plaster.'),('purple-plaster-tile.png','Deterministic tile: contrast reduced to12%, mirrored edges checked equal. Original Muse output retained.')])
+body+='<h2>Source-wide room connections</h2><p>The grey French gallery joins two distinct stair halls: the piano/skylight stairs at one end and marble/fireplace stairs at the other. It also opens to Grand Gallery and the purple connector. The lion landing has THREE distinct doors: medieval room, modern painting room, and a perpendicular ancient-sculpture gallery. These surveyed rooms have not yet been added to the native map.</p>'+pair([('IMG_6380-193-216.jpg','Grey gallery: blue Grand Gallery door and neighbouring purple connector.'),('IMG_6387-073-096.jpg','Lion landing: separate white sculpture gallery door, medieval door, then modern painting entrance beside the lion.')])
+body+='<p><a href="hall-stairs-inventory.json">All surveyed groups, frame ranges and observed connections</a> · <a href="reconstruction-coverage.json">Ten-video coverage and remaining acceptance</a>. Museum official diagrams are schematic2020 plans, not measured current geometry: <a href="https://risdmuseum.org/visitor-guide/floor-5">Floor5</a>, <a href="https://risdmuseum.org/visitor-guide/floor-43">Floors3/4</a>.</p><img src="layout.svg" alt="Current provisional native map; newly surveyed halls are not yet installed">'
+d=json.loads((app/'hall-stairs-inventory.json').read_text());body+='<h2>Six new catalogue matches</h2><table><tr><th>Source group</th><th>Verified catalogue record</th><th>Status</th></tr>'
+for room in d['rooms'].values():
+ for g in room['groups']:
+  m=g.get('catalogue_match')
+  if m:
+   body+='<tr><td>'+html.escape(g['id'])+'</td><td><a href="'+html.escape(m['url'],quote=True)+'">'+html.escape(m['title'])+' · '+m['accession']+'</a></td><td>Identity matched; asset/placement unfinished</td></tr>'
+body+='</table><p>Includes Courbet43.571, Corot24.089, Rodin23.005, Neo-Babylonian lion34.652, Braque48.248 and Cézanne41.012. The modern sculpture is seated, and the painting room has straight boards; early standing/herringbone descriptions were corrected from wider views.</p>'
+body+='<h2>Metcalf Auditorium</h2>'+pair([('IMG_6378-217-240.jpg','Source: fixed seating, wood acoustic stage, white ceiling beams and side exits; entire360-frame survey reviewed.'),('official-auditorium.jpg','RISD official photograph matches the room. Actual video row/seat counts and museum connection remain unresolved; room not yet built.')])+'<p><a href="https://risdmuseum.org/rent-museum">Official museum room identification</a></p>'
+body+=f'<h2>Playtest evidence</h2><p>Native RTX4070SUPER:38/38 collision/camera checks, p95 {a["frame_time_p95_ms"]:.2f}ms. Chrome154/RTX ANGLE:38 engine checks plus actual keyboard round trip, p95 {b["engine"]["frame_time_p95_ms"]:.2f}ms, no runtime/JS errors. Both remain below60fps acceptance. Software-rendered Chrome also passed functional checks; its133ms p95 is retained separately. Native LightmapGI bake:413 surfaces,32.36s using CPU software Vulkan.</p>'+pair([('browser-forward.png','Actual Chrome keyboard: crossed from Rockefeller into European gallery.'),('browser-reverse.png','Actual Chrome keyboard: returned through the same doorway.')])+'<p>Repository checks and diff check passed. Shell playtest45/50: four pre-existing layout/pixel mismatches and dip timing; frozen Shell tests unchanged. New Muse spend$0.01, cumulative map actual$0.65/conservative$0.66 including unresolved submission. Heartbeat disabled; no Viewer changes. Next: fit the purple/grey/Grand Gallery loop against reciprocal wide shots before installing its missing Muse architecture and verified objects.</p>'
+body+='<h2>All five newly reviewed surveys · 70 sheets</h2>'
+for folder in ['main-hall-survey-v1','IMG_6381-survey-v1','IMG_6387-survey-v1','IMG_6379-survey-v1','IMG_6378-survey-v1']:
+ body+='<details><summary>'+folder+'</summary>'
+ for p in sorted((root/folder).glob('*.jpg')):
+  shutil.copyfile(p,review/p.name);body+='<figure><img loading="lazy" src="'+p.name+'" alt="'+p.name+'"><figcaption>'+p.name+'</figcaption></figure>'
+ body+='</details>'
+(review/'index.html').write_text('<!doctype html><html><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>Collection wide-shot corrections v26</title><style>'+style+'</style><main>'+body+'</main></html>')
+(share/'progress/index.html').write_text('<!doctype html><html><meta charset="utf-8"><meta http-equiv="refresh" content="0;url=../architecture-review-v26/"><a href="../architecture-review-v26/">Latest Collection reconstruction progress</a></html>')
+shutil.copyfile(review/'index.html',e/'review.html');print(review)

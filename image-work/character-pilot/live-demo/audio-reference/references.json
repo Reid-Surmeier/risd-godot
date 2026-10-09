@@ -1,0 +1,584 @@
+{
+  "status": "bounded mixed gameplay audio references; cue identities await listening and frame confirmation",
+  "source_commit": "09ca8e8b5b24e6ab44047ee980cf0088ad7ecb4c",
+  "audio_input_limitation": "model audio input unavailable; measurements are numerical, not listening verification",
+  "clips": [
+    {
+      "path": "emu-601-611.m4a",
+      "source_url": "https://www.youtube.com/watch?v=Fd0g57lSedA",
+      "requested_time_seconds": [
+        601,
+        611
+      ],
+      "decoded_duration_seconds": 10.00780045351474,
+      "sha256": "14335a4cade66866c85f8614a4fe85a95d956387d302be30a0f8fc3456de7722",
+      "bytes": 162459,
+      "status": "mixed original-game capture including music; not isolated SFX"
+    },
+    {
+      "path": "malo-movement-645-653.m4a",
+      "source_url": "https://www.youtube.com/watch?v=o7pRJ3Vhu7s",
+      "requested_time_seconds": [
+        645,
+        653
+      ],
+      "decoded_duration_seconds": 8.010884353741497,
+      "sha256": "3b62a9eab6855a8281431ac86444c3593c60caed2691f212e53f3cbd0d8be23f",
+      "bytes": 135195,
+      "status": "mixed original-game capture including music; not isolated SFX"
+    },
+    {
+      "path": "utopia-door-1501-1507.m4a",
+      "source_url": "https://www.youtube.com/watch?v=OUMNiEiR1As",
+      "requested_time_seconds": [
+        1501,
+        1507
+      ],
+      "decoded_duration_seconds": 6.013968253968254,
+      "sha256": "49b7a5ca5625be249c60a2848d01fc11eb4449af3b59bf3b9521f9e32eee0e25",
+      "bytes": 99531,
+      "status": "mixed original-game capture including music; not isolated SFX"
+    }
+  ],
+  "cue_candidates": [
+    {
+      "path": "emu-grass-candidate.wav",
+      "parent": "emu-601-611.m4a",
+      "offset_seconds": [
+        0.79,
+        1.01
+      ],
+      "status": "footstep candidate with music",
+      "duration_seconds": 0.2199546485260771,
+      "sha256": "aaf5dfba290a830ae6702dbcf4ac17a308f8d588d8c36cf2bda024be2d94e10b",
+      "bytes": 9744,
+      "mixed_window_spectral_centroid_hz": 1220.91,
+      "mixed_window_peak_frequency_hz": 354.62,
+      "interpretation": "spectrum includes music; not original isolated sample parameters",
+      "spectral_measurement": "mean-removed Hann-window power spectrum, bins below40Hz excluded"
+    },
+    {
+      "path": "malo-step-candidate.wav",
+      "parent": "malo-movement-645-653.m4a",
+      "offset_seconds": [
+        0.42,
+        0.65
+      ],
+      "status": "footstep candidate with music, gait unverified",
+      "duration_seconds": 0.22997732426303855,
+      "sha256": "5c919bbe68e9f167e018a0df06c952502978987062a7fd02f05bfb2721f671e0",
+      "bytes": 10186,
+      "mixed_window_spectral_centroid_hz": 1406.17,
+      "mixed_window_peak_frequency_hz": 182.63,
+      "interpretation": "spectrum includes music; not original isolated sample parameters",
+      "spectral_measurement": "mean-removed Hann-window power spectrum, bins below40Hz excluded"
+    },
+    {
+      "path": "utopia-door-candidate.wav",
+      "parent": "utopia-door-1501-1507.m4a",
+      "offset_seconds": [
+        0.1,
+        0.6
+      ],
+      "status": "shop-exit transient candidate, not verified house door",
+      "duration_seconds": 0.5,
+      "sha256": "22ba5611a507e67b01abf11992cfe444a19ea3145c1dfba1c1c1d76cab62427a",
+      "bytes": 22094,
+      "mixed_window_spectral_centroid_hz": 1388.79,
+      "mixed_window_peak_frequency_hz": 1276.0,
+      "interpretation": "spectrum includes music; not original isolated sample parameters",
+      "spectral_measurement": "mean-removed Hann-window power spectrum, bins below40Hz excluded"
+    },
+    {
+      "path": "emu-voice-candidate.wav",
+      "parent": "emu-601-611.m4a",
+      "offset_seconds": [
+        8.0,
+        8.6
+      ],
+      "status": "dialogue voice candidate with music",
+      "duration_seconds": 0.6,
+      "sha256": "2deca96a4ffdab02a67e579601c1327a045d2d093854366f9a577f281f750bf6",
+      "bytes": 26504,
+      "mixed_window_spectral_centroid_hz": 788.94,
+      "mixed_window_peak_frequency_hz": 253.33,
+      "interpretation": "spectrum includes music; not original isolated sample parameters",
+      "spectral_measurement": "mean-removed Hann-window power spectrum, bins below40Hz excluded"
+    }
+  ],
+  "new_paid_calls": 0,
+  "transient_measurement_method": {
+    "sample_rate": 22050,
+    "window_samples": 512,
+    "hop_samples": 110,
+    "band_hz": [
+      2500,
+      7500
+    ],
+    "peak_prominence": "2x band-energy MAD",
+    "peak_min_separation_seconds": 0.12,
+    "width": "half-prominence high-band envelope width; not cue lifetime"
+  },
+  "transient_candidates": [
+    {
+      "file": "utopia-door-1501-1507.m4a",
+      "sha256": "49b7a5ca5625be249c60a2848d01fc11eb4449af3b59bf3b9521f9e32eee0e25",
+      "bytes": 99531,
+      "duration_seconds": 6.013968253968254,
+      "candidate_transients_not_identified_cues": [
+        {
+          "time_from_excerpt_seconds": 0.1313,
+          "highband_half_prominence_width_seconds": 0.0122,
+          "highband_energy": 0.26302
+        },
+        {
+          "time_from_excerpt_seconds": 0.296,
+          "highband_half_prominence_width_seconds": 0.0218,
+          "highband_energy": 0.54251
+        },
+        {
+          "time_from_excerpt_seconds": 0.4356,
+          "highband_half_prominence_width_seconds": 0.0289,
+          "highband_energy": 0.10605
+        },
+        {
+          "time_from_excerpt_seconds": 1.3585,
+          "highband_half_prominence_width_seconds": 0.0481,
+          "highband_energy": 0.0662
+        },
+        {
+          "time_from_excerpt_seconds": 1.5481,
+          "highband_half_prominence_width_seconds": 0.0183,
+          "highband_energy": 0.04967
+        },
+        {
+          "time_from_excerpt_seconds": 2.1767,
+          "highband_half_prominence_width_seconds": 0.0361,
+          "highband_energy": 0.33624
+        },
+        {
+          "time_from_excerpt_seconds": 2.466,
+          "highband_half_prominence_width_seconds": 0.0221,
+          "highband_energy": 0.25957
+        },
+        {
+          "time_from_excerpt_seconds": 2.7205,
+          "highband_half_prominence_width_seconds": 0.0299,
+          "highband_energy": 1.23658
+        },
+        {
+          "time_from_excerpt_seconds": 2.9948,
+          "highband_half_prominence_width_seconds": 0.0359,
+          "highband_energy": 0.59574
+        },
+        {
+          "time_from_excerpt_seconds": 3.2792,
+          "highband_half_prominence_width_seconds": 0.0352,
+          "highband_energy": 0.32891
+        },
+        {
+          "time_from_excerpt_seconds": 3.6533,
+          "highband_half_prominence_width_seconds": 0.0177,
+          "highband_energy": 0.46219
+        },
+        {
+          "time_from_excerpt_seconds": 3.813,
+          "highband_half_prominence_width_seconds": 0.0389,
+          "highband_energy": 0.56826
+        },
+        {
+          "time_from_excerpt_seconds": 4.0824,
+          "highband_half_prominence_width_seconds": 0.0271,
+          "highband_energy": 1.02859
+        },
+        {
+          "time_from_excerpt_seconds": 4.3717,
+          "highband_half_prominence_width_seconds": 0.0364,
+          "highband_energy": 0.31762
+        },
+        {
+          "time_from_excerpt_seconds": 4.6311,
+          "highband_half_prominence_width_seconds": 0.0317,
+          "highband_energy": 0.27809
+        },
+        {
+          "time_from_excerpt_seconds": 4.9005,
+          "highband_half_prominence_width_seconds": 0.0257,
+          "highband_energy": 1.06554
+        },
+        {
+          "time_from_excerpt_seconds": 5.1749,
+          "highband_half_prominence_width_seconds": 0.0296,
+          "highband_energy": 0.64927
+        },
+        {
+          "time_from_excerpt_seconds": 5.3096,
+          "highband_half_prominence_width_seconds": 0.0136,
+          "highband_energy": 0.4339
+        },
+        {
+          "time_from_excerpt_seconds": 5.5241,
+          "highband_half_prominence_width_seconds": 0.0199,
+          "highband_energy": 0.47922
+        },
+        {
+          "time_from_excerpt_seconds": 5.7037,
+          "highband_half_prominence_width_seconds": 0.0189,
+          "highband_energy": 0.28818
+        },
+        {
+          "time_from_excerpt_seconds": 5.993,
+          "highband_half_prominence_width_seconds": 0.0034,
+          "highband_energy": 0.70309
+        }
+      ]
+    },
+    {
+      "file": "emu-601-611.m4a",
+      "sha256": "14335a4cade66866c85f8614a4fe85a95d956387d302be30a0f8fc3456de7722",
+      "bytes": 162459,
+      "duration_seconds": 10.00780045351474,
+      "candidate_transients_not_identified_cues": [
+        {
+          "time_from_excerpt_seconds": 0.2012,
+          "highband_half_prominence_width_seconds": 0.027,
+          "highband_energy": 0.05408
+        },
+        {
+          "time_from_excerpt_seconds": 0.3209,
+          "highband_half_prominence_width_seconds": 0.0337,
+          "highband_energy": 0.10528
+        },
+        {
+          "time_from_excerpt_seconds": 0.8746,
+          "highband_half_prominence_width_seconds": 0.0291,
+          "highband_energy": 0.09474
+        },
+        {
+          "time_from_excerpt_seconds": 1.0493,
+          "highband_half_prominence_width_seconds": 0.0131,
+          "highband_energy": 0.07265
+        },
+        {
+          "time_from_excerpt_seconds": 1.3735,
+          "highband_half_prominence_width_seconds": 0.0132,
+          "highband_energy": 0.10323
+        },
+        {
+          "time_from_excerpt_seconds": 1.6329,
+          "highband_half_prominence_width_seconds": 0.0138,
+          "highband_energy": 0.11519
+        },
+        {
+          "time_from_excerpt_seconds": 2.1767,
+          "highband_half_prominence_width_seconds": 0.0133,
+          "highband_energy": 0.08266
+        },
+        {
+          "time_from_excerpt_seconds": 2.3862,
+          "highband_half_prominence_width_seconds": 0.0466,
+          "highband_energy": 0.26704
+        },
+        {
+          "time_from_excerpt_seconds": 2.7005,
+          "highband_half_prominence_width_seconds": 0.0192,
+          "highband_energy": 0.03555
+        },
+        {
+          "time_from_excerpt_seconds": 2.8252,
+          "highband_half_prominence_width_seconds": 0.0124,
+          "highband_energy": 0.07729
+        },
+        {
+          "time_from_excerpt_seconds": 3.1944,
+          "highband_half_prominence_width_seconds": 0.0398,
+          "highband_energy": 0.09729
+        },
+        {
+          "time_from_excerpt_seconds": 3.3341,
+          "highband_half_prominence_width_seconds": 0.0257,
+          "highband_energy": 0.08448
+        },
+        {
+          "time_from_excerpt_seconds": 3.5037,
+          "highband_half_prominence_width_seconds": 0.0353,
+          "highband_energy": 0.04663
+        },
+        {
+          "time_from_excerpt_seconds": 3.7731,
+          "highband_half_prominence_width_seconds": 0.0134,
+          "highband_energy": 0.10532
+        },
+        {
+          "time_from_excerpt_seconds": 3.9177,
+          "highband_half_prominence_width_seconds": 0.0481,
+          "highband_energy": 0.06691
+        },
+        {
+          "time_from_excerpt_seconds": 4.0424,
+          "highband_half_prominence_width_seconds": 0.0132,
+          "highband_energy": 0.1027
+        },
+        {
+          "time_from_excerpt_seconds": 4.3168,
+          "highband_half_prominence_width_seconds": 0.0228,
+          "highband_energy": 0.03417
+        },
+        {
+          "time_from_excerpt_seconds": 4.5712,
+          "highband_half_prominence_width_seconds": 0.0131,
+          "highband_energy": 0.10463
+        },
+        {
+          "time_from_excerpt_seconds": 5.115,
+          "highband_half_prominence_width_seconds": 0.0132,
+          "highband_energy": 0.11062
+        },
+        {
+          "time_from_excerpt_seconds": 5.3794,
+          "highband_half_prominence_width_seconds": 0.0121,
+          "highband_energy": 0.09904
+        },
+        {
+          "time_from_excerpt_seconds": 5.6438,
+          "highband_half_prominence_width_seconds": 0.2212,
+          "highband_energy": 0.03909
+        },
+        {
+          "time_from_excerpt_seconds": 6.1976,
+          "highband_half_prominence_width_seconds": 0.0295,
+          "highband_energy": 0.13395
+        },
+        {
+          "time_from_excerpt_seconds": 6.9957,
+          "highband_half_prominence_width_seconds": 0.0287,
+          "highband_energy": 0.04994
+        },
+        {
+          "time_from_excerpt_seconds": 7.1254,
+          "highband_half_prominence_width_seconds": 0.0306,
+          "highband_energy": 0.11526
+        },
+        {
+          "time_from_excerpt_seconds": 7.4647,
+          "highband_half_prominence_width_seconds": 0.0382,
+          "highband_energy": 0.09195
+        },
+        {
+          "time_from_excerpt_seconds": 7.7141,
+          "highband_half_prominence_width_seconds": 0.0274,
+          "highband_energy": 0.05546
+        },
+        {
+          "time_from_excerpt_seconds": 7.8787,
+          "highband_half_prominence_width_seconds": 0.029,
+          "highband_energy": 0.23744
+        },
+        {
+          "time_from_excerpt_seconds": 8.1381,
+          "highband_half_prominence_width_seconds": 0.0788,
+          "highband_energy": 0.27932
+        },
+        {
+          "time_from_excerpt_seconds": 8.8216,
+          "highband_half_prominence_width_seconds": 0.1004,
+          "highband_energy": 0.23825
+        },
+        {
+          "time_from_excerpt_seconds": 9.0062,
+          "highband_half_prominence_width_seconds": 0.0286,
+          "highband_energy": 0.15382
+        },
+        {
+          "time_from_excerpt_seconds": 9.2257,
+          "highband_half_prominence_width_seconds": 0.0449,
+          "highband_energy": 0.16207
+        },
+        {
+          "time_from_excerpt_seconds": 9.4152,
+          "highband_half_prominence_width_seconds": 0.0351,
+          "highband_energy": 0.1631
+        },
+        {
+          "time_from_excerpt_seconds": 9.54,
+          "highband_half_prominence_width_seconds": 0.0499,
+          "highband_energy": 0.12685
+        },
+        {
+          "time_from_excerpt_seconds": 9.6746,
+          "highband_half_prominence_width_seconds": 0.0587,
+          "highband_energy": 0.17414
+        },
+        {
+          "time_from_excerpt_seconds": 9.8044,
+          "highband_half_prominence_width_seconds": 0.0685,
+          "highband_energy": 0.1179
+        }
+      ]
+    },
+    {
+      "file": "malo-movement-645-653.m4a",
+      "sha256": "3b62a9eab6855a8281431ac86444c3593c60caed2691f212e53f3cbd0d8be23f",
+      "bytes": 135195,
+      "duration_seconds": 8.010884353741497,
+      "candidate_transients_not_identified_cues": [
+        {
+          "time_from_excerpt_seconds": 0.2361,
+          "highband_half_prominence_width_seconds": 0.0281,
+          "highband_energy": 0.15352
+        },
+        {
+          "time_from_excerpt_seconds": 0.4905,
+          "highband_half_prominence_width_seconds": 0.036,
+          "highband_energy": 0.21275
+        },
+        {
+          "time_from_excerpt_seconds": 0.7549,
+          "highband_half_prominence_width_seconds": 0.0364,
+          "highband_energy": 0.26609
+        },
+        {
+          "time_from_excerpt_seconds": 1.0343,
+          "highband_half_prominence_width_seconds": 0.0321,
+          "highband_energy": 0.12728
+        },
+        {
+          "time_from_excerpt_seconds": 1.2638,
+          "highband_half_prominence_width_seconds": 0.017,
+          "highband_energy": 0.13754
+        },
+        {
+          "time_from_excerpt_seconds": 1.5731,
+          "highband_half_prominence_width_seconds": 0.0353,
+          "highband_energy": 0.29883
+        },
+        {
+          "time_from_excerpt_seconds": 1.7676,
+          "highband_half_prominence_width_seconds": 0.0172,
+          "highband_energy": 0.2078
+        },
+        {
+          "time_from_excerpt_seconds": 2.0071,
+          "highband_half_prominence_width_seconds": 0.0327,
+          "highband_energy": 0.20664
+        },
+        {
+          "time_from_excerpt_seconds": 2.2066,
+          "highband_half_prominence_width_seconds": 0.024,
+          "highband_energy": 0.1514
+        },
+        {
+          "time_from_excerpt_seconds": 2.471,
+          "highband_half_prominence_width_seconds": 0.0397,
+          "highband_energy": 0.1949
+        },
+        {
+          "time_from_excerpt_seconds": 2.6706,
+          "highband_half_prominence_width_seconds": 0.038,
+          "highband_energy": 0.23543
+        },
+        {
+          "time_from_excerpt_seconds": 2.935,
+          "highband_half_prominence_width_seconds": 0.0345,
+          "highband_energy": 0.36107
+        },
+        {
+          "time_from_excerpt_seconds": 3.3091,
+          "highband_half_prominence_width_seconds": 0.0306,
+          "highband_energy": 0.10812
+        },
+        {
+          "time_from_excerpt_seconds": 3.5735,
+          "highband_half_prominence_width_seconds": 0.0321,
+          "highband_energy": 0.19935
+        },
+        {
+          "time_from_excerpt_seconds": 3.7581,
+          "highband_half_prominence_width_seconds": 0.033,
+          "highband_energy": 0.33179
+        },
+        {
+          "time_from_excerpt_seconds": 4.0375,
+          "highband_half_prominence_width_seconds": 0.0406,
+          "highband_energy": 0.17426
+        },
+        {
+          "time_from_excerpt_seconds": 4.3068,
+          "highband_half_prominence_width_seconds": 0.0334,
+          "highband_energy": 0.13521
+        },
+        {
+          "time_from_excerpt_seconds": 4.4964,
+          "highband_half_prominence_width_seconds": 0.0287,
+          "highband_energy": 0.14774
+        },
+        {
+          "time_from_excerpt_seconds": 4.7459,
+          "highband_half_prominence_width_seconds": 0.0412,
+          "highband_energy": 0.20598
+        },
+        {
+          "time_from_excerpt_seconds": 4.9554,
+          "highband_half_prominence_width_seconds": 0.0178,
+          "highband_energy": 0.21046
+        },
+        {
+          "time_from_excerpt_seconds": 5.12,
+          "highband_half_prominence_width_seconds": 0.0358,
+          "highband_energy": 0.2644
+        },
+        {
+          "time_from_excerpt_seconds": 5.4143,
+          "highband_half_prominence_width_seconds": 0.0453,
+          "highband_energy": 0.17023
+        },
+        {
+          "time_from_excerpt_seconds": 5.6388,
+          "highband_half_prominence_width_seconds": 0.0553,
+          "highband_energy": 0.19398
+        },
+        {
+          "time_from_excerpt_seconds": 5.9381,
+          "highband_half_prominence_width_seconds": 0.0364,
+          "highband_energy": 0.30709
+        },
+        {
+          "time_from_excerpt_seconds": 6.1078,
+          "highband_half_prominence_width_seconds": 0.0441,
+          "highband_energy": 0.19511
+        },
+        {
+          "time_from_excerpt_seconds": 6.4819,
+          "highband_half_prominence_width_seconds": 0.0355,
+          "highband_energy": 0.13506
+        },
+        {
+          "time_from_excerpt_seconds": 6.6665,
+          "highband_half_prominence_width_seconds": 0.0353,
+          "highband_energy": 0.12931
+        },
+        {
+          "time_from_excerpt_seconds": 7.0356,
+          "highband_half_prominence_width_seconds": 0.0333,
+          "highband_energy": 0.23429
+        },
+        {
+          "time_from_excerpt_seconds": 7.305,
+          "highband_half_prominence_width_seconds": 0.0343,
+          "highband_energy": 0.32051
+        },
+        {
+          "time_from_excerpt_seconds": 7.5794,
+          "highband_half_prominence_width_seconds": 0.0327,
+          "highband_energy": 0.12137
+        },
+        {
+          "time_from_excerpt_seconds": 7.8288,
+          "highband_half_prominence_width_seconds": 0.0214,
+          "highband_energy": 0.11543
+        }
+      ]
+    }
+  ],
+  "total_persisted_audio_bytes": 465713
+}

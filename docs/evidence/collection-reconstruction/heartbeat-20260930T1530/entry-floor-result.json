@@ -1,0 +1,194 @@
+{
+  "selection": {
+    "query": "IMG_6380/000206.jpg",
+    "pose_source": "strict-floor-entry-wall-photometric-final/result.json",
+    "references": [
+      "IMG_6380/000244.jpg",
+      "IMG_6380/000505.jpg"
+    ],
+    "floor_polygons_upright": {
+      "IMG_6380/000206.jpg": [
+        [
+          190,
+          605
+        ],
+        [
+          365,
+          605
+        ],
+        [
+          388,
+          638
+        ],
+        [
+          436,
+          701
+        ],
+        [
+          540,
+          801
+        ],
+        [
+          518,
+          946
+        ],
+        [
+          55,
+          948
+        ],
+        [
+          55,
+          841
+        ],
+        [
+          164,
+          721
+        ]
+      ],
+      "IMG_6380/000244.jpg": [
+        [
+          218,
+          650
+        ],
+        [
+          420,
+          650
+        ],
+        [
+          480,
+          745
+        ],
+        [
+          505,
+          810
+        ],
+        [
+          570,
+          900
+        ],
+        [
+          719,
+          1150
+        ],
+        [
+          719,
+          1279
+        ],
+        [
+          0,
+          1279
+        ],
+        [
+          0,
+          1010
+        ],
+        [
+          140,
+          850
+        ],
+        [
+          175,
+          755
+        ]
+      ],
+      "IMG_6380/000505.jpg": [
+        [
+          190,
+          665
+        ],
+        [
+          445,
+          665
+        ],
+        [
+          450,
+          750
+        ],
+        [
+          490,
+          820
+        ],
+        [
+          560,
+          900
+        ],
+        [
+          719,
+          1150
+        ],
+        [
+          719,
+          1279
+        ],
+        [
+          0,
+          1279
+        ],
+        [
+          0,
+          1000
+        ],
+        [
+          130,
+          805
+        ]
+      ]
+    },
+    "note": "Source-reviewed wood only; excludes display bodies, baseboards, casing and front crossgrain strip in query206. Frozen before cached correspondences. No chosen point IDs or predictions inspected."
+  },
+  "rows": [
+    {
+      "reference": "IMG_6380/000244.jpg",
+      "cached_matches": 51,
+      "wood_matches": [
+        {
+          "query_feature": 314,
+          "reference_feature": 566,
+          "query_pixel": [
+            194.96966552734375,
+            656.1151733398438
+          ],
+          "reference_pixel": [
+            85.02032470703125,
+            914.75390625
+          ],
+          "point_id": 14320,
+          "error_px": 2.1080564693131247,
+          "predicted_pixel": [
+            196.11304479513126,
+            657.8862142563125
+          ],
+          "positive_depth": true
+        }
+      ],
+      "tracked_floor_matches": 1,
+      "errors_px": [
+        2.1080564693131247
+      ]
+    },
+    {
+      "reference": "IMG_6380/000505.jpg",
+      "cached_matches": 64,
+      "wood_matches": [],
+      "tracked_floor_matches": 0,
+      "errors_px": []
+    }
+  ],
+  "inputs_sha256": {
+    "docs/evidence/collection-reconstruction/heartbeat-20260930T1530/entry-floor-selection.json": "c331787543fd250d7a525e170068ed75ee4c9c72585a4edc136f0987dd0c1fe6",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/strict-floor-entry-wall-photometric-final/result.json": "09c935ba8d0854ce40099605a23a611df8752724b82ad013abcb7ab0631254e8",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/heldout-calibrated-v1/database.db": "29c049388699de6887daabb592df9d57e510730d93b9eadca3f3a28892dc4804",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000206.jpg": "13e7bd6c619da3d25951cd5658cc10e715304df3dc062c3213fd3952054bad8a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000244.jpg": "81dc3d6cca2ec13687f0d040f5401f5bca78248b4348d98477e31afbff8f9fef",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/survey-2fps/IMG_6380/000505.jpg": "57a9d4c90cdbbe43455c31945bf74192249aa10e0749b7659afada48e35ed917"
+  },
+  "pose_fit_upright_y_below": 540,
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Tentative cached feature matches can confuse repeated floorboards. All masked matches retained, no residual selection or plane refit. Wall-only pose excludes these floor pixels; same-video cameras remain correlated. This diagnoses floor coverage, not metric scale, identity, extent or collision."
+}

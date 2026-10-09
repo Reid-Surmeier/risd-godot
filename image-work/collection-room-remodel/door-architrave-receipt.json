@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/architecture-references/door-architrave-source.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-85364264e9b9bda0a9698877/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "7375be52dffd4dc255dcf0d82d171c79271e57ff539443d3f89bba0e672e846a"
+    }
+  ],
+  "changesRequested": "Create ONE straight upright strip of the exact cream-painted layered doorway architrave from the reference. Isolate a front orthographic view on flat pure magenta #FF00FF. This is architectural painted wood: long simple parallel stepped bands, narrow raised bead, flat recessed band and broader outer bevel. Preserve the reference simple moulding sequence and warm ivory palette. Low polygon game material with readable flat facets and restrained baked relief, no carved ornament, no door, no wall, no shadow outside silhouette, no decorative gold frame, no text. Keep straight parallel vertical edges and generous magenta margins. One strip only; not a complete doorway. Its cross-section is authored separately.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-85364264e9b9bda0a9698877",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-85364264e9b9bda0a9698877"
+}

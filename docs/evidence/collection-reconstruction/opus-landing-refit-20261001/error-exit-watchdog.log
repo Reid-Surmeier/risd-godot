@@ -1,0 +1,31 @@
+# godot --headless --fixed-fps 60 --path <plain, un-imported project without main-build-source.json> -s check_landing.gd
+# script errors stop run(); the watchdog ends the process with exit 2 and no report file is written. 3395 lines of repeated errors trimmed from the middle.
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+ERROR: No loader found for resource: res://modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:332)
+   GDScript backtrace (most recent call first):
+       [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:237)
+       [1] _ready (res://doorway_walk.gd:104)
+       [2] _ready (res://remodel_room.gd:18)
+       [3] run (/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-seated-woman/docs/evidence/collection-reconstruction/opus-landing-refit-20261001/check_landing.gd:122)
+SCRIPT ERROR: Attempt to call function 'instantiate' in base 'null instance' on a null instance.
+          at: _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:237)
+          GDScript backtrace (most recent call first):
+              [0] _ready (res://modules/shell/prototype/gallery_walk4/visitor159/visitor.gd:237)
+              [1] _ready (res://doorway_walk.gd:104)
+              [2] _ready (res://remodel_room.gd:18)
+              [3] run (/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-seated-woman/docs/evidence/collection-reconstruction/opus-landing-refit-20261001/check_landing.gd:122)
+ERROR: No loader found for resource: res://presentation/oak-board-atlas-168-v3.webp (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:332)
+   GDScript backtrace (most recent call first):
+       [0] build_rooms (res://remodel_room.gd:209)
+       [1] _ready (res://remodel_room.gd:30)
+       [2] run (/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-seated-woman/docs/evidence/collection-reconstruction/opus-landing-refit-20261001/check_landing.gd:122)
+ERROR: No loader found for resource: res://presentation/wall-plaster.png (expected type: unknown)
+   at: _load (core/io/resource_loader.cpp:332)
+   GDScript backtrace (most recent call first):
+...
+              [0] run (/home/reidsurmeier/orca/workspaces/risd-godot/collection-opus-seated-woman/docs/evidence/collection-reconstruction/opus-landing-refit-20261001/check_landing.gd:125)
+LANDING_REFIT_CHECK aborted: run() did not finish
+exit=2

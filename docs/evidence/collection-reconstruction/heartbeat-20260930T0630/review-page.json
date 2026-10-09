@@ -1,0 +1,39 @@
+{
+  "status": 200,
+  "errors": [],
+  "images": [
+    {
+      "src": "outer-header-000202.png",
+      "width": 720
+    },
+    {
+      "src": "outer-header-000203.png",
+      "width": 720
+    },
+    {
+      "src": "000203-local-tracks.png",
+      "width": 720
+    },
+    {
+      "src": "000204-local-tracks.png",
+      "width": 720
+    },
+    {
+      "src": "native-aligned-contact.jpg",
+      "width": 2160
+    },
+    {
+      "src": "native-seek-contact.jpg",
+      "width": 2160
+    },
+    {
+      "src": "browser-forward.png",
+      "width": 1100
+    },
+    {
+      "src": "browser-return-jamb.png",
+      "width": 1100
+    }
+  ],
+  "pass": true
+}

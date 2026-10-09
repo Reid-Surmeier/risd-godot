@@ -1,0 +1,6 @@
+{
+  "raw_path": "image-work/collection-room-remodel/inventory-catalogue/perugino-madonna.html.gz",
+  "raw_decompressed_sha256": "acc11c5758a8670ac4cae39011516a70a63f21088208f637463dfeda5893dcd5",
+  "reason": "Raw museum HTML includes whitespace; compressed archive retains all source bytes. Local untracked HTML cache preserved unchanged.",
+  "page": "https://risdmuseum.org/art-design/collection/madonna-and-child-16236"
+}

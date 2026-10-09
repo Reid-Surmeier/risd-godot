@@ -1,0 +1,67 @@
+{
+ "full_app": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-rooms-v50h",
+ "hall_source_tip": "317b8f3b8dac0f9811d396bcb0260c7187f93f11",
+ "hall_files_listed": 362,
+ "hall_files_hash_equal": 362,
+ "changed_or_missing": [],
+ "geometry_equals_my_build": true,
+ "scripts": {
+  "remodel_room.gd": {
+   "sha256": "df53d9ab598755438e65057ac843a43753d6dd7db8855e6e61d648ab814df5a9",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  },
+  "remodel_review.gd": {
+   "sha256": "72d0b5c691583e6a0c8be704907a013b0dbb0c6958f9f26cdffc76e09c462787",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  },
+  "remodel_bake.gd": {
+   "sha256": "2f19bc91c3a5d4f6d0ce7158306b657a6036437ed54f2c6570836c4f73658418",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  },
+  "retained_hall_room.gd": {
+   "sha256": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+   "lines_differing_after_prefix": 0,
+   "sample": []
+  }
+ },
+ "bake": {
+  "room.exr": {
+   "bytes": 4530965,
+   "sha256": "ee2ee05578a652b947b72c684f2427eb7c89ac8ee4eb04f0e0493e843482525e"
+  },
+  "room.exr.import": {
+   "bytes": 867,
+   "sha256": "7a7d5a1188ef2fa2dbfccfa0d0366261b7e01fcb10e103e28e79c15ee52b55be"
+  },
+  "room.tres": {
+   "bytes": 118434,
+   "sha256": "8bcd2bfbbd5fb551c31f5b4318fd5f9ee4e152d5bef90c6215193906f9e4ec6e"
+  },
+  "room.tscn": {
+   "bytes": 8948960,
+   "sha256": "90154bbd13d16114bd1b291013e68ad0f4a95ac5d15ab3385b6558880b646d40"
+  }
+ },
+ "native_evidence": {
+  "grey-collection.png": "671808b956779e9505a21c7a0dda519e24cdd0e79b9d87fc075157a8f71c403e",
+  "grey-fullapp.png": "ed4c0ad7daa39a81b3841af8b0b66d7a5fe74c3cf5ea44c29902a04765b04e87",
+  "hall-collection.png": "0459b57ca6d2c3183fe454b931597c891096a5075a7487cccb45791bca1420c5",
+  "hall-fullapp.png": "70a9bf6e5d0181e22be65fbcec6692654ee6f2266eff1bd899ba5fb38bac7bdb",
+  "landing-collection.png": "e591cc6fe4257fb67ebe3a586cbb0725540ba195a1f7ef1fb1f6600bec99e119",
+  "landing-fullapp.png": "a54d02953c039d3c49e5cf6fdbbc377beadc5ea46dce3de26462fbc3145f1d28",
+  "medieval-collection.png": "77dc8281204fa9458a201cef455ca070718eeeb8217adbae4413b951df9d3761",
+  "medieval-fullapp.png": "aea995fa2acf3fdb753e70744ac149c3a505a9dc819a8decb179ddf7667325d0",
+  "medieval-lowcase-collection.png": "e73d482cb30abc0f9b496e1c6213444f668f571d4d5411d88e10cc4599b36adc",
+  "medieval-lowcase-fullapp.png": "76a02d7eb489a7d766cf49c31b02d4ef25d5638bf69ecc37e37bd2ea2ac3a6f6",
+  "medieval-tallcase-collection.png": "51714ba0077fae8352bf082403df7957cef85bd2f790b34d4a22475f3da37bb0",
+  "medieval-tallcase-fullapp.png": "10d1816a1f1af469ad3b92c180f9d4fb83dbd2e798d0a9b327dd047cdf3c718a",
+  "modern-case-collection.png": "0f12a3fa747c44c5aaf972aef8bbc676b0e7ff5750b749f281dd148812897d97",
+  "modern-case-fullapp.png": "37c76d51d0b213176d9b9e696b0912d48c9d5226ecad501f94aeb6b0bdff3a63",
+  "modern-layout-collection.png": "bf8c4679f773aa2e7155728e8910d21fe7d42e7da185363c318eff98cf09491d",
+  "modern-layout-fullapp.png": "90f949a6bd4e13f64707e8bc5741c5f2173c42de34be6f54b4a4b3db6ef5cc70",
+  "native-views.json": "6859bd3b5b90055f45a99c79952115fe621208c282d6b68f2d61094365dd6492"
+ }
+}

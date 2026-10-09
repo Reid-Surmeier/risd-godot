@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "door-architrave-001",
+      "prompt": "door-architrave-prompt.txt",
+      "promptSha256": "022dfff6c1f47fd757adf6fe3e20f50af76b99ff7a77ade727897c2c5289d27d",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "architecture-references/door-architrave-source.png",
+          "sha256": "ee10a8a313cb8c6593811a0244de1725c19d218b0a2fffede8a408305c968dd9"
+        }
+      ]
+    }
+  ]
+}

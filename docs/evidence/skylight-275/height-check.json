@@ -1,0 +1,126 @@
+{
+  "method": "canvas-plane homography; inherited height relative to entry",
+  "rows": [
+    {
+      "frame": "IMG_6379 127.0s",
+      "canvas": "69.094",
+      "canvas_m": [
+        2.21,
+        2.223
+      ],
+      "corners_px": [
+        [
+          302,
+          373
+        ],
+        [
+          544,
+          392
+        ],
+        [
+          532,
+          640
+        ],
+        [
+          303,
+          630
+        ]
+      ],
+      "floor_px": [
+        435,
+        935
+      ],
+      "canvas_center_above_lower_m": 4.109,
+      "inferred_storey_m": 2.469,
+      "click_jitter_5_95_m": [
+        3.943,
+        4.288
+      ],
+      "homography": [
+        [
+          0.007917165448075329,
+          -3.0806091237647445e-05,
+          -2.3794932932871062
+        ],
+        [
+          -0.0005750669364410104,
+          0.00732453676940655,
+          -2.558382000183458
+        ],
+        [
+          -0.00010640489602706496,
+          -0.00019243131045846977,
+          1.0
+        ]
+      ],
+      "ceiling_px": [
+        435,
+        230
+      ],
+      "cornice_foot_px": [
+        435,
+        272
+      ],
+      "lower_floor_to_ceiling_m": 6.457,
+      "entry_to_ceiling_m": 3.907,
+      "entry_to_cornice_foot_m": 3.577
+    },
+    {
+      "frame": "IMG_6379 54.0s",
+      "canvas": "2026.3",
+      "canvas_m": [
+        1.53,
+        1.524
+      ],
+      "corners_px": [
+        [
+          142,
+          113
+        ],
+        [
+          564,
+          107
+        ],
+        [
+          548,
+          544
+        ],
+        [
+          217,
+          534
+        ]
+      ],
+      "floor_px": [
+        390,
+        1075
+      ],
+      "canvas_center_above_lower_m": 4.528,
+      "inferred_storey_m": 2.528,
+      "click_jitter_5_95_m": [
+        4.325,
+        4.755
+      ],
+      "homography": [
+        [
+          0.00361386308818102,
+          -0.0006437998375619394,
+          -0.4404191768772057
+        ],
+        [
+          3.857740634633802e-05,
+          0.002713277579692438,
+          -0.31207835820642554
+        ],
+        [
+          9.432161981543167e-05,
+          -0.0005038113983032672,
+          1.0
+        ]
+      ],
+      "floor_to_cased_door_head_m": 2.535
+    }
+  ],
+  "chosen_storey_m": 2.55,
+  "estimated_total_error_m": 0.3,
+  "caveat": "Extrapolated floor and canvas share a wall plane; entry-relative work heights inherited. Jitter interval excludes lens distortion, canvas/front offset and floor click error."
+}

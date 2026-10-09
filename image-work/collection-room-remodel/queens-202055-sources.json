@@ -1,0 +1,29 @@
+{
+  "api_url": "https://risdmuseum.org/api/v1/collection?id=1557221",
+  "references": [
+    {
+      "path": "inventory-references/queens-202055-official-0.png",
+      "sha256": "6cbda6dd2b7ee70630f2c6209b53002b529c518d85be47ff571413daba798dc2",
+      "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/god-save-queens-202055-zoom-0.jpg",
+      "sourceSha256": "6a2a8f8b9d4ed18f81dc22f1eaa91a253c2981480163a3f0f63831f0526a9dff",
+      "preprocessing": "RGB JPEG to PNG; no crop or resize"
+    },
+    {
+      "path": "inventory-references/queens-202055-official-1.png",
+      "sha256": "50a8a6e6f7f93ec4d1d2207651f2f0ccadac938949c260d360727da7d8f2daf1",
+      "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/god-save-queens-202055-zoom-1.jpg",
+      "sourceSha256": "aab52815b724f10b9b12096b079f39477848f132a0564b0fe385ed1a7a0a4a23",
+      "preprocessing": "RGB JPEG to PNG; no crop or resize"
+    },
+    {
+      "path": "inventory-references/queens-202055-official-2.png",
+      "sha256": "bcdfdfa53aee37255aee4f74ad91fec1f7621fd88843f82bba033ffb2df0f91f",
+      "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/god-save-queens-202055-zoom-2.jpg",
+      "sourceSha256": "1995e58e93603b530dbcfe1950acfb888a2a69c9cb8fb7dc1d7923b3df29ea70",
+      "preprocessing": "RGB JPEG to PNG; no crop or resize"
+    }
+  ],
+  "copyright_metadata": "in_copyright",
+  "private_prototype_authorized": true,
+  "rear_accepted": false
+}

@@ -1,0 +1,34 @@
+{
+  "status": 200,
+  "images": [
+    {
+      "src": "walk.png",
+      "loaded": true
+    },
+    {
+      "src": "plan.png",
+      "loaded": true
+    },
+    {
+      "src": "head-front.png",
+      "loaded": true
+    },
+    {
+      "src": "head-rear.png",
+      "loaded": true
+    },
+    {
+      "src": "head-oblique.png",
+      "loaded": true
+    },
+    {
+      "src": "head-profile.png",
+      "loaded": true
+    },
+    {
+      "src": "head-walking.png",
+      "loaded": true
+    }
+  ],
+  "initial_attempt": "Transient ERR_CERT_VERIFIER_CHANGED; retry accepted TLS without bypass."
+}

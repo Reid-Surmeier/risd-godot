@@ -1,0 +1,122 @@
+{
+  "courbet": {
+    "source": "/tmp/collection-courbet-frame-native.png",
+    "sha256": "a059b2b8897f513bd1b750ec120bae2b502968749843750fcecede9c0d273cc4",
+    "inner_xy": [
+      [
+        142,
+        596
+      ],
+      [
+        895,
+        602
+      ],
+      [
+        835,
+        1132
+      ],
+      [
+        174,
+        1136
+      ]
+    ],
+    "outer_xy": [
+      [
+        0,
+        441
+      ],
+      [
+        1015,
+        447
+      ],
+      [
+        935,
+        1264
+      ],
+      [
+        55,
+        1260
+      ]
+    ],
+    "canvas_m": [
+      0.733,
+      0.597
+    ],
+    "target_margins_m": [
+      0.1319250464439392,
+      0.1464390754699707,
+      0.11661915016174318,
+      0.16843414592742922
+    ],
+    "accepted": false,
+    "note": "Manual planar approximation of a stepped frame; Courbet left ornament partly clipped. Camera distortion/nonplanar ornament prevent exact metric acceptance."
+  },
+  "corot": {
+    "source": "/tmp/collection-corot-frame-complete-native.png",
+    "sha256": "8c55c5b37636848d7ee3acd36ee5adf4258d30bf37d0559184e3c45c5fcfc45e",
+    "inner_xy": [
+      [
+        135,
+        756
+      ],
+      [
+        594,
+        776
+      ],
+      [
+        577,
+        1028
+      ],
+      [
+        146,
+        1052
+      ]
+    ],
+    "outer_xy": [
+      [
+        51,
+        680
+      ],
+      [
+        665,
+        706
+      ],
+      [
+        640,
+        1114
+      ],
+      [
+        88,
+        1125
+      ]
+    ],
+    "canvas_m": [
+      0.46,
+      0.319
+    ],
+    "target_margins_m": [
+      0.06059955805540085,
+      0.0787837952375412,
+      0.08480457305908201,
+      0.1035277304649353
+    ],
+    "accepted": false,
+    "note": "Manual planar approximation of a stepped frame; Courbet left ornament partly clipped. Camera distortion/nonplanar ornament prevent exact metric acceptance."
+  },
+  "bertin": {
+    "source": "inventory-references/bertin-frame-selected-0.png",
+    "sha256": "3a2d91243cc435e96c0f60a0197603fe59de706676706bdc92faf1f5dcd02f6a",
+    "canvas_m": [
+      0.651,
+      0.489
+    ],
+    "target_margins_m": [
+      0.055,
+      0.08,
+      0.055,
+      0.065
+    ],
+    "accepted": false,
+    "note": "Manual provisional band widths from clipped native91.25s: right canvas edge about520px high, band58px, top85px, bottom70px. Left inferred by symmetry; perspective/stepped moulding prevent metric acceptance."
+  }
+}

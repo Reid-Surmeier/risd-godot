@@ -1,0 +1,43 @@
+{
+  "source": "IMG_6380_exit6fps/000019.jpg",
+  "patches": {
+    "near": [
+      [
+        50,
+        495
+      ],
+      [
+        290,
+        495
+      ],
+      [
+        325,
+        620
+      ],
+      [
+        20,
+        620
+      ]
+    ],
+    "far": [
+      [
+        115,
+        350
+      ],
+      [
+        235,
+        350
+      ],
+      [
+        250,
+        425
+      ],
+      [
+        110,
+        425
+      ]
+    ]
+  },
+  "image_sha256": "fb15aa5bf797c77b7d09da3368bd2eb2a356d2f17094571ede49bfd9f7fb530a",
+  "note": "Source-visible near/far wood only, excludes cabinet/pedestal contacts and threshold. Freeze before depth parsing; corrected-model CUDA depth; no independent scale or collision acceptance."
+}

@@ -1,0 +1,38 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Xlib:  extension "GLX" missing on display ":99".
+Vulkan 1.4.318 - Forward+ - Using Device #0: Unknown - llvmpipe (LLVM 20.1.2, 256 bits)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+PASS source-0-window image=[P: (185.5571, 101.9688), S: (821.3611, 462.0156)] source=(480.0, 270.0)
+PASS source-0-fullscreen image=[P: (115.0, 268.5938), S: (965.0, 542.8125)] source=(480.0, 270.0)
+PASS source-1-window image=[P: (185.5571, 101.9688), S: (821.3611, 462.0156)] source=(480.0, 270.0)
+PASS source-1-fullscreen image=[P: (115.0, 268.5938), S: (965.0, 542.8125)] source=(480.0, 270.0)
+PASS source-2-window image=[P: (165.1493, 113.8401), S: (862.1766, 438.2731)] source=(480.0, 244.0)
+PASS source-2-fullscreen image=[P: (115.0, 294.7292), S: (965.0, 490.5416)] source=(480.0, 244.0)
+PASS source-3-window image=[P: (185.5571, 101.9688), S: (821.3611, 462.0156)] source=(480.0, 270.0)
+PASS source-3-fullscreen image=[P: (115.0, 268.5938), S: (965.0, 542.8125)] source=(480.0, 270.0)
+PASS source-4-window image=[P: (249.726, 101.9688), S: (693.0234, 462.0156)] source=(480.0, 320.0)
+PASS source-4-fullscreen image=[P: (115.0, 218.3333), S: (965.0, 643.3333)] source=(480.0, 320.0)
+PASS fullscreen-fit-1920x1080 image=[P: (115.0, 268.5938), S: (965.0, 542.8125)] source=(480.0, 270.0)
+PASS fullscreen-fit-1080x1920 image=[P: (115.0, 268.5938), S: (965.0, 542.8125)] source=(480.0, 270.0)
+PASS fullscreen-fit-486x720 image=[P: (115.0, 268.5938), S: (965.0, 542.8125)] source=(480.0, 270.0)
+PASS window-return image=[P: (185.5571, 101.9688), S: (821.3611, 462.0156)] source=(480.0, 270.0)
+ASPECT208 failures=0

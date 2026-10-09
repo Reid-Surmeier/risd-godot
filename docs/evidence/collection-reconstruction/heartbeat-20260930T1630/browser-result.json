@@ -1,0 +1,216 @@
+{
+  "url": "https://windows-wsl.taile06c45.ts.net/risd-frame-review-01a0ee18/heartbeat-20260930T0430/walk/",
+  "errors": [],
+  "viewport": {
+    "width": 1100,
+    "height": 760
+  },
+  "first_ready_ms": 2657,
+  "engine": {
+    "checks": {
+      "forward": true,
+      "forward_camera": true,
+      "left_clearance_forward": true,
+      "left_clearance_forward_camera": true,
+      "left_clearance_reverse": true,
+      "left_clearance_reverse_camera": true,
+      "left_far_blocked": true,
+      "left_far_blocked_camera": true,
+      "left_near_blocked": true,
+      "left_near_blocked_camera": true,
+      "outer_toe_floor_forward": true,
+      "outer_toe_floor_forward_camera": true,
+      "outer_toe_floor_reverse": true,
+      "outer_toe_floor_reverse_camera": true,
+      "reverse": true,
+      "reverse_camera": true,
+      "right_clearance_forward": true,
+      "right_clearance_forward_camera": true,
+      "right_clearance_reverse": true,
+      "right_clearance_reverse_camera": true,
+      "right_far_blocked": true,
+      "right_far_blocked_camera": true,
+      "right_near_blocked": true,
+      "right_near_blocked_camera": true
+    },
+    "frame_time_p50_ms": 16.666,
+    "frame_time_p95_ms": 16.6666666666667,
+    "navigation_accepted": false,
+    "render_frames": 2156,
+    "renderer": "WebKit WebGL",
+    "samples": [
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          0.00636056577786803,
+          0.0516308099031448,
+          -1.27611470222473
+        ],
+        "trial": "forward"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.545169174671173,
+          -0.00610899832099676,
+          0.731162548065186
+        ],
+        "trial": "reverse"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.930816769599915,
+          -0.00151245051529258,
+          0.246386080980301
+        ],
+        "trial": "right_near_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.818375587463379,
+          0.0232192613184452,
+          0.348138839006424
+        ],
+        "trial": "left_near_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          0.781622171401978,
+          0.0588048957288265,
+          -0.248590812087059
+        ],
+        "trial": "right_far_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": true,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          -0.804059147834778,
+          0.0491420067846775,
+          -0.264481127262115
+        ],
+        "trial": "left_far_blocked"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 2,
+        "on_floor": true,
+        "position": [
+          -0.500056982040405,
+          0.0506527982652187,
+          -0.770619034767151
+        ],
+        "trial": "left_clearance_forward"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.499955534934998,
+          0.01293736230582,
+          0.283194690942764
+        ],
+        "trial": "left_clearance_reverse"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 1,
+        "on_floor": true,
+        "position": [
+          0.499958068132401,
+          0.0563151389360428,
+          -0.774388492107391
+        ],
+        "trial": "right_clearance_forward"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          0.499977111816406,
+          -0.0058890338987112,
+          0.283518254756927
+        ],
+        "trial": "right_clearance_reverse"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.799870014190674,
+          0.026395944878459,
+          0.462225466966629
+        ],
+        "trial": "outer_toe_floor_forward"
+      },
+      {
+        "camera_clear": true,
+        "casing_contact": false,
+        "hidden_casings": 0,
+        "on_floor": true,
+        "position": [
+          -0.799936592578888,
+          0.0250222906470299,
+          0.437364339828491
+        ],
+        "trial": "outer_toe_floor_reverse"
+      }
+    ]
+  },
+  "keyboard_forward": {
+    "elapsed": 2.88333333333333,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      0.0527048520743847,
+      0.0523014292120934,
+      -1.16824460029602
+    ]
+  },
+  "keyboard_reverse": {
+    "elapsed": 5.09999999999999,
+    "on_floor": true,
+    "phase": 0,
+    "position": [
+      0.55480420589447,
+      -0.00537760369479656,
+      0.768722116947174
+    ]
+  },
+  "browser": "Chrome/154.0.8037.57",
+  "webgl_renderer": "ANGLE (Microsoft Corporation, D3D12 (NVIDIA GeForce RTX 4070 SUPER), OpenGL ES 3.1)",
+  "memory": {
+    "used_js_heap_bytes": 104046746,
+    "total_js_heap_bytes": 109191682,
+    "caveat": "JS heap only; excludes complete process, GPU and WASM allocation accounting"
+  },
+  "pass": true
+}

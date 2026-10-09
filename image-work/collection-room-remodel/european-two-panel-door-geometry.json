@@ -1,0 +1,36 @@
+{
+  "size_m": [
+    0.96,
+    2.7,
+    0.07
+  ],
+  "panel_count": 2,
+  "panel_height_m": [
+    1.66,
+    0.6
+  ],
+  "hinge_x": [
+    -1.59,
+    0.49
+  ],
+  "hinge_z": 18.85,
+  "leaf_center_z": 19.33,
+  "swing": "into Renaissance, authored90degrees",
+  "metric_accepted": false,
+  "native_sha256": "cdef0be96028f04b58069c294796f6cabeb7ba43c001fd3175617814b68036ed",
+  "regions_px": [
+    [
+      450,
+      154,
+      994,
+      1016
+    ],
+    [
+      451,
+      1220,
+      994,
+      1550
+    ]
+  ],
+  "limitation": "Existing room/global coordinates provisional, source establishes panel relationship and swing direction"
+}

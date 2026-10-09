@@ -1,0 +1,20 @@
+{
+  "repository_pass": true,
+  "native_checks_pass": true,
+  "native_walk_pass": true,
+  "browser_walk_pass": true,
+  "shell_failure_names": [
+    "launch_page_area_white",
+    "clicked_tab_shows_pressed_tint_within_100ms",
+    "dip_reported_then_released",
+    "tenant_fills_page_area",
+    "flowers_page_is_the_grey_tenant",
+    "page_cross_fades_through_in_between_greys",
+    "collection_tab_dips_on_click",
+    "resize_refits_bar_and_tenant"
+  ],
+  "shell_all_failure_names_previously_observed": true,
+  "viewer_diff": "",
+  "all_prior_pending_preserved": true,
+  "all_frozen_inputs_preserved": true
+}

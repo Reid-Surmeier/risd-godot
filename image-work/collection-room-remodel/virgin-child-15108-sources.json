@@ -1,0 +1,46 @@
+[
+  {
+    "input": {
+      "path": "inventory-references/virgin-child-15108-official-0.png",
+      "sha256": "b8f0195abd4fcf6f4796884de2e3b42c085e1882b043c87ccf3d87cf4af05251"
+    },
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/virgin-and-child-15108-zoom-0.jpg",
+    "source_sha256": "369b4cbafdb8700263017957035b5e34592ba6f77cff62158f13edbff79e3521",
+    "preprocessing": "JPEG decoded to RGB PNG, no crop/rescale"
+  },
+  {
+    "input": {
+      "path": "inventory-references/virgin-child-15108-official-2.png",
+      "sha256": "a0441e0be3d8abb937039be765a18327608a6bfd33ff5e78b5e765813eb37878"
+    },
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/virgin-and-child-15108-zoom-2.jpg",
+    "source_sha256": "555227555b752908e705300325520281545a0db35105982f7fa9a72552261d1e",
+    "preprocessing": "JPEG decoded to RGB PNG, no crop/rescale"
+  },
+  {
+    "input": {
+      "path": "inventory-references/virgin-child-15108-official-3.png",
+      "sha256": "5b17b28848453a4569e2f2ab26e8ea9cd4e48297133337f27acb7d3afe832edf"
+    },
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/photos/virgin-and-child-15108-zoom-3.jpg",
+    "source_sha256": "583485d8b2acd828cea3b2830c4805e204cc3a61fb119d8d7815ec464ac10eb0",
+    "preprocessing": "JPEG decoded to RGB PNG, no crop/rescale"
+  },
+  {
+    "input": {
+      "path": "inventory-references/virgin-child-15108-video-rear.png",
+      "sha256": "17ec3adbeb706bd01aa43efdc2cdece2d8ffb6ab069eece5da4480ed62ca3f21"
+    },
+    "source": "docs/evidence/collection-reconstruction/opus-medieval-case-inventory-20261001/frames/IMG_6382-105.70.jpg",
+    "source_sha256": "deef5226eb015f5d4044c88e6b7e0f7bf01abd397f3e170b424e5dd3e7a6a250",
+    "video": "IMG_6382.MOV",
+    "seconds": 105.7,
+    "crop_pixels": [
+      510,
+      490,
+      680,
+      850
+    ],
+    "limit": "blurred rear; colour/silhouette reference only, details unobserved"
+  }
+]

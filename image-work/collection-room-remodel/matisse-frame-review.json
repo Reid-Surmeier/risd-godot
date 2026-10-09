@@ -1,0 +1,13 @@
+{
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "cost_usd": "0.010000",
+  "run_id": "run-deb3fa4494d2aa2914b50c96",
+  "native_sha256": "f49b40e2f1b3849366617c04d652b20c18121c57cb34671a586c37d21be1aab0",
+  "inspected": true,
+  "accepted": false,
+  "installed_prototype": true,
+  "observed": "Gold outer diagonals, recessed grooves and ivory liner match broad source motifs. Generated inner chain/leaf details differ; fine ornament/gilding/depth unaccepted.",
+  "original_artwork_retained": true,
+  "paid_retry": false
+}

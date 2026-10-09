@@ -1,0 +1,557 @@
+[
+	{
+		"color": "#ffe1b2",
+		"energy": 0.4,
+		"kind": "fill",
+		"position": [
+			0.0,
+			5.7,
+			-3.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-3.0
+		]
+	},
+	{
+		"color": "#ffe1b2",
+		"energy": 0.4,
+		"kind": "fill",
+		"position": [
+			0.0,
+			5.7,
+			-8.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-8.0
+		]
+	},
+	{
+		"color": "#ffe1b2",
+		"energy": 0.4,
+		"kind": "fill",
+		"position": [
+			0.0,
+			5.7,
+			-13.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-13.0
+		]
+	},
+	{
+		"color": "#ffe1b2",
+		"energy": 0.4,
+		"kind": "fill",
+		"position": [
+			0.0,
+			5.7,
+			-18.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-18.0
+		]
+	},
+	{
+		"color": "#ffe1b2",
+		"energy": 0.4,
+		"kind": "fill",
+		"position": [
+			0.0,
+			5.7,
+			-23.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-23.0
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.73,
+			-2.231
+		],
+		"target": [
+			-5.0,
+			1.53,
+			-2.231
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.9,
+			-4.361
+		],
+		"target": [
+			-5.0,
+			1.7,
+			-4.361
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.78,
+			-6.504
+		],
+		"target": [
+			-5.0,
+			1.58,
+			-6.504
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.7,
+			-8.557
+		],
+		"target": [
+			-5.0,
+			1.5,
+			-8.557
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.72,
+			-10.744
+		],
+		"target": [
+			-5.0,
+			1.52,
+			-10.744
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			4.475,
+			-13.29
+		],
+		"target": [
+			-5.0,
+			2.275,
+			-13.29
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.71,
+			-16.095
+		],
+		"target": [
+			-5.0,
+			1.51,
+			-16.095
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.92,
+			-18.636
+		],
+		"target": [
+			-5.0,
+			1.72,
+			-18.636
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.73,
+			-21.025
+		],
+		"target": [
+			-5.0,
+			1.53,
+			-21.025
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.73,
+			-23.741
+		],
+		"target": [
+			-5.0,
+			1.53,
+			-23.741
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.76,
+			-23.06
+		],
+		"target": [
+			5.0,
+			1.56,
+			-23.06
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.72,
+			-20.575
+		],
+		"target": [
+			5.0,
+			1.52,
+			-20.575
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.74,
+			-18.365
+		],
+		"target": [
+			5.0,
+			1.54,
+			-18.365
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.71,
+			-16.014
+		],
+		"target": [
+			5.0,
+			1.51,
+			-16.014
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			4.007,
+			-13.091
+		],
+		"target": [
+			5.0,
+			1.807,
+			-13.091
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.69,
+			-10.256
+		],
+		"target": [
+			5.0,
+			1.49,
+			-10.256
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.72,
+			-7.719
+		],
+		"target": [
+			5.0,
+			1.52,
+			-7.719
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.88,
+			-5.295
+		],
+		"target": [
+			5.0,
+			1.68,
+			-5.295
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.6,
+			3.69,
+			-2.89
+		],
+		"target": [
+			5.0,
+			1.49,
+			-2.89
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.115,
+			4.06,
+			-1.4
+		],
+		"target": [
+			3.115,
+			1.86,
+			0.0
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.115,
+			4.079,
+			-1.4
+		],
+		"target": [
+			-3.115,
+			1.879,
+			0.0
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.115,
+			4.07,
+			-24.9
+		],
+		"target": [
+			-3.115,
+			1.87,
+			-26.3
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			3.115,
+			4.07,
+			-24.9
+		],
+		"target": [
+			3.115,
+			1.87,
+			-26.3
+		]
+	},
+	{
+		"color": "#eff5ff",
+		"energy": 0.25,
+		"kind": "skylight",
+		"position": [
+			0.0,
+			9.0,
+			-3.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-3.0
+		]
+	},
+	{
+		"color": "#eff5ff",
+		"energy": 0.25,
+		"kind": "skylight",
+		"position": [
+			0.0,
+			9.0,
+			-8.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-8.0
+		]
+	},
+	{
+		"color": "#eff5ff",
+		"energy": 0.25,
+		"kind": "skylight",
+		"position": [
+			0.0,
+			9.0,
+			-13.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-13.0
+		]
+	},
+	{
+		"color": "#eff5ff",
+		"energy": 0.25,
+		"kind": "skylight",
+		"position": [
+			0.0,
+			9.0,
+			-18.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-18.0
+		]
+	},
+	{
+		"color": "#eff5ff",
+		"energy": 0.25,
+		"kind": "skylight",
+		"position": [
+			0.0,
+			9.0,
+			-23.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-23.0
+		]
+	},
+	{
+		"color": "#eef2ff",
+		"energy": 0.8,
+		"kind": "fill",
+		"position": [
+			0.0,
+			3.4,
+			-23.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			-23.0
+		]
+	},
+	{
+		"color": "#fff5df",
+		"energy": 0.65,
+		"kind": "fill",
+		"position": [
+			0.0,
+			2.2,
+			-27.65
+		],
+		"target": [
+			0.0,
+			0.0,
+			-27.65
+		]
+	},
+	{
+		"color": "#f5f5f2",
+		"energy": 0.9,
+		"kind": "fill",
+		"position": [
+			0.0,
+			3.1,
+			3.0
+		],
+		"target": [
+			0.0,
+			0.0,
+			3.0
+		]
+	},
+	{
+		"color": "#f5f5f2",
+		"energy": 0.65,
+		"kind": "fill",
+		"position": [
+			0.0,
+			2.5,
+			-1.8
+		],
+		"target": [
+			0.0,
+			0.0,
+			-1.8
+		]
+	}
+]

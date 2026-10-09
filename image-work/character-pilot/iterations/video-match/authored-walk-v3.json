@@ -1,0 +1,15 @@
+{
+  "forward_idle": true,
+  "stable_head": true,
+  "jaw_mask": "jaw-mask.json",
+  "symmetric_arms": true,
+  "authored_legs": true,
+  "preserve_reference_seam": true,
+  "source_units_to_m": 0.0004695,
+  "controller_speed_mps": 1.05,
+  "reference_fit": "source rotations with neutral limb-axis calibration; target-specific grounding, not identical game geometry",
+  "period_seconds": 0.8,
+  "source_curves": "walk-reference-curves.json",
+  "swing_lift_m": 0.06,
+  "anatomical_axes": true
+}

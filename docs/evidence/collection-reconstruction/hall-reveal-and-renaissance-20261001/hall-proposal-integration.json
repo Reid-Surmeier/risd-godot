@@ -1,0 +1,44 @@
+[
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/prepare_remodel.py",
+    "conflicts": 0,
+    "before_sha256": "33bee7cfe86ce74f37c7827c8d5008353e998eb0b2d023effd2b0f01746ddb21",
+    "proposal_sha256": "a20e69a5ab1cd35bbcd9cc5940e31ee44f53287b87f03a6f5bbdbca26f78f30b",
+    "integrated_sha256": "bd4f865c3574e3fe97f41bbda244f355d9d7d95b10d1983d9b8d5f70751d962a"
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/remodel_room.gd",
+    "conflicts": 1,
+    "before_sha256": "f67d9230142fab62cc2fa52e57b705319205dbd480a9b61633272ad16f3d9a6d",
+    "proposal_sha256": "4a791b12a8a28fcbf288fb8310c51c4b0a12916882627610ba62e70b74acfd03",
+    "integrated_sha256": "b3ae7f99e71ebca7ca64c7608d1c6426465289ae252a7b2d7aa2f756a7efe4a1"
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/remodel_bake.gd",
+    "conflicts": 0,
+    "before_sha256": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa",
+    "proposal_sha256": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4",
+    "integrated_sha256": "487276e7ea4f2211bf59eb7ae743ecd69b38f1be2e6f2079d8fd6cc4f26c14a4"
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/remodel_review.gd",
+    "conflicts": 0,
+    "before_sha256": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+    "proposal_sha256": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8",
+    "integrated_sha256": "66cec25dea22e9d8b959ab9d010ed021e2a4028961647906591b0545622b2ff8"
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/main_build_walk.gd",
+    "conflicts": 0,
+    "before_sha256": "186d7e48747b5237dd091b65f328d8d8e99d9fcb8cadb6f028a5153a1a475995",
+    "proposal_sha256": "7fc180b4eb9f2c0debb04fee184bfb65c25c52d5ecad906f86b53ad8086965ef",
+    "integrated_sha256": "7fc180b4eb9f2c0debb04fee184bfb65c25c52d5ecad906f86b53ad8086965ef"
+  },
+  {
+    "path": "modules/shell/prototype/collection_reconstruction/architecture_check.gd",
+    "conflicts": 2,
+    "before_sha256": "e041b5ebdeb2da46afbd1265e188652b426d1511c20710da45081e50583bb4b6",
+    "proposal_sha256": "e83798c5c563997fe642352d98e3a548bc5ec68603116847bb7612d515632bbe",
+    "integrated_sha256": "fd2ad1acea44833fc85bbc1acee89c818c4944910de0f3c76bdde6248796013a"
+  }
+]

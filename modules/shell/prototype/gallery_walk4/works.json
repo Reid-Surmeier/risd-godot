@@ -6,17 +6,80 @@
   "artist": "Paolo Veronese",
   "canvas_w": 1.6640000000000001,
   "canvas_h": 2.146,
-  "hang": "frame bottom \u2248 0.75 m",
+  "hang": "centre \u2248 2.06 m",
   "margins_px": [
    75,
    80,
    75,
    80
   ],
+  "band_m": [
+   0.065,
+   0.065,
+   0.065,
+   0.065
+  ],
   "frame_px": [
    834,
    1615
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/S1.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    10372,
+    13428
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/wisdom-and-strength-56096",
+   "source_url": "https://iiif.micr.io/pYSwJ/full/!4320,4320/0/default.jpg",
+   "source_pixels": [
+    3326,
+    4320
+   ],
+   "source_sha256": "c96c19e4113cb329ef111febf247a2467a9c1a39a3a387bfe16fc1f570ce9343",
+   "crop_px": [
+    0,
+    4,
+    3326,
+    4310
+   ],
+   "canvas_render_px": [
+    199.0,
+    254.0
+   ],
+   "zoom_full_px": [
+    3264.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/S1.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      247,
+      320
+     ],
+     "sha256": "4fb79815a94f568fb5e7d8c5c034822c8ce3a05ab36f23809b423bc3a155c847"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/S1.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      692,
+      896
+     ],
+     "sha256": "09796c7154f0b0757136d768b7374b5d046951f82da54ef0872a15bed085edfe"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/S1.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      3252,
+      4210
+     ],
+     "sha256": "c8558fe615b17545bf74c07f0fa21c561047cb332b9b1b4795586d2ac98d72db"
+    }
+   }
+  }
  },
  {
   "tag": "S2",
@@ -25,17 +88,80 @@
   "artist": "Francesco Vanni",
   "canvas_w": 1.829,
   "canvas_h": 2.661,
-  "hang": "frame bottom \u2248 0.5 m",
+  "hang": "centre \u2248 2.079 m",
   "margins_px": [
    97,
    106,
    97,
    104
   ],
+  "band_m": [
+   0.09,
+   0.1,
+   0.09,
+   0.09
+  ],
   "frame_px": [
    926,
    1336
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/S2.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    2518,
+    3640
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/virgin-and-child-appearing-saint-francis-assisi-57227",
+   "source_url": "https://iiif.micr.io/gSjbS/full/!3640,3640/0/default.jpg",
+   "source_pixels": [
+    2518,
+    3640
+   ],
+   "source_sha256": "98571d91e17b5e77279c2113bed9455b5bb4c922960a12344e755ba61cf7a4e3",
+   "crop_px": [
+    0,
+    0,
+    2518,
+    3640
+   ],
+   "canvas_render_px": [
+    187.0,
+    268.0
+   ],
+   "zoom_full_px": [
+    2915.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/S2.jpg",
+     "required_long_side": 384,
+     "pixels": [
+      266,
+      384
+     ],
+     "sha256": "563aa9b24367e078a82b8a593d225e51c2df13b606a6a28e680878b356eb070e"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/S2.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      620,
+      896
+     ],
+     "sha256": "0027d6dd5d69a24fb1967580f9c523e1d64918f231651c2a1669679e7c3b18f8"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/S2.jpg",
+     "required_long_side": 3640,
+     "pixels": [
+      2518,
+      3640
+     ],
+     "sha256": "9946983bde2c5f8d7d23f6e969509e4f19d3447899385e04339a524d067485c9"
+    }
+   }
+  }
  },
  {
   "tag": "W1",
@@ -44,7 +170,7 @@
   "artist": "Jan Cossiers",
   "canvas_w": 1.111,
   "canvas_h": 0.851,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.73 m",
   "margins_px": [
    101,
    102,
@@ -54,7 +180,64 @@
   "frame_px": [
    1108,
    917
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W1.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3789,
+    2954
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/supper-emmaus-23332",
+   "source_url": "https://iiif.micr.io/KdQCn/full/!4080,4080/0/default.jpg",
+   "source_pixels": [
+    4080,
+    3357
+   ],
+   "source_sha256": "83c087a2eda36ee4e38ea29cf5520d874d7d076517713f076b8fc84ec591ae17",
+   "crop_px": [
+    124,
+    177,
+    3913,
+    3131
+   ],
+   "canvas_render_px": [
+    212.0,
+    161.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    3189.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W1.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      249
+     ],
+     "sha256": "a6fe3dfbe2001868a1e4462e864581eb28dd32bb832e0bbc42a312a0a81fdfb8"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W1.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      699
+     ],
+     "sha256": "bafd353fea83212f1656984013b3f15595a3a41031c80fd8ef58ac75ecac15e3"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W1.jpg",
+     "required_long_side": 3789,
+     "pixels": [
+      3789,
+      2954
+     ],
+     "sha256": "8ceb5fc73dac3f28318cd2822c7d83320df64d74278803f601c44fad8b42dd61"
+    }
+   }
+  }
  },
  {
   "tag": "W2",
@@ -63,7 +246,7 @@
   "artist": "Matthias Stom",
   "canvas_w": 1.145,
   "canvas_h": 1.829,
-  "hang": "centre \u2248 1.5 m",
+  "hang": "centre \u2248 1.90 m",
   "margins_px": [
    136,
    151,
@@ -73,16 +256,73 @@
   "frame_px": [
    985,
    1518
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W2.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    1884,
+    3200
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/christ-column-56177",
+   "source_url": "https://iiif.micr.io/UePLq/full/!3200,3200/0/default.jpg",
+   "source_pixels": [
+    1884,
+    3200
+   ],
+   "source_sha256": "596a15f588daa8b829b4d83ed37f5800795ee7b62bc3ce72073530b8cd47cec7",
+   "crop_px": [
+    0,
+    0,
+    1884,
+    3200
+   ],
+   "canvas_render_px": [
+    140.0,
+    221.0
+   ],
+   "zoom_full_px": [
+    2524.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W2.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      188,
+      320
+     ],
+     "sha256": "5d399706a01da3e61a81d8b9720e2c21c581828dbf5669107a221b7f4c28b5d5"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W2.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      528,
+      896
+     ],
+     "sha256": "b00ccfaa5efe7fe2bce494d7b9f82acb4cdf9db97a264ed09251154f905e5423"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W2.jpg",
+     "required_long_side": 3200,
+     "pixels": [
+      1884,
+      3200
+     ],
+     "sha256": "89981679da4a66a41a6737f628e38e6460294c75c63c9488aefa0dc1789c7ed4"
+    }
+   }
+  }
  },
  {
   "tag": "W3",
   "acc": "62.019",
-  "title": "The Resurrection of Christ (c.1640) (the \"night fire scene\")",
+  "title": "The Resurrection of Christ (c.1640)",
   "artist": "Benjamin Gerritsz. Cuyp",
   "canvas_w": 0.7020000000000001,
   "canvas_h": 0.9209999999999999,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.78 m",
   "margins_px": [
    190,
    195,
@@ -92,16 +332,73 @@
   "frame_px": [
    1121,
    1423
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W3.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    2500,
+    3354
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/resurrection-christ-62019",
+   "source_url": "https://iiif.micr.io/YMave/full/!3354,3354/0/default.jpg",
+   "source_pixels": [
+    2516,
+    3354
+   ],
+   "source_sha256": "f0d37f047a382b7f60b9361aa414d6411ba20bed4deff20cf3285aa2c5558ccf",
+   "crop_px": [
+    7,
+    0,
+    2507,
+    3354
+   ],
+   "canvas_render_px": [
+    122.0,
+    158.0
+   ],
+   "zoom_full_px": [
+    3116.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W3.jpg",
+     "required_long_side": 256,
+     "pixels": [
+      191,
+      256
+     ],
+     "sha256": "4165788609b145dca3a38702601d763fec4747e00d1518b0e7fc873b255180cf"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W3.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      668,
+      896
+     ],
+     "sha256": "828ef8ba640a24d4321c011cb2af765fbbead103d0e6c84c4a61d250a2b8a3ff"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W3.jpg",
+     "required_long_side": 3354,
+     "pixels": [
+      2500,
+      3354
+     ],
+     "sha256": "300179fb51ffc081c8a9db4a4483ea79fef130647b5670054c7cbb5da129161b"
+    }
+   }
+  }
  },
  {
   "tag": "W4",
   "acc": "60.009",
-  "title": "Portrait of a Woman (1655) (black dress, white collar)",
+  "title": "Portrait of a Woman (1655)",
   "artist": "Bartholomeus van der Helst",
   "canvas_w": 0.98,
   "canvas_h": 1.12,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.70 m",
   "margins_px": [
    125,
    128,
@@ -111,7 +408,64 @@
   "frame_px": [
    1087,
    1231
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W4.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3071,
+    3552
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-woman-60009",
+   "source_url": "https://iiif.micr.io/rHtZH/full/!3552,3552/0/default.jpg",
+   "source_pixels": [
+    3071,
+    3552
+   ],
+   "source_sha256": "82cbe01bc6d27ae6189eb977a3ed4c0c0eff2221d3bb1cff59b35bac58699d0b",
+   "crop_px": [
+    0,
+    0,
+    3071,
+    3552
+   ],
+   "canvas_render_px": [
+    158.0,
+    179.0
+   ],
+   "zoom_full_px": [
+    3653.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W4.jpg",
+     "required_long_side": 256,
+     "pixels": [
+      221,
+      256
+     ],
+     "sha256": "6839232005e984bebce325dc73b1033954cbb9453ce7c9cba9486bd049cde291"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W4.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      775,
+      896
+     ],
+     "sha256": "1c2a4e8f0eab6459f0297c5b3535e703f07f9b8e8d5caf729a1d3c047c1b7188"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W4.jpg",
+     "required_long_side": 3552,
+     "pixels": [
+      3071,
+      3552
+     ],
+     "sha256": "63227a32ba9502df67ac62373d3dcb0cecd41c5c5ac4231db7fb27a3c37b04cf"
+    }
+   }
+  }
  },
  {
   "tag": "W5",
@@ -120,26 +474,89 @@
   "artist": "School of Fontainebleau",
   "canvas_w": 1.334,
   "canvas_h": 1.581,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.72 m",
   "margins_px": [
    120,
    125,
    120,
    125
   ],
+  "band_m": [
+   0.11,
+   0.105,
+   0.11,
+   0.11
+  ],
   "frame_px": [
    1294,
    1623
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W5.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    5718,
+    7136
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/charity-57157",
+   "source_url": "https://iiif.micr.io/FHmCS/pct:2.77,1.782,94.87,96.088/!4210,4210/0/default.jpg",
+   "source_pixels": [
+    3373,
+    4210
+   ],
+   "source_sha256": "12db9a048eed27a11c01a84d4bcd2931330b938ac7e5fefcd68481728e7eba28",
+   "crop_px": [
+    0,
+    0,
+    3373,
+    4210
+   ],
+   "canvas_render_px": [
+    182.0,
+    213.0
+   ],
+   "zoom_full_px": [
+    3375.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W5.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      256,
+      320
+     ],
+     "sha256": "c500edfa69565351a0fd995ca381b0451f79405ba0f4192fd7ac98207e7c30e9"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W5.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      718,
+      896
+     ],
+     "sha256": "138cd98f3ad3e12a508fd9659f936a8f1541852b34b709487775abcc80652d04"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W5.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      3373,
+      4210
+     ],
+     "sha256": "5e5bf0ddd2578f16ca8361fcbfce7925ff323bf13cc5d6c66a9de10aa980d189"
+    }
+   }
+  }
  },
  {
   "tag": "W6",
   "acc": "32.246",
-  "title": "The Angel of Fame (c.1750), shaped ceiling canvas",
+  "title": "The Angel of Fame (c.1750)",
   "artist": "Giovanni Battista Tiepolo",
   "canvas_w": 1.98,
   "canvas_h": 3.31,
-  "hang": "bottom \u2248 1.2 m, top \u2248 4.5 m",
+  "hang": "bottom \u2248 0.82 m",
   "outline": [
    [
     0.7188,
@@ -402,35 +819,155 @@
     0.0029
    ]
   ],
-  "edge_color": "#96644b"
+  "edge_color": "#96644b",
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W6.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3742,
+    5998
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/angel-fame-32246",
+   "source_url": "https://iiif.micr.io/fpRoz/full/!4320,4320/0/default.jpg",
+   "source_pixels": [
+    2695,
+    4320
+   ],
+   "source_sha256": "2a20cd1512457945b704f6aca18e1e8a653a44b6af9b7f46975bfddfd446ccbd",
+   "crop_px": [
+    142,
+    86,
+    2594,
+    4104
+   ],
+   "canvas_render_px": [
+    194.0,
+    319.0
+   ],
+   "zoom_full_px": [
+    2462.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/frames/W6-shaped.png",
+     "required_long_side": 448,
+     "pixels": [
+      262,
+      448
+     ],
+     "sha256": "bb8dac4dedc81068d54bf8ecaeb0e096d9db6e7b47970acd1175ec1366c09435"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W6.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      559,
+      896
+     ],
+     "sha256": "d391795aa73ccb3c1d6ff830f2b1984347da995429370fb5c590934397b08580"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W6.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      2626,
+      4210
+     ],
+     "sha256": "6f2d666413af871f1bda139e11488ddd454c584740b61430641e492d7b674307"
+    }
+   }
+  }
  },
  {
   "tag": "W7",
   "acc": "44.161",
-  "title": "A Musical Group (c.1730) (woman in yellow with lute)",
+  "title": "A Musical Group (c.1730)",
   "artist": "Pier Leone Ghezzi",
   "canvas_w": 1.705,
   "canvas_h": 1.222,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.71 m",
   "margins_px": [
    149,
    142,
    148,
    133
   ],
+  "band_m": [
+   0.19,
+   0.2,
+   0.2,
+   0.2
+  ],
   "frame_px": [
    1361,
    966
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W7.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3524,
+    2286
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/musical-group-44161",
+   "source_url": "https://iiif.micr.io/YUKcR/full/!3524,3524/0/default.jpg",
+   "source_pixels": [
+    3524,
+    2295
+   ],
+   "source_sha256": "c9d8a78f2dd8985f3242e91fb42d375cfd8088bd13209e4e13b9e5a0fb321ab1",
+   "crop_px": [
+    0,
+    9,
+    3524,
+    2295
+   ],
+   "canvas_render_px": [
+    244.0,
+    174.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    2658.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W7.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      208
+     ],
+     "sha256": "bc60b155dfd733b1d107554acd71fe775934f241d3764a03e2d0161eeb5adc47"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W7.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      581
+     ],
+     "sha256": "df068d3b409ea7732459b34a3228c106a9c22aed9657ed593e1ecf3a9a1de5dd"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W7.jpg",
+     "required_long_side": 3524,
+     "pixels": [
+      3524,
+      2286
+     ],
+     "sha256": "07816131bf7401edf78fe722c4e9ad8590942eade116922afe53655ce3ecbcb6"
+    }
+   }
+  }
  },
  {
   "tag": "W8",
   "acc": "55.152",
-  "title": "Allegorical Portrait of a Lady as Fortune (1676) (woman in pink)",
+  "title": "Allegorical Portrait of a Lady as Fortune (1676)",
   "artist": "Henri Gascar",
   "canvas_w": 1.092,
   "canvas_h": 1.956,
-  "hang": "frame bottom \u2248 0.5\u20130.6 m",
+  "hang": "centre \u2248 1.92 m",
   "margins_px": [
    81,
    91,
@@ -440,54 +977,237 @@
   "frame_px": [
    832,
    1398
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W8.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3604,
+    6586
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/allegorical-portrait-lady-fortune-55152",
+   "source_url": "https://iiif.micr.io/TZjOv/full/!4320,4320/0/default.jpg",
+   "source_pixels": [
+    2364,
+    4320
+   ],
+   "source_sha256": "3317881e91d5b6383994250e99700551aca1b400fa3cdfa2cae6dba8f1f0dfbf",
+   "crop_px": [
+    0,
+    0,
+    2364,
+    4320
+   ],
+   "canvas_render_px": [
+    135.0,
+    239.0
+   ],
+   "zoom_full_px": [
+    2302.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W8.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      175,
+      320
+     ],
+     "sha256": "fe14a274dc4536d8387df5b19e2ca6dedb236a70ed7a88db8d8b107876c43098"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W8.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      490,
+      896
+     ],
+     "sha256": "284aed39ec3f6694d3d5a4ff05aa9dd5516ad22505bdffc1475ff32b0bac4676"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W8.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      2304,
+      4210
+     ],
+     "sha256": "4f0bdfaeacff6cf1a4355e37460e3a16697ea4d5ca052ad89ef50985b564d47a"
+    }
+   }
+  }
  },
  {
   "tag": "W9",
   "acc": "62.058",
-  "title": "The Marriage of Peleus and Thetis (c.1610) (the crowded \"battle/allegory\")",
+  "title": "The Marriage of Peleus and Thetis (c.1610)",
   "artist": "Joachim Wtewael",
   "canvas_w": 1.6640000000000001,
   "canvas_h": 1.095,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.73 m",
   "margins_px": [
    75,
    77,
    75,
    74
   ],
+  "band_m": [
+   0.1,
+   0.1,
+   0.1,
+   0.1
+  ],
   "frame_px": [
    1076,
    778
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W9.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3470,
+    2246
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/marriage-peleus-and-thetis-62058",
+   "source_url": "https://iiif.micr.io/REqmU/full/!3480,3480/0/default.jpg",
+   "source_pixels": [
+    3480,
+    2246
+   ],
+   "source_sha256": "c4fed4134b3a3520070f61d35da81e0ca1da937876ff17189d6f83a5a1053a27",
+   "crop_px": [
+    0,
+    0,
+    3470,
+    2246
+   ],
+   "canvas_render_px": [
+    275.0,
+    179.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    2690.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W9.jpg",
+     "required_long_side": 384,
+     "pixels": [
+      384,
+      249
+     ],
+     "sha256": "f61721b5775253a61c4e770a0993596e1e1771b0b0c113008700dc2355dde5a5"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W9.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      580
+     ],
+     "sha256": "99eb91c64fc2877c29d1409a70cd1a87065b9fdd88667c163de814e11ab8b7a8"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W9.jpg",
+     "required_long_side": 3470,
+     "pixels": [
+      3470,
+      2246
+     ],
+     "sha256": "a3a5622a44fe590d4d6bf624ae8a215829abe4204f4b3ffc880c81d6add83092"
+    }
+   }
+  }
  },
  {
   "tag": "W10",
   "acc": "60.107",
-  "title": "Still Life with Figure (c.1660) (fruit with a woman)",
+  "title": "Still Life with Figure (c.1660)",
   "artist": "Michele Pace del Campidoglio",
   "canvas_w": 1.607,
   "canvas_h": 1.222,
-  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "hang": "centre \u2248 1.73 m",
   "margins_px": [
    118,
    108,
    116,
    111
   ],
+  "band_m": [
+   0.14,
+   0.15,
+   0.14,
+   0.15
+  ],
   "frame_px": [
    1170,
    933
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/W10.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3478,
+    2586
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/still-life-figure-60107",
+   "source_url": "https://iiif.micr.io/vyQLy/full/!3478,3478/0/default.jpg",
+   "source_pixels": [
+    3478,
+    2586
+   ],
+   "source_sha256": "fd40de43cd4aa9c6ffaa3e49320536a37f9c758a0a6b47fd15cf6145d33f3fe3",
+   "crop_px": [
+    0,
+    0,
+    3478,
+    2586
+   ],
+   "canvas_render_px": [
+    240.0,
+    181.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    3097.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/W10.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      238
+     ],
+     "sha256": "f224a06f9e8394259329d491cfa4ddebdc3726286d758f9f0d9fb26123709af2"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/W10.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      666
+     ],
+     "sha256": "73b10c2defa2d7574ef41ae86b062bcd65175857b1b82f6b0655910703ed8be6"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/W10.jpg",
+     "required_long_side": 3478,
+     "pixels": [
+      3478,
+      2586
+     ],
+     "sha256": "e97356fc3a33161c03b4db510e61949256a85796c048aa19e2f728fe64dd15fc"
+    }
+   }
+  }
  },
  {
   "tag": "N1",
   "acc": "42.283",
-  "title": "Portrait of a Lady of the Hampden Family (c.1610) (full-length, pink)",
+  "title": "Portrait of a Lady of the Hampden Family (c.1610)",
   "artist": "Unknown, Anglo-Flemish",
   "canvas_w": 1.2,
   "canvas_h": 2.013,
-  "hang": "frame bottom \u2248 0.5 m",
+  "hang": "centre \u2248 2.07 m",
   "margins_px": [
    124,
    126,
@@ -497,16 +1217,73 @@
   "frame_px": [
    922,
    1397
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/N1.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    2108,
+    3587
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-lady-hampden-family-42283",
+   "source_url": "https://iiif.micr.io/mUJpR/full/!3708,3708/0/default.jpg",
+   "source_pixels": [
+    2238,
+    3708
+   ],
+   "source_sha256": "d043bf6da1356fe3c8f72f1badaeff5fda446e9116c99e8e75c18d6cf915e352",
+   "crop_px": [
+    61,
+    66,
+    2169,
+    3653
+   ],
+   "canvas_render_px": [
+    142.0,
+    234.0
+   ],
+   "zoom_full_px": [
+    2475.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/N1.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      188,
+      320
+     ],
+     "sha256": "e836f738157db9e20916c4d0372988c1a619730d938e20a62c76195f30c18cb7"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/N1.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      527,
+      896
+     ],
+     "sha256": "828cdfd27dc01c399e78781f413b35db1aba3fefbd1e22d2cb67748c03bb548b"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/N1.jpg",
+     "required_long_side": 3587,
+     "pixels": [
+      2108,
+      3587
+     ],
+     "sha256": "50f96a06d132147be210c296e44055cf5db732e0be47245d602e5d3721d494ae"
+    }
+   }
+  }
  },
  {
   "tag": "N2",
   "acc": "60.039",
-  "title": "Portrait of Lady Sarah Ingestre (1827) (full-length, white satin, silver/white carved frame)",
+  "title": "Portrait of Lady Sarah Ingestre (1827)",
   "artist": "Thomas Lawrence",
   "canvas_w": 1.429,
   "canvas_h": 2.351,
-  "hang": "frame bottom \u2248 0.35\u20130.5 m",
+  "hang": "centre \u2248 2.07 m",
   "margins_px": [
    108,
    215,
@@ -516,35 +1293,155 @@
   "frame_px": [
    1017,
    1658
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/N2.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    2207,
+    3668
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-lady-sarah-ingestre-60039",
+   "source_url": "https://iiif.micr.io/cutDc/full/!3668,3668/0/default.jpg",
+   "source_pixels": [
+    2207,
+    3668
+   ],
+   "source_sha256": "63a19bacaf8f3e14eddc51747fda732013520e99069a15896c896d852ca148b9",
+   "crop_px": [
+    0,
+    0,
+    2207,
+    3668
+   ],
+   "canvas_render_px": [
+    157.0,
+    254.0
+   ],
+   "zoom_full_px": [
+    2545.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/N2.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      193,
+      320
+     ],
+     "sha256": "7645301bf419a427b2e2f064fd66522affd5e2294ad58f45f7af280a4fe2b007"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/N2.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      539,
+      896
+     ],
+     "sha256": "4b93a5e9f8e9bd5ea9322c17cdcd1f1be52cdcd47deaceb6cbb1ffbd96762433"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/N2.jpg",
+     "required_long_side": 3668,
+     "pixels": [
+      2207,
+      3668
+     ],
+     "sha256": "9182219352a929d9587c54469c5bf58d4e773e52a0ab65bb87d7cb143baec4db"
+    }
+   }
+  }
  },
  {
   "tag": "E1",
   "acc": "63.061",
-  "title": "Arsenal in a Ruined Basilica (c.1715) (dark ruins capriccio)",
+  "title": "Arsenal in a Ruined Basilica (c.1715)",
   "artist": "Alessandro Magnasco",
   "canvas_w": 2.146,
   "canvas_h": 1.4669999999999999,
-  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "hang": "centre \u2248 1.76 m",
   "margins_px": [
    109,
    103,
    110,
    103
   ],
+  "band_m": [
+   0.09,
+   0.09,
+   0.09,
+   0.09
+  ],
   "frame_px": [
    1515,
    1105
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E1.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3712,
+    2619
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/arsenal-ruined-basilica-63061",
+   "source_url": "https://iiif.micr.io/ArtoN/full/!3715,3715/0/default.jpg",
+   "source_pixels": [
+    3715,
+    2626
+   ],
+   "source_sha256": "04f9475641062fa800b19586c9b50587d9d6d378c0e92e99fc3da4f711c1504f",
+   "crop_px": [
+    3,
+    7,
+    3715,
+    2626
+   ],
+   "canvas_render_px": [
+    298.0,
+    202.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    2886.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E1.jpg",
+     "required_long_side": 384,
+     "pixels": [
+      384,
+      271
+     ],
+     "sha256": "de8f1a49779281c5152fb5f26858c8d513a787d62e8a583dffa081a9e4321e0c"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E1.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      632
+     ],
+     "sha256": "c91f128fc6fe4c8611b4a0e105268cd54e6358a00e4bf7fbf94f87bd8666b98d"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E1.jpg",
+     "required_long_side": 3712,
+     "pixels": [
+      3712,
+      2619
+     ],
+     "sha256": "f59fc887274cd8b7bd1281eeccc58d32575f7b6d49a33622af2e6eb9c363d630"
+    }
+   }
+  }
  },
  {
   "tag": "E2",
   "acc": "18.264",
-  "title": "Portrait of Theodore Atkinson, Jr. (1757) (man in red coat)",
+  "title": "Portrait of Theodore Atkinson, Jr. (1757)",
   "artist": "John Singleton Copley",
   "canvas_w": 1.016,
   "canvas_h": 1.27,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.72 m",
   "margins_px": [
    118,
    125,
@@ -554,16 +1451,73 @@
   "frame_px": [
    1087,
    1364
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E2.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    8051,
+    10163
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-theodore-atkinson-jr-1737-1769-18264",
+   "source_url": "https://risdmuseum.cdn.picturepark.com/d/XwkGLpUY/",
+   "source_pixels": [
+    8192,
+    10321
+   ],
+   "source_sha256": "66b4875e79f8b0086a60b2154789daf01de14ef8b4f69c3962e7eda258d1601b",
+   "crop_px": [
+    93,
+    62,
+    8144,
+    10225
+   ],
+   "canvas_render_px": [
+    155.0,
+    191.0
+   ],
+   "zoom_full_px": [
+    3330.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E2.jpg",
+     "required_long_side": 256,
+     "pixels": [
+      203,
+      256
+     ],
+     "sha256": "a58b10cf000900c18cf76d94492dcf56fdd15a059dbd880ba0febd6a62bdb2ee"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E2.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      710,
+      896
+     ],
+     "sha256": "30365436fe8681a6dc7669a0e24c93a03bd5fe0638d076d7045d64a6b96f9635"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E2.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      3335,
+      4210
+     ],
+     "sha256": "6545a2e182ba0f26c4dbef4c32b867789de5badf9c52d71814d770e7cb95ad48"
+    }
+   }
+  }
  },
  {
   "tag": "E3",
   "acc": "51.506",
-  "title": "Landscape with a Mill (c.1655) (classical landscape)",
+  "title": "Landscape with a Mill (c.1655)",
   "artist": "S\u00e9bastien Bourdon",
   "canvas_w": 1.051,
   "canvas_h": 0.86,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.74 m",
   "margins_px": [
    106,
    107,
@@ -573,54 +1527,237 @@
   "frame_px": [
    1153,
    968
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E3.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3250,
+    2664
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/landscape-mill-51506",
+   "source_url": "https://iiif.micr.io/wWpds/full/!3250,3250/0/default.jpg",
+   "source_pixels": [
+    3250,
+    2664
+   ],
+   "source_sha256": "5b87f3ee58afb0704a026a822254c6cd2d98eff0878742e0da8c66448c1add81",
+   "crop_px": [
+    0,
+    0,
+    3250,
+    2664
+   ],
+   "canvas_render_px": [
+    200.0,
+    163.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    3357.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E3.jpg",
+     "required_long_side": 256,
+     "pixels": [
+      256,
+      210
+     ],
+     "sha256": "65ad136a213568dc8b9cb987d435947750a46c6198f242c3e4fceb56e049bb12"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E3.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      734
+     ],
+     "sha256": "63ebc5f29f6096b53e8bf9798373b50a44a2acb58e88da568a5efa7035c001b9"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E3.jpg",
+     "required_long_side": 3250,
+     "pixels": [
+      3250,
+      2664
+     ],
+     "sha256": "dd5771a305350f6c81c11c5a4d8a3effc5cf3225f828df018d08dd3246d43607"
+    }
+   }
+  }
  },
  {
   "tag": "E4",
   "acc": "1987.056",
-  "title": "A View of Paris from the Louvre (1835) (the \"Venice/city river view\"; it shows **Paris**)",
+  "title": "A View of Paris from the Louvre (1835)",
   "artist": "Louise-Jos\u00e9phine Sarazin de Belmont",
   "canvas_w": 1.626,
   "canvas_h": 1.197,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.71 m",
   "margins_px": [
    87,
    84,
    86,
    83
   ],
+  "band_m": [
+   0.105,
+   0.105,
+   0.105,
+   0.105
+  ],
   "frame_px": [
    1155,
    891
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E4.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3615,
+    2728
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/view-paris-louvre-1987056",
+   "source_url": "https://iiif.micr.io/gCgVB/full/!3618,3618/0/default.jpg",
+   "source_pixels": [
+    3618,
+    2730
+   ],
+   "source_sha256": "cd742b44ae6e158ebb0d2233675e34e5933534ce75a6bc2951f5fbc63d5f799a",
+   "crop_px": [
+    2,
+    2,
+    3617,
+    2730
+   ],
+   "canvas_render_px": [
+    255.0,
+    186.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    3097.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E4.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      241
+     ],
+     "sha256": "7240080bbcf297da2e67da785dff2b7e49e20ae7de2d320eb4c945c8ddb1e251"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E4.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      676
+     ],
+     "sha256": "de0c488108dbcee44d1b633a5920c435cd5267b7c3051e94386ce9ad83ea97f4"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E4.jpg",
+     "required_long_side": 3615,
+     "pixels": [
+      3615,
+      2728
+     ],
+     "sha256": "cd62baefa086e556a6203a26bee645ce5abba3eaf50cd7d09363fd1611328f46"
+    }
+   }
+  }
  },
  {
   "tag": "E5",
   "acc": "2003.105",
-  "title": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806) (family group with bust)",
+  "title": "Portrait of Antoine-Georges-Fran\u00e7ois de Chabaud-Latour and His Family (c.1806)",
   "artist": "Jacques-Luc Barbier-Walbonne",
   "canvas_w": 1.74,
   "canvas_h": 2.21,
-  "hang": "frame bottom \u2248 0.5 m",
+  "hang": "centre \u2248 2.007 m",
   "margins_px": [
    168,
    219,
    170,
    171
   ],
+  "band_m": [
+   0.27,
+   0.45,
+   0.27,
+   0.26
+  ],
   "frame_px": [
    1153,
    1464
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E5.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3296,
+    4257
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-antoine-georges-francois-de-chabaud-latour-and-his-family-2003105",
+   "source_url": "https://iiif.micr.io/khjbX/full/!4260,4260/0/default.jpg",
+   "source_pixels": [
+    3314,
+    4260
+   ],
+   "source_sha256": "7ab1f1013659f8b73598c5a7aade65e40e5cc14c3b6fa76fb0d84de173e0e70f",
+   "crop_px": [
+    0,
+    0,
+    3296,
+    4257
+   ],
+   "canvas_render_px": [
+    186.0,
+    234.0
+   ],
+   "zoom_full_px": [
+    3268.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E5.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      248,
+      320
+     ],
+     "sha256": "3c05c0f9adb09fbfbe1e289a1d75d63662867dd9dbdefa19c520d4a360b59d42"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E5.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      694,
+      896
+     ],
+     "sha256": "55633ce0b5c8414ff4eac1dcc6a24a9de8396ad119d4b93f95a45436062c5f43"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E5.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      3260,
+      4210
+     ],
+     "sha256": "d79a27a86e6655e3a2969f4ac4266e74eda73332492a9d25a8f5ff9353aa5d09"
+    }
+   }
+  }
  },
  {
   "tag": "E6",
   "acc": "37.104",
-  "title": "Architectural Fantasy (c.1805) (Roman bridge)",
+  "title": "Architectural Fantasy (c.1805)",
   "artist": "Hubert Robert",
   "canvas_w": 1.4780000000000002,
   "canvas_h": 1.14,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.69 m",
   "margins_px": [
    82,
    80,
@@ -630,16 +1767,73 @@
   "frame_px": [
    1134,
    894
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E6.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    5885,
+    4603
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/architectural-fantasy-37104",
+   "source_url": "https://iiif.micr.io/KACyN/full/!4320,4320/0/default.jpg",
+   "source_pixels": [
+    4320,
+    3380
+   ],
+   "source_sha256": "92a4e39d2eeb24402fa00d3447c32ef55a55f55fba8c535f5240f3a3cd340f5e",
+   "crop_px": [
+    0,
+    0,
+    4317,
+    3377
+   ],
+   "canvas_render_px": [
+    241.0,
+    184.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    3197.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E6.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      250
+     ],
+     "sha256": "1c07ebd43f334da8c2e97525e51486a2d2957dca636c1a68ece44563d71a995a"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E6.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      701
+     ],
+     "sha256": "a4cdfbe184fb170b4a82366bbec47ab9a92e7c1e9ad8082f629db2e380ac93c5"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E6.jpg",
+     "required_long_side": 4087,
+     "pixels": [
+      4087,
+      3197
+     ],
+     "sha256": "ff78243256f13bb0003fbf57b965e8af0dd2f8af01a36c8d0a05f9333f130ce6"
+    }
+   }
+  }
  },
  {
   "tag": "E7",
   "acc": "33.204",
-  "title": "The Ferry Boat (c.1645) (Dutch river landscape)",
+  "title": "The Ferry Boat (c.1645)",
   "artist": "Salomon van Ruysdael",
   "canvas_w": 1.442,
   "canvas_h": 0.972,
-  "hang": "centre \u2248 1.55 m",
+  "hang": "centre \u2248 1.72 m",
   "margins_px": [
    137,
    126,
@@ -649,7 +1843,64 @@
   "frame_px": [
    1212,
    884
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E7.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3278,
+    2215
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/ferry-boat-33204",
+   "source_url": "https://iiif.micr.io/RTosR/full/!3297,3297/0/default.jpg",
+   "source_pixels": [
+    3297,
+    2230
+   ],
+   "source_sha256": "606bc7c914438ef0ad9f6a71ad4f8392aa0b3dd7211dc42a54bbe017ac8b98fe",
+   "crop_px": [
+    14,
+    15,
+    3292,
+    2230
+   ],
+   "canvas_render_px": [
+    239.0,
+    160.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    2766.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E7.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      216
+     ],
+     "sha256": "1e07c0b6558a12364c2859d195ccf2baf84355c7eda254cb5e86b19e7311c211"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E7.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      605
+     ],
+     "sha256": "50835afb3e4e93aa5f619d97044f0b5e7fc89cef8ee4ef3b7893043ae50fbf76"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E7.jpg",
+     "required_long_side": 3278,
+     "pixels": [
+      3278,
+      2215
+     ],
+     "sha256": "28bfb6c7c3e51c43da25073f5708eb8ce56be5548f7551be137e7b2d0861f98f"
+    }
+   }
+  }
  },
  {
   "tag": "E8",
@@ -658,7 +1909,7 @@
   "artist": "Bartolomeo Passarotti",
   "canvas_w": 1.149,
   "canvas_h": 1.975,
-  "hang": "frame bottom \u2248 0.5 m",
+  "hang": "centre \u2248 1.88 m",
   "margins_px": [
    109,
    102,
@@ -668,16 +1919,73 @@
   "frame_px": [
    849,
    1418
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E8.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3258,
+    5893
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-cavalier-his-hunting-dogs-62064",
+   "source_url": "https://iiif.micr.io/yVNUh/full/!4320,4320/0/default.jpg",
+   "source_pixels": [
+    2388,
+    4320
+   ],
+   "source_sha256": "265076bfa5a414ada98184d64b4386c3c8f379df610f35349d17cba7bac3cafa",
+   "crop_px": [
+    0,
+    0,
+    2388,
+    4320
+   ],
+   "canvas_render_px": [
+    140.0,
+    237.0
+   ],
+   "zoom_full_px": [
+    2278.0,
+    4210.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E8.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      177,
+      320
+     ],
+     "sha256": "64efc4c0c561d79372699c5ece6008e313d3ae350d0721d09f3efd46cb1cdac1"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E8.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      495,
+      896
+     ],
+     "sha256": "234d930af8641f25183e085a50bdde623213df82a785afb31f243284a6eabbf5"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E8.jpg",
+     "required_long_side": 4210,
+     "pixels": [
+      2327,
+      4210
+     ],
+     "sha256": "f8444bfee2935f824c417d8e369743e837ddc0e3a8502cbca2c60538201a3822"
+    }
+   }
+  }
  },
  {
   "tag": "E9",
   "acc": "18.096",
-  "title": "Hagar and Ishmael (c.1640) (wooded landscape, large dark tree)",
+  "title": "Hagar and Ishmael (c.1640)",
   "artist": "Francisco Collantes",
   "canvas_w": 1.391,
   "canvas_h": 1.092,
-  "hang": "centre \u2248 1.55 m, above a floor vent",
+  "hang": "centre \u2248 1.69 m",
   "margins_px": [
    149,
    146,
@@ -687,6 +1995,63 @@
   "frame_px": [
    1362,
    1077
-  ]
+  ],
+  "zoom_image": "res://modules/shell/prototype/gallery_walk4/zoom/E9.jpg",
+  "image_resolution": {
+   "original_pixels": [
+    3242,
+    2513
+   ],
+   "catalogue_url": "https://risdmuseum.org/art-design/collection/hagar-and-ishmael-18096",
+   "source_url": "https://iiif.micr.io/qqLJy/full/!3245,3245/0/default.jpg",
+   "source_pixels": [
+    3245,
+    2513
+   ],
+   "source_sha256": "4d33cf7597d27fe7ca325be495638000a86fba4a42300daf5a2359f8f325da3b",
+   "crop_px": [
+    0,
+    0,
+    3242,
+    2513
+   ],
+   "canvas_render_px": [
+    216.0,
+    168.0
+   ],
+   "zoom_full_px": [
+    4087.0,
+    3173.0
+   ],
+   "images": {
+    "wall": {
+     "path": "modules/shell/prototype/gallery_walk4/canvas/E9.jpg",
+     "required_long_side": 320,
+     "pixels": [
+      320,
+      248
+     ],
+     "sha256": "61ad878cbb819e8644a3185016496a37ca53b2b3a3c33eaac3dabb02de1a627d"
+    },
+    "detail": {
+     "path": "modules/shell/prototype/gallery_walk4/detail/E9.jpg",
+     "required_long_side": 896,
+     "pixels": [
+      896,
+      695
+     ],
+     "sha256": "45047810e6e1eda82d33f8fb17e8d23a199f3ac5a7680d19398d596f840b9ada"
+    },
+    "zoom_external": {
+     "path": "modules/shell/prototype/gallery_walk4/zoom/E9.jpg",
+     "required_long_side": 3242,
+     "pixels": [
+      3242,
+      2513
+     ],
+     "sha256": "881d5ebdc2f1cfbeb0abc5d6ddaaa42f2e73103f171ea9b56320f11a8dae92d1"
+    }
+   }
+  }
  }
 ]

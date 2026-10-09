@@ -1,0 +1,3160 @@
+{
+  "log": [
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0000.png",
+      "film": "launch",
+      "n": 0,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 84,
+      "tab_rect": {
+        "h": 38.7164306640625,
+        "w": 84.1661987304688,
+        "x": 818.432434082031,
+        "y": 1039.26354980469
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0001.png",
+      "film": "launch",
+      "n": 1,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 180,
+      "tab_rect": {
+        "h": 38.7164306640625,
+        "w": 84.1661987304688,
+        "x": 818.432434082031,
+        "y": 1039.26354980469
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0002.png",
+      "film": "launch",
+      "n": 2,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 276,
+      "tab_rect": {
+        "h": 40.1805419921875,
+        "w": 100.662780761719,
+        "x": 818.432434082031,
+        "y": 1037.79943847656
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0003.png",
+      "film": "launch",
+      "n": 3,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 350,
+      "tab_rect": {
+        "h": 45.4677734375,
+        "w": 159.915832519531,
+        "x": 818.432434082031,
+        "y": 1032.51220703125
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0004.png",
+      "film": "launch",
+      "n": 4,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 428,
+      "tab_rect": {
+        "h": 48.1004638671875,
+        "w": 189.542358398438,
+        "x": 818.432434082031,
+        "y": 1029.87951660156
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0005.png",
+      "film": "launch",
+      "n": 5,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 527,
+      "tab_rect": {
+        "h": 48.91650390625,
+        "w": 198.632263183594,
+        "x": 818.432434082031,
+        "y": 1029.0634765625
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "active": -1,
+      "event": "frame",
+      "file": "frames/launch-0006.png",
+      "film": "launch",
+      "n": 6,
+      "opening": true,
+      "page_visible": false,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 596,
+      "tab_rect": {
+        "h": 49.1507568359375,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82922363281
+      },
+      "tenant": null,
+      "tint": 0.0
+    },
+    {
+      "event": "signal",
+      "key": "collection",
+      "signal": "tenant_created",
+      "t_ms": 598
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/launch-0007.png",
+      "film": "launch",
+      "n": 7,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 666,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/launch-0008.png",
+      "film": "launch",
+      "n": 8,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 782,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/launch-0009.png",
+      "film": "launch",
+      "n": 9,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 864,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "switch_settled",
+      "t_ms": 864
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/launch-0010.png",
+      "film": "launch",
+      "n": 10,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 933,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/launch-0011.png",
+      "film": "launch",
+      "n": 11,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 1015,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "launch",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 1017,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "map",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 1017,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "sketchbook",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 1017,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "3d_viewer",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 1017,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "video_player",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 1017,
+      "ticks": -1
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "collection",
+      "label": "launch",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 1017,
+      "ticks": 4
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "playground",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 1017,
+      "ticks": -1
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "flowers",
+      "label": "launch",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 1017,
+      "ticks": -1
+    },
+    {
+      "event": "screenshot",
+      "file": "01-launch.png",
+      "t_ms": 1126
+    },
+    {
+      "active": 4,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "pre-map",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 1126,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "signal",
+      "key": "map",
+      "signal": "tenant_created",
+      "t_ms": 1172
+    },
+    {
+      "event": "click",
+      "t_ms": 1183,
+      "what": "map tab",
+      "x": 204.018951416016,
+      "y": 1053.40344238281
+    },
+    {
+      "active": 0,
+      "event": "frame",
+      "file": "frames/map-0000.png",
+      "film": "map",
+      "n": 0,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 1253,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 103.356132507324,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 0,
+      "event": "frame",
+      "file": "frames/map-0001.png",
+      "film": "map",
+      "n": 1,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 1383,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 103.356132507324,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "switch_settled",
+      "t_ms": 1383
+    },
+    {
+      "active": 0,
+      "event": "frame",
+      "file": "frames/map-0002.png",
+      "film": "map",
+      "n": 2,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 1452,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 103.356132507324,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 0,
+      "event": "frame",
+      "file": "frames/map-0003.png",
+      "film": "map",
+      "n": 3,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 1521,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 103.356132507324,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 0,
+      "event": "frame",
+      "file": "frames/map-0004.png",
+      "film": "map",
+      "n": 4,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 1606,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 103.356132507324,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 0,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "map",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 1608,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "map",
+          "label": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-shown",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 1608,
+      "ticks": 6
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-after-20-frames",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 1819,
+      "ticks": 26
+    },
+    {
+      "event": "screenshot",
+      "file": "02-map.png",
+      "t_ms": 1905
+    },
+    {
+      "event": "signal",
+      "key": "sketchbook",
+      "signal": "tenant_created",
+      "t_ms": 1983
+    },
+    {
+      "event": "click",
+      "t_ms": 1993,
+      "what": "sketchbook tab",
+      "x": 382.788024902344,
+      "y": 1053.40344238281
+    },
+    {
+      "event": "signal",
+      "index": 1,
+      "signal": "switch_settled",
+      "t_ms": 2055
+    },
+    {
+      "active": 1,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "sketchbook",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 2426,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-hidden",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 2426,
+      "ticks": 36
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "sketchbook",
+      "label": "sketchbook-shown",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 2426,
+      "ticks": 40
+    },
+    {
+      "event": "key",
+      "keycode": "Space",
+      "t_ms": 2443,
+      "what": "space key while map is hidden"
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-hidden-after-20-frames",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 2698,
+      "ticks": 36
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 2,
+      "key": "sketchbook",
+      "label": "sketchbook-after-20-frames",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 2698,
+      "ticks": 61
+    },
+    {
+      "event": "screenshot",
+      "file": "03-sketchbook.png",
+      "t_ms": 2766
+    },
+    {
+      "event": "click",
+      "t_ms": 2786,
+      "what": "map tab (again)",
+      "x": 204.018951416016,
+      "y": 1053.40344238281
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-resumed",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 2786,
+      "ticks": 37
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "switch_settled",
+      "t_ms": 2929
+    },
+    {
+      "active": 0,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "map-again",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 3245,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "map",
+          "label": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "map",
+      "label": "map-resumed-after-20-frames",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 3449,
+      "ticks": 93
+    },
+    {
+      "event": "click",
+      "t_ms": 3469,
+      "what": "where the close button of the map tab would be",
+      "x": 268.316467285156,
+      "y": 1051.60510253906
+    },
+    {
+      "event": "signal",
+      "index": 0,
+      "signal": "switch_settled",
+      "t_ms": 3650
+    },
+    {
+      "code": "shell.tab_fixed",
+      "event": "close_fixed",
+      "ok": false,
+      "t_ms": 4359
+    },
+    {
+      "active": 0,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "fixed-kept",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 4359,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "map",
+          "label": "map",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "04-fixed-kept.png",
+      "t_ms": 4426
+    },
+    {
+      "event": "click",
+      "t_ms": 4491,
+      "what": "new-tab stub",
+      "x": 1396.82275390625,
+      "y": 1058.62182617188
+    },
+    {
+      "event": "signal",
+      "index": 7,
+      "signal": "switch_settled",
+      "t_ms": 5166
+    },
+    {
+      "active": 7,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 8,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "stub-blank",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1355.74963378906,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 6256,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105743408203,
+            "x": 259.905303955078,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105743408203,
+            "x": 416.454498291016,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 573.003662109375,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 729.552856445312,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 886.10205078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 1042.65124511719,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 7.4066162109375,
+            "w": 7.4066162109375,
+            "x": 1348.34301757812,
+            "y": 1052.39343261719
+          },
+          "fixed": false,
+          "frozen": false,
+          "key": "",
+          "label": "blank_page",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 1199.20043945312,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "05-stub-blank.png",
+      "t_ms": 6330
+    },
+    {
+      "active": 7,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 8,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "stub-blank",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.166259765625,
+        "x": 1355.74963378906,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 6330,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105743408203,
+            "x": 259.905303955078,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105743408203,
+            "x": 416.454498291016,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 573.003662109375,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 729.552856445312,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 886.10205078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 1042.65124511719,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 7.4066162109375,
+            "w": 7.4066162109375,
+            "x": 1348.34301757812,
+            "y": 1052.39343261719
+          },
+          "fixed": false,
+          "frozen": false,
+          "key": "",
+          "label": "blank_page",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 179.105712890625,
+            "x": 1199.20043945312,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "click",
+      "t_ms": 6348,
+      "what": "close button of the blank tab",
+      "x": 1352.04638671875,
+      "y": 1056.0966796875
+    },
+    {
+      "event": "signal",
+      "key": "flowers",
+      "signal": "tenant_created",
+      "t_ms": 6640
+    },
+    {
+      "event": "signal",
+      "index": 6,
+      "signal": "switch_settled",
+      "t_ms": 6842
+    },
+    {
+      "active": 6,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "grey",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.16650390625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 7239,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "flowers",
+      "label": "grey-shown",
+      "ok": true,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 7239,
+      "ticks": -1
+    },
+    {
+      "event": "screenshot",
+      "file": "06-grey.png",
+      "t_ms": 7324
+    },
+    {
+      "event": "click",
+      "t_ms": 7380,
+      "what": "collection tab",
+      "x": 919.09521484375,
+      "y": 1053.40344238281
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/switch-0000.png",
+      "film": "switch",
+      "n": 0,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 7453,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/switch-0001.png",
+      "film": "switch",
+      "n": 1,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": true,
+      "t_ms": 7541,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "switch_settled",
+      "t_ms": 7541
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/switch-0002.png",
+      "film": "switch",
+      "n": 2,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 7616,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/switch-0003.png",
+      "film": "switch",
+      "n": 3,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 7685,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "event": "frame",
+      "file": "frames/switch-0004.png",
+      "film": "switch",
+      "n": 4,
+      "opening": false,
+      "page_visible": true,
+      "pressed": -1,
+      "switching": false,
+      "t_ms": 7763,
+      "tab_rect": {
+        "h": 49.153076171875,
+        "w": 201.325622558594,
+        "x": 818.432434082031,
+        "y": 1028.82690429688
+      },
+      "tenant": "ok",
+      "tint": 1.0
+    },
+    {
+      "active": 4,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "collection",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.16650390625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 7765,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "event": "screenshot",
+      "file": "07-collection.png",
+      "t_ms": 7855
+    },
+    {
+      "event": "click",
+      "t_ms": 7904,
+      "what": "video player tab",
+      "x": 740.326171875,
+      "y": 1053.40344238281
+    },
+    {
+      "event": "signal",
+      "index": 3,
+      "signal": "switch_settled",
+      "t_ms": 7994
+    },
+    {
+      "active": 3,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "untenanted",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.16650390625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 8335,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "shell.tenant_missing",
+      "event": "tenant",
+      "inputs": -1,
+      "key": "video_player",
+      "label": "untenanted-shown",
+      "ok": false,
+      "size": [
+        0,
+        0
+      ],
+      "t_ms": 8335,
+      "ticks": -1
+    },
+    {
+      "event": "screenshot",
+      "file": "08-untenanted.png",
+      "t_ms": 8416
+    },
+    {
+      "event": "click",
+      "t_ms": 8435,
+      "what": "collection tab (again)",
+      "x": 919.09521484375,
+      "y": 1053.40344238281
+    },
+    {
+      "event": "signal",
+      "index": 4,
+      "signal": "switch_settled",
+      "t_ms": 8575
+    },
+    {
+      "active": 4,
+      "bar_rect": {
+        "h": 46.964771270752,
+        "w": 1440.0,
+        "x": 0.0,
+        "y": 853.035217285156
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "resized",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 29.037353515625,
+        "w": 63.1248779296875,
+        "x": 1016.0546875,
+        "y": 869.447631835938
+      },
+      "switching": false,
+      "t_ms": 8923,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994232177734,
+            "x": 77.5170974731445,
+            "y": 861.620178222656
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994232177734,
+            "x": 211.593902587891,
+            "y": 861.620178222656
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994201660156,
+            "x": 345.670715332031,
+            "y": 861.620178222656
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994201660156,
+            "x": 479.747497558594,
+            "y": 861.620178222656
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994201660156,
+            "x": 613.824279785156,
+            "y": 861.620178222656
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994201660156,
+            "x": 747.901123046875,
+            "y": 861.620178222656
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 36.8648071289062,
+            "w": 150.994262695312,
+            "x": 881.977905273438,
+            "y": 861.620178222656
+          },
+          "tenant": "ok"
+        }
+      ],
+      "window": [
+        1440.0,
+        900.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "collection",
+      "label": "resized",
+      "ok": true,
+      "size": [
+        1368.0,
+        824.999816894531
+      ],
+      "t_ms": 8923,
+      "ticks": 72
+    },
+    {
+      "event": "screenshot",
+      "file": "09-resized.png",
+      "t_ms": 8973
+    },
+    {
+      "active": 4,
+      "bar_rect": {
+        "h": 62.6196937561035,
+        "w": 1920.0,
+        "x": 0.0,
+        "y": 1017.38031005859
+      },
+      "count": 7,
+      "event": "state",
+      "fixed_count": 7,
+      "label": "restored",
+      "opening": false,
+      "pressed": -1,
+      "stub_rect": {
+        "h": 38.7164306640625,
+        "w": 84.16650390625,
+        "x": 1354.73962402344,
+        "y": 1039.26354980469
+      },
+      "switching": false,
+      "t_ms": 9017,
+      "tabs": [
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "map",
+          "label": "map",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 103.356132507324,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "sketchbook",
+          "label": "sketchbook",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 282.125213623047,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "3d_viewer",
+          "label": "3d_viewer",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325592041016,
+            "x": 460.894256591797,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "video_player",
+          "label": "video_player",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 639.663330078125,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": false,
+          "key": "collection",
+          "label": "collection",
+          "page_visible": true,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 818.432434082031,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "playground",
+          "label": "playground",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325622558594,
+            "x": 997.201477050781,
+            "y": 1028.82690429688
+          },
+          "tenant": null
+        },
+        {
+          "close_rect": {
+            "h": 0.0,
+            "w": 0.0,
+            "x": 0.0,
+            "y": 0.0
+          },
+          "fixed": true,
+          "frozen": true,
+          "key": "flowers",
+          "label": "flowers",
+          "page_visible": false,
+          "rect": {
+            "h": 49.153076171875,
+            "w": 201.325561523438,
+            "x": 1175.97058105469,
+            "y": 1028.82690429688
+          },
+          "tenant": "ok"
+        }
+      ],
+      "window": [
+        1920.0,
+        1080.0
+      ]
+    },
+    {
+      "code": "",
+      "event": "tenant",
+      "inputs": 0,
+      "key": "collection",
+      "label": "restored",
+      "ok": true,
+      "size": [
+        1848.0,
+        979.999816894531
+      ],
+      "t_ms": 9017,
+      "ticks": 76
+    },
+    {
+      "event": "screenshot",
+      "file": "10-restored.png",
+      "t_ms": 9105
+    }
+  ],
+  "viewport": [
+    1920,
+    1080
+  ]
+}

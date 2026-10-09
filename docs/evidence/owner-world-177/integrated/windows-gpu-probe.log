@@ -1,0 +1,30 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+Failed to request display timeout override.
+Vulkan 1.4.325 - Forward Mobile - Using Device #1: NVIDIA - NVIDIA GeForce RTX 4070 SUPER
+
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)
+ERROR: Couldn't create Vulkan swapchain (VkResult error -2).
+   at: swap_chain_resize (drivers/vulkan/rendering_device_driver_vulkan.cpp:3846)

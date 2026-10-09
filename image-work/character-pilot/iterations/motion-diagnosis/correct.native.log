@@ -1,0 +1,14 @@
+17:40:14 | INFO: Data are loaded, start creating Blender stuff
+17:40:14 | INFO: Blender create Mesh node char1
+17:40:14 | INFO: glTF import finished in 0.03s
+INFO Draco mesh compression is available, use library at /home/reidsurmeier/.local/opt/blender-4.3.2/4.3/python/lib/python3.11/site-packages/libextern_draco.so
+17:40:15 | INFO: Starting glTF 2.0 export
+17:40:15 | INFO: Extracting primitive: char1
+17:40:15 | INFO: Primitives created: 1
+17:40:16 | INFO: Finished glTF 2.0 export in 0.28110241889953613 s
+
+Info: Saved "footplant-candidate.blend"
+CONTACT_CANDIDATE {"source_sha256": "0f609ee4dfd7d0e645a15dbd8b47625dd95b0c13c4b59b624deecdd2eddeb487", "output_sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9", "bones": 24, "rest_signature_unchanged": true, "shoe_repair_threshold_m": 0.2, "shoe_vertices": {"Left": 460, "Right": 512}, "shoe_assignment": "one Foot joint; target-specific rest-height classifier, owner review pending", "controller_speed_mps": 0.52, "walk_period_seconds": 1.0666666666666667, "bake_fps": 60, "stance_phase": {"Left": [0.25, 0.75], "Right": [0.75, 1.25]}, "dust_event_phases": [0.25, 0.75], "swing_lift_m": 0.08, "contact_accepted": false, "export_animations": ["idle", "walk"], "cost_usd": 0}
+Blender 4.3.2 (hash 32f5fdce0a0a built 2024-12-17 01:31:14)
+
+Blender quit

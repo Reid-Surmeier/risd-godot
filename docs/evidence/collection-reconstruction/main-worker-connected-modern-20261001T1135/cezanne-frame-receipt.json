@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/cezanne-frame-video-native.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-65e26c80ff7874d3634914a4/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "f9efa0ebd05a5f348c014ad3d3b7540ec57231a0025032c40bf6a5d847b6fd0f"
+    }
+  ],
+  "changesRequested": "Produce one complete orthographic FRONT view of only the exact historical picture frame in reference1 around RISD Cézanne On the Banks of a River43.255. Preserve its bronze-grey muted gilding, deep nested linear mouldings, dense small bead/rope detail along the inner and outer rails, straight mitred corners and thick rectangular band. No crest, floral additions, fancy corners, carvings or redesigned ornament. Remove painting, wall, label, perspective and cast shadow. Interior aperture pure solid white; surrounding background pure magenta#FF00FF. Convert the existing form to broad low polygon facets and quiet baked shading consistent with the Main Hall museum game frame assets. Complete isolated frame with margins; museum painting pixels remain separate and are inserted by native geometry.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-65e26c80ff7874d3634914a4",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-65e26c80ff7874d3634914a4"
+}

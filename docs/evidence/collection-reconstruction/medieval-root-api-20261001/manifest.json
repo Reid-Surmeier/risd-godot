@@ -1,0 +1,51 @@
+[
+  {
+    "id": "1388871",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1388871",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:12.989715+00:00",
+    "sha256": "f3373e5f3a5b54a659d70d840b2eb5192c52f467fe116fe8a29d2a5b6d5e740d"
+  },
+  {
+    "id": "1557221",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1557221",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:13.091207+00:00",
+    "sha256": "a04f0d96bc169a8d85f84e2c3a40af5ab7c96ec5a3c3fdc571efb11cca067a42"
+  },
+  {
+    "id": "1443596",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1443596",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:13.189818+00:00",
+    "sha256": "5bfaf8327158455b887a4f9bce79aeac166311b03df2fab3f5f6aa4c4074864d"
+  },
+  {
+    "id": "1550551",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1550551",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:15.273065+00:00",
+    "sha256": "526d0d80f031cbcb7394705ce988133b15c30433bfda92a51237d2bd19b3dcdc"
+  },
+  {
+    "id": "1230716",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1230716",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:15.420488+00:00",
+    "sha256": "72b218856e30b625d8aa0e40d04b3ac8d985be48f84d23c69926b457c4c77246"
+  },
+  {
+    "id": "1197491",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1197491",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:17.605014+00:00",
+    "sha256": "0f673109928cc15434d14861db167824c7f963da84662cf10aeb03dfad28a2fe"
+  },
+  {
+    "id": "1211626",
+    "url": "https://risdmuseum.org/api/v1/collection?id=1211626",
+    "response_status": 200,
+    "fetched_utc": "2026-10-01T14:59:17.694754+00:00",
+    "sha256": "7d4eab4b83bcc066a28763f3bbd108140334daf97ffca63d6ee0c35e112c8f41"
+  }
+]

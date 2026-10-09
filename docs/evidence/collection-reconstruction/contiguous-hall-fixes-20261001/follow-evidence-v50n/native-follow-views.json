@@ -1,0 +1,121 @@
+[
+	{
+		"addition_lightmap_visible": false,
+		"cull_mask": 6207,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": true,
+		"heading": 0.0,
+		"name": "hall-mid-follow-north",
+		"position": [
+			0.0,
+			0.0,
+			-13.0
+		],
+		"space": "gallery",
+		"view_mode": 2
+	},
+	{
+		"addition_lightmap_visible": false,
+		"cull_mask": 6167,
+		"cutaway_alpha": {
+			"8": 0.0
+		},
+		"hall_lightmap_visible": true,
+		"heading": 0.0,
+		"name": "hall-near-door-gallery-north",
+		"position": [
+			0.0,
+			0.0,
+			-22.0
+		],
+		"space": "gallery",
+		"view_mode": 1
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 8191,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 3.14159265358979,
+		"name": "grey-follow-south-after-walking-north",
+		"position": [
+			0.0,
+			0.0,
+			-30.5
+		],
+		"space": "far",
+		"view_mode": 2
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 8191,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 3.14159265358979,
+		"name": "grey-follow-south-fresh",
+		"position": [
+			0.0,
+			0.0,
+			-30.5
+		],
+		"space": "far",
+		"view_mode": 2
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 7135,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 3.14159265358979,
+		"name": "connector-dollhouse-south",
+		"position": [
+			-2.59999990463257,
+			0.0,
+			-27.7999992370605
+		],
+		"space": "far",
+		"view_mode": 0
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 6175,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 0.0,
+		"name": "west-gallery-to-rockefeller",
+		"position": [
+			-8.05000019073486,
+			0.0,
+			-24.7000007629395
+		],
+		"space": "arch",
+		"view_mode": 2
+	},
+	{
+		"addition_lightmap_visible": true,
+		"cull_mask": 8191,
+		"cutaway_alpha": {
+			"8": 1.0
+		},
+		"hall_lightmap_visible": false,
+		"heading": 3.14159265358979,
+		"name": "rockefeller-to-west-gallery",
+		"position": [
+			-8.05000019073486,
+			0.0,
+			-27.7000007629395
+		],
+		"space": "far",
+		"view_mode": 2
+	}
+]

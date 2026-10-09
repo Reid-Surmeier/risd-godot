@@ -1,0 +1,18 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-walk-v3/footplant-candidate.glb",
+      "label": "GameCube walk .8s reference trial",
+      "sha256": "99d809cda863888542160db6aec67c934497e6d1ef56369ad6b52b5711d61c6a"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17
+}

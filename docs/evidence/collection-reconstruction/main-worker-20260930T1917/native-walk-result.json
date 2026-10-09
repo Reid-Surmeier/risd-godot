@@ -1,0 +1,95 @@
+{
+  "checks": {
+    "decorative_room": true,
+    "decorative_room_camera": true,
+    "forward": true,
+    "forward_camera": true,
+    "left_blocked": true,
+    "left_blocked_camera": true,
+    "painting_gallery": true,
+    "painting_gallery_camera": true,
+    "reverse": true,
+    "reverse_camera": true,
+    "right_blocked": true,
+    "right_blocked_camera": true
+  },
+  "frame_time_p50_ms": 7.57575757575758,
+  "frame_time_p95_ms": 9.09090909090909,
+  "navigation_accepted": false,
+  "render_frames": 2965,
+  "renderer": "D3D12 (NVIDIA GeForce RTX 4070 SUPER)",
+  "samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.277448147535324,
+        0.000838130654301494,
+        -1.17494523525238
+      ],
+      "trial": "forward"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.277448207139969,
+        0.000839706568513066,
+        1.17500805854797
+      ],
+      "trial": "reverse"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        -0.724084436893463,
+        0.000705829006619751,
+        0.421142548322678
+      ],
+      "trial": "left_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        1.27898097038269,
+        -0.000190141799976118,
+        0.421198010444641
+      ],
+      "trial": "right_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.27744734287262,
+        0.000835640239529312,
+        -3.17915534973145
+      ],
+      "trial": "decorative_room"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        0.2774478495121,
+        0.00083813932724297,
+        3.17917585372925
+      ],
+      "trial": "painting_gallery"
+    }
+  ]
+}

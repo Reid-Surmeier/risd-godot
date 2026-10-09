@@ -1,0 +1,25 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/white-panel-door-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/white-panel-door-selected-1.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-e7b18db5374fdc5e0b548a35/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "bdb409892fa25e41b6ec0942329f32c3a975c3e6e19e54152f378e69434f1546"
+    }
+  ],
+  "changesRequested": "Generate ONE complete FRONT ORTHOGRAPHIC museum door leaf matching the open white door visible in reference1. Tall narrow cream-painted wooden leaf with three rectangular inset panels stacked vertically, raised stepped panel mouldings, broad flat rails and stiles, small dark metal knob/lock at mid-lower right edge. Preserve the real simple panel arrangement, not a carved ornate door. Restrained low polygon game albedo and shallow facet relief, warm off-white paint. Complete rectangular outside silhouette, all corners present. Leaf ratio height2.7m width0.95m. Flat magenta #FF00FF outside silhouette, generous margins. No jamb, surrounding architrave, wall, floor, room, glass, painting, label, people, perspective or shadows outside leaf; one door leaf only. Native closed geometry supplies thickness and panel depths.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-e7b18db5374fdc5e0b548a35",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-e7b18db5374fdc5e0b548a35"
+}

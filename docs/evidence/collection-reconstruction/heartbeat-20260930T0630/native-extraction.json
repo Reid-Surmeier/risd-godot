@@ -1,0 +1,50 @@
+{
+  "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+  "source_sha256": "eaf7a7853b6cc5610517631b44aa83de1006ac6caa5aa673038f1f067cafd3d4",
+  "command": [
+    "ffmpeg",
+    "-n",
+    "-hide_banner",
+    "-loglevel",
+    "error",
+    "-hwaccel",
+    "cuda",
+    "-hwaccel_output_format",
+    "cuda",
+    "-noautorotate",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6380.MOV",
+    "-t",
+    "104",
+    "-vf",
+    "scale_cuda=1920:1080:format=yuv420p,hwdownload,format=yuv420p,fps=2,select=between(n\\,200\\,207)",
+    "-fps_mode",
+    "vfr",
+    "-q:v",
+    "2",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/grand-native-aligned-v1/%06d.jpg"
+  ],
+  "mapping": {
+    "000001.jpg": "survey-2fps/IMG_6380/000201.jpg",
+    "000002.jpg": "survey-2fps/IMG_6380/000202.jpg",
+    "000003.jpg": "survey-2fps/IMG_6380/000203.jpg",
+    "000004.jpg": "survey-2fps/IMG_6380/000204.jpg",
+    "000005.jpg": "survey-2fps/IMG_6380/000205.jpg",
+    "000006.jpg": "survey-2fps/IMG_6380/000206.jpg",
+    "000007.jpg": "survey-2fps/IMG_6380/000207.jpg",
+    "000008.jpg": "survey-2fps/IMG_6380/000208.jpg"
+  },
+  "provider": "local ffmpeg NVDEC/scale_cuda RTX4070SUPER; CPU JPEG assembly",
+  "cost_usd": 0,
+  "note": "Full stream decoded before fps/select; native resolution 1920x1080. Comparison does not certify corner identity or geometric accuracy.",
+  "frames_sha256": {
+    "000002.jpg": "9c1d3a1a56db574bcb13c489a8ffa9d9e4b90228acc46ecea42a23f121223def",
+    "000006.jpg": "aaaa816bd7b6dfdbb7f2acce6efecd2a20f79e37256add23a9ff063214356efa",
+    "000003.jpg": "21998a057958572e2dc149f7b28a933a929afa81de06f9701cd30fbbc911169b",
+    "000001.jpg": "e1516c1900b6122b8f021ad55df9708577eb5c8071ec1b3ac413c7b114721bba",
+    "000007.jpg": "fcedf1252de0b1c0bcce5da7ace043b581bf33b115a1b32916e848b033023804",
+    "000004.jpg": "9aae4d2c6c449bd62035cce1cf98396aef72e5398f5f5439fe078ca429e0300d",
+    "000008.jpg": "8d869360b0a635d82385e2ddcb2658c5f18bf1c8f67e58206511128fcadf20da",
+    "000005.jpg": "4ea5ee13c750104e5b418a855d9ff0cb808764b1cc4b43f740ecf9f97fa3432b"
+  }
+}

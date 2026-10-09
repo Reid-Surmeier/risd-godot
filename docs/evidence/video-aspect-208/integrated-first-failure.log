@@ -1,0 +1,8 @@
+TimeoutError: Waiting failed: 30000ms exceeded
+    at new WaitTask (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/common/WaitTask.js:46:34)
+    at IsolatedWorld.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Realm.js:49:26)
+    at CdpFrame.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Frame.js:585:43)
+    at CdpFrame.<anonymous> (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/util/decorators.js:101:27)
+    at CdpPage.waitForFunction (file:///home/reidsurmeier/promo-lab/node_modules/puppeteer-core/lib/puppeteer/api/Page.js:1537:37)
+    at tab (/home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/docs/evidence/video-aspect-208/capture.cjs:9:82)
+    at async /home/reidsurmeier/orca/workspaces/risd-godot/integrate-square-164/docs/evidence/video-aspect-208/capture.cjs:22:50

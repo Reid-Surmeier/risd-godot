@@ -1,0 +1,20 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/neptune-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/amphitrite-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/neptune-2.png"
+  ],
+  "result": [],
+  "changesRequested": "References 1 and 2 are the official photographs of RISD Vincennes porcelain Neptune as River Deity 2017.74.31.1 and Amphitrite as River Deity 2017.74.31.2. Reference 3 shows the authentic pair together. These are the sole design authority. Produce ONE asset sheet split into TWO equally sized horizontal cells: Neptune alone on the LEFT and Amphitrite alone on the RIGHT. Each complete sculpture is centred in its cell and occupies 80 percent of the cell height, same real height, with pure magenta #FF00FF touching its silhouette and separating cells. Both face exactly as in the official front reference, with no perspective room and no pedestal. Transform these real figures into clean low polygon game sculptures: large planar facets, simplified readable relief and warm ivory glazed porcelain, restrained baked shadow details. Keep exact seated poses, limbs, shell/water bases, Neptune beard/laurel and Amphitrite hair and upraised arm. Do not merge the two sculptures or add ornaments. No letters, grid lines, cast shadows outside objects, wall or floor. Keep all extremities and bases with magenta margin. One sheet, two distinct complete front views. Hidden geometry will be separately authored with depth guided by the museum dimensions; do not invent a rear photo.\n",
+  "checks": {
+    "outcome": "blocked",
+    "evidence": "submission_unreconciled: Provider submission may have started, but no trustworthy result has been reconciled.",
+    "visualReview": "unverified"
+  },
+  "cost": "unknown",
+  "runId": "run-7b018ec98c334a45ef16e681",
+  "spendState": "possibly_spent",
+  "retryState": "reconcile-only",
+  "nextAction": "Reconcile only the existing Run and provider identity; do not submit again or start autonomous correction.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-7b018ec98c334a45ef16e681"
+}

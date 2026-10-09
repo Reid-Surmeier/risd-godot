@@ -1,0 +1,26 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/european-two-panel-door-selected-0.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/european-two-panel-door-selected-1.png",
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/european-two-panel-door-selected-2.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-d6f87926e37f8ad942651a4e/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "cdef0be96028f04b58069c294796f6cabeb7ba43c001fd3175617814b68036ed"
+    }
+  ],
+  "changesRequested": "Generate ONE complete FRONT ORTHOGRAPHIC low polygon cream-painted wooden museum door leaf matching the European/Renaissance doorway in references1 and2. The real leaf has TWO rectangular recessed panels: a very tall upper panel occupying approximately60 percent of the leaf height and a much shorter lower panel occupying approximately23 percent, with broad plain rails/stiles and subtle stepped raised panel mouldings. Preserve the two unequal panels, not three/six panels. Warm off-white paint, simple restrained low polygon shading in reference3 Main Hall game style. Complete rectangular leaf silhouette, straight vertical sides, ratio height2.74m to width0.96m. A small dark round knob at the free left edge near the rail between panels, paired leaf will be mirrored in native geometry. Flat magenta #FF00FF outside silhouette, generous margins. One door leaf only, no jamb, casing, walls, room, people, labels, paintings, perspective or cast shadow outside leaf. Native closed geometry supplies real thickness and inset panel relief.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-d6f87926e37f8ad942651a4e",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-d6f87926e37f8ad942651a4e"
+}

@@ -1,0 +1,65 @@
+{
+  "baseline": "c05591ef",
+  "files": [
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/PROVENANCE.md",
+      "sha256": "9c118a01af3489d1330b63cf2f49655c90b8a82d8cccf3b87463c601556f343c"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb",
+      "sha256": "a2e6e0948dafb5b0ac10ffdc7359c64fbe04371038f0265d9cb1e1af390e54c4"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character.glb.import",
+      "sha256": "f294ab6b34dabb75647138fc2c2546869fc67804dfe0c7400a5d48c09b86635c"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-eye-baked.png",
+      "sha256": "76c7f742c5762955f20ec2b73b6e3e8cd67be16b5d60544e51de457ba5aa233e"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-eye-baked.png.import",
+      "sha256": "9fcf64fcca76d33e83530af27b3e5223a43068da5c3bfe8c0974c1aef56699ef"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-hair36-source-tinted.png",
+      "sha256": "3343dfb6121696acf2e684ffd24b5a1f3bc7553721ca01ccb774ba407cb3499c"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-hair36-source-tinted.png.import",
+      "sha256": "93dccd86e716d31837a8e3ff8729bfb2e59ad4f1bd4771eefb2eb8de8b09d7cb"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-mouth-baked.png",
+      "sha256": "c0df1123ec60316f19af09ca7c77018b35f149c52e4c4f7372d2fb138169f0b1"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-mouth-baked.png.import",
+      "sha256": "0e28f3a36c08eae8491f1de764955b2b54f898775914dc5ae244745dcb96275a"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-shirt-baked.png",
+      "sha256": "98088aa8132b11367d6f249b29d6e936438e7dd4e1bca29345e72fcf003737a2"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/character_risd-163-shirt-baked.png.import",
+      "sha256": "134732677e72f59edc185629a706417d9add4287383f3e2df89cf89bca2ebe0c"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/donor.glb",
+      "sha256": "e825437cd4d2ee9c1960b517a74a69101e33eb409ae7fa8cedc7134a998fbb7d"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/inputs/donor.glb.import",
+      "sha256": "41ad973e04114f463d8475b723f9db3ca5cc85bfd350295a409af1a3f84ae522"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/visitor.gd",
+      "sha256": "f351a4ea09c43f03ea44d3e181d512770fb5a028aabeb9cb619e2fff15e97f4a"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor159/visitor.gd.uid",
+      "sha256": "07a8cbc4f0d3565d10dc887786e5bf1363021094ca50bc7929c6c26c3ffb9b36"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "source": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/target-baked-normalized-idle.glb",
+  "source_sha256": "9d566ae7413d209f9986b1ff53d486ba3535a59f498d686f169d7257e21cc804",
+  "blender": "4.3.2",
+  "fps": 30,
+  "native_render_only": true,
+  "source_changed": false,
+  "views": [
+    {
+      "image": "review-1m-walk-24-front.png",
+      "frame": 24,
+      "pose": "POSE",
+      "camera_offset": [
+        0,
+        -3,
+        0
+      ]
+    },
+    {
+      "image": "review-1m-walk-24-profile.png",
+      "frame": 24,
+      "pose": "POSE",
+      "camera_offset": [
+        3,
+        0,
+        0
+      ]
+    }
+  ],
+  "cost_usd": 0,
+  "head_threshold_world_z_m": 1.0,
+  "head_vertices": 1480,
+  "variant_saved": false,
+  "visual_review": {
+    "compared_against": [
+      "review-walk-24-front.png",
+      "review-walk-24-profile.png"
+    ],
+    "head_vertices_added_vs_1_05": 38,
+    "collar_open_gap_or_tear_observed": false,
+    "clear_improvement": false,
+    "observation": "The 1.0 m cutoff slightly changes the lower-jaw transition but does not remove the hard shaded crease. A diagonal patch remains visible on the right lower cheek in the front view, and a faceted band remains across the jaw in profile. No clear collar/body distortion appears at this sampled pose.",
+    "recommendation": "Keep the existing 1.05 m cutoff; this two-view test does not justify replacing it. Smooth the remaining collar/jaw transition separately if visual review requires it.",
+    "limit": "Only frame 24 at 30 FPS was compared. Existing 1.05 views were rendered from the exported variant; this 1.0 test changed weights in RAM on the original normalized GLB. No variant GLB was saved."
+  }
+}

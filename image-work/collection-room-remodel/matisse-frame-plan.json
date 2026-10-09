@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "matisse-frame-001",
+      "prompt": "matisse-frame-prompt.txt",
+      "promptSha256": "c70fd1b588112392f079389e7a515afee98d9e398dbad1bfcd3bc6907e771b48",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/matisse-frame-video-0.png",
+          "sha256": "44f51a336dc774f4a3506e998a9db8a7058d8422bcaca56cc0da8e15cc4e3401"
+        }
+      ]
+    }
+  ]
+}

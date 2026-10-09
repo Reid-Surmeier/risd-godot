@@ -1,0 +1,90 @@
+{
+  "selection": {
+    "training": [
+      "IMG_6380_exit6fps/000013.jpg",
+      "IMG_6380_exit6fps/000019.jpg"
+    ],
+    "reserved": [
+      "IMG_6380_exit6fps/000021.jpg",
+      "IMG_6380_exit6fps/000025.jpg"
+    ],
+    "allow_registered_reserved": true,
+    "images": {
+      "IMG_6380_exit6fps/000013.jpg": "exit-floor-native-v2/000001.jpg",
+      "IMG_6380_exit6fps/000019.jpg": "exit-floor-native-v2/000002.jpg",
+      "IMG_6380_exit6fps/000021.jpg": "exit-floor-native-v2/000003.jpg",
+      "IMG_6380_exit6fps/000025.jpg": "exit-floor-native-v2/000004.jpg"
+    },
+    "floor_polygons_upright": {
+      "IMG_6380_exit6fps/000013.jpg": [
+        [
+          50,
+          820
+        ],
+        [
+          430,
+          745
+        ],
+        [
+          650,
+          1180
+        ],
+        [
+          600,
+          1279
+        ],
+        [
+          20,
+          1279
+        ]
+      ],
+      "IMG_6380_exit6fps/000019.jpg": [
+        [
+          150,
+          920
+        ],
+        [
+          560,
+          890
+        ],
+        [
+          700,
+          1279
+        ],
+        [
+          120,
+          1279
+        ]
+      ]
+    },
+    "reason": "Previously empty near-floor sparse masks reused at native resolution. All source matches frozen before reserved correspondence lookup; reserved cameras globally fitted, not independent poses. No collision acceptance."
+  },
+  "candidates": [],
+  "inputs_sha256": {
+    "docs/evidence/collection-reconstruction/heartbeat-20260930T1630/native-selection.json": "8d2b14942fa58cbec52cf30ef06982ef5fdf4665461a0c970b28daefc6291a7b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-strict-doorway-v1/sparse/0/cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/exit-floor-native-v2/000001.jpg": "df5a48853b621f98f7f24b45056c2ea815e593dde2f05fce97c2b12b9f0a848f",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/exit-floor-native-v2/000002.jpg": "c9403b140be59f9b2515d65c820fb790e3054ec1de1cda86d5557103f75f950c",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/exit-floor-native-v2/000003.jpg": "e1e86a08a0a13af42ed02a24a675e03107494c67b8698601aa919c4d5c92ede0",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/exit-floor-native-v2/000004.jpg": "2d6fccc644178be7e2ac449c364d751fe984961a8df1fa648b4fd1fbca9d8071"
+  },
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "floor_pixels_used_for_query_pose": true,
+  "registered_query_cameras": [
+    "IMG_6380_exit6fps/000021.jpg",
+    "IMG_6380_exit6fps/000025.jpg"
+  ],
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "All source floor matches retained; repeated wood may produce false identities. Native coordinates scaled 1.5 to frozen 1280x720 cameras. Registered query cameras, if listed, were globally fitted with cached tracks and are not held-out poses. Same-video/calibration correlation; no plane fit, physical scale or collision acceptance. CUDA extraction/matching; CPU ray algebra."
+}

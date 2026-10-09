@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-fast-v6/footplant-candidate.glb",
+      "label": "Original generated boots",
+      "sha256": "9153b2c29799677d5d93a6cddc46a147b751987c77bdfd9669fe9ff4c5767f20"
+    },
+    {
+      "source": "video-match/authored-fast-v8/footplant-candidate.glb",
+      "label": "Smaller boots: .6 extent trial",
+      "sha256": "a99701f9d5e30065b9860fcdfff028918fbfb6a1a0527fd92da9abd9a3f3aefb"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 1.05,
+  "contacts": [],
+  "width": 960,
+  "height": 640,
+  "camera_distance": 10.5,
+  "import_fps": 240
+}

@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-50f112b2b43e79f8ddd8",
+      "objective": "Edit reference1 into ONE restrained low polygon gilded Gothic picture frame. Keep reference1 exact outer silhouette and exact WHITE opening silhouette: the WHITE pentagon starts near the high apex and includes the entire tall rectangle beneath it. White pixels stay white all the way up to that apex. Preserve the slim single steep roof band, the three individual source crockets along each slope, small paired apex finial, straight twisted rope columns and narrow dark brown-gold bottom sill. Keep band widths and inner edge positions from reference1. Material-only simplification into broad worn gold facets, using reference2 solely for muted warm brown-gold palette and low polygon shading. Complete frame, full bases and finial, frontal orthographic, flat magenta #FF00FF outside silhouette. No inner triangle, second chevron, broad filled golden pediment, blue or grey painted wear, figure, halo, painting, label, background wall, perspective, additional ornament or frame. One single frame, preserve the source opening.\n",
+      "procedureId": "muse-50f112b2b43e79f8ddd8",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "magdalene-frame-v2b-recipe.json",
+          "sha256": "50f112b2b43e79f8ddd8c88cc8961f66a7536a489a0301ac63b3b8c013aa42b2"
+        },
+        {
+          "applicationPath": "magdalene-frame-v2b-plan.json",
+          "sha256": "da895fe4140f0e54667c2ebdf3234f73e8f2e32bc328fb8cced00db1c33ed100"
+        },
+        {
+          "applicationPath": "magdalene-frame-v2b-prompt.txt",
+          "sha256": "8ff4c141a784eebc9d44b062a18cb11671e05fe2dc9459a7aaea4f3a79f32674"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/magdalene-frame-guide-v2.png",
+          "sha256": "b085de132870cfc2dc52ea4f324da50556886aad61a4fa0d6df2199ce605884c",
+          "byteLength": 1153953,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 2358
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/magdalene-frame-style-v2.png",
+          "sha256": "ceede2d8dc9c64870e1b7f9763f16e4e027cc5e9f3a721d2555256c2d734f23d",
+          "byteLength": 1279348,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1487,
+            "height": 1264
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Edit reference1 into ONE restrained low polygon gilded Gothic picture frame. Keep reference1 exact outer silhouette and exact WHITE opening silhouette: the WHITE pentagon starts near the high apex and includes the entire tall rectangle beneath it. White pixels stay white all the way up to that apex. Preserve the slim single steep roof band, the three individual source crockets along each slope, small paired apex finial, straight twisted rope columns and narrow dark brown-gold bottom sill. Keep band widths and inner edge positions from reference1. Material-only simplification into broad worn gold facets, using reference2 solely for muted warm brown-gold palette and low polygon shading. Complete frame, full bases and finial, frontal orthographic, flat magenta #FF00FF outside silhouette. No inner triangle, second chevron, broad filled golden pediment, blue or grey painted wear, figure, halo, painting, label, background wall, perspective, additional ornament or frame. One single frame, preserve the source opening.\\n\",\"objectiveId\":\"muse-50f112b2b43e79f8ddd8\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-50f112b2b43e79f8ddd8\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/magdalene-frame-guide-v2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1153953,\"inspectedMedia\":{\"height\":2358,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"b085de132870cfc2dc52ea4f324da50556886aad61a4fa0d6df2199ce605884c\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/magdalene-frame-style-v2.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1279348,\"inspectedMedia\":{\"height\":1264,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1487},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"ceede2d8dc9c64870e1b7f9763f16e4e027cc5e9f3a721d2555256c2d734f23d\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"magdalene-frame-v2b-recipe.json\",\"sha256\":\"50f112b2b43e79f8ddd8c88cc8961f66a7536a489a0301ac63b3b8c013aa42b2\"},{\"applicationPath\":\"magdalene-frame-v2b-plan.json\",\"sha256\":\"da895fe4140f0e54667c2ebdf3234f73e8f2e32bc328fb8cced00db1c33ed100\"},{\"applicationPath\":\"magdalene-frame-v2b-prompt.txt\",\"sha256\":\"8ff4c141a784eebc9d44b062a18cb11671e05fe2dc9459a7aaea4f3a79f32674\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "56e0a4ec22f715cd28886116e5a24aff54791f98b80460e2d61db6ba0f1f21ff"
+  },
+  "normalView": {
+    "objective": "Edit reference1 into ONE restrained low polygon gilded Gothic picture frame. Keep reference1 exact outer silhouette and exact WHITE opening silhouette: the WHITE pentagon starts near the high apex and includes the entire tall rectangle beneath it. White pixels stay white all the way up to that apex. Preserve the slim single steep roof band, the three individual source crockets along each slope, small paired apex finial, straight twisted rope columns and narrow dark brown-gold bottom sill. Keep band widths and inner edge positions from reference1. Material-only simplification into broad worn gold facets, using reference2 solely for muted warm brown-gold palette and low polygon shading. Complete frame, full bases and finial, frontal orthographic, flat magenta #FF00FF outside silhouette. No inner triangle, second chevron, broad filled golden pediment, blue or grey painted wear, figure, halo, painting, label, background wall, perspective, additional ornament or frame. One single frame, preserve the source opening.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

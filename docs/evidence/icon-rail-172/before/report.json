@@ -1,0 +1,314 @@
+{
+  "log": [
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "map",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "screenshot",
+      "file": "map.png",
+      "t_ms": 5060
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "map"
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "3d_viewer",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "screenshot",
+      "file": "3d_viewer.png",
+      "t_ms": 7127
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "3d_viewer"
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "downloads",
+      "rect": {
+        "h": 59.0,
+        "w": 77.0,
+        "x": 19.0,
+        "y": 68.0
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "documents",
+      "rect": {
+        "h": 64.0,
+        "w": 79.0,
+        "x": 18.0,
+        "y": 204.857147216797
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "websurfer2",
+      "rect": {
+        "h": 73.0,
+        "w": 84.0,
+        "x": 15.5,
+        "y": 341.714294433594
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "nextrooms",
+      "rect": {
+        "h": 62.0,
+        "w": 76.0,
+        "x": 19.5,
+        "y": 478.571441650391
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "wastebin",
+      "rect": {
+        "h": 64.0,
+        "w": 68.0,
+        "x": 23.5,
+        "y": 615.428588867188
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "screensavers",
+      "rect": {
+        "h": 86.0,
+        "w": 87.0,
+        "x": 14.0,
+        "y": 752.285705566406
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "rail",
+      "fits": false,
+      "icon": "do_not_open",
+      "rect": {
+        "h": 99.0,
+        "w": 82.0,
+        "x": 16.5,
+        "y": 889.142883300781
+      },
+      "tab": "video_player",
+      "tenant_left": 72.0
+    },
+    {
+      "event": "screenshot",
+      "file": "video_player.png",
+      "t_ms": 8761
+    },
+    {
+      "event": "input",
+      "opened": "downloads",
+      "selected": "downloads",
+      "tab": "video_player"
+    }
+  ],
+  "viewport": [
+    1080,
+    1080
+  ]
+}

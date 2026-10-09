@@ -1,0 +1,25 @@
+{
+  "canvas_m": [
+    0.46,
+    0.548
+  ],
+  "margins_px": [
+    114,
+    115,
+    114,
+    115
+  ],
+  "opening_aspect": 0.8394557823129252,
+  "catalogue_aspect": 0.8394160583941606,
+  "profile": "Muse box face with its rim re-laid to the catalogue oval; flat 5cm slab, box recess painted not modelled",
+  "source_fit": {
+    "target_margins_m": [
+      0.085,
+      0.086,
+      0.085,
+      0.086
+    ],
+    "source": "Native6387 56.25s; recessed white box/oval, margins provisional",
+    "metric_accepted": false
+  }
+}

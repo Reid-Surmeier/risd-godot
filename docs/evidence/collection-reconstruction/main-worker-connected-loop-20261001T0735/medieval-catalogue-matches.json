@@ -1,0 +1,52 @@
+{
+  "matched": [
+    {
+      "id": "standing-virgin",
+      "catalogue_id": "1550566",
+      "accession": "37.114",
+      "appearance_match": "Green/blue tunic, red shoulder cape, missing forearms, short brown hair and shaped base match source6382/000122.jpg.",
+      "url": "https://risdmuseum.org/art-design/collection/angel-annunciation-37114"
+    },
+    {
+      "id": "madonna-gold",
+      "catalogue_id": "1580756",
+      "accession": "20.207",
+      "appearance_match": "Mother holds child on right, blue mantle, pink legs/yellow ribbon, trefoil gold relief and two floral corner motifs match6382/000136.jpg.",
+      "url": "https://risdmuseum.org/art-design/collection/madonna-and-child-20207"
+    },
+    {
+      "id": "annunciation",
+      "catalogue_id": "1549126",
+      "accession": "57.301",
+      "appearance_match": "Single pink-robed kneeling Mary, joined hands, blue veil and vase/lily at left match6382/000141.jpg. Not a two-person Annunciation.",
+      "url": "https://risdmuseum.org/art-design/collection/virgin-annunciation-57301"
+    },
+    {
+      "id": "madonna-gabled",
+      "catalogue_id": "1411936",
+      "accession": "21.250",
+      "appearance_match": "Source6382/000146.jpg matches red mantle/hood, blue inner veil, ointment vessel held in both hands, twisted gold columns and triangular crocketed frame. Not a Madonna or Annunciate Virgin.",
+      "url": "https://risdmuseum.org/art-design/collection/mary-magdalene-21250"
+    },
+    {
+      "id": "gold-narrative",
+      "catalogue_id": "1461611",
+      "accession": "22.047",
+      "appearance_match": "Source6382/000152.jpg matches white two-storey architecture left, blue/yellow Saint Peter, red central armoured soldier and surrounding green/blue/red figures.",
+      "url": "https://risdmuseum.org/art-design/collection/taking-saint-peter-22047"
+    },
+    {
+      "id": "christ-majesty",
+      "catalogue_id": "1539001",
+      "accession": "16.243",
+      "appearance_match": "Source6382/000112.jpg matches grey-bearded seated abbot, staff and book, patterned red/gold throne cloth, two angels, top roundels and black/red kneeling donors. Not Christ in Majesty.",
+      "url": "https://risdmuseum.org/art-design/collection/st-anthony-abbot-enthroned-16243"
+    }
+  ],
+  "rejected": {
+    "accession": "57.300",
+    "catalogue_id": "1345596",
+    "reason": "Gabled source146 is single praying Mary; candidate has Madonna/Child, dead Christ and two saints."
+  },
+  "remaining": "All six matched medieval works still need native assets/frame or sculpture geometry and source-relative placement. Grille, other sculptures/fragments, and case contents remain unmatched/unplaced."
+}

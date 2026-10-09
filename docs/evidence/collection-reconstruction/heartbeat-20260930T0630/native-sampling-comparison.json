@@ -1,0 +1,20 @@
+{
+  "rows": [
+    {
+      "survey_frame": 202,
+      "aligned_mean_abs_rgb": 1.0361299189814814,
+      "seek_mean_abs_rgb": 1.4514362702546297
+    },
+    {
+      "survey_frame": 204,
+      "aligned_mean_abs_rgb": 1.1132157841435186,
+      "seek_mean_abs_rgb": 1.5497016059027777
+    },
+    {
+      "survey_frame": 203,
+      "aligned_mean_abs_rgb": 0.9515436921296296,
+      "seek_mean_abs_rgb": 1.3918138744212962
+    }
+  ],
+  "caveat": "Photometric differences mix resizing, compression and sampling. This does not prove a timing shift or independently validate geometry."
+}

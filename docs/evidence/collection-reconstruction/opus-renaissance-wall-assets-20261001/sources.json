@@ -1,0 +1,361 @@
+{
+ "inventory": "opus-renaissance-case-inventory-20261001 (root checkout, read only)",
+ "ledger_sha256": "5f6027a52a0ac07e4e0404a499b8f1361f6cdda0020e9300c99f9c315c55faad",
+ "video": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+ "video_sha256": "8cfd089e769000369419f577f28a1bfc68b09f8cc7cda4cbe93d840194e6eeef",
+ "native_frames": [
+  {
+   "seconds": 6.1,
+   "png_sha256": "b211435d7de3491e37c144ef0fe131fb351047e3130586562fa6d1da78ae5dff",
+   "in_inventory_manifest": true,
+   "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-hwaccel",
+    "none",
+    "-noautorotate",
+    "-ss",
+    "6.10",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+    "-frames:v",
+    "1",
+    "-vf",
+    "transpose=clock",
+    "-update",
+    "1",
+    "<png>"
+   ]
+  },
+  {
+   "seconds": 68.4,
+   "png_sha256": "19a2021149b0f092a19f2ecd5687dcf7582515d5342266b9cb264794e04fd14b",
+   "in_inventory_manifest": false,
+   "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-hwaccel",
+    "none",
+    "-noautorotate",
+    "-ss",
+    "68.40",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+    "-frames:v",
+    "1",
+    "-vf",
+    "transpose=clock",
+    "-update",
+    "1",
+    "<png>"
+   ]
+  },
+  {
+   "seconds": 11.5,
+   "png_sha256": "c0a1fb345beabf485596bc13a7fdcbef41ba1b614f5acd68000a25469e6e3608",
+   "in_inventory_manifest": true,
+   "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-hwaccel",
+    "none",
+    "-noautorotate",
+    "-ss",
+    "11.50",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+    "-frames:v",
+    "1",
+    "-vf",
+    "transpose=clock",
+    "-update",
+    "1",
+    "<png>"
+   ]
+  },
+  {
+   "seconds": 15.1,
+   "png_sha256": "fc6522c9edc25f9d1f50f69aceef5efccf489ad11eeeb1c3a83b10bf7efd30be",
+   "in_inventory_manifest": true,
+   "command": [
+    "ffmpeg",
+    "-v",
+    "error",
+    "-y",
+    "-hwaccel",
+    "none",
+    "-noautorotate",
+    "-ss",
+    "15.10",
+    "-i",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/verified/IMG_6383.MOV",
+    "-frames:v",
+    "1",
+    "-vf",
+    "transpose=clock",
+    "-update",
+    "1",
+    "<png>"
+   ]
+  }
+ ],
+ "objects": {
+  "velvet_23307x": {
+   "back_photo": "live/carousel-velvet-cover-23307x-zoom-2.jpg",
+   "back_photo_sha256": "eac340d07a06c91cdf1069f11c7e3d5ed9b8a0cfda458be219742dca287572e4",
+   "back_photo_url": "https://risdmuseum.cdn.picturepark.com/v/e6l3lIgP/",
+   "back_photo_in_inventory_ledger": false,
+   "back_crop_box_px": [
+    0,
+    69,
+    1324,
+    3097
+   ],
+   "back_kept_texels": 3415474,
+   "body_widths_px_top_to_bottom": {
+    "front": [
+     1163,
+     1166,
+     1167,
+     1141,
+     1136
+    ],
+    "back": [
+     1166,
+     1170,
+     1170,
+     1143,
+     1144
+    ]
+   },
+   "body_rows_px": {
+    "front": [
+     242,
+     2866
+    ],
+    "back": [
+     273,
+     2895
+    ]
+   },
+   "photo": "photos/velvet-cover-23307x-zoom-0.jpg",
+   "photo_sha256": "ca0e329da72008372f1e8a147e497dda330804529c3af983434f8cdfbeb65409",
+   "crop_box_px": [
+    47,
+    53,
+    1247,
+    3073
+   ],
+   "kept_texels": 3305647,
+   "registration_06.10": {
+    "matches": 363,
+    "inliers": 260,
+    "inlier_rms_video_px": 1.04
+   },
+   "width_from_photo_ratio_m": 0.5003,
+   "against_tapestry_68.40": {
+    "fits": [
+     {
+      "velvet_registration": {
+       "matches": 38,
+       "inliers": 13,
+       "inlier_rms_video_px": 1.63
+      },
+      "tapestry_registration": {
+       "matches": 98,
+       "inliers": 69,
+       "inlier_rms_video_px": 1.88
+      },
+      "length_with_fringe_m": 1.339,
+      "width_m": 0.534
+     },
+     {
+      "velvet_registration": {
+       "matches": 30,
+       "inliers": 16,
+       "inlier_rms_video_px": 1.95
+      },
+      "tapestry_registration": {
+       "matches": 72,
+       "inliers": 45,
+       "inlier_rms_video_px": 2.01
+      },
+      "length_with_fringe_m": 1.273,
+      "width_m": 0.48
+     }
+    ],
+    "body_without_fringe_share_of_length": 0.874,
+    "reading": "the catalogue length of 1.27 m is the whole textile with both fringes; were it the velvet body alone the whole would be about 1.46 m"
+   }
+  },
+  "woodcutters_29280": {
+   "photo": "photos/woodcutters-29280-zoom-0.jpg",
+   "photo_sha256": "bca788abc10a42c7d2f285ed99d699962db11655102e0028c2022710daff8645",
+   "crop_box_px": [
+    16,
+    13,
+    1303,
+    2076
+   ],
+   "kept_texels": 2560015,
+   "registration_11.50": {
+    "matches": 1377,
+    "inliers": 1203,
+    "inlier_rms_video_px": 1.86
+   },
+   "photo_width_over_height": 0.6207,
+   "catalogue_width_over_height": 0.6168
+  },
+  "madonna_58196": {
+   "photo": "photos/madonna-and-child-saint-barbara-and-saint-catherine-58196-zoom-0.jpg",
+   "photo_sha256": "a2a363197191902130e2a20f1b2a4642ccec5aec60e2e7098aa119ee8cbf373d",
+   "texture_is_the_whole_photograph": true,
+   "framed_photo": "photos/madonna-and-child-saint-barbara-and-saint-catherine-58196-zoom-1.jpg",
+   "framed_photo_sha256": "70bc807aea99258a8178d4ac0afc98868950c2cffd591e45d3a9f26b62f8b42d",
+   "registration_15.10": {
+    "matches": 965,
+    "inliers": 929,
+    "inlier_rms_video_px": 1.11
+   },
+   "photo_width_over_height": 0.9403,
+   "catalogue_width_over_height": 0.9519,
+   "studio_photo_corners_in_framed_photo_px": [
+    [
+     6.7,
+     14.3
+    ],
+    [
+     1319.5,
+     6.6
+    ],
+    [
+     1329.7,
+     1399.7
+    ],
+    [
+     17.0,
+     1407.4
+    ]
+   ],
+   "framed_photo_px": [
+    1324,
+    1418
+   ],
+   "sight_opening_px": [
+    1345,
+    1424
+   ],
+   "sight_width_over_height": 0.9445,
+   "studio_photo_share_of_sight": [
+    0.976,
+    0.978
+   ],
+   "frame_bands_px_from_photo_edge": {
+    "left": [
+     3,
+     30,
+     78,
+     118
+    ],
+    "top": [
+     1,
+     28,
+     68,
+     114
+    ],
+    "right": [
+     24,
+     53,
+     105,
+     147
+    ],
+    "bottom": [
+     7,
+     37,
+     77,
+     134
+    ]
+   },
+   "frame_band_total_px": {
+    "left": 115,
+    "top": 113,
+    "right": 123,
+    "bottom": 127
+   },
+   "frame_band_total_m_if_sight_is_catalogue_size": {
+    "left": 0.074,
+    "top": 0.073,
+    "right": 0.079,
+    "bottom": 0.082
+   },
+   "frame_strips": "resampled (bilinear) from the native 15.10 s frame through the registration homography; not identical to any source pixel"
+  }
+ },
+ "hand_readings": {
+  "velvet_board_px": [
+   -495,
+   -110,
+   1800,
+   3314
+  ],
+  "velvet_hood_px": [
+   -580,
+   -180,
+   1890,
+   3595
+  ],
+  "frame_bands_px": {
+   "left": [
+    3,
+    30,
+    78,
+    118
+   ],
+   "top": [
+    1,
+    28,
+    68,
+    114
+   ],
+   "right": [
+    24,
+    53,
+    105,
+    147
+   ],
+   "bottom": [
+    7,
+    37,
+    77,
+    134
+   ]
+  }
+ },
+ "files_sha256": {
+  "references/frame-58196-corner-bottom-right-15.10.png": "0d91bc0fdfb75ac9f88ef3ecc03e574223b59c4d375b89f1b48658b512e60233",
+  "references/frame-58196-corner-top-left-15.10.png": "2f59bc288ce2ca5c9f21479dcb7569dd2e166ed9a17c993208af20a411f2491b",
+  "references/frame-58196-native-15.10.png": "135d3a2776970454c1ab89e932662f48441b57538475e93229cffcd6dea97f8b",
+  "references/frame-58196-rectified-15.10.png": "28099dd800d4138e1bf168131f8aa5e7f9dd97565f989a5ce6e1c608e4a12830",
+  "references/velvet-23307x-mount-native-06.10.png": "abac436c8b5ef6c7ce301108dbf70514aa1e31e5b652792443f3b7e2072b4116",
+  "references/velvet-23307x-mount-rectified-06.10.jpg": "6052cba118b73098d7dda384668de137afa4bd73ed0a8d5141b818f64e48bc6a",
+  "references/woodcutters-29280-rectified-11.50.jpg": "4d4f1a49f11c1e0559902aa63208a9c910b98371a10b7244c6b683c82f7b017a",
+  "textures/frame-58196-bottom.png": "c6206e620cae4a5f33fbed9044f20b08195b239946c0cbf70b6bcd3637de7cb0",
+  "textures/frame-58196-left.png": "bfab5a08f0418eb0a520b0eaf3caced394c810854c305ddc2a2c0aa4c06fe1d6",
+  "textures/frame-58196-right.png": "ff9d2610da4ffadcec269b857d73125bc405f01113475bcce127adfeb7f21e72",
+  "textures/frame-58196-top.png": "ae8d98a29dbe427d5ccd05f688a7e253c19d8e1b64199bc2fd86e72e736a6cf3",
+  "textures/geometry.json": "5b06b3e002d4fa752758d50115aa881c6e310933323c620db2040ce79f88be9d",
+  "textures/madonna-58196-front.png": "0ac0a18bb98956940b49759ae7f48a40e166167a0df44977061c268dff842aa6",
+  "textures/velvet-23307x-front.png": "1aa8f1f4b4776ac6ebc41f1112ac04b483720c833f977ff6fc1d590ea792fd9c",
+  "textures/velvet-23307x-rear.png": "4d3612e6bd4cdc99bfdd4e0b9724ddb1b5b01855336a60f0e9a67364ea84fb32",
+  "textures/woodcutters-29280-front.png": "805160c3f3457ac655a00c06a88b2a22d1ee7b2607910283c2e5b8ce848e1c79",
+  "textures/woodcutters-29280-outline.png": "93347a258ccdc878d7d2098c612790a2b68cd72c9609925d725f218383d89822"
+ },
+ "cost_usd": 0,
+ "generated_pixels": 0
+}

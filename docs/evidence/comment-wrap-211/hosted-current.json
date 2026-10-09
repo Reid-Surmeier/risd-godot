@@ -1,0 +1,24 @@
+{
+  "id": 36734712122,
+  "head_sha": "e0d6c3011538d336c4fe0694346ddd41813ef2fd",
+  "status": "completed",
+  "conclusion": "failure",
+  "event": "pull_request",
+  "path": ".github/workflows/verify.yml",
+  "run_started_at": "2026-09-30T15:10:34Z",
+  "updated_at": "2026-09-30T15:10:38Z",
+  "jobs": [
+    {
+      "id": 109953255648,
+      "conclusion": "failure",
+      "steps": [],
+      "runner_id": 0,
+      "runner_name": ""
+    }
+  ],
+  "check_runs_readback": {
+    "http_status": 403,
+    "reason": "Resource not accessible by personal access token"
+  },
+  "cause": "unverified"
+}

@@ -3,22 +3,39 @@
 extends "res://testing/harness_base.gd"
 var walk: Control
 var failures := 0
+
+
 func require(ok: bool, message: String) -> void:
 	if not ok:
 		failures += 1
 		push_error(message)
+
+
 func _initialize() -> void:
 	call_deferred("run")
+
+
 func capture() -> Image:
 	await _frames(3)
 	return get_root().get_texture().get_image()
+
+
 func contact_pixels(on: Image, off: Image, center: Vector2, radius: int) -> int:
 	var count := 0
-	for y in range(maxi(0, int(center.y) - radius), mini(on.get_height(), int(center.y) + radius + 1)):
-		for x in range(maxi(0, int(center.x) - radius), mini(on.get_width(), int(center.x) + radius + 1)):
-			if Vector2(x, y).distance_to(center) <= radius and off.get_pixel(x, y).get_luminance() - on.get_pixel(x, y).get_luminance() > 0.035:
+	for y in range(
+		maxi(0, int(center.y) - radius), mini(on.get_height(), int(center.y) + radius + 1)
+	):
+		for x in range(
+			maxi(0, int(center.x) - radius), mini(on.get_width(), int(center.x) + radius + 1)
+		):
+			if (
+				Vector2(x, y).distance_to(center) <= radius
+				and off.get_pixel(x, y).get_luminance() - on.get_pixel(x, y).get_luminance() > 0.035
+			):
 				count += 1
 	return count
+
+
 func run() -> void:
 	walk = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
 	walk.size = Vector2(1152, 720)
@@ -41,7 +58,11 @@ func run() -> void:
 			walk._kid.position = walk._pos
 			walk._kid.reset_contacts()
 			walk.view_yaw = 0.0
-			var heading := Vector3.RIGHT if situation == "side" else (Vector3.FORWARD if situation == "back" else Vector3.BACK)
+			var heading := (
+				Vector3.RIGHT
+				if situation == "side"
+				else (Vector3.FORWARD if situation == "back" else Vector3.BACK)
+			)
 			walk._kid.phase = 0.12
 			walk._kid.pose(0.0, false, 0.0, heading, walk.view_yaw)
 			walk._kid.pose(0.2, false, 0.0, heading, walk.view_yaw)
@@ -76,12 +97,29 @@ func run() -> void:
 			for index in 2:
 				if not support[index]:
 					continue
-				var point: Vector2 = walk._cam.unproject_position(soles[index]) * Vector2(dimensions) / Vector2(walk._vp.size)
+				var point: Vector2 = (
+					walk._cam.unproject_position(soles[index])
+					* Vector2(dimensions)
+					/ Vector2(walk._vp.size)
+				)
 				var radius := 20 if size_label == "native" else 10
 				var visible := contact_pixels(after, off, point, radius)
 				var wrong := contact_pixels(displaced, off, point, radius)
 				var baseline := contact_pixels(before, off, point, radius)
-				print("SOLE_VISIBILITY ", size_label, " ", situation, " foot=", index, " attached_pixels=", visible, " previous_pixels=", baseline, " displaced_pixels=", wrong)
+				print(
+					"SOLE_VISIBILITY ",
+					size_label,
+					" ",
+					situation,
+					" foot=",
+					index,
+					" attached_pixels=",
+					visible,
+					" previous_pixels=",
+					baseline,
+					" displaced_pixels=",
+					wrong
+				)
 				visible_support += visible
 				baseline_support += baseline
 				require(wrong < 5, "displaced-shadow negative control still passes contact check")
@@ -90,7 +128,10 @@ func run() -> void:
 			# The stride may hide most of its support sole: preserve its visible
 			# contact; require added readable support in the neutral views.
 			var minimum := maxi(5, baseline_support + (0 if situation == "stride" else 5))
-			require(visible_support >= minimum, "supporting sole/floor relation regressed: " + situation + size_label)
+			require(
+				visible_support >= minimum,
+				"supporting sole/floor relation regressed: " + situation + size_label
+			)
 			walk._shadow.show()
 			walk._shadow.material_override.albedo_color.a = shadow_alpha
 			walk._update_camera(1.0)

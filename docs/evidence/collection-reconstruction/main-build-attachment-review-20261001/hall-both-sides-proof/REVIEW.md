@@ -1,0 +1,1 @@
+2026-10-01. Root inspected two native matched Hall views (east/west) in baseline actual Collection and full-app attached-room copy. Both pairs visibly preserve original oak, bench, paintings, visitor and lighting. No room bleed seen at these two positions only; every other camera position remains unverified. 362 frozen Hall source files unchanged.

@@ -1,0 +1,43 @@
+{
+  "runtime": "63a1d94d",
+  "changed_files": [
+    "modules/shell/square_chrome.gd"
+  ],
+  "assets": [
+    {
+      "file": "modules/sculpture_viewer/assets/models/proton-scan-20260811121459.glb",
+      "sha256": "86c2c80bc05489b12bec1a03216d8765c66baaf3f8f89cf1f018004cba152193",
+      "record_match": true
+    },
+    {
+      "file": "modules/sculpture_viewer/assets/models/proton-scan-20260811122415.glb",
+      "sha256": "da7480355f1c384ed8588e44cd2f1bf9c666d03c2bd7a9017f958f3d5ee08a41",
+      "record_match": true
+    },
+    {
+      "file": "modules/sculpture_viewer/assets/models/proton-scan-20260811123051.glb",
+      "sha256": "faaece8dd2b1b25f6d2a7d96671db37ea810ede3bdc5441099f18f96ffc50d74",
+      "record_match": true
+    },
+    {
+      "file": "modules/sculpture_viewer/assets/models/proton-scan-20260820133334.glb",
+      "sha256": "94e634a0554b6925fe26be4bbe5b3df2e53a19088883e733f4f9bcffed626d9e",
+      "record_match": true
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/baked/room.exr",
+      "sha256": "e68c711f84cf22d1563475686d5359bc6b8d676aa9a7bf6e9288e9bcaab3eea2",
+      "record_match": true
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/baked/room.lmbake",
+      "sha256": "6679c1971971046501aa48dcfd82aea7e4038d1897ace19226f3af5dc7de1bdf",
+      "record_match": true
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/baked/room.tscn",
+      "sha256": "0fe3d246ec52d848d3ba8a686b12dc831dabc85da4f85216dcb5254f93b1a9a8",
+      "record_match": true
+    }
+  ]
+}

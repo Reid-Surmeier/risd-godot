@@ -1,0 +1,1624 @@
+{
+  "issue": 211,
+  "baseline": "5c721015",
+  "tool": "Python3 stdlib textwrap; no runtime code modified",
+  "files": [
+    {
+      "file": "modules/atlas/errors.gd",
+      "before_sha256": "42332ea23c929fc6d0415b144577179e30caaac63f1dff5790f08fbc642591e5",
+      "after_sha256": "9f081acdbd030e35e634cab1733169a18aeecd628206a804d4d5ce6ee19f9bf4",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## A pixel sheet, data file, font or shader the atlas loads is not in the project (detail: its path).",
+          "after": [
+            "## A pixel sheet, data file, font or shader the atlas loads is not in",
+            "## the project (detail: its path)."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/atlas/interface.gd",
+      "before_sha256": "2ae6b4993a291e4641a286d308069c71ee70d62e5d4c252c0468d073e217df2b",
+      "after_sha256": "e917192020bf5c85242da7f111944fa5ffd170d2dfeec68b67235b0edd0300ea",
+      "comments": [
+        {
+          "original_line": 39,
+          "before": "## ok({ key, ticks, inputs, size: Vector2, frame: Rect2, frame_global: Rect2 (global), map_rect: Rect2 (global),",
+          "after": [
+            "## ok({ key, ticks, inputs, size: Vector2, frame: Rect2, frame_global: Rect2",
+            "## (global), map_rect: Rect2 (global),"
+          ]
+        },
+        {
+          "original_line": 43,
+          "before": "##      mode: \"atlas\" | \"sheet\", region, zoom, zoom_ratio, zoom_min, zoom_max, position: [x, y] (world),",
+          "after": [
+            "## mode: \"atlas\" | \"sheet\", region, zoom, zoom_ratio, zoom_min, zoom_max, position: [x, y] (world),"
+          ]
+        },
+        {
+          "original_line": 44,
+          "before": "##      viewport: [w, h] (the SubViewport), vertical_pan_locked, visible_cities, visible_close_cities,",
+          "after": [
+            "## viewport: [w, h] (the SubViewport), vertical_pan_locked, visible_cities, visible_close_cities,"
+          ]
+        },
+        {
+          "original_line": 47,
+          "before": "## `controls` and `popup` are in the SubViewport's own global pixels (the map's HUD), not the Page's;",
+          "after": [
+            "## `controls` and `popup` are in the SubViewport's own global pixels",
+            "## (the map's HUD), not the Page's;"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/atlas/playtest/harness.gd",
+      "before_sha256": "b42d33a68b0acf6f2fcb91fdb531202f5e392dacd962db2d340f7062885a106f",
+      "after_sha256": "7018cbab0c6bdd71d60a514857cbbc623aeca813ae9173d4538c7b71fab89772",
+      "comments": [
+        {
+          "original_line": 3,
+          "before": "## desktop panels and the map window) and reports what it did and what the Shell's probe said. Real InputEventMouseButton / InputEventMouseMotion /",
+          "after": [
+            "## desktop panels and the map window) and reports what it did and what the Shell's probe said. Real",
+            "## InputEventMouseButton / InputEventMouseMotion /"
+          ]
+        },
+        {
+          "original_line": 140,
+          "before": "## (atlas_window.gd _layout: collapse at (44, 42) x chrome_scale, lock at (w - 86, 42), 44 px square).",
+          "after": [
+            "## (atlas_window.gd _layout: collapse at (44, 42) x chrome_scale, lock",
+            "## at (w - 86, 42), 44 px square)."
+          ]
+        },
+        {
+          "original_line": 256,
+          "before": "\t# 8. drag the frame's bottom-right corner inward: the frame shrinks in place and the map body follows",
+          "after": [
+            "\t# 8. drag the frame's bottom-right corner inward: the frame shrinks in",
+            "\t# place and the map body follows"
+          ]
+        },
+        {
+          "original_line": 286,
+          "before": "\t#     Home resets to the world view; then two wheel notches so the view left behind is not the default",
+          "after": [
+            "\t# Home resets to the world view; then two wheel notches so the view",
+            "\t# left behind is not the default"
+          ]
+        },
+        {
+          "original_line": 321,
+          "before": "\t# 14. resize the window to the 1440x900 minimum: the tenant fills the smaller page and re-fits its window",
+          "after": [
+            "\t# 14. resize the window to the 1440x900 minimum: the tenant fills the",
+            "\t# smaller page and re-fits its window"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/flowers_page/errors.gd",
+      "before_sha256": "646c777e189651be6ad71ff8436cd3f55dbece06e2161e5af38d3896b198b9ca",
+      "after_sha256": "8f835675bb167f67327195c7fdd51e620b5a892dad22eb6b9db5b2fbbb26352d",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## The window picture (assets/title.png, PROVENANCE in MODULE.md) is not in the project (detail: its path).",
+          "after": [
+            "## The window picture (assets/title.png, PROVENANCE in MODULE.md) is not in",
+            "## the project (detail: its path)."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "before_sha256": "d0fa4d44e16ffd3d2e5b4eac134bea62ef85928888113c1338f94e62b5623ddb",
+      "after_sha256": "e61ca67dfa9736644a11188eaf607ed2d02992638876909b66842746be631d60",
+      "comments": [
+        {
+          "original_line": 10,
+          "before": "##   flowersread.php?sample=999  a random sample from web/samples.txt, replies captured from the site",
+          "after": [
+            "## flowersread.php?sample=999 a random sample from web/samples.txt, replies captured from the site"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/flowers_page/interface.gd",
+      "before_sha256": "7d6effdf2da7730ba78650d0338aa5a744357a047ccb50ad19200ab3afbbf005",
+      "after_sha256": "318da2b3f24476780c2cbe7fe001ba65202ceb1058a30dd6e351da0e4c3397cc",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## Ruffle build the site uses, self-hosted beside the Web export (web/, copied to <build>/flowers/ by",
+          "after": [
+            "## Ruffle build the site uses, self-hosted beside the Web export",
+            "## (web/, copied to <build>/flowers/ by"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "before_sha256": "453a6f783e045fe71301cce4d669547f401cdf527b5b28fbe164e2bae288b98b",
+      "after_sha256": "6f13030ebcde7c05629eadbb4975eba9db279be105d4e737fad04320d2f329b9",
+      "comments": [
+        {
+          "original_line": 8,
+          "before": "## carried through the inverse of that warp. The profile is laid out at LAYOUT px and scaled down, as",
+          "after": [
+            "## carried through the inverse of that warp. The profile is laid out",
+            "## at LAYOUT px and scaled down, as"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/playground_page/interface.gd",
+      "before_sha256": "ca83d72d65247a693e875152efb641b0cdfc79b4b28e19d726c8882e94468f12",
+      "after_sha256": "4d91281b2edc908d9967a5fc93261dd722a3a98c5f39d5faeb1e51664735f917",
+      "comments": [
+        {
+          "original_line": 14,
+          "before": "## Layout (ticket #63). The desktop is `desktop` px natively. From the Page's size S the art scale is",
+          "after": [
+            "## Layout (ticket #63). The desktop is `desktop` px natively. From the",
+            "## Page's size S the art scale is"
+          ]
+        },
+        {
+          "original_line": 15,
+          "before": "## factor = min(S.x / desktop.x, S.y / desktop.y), uniform for every window. The leftover on the other",
+          "after": [
+            "## factor = min(S.x / desktop.x, S.y / desktop.y), uniform for every",
+            "## window. The leftover on the other"
+          ]
+        },
+        {
+          "original_line": 58,
+          "before": "##      saved_ids, storage_status, windows: [{ name, rect: Rect2, drag_height (-1: the whole surface), order }] }), the windows",
+          "after": [
+            "## saved_ids, storage_status, windows: [{ name, rect: Rect2, drag_height (-1: the whole",
+            "## surface), order }] }), the windows"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/playground_page/journal_paper_turn.gd",
+      "before_sha256": "61c2c0854b7d776240daeecb7c0131b688b1afa4222aa30baa130e6584f7663a",
+      "after_sha256": "d49fd403ef2f7416889e4627a03afee5ad4a48f327b503c337f569b7930d1536",
+      "comments": [
+        {
+          "original_line": 9,
+          "before": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c.",
+          "after": [
+            "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline",
+            "## prototype/painting-tool-mixbox @ 7ee5e9c."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "before_sha256": "60fbe0a40adeaff5105128b01e8eb67cb4d14f54c9db4cd8f2c009c71addda4f",
+      "after_sha256": "9177d468d4cd52e47d98f1198b4ca91448d6eb81d363523c5a0a4f02e383a9a5",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## whole surface), raised by a press, stopped at the Page's edge. Reach it through interface.gd only.",
+          "after": [
+            "## whole surface), raised by a press, stopped at the Page's edge.",
+            "## Reach it through interface.gd only."
+          ]
+        },
+        {
+          "original_line": 11,
+          "before": "## drawn in bands at the uniform scale, only a flat one-pixel column per band and one flat row of its",
+          "after": [
+            "## drawn in bands at the uniform scale, only a flat one-pixel column",
+            "## per band and one flat row of its"
+          ]
+        },
+        {
+          "original_line": 13,
+          "before": "## viewer's chrome). The middle column and the phone anchor to the right edge; the chat window anchors",
+          "after": [
+            "## viewer's chrome). The middle column and the phone anchor to the",
+            "## right edge; the chat window anchors"
+          ]
+        },
+        {
+          "original_line": 23,
+          "before": "# The owner's Feng Shui layout (2026-09-23, docs/evidence/playground-fengshui/layout-reference.png): its",
+          "after": [
+            "# The owner's Feng Shui layout (2026-09-23,",
+            "# docs/evidence/playground-fengshui/layout-reference.png): its"
+          ]
+        },
+        {
+          "original_line": 34,
+          "before": "# Between them only the side borders of row FS_ROW (just under the toolbar, the same frame as the title",
+          "after": [
+            "# Between them only the side borders of row FS_ROW (just under the",
+            "# toolbar, the same frame as the title"
+          ]
+        },
+        {
+          "original_line": 45,
+          "before": "# The PostPet picture's bands (source rows) and the column each band stretches at: a column where the",
+          "after": [
+            "# The PostPet picture's bands (source rows) and the column each band",
+            "# stretches at: a column where the"
+          ]
+        },
+        {
+          "original_line": 241,
+          "before": "\t# the main window takes the leftover: to the middle column on the right, to the margin at the bottom",
+          "after": [
+            "\t# the main window takes the leftover: to the middle column on the",
+            "\t# right, to the margin at the bottom"
+          ]
+        },
+        {
+          "original_line": 700,
+          "before": "## The PostPet picture band by band at the uniform scale; in each band only its one-pixel column takes",
+          "after": [
+            "## The PostPet picture band by band at the uniform scale; in each band",
+            "## only its one-pixel column takes"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/playground_page/playtest/harness.gd",
+      "before_sha256": "95bd180e65cd34d05e2954fe86e8e13e081912f2309c4d19d3b6eb57f6720bd2",
+      "after_sha256": "7725727e1a6b90a67b5f1754ec599955668da6b47c1ffd3000e865abc425a719",
+      "comments": [
+        {
+          "original_line": 1,
+          "before": "## Playtest harness for the Playground desktop (ticket #62; the fill rule of ticket #63): builds the Shell",
+          "after": [
+            "## Playtest harness for the Playground desktop (ticket #62; the fill rule",
+            "## of ticket #63): builds the Shell"
+          ]
+        },
+        {
+          "original_line": 2,
+          "before": "## with it in the Playground Tab and nothing in the other Tabs, then plays it the way a person does \u2014",
+          "after": [
+            "## with it in the Playground Tab and nothing in the other Tabs, then",
+            "## plays it the way a person does \u2014"
+          ]
+        },
+        {
+          "original_line": 3,
+          "before": "## real InputEventMouseButton / InputEventMouseMotion events through Input.parse_input_event on the tabs",
+          "after": [
+            "## real InputEventMouseButton / InputEventMouseMotion events through",
+            "## Input.parse_input_event on the tabs"
+          ]
+        },
+        {
+          "original_line": 4,
+          "before": "## and the windows' title bars \u2014 resizes the window to the fill rule's page sizes, and reports what it",
+          "after": [
+            "## and the windows' title bars \u2014 resizes the window to the fill rule's",
+            "## page sizes, and reports what it"
+          ]
+        },
+        {
+          "original_line": 5,
+          "before": "## did and what the interfaces said. The desktop is reached through ShellInterface.tenant_state only.",
+          "after": [
+            "## did and what the interfaces said. The desktop is reached through",
+            "## ShellInterface.tenant_state only."
+          ]
+        },
+        {
+          "original_line": 95,
+          "before": "\t# 2. click the Playground tab: the desktop is created on first show, every window at its reference place",
+          "after": [
+            "\t# 2. click the Playground tab: the desktop is created on first show,",
+            "\t# every window at its reference place"
+          ]
+        },
+        {
+          "original_line": 145,
+          "before": "\t# 7. the fill rule at two page sizes (1920x1000 and 1440x820 below the bar), then the 1440x900 minimum",
+          "after": [
+            "\t# 7. the fill rule at two page sizes (1920x1000 and 1440x820 below the",
+            "\t# bar), then the 1440x900 minimum"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sculpture_viewer/desktop.gd",
+      "before_sha256": "1fcec08e0100bd7cf6c04bea8b269148b2b67c3265abcfacc13b7e1711f744cb",
+      "after_sha256": "00477c08af949513995ea173afc6fe8eec64278d5925bcdb51d31648325c57c7",
+      "comments": [
+        {
+          "original_line": 2,
+          "before": "## the setup panel window (the approved raster: header, the 40-object grid, form, Global Chatroom and",
+          "after": [
+            "## the setup panel window (the approved raster: header, the 40-object",
+            "## grid, form, Global Chatroom and"
+          ]
+        },
+        {
+          "original_line": 4,
+          "before": "## (viewer.gd) with the live Buddha scan where the screen's mock-up viewer stood \u2014 filling the Page at",
+          "after": [
+            "## (viewer.gd) with the live Buddha scan where the screen's mock-up",
+            "## viewer stood \u2014 filling the Page at"
+          ]
+        },
+        {
+          "original_line": 5,
+          "before": "## one uniform scale (#63). Windows drag by their handles, raise on click and stack. Reach it through",
+          "after": [
+            "## one uniform scale (#63). Windows drag by their handles, raise on",
+            "## click and stack. Reach it through"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/hover_turn.gd",
+      "before_sha256": "ff6960a79e62e95f2f1dd83ae7acdabca9cee45248805212951e30b5f7545e5a",
+      "after_sha256": "d5dfbb0dd087d02f373e7b8d9b983463558d2bcdbad1051ac9015e9caac4e539",
+      "comments": [
+        {
+          "original_line": 1,
+          "before": "## Playtest for the setup grid's hover turn (Issue #110): builds the Shell with this Tenant in the 3D",
+          "after": [
+            "## Playtest for the setup grid's hover turn (Issue #110): builds the",
+            "## Shell with this Tenant in the 3D"
+          ]
+        },
+        {
+          "original_line": 2,
+          "before": "## Viewer Tab, opens the Tab by a real click, then for every turning cell moves the real pointer onto",
+          "after": [
+            "## Viewer Tab, opens the Tab by a real click, then for every turning",
+            "## cell moves the real pointer onto"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "before_sha256": "c0c10f8f1650ac1f2b9ee1fe609284ae74fd23e99f2f8a66d19cc64eacf3ab4a",
+      "after_sha256": "990e64ddcf3bd3ac64a2b482e18bed57423b06d290000a49aec5c47090c3d9cb",
+      "comments": [
+        {
+          "original_line": 2,
+          "before": "## the selected scan (Buddha by default in Sketchbook); drag orbits, the wheel zooms, previous / next, play / pause, scrubber, audio",
+          "after": [
+            "## the selected scan (Buddha by default in Sketchbook); drag orbits, the wheel zooms, previous /",
+            "## next, play / pause, scrubber, audio"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/boot_loader.gd",
+      "before_sha256": "33438a295e5ae2c0f04eff38648f2d8d941981cb184ad20ac272f23ab4e58166",
+      "after_sha256": "8e4f6fd862a7b6997026f17ce2bb819a33492c9f435894bd0f74adc2f8f82666",
+      "comments": [
+        {
+          "original_line": 12,
+          "before": "## reduction), tape_screen.gdshader for a light colour bleed and edge halo; at the end the dots drift",
+          "after": [
+            "## reduction), tape_screen.gdshader for a light colour bleed and edge",
+            "## halo; at the end the dots drift"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/demo.gd",
+      "before_sha256": "ed0816d1d253e08359c985db48b4ec79b459747b27f25bd954ee37e02d09c697",
+      "after_sha256": "af3a50acdf5435378994866b1de3bfc50f574fc1ef9ce2c03095cddb1402f277",
+      "comments": [
+        {
+          "original_line": 3,
+          "before": "## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page (2026-09-25) the Collection Tenant,",
+          "after": [
+            "## 3D Viewer Tenants, video_player the Video Player Tenant, the owner's framed page",
+            "## (2026-09-25) the Collection Tenant,"
+          ]
+        },
+        {
+          "original_line": 4,
+          "before": "## playground_page the Playground desktop (the Phone Tab folded into it, ticket #62), flowers_page the",
+          "after": [
+            "## playground_page the Playground desktop (the Phone Tab folded into",
+            "## it, ticket #62), flowers_page the"
+          ]
+        },
+        {
+          "original_line": 61,
+          "before": "\t\t# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening (458,521 2110x1412 in page.png)",
+          "after": [
+            "\t\t# PROTOTYPE (2026-09-26): the Grand Gallery 3D walk fills the frame's white opening",
+            "\t\t# (458,521 2110x1412 in page.png)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/desktop_icons.gd",
+      "before_sha256": "bd9190d6acb869d819b565995a10353b7b2d78a103d82140e31593400d4b1cb3",
+      "after_sha256": "3898a9be5978620133b0814df3e7ee3d76f79bbeed60e79806b326054237e0e1",
+      "comments": [
+        {
+          "original_line": 26,
+          "before": "## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that holds the windows, then sit just",
+          "after": [
+            "## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that",
+            "## holds the windows, then sit just"
+          ]
+        },
+        {
+          "original_line": 66,
+          "before": "## The index of the last full-page ColorRect/TextureRect among `holder`'s children (the paper, the ground), or -1.",
+          "after": [
+            "## The index of the last full-page ColorRect/TextureRect among `holder`'s children",
+            "## (the paper, the ground), or -1."
+          ]
+        },
+        {
+          "original_line": 118,
+          "before": "\t# the column is placed in Page pixels, out in the strip the Tenant gave up (this layer does not clip)",
+          "after": [
+            "\t# the column is placed in Page pixels, out in the strip the Tenant",
+            "\t# gave up (this layer does not clip)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/hover_glow.gd",
+      "before_sha256": "d246a791ad572684be3d407e0040d838b0a9de9d4a3cf7a20d478268314f890c",
+      "after_sha256": "fdf3cc13b80f74ebc9a4b2404af8027a4697637bb760d31f35cd0d3c7939be21",
+      "comments": [
+        {
+          "original_line": 2,
+          "before": "## A hovered button or tab gives off soft white light: the control's drawn pixels (every PNG piece it is",
+          "after": [
+            "## A hovered button or tab gives off soft white light: the control's",
+            "## drawn pixels (every PNG piece it is"
+          ]
+        },
+        {
+          "original_line": 3,
+          "before": "## built from, at the size and stretch it is drawn with) are gathered into one silhouette, blurred REACH_PX",
+          "after": [
+            "## built from, at the size and stretch it is drawn with) are gathered into",
+            "## one silhouette, blurred REACH_PX"
+          ]
+        },
+        {
+          "original_line": 4,
+          "before": "## screen pixels out into the scene and faded in over FADE_IN, out over FADE_OUT. The light is computed on",
+          "after": [
+            "## screen pixels out into the scene and faded in over FADE_IN, out over",
+            "## FADE_OUT. The light is computed on"
+          ]
+        },
+        {
+          "original_line": 5,
+          "before": "## first hover and kept until the control resizes. The arrow cursor switches to its hover state over it.",
+          "after": [
+            "## first hover and kept until the control resizes. The arrow cursor",
+            "## switches to its hover state over it."
+          ]
+        },
+        {
+          "original_line": 21,
+          "before": "## The owner-supplied cursor pair, when present: each scaled down by a whole factor to at most CURSOR_PX",
+          "after": [
+            "## The owner-supplied cursor pair, when present: each scaled down by a",
+            "## whole factor to at most CURSOR_PX"
+          ]
+        },
+        {
+          "original_line": 22,
+          "before": "## tall (pixel art stays crisp), its hotspot at the arrow's tip (the top-left-most solid pixel). Without",
+          "after": [
+            "## tall (pixel art stays crisp), its hotspot at the arrow's tip (the",
+            "## top-left-most solid pixel). Without"
+          ]
+        },
+        {
+          "original_line": 183,
+          "before": "## White light: the silhouette's alpha blurred (three box passes each way, near a gaussian) and brightened;",
+          "after": [
+            "## White light: the silhouette's alpha blurred (three box passes each way,",
+            "## near a gaussian) and brightened;"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/interface.gd",
+      "before_sha256": "13929b849695d4e05561488ba8e896921b1ac88002a356871750b0a9d039f60e",
+      "after_sha256": "08be9510122b7230228f541530019ceb232ab8fc9513a34eca0cfd7b897900cc",
+      "comments": [
+        {
+          "original_line": 67,
+          "before": "## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range | tab_strip.open_in_progress).",
+          "after": [
+            "## Returns ok(remaining count) or err(TAB_FIXED | tab_strip.index_out_of_range |",
+            "## tab_strip.open_in_progress)."
+          ]
+        },
+        {
+          "original_line": 92,
+          "before": "##   switch_settled(index: int)   \u2014 the cross-fade to Tab `index` is done and the freeze rule applied",
+          "after": [
+            "## switch_settled(index: int) \u2014 the cross-fade to Tab `index` is done and the freeze rule applied"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/playtest/harness.gd",
+      "before_sha256": "d41ef8edb6aa308c4549cf6bbec80c9da27177818fe92630dd1fbe1c618d429b",
+      "after_sha256": "e9f7608a68edae69ede218e011c66872176c3279765c0c78aa4089caabb41bef",
+      "comments": [
+        {
+          "original_line": 3,
+          "before": "## cross-fade is visible in pixels), nothing in video_player or playground \u2014 seven fixed Tabs since Flowers",
+          "after": [
+            "## cross-fade is visible in pixels), nothing in video_player or playground \u2014",
+            "## seven fixed Tabs since Flowers"
+          ]
+        },
+        {
+          "original_line": 4,
+          "before": "## joined after Playground (2026-09-25; six since the Phone Tab folded into Playground, ticket #62); and plays it the way a person does,",
+          "after": [
+            "## joined after Playground (2026-09-25; six since the Phone Tab folded into Playground, ticket #62);",
+            "## and plays it the way a person does,"
+          ]
+        },
+        {
+          "original_line": 136,
+          "before": "\t# 1. launch: the Collection tab grows in like a stub-opened tab, then its page fades in; seven fixed",
+          "after": [
+            "\t# 1. launch: the Collection tab grows in like a stub-opened tab, then",
+            "\t# its page fades in; seven fixed"
+          ]
+        },
+        {
+          "original_line": 144,
+          "before": "\t# 2. click the Map tab: the tab dips, the page cross-fades in, its tenant is created on first show and runs",
+          "after": [
+            "\t# 2. click the Map tab: the tab dips, the page cross-fades in, its tenant is",
+            "\t# created on first show and runs"
+          ]
+        },
+        {
+          "original_line": 154,
+          "before": "\t# 3. click the Sketchbook tab: after the fade the Map page is frozen (its _process and input stop), Sketchbook runs",
+          "after": [
+            "\t# 3. click the Sketchbook tab: after the fade the Map page is frozen (its _process",
+            "\t# and input stop), Sketchbook runs"
+          ]
+        },
+        {
+          "original_line": 228,
+          "before": "\t# 9. resize the window to the 1440x900 minimum: the bar re-fits along the bottom, the visible tenant fills its page",
+          "after": [
+            "\t# 9. resize the window to the 1440x900 minimum: the bar re-fits along the bottom,",
+            "\t# the visible tenant fills its page"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+      "before_sha256": "198bde72221a05cb8de29b21a83ee9b26fda1d4f39b9c1da8a7b3d35ff414a8d",
+      "after_sha256": "c90de4010f938b8768331d6582e48f8bafebb07e8f560e38c526621e36630fac",
+      "comments": [
+        {
+          "original_line": 2,
+          "before": "## Run: godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd",
+          "after": [
+            "## Run: godot --rendering-method gl_compatibility --path . --script",
+            "## res://modules/shell/prototype/gallery_walk4/dollhouse_shot.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+      "before_sha256": "4393c5ee253106c083781ea74b73402e94b1717afe4513df5fb82eacc52e2d8d",
+      "after_sha256": "1fb74ec6129fa146cfcc0830d6c1e8c9f93a53be569a836499802cce8986784f",
+      "comments": [
+        {
+          "original_line": 3,
+          "before": "## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd",
+          "after": [
+            "## godot --rendering-method gl_compatibility --path . --script",
+            "## res://modules/shell/prototype/gallery_walk4/identity/native_render_check.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/navigation_check.gd",
+      "before_sha256": "e4b49dac72c86deb1ff91b1f3410c2bf3854fc23b99886eb62d62897f7ffecdd",
+      "after_sha256": "ba994b7e71812130f63dc2417c726db9e6aed5052e9b8a1ddf6a28e14b205b40",
+      "comments": [
+        {
+          "original_line": 2,
+          "before": "## godot --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/navigation_check.gd",
+          "after": [
+            "## godot --rendering-method gl_compatibility --path . --script",
+            "## res://modules/shell/prototype/gallery_walk4/navigation_check.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "before_sha256": "2a6ed3ee7ddd8d9ece33139c0dcc369f650ed82450ac14bdb5f9b906fbd8bf1c",
+      "after_sha256": "0f31f09ee2e6d80f7c372ef500f76357c4a739536e328b4fdeb733c7f67a8742",
+      "comments": [
+        {
+          "original_line": 1,
+          "before": "## PROTOTYPE (map #116): one real painting as geometry. Local space: x right, y up, z out of the wall (wall at z = 0),",
+          "after": [
+            "## PROTOTYPE (map #116): one real painting as geometry. Local space: x right, y up, z",
+            "## out of the wall (wall at z = 0),"
+          ]
+        },
+        {
+          "original_line": 2,
+          "before": "## centred on the canvas. The frame is a 3D nine-slice of its Muse texture: every band keeps its real width",
+          "after": [
+            "## centred on the canvas. The frame is a 3D nine-slice of its Muse texture:",
+            "## every band keeps its real width"
+          ]
+        },
+        {
+          "original_line": 3,
+          "before": "## (band pixels scaled by the canvas's metres per opening pixel), a front face DEPTH off the wall, outer sides back to",
+          "after": [
+            "## (band pixels scaled by the canvas's metres per opening pixel), a front face DEPTH",
+            "## off the wall, outer sides back to"
+          ]
+        },
+        {
+          "original_line": 15,
+          "before": "# The room's PS1 surface shader, lit (paintings cast and receive the skylight's shadows); no affine warp on a canvas.",
+          "after": [
+            "# The room's PS1 surface shader, lit (paintings cast and receive the skylight's",
+            "# shadows); no affine warp on a canvas."
+          ]
+        },
+        {
+          "original_line": 48,
+          "before": "## canvas: canvas size in metres. margins: the frame texture's band widths in pixels (left, top, right, bottom).",
+          "after": [
+            "## canvas: canvas size in metres. margins: the frame texture's band widths in",
+            "## pixels (left, top, right, bottom)."
+          ]
+        },
+        {
+          "original_line": 218,
+          "before": "## A shaped work: a closed slab following its real outline (points in 0..1 of the texture, y down): a triangulated",
+          "after": [
+            "## A shaped work: a closed slab following its real outline (points in 0..1 of the",
+            "## texture, y down): a triangulated"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/shot.gd",
+      "before_sha256": "698d0109bac05709f5abad7c1df3cbab7951cf2bc476d5085e51dda5cd4b124a",
+      "after_sha256": "326b3eb6bf698c57dd40562bba2ce155d979ca16707a4741c58c3be9af388f6a",
+      "comments": [
+        {
+          "original_line": 1,
+          "before": "## Evidence for map #116 (prototype 4): all four walls, a walk, a painting approach, the zoomable detail view,",
+          "after": [
+            "## Evidence for map #116 (prototype 4): all four walls, a walk, a painting",
+            "## approach, the zoomable detail view,"
+          ]
+        },
+        {
+          "original_line": 3,
+          "before": "## Run: godot --path . --script res://modules/shell/prototype/gallery_walk4/shot.gd -- --out-dir=<path>",
+          "after": [
+            "## Run: godot --path . --script",
+            "## res://modules/shell/prototype/gallery_walk4/shot.gd -- --out-dir=<path>"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/visitor_check.gd",
+      "before_sha256": "4c4c3a7b11813eab93bcdf5539c7c4907bb30cf8a913cef0ca8bf209e7459660",
+      "after_sha256": "6b72e5c64f46d1e1951c16a6acb3c6ced6cf511d8efd9584ecdb237c9c45bdbd",
+      "comments": [
+        {
+          "original_line": 2,
+          "before": "## godot --headless --rendering-method gl_compatibility --path . --script res://modules/shell/prototype/gallery_walk4/visitor_check.gd",
+          "after": [
+            "## godot --headless --rendering-method gl_compatibility --path . --script",
+            "## res://modules/shell/prototype/gallery_walk4/visitor_check.gd"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "before_sha256": "5b09733a43dce4c89019e5c05e006138e51a9e68551978247ab9f3d8b8df9d66",
+      "after_sha256": "2b5bc8d9764656b1c94d3aff5a0c3b4454eda7016df525a425c2ee9e57cf71e8",
+      "comments": [
+        {
+          "original_line": 1,
+          "before": "## PROTOTYPE 4, throwaway (2026-09-26, map #116): the RISD Grand Gallery with all 23 paintings modelled in place.",
+          "after": [
+            "## PROTOTYPE 4, throwaway (2026-09-26, map #116): the RISD Grand Gallery with all",
+            "## 23 paintings modelled in place."
+          ]
+        },
+        {
+          "original_line": 2,
+          "before": "## Order, canvas sizes and heights: docs/research/grand-gallery-hang.md (branch research/grand-gallery-hang).",
+          "after": [
+            "## Order, canvas sizes and heights: docs/research/grand-gallery-hang.md (branch",
+            "## research/grand-gallery-hang)."
+          ]
+        },
+        {
+          "original_line": 3,
+          "before": "## Paintings: RISD's own photograph (Wikimedia Commons, CC0) as the canvas inside a Muse frame built as a 3D",
+          "after": [
+            "## Paintings: RISD's own photograph (Wikimedia Commons, CC0) as the canvas",
+            "## inside a Muse frame built as a 3D"
+          ]
+        },
+        {
+          "original_line": 4,
+          "before": "## nine-slice (painting_asset.gd); the angel is its keyed Muse cut-out. Surfaces and the two views through the",
+          "after": [
+            "## nine-slice (painting_asset.gd); the angel is its keyed Muse cut-out.",
+            "## Surfaces and the two views through the"
+          ]
+        },
+        {
+          "original_line": 6,
+          "before": "## Keys: Up/W step (hold to walk), Down/S step back, Left/A Right/D turn (hold to keep turning). Click the floor",
+          "after": [
+            "## Keys: Up/W step (hold to walk), Down/S step back, Left/A Right/D turn (hold to",
+            "## keep turning). Click the floor"
+          ]
+        },
+        {
+          "original_line": 7,
+          "before": "## to walk there, a painting to walk up to it and open it. In the detail view: scroll or pinch to zoom, drag to",
+          "after": [
+            "## to walk there, a painting to walk up to it and open it. In the detail view:",
+            "## scroll or pinch to zoom, drag to"
+          ]
+        },
+        {
+          "original_line": 25,
+          "before": "# The two doorways differ: the arch door (to the medieval gallery) has a cornice head and a shallow reveal onto",
+          "after": [
+            "# The two doorways differ: the arch door (to the medieval gallery) has a cornice",
+            "# head and a shallow reveal onto"
+          ]
+        },
+        {
+          "original_line": 26,
+          "before": "# the wide lit room; the far door has a plain casing and a deep vestibule with a second door at its end.",
+          "after": [
+            "# the wide lit room; the far door has a plain casing and a deep vestibule",
+            "# with a second door at its end."
+          ]
+        },
+        {
+          "original_line": 238,
+          "before": "# A soft dark rectangle (its edges fade over a fifth of each side): the baked shadow under frames and benches.",
+          "after": [
+            "# A soft dark rectangle (its edges fade over a fifth of each side): the baked",
+            "# shadow under frames and benches."
+          ]
+        },
+        {
+          "original_line": 258,
+          "before": "# A room material: the PS1 surface shader, lit, optionally textured, with baked occlusion in vertex colour.",
+          "after": [
+            "# A room material: the PS1 surface shader, lit, optionally textured, with",
+            "# baked occlusion in vertex colour."
+          ]
+        },
+        {
+          "original_line": 293,
+          "before": "\t\t# the skylight's pool: brighter down the middle, falling off toward the walls and the ends, with the soft",
+          "after": [
+            "\t\t# the skylight's pool: brighter down the middle, falling off toward the",
+            "\t\t# walls and the ends, with the soft"
+          ]
+        },
+        {
+          "original_line": 304,
+          "before": "# A subdivided flat panel from corner c along u and v (cells about `cell` metres), occlusion in its vertex",
+          "after": [
+            "# A subdivided flat panel from corner c along u and v (cells about `cell`",
+            "# metres), occlusion in its vertex"
+          ]
+        },
+        {
+          "original_line": 454,
+          "before": "\t# barrel vault from the cornice, end lunettes, and the long skylight curving with it, lamps along its edges",
+          "after": [
+            "\t# barrel vault from the cornice, end lunettes, and the long skylight curving",
+            "\t# with it, lamps along its edges"
+          ]
+        },
+        {
+          "original_line": 775,
+          "before": "# Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of the Muse oak grain with its own",
+          "after": [
+            "# Herringbone oak as geometry: planks PLANK long and wide, each a random stretch of",
+            "# the Muse oak grain with its own"
+          ]
+        },
+        {
+          "original_line": 776,
+          "before": "# tone and the room's occlusion, laid on the lattice (b, b), (a, -a) turned 45 degrees so the zigzag runs down the",
+          "after": [
+            "# tone and the room's occlusion, laid on the lattice (b, b), (a, -a) turned 45",
+            "# degrees so the zigzag runs down the"
+          ]
+        },
+        {
+          "original_line": 1002,
+          "before": "# The arch end, as in the video: one white-cased door in the gallery wall; behind its plaster reveal the Romanesque",
+          "after": [
+            "# The arch end, as in the video: one white-cased door in the gallery wall; behind",
+            "# its plaster reveal the Romanesque"
+          ]
+        },
+        {
+          "original_line": 1003,
+          "before": "# stone portal of the medieval gallery is the same opening (its round arch shows at the top of the door), a deep",
+          "after": [
+            "# stone portal of the medieval gallery is the same opening (its round arch shows",
+            "# at the top of the door), a deep"
+          ]
+        },
+        {
+          "original_line": 1633,
+          "before": "# The far end: a plain rectangular door with a stepped white casing, a deep cream vestibule lit from its far end,",
+          "after": [
+            "# The far end: a plain rectangular door with a stepped white casing, a deep cream",
+            "# vestibule lit from its far end,"
+          ]
+        },
+        {
+          "original_line": 1938,
+          "before": "\t# long walls: even gaps, in the researched order. West runs arch end -> far end; east runs far end -> arch end.",
+          "after": [
+            "\t# long walls: even gaps, in the researched order. West runs arch end -> far end;",
+            "\t# east runs far end -> arch end."
+          ]
+        },
+        {
+          "original_line": 2413,
+          "before": "# Every static mesh that shares a look (same shader, texture, tint, flags) becomes one mesh: a few dozen draw calls",
+          "after": [
+            "# Every static mesh that shares a look (same shader, texture, tint, flags) becomes",
+            "# one mesh: a few dozen draw calls"
+          ]
+        },
+        {
+          "original_line": 2818,
+          "before": "# The camera follows behind the kid but never leaves the room: the line from the kid's head to where the camera",
+          "after": [
+            "# The camera follows behind the kid but never leaves the room: the line from the",
+            "# kid's head to where the camera"
+          ]
+        },
+        {
+          "original_line": 2964,
+          "before": "# Walk to p. Every leg is checked against each bench's rectangle (grown by the kid's clearance); a leg that",
+          "after": [
+            "# Walk to p. Every leg is checked against each bench's rectangle (grown by",
+            "# the kid's clearance); a leg that"
+          ]
+        },
+        {
+          "original_line": 2965,
+          "before": "# crosses one is replaced by a detour down the side lane nearer the start, past both of the bench's ends.",
+          "after": [
+            "# crosses one is replaced by a detour down the side lane nearer the start,",
+            "# past both of the bench's ends."
+          ]
+        },
+        {
+          "original_line": 3049,
+          "before": "# A painting's outline on screen, cut where it passes behind the camera (so a painting half out of view is",
+          "after": [
+            "# A painting's outline on screen, cut where it passes behind the camera (so",
+            "# a painting half out of view is"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "before_sha256": "1dd87040a73d9de7037b3795b4bfa99f9ebeb4847371eb495d1a4853e18a4a52",
+      "after_sha256": "2df559723ceb405e1271a59f82828323bb65c520e0f799a176dc4c92f97f7b40",
+      "comments": [
+        {
+          "original_line": 86,
+          "before": "\t# prototype: the hover glow on the strip's buttons and the seven tabs, and the two-state arrow cursor",
+          "after": [
+            "\t# prototype: the hover glow on the strip's buttons and the seven tabs,",
+            "\t# and the two-state arrow cursor"
+          ]
+        },
+        {
+          "original_line": 121,
+          "before": "## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is applied when the fade settles.",
+          "after": [
+            "## FADE_SECONDS while the Page(s) on screen fade out; the freeze rule is",
+            "## applied when the fade settles."
+          ]
+        },
+        {
+          "original_line": 161,
+          "before": "## The Shell's show/hide rule: the visible Page runs, every hidden Page is frozen and holds no focus.",
+          "after": [
+            "## The Shell's show/hide rule: the visible Page runs, every hidden",
+            "## Page is frozen and holds no focus."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "before_sha256": "0fbd010eab806b601909e2fffe9907e3a64eec081f97596ebaa5bb889ea20d99",
+      "after_sha256": "80cadd9c2966bd261e3ee568a957da229fe1ac7abefb42104179863a99142d2f",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## The silhouette is built on the CPU at a quarter of page resolution when the window's size or pieces",
+          "after": [
+            "## The silhouette is built on the CPU at a quarter of page resolution",
+            "## when the window's size or pieces"
+          ]
+        },
+        {
+          "original_line": 51,
+          "before": "\t\t# lifted from the first move under a held button until the button is let go (a drag, however it pauses)",
+          "after": [
+            "\t\t# lifted from the first move under a held button until the button is let",
+            "\t\t# go (a drag, however it pauses)"
+          ]
+        },
+        {
+          "original_line": 119,
+          "before": "## Every piece the window draws, as [kind, control]: pictures by their alpha, flat pieces as rectangles.",
+          "after": [
+            "## Every piece the window draws, as [kind, control]: pictures by their",
+            "## alpha, flat pieces as rectangles."
+          ]
+        },
+        {
+          "original_line": 206,
+          "before": "## A picture (a region of an atlas included) at most 256 px on its long side; only its alpha is used.",
+          "after": [
+            "## A picture (a region of an atlas included) at most 256 px on its",
+            "## long side; only its alpha is used."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "before_sha256": "c382611b53bff3017ea4944b6a1062af19dd3ac6948e7dda9170738bd2ec8e1c",
+      "after_sha256": "65dd341b4f02d412ce33e949c84a133ad5f992f916c249e90b6d4a0ff79b4e66",
+      "comments": [
+        {
+          "original_line": 4,
+          "before": "## their title bars and raise on click; the brush leaves the rest while the pointer is over the palette",
+          "after": [
+            "## their title bars and raise on click; the brush leaves the rest while",
+            "## the pointer is over the palette"
+          ]
+        },
+        {
+          "original_line": 8,
+          "before": "## viewer-godot/scripts/desktop.gd (enable_paint_prototype(\"A\"), _sync_brush_rest, the drag and raise).",
+          "after": [
+            "## viewer-godot/scripts/desktop.gd (enable_paint_prototype(\"A\"),",
+            "## _sync_brush_rest, the drag and raise)."
+          ]
+        },
+        {
+          "original_line": 25,
+          "before": "## The native composition: variant A's windows (paintbox 170,345 550x575; book 750,365 630x545 on the",
+          "after": [
+            "## The native composition: variant A's windows (paintbox 170,345",
+            "## 550x575; book 750,365 630x545 on the"
+          ]
+        },
+        {
+          "original_line": 26,
+          "before": "## prototype's 1440x972 canvas) moved in to the prototype's right/bottom margins, the book 10 px taller",
+          "after": [
+            "## prototype's 1440x972 canvas) moved in to the prototype's right/bottom",
+            "## margins, the book 10 px taller"
+          ]
+        },
+        {
+          "original_line": 27,
+          "before": "## so both windows share the bottom edge and the composition's margin is NATIVE_MARGIN on every side.",
+          "after": [
+            "## so both windows share the bottom edge and the composition's margin",
+            "## is NATIVE_MARGIN on every side."
+          ]
+        },
+        {
+          "original_line": 213,
+          "before": "## goes to the book window (wider or taller pages) while the paintbox keeps its native size, anchored",
+          "after": [
+            "## goes to the book window (wider or taller pages) while the paintbox",
+            "## keeps its native size, anchored"
+          ]
+        },
+        {
+          "original_line": 462,
+          "before": "## Window drag and raise, by the mouse, in the desktop's own pixels (the prototype's desktop.gd _input,",
+          "after": [
+            "## Window drag and raise, by the mouse, in the desktop's own pixels (the",
+            "## prototype's desktop.gd _input,"
+          ]
+        },
+        {
+          "original_line": 508,
+          "before": "## The paintbox's palette-space rects in global pixels: the image, the 32 wells' hit boxes, the 4 trays.",
+          "after": [
+            "## The paintbox's palette-space rects in global pixels: the image, the 32",
+            "## wells' hit boxes, the 4 trays."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "before_sha256": "a18a464924987f40cc9f91257759c5e71c479728fc0edb5280a542e6161d5b59",
+      "after_sha256": "497756bf2d89ef46222ebccbf7fad563aab14d0007f4b4089c2db7d54673a69c",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ d2faa30",
+          "after": [
+            "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline",
+            "## prototype/painting-tool-mixbox @ d2faa30"
+          ]
+        },
+        {
+          "original_line": 6,
+          "before": "## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pixel paths moved). Reach it through interface.gd only.",
+          "after": [
+            "## viewer-godot/scripts/drawing_surface.gd (the global class_name dropped, the pixel paths moved).",
+            "## Reach it through interface.gd only."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/errors.gd",
+      "before_sha256": "cd4bda44413df9d86548ad804a419432308fbcd7f6f6de831fa166ed8fec6a7b",
+      "after_sha256": "bc4a50f9f3542c3246a411c4d763b700a568551d2a96455c4a7335dc9224a2a0",
+      "comments": [
+        {
+          "original_line": 7,
+          "before": "## A file the sketchbook loads \u2014 a frame slice, an arrow button, the page, a paintbox picture, the brush",
+          "after": [
+            "## A file the sketchbook loads \u2014 a frame slice, an arrow button, the",
+            "## page, a paintbox picture, the brush"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/freehand.gd",
+      "before_sha256": "198b2b4d04f7e4eb288c23db358a4a5735c6ae60b61057b5ed9ba4c55b67ec0b",
+      "after_sha256": "01d56dbf19c9ca1f68bbe2c9d95cd32ccb17067c1c4c3d4669c00cfe8479637c",
+      "comments": [
+        {
+          "original_line": 7,
+          "before": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c",
+          "after": [
+            "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline",
+            "## prototype/painting-tool-mixbox @ 7ee5e9c"
+          ]
+        },
+        {
+          "original_line": 8,
+          "before": "## viewer-godot/scripts/freehand.gd (the global class_name dropped; the module preloads it). Reach it through interface.gd only.",
+          "after": [
+            "## viewer-godot/scripts/freehand.gd (the global class_name dropped; the module preloads it). Reach",
+            "## it through interface.gd only."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/interface.gd",
+      "before_sha256": "ef5a51c917be7b9f95651f13d29ba491314d5e8e24b93de79b1ef9861ad54cf7",
+      "after_sha256": "637e6f962c58a73902190c6d2661561b5cb719e27fe0cb09d7c3b0115785a942",
+      "comments": [
+        {
+          "original_line": 4,
+          "before": "## (modules/shell/interface.gd): create(deps) returns a full-rect Control that lays itself out from its",
+          "after": [
+            "## (modules/shell/interface.gd): create(deps) returns a full-rect",
+            "## Control that lays itself out from its"
+          ]
+        },
+        {
+          "original_line": 6,
+          "before": "## desktop at d2faa30 (tickets #48, #49 \u2014 the owner put the Mixbox paintbox back): the paintbox window",
+          "after": [
+            "## desktop at d2faa30 (tickets #48, #49 \u2014 the owner put the Mixbox",
+            "## paintbox back): the paintbox window"
+          ]
+        },
+        {
+          "original_line": 9,
+          "before": "## palette, where the brush lies, tip in the carried pigment, whenever the pointer is off the palette",
+          "after": [
+            "## palette, where the brush lies, tip in the carried pigment, whenever",
+            "## the pointer is off the palette"
+          ]
+        },
+        {
+          "original_line": 10,
+          "before": "## and the page; and the native sketchbook window \u2014 the owner's Ragnarok-style chrome, tldraw's freehand",
+          "after": [
+            "## and the page; and the native sketchbook window \u2014 the owner's",
+            "## Ragnarok-style chrome, tldraw's freehand"
+          ]
+        },
+        {
+          "original_line": 11,
+          "before": "## ink ported line by line in the carried pigment, one stroke list per spread, the 520 ms perspective",
+          "after": [
+            "## ink ported line by line in the carried pigment, one stroke list per",
+            "## spread, the 520 ms perspective"
+          ]
+        },
+        {
+          "original_line": 12,
+          "before": "## paper turn, the pigment-loaded brush cursor over the page. It lays out by the fill rule (ticket #63):",
+          "after": [
+            "## paper turn, the pigment-loaded brush cursor over the page. It lays out",
+            "## by the fill rule (ticket #63):"
+          ]
+        },
+        {
+          "original_line": 14,
+          "before": "## book window takes the leftover axis. Both windows drag by their title bars; a hidden Page freezes it.",
+          "after": [
+            "## book window takes the leftover axis. Both windows drag by their title",
+            "## bars; a hidden Page freezes it."
+          ]
+        },
+        {
+          "original_line": 38,
+          "before": "## ok({ key, ticks, inputs, size: Vector2 (the Tenant), desktop_scale (s), desktop_logical: Vector2 (S / s),",
+          "after": [
+            "## ok({ key, ticks, inputs, size: Vector2 (the Tenant), desktop_scale (s),",
+            "## desktop_logical: Vector2 (S / s),"
+          ]
+        },
+        {
+          "original_line": 39,
+          "before": "##      front_window, dragging, window_rect: Rect2 (the book window), page_rect: Rect2 (the drawable page),",
+          "after": [
+            "## front_window, dragging, window_rect: Rect2 (the book window),",
+            "## page_rect: Rect2 (the drawable page),"
+          ]
+        },
+        {
+          "original_line": 40,
+          "before": "##      title_rect: Rect2, controls: { previous, next: Rect2 }, window_visible, spread, strokes (on the open",
+          "after": [
+            "## title_rect: Rect2, controls: { previous, next: Rect2 },",
+            "## window_visible, spread, strokes (on the open"
+          ]
+        },
+        {
+          "original_line": 41,
+          "before": "##      spread), turning: \"\" | \"forward\" | \"backward\", turn_progress, last_turn_ms, previous_disabled,",
+          "after": [
+            "## spread), turning: \"\" | \"forward\" | \"backward\", turn_progress, last_turn_ms, previous_disabled,"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "before_sha256": "fb2b0111c427861385e316a008c12eb0fb0635af7c430402ce9e7a98f15a55a1",
+      "after_sha256": "bba5ca06699b22062c18baec2938a4916d317250de046ec2bef8c9ba70f7ce81",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## viewer-godot/scripts/paint_palette_prototype.gd: the global class_name dropped, the pixel and Mixbox paths",
+          "after": [
+            "## viewer-godot/scripts/paint_palette_prototype.gd: the global class_name",
+            "## dropped, the pixel and Mixbox paths"
+          ]
+        },
+        {
+          "original_line": 6,
+          "before": "## moved into this module, the hover pointer taken from mouse events (see _input). The desktop fixes smear variant A (the `?variant=` switcher stayed behind).",
+          "after": [
+            "## moved into this module, the hover pointer taken from mouse events (see _input). The desktop fixes",
+            "## smear variant A (the `?variant=` switcher stayed behind)."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/paper_turn.gd",
+      "before_sha256": "6cacec6ac420a611225a6894e2ee9c85ca4e32c415dbf8e16ac2d0b69dbcfa65",
+      "after_sha256": "7875d5a4dece248c05bb5cdb1fecfbed029fde585feb8e9cb75f3a8e83430188",
+      "comments": [
+        {
+          "original_line": 8,
+          "before": "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline prototype/painting-tool-mixbox @ 7ee5e9c",
+          "after": [
+            "## Ported unchanged in behaviour from figma-ui-ux-qwen-pipeline",
+            "## prototype/painting-tool-mixbox @ 7ee5e9c"
+          ]
+        },
+        {
+          "original_line": 9,
+          "before": "## viewer-godot/scripts/paper_turn.gd (the global class_name dropped; the module preloads it). Reach it through interface.gd only.",
+          "after": [
+            "## viewer-godot/scripts/paper_turn.gd (the global class_name dropped; the module preloads it). Reach",
+            "## it through interface.gd only."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/playtest/harness.gd",
+      "before_sha256": "9b04a4fe17525eaa445a7ac88926578b62504f43556503823e974898ee0d7f94",
+      "after_sha256": "9ac85eb1fab1bca18e6a94b75e5decc4b69d3e3ed6c626a940c0bc9f6f187e76",
+      "comments": [
+        {
+          "original_line": 141,
+          "before": "\t# 2. click the Sketchbook tab: the desktop is created on first show \u2014 paintbox, rest, book, spread 1",
+          "after": [
+            "\t# 2. click the Sketchbook tab: the desktop is created on first show \u2014",
+            "\t# paintbox, rest, book, spread 1"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/sketchbook/sketchbook_window.gd",
+      "before_sha256": "710f1044b68880507753f67e2a14f152f09c920634798b64114d78e76be8b60e",
+      "after_sha256": "3e2723557cd2fa6722bfa80bb3d7f0ebe2c7ac698e89ca7ef4b5dd117f8937dc",
+      "comments": [
+        {
+          "original_line": 230,
+          "before": "## The web gutter: multiply gradient, transparent -> (112,84,53) 18% -> (76,55,34) 26% -> transparent.",
+          "after": [
+            "## The web gutter: multiply gradient, transparent -> (112,84,53) 18% ->",
+            "## (76,55,34) 26% -> transparent."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/tab_strip/interface.gd",
+      "before_sha256": "3e1788a414ad29bc5ecd859e012ee64ac109c7ece15876e559cb9eaee1d1707b",
+      "after_sha256": "6ad04b986d621df135eaf5e8771dd1e37b8f953f295439a61988747f43a91d25",
+      "comments": [
+        {
+          "original_line": 13,
+          "before": "## fades in over 0.2 s when a tab becomes active. In the Shell's compact fixed-tab mode (Issue #113) the",
+          "after": [
+            "## fades in over 0.2 s when a tab becomes active. In the Shell's compact",
+            "## fixed-tab mode (Issue #113) the"
+          ]
+        },
+        {
+          "original_line": 14,
+          "before": "## bar is the rebuilt Muse taskbar (assets/compact/), each fixed tab carries its own icon and label, and",
+          "after": [
+            "## bar is the rebuilt Muse taskbar (assets/compact/), each fixed tab",
+            "## carries its own icon and label, and"
+          ]
+        },
+        {
+          "original_line": 15,
+          "before": "## the active tab's face switches at once to the new-tab stub's grey (a static endpoint, as the reviewed",
+          "after": [
+            "## the active tab's face switches at once to the new-tab stub's grey (a",
+            "## static endpoint, as the reviewed"
+          ]
+        },
+        {
+          "original_line": 16,
+          "before": "## blue still was); the dip and the grow use the same grey family. Icon, label and close glyphs stay as drawn.",
+          "after": [
+            "## blue still was); the dip and the grow use the same grey family. Icon, label",
+            "## and close glyphs stay as drawn."
+          ]
+        },
+        {
+          "original_line": 41,
+          "before": "## caller that opens its own fixed tabs (the Shell). Returns ok(TabStrip node) or err(ASSET_MISSING).",
+          "after": [
+            "## caller that opens its own fixed tabs (the Shell). Returns",
+            "## ok(TabStrip node) or err(ASSET_MISSING)."
+          ]
+        },
+        {
+          "original_line": 56,
+          "before": "## button and close_tab on it returns TAB_FIXED. Returns ok(new index) or err(OPEN_IN_PROGRESS | NO_ROOM).",
+          "after": [
+            "## button and close_tab on it returns TAB_FIXED. Returns ok(new index) or",
+            "## err(OPEN_IN_PROGRESS | NO_ROOM)."
+          ]
+        },
+        {
+          "original_line": 68,
+          "before": "## PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; neighbours and the stub stay put;",
+          "after": [
+            "## PRESS_SECONDS, then the grow to its own width over GROW_SECONDS;",
+            "## neighbours and the stub stay put;"
+          ]
+        },
+        {
+          "original_line": 70,
+          "before": "## open_fixed_tab and close_tab until settled. Returns ok(index) or err(INDEX_OUT_OF_RANGE | OPEN_IN_PROGRESS).",
+          "after": [
+            "## open_fixed_tab and close_tab until settled. Returns ok(index) or",
+            "## err(INDEX_OUT_OF_RANGE | OPEN_IN_PROGRESS)."
+          ]
+        },
+        {
+          "original_line": 90,
+          "before": "## fixed, whether its label is truncated with \"...\", its close button rect (empty on a fixed tab), and",
+          "after": [
+            "## fixed, whether its label is truncated with \"...\", its close button",
+            "## rect (empty on a fixed tab), and"
+          ]
+        },
+        {
+          "original_line": 91,
+          "before": "## `tint`, active-state progress (0 inactive, 1 active; ordinary tabs fade to the sea blue at 12 percent,",
+          "after": [
+            "## `tint`, active-state progress (0 inactive, 1 active; ordinary tabs fade",
+            "## to the sea blue at 12 percent,"
+          ]
+        },
+        {
+          "original_line": 94,
+          "before": "## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed, truncated, close_rect, tint }],",
+          "after": [
+            "## Returns ok({ count, active, tabs: [{ label, rect, page_visible, fixed,",
+            "## truncated, close_rect, tint }],"
+          ]
+        },
+        {
+          "original_line": 100,
+          "before": "## The stub's rectangle in the strip's coordinates, so a harness can click it with a real mouse event.",
+          "after": [
+            "## The stub's rectangle in the strip's coordinates, so a harness can",
+            "## click it with a real mouse event."
+          ]
+        },
+        {
+          "original_line": 105,
+          "before": "##   tab_opened(index: int)       \u2014 the new tab exists and its grow has started (grow_tab: the replay started)",
+          "after": [
+            "## tab_opened(index: int) \u2014 the new tab exists and its grow has started",
+            "## (grow_tab: the replay started)"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "before_sha256": "9993c5a0e0e80a8b3501668264f4534fe94294dbca25b259b9c2d070245476c7",
+      "after_sha256": "750f2e8836640d9bb64d2b754640f756c387925eaed600b82f79fa03c0e1916c",
+      "comments": [
+        {
+          "original_line": 109,
+          "before": "## The Shell's bar (Issue #113): the rebuilt taskbar's pieces and geometry replace the legacy toolbar's;",
+          "after": [
+            "## The Shell's bar (Issue #113): the rebuilt taskbar's pieces and",
+            "## geometry replace the legacy toolbar's;"
+          ]
+        },
+        {
+          "original_line": 263,
+          "before": "## The click dip: the clicked tab drops DIP_PX with the stub's pressed tint for PRESS_SECONDS, then sits",
+          "after": [
+            "## The click dip: the clicked tab drops DIP_PX with the stub's pressed",
+            "## tint for PRESS_SECONDS, then sits"
+          ]
+        },
+        {
+          "original_line": 280,
+          "before": "## The active tint: the tab's face slices fade to `to` (1 = ACTIVE_TINT of the sea blue, 0 = white) at",
+          "after": [
+            "## The active tint: the tab's face slices fade to `to` (1 = ACTIVE_TINT",
+            "## of the sea blue, 0 = white) at"
+          ]
+        },
+        {
+          "original_line": 281,
+          "before": "## FADE_SECONDS for the whole way, so a reversed fade takes only the distance left. It multiplies every",
+          "after": [
+            "## FADE_SECONDS for the whole way, so a reversed fade takes only the",
+            "## distance left. It multiplies every"
+          ]
+        },
+        {
+          "original_line": 282,
+          "before": "## piece of the tab (slices, icon, label, dots, close): the icon and label pixels are opaque on white, so",
+          "after": [
+            "## piece of the tab (slices, icon, label, dots, close): the icon and label",
+            "## pixels are opaque on white, so"
+          ]
+        },
+        {
+          "original_line": 283,
+          "before": "## their white must take the tint with the face; dark glyphs and the grey outline move a few levels at most.",
+          "after": [
+            "## their white must take the tint with the face; dark glyphs and the grey",
+            "## outline move a few levels at most."
+          ]
+        },
+        {
+          "original_line": 284,
+          "before": "## Compact mode (Issue #113): the face slices switch at once to the stub's grey instead (a static endpoint,",
+          "after": [
+            "## Compact mode (Issue #113): the face slices switch at once to the stub's",
+            "## grey instead (a static endpoint,"
+          ]
+        },
+        {
+          "original_line": 285,
+          "before": "## as the reviewed blue still was); the icons and labels are cut-outs there, so they keep their own colours.",
+          "after": [
+            "## as the reviewed blue still was); the icons and labels are cut-outs there,",
+            "## so they keep their own colours."
+          ]
+        },
+        {
+          "original_line": 404,
+          "before": "## Compact mode: a fixed tab's icon and label sit where the rebuilt taskbar put them (layout `place`); a",
+          "after": [
+            "## Compact mode: a fixed tab's icon and label sit where the rebuilt",
+            "## taskbar put them (layout `place`); a"
+          ]
+        },
+        {
+          "original_line": 405,
+          "before": "## stub-opened tab puts the legacy page icon and label, scaled to the new cap height, on the same row, the",
+          "after": [
+            "## stub-opened tab puts the legacy page icon and label, scaled to the new",
+            "## cap height, on the same row, the"
+          ]
+        },
+        {
+          "original_line": 582,
+          "before": "## Replay the open gesture on an existing tab, in place (the Shell's launch tab): stub-sized with the",
+          "after": [
+            "## Replay the open gesture on an existing tab, in place (the Shell's",
+            "## launch tab): stub-sized with the"
+          ]
+        },
+        {
+          "original_line": 583,
+          "before": "## pressed tint for PRESS_SECONDS, then the grow to its own width over GROW_SECONDS; its neighbours and",
+          "after": [
+            "## pressed tint for PRESS_SECONDS, then the grow to its own width over",
+            "## GROW_SECONDS; its neighbours and"
+          ]
+        },
+        {
+          "original_line": 597,
+          "before": "\t# the launch replays this on the first frame, whose texture uploads can outlast PRESS_SECONDS: hold the",
+          "after": [
+            "\t# the launch replays this on the first frame, whose texture uploads can",
+            "\t# outlast PRESS_SECONDS: hold the"
+          ]
+        },
+        {
+          "original_line": 599,
+          "before": "\t# ponytail: headless Godot aborts with this hold in place (cause not traced), so the check run skips it",
+          "after": [
+            "\t# ponytail: headless Godot aborts with this hold in place (cause not",
+            "\t# traced), so the check run skips it"
+          ]
+        },
+        {
+          "original_line": 668,
+          "before": "\t# the tab folds back into a stub where it stands: contents fade, then width/height/tint reverse the grow",
+          "after": [
+            "\t# the tab folds back into a stub where it stands: contents fade, then",
+            "\t# width/height/tint reverse the grow"
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/video_player/errors.gd",
+      "before_sha256": "a1d49c162db47d58dced716a2431829bbc3667f6616b15b12ce002ac875b073b",
+      "after_sha256": "37cc9f70c8bd6e647de1a5a74cdd26d4c13368064f5ff304b482726877df1983",
+      "comments": [
+        {
+          "original_line": 5,
+          "before": "## A pixel file, a control manifest or a font the player loads is not in the project (detail: its path).",
+          "after": [
+            "## A pixel file, a control manifest or a font the player loads is not in",
+            "## the project (detail: its path)."
+          ]
+        }
+      ]
+    },
+    {
+      "file": "modules/video_player/video_player.gd",
+      "before_sha256": "cdc940e07af87b6e9041eef9472fa61e4d3de09355150a9cb7fa9468b59c2964",
+      "after_sha256": "350ce31c4bc0d2d02dbdacab857bc279dab8cc4a14bd709409f3fe4f6e0200c6",
+      "comments": [
+        {
+          "original_line": 10,
+          "before": "## the viewer is scaled to fit the Page and centred, again on every resize (#63; the prototype scaled its whole",
+          "after": [
+            "## the viewer is scaled to fit the Page and centred, again on every resize (#63;",
+            "## the prototype scaled its whole"
+          ]
+        },
+        {
+          "original_line": 572,
+          "before": "## The video's stream: from the project on desktop, from WEB_MEDIA_DIR on the Web (null until fetched).",
+          "after": [
+            "## The video's stream: from the project on desktop, from WEB_MEDIA_DIR",
+            "## on the Web (null until fetched)."
+          ]
+        },
+        {
+          "original_line": 810,
+          "before": "## The grabber of a source slider, where HSlider draws it: ratio * (track - grabber) along, centred across.",
+          "after": [
+            "## The grabber of a source slider, where HSlider draws it: ratio * (track -",
+            "## grabber) along, centred across."
+          ]
+        }
+      ]
+    }
+  ]
+}

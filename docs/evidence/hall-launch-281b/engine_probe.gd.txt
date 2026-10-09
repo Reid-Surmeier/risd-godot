@@ -1,0 +1,25 @@
+extends SceneTree
+
+func _initialize() -> void:
+	call_deferred("run")
+
+func run() -> void:
+	root.size = Vector2i(1080, 1080)
+	var walk = load("res://build/hall-launch-281b/timed_walk.gd").new()
+	walk.size = Vector2(1080, 1080)
+	root.add_child(walk)
+	for i in 180:
+		await process_frame
+	walk.set_process(false)
+	walk._kid.reset()
+	walk._pos = Vector3(0, 0, -2.6)
+	walk._kid.position = walk._pos
+	walk._update_camera(1.0)
+	for i in 3:
+		await process_frame
+	await RenderingServer.frame_post_draw
+	for arg in OS.get_cmdline_user_args():
+		if arg.begins_with("--picture="):
+			root.get_texture().get_image().save_png(arg.trim_prefix("--picture="))
+	print("HALL_LAUNCH_281B finished")
+	quit()

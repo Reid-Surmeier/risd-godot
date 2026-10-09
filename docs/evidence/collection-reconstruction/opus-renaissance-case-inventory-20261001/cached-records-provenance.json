@@ -1,0 +1,100 @@
+{
+ "note": "Catalogue records reused unchanged from the root cache image-work/collection-room-remodel/inventory-catalogue/ (read only), not re-fetched.",
+ "records": {
+  "58.196": {
+   "cache_file": "barbara-catherine.json",
+   "cache_file_sha256": "3231d879d672c597f78afd57312a1604acdfaa19ee57f3a2291cecdeaca7b78a",
+   "catalogue_id": "1591076"
+  },
+  "2021.131": {
+   "cache_file": "benivieni-triptych.json",
+   "cache_file_sha256": "7a18cf96a8c1632b6a9e1318afc5377e2e809f926546a86e20fbc8109d687e49",
+   "catalogue_id": "1345606"
+  },
+  "21.398": {
+   "cache_file": "search-onview-French-0.json",
+   "cache_file_sha256": "39c69d6939a45f56141a4a6f90987da19c47b2786ae729400747ca02727fe39f",
+   "catalogue_id": "1273471"
+  },
+  "34.861": {
+   "cache_file": "search-onview-Dutch-0.json",
+   "cache_file_sha256": "3f80110feab65eba468c251857bb16559961c701402050fddd40a5ac4d1a3516",
+   "catalogue_id": "1257341"
+  },
+  "22.201": {
+   "cache_file": "search-onview-Crucifixion-0.json",
+   "cache_file_sha256": "42cf4e3a3634f56faaa497d7da5712ef6b18d0fa3af036434c6a6784be07aeb2",
+   "catalogue_id": "1572876"
+  },
+  "35.713": {
+   "cache_file": "search-onview-Italian-1.json",
+   "cache_file_sha256": "df56c1fae3fd9b7c3b0141d2d6b4e7a8bd62478614859f283b70fe22d25eb1de",
+   "catalogue_id": "1461531"
+  },
+  "57.302": {
+   "cache_file": "search-onview-Italian-0.json",
+   "cache_file_sha256": "70f504653d85ec709d7ea3c277bdd92722589838e91fe7e47bd906003e82edfe",
+   "catalogue_id": "1264011"
+  },
+  "46.391": {
+   "cache_file": "search-onview-Italian-2.json",
+   "cache_file_sha256": "ff54a8bf2905642c264fad53ada80371633e86cbc8d612b8a6c0bb7207c9248f",
+   "catalogue_id": "1494506"
+  },
+  "51.105": {
+   "cache_file": "search-onview-Virgin-0.json",
+   "cache_file_sha256": "a50255e3207bab448ae42345e3a10c849657c1fa856ba08bd604df062559d261",
+   "catalogue_id": "1228756"
+  },
+  "2017.29": {
+   "cache_file": "search-onview-Virgin-0.json",
+   "cache_file_sha256": "a50255e3207bab448ae42345e3a10c849657c1fa856ba08bd604df062559d261",
+   "catalogue_id": "1442936"
+  },
+  "34.024": {
+   "cache_file": "search-onview-French-1.json",
+   "cache_file_sha256": "dfcd3a99ba1f298ad1448727e2fbc284d64704e3402856d744392c48d9efa409",
+   "catalogue_id": "1246991"
+  },
+  "29.280": {
+   "cache_file": "search-onview-French-1.json",
+   "cache_file_sha256": "dfcd3a99ba1f298ad1448727e2fbc284d64704e3402856d744392c48d9efa409",
+   "catalogue_id": "1201986"
+  },
+  "52.110": {
+   "cache_file": "search-onview-Italian-2.json",
+   "cache_file_sha256": "ff54a8bf2905642c264fad53ada80371633e86cbc8d612b8a6c0bb7207c9248f",
+   "catalogue_id": "1443351"
+  },
+  "35.703": {
+   "cache_file": "search-onview-Italian-2.json",
+   "cache_file_sha256": "ff54a8bf2905642c264fad53ada80371633e86cbc8d612b8a6c0bb7207c9248f",
+   "catalogue_id": "1511171"
+  },
+  "47.671": {
+   "cache_file": "search-onview-Italian-2.json",
+   "cache_file_sha256": "ff54a8bf2905642c264fad53ada80371633e86cbc8d612b8a6c0bb7207c9248f",
+   "catalogue_id": "1435431"
+  },
+  "1989.085": {
+   "cache_file": "search-onview-French-1.json",
+   "cache_file_sha256": "dfcd3a99ba1f298ad1448727e2fbc284d64704e3402856d744392c48d9efa409",
+   "catalogue_id": "1408996"
+  },
+  "51.502": {
+   "cache_file": "search-onview-French-1.json",
+   "cache_file_sha256": "dfcd3a99ba1f298ad1448727e2fbc284d64704e3402856d744392c48d9efa409",
+   "catalogue_id": "1360031"
+  },
+  "43.351": {
+   "cache_file": "search-onview-Italian-0.json",
+   "cache_file_sha256": "70f504653d85ec709d7ea3c277bdd92722589838e91fe7e47bd906003e82edfe",
+   "catalogue_id": "1535086"
+  },
+  "23.307X": {
+   "cache_file": "search-all-Embroidery-2.json",
+   "cache_file_sha256": "7c61e2f5163d122276c37959bafb5c08c7e00238a8071c40993446397c4826c2",
+   "catalogue_id": "1202276"
+  }
+ }
+}

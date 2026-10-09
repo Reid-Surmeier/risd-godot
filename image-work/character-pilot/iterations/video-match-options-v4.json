@@ -1,0 +1,35 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Earlier contact-solved walk"
+    },
+    {
+      "source": "video-match/authored-walk-v4/footplant-candidate.glb",
+      "label": "Authored WALK .8s"
+    },
+    {
+      "source": "video-match/authored-fast-v4/footplant-candidate.glb",
+      "label": "Authored DASH .4s"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 4,
+  "effects": true,
+  "controller_speed_m_s": 1.05,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.2,
+      "foot": "Right"
+    }
+  ],
+  "width": 1200,
+  "height": 664,
+  "camera_distance": 12,
+  "import_fps": 240
+}

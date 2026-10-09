@@ -1,0 +1,18 @@
+[2026-10-01 07:41:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Severini&items_per_page=25> (referer: https://www.google.com/)
+Severini []
+[2026-10-01 07:41:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lipchitz&items_per_page=25> (referer: https://www.google.com/)
+Lipchitz []
+[2026-10-01 07:41:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Archipenko&items_per_page=25> (referer: https://www.google.com/)
+Archipenko []
+[2026-10-01 07:41:27] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Laurens&items_per_page=25> (referer: https://www.google.com/)
+Laurens []
+[2026-10-01 07:41:30] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Lhote&items_per_page=25> (referer: https://www.google.com/)
+Lhote [{"id": "1598171", "primaryMaker": "Andr\u00e9 Lhote", "title": "The Garden (Le Jardin)", "objectNumber": "67.158", "medium": ["Oil on canvas"], "dimensions": "46.7 x 33.3 cm (18 3/8 x 13 1/8 inches)", "url": "https://risdmuseum.org/art-design/collection/garden-le-jardin-67158"}]
+[2026-10-01 07:41:30] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Leger&items_per_page=25> (referer: https://www.google.com/)
+Leger [{"id": "1539391", "primaryMaker": "Abastenia Saint Leger Eberle", "title": "Girl Roller-Skating", "objectNumber": "20.413", "medium": ["bronze"], "dimensions": "32.5 x 29.2 x 15.6 cm (12 13/16 x 11 1/2 x 6 1/8 inches)", "url": "https://risdmuseum.org/art-design/collection/girl-roller-skating-20413"}, {"id": "1538791", "primaryMaker": "Fernand L\u00e9ger", "title": "Flowers (Les Fleurs)", "objectNumber": "81.097", "medium": ["Oil on canvas"], "dimensions": "92.2 x 65.4 cm (36 5/16 x 25 3/4 inches)", "url": "https://risdmuseum.org/art-design/collection/flowers-les-fleurs-81097"}]
+[2026-10-01 07:41:31] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Rivera&items_per_page=25> (referer: https://www.google.com/)
+Rivera []
+[2026-10-01 07:41:31] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Zadkine&items_per_page=25> (referer: https://www.google.com/)
+Zadkine []
+[2026-10-01 07:41:31] INFO: Fetched (200) <GET https://risdmuseum.org/api/v1/collection?search_api_fulltext=Duchamp-Villon&items_per_page=25> (referer: https://www.google.com/)
+Duchamp-Villon [{"id": "1552686", "primaryMaker": "Raymond Duchamp-Villon", "title": "Seated Woman", "objectNumber": "67.089", "medium": ["bronze", "gold wash"], "dimensions": "71.1 x 20.3 x 24.1 cm (28 x 8 x 9 1/2 inches)", "url": "https://risdmuseum.org/art-design/collection/seated-woman-67089"}]

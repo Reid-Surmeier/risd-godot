@@ -1,0 +1,11 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+WARNING: Could not set V-Sync mode, as changing V-Sync mode is not supported by the graphics driver.
+     at: set_use_vsync (platform/linuxbsd/x11/gl_manager_x11.cpp:372)
+OpenGL API 4.6 (Core Profile) Mesa 25.2.8-0ubuntu0.24.04.2 - Compatibility - Using Device: Microsoft - D3D12 (NVIDIA GeForce RTX 4070 SUPER)
+
+REST bounds=0.18734590709209..17.0174369812012 soles=194
+CLIP Idle length=1.06666672229767
+CLIP Walking_A length=1.06666672229767
+CLIP Interact length=1.29999995231628
+REMODEL_READY {"armchairs":3,"bookcase":1,"catalogue_volume_objects":44,"central_pedestals":1,"display_cases":2,"european_door_panels_per_leaf":2,"european_door_swing_into_renaissance":true,"far_doorway_threshold":1,"gallery_piers":2,"grey_gallery_metric_accepted":false,"grey_gallery_objects_complete":false,"grey_gallery_verified_paintings":2,"mirrors":2,"muse_architecture_assets":6,"native_lightmap_users":583,"point_clouds":0,"romanesque-portal_triangles":9280.0,"sculpture_room_objects_complete":false,"sculpture_room_shells":2,"settee":1,"tracery-arch_triangles":12356.0,"verified_paintings":5,"verified_wallpaper_panels":1}
+REMODEL_VISUAL_PROOF: two walking, nine detail/oblique, nineteen native-resolution asset/room views, one source-camera fit and three bust UV views

@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-b135ab280d1bbe2d2aff",
+      "objective": "Generate ONE square seamless low-polygon game albedo material for the violet painted plaster wall in reference 1, matching the restrained baked Main Hall style in reference 2. Only smooth purple plaster fills the whole image, softly desaturated medium lilac/violet, extremely faint broad hand-painted polygon tonal changes. Uniform diffuse lighting without cast shadow or gradient, no seams, cracks, blocks, bricks, marble veins, molding, door, elevator, sign, labels, furniture, floor, people or framed art. Source photo is shape/color reference only; generate clean new material pixels for native room walls. Not a photograph or room image; a flat evenly lit square tiling plaster albedo texture.\n",
+      "procedureId": "muse-b135ab280d1bbe2d2aff",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "purple-plaster-recipe.json",
+          "sha256": "b135ab280d1bbe2d2aff2f3fb6f34d7cf36002a18925f1862dad94d73da8ca6f"
+        },
+        {
+          "applicationPath": "purple-plaster-plan.json",
+          "sha256": "cffe4a9be4af1fddd1c3451cc3fe087cf83c12cbc49b03a37cf9fa729f4aa420"
+        },
+        {
+          "applicationPath": "purple-plaster-prompt.txt",
+          "sha256": "a78a1c1c656e17e4fc84acfa8eeeb6170ca187fd8c9077132fbe2d66b989b2fe"
+        }
+      ],
+      "museParameters": {
+        "size": "1024x1024"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/purple-plaster-selected-0.png",
+          "sha256": "e7e0e20dfef86021bbef503992010e4668d16a29557e1fb6d6d9d5a64fabe38f",
+          "byteLength": 1640493,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1080,
+            "height": 1920
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/purple-plaster-selected-1.png",
+          "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+          "byteLength": 657879,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 720,
+            "height": 720
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1024x1024\"},\"objective\":\"Generate ONE square seamless low-polygon game albedo material for the violet painted plaster wall in reference 1, matching the restrained baked Main Hall style in reference 2. Only smooth purple plaster fills the whole image, softly desaturated medium lilac/violet, extremely faint broad hand-painted polygon tonal changes. Uniform diffuse lighting without cast shadow or gradient, no seams, cracks, blocks, bricks, marble veins, molding, door, elevator, sign, labels, furniture, floor, people or framed art. Source photo is shape/color reference only; generate clean new material pixels for native room walls. Not a photograph or room image; a flat evenly lit square tiling plaster albedo texture.\\n\",\"objectiveId\":\"muse-b135ab280d1bbe2d2aff\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-b135ab280d1bbe2d2aff\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/purple-plaster-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":1640493,\"inspectedMedia\":{\"height\":1920,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1080},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"e7e0e20dfef86021bbef503992010e4668d16a29557e1fb6d6d9d5a64fabe38f\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/purple-plaster-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":657879,\"inspectedMedia\":{\"height\":720,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":720},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"purple-plaster-recipe.json\",\"sha256\":\"b135ab280d1bbe2d2aff2f3fb6f34d7cf36002a18925f1862dad94d73da8ca6f\"},{\"applicationPath\":\"purple-plaster-plan.json\",\"sha256\":\"cffe4a9be4af1fddd1c3451cc3fe087cf83c12cbc49b03a37cf9fa729f4aa420\"},{\"applicationPath\":\"purple-plaster-prompt.txt\",\"sha256\":\"a78a1c1c656e17e4fc84acfa8eeeb6170ca187fd8c9077132fbe2d66b989b2fe\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "f044332d91c6c643c123a27cd40f8bfa69d13d87eafb73b4d4854f520904dacd"
+  },
+  "normalView": {
+    "objective": "Generate ONE square seamless low-polygon game albedo material for the violet painted plaster wall in reference 1, matching the restrained baked Main Hall style in reference 2. Only smooth purple plaster fills the whole image, softly desaturated medium lilac/violet, extremely faint broad hand-painted polygon tonal changes. Uniform diffuse lighting without cast shadow or gradient, no seams, cracks, blocks, bricks, marble veins, molding, door, elevator, sign, labels, furniture, floor, people or framed art. Source photo is shape/color reference only; generate clean new material pixels for native room walls. Not a photograph or room image; a flat evenly lit square tiling plaster albedo texture.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

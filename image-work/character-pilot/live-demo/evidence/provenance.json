@@ -1,0 +1,2158 @@
+{
+  "issue": 231,
+  "models": {
+    "walk": {
+      "trial": "fitted-walk",
+      "sha256": "7345fcdc3ffc5b93158a5c70ef2cf9249cbb91cca7bb15d76ff3e6bc140e041d"
+    },
+    "run": {
+      "trial": "fitted-run",
+      "sha256": "f752810d64747b955680554d67cc6e8697373e1214d2b15e1b24724dd76ed6bb"
+    },
+    "dash": {
+      "trial": "fitted-dash",
+      "sha256": "85267be21c327998b4bd64a32c1a72d1282ce2c44c61a90bfbe098483ee743d0"
+    },
+    "skid": {
+      "trial": "fitted-skid",
+      "sha256": "211afac6e1e890e497de5e54f21ad80b9d2f45436db908349d3341bdc5b04016"
+    },
+    "axe": {
+      "trial": "fitted-axe",
+      "sha256": "c84ea31798ba74ad388b110c28aa0cbc89d45010b141c21a3c196f9db8c63699"
+    },
+    "net": {
+      "trial": "fitted-net",
+      "sha256": "620690d7e47361b05d3db6ab1f59c74994302271d94d22e4095bdbf8867ee6c4"
+    }
+  },
+  "import_fps": 240,
+  "animation_optimizer": false,
+  "additional_api_cost_usd": 0,
+  "stamp": "1ade974755c5",
+  "standalone_prototype": true,
+  "url": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
+  "retention": "owner-requested live test, three days",
+  "browser_check": "browser.json",
+  "viewport_checks": [
+    [
+      960,
+      720
+    ],
+    [
+      390,
+      844
+    ]
+  ],
+  "keyboard_and_multitouch_passed": true,
+  "exact_visual_match": false,
+  "world_stance_lock_verified": false,
+  "aggregate_liability_usd": 1.54,
+  "site_bytes": 45552556,
+  "sources": {
+    "compare_reference.py": "682c61595163b90290b73fc7ef7281fb059d2af751db9a6706c984b4eb6fb764",
+    "appearance_check.py": "1ef2695c75de2e9a94315555210baf8264e2f4c520650c85f7abcb855928e854",
+    "sound.gd": "b1399871e5aca7edc3538fe54e2f7cd0ca11bfcdf49d538c545ba88a578f738c",
+    "demo.gd": "4823db4641ee5e8db5a7b79faf1cc26b517740ffb7dd89133be874e647183b8d",
+    "check.py": "78d665cb998488e6ff04918082951ce7585acb00298ccfc9e016fd65ec25bc99",
+    "controller_check.gd": "ac0b93a55410d46ea7a033b2735660010d30f94d955b3d6eac5d167598ef27fb",
+    "appearance_check.gd": "f8073455572091739f84cab527367916b6015386689bf6c8e711c6621fca7240",
+    "browser_check.cjs": "f410be88e28189de44bcaf0942c36ceae86c8caa6d992140319ed1b84b6ad00f",
+    "driven_check.gd": "bcf93c8de88bdc83d6d107b1ff37e248f42212c196d6866db8e09aeb26b572a7",
+    "locomotion.gd": "722745a0557673d1d3fe600ca33087311fb75eb276b3f65341ed39af777baeaa",
+    "quality_check.gd": "c7e2e2981a68caa53f315e3fa8468f7748ed06638b10f253c73b8a8e97e0d454",
+    "build.py": "b12cc37bf8b03839feefe6c46352c4ed2678c8428060b532b65ff10bee87a675",
+    "record.gd": "678b10d95c489ed79f1b833390a4dd6c50ee65b6830b48c3e922539f0f43ed32",
+    "../iterations/hand-repair/repair.py": "4f7bf9280b556a952a73d801e91592c467089990aeab64ca3abcb9ace1b7c97f",
+    "../iterations/hand-repair/view.gd": "b1a80cb537ad026b2f5ed763ec418fe191f74f5b4df1817af06631c5f9f9cc68",
+    "../iterations/motion-diagnosis/correct.py": "d7bdee8345091d6c373ae26db7d9e00bda18cfa9ac37463824875c6dd833796c",
+    "tool_clearance_check.gd": "cf363dbaa6203c9f4b3566223fd49d3d29fe67d563a17503f799442b16f23acc",
+    "tool_clearance_check.py": "b2f3c13a43aded4adabe44b4aa2ca5010079420695538998cbff36f02c4c052d",
+    "../iterations/video-match/hand-atlas-profile/hand-atlas.png": "61a76e1d580c23a2b3c357ca544051a55c26bf8ae00d0fc332431f7329c45517"
+  },
+  "geometry": {
+    "selected_rest": "iterations/hand-repair/canonical-rest.glb",
+    "arm_visual_scale": 0.72,
+    "arm_leg_ratio": 1.0596707848731366,
+    "hip_shoulder_ratio": 0.7777737586224456,
+    "shoe_scale": 0.8,
+    "source_joint_ratio_candidate_rejected_as_visible_fit": true,
+    "rigid_head_uv_correspondence_max_error_units": 1.7378944903612137e-05,
+    "existing_uvs_preserved": true,
+    "thumb_uvs_interpolated": true,
+    "hand_repair": {
+      "source_sha256": "2b18637a0537ad3bad3f636da76df70d5b753948559326daa44cddf1bcdb8010",
+      "output_sha256": "adad550dfbc07244a5665da1a6bc35bf4b2a733464bd8617050ef925bce5d33a",
+      "palms": {
+        "Left": {
+          "vertices": 694,
+          "distal_length_before_m": 0.179534912109375,
+          "bounds_after_m": [
+            [
+              -0.08911314964294434,
+              -0.008529794216156007,
+              -0.12000000953674317
+            ],
+            [
+              0.08771952629089355,
+              0.14499998092651367,
+              0.06614525318145752
+            ]
+          ],
+          "length_factor": 0.8076423593404726,
+          "thumb_projection_m": 0.0500823974609375
+        },
+        "Right": {
+          "vertices": 599,
+          "distal_length_before_m": 0.21139923095703125,
+          "bounds_after_m": [
+            [
+              -0.08810070991516114,
+              -0.010408207178115844,
+              -0.1200000286102295
+            ],
+            [
+              0.08835350036621094,
+              0.14499988555908203,
+              0.07103135108947754
+            ]
+          ],
+          "length_factor": 0.6859059957009613,
+          "thumb_projection_m": 0.05173580646514893
+        }
+      },
+      "original_uv_coordinates_preserved": true,
+      "thumb_uvs_interpolated": true,
+      "bones": 24,
+      "cost_usd": 0
+    }
+  },
+  "movement": {
+    "normal_units_per_second": 3.15,
+    "dash_units_per_second": 4.846153846153846,
+    "normal_cycle_seconds": 0.551266,
+    "dash_cycle_seconds": 0.4444444444444444,
+    "source_world_speed_matched": false,
+    "source_update_assumption_hz": 60
+  },
+  "physical_gamepad_tested": false,
+  "source_commit": "4ca9358b9ff60cebe3d78c1659d0bd5a89ab05bb",
+  "report": "docs/research/character-rig-jump-techniques-2026-10-01.md",
+  "evidence_hashes": {
+    "appearance-before.json": "22e18bd842ec9cd87a65b777fffc558121c280022663239c8f77d0e48ea4c455",
+    "appearance-check.json": "dd27afe9831cade25069813ba5f3d6825ccad16b7c6781725bca21c57a6980ce",
+    "appearance-check.log": "8e6f2ab274703bbbe8c47919e9d6a9c58eda3cce7425715fb6a903abd9d45c9c",
+    "appearance-hands-before-after.jpg": "d22b068d29866dce27abd69ee3eed10132ac40400ddc9900505009eae6b49df9",
+    "appearance-metrics.json": "85db1d95d916ae6155477a87578d78355cf3deb26a73fecacecf02e8d1c2fd93",
+    "appearance-pixel-check.log": "67fe2885421f870a9f819029a043b378c366a144a2e7dc522b7035f68d025bf7",
+    "audio-before-review.wav": "1c0881e8cda06f67ce50c99dfd53e13b2ae4c1175d06f231244a447074d6c2b4",
+    "audio-grass.wav": "ac49a981a936bbdb14f33e058e6fc03c318e5ebeef7072abf1637d2315bc953f",
+    "audio-indoor.wav": "494d05fdbf25989afe845cc8b7e98eb293bf7dddb78a0528c28b09b3e195dde0",
+    "audio-leaves.wav": "dadb240c029f3ec91faa5d0ed4d649d4b8bb1ad585b37faa5db5f4ce6725bf37",
+    "audio-original-mixed-excerpt.wav": "aaf5dfba290a830ae6702dbcf4ac17a308f8d588d8c36cf2bda024be2d94e10b",
+    "audio-path.wav": "217e31096f6c5f2d930e5091e014a203947c31ff35cc1eac7d08a00b8a9370ac",
+    "audio-review.wav": "bc9984ba473a99299d478b76315d897e0a31124724e1130bd33718fdcdb23212",
+    "audio-sand.wav": "4779eaf24f30b659a294c7e808427ed4db183499d0c8a16f36916dad6fa2d5d4",
+    "audio-skid.wav": "610bdf31356694c93c3a7348c934f0b0a65c9d79064f7185c840b3ecca457758",
+    "audio-snow.wav": "8c7f173a4af60b569a945fb99fdd213d82f323672b134050307fcc04f7c833ec",
+    "audio-water.wav": "f37b3b50874406fbb3d47c0b3ab4af3c38b2f283e7f0a01b124dec9932412c0f",
+    "blink-slow-review.gif": "838f7bf79c567d19a8ca6c6f098bda0a209558b2bbe6938f39f9f44418af81af",
+    "browser.json": "f0813fabaff3fe50d9b8212c827c0573a8d66a9d962bd133db89596f4c208d41",
+    "canonical-rejected/comparison.json": "27709ae38be83c68cec85ad5b2aab67931fe268dbc004acf0fc252b472fe13b5",
+    "canonical-rejected/registered-pose-poses.jpg": "04afa334d794742a27347459302e1d5eb6b0b55f4513166b73e27b437a2f4cf9",
+    "canonical-rejected/registered-pose.gif": "8f45a849fe00f82470c9416c2de08888553613aca949ce0ec7af0c244f23ff3f",
+    "canonical-rejected/walk-alternative/comparison.json": "38c3b156f4732d38d5e66ce06efef290f3101325536fd3cbe9f18dc74307e27b",
+    "canonical-rejected/walk-alternative/registered-pose-poses.jpg": "493962ed5b825397fa63fea22f61cb7198ff45c8882e701bf2bb4b3902ec8adf",
+    "canonical-rejected/walk-alternative/registered-pose.gif": "b018d79268e1e3051aea374c7663fb6162976ada5737c9d0755182c2ac73c5c8",
+    "comparison.json": "5f07121335ada15c9150fcb2cf5c76968a1084755af676408b3f144da223bbba",
+    "contact-depth-regression.json": "413495d14eceaa85e7a4099cb49447b5412c2855b5ca1a4c52da07c8372fbdf7",
+    "contact-velocity-capture.gd": "6becea72ff07da181b8f8036f68ad19d96a605a13d1e16644182b403ff5cf7ad",
+    "contact-velocity-check.json": "e2e4412d31663d3be662e061d0038229cc5156f1619d7f6930b79a500fec6e78",
+    "controller-check.json": "8f74819ce37aa23297880c96623bfc0f7031e77bc24d607bc6e52dfac6a49cc4",
+    "controller-check.log": "10d8fd6e4846f0ecd7e85597d2fec62353e8cc8299c2092d6af1ca6c1fc233b9",
+    "desktop-axe.png": "0a6949adfa5d3ca79a53c4150a89ac3e6e251cf901d7d5d408d2a396c6db208e",
+    "desktop-blink.png": "5603d95eefebdb942374e6c7b387f290e6243e66aed1f627ee312a93bae482bb",
+    "desktop-idle.png": "16284148dcfd84271be0afc8fa959abfa32e8e206a2bd11100f41ddaba4fad96",
+    "desktop-jump.png": "2853072e9def0f1b3de2c773233d708cb7f9883dc9435ca5094e930e854a844e",
+    "desktop-net.png": "819610b11c8ee29c4106ca97d8b4c73de56e626acdfc76a514b7e7be1b4d655f",
+    "desktop-room.png": "b3eac25c20177811c8c5865c86006875bfb7255d898d51dfe008bb7cc0909b26",
+    "desktop-sprint.png": "c06c6d073cf95640b582ed755f45aef9f9ca035c985a67e8d2951550e0e9c084",
+    "desktop-walk.png": "eafa117fceb65a72abb4cbc064b5a3fea339a4d0adc11c373f4e656505262c5b",
+    "driven-check.json": "a942e228ff84fd1711190e81f3caee5041a817257be5242b91d75dd1be01f62b",
+    "driven-check.log": "c3dcfb16ac6512a12c26534a85fbeab830ca290fa72850fa2df09733a891c6e3",
+    "dust-before-review.mp4": "ef60056d180f7c7d61686916ac873974df512b4e16182216cf3e19ff2d1b436b",
+    "dust-before.json": "56437987ba0c2f5d5fbd37db5d8bf4b3553ed9526a4e97e9fc7a0c295761e560",
+    "dust-camera-after.png": "4d56a9a45c1f9413842df6e719753d19a9a497d81104dd8460936f6e33072b07",
+    "dust-camera-before-after.jpg": "14cfe848c2d1511d5b3ba7ceae8439873f789cb544f73f1994aec16cbad98d79",
+    "dust-camera-before.png": "9606431732becb35ef6c7e9114acbaf67810b222689c1b33893938b4d3bd6f27",
+    "effects-poses.jpg": "e37e9617562e839a520bfc4085c47b015752893b831f457c181ce647f459e70d",
+    "effects-record.json": "31c26dcf81d25a4840bc341e3187a1497c311f0da56c728badf01bebccd88225",
+    "effects-review.mp4": "16de8f58c1061a94532b86150f0c82f872f6670df47f2600044de8cf2c208aaf",
+    "hand-rest-front.png": "72ad0b0fe37eb456d17ac9b0afc3e8591df326d3b8c00e32ffd8292c8a3c926d",
+    "hands-seam-closeout.jpg": "f4f9181e29b38967924b6441e7d374d734fe460ed63f51b057f95debc5882574",
+    "idle-clearance-after-front.png": "2f7291b80628d9bd9db5c271d153910851a1bf8299688e1d972b280aa006e330",
+    "idle-clearance-after-game.png": "c7a00b001cb84389d86fbb981e58117f59a9fcaecfee0382fb254b33b2be9a84",
+    "idle-clearance-after-side.png": "c1e1d236ad627ef4b58b8d2c1778470f52f1752fb53b3350c650f7efe6b5c379",
+    "idle-clearance-before-front.png": "8747b5926e2a28933ac81f4d16dd2406c0302bb53d5ce92d4a6f7a8b4768a99e",
+    "idle-clearance-before-game.png": "9437af50d3562d850848ada411257baea9a5879ac82bb8e5abcd5fecc2d0c5d6",
+    "idle-clearance-before-side.png": "d65ec0b66bc67d0fd5693cfdb4140253160f031901110202f60bc72dbaa363b9",
+    "idle-clearance-front-before-after.jpg": "f445094c9787007945c09171ef853ea37860a6623d8e887bd855f766db23123f",
+    "idle-clearance-game-before-after.jpg": "54e657233056e03d3b99d34727d8d4cd188f7c0f7448bab361edb78816e4b4c5",
+    "idle-clearance-side-before-after.jpg": "beba757d4622c1dbc0228221aae69e82ef5ca4a4ae2241211cf8eb36fea8c6a2",
+    "idle-rocking-before-after.mp4": "a82780f32971b94f8b9fa691f5870727a1c7b4027a8b97bf764dfd5a35850568",
+    "idle-rocking-capture.gd": "a96e1218322f242c51b58979c868df59266175f55de99fed790f7622a5a4ac69",
+    "idle-rocking-preview.json": "67984b8aee64c806da026d6ec7cb8ca37e7cc58274c958b93fef828802708859",
+    "idle-wrist-after.png": "1c6f9a15c3f08cca6b4ad26ea0e981820928bd555179cfcc6a5b7eece43e6400",
+    "idle-wrist-before-after.jpg": "af85626fe04c3e7e2dad912e45bc68d9274b1433fef910b28a4de95ef0fa5ebe",
+    "idle-wrist-before.log": "1e15669c219ba854f3273c64bf16d56bff58d9cac188b4309fead953876d3861",
+    "idle-wrist-before.png": "c23199699f29d8487d7b181d445cc50ee4518cfab3c1d27273510c90054cbb51",
+    "independent-geometry-check.json": "a338e1b3abab32ed463e363f4bc800ae8a48ad91ddcd6da205d05973be3480c0",
+    "index.html": "a813d928e2b5c90ae009d1df33ab19e70a1b2798b69f7f6b5af67a9355ce35e0",
+    "interactions.jpg": "7b4a1e6ddb620d0151b65025acc1384cf8cfce3756ee6a0b652b21108dae0aa6",
+    "interactions.mp4": "4591dd37727e080fcc1a8b4bb000d4bb550b4e29a5dfe0cc7288efd01f526736",
+    "jump-float-before-review.mp4": "0c9e2c1452061735fc707da348f9eba922a7a4628a8fab24f635a79e4639eb34",
+    "jump-front-key-poses.jpg": "1d2a7b7be553831e9de78112c74afc8e174a16ce3e7ed074ad1fee6738959ee7",
+    "jump-game-key-poses.jpg": "c6d31baa97cc3711bd1550604b4b2858ab29969b448dd2ece08ebbb962358b57",
+    "jump-pose-check.json": "4a63dbcbfa25bc342ef62861d19d333858b8ac48020585048e766c127effc275",
+    "jump-poses.jpg": "a10e320f56d7019327fd0274a7c9b856aa5e84e2aa0b5085acfc918210d9789e",
+    "jump-record.json": "1f6e415419e1a7db592da018a182f146fcb7a6c5e87c2b16ae578a37705d0485",
+    "jump-review.mp4": "9f6c4d5196bd7363b6a39bd7e6f9b316ba508dc0f265cc187856d772e9c15c59",
+    "jump-side-key-poses.jpg": "d7da6400b3af2e1181f8b8c14c680eb286d04af4b5a2ecad658e3eaa132b0b7f",
+    "landing-transition-before-after.jpg": "f36a87f0b5daf818ce8a3edf3ea4f93b3211ffaf9bf8d9ecf5c974f67040275b",
+    "landing-transition-before-after.mp4": "c7a9e2cfe8dbafac34d8e597a2828e5154c20ea04a0badfaab460ab1326da360",
+    "landing-transition-capture.gd": "f51f7374967e4d96e18a26a3da2516c1e8d766ed2b037792f5cbe4ae994ab6b4",
+    "landing-transition-check.json": "6cfeb506f15f580e42ef01dc991008bf1f2bfd62fd03da1d6be86f02551aaffb",
+    "landing-transition-record.gd": "07f7bf2220ef85df039b78ab12601f27094a85f7dad2b9e875601ce9e470b1de",
+    "moving-jump-capture.gd": "383b85c03e30cc68ce69f886e77e30c1bf39264255369ab67a9c961c2c252f81",
+    "moving-tool-jumps-side.jpg": "309a7ba05d1aac768402d3d2ab70c7caf39f64731a620155ac68c46513f1b2a9",
+    "moving-tool-jumps.json": "078a1a60a5cc67bb469009ef6959fcf1e9fece6aec4b7d4e30e6a4af3065349c",
+    "moving-tool-jumps.mp4": "55e8d432c302e342756eb7f82b36902d5a12c963a08497dec590ef191af1c9d4",
+    "native-blink.png": "065e0095e256e07ffb76cb35aefb6003c94b05b6284d20551d709369da1b1abe",
+    "native-face-half.png": "8b1b534dceb9716a5f8c1e4af11469f7a3b83327f592cb991d56646899bdf764",
+    "native-face-open.png": "ac43edc996b5ec44c3add83e598fa6406329c37e1f2eb1ea04ff3b39ab85431b",
+    "opus-r2-browser-repro.png": "6722ca3deab83e843a0ca51d98e496c3febbf71c9c203c46540272263ac07423",
+    "opus-r2-dash-lean-snap-half.png": "f5f60aaef2a15347a9032cc577ce8d7dec636d154c5f29376a38ed4a2800950e",
+    "opus-r2-net-clip.png": "c186c29bb014adce325c196f563c379318984de4008d82061ef2f520fc5ebe2e",
+    "opus-r2-seam-zoom.png": "d452923904784a138cdee3d67731bc46c8bbabf7b3ffdbc0ddc9517bb01f57c4",
+    "opus-r2-steer-collapse-half.png": "ed5674074663d6c9a07fc4e9bd03baa88bc36a3d4d118d0a22e5b86d8b59d832",
+    "opus-r3-axe-snap.png": "22c29bd45481b982a94676b97dbe67ae21f16c40f8c197b57d5fa6da8865bbab",
+    "opus-r4-idle-extremes.png": "42f2c1a433e9933fc4f1da0744d84dc7ba403326ed1200150c5518b26f98d67d",
+    "opus-r4-root-proof-steer-frames.png": "2235263ecae9551f1c2635349f93bc4cef94aaddd953af8f9d362ce403bfa302",
+    "opus-r4-steer-touchdown-pop.png": "d482c893ab170e5f03fd94507f97bc364f775eb79a63cefee4d6fd5ed56067aa",
+    "opus-r5-browser.png": "e2e69b2448967f374a85a471e822bec29f1c9a71d347ef4bb4d33a0c5e4e35a8",
+    "opus-r5-root-proof-steer-frames.png": "f6b93a62457cff54cf784f38db91c71ebc25905d07e88f719eb63d119b56d0a3",
+    "opus-r5-snap-sink.png": "5a636d68512590d59cad4b8fa470b81d245f73cf1c2bfb1d1a8d049ca648d9f2",
+    "opus-r5-steer-contact-fixed.png": "40b43c0bf97d7cff71584d77e565e1eec75f4bf7d07fef147e61dbfecc853867",
+    "opus-r6-shoe-depth.png": "a67cd837ffc3aab92d2dc9310eda41498ac67a4da9525835c54e09c0cbe4da71",
+    "opus-r7-film-binding.png": "a5e99af5387f7fb88854686e8ccfe395da3141f5e16a54bc94375686241da868",
+    "opus-r7-proof-sample.png": "618fc287f9ddaad8489792171474c5d753b4f767bfc2011a15c6c9775859ec14",
+    "opus-round1.md": "0c7650935ea445359fa03383aa72178b26f34d9c150aeb1e2db54f8599d5cdd6",
+    "opus-round2.md": "5e0575da5f1fa777fc1b97df89863ef2f253a3bdd19ceffae617678a24609181",
+    "opus-round3.md": "0ce31e65288354e594b9b81262d536e21e993c78b6fa001588ef4ca4203c221c",
+    "opus-round4.md": "9185230d84e581c5f71144639db864f05ba6f039ff71a92e9f576d965cd1f1d3",
+    "opus-round5.md": "c4d285719a457a742b64f312eff344bffbc50aed97c039b545c8edb14b7ea343",
+    "opus-round6.md": "210254db092233f8bb1be75513d169e26ff0f7a2aabd7623356b73afc7cd4289",
+    "opus-round7.md": "6501227f985a82ac77ea90b028227ccdf73980436d75cea8608f9866b5c946ee",
+    "phone-idle.png": "dfb10904f02e3f0d1f9f9593037b0984766540fc467caf05d260606662f29cea",
+    "phone-jump.png": "876fe135552191c08b1ec66d7efd52afba970eb129a59a4fc20874564d82b212",
+    "phone-sprint.png": "2cf579a218a4f87754b7eac7e8e72865f6d79c792d667a25051d5a643ff94cef",
+    "pose-axe-zoom-guides.jpg": "336693568f1d5727dd043e3bb182edec9ac88cb346d9b27c85eac4fceafe7494",
+    "pose-baseline-multiview.json": "a86013914c8e2f58582e10885f50eddd1265e72d37f38e78d74b2781dd1bab01",
+    "pose-baseline-multiview.mp4": "8825c940d93d676df2ce357ecf3c364c3211193a0ff796244f9d22d29ffdb0de",
+    "pose-before-after-multiview.mp4": "df5b3facf1799db23d3a1d1210725d586f81ef3300007e62eba89202d52b3859",
+    "pose-before.json": "8e788d0aaaf177afd4afc4b18a3bcec5a5ad2934da66e6e4b527a6ba61f259ed",
+    "pose-before.log": "683bb16d5eb23f0cb34e316296d5878d298c884b3e5a0c88a17106726044ac95",
+    "pose-candidate-multiview.json": "599faf64fc4ed8c5110715c458c57c7624bda41bf1d87b63468ac784f9f57790",
+    "pose-candidate-multiview.mp4": "c16918e8430090b4ae7649e4440ecf3e83d2183e3263b39a90d2d8ea37ae807e",
+    "pose-dash-zoom-guides.jpg": "9d189e7524cb7007e7d719877802beea9de2f6cb62391dcd08274480c3915125",
+    "pose-lower-zoom-guides.jpg": "6b147c52701605673cc1866e6d5d52424fa1f29ee55a6937059945598c321c1b",
+    "pose-net-zoom-guides.jpg": "2d213ffad67eb679444ae820698f68f563eda093d8832b283f0b1f3069da642b",
+    "pose-platform-zoom-guides.jpg": "99d53fb1e12408ea44dde21ec6d4eb3a8161f3bd35fcdc024366e805b59f773f",
+    "pose-review-capture.gd": "fb5357a415c21402e4ae6e863b2820a53dedeb9d3a3929fb47edabb13ea131b0",
+    "pose-round4-rejected.json": "3e5efedd974745247aa222aa5fd9d1772673f3ff6c3224d78572b5746d47743b",
+    "pose-round4-rejected.mp4": "abab86e80165d1a8986a1d915ad705c8301af602e0d46f881398f77282405ae3",
+    "pose-round5-approved.json": "984e66c9a7d3ca7ba542d81ac2c251bf4fc28e8231114489752837abcd444018",
+    "pose-round5-approved.mp4": "d786abfa20d14c2e5a6f1bd73d55575686141f9e08069a81818d0f8e2ca260d4",
+    "pose-round6-approved.json": "768c6c4a8ded29be6751665757c18143f7bc56ed033b8a628db5d08759b613f4",
+    "pose-round6-approved.mp4": "a899784ac1672519b86d6f879525602b733ae9a53784c7414c533b03eed8db36",
+    "pose-running-zoom-guides.jpg": "34692a584b02c791182c36b893d378c0985d86330185fa9273af1079334846cb",
+    "pose-standing-zoom-guides.jpg": "3cd64edb5501ef12e8d64771abe3477608ca9f066a2e47974878e2787210b7ed",
+    "pose-steer-zoom-guides.jpg": "fe4462c68cb3161de051317777b3619197e69078f1ba76bddc766ca80676f3eb",
+    "published-check.json": "3ccb9760acab69c3459f1de189ad99bda0d5436437ca2390a31ac541600ca6db",
+    "quality-check.json": "a36754226805e7fdd0349b1baff08f83baa8d90fb0d0147c97b2f1c6df026c3b",
+    "quality-check.log": "0f23fabf3ca354d42518b0842ec9de9003522789d057c284ed217b05161f3923",
+    "record.json": "42bc877cc50731c6026c0ebdbe6fd0ca3dd4122d22d33a305bfe4f00c8b519cc",
+    "registered-pose-poses.jpg": "d3194456ca8d56aaa8a0d97a4a555d9878ce48247adcc040efffff1a2d529eca",
+    "registered-pose.gif": "68d1d2d43a04346fc2a281b5be5e15670cdfec0ad4ab8ebafb3260bdb086bf4e",
+    "registered-pose.mp4": "26ed12e308347e58f7bee66d1f92c55b5dc61c3b4cfae06dbf7207dc8fa22da6",
+    "repository-check.log": "be9ea6c8aafd4cee67970e33b3c7bcae91ecf56183cc44ff4a9a8768109f32c3",
+    "secret-verification.json": "6284b62fb3544eca3122ce813ff1679909c7034b38a5932c59e795d6e4db4ce1",
+    "source-ground-start.jpg": "fce1fe7400e377fbc954816a5837f2bc834b47619bccfc9638a5fcd9b0e5ceff",
+    "source-ground-track.json": "fc08802a4296470efc7f00edea730bcfbdd1ac1e85d7d2a93e039160253631f1",
+    "storage.json": "d44e39f505a9bee242a5ceaea069e701335d282e2cd6dad5f300c78ff286fb3a",
+    "tool-clearance-check.json": "27ba0df21ca8313cec7352bf2469d9021d02f74d2b61dd2fd73b8163b879b8c9",
+    "verification.json": "ebba28a1e015a91eda51925c6e05106c1f99233db2df03098c36a81f6a7b6a5d",
+    "walk-alternative/comparison.json": "968fead8adc99ca384e8628c03b1ef2fc5368760571aec594fcac8510eb041d8",
+    "walk-alternative/record.json": "a6d7acb7c27fa73bc31cdb45bfe7c1d4e0322a79d5aa9f3509909b0b3b13ce5f",
+    "walk-alternative/registered-pose-poses.jpg": "eacdf312a3942aa009b077d21b0e4c78db61d2960ab7992098415ed9def28377",
+    "walk-alternative/registered-pose.gif": "e3dba4de109d90a6098206c2520d9762c597cd70241ea1a64a48c4a8560f1922",
+    "walk-alternative/registered-pose.mp4": "ab0febe08c07e4ea60103990290ee9342ddd3210fab7b072d6ed2153dbc65b40",
+    "walk-alternative/whole-view-poses.jpg": "903dc7a262c5acdd55e63fe9df5b897aed3081ae342ec8de3aa1bb0c9e7570d1",
+    "walk-alternative/whole-view.gif": "12d5df9e99d2cad51d45077caab0ed6cd0e51207ef158840ca7828a6cf831007",
+    "walk-alternative/whole-view.mp4": "ec261234361df1c6ef9ae7337f912e6091ee647cddbde7ef739cd92941f22236",
+    "whole-view-poses.jpg": "1b3a9f0262bb98000c03507fa1675f1117303a435f2b06eea48005650f506b30",
+    "whole-view.gif": "a730d228d66a226b9bfa46b97a2dfa998f8b5886012e899e2ed1a1b4a31553ac",
+    "whole-view.mp4": "dbb935bf901ead766c2c18dfc242f25ae6b5e3a854438e84b48a9a67ba6eca31",
+    "wrist-before.log": "984380314769a58263444ef8e49a9f133160badaefe10cabdc9d6e01d31e8ed6"
+  },
+  "appearance": {
+    "mean_material_color_error_255": 0.024972222222222222,
+    "maximum_blink_level_jump": 0.29600000000000004,
+    "distinct_blink_levels": 6,
+    "outside_face_changed_pixels": 0,
+    "closed_eye_blue_bleed_pixels": 0,
+    "native_render_compared_to_original_material": true,
+    "dust_visible_pixels": [
+      424,
+      20,
+      117,
+      722,
+      14,
+      1932,
+      118
+    ]
+  },
+  "quality": {
+    "arm_clearance": {
+      "body_triangles": 878,
+      "distal_vertices": 1347,
+      "interior_vertices": 0,
+      "maximum_penetration": 0.0,
+      "minimum_gap": 0.125611573457718,
+      "model_space_surface_hits": 2695
+    },
+    "audio": {
+      "Grass": {
+        "gain": 0.8,
+        "id": 16897,
+        "peak": 12450,
+        "samples": 2205,
+        "tail": 264
+      },
+      "Indoor": {
+        "gain": 0.72,
+        "id": 16900,
+        "peak": 12450,
+        "samples": 2866,
+        "tail": 115
+      },
+      "Leaves": {
+        "gain": 0.8,
+        "id": 16921,
+        "peak": 12450,
+        "samples": 3087,
+        "tail": 517
+      },
+      "Path": {
+        "gain": 0.8,
+        "id": 16898,
+        "peak": 12450,
+        "samples": 1764,
+        "tail": 102
+      },
+      "Sand": {
+        "gain": 0.8,
+        "id": 16904,
+        "peak": 12450,
+        "samples": 2646,
+        "tail": 101
+      },
+      "Snow": {
+        "gain": 0.8,
+        "id": 16922,
+        "peak": 12450,
+        "samples": 2866,
+        "tail": 206
+      },
+      "Water": {
+        "gain": 0.8,
+        "id": 16905,
+        "peak": 12450,
+        "samples": 3528,
+        "tail": 450
+      }
+    },
+    "contact_depth": {
+      "minimum_root_y": -7.45058059692383e-09
+    },
+    "exact_original_waveforms": false,
+    "idle_silent": true,
+    "jump_transition": {
+      "relative_wrist_error_degrees": 0.0395646811852521,
+      "updates": 100
+    },
+    "landing_continuity": [
+      {
+        "input_delay_ticks": 0,
+        "maximum_vertical_head_acceleration": 0.0303849577903748
+      },
+      {
+        "input_delay_ticks": 1,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      },
+      {
+        "input_delay_ticks": 2,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      },
+      {
+        "input_delay_ticks": 3,
+        "maximum_vertical_head_acceleration": 0.0328000783920288
+      },
+      {
+        "input_delay_ticks": 4,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      },
+      {
+        "input_delay_ticks": 5,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      },
+      {
+        "input_delay_ticks": 6,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      },
+      {
+        "input_delay_ticks": 7,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      },
+      {
+        "input_delay_ticks": 8,
+        "maximum_vertical_head_acceleration": 0.030234158039093
+      }
+    ],
+    "mixed_input": {
+      "apex": {
+        "descent_pose_monotonic": true,
+        "flat_hop_impact": 0.996296670701769,
+        "maximum_descent_land_hand_step": 0.0588730983436108,
+        "maximum_head_hips_step": 0.0326646938920021,
+        "maximum_landing_drop": 0.0363366603851318
+      },
+      "contact": {
+        "descent_pose_monotonic": true,
+        "flat_hop_impact": 0.996296670701769,
+        "maximum_descent_land_hand_step": 0.04603211581707,
+        "maximum_head_hips_step": 0.03038489818573,
+        "maximum_landing_drop": 0.026488184928894
+      },
+      "press": {
+        "descent_pose_monotonic": true,
+        "flat_hop_impact": 0.996296670701769,
+        "maximum_descent_land_hand_step": 0.064899243414402,
+        "maximum_head_hips_step": 0.0319299697875977,
+        "maximum_landing_drop": 0.0530286133289337
+      }
+    },
+    "moving_jump": {
+      "Axe": {
+        "first_update_palm_displacement": 0.00393364997580647,
+        "launch_tick": 0,
+        "maximum_horizontal_speed_change": 0.0,
+        "recovered_gait": "Run",
+        "updates": 100
+      },
+      "Net": {
+        "first_update_palm_displacement": 6.00685012841495e-08,
+        "launch_tick": 0,
+        "maximum_horizontal_speed_change": 0.0,
+        "recovered_gait": "Run",
+        "updates": 100
+      },
+      "None": {
+        "first_update_palm_displacement": 0.0,
+        "launch_tick": 0,
+        "maximum_horizontal_speed_change": 0.0,
+        "recovered_gait": "Run",
+        "updates": 100
+      }
+    },
+    "palms": {
+      "Left": {
+        "reach_m": 0.145000025629997,
+        "thumb_projection_m": 0.0500822961330414,
+        "vertices": 658
+      },
+      "Right": {
+        "reach_m": 0.14500729739666,
+        "thumb_projection_m": 0.0517358854413033,
+        "vertices": 543
+      }
+    },
+    "quieter_idle": {
+      "head": {
+        "current_range": 0.00822410583496103,
+        "ratio": 0.516489624210021,
+        "source_range": 0.015923080444336
+      },
+      "hip": {
+        "current_range": 0.00774635314941408,
+        "ratio": 0.500001231129858,
+        "source_range": 0.0154926681518555
+      }
+    },
+    "sprint_jump": {
+      "maximum_head_step": 0.0517012439668179,
+      "maximum_lean_step_degrees": 2.0000006248375
+    },
+    "stop_clearance": [
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.142297655344009,
+          "model_space_surface_hits": 1903
+        },
+        "gait": "walk",
+        "tick": 0
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.145660787820816,
+          "model_space_surface_hits": 1648
+        },
+        "gait": "walk",
+        "tick": 6
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.128909826278687,
+          "model_space_surface_hits": 2697
+        },
+        "gait": "walk",
+        "tick": 12
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.113010168075562,
+          "model_space_surface_hits": 2694
+        },
+        "gait": "walk",
+        "tick": 29
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.0948405861854553,
+          "model_space_surface_hits": 2862
+        },
+        "gait": "walk",
+        "tick": 45
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.137252390384674,
+          "model_space_surface_hits": 1966
+        },
+        "gait": "run",
+        "tick": 0
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.140503793954849,
+          "model_space_surface_hits": 2645
+        },
+        "gait": "run",
+        "tick": 6
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.140997886657715,
+          "model_space_surface_hits": 2753
+        },
+        "gait": "run",
+        "tick": 12
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.125198841094971,
+          "model_space_surface_hits": 2694
+        },
+        "gait": "run",
+        "tick": 29
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.0994037687778473,
+          "model_space_surface_hits": 2844
+        },
+        "gait": "run",
+        "tick": 45
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.200160950422287,
+          "model_space_surface_hits": 929
+        },
+        "gait": "dash",
+        "tick": 0
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.197253286838531,
+          "model_space_surface_hits": 1845
+        },
+        "gait": "dash",
+        "tick": 6
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.151551604270935,
+          "model_space_surface_hits": 2118
+        },
+        "gait": "dash",
+        "tick": 12
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.131602346897125,
+          "model_space_surface_hits": 2698
+        },
+        "gait": "dash",
+        "tick": 29
+      },
+      {
+        "clearance": {
+          "body_triangles": 878,
+          "distal_vertices": 1347,
+          "interior_vertices": 0,
+          "maximum_penetration": 0.0,
+          "minimum_gap": 0.113010168075562,
+          "model_space_surface_hits": 2694
+        },
+        "gait": "dash",
+        "tick": 45
+      }
+    ],
+    "tool_clearance": {
+      "Axe": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.0397080779075623,
+        "model_space_surface_hits": 1973
+      },
+      "Net": {
+        "body_triangles": 878,
+        "distal_vertices": 1347,
+        "interior_vertices": 0,
+        "maximum_penetration": 0.0,
+        "minimum_gap": 0.128115892410278,
+        "model_space_surface_hits": 1496
+      }
+    },
+    "transitions": {
+      "Axe": {
+        "relative_wrist_error_degrees": 0.0,
+        "settled_base_arm_error_degrees": 0.0,
+        "states": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Dash",
+          "Skid"
+        ],
+        "updates": 150
+      },
+      "Net": {
+        "relative_wrist_error_degrees": 0.0395646811852521,
+        "settled_base_arm_error_degrees": 0.0,
+        "states": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Dash",
+          "Skid"
+        ],
+        "updates": 150
+      },
+      "None": {
+        "relative_wrist_error_degrees": 0.0,
+        "settled_base_arm_error_degrees": 0.0395646811852521,
+        "states": [
+          "Idle",
+          "Walk",
+          "Run",
+          "Dash",
+          "Skid"
+        ],
+        "updates": 150
+      }
+    },
+    "wrists": {
+      "dash": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      },
+      "idle": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      },
+      "jump": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      },
+      "run": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      },
+      "skid": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      },
+      "walk": {
+        "relative_wrist_error_degrees": 0.0,
+        "samples": 65
+      }
+    }
+  },
+  "audio": {
+    "provider": "local deterministic Godot synthesis",
+    "source": "live-demo/sound.gd",
+    "cost_usd": 0,
+    "exact_original_waveforms": false,
+    "voice_ambience_reverb_implemented": false,
+    "research": "docs/research/character-jump-effects-2026-10-01.md",
+    "reference_receipt_sha256": "016df3ec6e053561055f7e0ee3a787ef378b72a82f28de1be0503a43c5607236",
+    "audition_order": [
+      "grass",
+      "path",
+      "snow",
+      "sand",
+      "water",
+      "leaves",
+      "indoor",
+      "skid"
+    ],
+    "decoded_bank_lead": "audio-reference/decoded-bank-lead.json",
+    "decoded_bank_cues_identified": false,
+    "instrument_tuning_available": false,
+    "new_original_audio_bytes": 0,
+    "before_current_original_audition_in_gallery": true
+  },
+  "blink_review": {
+    "file": "blink-slow-review.gif",
+    "native_update_hz": 60,
+    "gif_review_speed": "about one-quarter native speed"
+  },
+  "storage": {
+    "removed_own_regenerable_bytes": 829085130,
+    "removed_own_trial_exports": [
+      "094e9d943dbb",
+      "51f7e3723fd0",
+      "a47f12766a71",
+      "c5a0b73d91cf",
+      "d242dc979a1b",
+      "2305156c76fc",
+      "4354e3661fa2",
+      "629d04564b40",
+      "7223ba1ba1c4"
+    ],
+    "removed_final_raw_frame_count": 462,
+    "retained_final_build": "d0a45b4e85fe",
+    "retained_share": "https://windows-wsl.taile06c45.ts.net/character-walk-01a0f3a2/",
+    "reference_audio_bytes": 68528,
+    "new_decoded_bank_audio_bytes": 0,
+    "source_provider_files_deleted": false
+  },
+  "evidence_url": "https://windows-wsl.taile06c45.ts.net/character-evidence-01a0f3a2/",
+  "starting_repo_commit": "4ca9358b9ff60cebe3d78c1659d0bd5a89ab05bb",
+  "jump": {
+    "implementation": "native Godot skeletal animation and physics-selected phases",
+    "authored_addition": true,
+    "anticipation_seconds": 0.05,
+    "landing_recovery_seconds": 0.23,
+    "launch_speed_units_per_second": 3.6,
+    "gravity": 9.8,
+    "poses": {
+      "airborne_ankle_lift": 0.0331002473831177,
+      "arm_drive": 0.374213635921478,
+      "contact_tick": 45,
+      "grounded_compression": 0.0278300046920776,
+      "jump_audio": [
+        {
+          "bank": "Jump",
+          "gain": 0.7,
+          "id": -1,
+          "jump_time": 0.05,
+          "pitch": 1.0,
+          "stage": "Ascend",
+          "surface": "Path",
+          "variant": 1
+        },
+        {
+          "bank": "Landing",
+          "gain": 0.996296670701769,
+          "id": -1,
+          "jump_time": 0.766666666666667,
+          "pitch": 1.0,
+          "stage": "Land",
+          "surface": "Path",
+          "variant": 1
+        }
+      ],
+      "knee_forward_of_ankle": 0.0,
+      "landing_compression": 0.062469472642988,
+      "maximum_bone_step": 0.0436992235481739,
+      "maximum_planted_root_correction": 5.72217686567456e-08,
+      "planted_horizontal_drift": 4.84287738800049e-08,
+      "stages": [
+        "Anticipate",
+        "Ascend",
+        "Descend",
+        "Land",
+        "Ground"
+      ],
+      "trace": [
+        {
+          "ankle_y": 0.0987756699323654,
+          "arm_displacement": 0.0278297960758209,
+          "body_y": 0.0,
+          "clip_time": 0.0366666666666667,
+          "floor": true,
+          "pelvis_y": 0.494214951992035,
+          "phase": "Anticipate",
+          "tick": 0,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.09877560287714,
+          "arm_displacement": 0.0314210318028927,
+          "body_y": 0.0,
+          "clip_time": 0.0733333333333333,
+          "floor": true,
+          "pelvis_y": 0.49421489238739,
+          "phase": "Anticipate",
+          "tick": 1,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988928116858006,
+          "arm_displacement": 0.0313269719481468,
+          "body_y": 0.058104645460844,
+          "clip_time": 0.0166666666666667,
+          "floor": false,
+          "pelvis_y": 0.494332063943148,
+          "phase": "Ascend",
+          "tick": 2,
+          "velocity_y": 3.43666648864746
+        },
+        {
+          "ankle_y": 0.0987381339073181,
+          "arm_displacement": 0.0177719090133905,
+          "body_y": 0.112660199403763,
+          "clip_time": 0.0272222439448039,
+          "floor": false,
+          "pelvis_y": 0.502765983343124,
+          "phase": "Ascend",
+          "tick": 3,
+          "velocity_y": 3.27333307266235
+        },
+        {
+          "ankle_y": 0.0993154048919678,
+          "arm_displacement": 0.0462067909538746,
+          "body_y": 0.164493530988693,
+          "clip_time": 0.0408333619435628,
+          "floor": false,
+          "pelvis_y": 0.511190086603165,
+          "phase": "Ascend",
+          "tick": 4,
+          "velocity_y": 3.10999965667725
+        },
+        {
+          "ankle_y": 0.100665986537933,
+          "arm_displacement": 0.0806088894605637,
+          "body_y": 0.213604629039764,
+          "clip_time": 0.0544444799423218,
+          "floor": false,
+          "pelvis_y": 0.519608199596405,
+          "phase": "Ascend",
+          "tick": 5,
+          "velocity_y": 2.94666624069214
+        },
+        {
+          "ankle_y": 0.10282164812088,
+          "arm_displacement": 0.115966469049454,
+          "body_y": 0.259993523359299,
+          "clip_time": 0.0680555979410808,
+          "floor": false,
+          "pelvis_y": 0.528024047613144,
+          "phase": "Ascend",
+          "tick": 6,
+          "velocity_y": 2.78333282470703
+        },
+        {
+          "ankle_y": 0.105805426836014,
+          "arm_displacement": 0.151698470115662,
+          "body_y": 0.303660184144974,
+          "clip_time": 0.0816667159398397,
+          "floor": false,
+          "pelvis_y": 0.536441415548325,
+          "phase": "Ascend",
+          "tick": 7,
+          "velocity_y": 2.61999940872192
+        },
+        {
+          "ankle_y": 0.109632015228271,
+          "arm_displacement": 0.18760173022747,
+          "body_y": 0.34460461139679,
+          "clip_time": 0.0952778339385986,
+          "floor": false,
+          "pelvis_y": 0.544864058494568,
+          "phase": "Ascend",
+          "tick": 8,
+          "velocity_y": 2.45666599273682
+        },
+        {
+          "ankle_y": 0.114309191703796,
+          "arm_displacement": 0.223543301224709,
+          "body_y": 0.382826834917068,
+          "clip_time": 0.108888951937358,
+          "floor": false,
+          "pelvis_y": 0.553295761346817,
+          "phase": "Ascend",
+          "tick": 9,
+          "velocity_y": 2.29333257675171
+        },
+        {
+          "ankle_y": 0.119834929704666,
+          "arm_displacement": 0.259398341178894,
+          "body_y": 0.418326824903488,
+          "clip_time": 0.122500069936117,
+          "floor": false,
+          "pelvis_y": 0.561735540628433,
+          "phase": "Ascend",
+          "tick": 10,
+          "velocity_y": 2.1299991607666
+        },
+        {
+          "ankle_y": 0.126195788383484,
+          "arm_displacement": 0.295033127069473,
+          "body_y": 0.451104581356049,
+          "clip_time": 0.136111178000768,
+          "floor": false,
+          "pelvis_y": 0.57017570734024,
+          "phase": "Ascend",
+          "tick": 11,
+          "velocity_y": 1.96666586399078
+        },
+        {
+          "ankle_y": 0.13188037276268,
+          "arm_displacement": 0.324201285839081,
+          "body_y": 0.481160134077072,
+          "clip_time": 0.14972228606542,
+          "floor": false,
+          "pelvis_y": 0.576926738023758,
+          "phase": "Ascend",
+          "tick": 12,
+          "velocity_y": 1.80333256721497
+        },
+        {
+          "ankle_y": 0.131881237030029,
+          "arm_displacement": 0.328783452510834,
+          "body_y": 0.508493483066559,
+          "clip_time": 0.163333394130071,
+          "floor": false,
+          "pelvis_y": 0.576927721500397,
+          "phase": "Ascend",
+          "tick": 13,
+          "velocity_y": 1.63999927043915
+        },
+        {
+          "ankle_y": 0.131881177425385,
+          "arm_displacement": 0.333359688520432,
+          "body_y": 0.533104598522186,
+          "clip_time": 0.176944502194722,
+          "floor": false,
+          "pelvis_y": 0.576927721500397,
+          "phase": "Ascend",
+          "tick": 14,
+          "velocity_y": 1.47666597366333
+        },
+        {
+          "ankle_y": 0.131881177425385,
+          "arm_displacement": 0.337932020425797,
+          "body_y": 0.554993450641632,
+          "clip_time": 0.190555610259374,
+          "floor": false,
+          "pelvis_y": 0.576927721500397,
+          "phase": "Ascend",
+          "tick": 15,
+          "velocity_y": 1.31333267688751
+        },
+        {
+          "ankle_y": 0.131881177425385,
+          "arm_displacement": 0.342499285936356,
+          "body_y": 0.574160099029541,
+          "clip_time": 0.204166718324025,
+          "floor": false,
+          "pelvis_y": 0.576927661895752,
+          "phase": "Ascend",
+          "tick": 16,
+          "velocity_y": 1.14999938011169
+        },
+        {
+          "ankle_y": 0.131881237030029,
+          "arm_displacement": 0.3470598757267,
+          "body_y": 0.590604543685913,
+          "clip_time": 0.217777831355731,
+          "floor": false,
+          "pelvis_y": 0.576927661895752,
+          "phase": "Ascend",
+          "tick": 17,
+          "velocity_y": 0.986666023731232
+        },
+        {
+          "ankle_y": 0.131881296634674,
+          "arm_displacement": 0.351612329483032,
+          "body_y": 0.604326784610748,
+          "clip_time": 0.231388944387436,
+          "floor": false,
+          "pelvis_y": 0.576927721500397,
+          "phase": "Ascend",
+          "tick": 18,
+          "velocity_y": 0.823332667350769
+        },
+        {
+          "ankle_y": 0.131881237030029,
+          "arm_displacement": 0.356155633926392,
+          "body_y": 0.615326762199402,
+          "clip_time": 0.245000057419141,
+          "floor": false,
+          "pelvis_y": 0.576927781105042,
+          "phase": "Ascend",
+          "tick": 19,
+          "velocity_y": 0.659999310970306
+        },
+        {
+          "ankle_y": 0.131881237030029,
+          "arm_displacement": 0.360688656568527,
+          "body_y": 0.623604536056519,
+          "clip_time": 0.258611167967319,
+          "floor": false,
+          "pelvis_y": 0.576927661895752,
+          "phase": "Ascend",
+          "tick": 20,
+          "velocity_y": 0.496665984392166
+        },
+        {
+          "ankle_y": 0.131881296634674,
+          "arm_displacement": 0.365210086107254,
+          "body_y": 0.629160106182098,
+          "clip_time": 0.272222278515498,
+          "floor": false,
+          "pelvis_y": 0.576927721500397,
+          "phase": "Ascend",
+          "tick": 21,
+          "velocity_y": 0.333332657814026
+        },
+        {
+          "ankle_y": 0.131881237030029,
+          "arm_displacement": 0.369718760251999,
+          "body_y": 0.631993412971497,
+          "clip_time": 0.285833389063676,
+          "floor": false,
+          "pelvis_y": 0.576927781105042,
+          "phase": "Ascend",
+          "tick": 22,
+          "velocity_y": 0.169999331235886
+        },
+        {
+          "ankle_y": 0.131881237030029,
+          "arm_displacement": 0.374213635921478,
+          "body_y": 0.632104516029358,
+          "clip_time": 0.299444500193931,
+          "floor": false,
+          "pelvis_y": 0.576927781105042,
+          "phase": "Ascend",
+          "tick": 23,
+          "velocity_y": 0.00666599767282605
+        },
+        {
+          "ankle_y": 0.131399095058441,
+          "arm_displacement": 0.36487340927124,
+          "body_y": 0.629493415355682,
+          "clip_time": 0.313055611401796,
+          "floor": false,
+          "pelvis_y": 0.576274931430817,
+          "phase": "Descend",
+          "tick": 24,
+          "velocity_y": -0.156667336821556
+        },
+        {
+          "ankle_y": 0.130928814411163,
+          "arm_displacement": 0.354944050312042,
+          "body_y": 0.624160051345825,
+          "clip_time": 0.326666723191738,
+          "floor": false,
+          "pelvis_y": 0.575594425201416,
+          "phase": "Descend",
+          "tick": 25,
+          "velocity_y": -0.320000678300858
+        },
+        {
+          "ankle_y": 0.130491435527802,
+          "arm_displacement": 0.345021218061447,
+          "body_y": 0.616104483604431,
+          "clip_time": 0.340277833739916,
+          "floor": false,
+          "pelvis_y": 0.574913859367371,
+          "phase": "Descend",
+          "tick": 26,
+          "velocity_y": -0.483334004878998
+        },
+        {
+          "ankle_y": 0.13008713722229,
+          "arm_displacement": 0.335112303495407,
+          "body_y": 0.6053267121315,
+          "clip_time": 0.353888946771622,
+          "floor": false,
+          "pelvis_y": 0.57423323392868,
+          "phase": "Descend",
+          "tick": 27,
+          "velocity_y": -0.64666736125946
+        },
+        {
+          "ankle_y": 0.129715502262115,
+          "arm_displacement": 0.325225561857224,
+          "body_y": 0.591826677322388,
+          "clip_time": 0.367500059803327,
+          "floor": false,
+          "pelvis_y": 0.57355260848999,
+          "phase": "Descend",
+          "tick": 28,
+          "velocity_y": -0.810000717639923
+        },
+        {
+          "ankle_y": 0.129377007484436,
+          "arm_displacement": 0.315370261669159,
+          "body_y": 0.575604438781738,
+          "clip_time": 0.381111172835032,
+          "floor": false,
+          "pelvis_y": 0.572872161865234,
+          "phase": "Descend",
+          "tick": 29,
+          "velocity_y": -0.973334074020386
+        },
+        {
+          "ankle_y": 0.129071295261383,
+          "arm_displacement": 0.305555760860443,
+          "body_y": 0.556659996509552,
+          "clip_time": 0.394722280899684,
+          "floor": false,
+          "pelvis_y": 0.572191655635834,
+          "phase": "Descend",
+          "tick": 30,
+          "velocity_y": -1.1366673707962
+        },
+        {
+          "ankle_y": 0.128798484802246,
+          "arm_displacement": 0.295792788267136,
+          "body_y": 0.534993290901184,
+          "clip_time": 0.408333388964335,
+          "floor": false,
+          "pelvis_y": 0.571511030197144,
+          "phase": "Descend",
+          "tick": 31,
+          "velocity_y": -1.30000066757202
+        },
+        {
+          "ankle_y": 0.128558456897736,
+          "arm_displacement": 0.286092966794968,
+          "body_y": 0.510604381561279,
+          "clip_time": 0.421944497028987,
+          "floor": false,
+          "pelvis_y": 0.570830464363098,
+          "phase": "Descend",
+          "tick": 32,
+          "velocity_y": -1.46333396434784
+        },
+        {
+          "ankle_y": 0.128351151943207,
+          "arm_displacement": 0.276469498872757,
+          "body_y": 0.483493268489838,
+          "clip_time": 0.435555605093638,
+          "floor": false,
+          "pelvis_y": 0.570149958133698,
+          "phase": "Descend",
+          "tick": 33,
+          "velocity_y": -1.62666726112366
+        },
+        {
+          "ankle_y": 0.128176420927048,
+          "arm_displacement": 0.266936361789703,
+          "body_y": 0.453659921884537,
+          "clip_time": 0.44916671315829,
+          "floor": false,
+          "pelvis_y": 0.569469422101974,
+          "phase": "Descend",
+          "tick": 34,
+          "velocity_y": -1.79000055789948
+        },
+        {
+          "ankle_y": 0.128034710884094,
+          "arm_displacement": 0.257509291172028,
+          "body_y": 0.421104371547699,
+          "clip_time": 0.462777821222941,
+          "floor": false,
+          "pelvis_y": 0.568788826465607,
+          "phase": "Descend",
+          "tick": 35,
+          "velocity_y": -1.95333385467529
+        },
+        {
+          "ankle_y": 0.127925455570221,
+          "arm_displacement": 0.248206317424774,
+          "body_y": 0.385826587677002,
+          "clip_time": 0.4763889392217,
+          "floor": false,
+          "pelvis_y": 0.568108260631561,
+          "phase": "Descend",
+          "tick": 36,
+          "velocity_y": -2.1166672706604
+        },
+        {
+          "ankle_y": 0.127848714590073,
+          "arm_displacement": 0.239046841859818,
+          "body_y": 0.347826570272446,
+          "clip_time": 0.490000057220459,
+          "floor": false,
+          "pelvis_y": 0.567427664995193,
+          "phase": "Descend",
+          "tick": 37,
+          "velocity_y": -2.28000068664551
+        },
+        {
+          "ankle_y": 0.127804607152939,
+          "arm_displacement": 0.230053573846817,
+          "body_y": 0.307104349136353,
+          "clip_time": 0.503611175219218,
+          "floor": false,
+          "pelvis_y": 0.56674712896347,
+          "phase": "Descend",
+          "tick": 38,
+          "velocity_y": -2.44333410263062
+        },
+        {
+          "ankle_y": 0.12779301404953,
+          "arm_displacement": 0.221250981092453,
+          "body_y": 0.2636598944664,
+          "clip_time": 0.517222293217977,
+          "floor": false,
+          "pelvis_y": 0.566066563129425,
+          "phase": "Descend",
+          "tick": 39,
+          "velocity_y": -2.60666751861572
+        },
+        {
+          "ankle_y": 0.127813786268234,
+          "arm_displacement": 0.212667554616928,
+          "body_y": 0.217493206262589,
+          "clip_time": 0.530833411216736,
+          "floor": false,
+          "pelvis_y": 0.565386027097702,
+          "phase": "Descend",
+          "tick": 40,
+          "velocity_y": -2.77000093460083
+        },
+        {
+          "ankle_y": 0.127866998314857,
+          "arm_displacement": 0.204334422945976,
+          "body_y": 0.168604299426079,
+          "clip_time": 0.544444529215495,
+          "floor": false,
+          "pelvis_y": 0.56470550596714,
+          "phase": "Descend",
+          "tick": 41,
+          "velocity_y": -2.93333435058594
+        },
+        {
+          "ankle_y": 0.127952419221401,
+          "arm_displacement": 0.196287408471107,
+          "body_y": 0.11699316650629,
+          "clip_time": 0.558055647214254,
+          "floor": false,
+          "pelvis_y": 0.564024947583675,
+          "phase": "Descend",
+          "tick": 42,
+          "velocity_y": -3.09666776657104
+        },
+        {
+          "ankle_y": 0.128070205450058,
+          "arm_displacement": 0.188566088676453,
+          "body_y": 0.062659814953804,
+          "clip_time": 0.571666765213013,
+          "floor": false,
+          "pelvis_y": 0.563344344496727,
+          "phase": "Descend",
+          "tick": 43,
+          "velocity_y": -3.26000118255615
+        },
+        {
+          "ankle_y": 0.128220085054636,
+          "arm_displacement": 0.18121474981308,
+          "body_y": 0.00560423359274864,
+          "clip_time": 0.585277883211772,
+          "floor": false,
+          "pelvis_y": 0.562663827091455,
+          "phase": "Descend",
+          "tick": 44,
+          "velocity_y": -3.42333459854126
+        },
+        {
+          "ankle_y": 0.0987756424583495,
+          "arm_displacement": 0.155110538005829,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0166666666666667,
+          "floor": true,
+          "pelvis_y": 0.532278994563967,
+          "phase": "Land",
+          "tick": 45,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756722606719,
+          "arm_displacement": 0.147097051143646,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0333333333333333,
+          "floor": true,
+          "pelvis_y": 0.532278994563967,
+          "phase": "Land",
+          "tick": 46,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756275571883,
+          "arm_displacement": 0.124388985335827,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.05,
+          "floor": true,
+          "pelvis_y": 0.512323717121035,
+          "phase": "Land",
+          "tick": 47,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756648100913,
+          "arm_displacement": 0.0986172556877136,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0666666666666667,
+          "floor": true,
+          "pelvis_y": 0.479097733739763,
+          "phase": "Land",
+          "tick": 48,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756499089301,
+          "arm_displacement": 0.087548166513443,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0833333333333333,
+          "floor": true,
+          "pelvis_y": 0.461357871536165,
+          "phase": "Land",
+          "tick": 49,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756424583495,
+          "arm_displacement": 0.0860232636332512,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.1,
+          "floor": true,
+          "pelvis_y": 0.45957542443648,
+          "phase": "Land",
+          "tick": 50,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756350077689,
+          "arm_displacement": 0.0860002860426903,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.116666666666667,
+          "floor": true,
+          "pelvis_y": 0.462045828346163,
+          "phase": "Land",
+          "tick": 51,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756424583495,
+          "arm_displacement": 0.0860498920083046,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.133333333333333,
+          "floor": true,
+          "pelvis_y": 0.467677513603121,
+          "phase": "Land",
+          "tick": 52,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756424583495,
+          "arm_displacement": 0.085286058485508,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.15,
+          "floor": true,
+          "pelvis_y": 0.475384125951678,
+          "phase": "Land",
+          "tick": 53,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756350077689,
+          "arm_displacement": 0.0851764306426048,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.166666666666667,
+          "floor": true,
+          "pelvis_y": 0.484079311136156,
+          "phase": "Land",
+          "tick": 54,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756797112525,
+          "arm_displacement": 0.086107537150383,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.183333333333333,
+          "floor": true,
+          "pelvis_y": 0.493508646730334,
+          "phase": "Land",
+          "tick": 55,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756499089301,
+          "arm_displacement": 0.0813648030161858,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.2,
+          "floor": true,
+          "pelvis_y": 0.505078236106783,
+          "phase": "Land",
+          "tick": 56,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756722606719,
+          "arm_displacement": 0.0766055956482887,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.216666666666667,
+          "floor": true,
+          "pelvis_y": 0.51437775278464,
+          "phase": "Land",
+          "tick": 57,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756201066077,
+          "arm_displacement": 0.0726437121629715,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.23,
+          "floor": true,
+          "pelvis_y": 0.520320455078036,
+          "phase": "Land",
+          "tick": 58,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987756350077689,
+          "arm_displacement": 0.0726437270641327,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0166666666666667,
+          "floor": true,
+          "pelvis_y": 0.520320455078036,
+          "phase": "Ground",
+          "tick": 59,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987532609142363,
+          "arm_displacement": 0.0733745619654655,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0333333333333333,
+          "floor": true,
+          "pelvis_y": 0.520527342800051,
+          "phase": "Ground",
+          "tick": 60,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987337180413306,
+          "arm_displacement": 0.0746248140931129,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.05,
+          "floor": true,
+          "pelvis_y": 0.52090177917853,
+          "phase": "Ground",
+          "tick": 61,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.098719994071871,
+          "arm_displacement": 0.0762695893645287,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0666666666666667,
+          "floor": true,
+          "pelvis_y": 0.521454791072756,
+          "phase": "Ground",
+          "tick": 62,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987081103958189,
+          "arm_displacement": 0.0780550912022591,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.0833333333333333,
+          "floor": true,
+          "pelvis_y": 0.522308985237032,
+          "phase": "Ground",
+          "tick": 63,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987053983844817,
+          "arm_displacement": 0.0798390060663223,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.1,
+          "floor": true,
+          "pelvis_y": 0.523426214698702,
+          "phase": "Ground",
+          "tick": 64,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987113588489592,
+          "arm_displacement": 0.0815415233373642,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.116666666666667,
+          "floor": true,
+          "pelvis_y": 0.524815122131258,
+          "phase": "Ground",
+          "tick": 65,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987270348705351,
+          "arm_displacement": 0.0828187242150307,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.133333333333333,
+          "floor": true,
+          "pelvis_y": 0.526727358344942,
+          "phase": "Ground",
+          "tick": 66,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987588637508452,
+          "arm_displacement": 0.0839159265160561,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.15,
+          "floor": true,
+          "pelvis_y": 0.529037217143923,
+          "phase": "Ground",
+          "tick": 67,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988099449314177,
+          "arm_displacement": 0.0840870067477226,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.166666666666667,
+          "floor": true,
+          "pelvis_y": 0.531082550529391,
+          "phase": "Ground",
+          "tick": 68,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.098813618067652,
+          "arm_displacement": 0.0822357013821602,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.183333333333333,
+          "floor": true,
+          "pelvis_y": 0.531068424228579,
+          "phase": "Ground",
+          "tick": 69,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988148325122893,
+          "arm_displacement": 0.0796152427792549,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.2,
+          "floor": true,
+          "pelvis_y": 0.531027058605105,
+          "phase": "Ground",
+          "tick": 70,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988169559277594,
+          "arm_displacement": 0.0772685632109642,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.216666666666667,
+          "floor": true,
+          "pelvis_y": 0.531001249793917,
+          "phase": "Ground",
+          "tick": 71,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988191687501967,
+          "arm_displacement": 0.0742091685533524,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.233333333333333,
+          "floor": true,
+          "pelvis_y": 0.530984322074801,
+          "phase": "Ground",
+          "tick": 72,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.098819995764643,
+          "arm_displacement": 0.0710937678813934,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.25,
+          "floor": true,
+          "pelvis_y": 0.530976990703493,
+          "phase": "Ground",
+          "tick": 73,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988206141628325,
+          "arm_displacement": 0.0676432624459267,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.266666666666667,
+          "floor": true,
+          "pelvis_y": 0.530982235912234,
+          "phase": "Ground",
+          "tick": 74,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988222011364996,
+          "arm_displacement": 0.0643016472458839,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.283333333333333,
+          "floor": true,
+          "pelvis_y": 0.531003276351839,
+          "phase": "Ground",
+          "tick": 75,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.098822230938822,
+          "arm_displacement": 0.0607672147452831,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.3,
+          "floor": true,
+          "pelvis_y": 0.53103373432532,
+          "phase": "Ground",
+          "tick": 76,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988221564330161,
+          "arm_displacement": 0.056930173188448,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.316666666666667,
+          "floor": true,
+          "pelvis_y": 0.531063596252352,
+          "phase": "Ground",
+          "tick": 77,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988218211568892,
+          "arm_displacement": 0.052787970751524,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.333333333333333,
+          "floor": true,
+          "pelvis_y": 0.531082908157259,
+          "phase": "Ground",
+          "tick": 78,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988212847150862,
+          "arm_displacement": 0.0488617606461048,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.35,
+          "floor": true,
+          "pelvis_y": 0.531122366432101,
+          "phase": "Ground",
+          "tick": 79,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988208153285086,
+          "arm_displacement": 0.0446012802422047,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.366666666666667,
+          "floor": true,
+          "pelvis_y": 0.531148532871157,
+          "phase": "Ground",
+          "tick": 80,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988137223757803,
+          "arm_displacement": 0.0399588905274868,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.383333333333333,
+          "floor": true,
+          "pelvis_y": 0.530180553440005,
+          "phase": "Ground",
+          "tick": 81,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988040366210043,
+          "arm_displacement": 0.0351758301258087,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.4,
+          "floor": true,
+          "pelvis_y": 0.528614560607821,
+          "phase": "Ground",
+          "tick": 82,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987960644997656,
+          "arm_displacement": 0.0307832434773445,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.416666666666667,
+          "floor": true,
+          "pelvis_y": 0.527167240623385,
+          "phase": "Ground",
+          "tick": 83,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987906404770911,
+          "arm_displacement": 0.0261163096874952,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.433333333333333,
+          "floor": true,
+          "pelvis_y": 0.526066700462252,
+          "phase": "Ground",
+          "tick": 84,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987860509194434,
+          "arm_displacement": 0.0211862288415432,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.45,
+          "floor": true,
+          "pelvis_y": 0.525015512946993,
+          "phase": "Ground",
+          "tick": 85,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987828918732703,
+          "arm_displacement": 0.016897851601243,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.466666666666667,
+          "floor": true,
+          "pelvis_y": 0.523994306568056,
+          "phase": "Ground",
+          "tick": 86,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987833985127509,
+          "arm_displacement": 0.0123912179842591,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.483333333333333,
+          "floor": true,
+          "pelvis_y": 0.523253778461367,
+          "phase": "Ground",
+          "tick": 87,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.098782601300627,
+          "arm_displacement": 0.00783637259155512,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.5,
+          "floor": true,
+          "pelvis_y": 0.522525648120791,
+          "phase": "Ground",
+          "tick": 88,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987819083966315,
+          "arm_displacement": 0.00393414637073874,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.516666666666667,
+          "floor": true,
+          "pelvis_y": 0.522282163146883,
+          "phase": "Ground",
+          "tick": 89,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987810962833464,
+          "arm_displacement": 6.87162113877093e-08,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.533333333333333,
+          "floor": true,
+          "pelvis_y": 0.522044877056032,
+          "phase": "Ground",
+          "tick": 90,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987819754518569,
+          "arm_displacement": 0.00365464296191931,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.55,
+          "floor": true,
+          "pelvis_y": 0.522281686309725,
+          "phase": "Ground",
+          "tick": 91,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987825938500464,
+          "arm_displacement": 0.0071717407554388,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.566666666666667,
+          "floor": true,
+          "pelvis_y": 0.522525230888277,
+          "phase": "Ground",
+          "tick": 92,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987833165563643,
+          "arm_displacement": 0.0106094926595688,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.583333333333333,
+          "floor": true,
+          "pelvis_y": 0.523252049926668,
+          "phase": "Ground",
+          "tick": 93,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987824299372733,
+          "arm_displacement": 0.0133704412728548,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.6,
+          "floor": true,
+          "pelvis_y": 0.523992339614779,
+          "phase": "Ground",
+          "tick": 94,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987848290242255,
+          "arm_displacement": 0.0161601193249226,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.616666666666667,
+          "floor": true,
+          "pelvis_y": 0.525012413505465,
+          "phase": "Ground",
+          "tick": 95,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987877422012389,
+          "arm_displacement": 0.0180562641471624,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.633333333333334,
+          "floor": true,
+          "pelvis_y": 0.526060501579195,
+          "phase": "Ground",
+          "tick": 96,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987919592298567,
+          "arm_displacement": 0.0202445611357689,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.65,
+          "floor": true,
+          "pelvis_y": 0.527160684112459,
+          "phase": "Ground",
+          "tick": 97,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0987969138659537,
+          "arm_displacement": 0.0214998703449965,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.666666666666667,
+          "floor": true,
+          "pelvis_y": 0.528605858329684,
+          "phase": "Ground",
+          "tick": 98,
+          "velocity_y": 0.0
+        },
+        {
+          "ankle_y": 0.0988040589727461,
+          "arm_displacement": 0.0225447118282318,
+          "body_y": 4.65116463601589e-05,
+          "clip_time": 0.683333333333334,
+          "floor": true,
+          "pelvis_y": 0.530172864440829,
+          "phase": "Ground",
+          "tick": 99,
+          "velocity_y": 0.0
+        }
+      ]
+    },
+    "moving_and_tools": {
+      "Axe": {
+        "first_update_palm_displacement": 0.00393364997580647,
+        "launch_tick": 0,
+        "maximum_horizontal_speed_change": 0.0,
+        "recovered_gait": "Run",
+        "updates": 100
+      },
+      "Net": {
+        "first_update_palm_displacement": 6.00685012841495e-08,
+        "launch_tick": 0,
+        "maximum_horizontal_speed_change": 0.0,
+        "recovered_gait": "Run",
+        "updates": 100
+      },
+      "None": {
+        "first_update_palm_displacement": 0.0,
+        "launch_tick": 0,
+        "maximum_horizontal_speed_change": 0.0,
+        "recovered_gait": "Run",
+        "updates": 100
+      }
+    },
+    "native": {
+      "airborne_steps": 0,
+      "authored_adaptation": true,
+      "different_height_landing": true,
+      "elevated_contact": true,
+      "grounded_launch": true,
+      "landings": 1,
+      "midair_retrigger_blocked": true
+    },
+    "browser": "browser.json",
+    "world_plant_for_standing_jump": true,
+    "moving_jump_retains_momentum": true,
+    "current_known_defects": "Inherited dash-entry bounce, platform-edge capsule perch, faceted mitten topology and hand minification; synthesized audio and exact game fidelity remain open. Landing-to-run duplicated compression corrected; see independent round7 report."
+  },
+  "dust": {
+    "authored_masks": true,
+    "distinct_terrain_payloads": 4,
+    "duration_updates": 18,
+    "invisible_at_update": 16,
+    "puffs_per_dry_contact": 1,
+    "quad_size_m": 0.75,
+    "source_motion_and_alpha": true,
+    "original_pixels_and_quad_width_available": false,
+    "quad_size_is_visual_calibration": true,
+    "visibility_before": [
+      20,
+      0,
+      0,
+      20,
+      0,
+      381,
+      0
+    ],
+    "visibility_after": [
+      427,
+      20,
+      126,
+      722,
+      14,
+      1935,
+      118
+    ],
+    "reference": "effect-reference/provenance.json"
+  },
+  "wrist_fixes": {
+    "idle_error_before_degrees": 25.6935409499236,
+    "static_blend_error_before_degrees": 77.221497,
+    "tool_socket_on_prop": true,
+    "base_pose_restored_before_seek": true,
+    "before_after": "idle-wrist-before-after.jpg",
+    "skin_texture_geometry_rest_changed_this_pass": false
+  },
+  "independent_review": {
+    "model": "claude-opus-5-5",
+    "effort": "max",
+    "session_id": "ab7b9a74-77e4-47fd-8fb1-f1b2919f372a",
+    "verdict": "APPROVE_PROTOTYPE",
+    "auth": "existing Claude Max subscription",
+    "generation_cost_usd": 0,
+    "research_credit_cost_usd": 0.00376,
+    "research_credits_consumed": 2,
+    "report": "live-demo/evidence/opus-round7.md",
+    "report_sha256": "6501227f985a82ac77ea90b028227ccdf73980436d75cea8608f9866b5c946ee",
+    "rounds": 7
+  },
+  "idle_arm_clearance": {
+    "body_triangles": 878,
+    "distal_vertices": 1347,
+    "interior_vertices": 0,
+    "maximum_penetration": 0.0,
+    "minimum_gap": 0.125611573457718,
+    "model_space_surface_hits": 2695
+  },
+  "owner_fidelity_acceptance_open": true,
+  "hand_atlas_sha256": "61a76e1d580c23a2b3c357ca544051a55c26bf8ae00d0fc332431f7329c45517",
+  "scene_sha256": "4823db4641ee5e8db5a7b79faf1cc26b517740ffb7dd89133be874e647183b8d",
+  "web_pck_sha256": "21367f7df48b636a8aa26a5fa597d3bfdaf669cffcae6fdf2469d087dc71750b",
+  "source_commit_role": "implementation starting commit; exact candidate bound by SHA256 receipts",
+  "quieter_idle": {
+    "head": {
+      "current_range": 0.00822410583496103,
+      "ratio": 0.516489624210021,
+      "source_range": 0.015923080444336
+    },
+    "hip": {
+      "current_range": 0.00774635314941408,
+      "ratio": 0.500001231129858,
+      "source_range": 0.0154926681518555
+    }
+  },
+  "tool_clearance": {
+    "head_test_poses": 632,
+    "regrip_poses": 1920,
+    "regrip_scenarios": 48,
+    "maximum_regrip_hand_step": 0.04314723753547345,
+    "regrip_failures": [],
+    "poses": 2552,
+    "surface_queries": 1634,
+    "minimum_gap": 0.04337889003890352,
+    "inside_queries": 0,
+    "failures": []
+  },
+  "landing_transition": {
+    "candidate_build": "1ade974755c5",
+    "scene_sha256": "4823db4641ee5e8db5a7b79faf1cc26b517740ffb7dd89133be874e647183b8d",
+    "before_build": "dbe77dfe4d0f",
+    "before_maximum_vertical_head_acceleration": 0.0463932156562805,
+    "after_maximum_vertical_head_acceleration": 0.0328000783920288,
+    "threshold_metres_per_tick_squared": 0.033,
+    "before_result": "FAIL",
+    "after_result": "PASS",
+    "cases": [
+      {
+        "delay": 0,
+        "before": 0.0303848385810852,
+        "after": 0.0303849577903748
+      },
+      {
+        "delay": 1,
+        "before": 0.030234158039093,
+        "after": 0.030234158039093
+      },
+      {
+        "delay": 2,
+        "before": 0.033017098903656,
+        "after": 0.030234158039093
+      },
+      {
+        "delay": 3,
+        "before": 0.0463932156562805,
+        "after": 0.0328000783920288
+      },
+      {
+        "delay": 4,
+        "before": 0.0422332286834717,
+        "after": 0.030234158039093
+      },
+      {
+        "delay": 5,
+        "before": 0.0318125486373901,
+        "after": 0.030234158039093
+      },
+      {
+        "delay": 6,
+        "before": 0.030234158039093,
+        "after": 0.030234158039093
+      },
+      {
+        "delay": 7,
+        "before": 0.030234158039093,
+        "after": 0.030234158039093
+      },
+      {
+        "delay": 8,
+        "before": 0.030234158039093,
+        "after": 0.030234158039093
+      }
+    ],
+    "rejected_trials": {
+      "carry_only": 0.04392474889755,
+      "shortened_blend": 0.05679923295975
+    }
+  },
+  "owner_feedback": "Owner said this looks good and requested finishing remaining work; exact original-game/audio fidelity is not inferred"
+}

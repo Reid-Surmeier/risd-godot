@@ -1,5 +1,6 @@
 extends "res://testing/harness_base.gd"
 
+
 func _initialize() -> void:
 	var main: Control = load("res://modules/shell/demo.tscn").instantiate()
 	var out := await _mount(main, Vector2i(720, 486), "/tmp/gallery-pitch-corner")
@@ -26,5 +27,14 @@ func _initialize() -> void:
 	walk._update_camera(1.0)
 	await _frames(8)
 	await _shot(out, "corner.png")
-	print("CORNER_CAM ", walk._cam.global_transform.origin, " yaw=", walk.view_yaw, " fov=", walk._cam.fov, " size=", get_root().size)
+	print(
+		"CORNER_CAM ",
+		walk._cam.global_transform.origin,
+		" yaw=",
+		walk.view_yaw,
+		" fov=",
+		walk._cam.fov,
+		" size=",
+		get_root().size
+	)
 	quit(0)

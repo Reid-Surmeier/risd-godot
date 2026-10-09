@@ -1,0 +1,183 @@
+{
+  "source_sha256": "99d809cda863888542160db6aec67c934497e6d1ef56369ad6b52b5711d61c6a",
+  "rest_segment_lengths_m": {
+    "Left": [
+      0.19751336781857912,
+      0.20158429987195142
+    ],
+    "Right": [
+      0.1892248557439523,
+      0.2038806205422393
+    ]
+  },
+  "rest_joint_heads_world_m": {
+    "LeftUpLeg": [
+      0.09817611426115036,
+      0.026634329929947853,
+      0.509312629699707
+    ],
+    "LeftLeg": [
+      0.13862040638923645,
+      -0.006523301359266043,
+      0.3188490867614746
+    ],
+    "LeftFoot": [
+      0.1250913143157959,
+      0.041238874197006226,
+      0.12347260862588882
+    ],
+    "RightUpLeg": [
+      -0.08517494052648544,
+      0.02682757005095482,
+      0.5114036202430725
+    ],
+    "RightLeg": [
+      -0.12514925003051758,
+      -0.0055604362860322,
+      0.3293071687221527
+    ],
+    "RightFoot": [
+      -0.1337677538394928,
+      0.04978867992758751,
+      0.13327272236347198
+    ]
+  },
+  "phases": {
+    "0": {
+      "Left": {
+        "ankle_world_z_m": 0.1746586412191391,
+        "sole_min_world_z_m": 0.04191669076681137,
+        "rotated_rest_sole_offset_below_ankle_m": -0.13274196139749228,
+        "foot_plane_normal_world": [
+          -0.09355521202087402,
+          -0.09643501043319702,
+          0.9909324645996094
+        ],
+        "foot_rest_unrotated_offset_m": -0.12347227579121522,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.17761637020196103,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": 0.044874408804468746,
+        "source_shoe_joint_height_world_units": 160.85998673818483,
+        "source_shoe_height_relative_root_scaled_m": -0.3939762362264222,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.08955401345091463
+      },
+      "Right": {
+        "ankle_world_z_m": 0.264740526676178,
+        "sole_min_world_z_m": 1.5640258652638295e-06,
+        "rotated_rest_sole_offset_below_ankle_m": -0.26473899005464374,
+        "foot_plane_normal_world": [
+          -0.12935158610343933,
+          -0.8440093994140625,
+          0.5204969644546509
+        ],
+        "foot_rest_unrotated_offset_m": -0.1332160626334371,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.2615220561837238,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": -0.0032169338709199247,
+        "source_shoe_joint_height_world_units": 324.9327342358883,
+        "source_shoe_height_relative_root_scaled_m": -0.3169440812762504,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.03458913974393496
+      }
+    },
+    "0.25": {
+      "Left": {
+        "ankle_world_z_m": 0.25274401903152466,
+        "sole_min_world_z_m": 1.6212462696785224e-06,
+        "rotated_rest_sole_offset_below_ankle_m": -0.2527424578427329,
+        "foot_plane_normal_world": [
+          0.1794000118970871,
+          -0.8930401802062988,
+          0.41266533732414246
+        ],
+        "foot_rest_unrotated_offset_m": -0.12347227579121522,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.2557223992040386,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": 0.0029799413613056935,
+        "source_shoe_joint_height_world_units": 475.2929692627184,
+        "source_shoe_height_relative_root_scaled_m": -0.30503745093115375,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.043926476838601125
+      },
+      "Right": {
+        "ankle_world_z_m": 0.2066701054573059,
+        "sole_min_world_z_m": 0.06439382582902908,
+        "rotated_rest_sole_offset_below_ankle_m": -0.14227630757055684,
+        "foot_plane_normal_world": [
+          0.03511125594377518,
+          0.3307442367076874,
+          0.9430670738220215
+        ],
+        "foot_rest_unrotated_offset_m": -0.1332160626334371,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.2045338746507688,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": 0.06225756708021196,
+        "source_shoe_joint_height_world_units": 377.2371413703035,
+        "source_shoe_height_relative_root_scaled_m": -0.35107466212664246,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.1083554159152885
+      }
+    },
+    "0.5": {
+      "Left": {
+        "ankle_world_z_m": 0.2493353933095932,
+        "sole_min_world_z_m": 1.306533818024036e-06,
+        "rotated_rest_sole_offset_below_ankle_m": -0.24933412487181605,
+        "foot_plane_normal_world": [
+          0.11672114580869675,
+          -0.8182637095451355,
+          0.5628662705421448
+        ],
+        "foot_rest_unrotated_offset_m": -0.12347227579121522,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.2525078271614144,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": 0.0031737022895983458,
+        "source_shoe_joint_height_world_units": 308.9290518277089,
+        "source_shoe_height_relative_root_scaled_m": -0.3244578101668906,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.043668613839009385
+      },
+      "Right": {
+        "ankle_world_z_m": 0.1839842051267624,
+        "sole_min_world_z_m": 0.03883884847164154,
+        "rotated_rest_sole_offset_below_ankle_m": -0.14514536262153457,
+        "foot_plane_normal_world": [
+          0.09099170565605164,
+          -0.10331195592880249,
+          0.9904782772064209
+        ],
+        "foot_rest_unrotated_offset_m": -0.1332160626334371,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.1810271472140394,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": 0.03588178459250482,
+        "source_shoe_joint_height_world_units": 161.1421632951495,
+        "source_shoe_height_relative_root_scaled_m": -0.39384375433292734,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.07847143192325415
+      }
+    },
+    "0.75": {
+      "Left": {
+        "ankle_world_z_m": 0.2104201465845108,
+        "sole_min_world_z_m": 0.07090766727924347,
+        "rotated_rest_sole_offset_below_ankle_m": -0.1395124871661317,
+        "foot_plane_normal_world": [
+          -0.043892499059438705,
+          0.4132278859615326,
+          0.9095693230628967
+        ],
+        "foot_rest_unrotated_offset_m": -0.12347227579121522,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.21258768042951184,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": 0.07307519326338013,
+        "source_shoe_joint_height_world_units": 384.73494317994613,
+        "source_shoe_height_relative_root_scaled_m": -0.34755444417701525,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.12092220106118043
+      },
+      "Right": {
+        "ankle_world_z_m": 0.2657792270183563,
+        "sole_min_world_z_m": 1.1730194273695815e-06,
+        "rotated_rest_sole_offset_below_ankle_m": -0.2657780940991367,
+        "foot_plane_normal_world": [
+          -0.17818157374858856,
+          -0.8895638585090637,
+          0.4206278920173645
+        ],
+        "foot_rest_unrotated_offset_m": -0.1332160626334371,
+        "counterfactual_equal_target_leg_lengths_ankle_z_m": 0.262795332941614,
+        "counterfactual_equal_target_leg_lengths_sole_z_m": -0.0029827611575227175,
+        "source_shoe_joint_height_world_units": 472.5635904148686,
+        "source_shoe_height_relative_root_scaled_m": -0.3063188943002192,
+        "counterfactual_source_joint_height_with_target_shoe_sole_z_m": 0.03589214400497148
+      }
+    }
+  }
+}

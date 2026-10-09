@@ -1,0 +1,5 @@
+Traceback (most recent call last):
+  File "/tmp/tmpjwoydrgo/test_run.py", line 38, in <module>
+    assert result.returncode == 0, 'saved bake discarded after editor shutdown failure'
+           ^^^^^^^^^^^^^^^^^^^^^^
+AssertionError: saved bake discarded after editor shutdown failure

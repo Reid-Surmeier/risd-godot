@@ -1,0 +1,56 @@
+[
+  {
+    "trial": "doorway-aperture-v1",
+    "query_errors": [
+      4.120057420810814,
+      6.473382341251081,
+      3.464589616152635,
+      2.6550852638195472
+    ],
+    "angles": [
+      1.4128195113640993,
+      0.5866426623124456,
+      1.216786504120927,
+      0.7187941353719433
+    ],
+    "diagnostic_pass": false,
+    "omitted": [
+      "IMG_6380_exit6fps/000018.jpg"
+    ]
+  },
+  {
+    "trial": "corridor-extents-v1",
+    "query_errors": [
+      1.7663289003353997,
+      2.2340274672830907
+    ],
+    "angles": [
+      18.05512958612776,
+      25.699124072886192
+    ],
+    "diagnostic_pass": true,
+    "omitted": []
+  },
+  {
+    "trial": "grand-casing-registered-v1",
+    "query_errors": [
+      0.5554734738841662
+    ],
+    "angles": [
+      11.837737677593944
+    ],
+    "diagnostic_pass": true,
+    "omitted": []
+  },
+  {
+    "trial": "grand-casing-plinth-v1",
+    "query_errors": [
+      4.418733448624135
+    ],
+    "angles": [
+      8.085498197666997
+    ],
+    "diagnostic_pass": true,
+    "omitted": []
+  }
+]

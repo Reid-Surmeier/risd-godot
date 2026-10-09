@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "sconce-left-001",
+      "prompt": "sconce-left-prompt.txt",
+      "promptSha256": "f10970df15809c3178c38a9e51dc61629a1209a2eecdc3601926638a23c0e295",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/sconce-left-selected-0.png",
+          "sha256": "0e672cb759aabf58f3918fdb648ee091ee7b029c09f23fa1a1073e354e7b9ba4"
+        }
+      ]
+    }
+  ]
+}

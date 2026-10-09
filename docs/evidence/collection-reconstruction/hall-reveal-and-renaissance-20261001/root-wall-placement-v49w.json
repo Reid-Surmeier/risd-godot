@@ -1,0 +1,55 @@
+{
+  "utc": "2026-10-01T20:52:07.994579+00:00",
+  "native_project": "main-build-extension-v49w",
+  "architecture_exit": 0,
+  "old_v49v_negative_exit": 1,
+  "old_failures": 5,
+  "independent_source_findings": "OpusH1artworks40-47cm too high; H2platformtoo shallow/long; H3labels inside stands/window sill; Pietacase43mmgap",
+  "fixes": {
+    "artwork_centre_y_m": {
+      "velvet": 1.31,
+      "woodcutters": 1.35,
+      "madonna": 1.22
+    },
+    "platform_size_m": [
+      4.3,
+      0.16,
+      0.95
+    ],
+    "platform_x_m": [
+      -5.25,
+      -0.95
+    ],
+    "madonna_author_z_m": 24.1,
+    "pieta_author_x_m": -5.29,
+    "labels": "two on standtops, one besideMadonna midheight clears sill"
+  },
+  "source_fit_gap_m": {
+    "velvet_board": 0.41,
+    "tapestry": 0.43,
+    "madonna_baseboard": 0.55
+  },
+  "source_fit_tolerance_m": 0.06,
+  "metric_accepted": false,
+  "source_pose_cameras_unchanged_for_before_after": true,
+  "close_views_crop_lowered_Madonna": "finalcapture willreframe aroundnewartcentre",
+  "root_native_inspected": [
+    "textiles-south-wide",
+    "madonna-west-front",
+    "renaissance-south-west-wide"
+  ],
+  "images": {
+    "textiles-south-wide.png.import": "b7a35f2653b16111e3c48d9afe3c6c4663f49b140a339dbad53a9c556151ee29",
+    "renaissance-south-west-wide.png.import": "fbf15d818fd4f3e30abc8c4579001064d1879665597b8cec7147223003e499f7",
+    "madonna-west-front.png.import": "e516c202953ba7fb740a019023e4c60d75a23b8c789ec630cccc8b9151a87656",
+    "textiles-platform.png.import": "2de751ad7032842a5577a5d4d1269522ee4ce69409f0105c2a2bf4b48cfbefba",
+    "textiles-south-wide.png": "5868cf0a0fa82ede9272b31c816ee7927560f3e524d5b9ce27d482148a36fe26",
+    "madonna-west-front.png": "14041a6d0075e36371f8b0c553856ede5979e5b98a372a2748c90a837f76f31c",
+    "velvet-front.png.import": "80cba550e4ba2a38b3de082d72947593119084bcc3e28dff5e929035de62f733",
+    "velvet-front.png": "fc9b4f7c90700e09b1bab27bd0eb9d7141c46c78b200d5c48ab26f998f6e045d",
+    "renaissance-south-west-wide.png": "731d5cf142387e19e6b0766f0eca14543e79826ed75adf934c0897df09fe2016",
+    "textiles-platform.png": "51cd9de63e353fff8b2a712e8f75721bd3e270b37c59d60adab60bf11cce4b33",
+    "madonna-west-quarter.png": "e6ece3392d47af97dc6728441d44e6ca62bc18021a570b6c95b4006fa7915031",
+    "madonna-west-quarter.png.import": "cb8405ed7a42a55c7674570d37395bc7e30cc6671051ac75220d3ea3f9691c14"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-1861a5d517d37444b1ef",
+  "summary": "Reference 1 is RISD mirror 2017.74.4.2, the left member of the English Rococo pair, whose design and proportions must be preserved. Reference 2 is the existing Main Hall low polygon game style. Generate one exact orthographic FRONT view of this mirror alone, on flat magenta #FF00FF, full crest and bottom point intact with generous margin. Preserve every asymmetric scroll, three lobed mirror sections, pierced wood carving and flower crown; simplify material detail into readable low polygon facets with soft painted gold shading. Keep the middle scroll on the RIGHT, not the other partner design. Mirror glass is a quiet muted cool grey, no room reflections or photographer. No cast shadow outside silhouette, no wall, text, new ornaments, perspective tilt or contact sheet. This supplies a UV face for separately extruded low polygon geometry.\n",
+  "procedureId": "muse-1861a5d517d37444b1ef",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/pair-mirror-catalogue.png",
+      "sha256": "87b1d98847b8b78598c6637e3e2f68e819e79525fe2c157581597e51f14cf519",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "pair-mirror-recipe.json",
+      "sha256": "1861a5d517d37444b1ef0131f0549b4b35edb09d298251fcf252fb642ad05616"
+    },
+    {
+      "applicationPath": "pair-mirror-plan.json",
+      "sha256": "06fbfeda1b8b27667eb03e68716b23788ee2ce30399420012122ce007ad0beb8"
+    },
+    {
+      "applicationPath": "pair-mirror-prompt.txt",
+      "sha256": "f19e074ff498b243ffe40cd1057484704e44c4c6da7d86f65547f02c158b7bc5"
+    }
+  ]
+}

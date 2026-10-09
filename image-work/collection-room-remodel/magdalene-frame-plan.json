@@ -1,0 +1,24 @@
+{
+  "attempts": [
+    {
+      "id": "magdalene-frame-001",
+      "prompt": "magdalene-frame-prompt.txt",
+      "promptSha256": "b999b25a5d57922766aa14e136bf360e54fd70baa850124ca75e715cdefcb650",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/magdalene-frame-selected-0.png",
+          "sha256": "353f0b55d8f3da644583bdd4a56166d6ec411d9106ec7dbb5ef3f5aec900c46d"
+        },
+        {
+          "path": "inventory-references/magdalene-frame-selected-1.png",
+          "sha256": "20a3b9125d28e3431edd52a39572039dd7136304ce1b6ade158e096610686a81"
+        },
+        {
+          "path": "inventory-references/magdalene-frame-selected-2.png",
+          "sha256": "b18e6b9910c83a687c9a90a9cf4b4a71377ff6a74f60156dac53b96e91bb2c61"
+        }
+      ]
+    }
+  ]
+}

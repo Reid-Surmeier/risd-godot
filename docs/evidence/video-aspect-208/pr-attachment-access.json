@@ -1,0 +1,34 @@
+[
+  {
+    "asset": "12f51c56-54ce-41e0-b6ec-b8a183b6bc52",
+    "authenticated_status": 404,
+    "content_type": "text/plain; charset=utf-8",
+    "png_signature": false,
+    "sha256": null,
+    "anonymous_status": 404
+  },
+  {
+    "asset": "6f9007ee-8036-465c-8607-dc43841cd748",
+    "authenticated_status": 404,
+    "content_type": "text/plain; charset=utf-8",
+    "png_signature": false,
+    "sha256": null,
+    "anonymous_status": 404
+  },
+  {
+    "asset": "95eb40a7-6156-44ad-9e58-ba2ba7102321",
+    "authenticated_status": 404,
+    "content_type": "text/plain; charset=utf-8",
+    "png_signature": false,
+    "sha256": null,
+    "anonymous_status": 404
+  },
+  {
+    "asset": "1def9f5c-7032-4384-81b7-f19b5e7c498b",
+    "authenticated_status": 404,
+    "content_type": "text/plain; charset=utf-8",
+    "png_signature": false,
+    "sha256": null,
+    "anonymous_status": 404
+  }
+]

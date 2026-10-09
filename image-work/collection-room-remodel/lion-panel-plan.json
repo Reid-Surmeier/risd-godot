@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "lion-panel-001",
+      "prompt": "lion-panel-prompt.txt",
+      "promptSha256": "14e56dc411f8a13f8c81cfb52ad751e5bd4cc0c00cf3359b69ed6a92aae44d36",
+      "size": "1760x1440",
+      "inputs": [
+        {
+          "path": "inventory-references/lion-panel-official.png",
+          "sha256": "c53008f72ce2cf669615e853c89083bc03d9669e9a26ca539993fa1b0123c6d5"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,17 @@
+{
+  "page": "https://risdmuseum.org/art-design/collection/tivoli-56214",
+  "canvas_photo_url": "https://risdmuseum.cdn.picturepark.com/v/T4qrVDcs/",
+  "html_sha256": "024075f6f73633a881102086e2770a8e388d6ce42ef80076db552f3b3fa5a413",
+  "photo_sha256": "1c20b300c0a591c1905dbe8b0fdfb1d2bde8572f5b9d9cec93adcb7a5738e8f5",
+  "crop": [
+    5,
+    5,
+    1317,
+    966
+  ],
+  "canvas_dimensions_m": [
+    0.651,
+    0.489
+  ],
+  "generated_frame_fidelity_accepted": false
+}

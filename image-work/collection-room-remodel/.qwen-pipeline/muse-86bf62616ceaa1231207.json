@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-86bf62616ceaa1231207",
+  "summary": "Reference 1 is the official RISD Museum photograph of Brown Bear Jug and Cover, accession 2017.74.18.ab. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-86bf62616ceaa1231207",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/bear-jug-catalogue.png",
+      "sha256": "ef39d6db5ebc387cf37b6873b3e6739db02e8e2db1bdedf6af2f81a2a50ac37c",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "bear-jug-recipe.json",
+      "sha256": "86bf62616ceaa1231207c0ae904cfae636628afd11ff3b045bb3101bdf5b4ee8"
+    },
+    {
+      "applicationPath": "bear-jug-plan.json",
+      "sha256": "fc540013e93c6079175f6ab3df5808f8ee0d614e1c41ca1decc25e8657e13014"
+    },
+    {
+      "applicationPath": "bear-jug-prompt.txt",
+      "sha256": "417b89fa335dbe614d9dcec319d9cec2d31c472fd5d2655b629e7ec59e68f57a"
+    }
+  ]
+}

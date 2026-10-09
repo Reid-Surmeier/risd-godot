@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "shepherd-001",
+      "prompt": "shepherd-prompt.txt",
+      "promptSha256": "4192b191e6a441f8e4ebc3741fdca260d2e2b3dae317ab5959e6371214e15df6",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/shepherd-catalogue.png",
+          "sha256": "494566a5190318c4fca48239c9d0e34e15db9c9a15c0fe52afb22100929b9a42"
+        }
+      ]
+    }
+  ]
+}

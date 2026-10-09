@@ -1,0 +1,75 @@
+{
+  "baseline": "07bde70c",
+  "files": [
+    {
+      "file": "docs/evidence/floor-selection-186/restore.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "docs/evidence/owner-world-177/passage-current/repair.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/collection_data/storage_adapter.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/flowers_page/flowers_embed.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/playground_page/arena_embed.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/playground_page/journal_window.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/playground_page/websurfer_window.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sculpture_viewer/catalogue.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/record_selection.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sculpture_viewer/playtest/window_resize_check.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/shell/playtest/visitor174_capture.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/shell/playtest/visitor174_check.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/shell/square_chrome.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/global_chatroom.gd",
+      "code_comments_hashes": "PASS"
+    },
+    {
+      "file": "modules/sketchbook/painting_flow.gd",
+      "code_comments_hashes": "PASS"
+    }
+  ],
+  "native_strings": 19,
+  "native_output": "Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org\n\nSTRING0 PASS 35480806663b05dead978d53e76d349c140168edbc4516c9fda3b0bdb5222d12\nSTRING1 PASS a4bced9362a2c86e8e039542dbaa174738a2e7dbca4fbd9c5b840543d788fab9\nSTRING2 PASS 49103037c15cd7fd4aabb2a2104137097239420fb396e9f16bcdea7a9646bcc6\nSTRING3 PASS b92a2baeb4668c9892cb9e97089552e400584992b6e3f3e473fea9d400262c83\nSTRING4 PASS a9a82344ea059c43f2b3987ae516c849743f2c199f82f71432849c3878074460\nSTRING5 PASS 0f19e438554cd708efc54d9eb930701dc15dbe2965970b2d344c1b224d443179\nSTRING6 PASS c56f4bdc9a43fa497a401776ddc48697b051ce1ee5b3952eedd566540633200e\nSTRING7 PASS 6e9450fe017011dc8600dbba9a9fbf665fde1f3d6479293fb08213f321f6d76e\nSTRING8 PASS 6e9450fe017011dc8600dbba9a9fbf665fde1f3d6479293fb08213f321f6d76e\nSTRING9 PASS 4e61e59421f7543011cc8adbedefafa792694d6bdf065ffee27e4f267fad9681\nSTRING10 PASS 1e5c365af83dcb849c835517e8b7f54e545900ba5a3447d3a11445038b60d258\nSTRING11 PASS cd7c6eef1111e68daab1b52e9ae06c5bc4c14c88a584cae255e6f86570bfa232\nSTRING12 PASS 977ad8083b8163d054fead48ef38458cbd8be65c786edc3fc5f49cbb7eab4013\nSTRING13 PASS 476f7a58ca7bf255d59a7e4f2474157b0a7d517b59959de0556b4ef74acdf4f8\nSTRING14 PASS c1b5b2a2007292a32f855d57387fc44384813481be19985851366af38d7024a1\nSTRING15 PASS 5225863d920ea5994a5d6d02847aec108ef87cc73ecb6159ae93044ae83bd4ae\nSTRING16 PASS 3feb5d49bdf27b22d1081e52c700bf4da8528a761736d70f6e63c51862d34505\nSTRING17 PASS 4cada6e291d79fb5d6c943b1716bf50b33b1c7e00dec0d85d087daf1777c7eb9\nSTRING18 PASS a41c667e1f7f39167fef169ae69141d1d64877d0c3369a36d3f1601bc87b17f7\n"
+}

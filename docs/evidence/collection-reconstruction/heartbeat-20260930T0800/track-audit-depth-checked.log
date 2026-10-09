@@ -1,0 +1,23 @@
+{
+  "samples": 157,
+  "median_error_px": 1.0655456387525364,
+  "p95_error_px": 3.808845810260768,
+  "below8px": 157,
+  "near_marks_samples": 2,
+  "near_marks_median_error_px": 3.0644701722499406,
+  "alternative_pose": {
+    "fit_points": 79,
+    "fit_inliers": 78,
+    "test_points": 78,
+    "test_below4px": 71,
+    "test_median_error_px": 1.0716828126155704,
+    "manual_mark_errors_px": [
+      10.085995173564875,
+      8.427859641352201
+    ],
+    "caveat": "Pose diagnostic from odd track IDs; even tracks and manual marks excluded from pose fit. No acceptance or camera replacement."
+  },
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Tracked points triangulated from the two training cameras only. Query pixels excluded from that triangulation, but training cameras were globally fitted using query observations. Correlated diagnostic only; frozen model and failed manual trial unchanged."
+}

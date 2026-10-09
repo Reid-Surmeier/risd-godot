@@ -1,0 +1,12 @@
+{
+  "modules/shell/prototype/collection_reconstruction/main_build_walk.gd": "e16c864326cae39692f1fb5f085302c09899a7e0d13eedd112f36e511226ea86",
+  "modules/shell/prototype/collection_reconstruction/remodel_room.gd": "6dd7711c583a0177a1d09c2c1c65aa18dc907f133c93c3a8ec4c8965918a55ac",
+  "modules/shell/prototype/collection_reconstruction/prepare_remodel.py": "c0e49250e4e196581fb6196b123eff1b5ad159365802022b2a0c1e6b4b7a4076",
+  "modules/shell/prototype/collection_reconstruction/remodel_bake.gd": "228d60ec285044d0c3254adc51f778f0ac0787e6d2aa19b68c5673a7175746fa",
+  "modules/shell/prototype/collection_reconstruction/remodel_review.gd": "96892186deae035569cb404b945152f4446ecc84e0030be725002c631e5c6365",
+  "modules/shell/prototype/collection_reconstruction/retained_hall_room.gd": "aaddae22e31781f35a95a0ab1991a2e15537d8cbd9a4c4afaf219012791e18b8",
+  "modules/shell/prototype/collection_reconstruction/architecture_check.gd": "5b23c0a523ff8e5dd4361c67ea7281d32d43afc0629c2dfc783c96c655b8a587",
+  "modules/shell/prototype/collection_reconstruction/main_build_check.gd": "2dbe0bbb3b0f4e5e27e6bcc9939cb7e55a1088d91ab5c8184b24e5cc662ade34",
+  "docs/evidence/collection-reconstruction/opus-main-build-adapter-20261001/make_local_fullapp.py": "c0ff927907547fa7e67f763fda01a21a4d0cc2f87d43883aa0676bb65ffe41dc",
+  "docs/evidence/collection-reconstruction/opus-main-build-adapter-20261001/relocate_lightmap.gd": "147789fa2b25b8a64cb76d7dd3f5aa6b572839202b57030cb18fa297f98fd6e0"
+}

@@ -1,0 +1,149 @@
+{
+  "scope": "Recommendation only. Nothing here is built. Coordinates are the v49c geometry.json frame (x east, z south, metres as authored).",
+  "fixed": {
+    "main_hall": "rooms[4] bounds [0.55, 10.55, 1.8, 28.1] and its 362 files stay as they are",
+    "grey_south_wall_z": 1.8,
+    "grey_west_wall_x": 3.85,
+    "object_bytes": "no painting, frame or mesh file changes; only where they are placed"
+  },
+  "step_1_register": {
+    "why": "The doorway is in the south-west corner. Its centre is 2.58 m from where it is built.",
+    "door_clear_z": [
+      -0.34,
+      1.5
+    ],
+    "door_clear_z_tolerance_m": 0.15,
+    "authored_door_z": [
+      -2.8,
+      -1.2
+    ],
+    "door_centre_shift_m": 2.58,
+    "corner_return_to_clear_edge_m": {
+      "value": 0.3,
+      "range": [
+        0.15,
+        0.45
+      ]
+    },
+    "clear_width_m": {
+      "value": 1.84,
+      "range": [
+        1.6,
+        2.1
+      ]
+    },
+    "rooms": {
+      "7 grey French gallery": {
+        "openings.west": [
+          -0.34,
+          1.5
+        ]
+      },
+      "6 purple connector": {
+        "bounds_z": [
+          -0.34,
+          1.5
+        ],
+        "openings.west": [
+          -0.34,
+          1.5
+        ],
+        "openings.east": [
+          -0.34,
+          1.5
+        ],
+        "bounds_x": "unchanged [1.7, 3.85]; length not measured"
+      },
+      "0 Rockefeller": {
+        "openings.east": [
+          -0.34,
+          1.5
+        ],
+        "bounds_z": [
+          -5.0,
+          1.8
+        ],
+        "shift_z": 2.2,
+        "basis": "its east door is also a corner door (F1); south wall lands on the Hall north-wall line within about 0.3 m"
+      },
+      "1 European gallery": {
+        "bounds_z": [
+          1.8,
+          28.1
+        ],
+        "length_m": 26.3,
+        "was_m": 28.5,
+        "north_referenced_objects_shift_z": 2.2
+      }
+    },
+    "rockefeller_south_wall_vs_hall_north_wall_m": {
+      "value": 0.0,
+      "range": [
+        -0.3,
+        0.3
+      ],
+      "basis": "stile-width ratios in D1 and F1, not metres"
+    },
+    "held_out_error_m": {
+      "corner_to_clear_south": 0.05,
+      "clear_width": -0.01,
+      "corner_to_clear_north": 0.03
+    }
+  },
+  "step_2_wall_length": {
+    "why": "The west wall measures about 6.0 m in three chains, not 7.6 m. Without this the two paintings cannot both sit where the video has them.",
+    "grey_west_wall_length_m": {
+      "value": 6.0,
+      "range": [
+        5.4,
+        6.6
+      ],
+      "authored": 7.6
+    },
+    "grey_north_wall_z": {
+      "value": -4.2,
+      "range": [
+        -4.8,
+        -3.6
+      ],
+      "authored": -5.8
+    },
+    "barn_painting_centre_z": {
+      "value": -1.45,
+      "range": [
+        -1.7,
+        -1.2
+      ]
+    },
+    "courbet_centre_z": {
+      "value": -3.06,
+      "range": [
+        -3.4,
+        -2.75
+      ],
+      "authored": -4.35
+    },
+    "courbet_centre_from_nw_corner_m": {
+      "value": 1.15,
+      "range": [
+        1.05,
+        1.25
+      ]
+    },
+    "held_out_error_m": {
+      "wall_length": 0.06,
+      "corner_to_courbet_centre": 0.08,
+      "courbet_centre_to_nw_corner": -0.01
+    }
+  },
+  "flags": {
+    "metric_accepted": false,
+    "calibrated_room_metric": false,
+    "physical_loop_accepted": false,
+    "connector_length_accepted": false,
+    "rockefeller_depth_measured": false,
+    "european_gallery_length_measured": false,
+    "door_at_south_west_corner": true
+  },
+  "ranges": "Value: mean of the fit view and the held-out view. Range: about 95 percent from eye-picked anchor noise in both views, widened for the ruler (sight edge, blur). Held-out error is listed separately. None of these is a survey tolerance."
+}

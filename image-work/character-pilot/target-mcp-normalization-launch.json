@@ -1,0 +1,21 @@
+{
+  "timestamp": "2026-09-30T20:23:49.395855+00:00",
+  "successfully_scheduled": true,
+  "transport": "actual MCP stdio",
+  "server": "BlenderMCP",
+  "protocol": "2025-11-25",
+  "addon_protocol": 7,
+  "blender": "4.3.2",
+  "saved_stage": "normalize_idle.py",
+  "native_launch": {
+    "native_pid": 651359,
+    "saved_stage": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/normalize_idle.py",
+    "log": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/normalize-native.log"
+  },
+  "telemetry_consent": false,
+  "paid_calls": 0,
+  "completion_file": "target-idle-normalization.json",
+  "completion_not_inferred_from_scheduling": true,
+  "owned_gui_stopped_after_test": true,
+  "loopback_listener_absent_at_handoff": true
+}

@@ -1,0 +1,26 @@
+{
+  "rig-output-rigged_character_glb.glb": {
+    "Armature|clip0|baselayer": 0.3
+  },
+  "rig-output-animations-0-animation_glb.glb": {
+    "Armature|Idle|baselayer": 4.033333333333333
+  },
+  "rig-output-basic_animations-walking_armature_glb.glb": {
+    "Armature|walking_man|baselayer": 1.0666666666666667
+  },
+  "rig-output-basic_animations-running_armature_glb.glb": {
+    "Armature|running|baselayer": 0.6666666666666666
+  },
+  "target-baked.glb": {
+    "Armature|clip0|baselayer": 0.2916666666666667,
+    "idle": 4.033333460489909,
+    "run": 0.6666666666666666,
+    "walk": 1.0666667620340984
+  },
+  "target-baked-normalized-idle.glb": {
+    "Armature|clip0|baselayer": 0.2916666666666667,
+    "idle": 4.033333460489909,
+    "run": 0.6666666666666666,
+    "walk": 1.0666667620340984
+  }
+}

@@ -1,0 +1,30 @@
+{
+  "status": 200,
+  "errors": [],
+  "images": [
+    {
+      "loaded": true,
+      "src": "plinth-000203.png"
+    },
+    {
+      "loaded": true,
+      "src": "right-plinth-reserved.png"
+    },
+    {
+      "loaded": true,
+      "src": "native-plinth-204.png"
+    },
+    {
+      "loaded": true,
+      "src": "browser-forward.png"
+    },
+    {
+      "loaded": true,
+      "src": "browser-jamb.png"
+    },
+    {
+      "loaded": true,
+      "src": "shell-09-resized.png"
+    }
+  ]
+}

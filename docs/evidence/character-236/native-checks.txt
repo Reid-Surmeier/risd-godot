@@ -1,0 +1,5 @@
+DOORWAY_FAILURES 0
+NAV_FAILURES 0
+PASS #236: accepted character, 24-bone rig, 23 paintings, start/walk/stop/reversal, 90/180-degree turns, floor contact and step cadence, gestures disabled
+OWNER_REPAIR source: camera mode/FOV continuity and tufted cushion bounds PASS
+DISPLAY_REPLAY visitor reset pose parity and white room PASS

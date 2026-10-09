@@ -53,3 +53,65 @@ museum accession record; the catalogue picture and the clean plate have no right
 | `modules/sculpture_viewer/assets/control-motion/track-fill.png` | `viewer-godot/assets/control-motion/track-fill.png` | `2af20f635bbfff11321f43383e2969bfbbc84bb436cf54d3d74061d34ac48b25` | progress rail fill |
 | `modules/sculpture_viewer/assets/control-motion/extraction.json` | `viewer-godot/assets/control-motion/extraction.json` | `6d7cc975bdc5d7125049b50c4218baf3a1a7adcb6f21fcfacd1694e6ee3c4c59` | the frame-cut record (not loaded) |
 | `modules/sculpture_viewer/assets/catalogue/sidebar.png` | `viewer-godot/assets/catalogue/sidebar.png` | `575489dd8a67f905ed5aadc0f081a0c82e158fdf1599cc63703ea88b2b430c0e` | the catalogue picture, owner-supplied (see gaps) |
+
+## Square catalogue integration (#170)
+
+The four PNGs below are copied byte-for-byte from selected prototype #165 at
+`ea9c8205`, originally captured by the #154 Proton audit in Godot 4.7.2.
+At #170 integration these were accepted only as 2D thumbnails. The owner
+subsequently accepted the existing GLBs for present use; see the #154/#157 record below.
+Provider: local Godot render of owner-supplied source scans. Cost: USD 0;
+no generation or external paid API calls. Source OBJ/MTL/JPG and candidate hashes
+remain in the #154 audit's `docs/research/proton-scan-validation/` record.
+
+| Runtime thumbnail | SHA-256 |
+| --- | --- |
+| `assets/scans/20260811121459-front.png` | `a3b68dd79037f55d97c142bb1932b7073970cd2e0f7d657148853c6991224282` |
+| `assets/scans/20260811122415-front.png` | `5ecb033f9efca6071bf580b2d487a2bcf50f6492ab8ec6d115cbf6a50b5b3267` |
+| `assets/scans/20260811123051-front.png` | `30c8fce99f4d74fd6ebb56cde9793cbd629235f8062444a821d0b654f3f6de3e` |
+| `assets/scans/20260820133334-front.png` | `084106155dd8543a0be2ea2360c15aa580a2111df17c6a3a5362dfca661fce92` |
+
+The RISD wordmark and sixteen image-only cells reuse
+`assets/setup/panel-2x.png` (SHA-256
+`d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`);
+the hover atlases keep their existing provenance above.
+Descriptions were initially provisional visual descriptors; department remains unverified.
+
+## Two verified catalogue records — issue #169
+
+The [primary-image comparison at ae5e3bbe](https://github.com/Reid-Surmeier/risd-godot/blob/ae5e3bbe/docs/research/2026-09-28-viewer-primary-record-comparison.md)
+pins the exact source-image evidence and hashes for two museum-object matches.
+`catalogue.gd` now uses their exact museum titles, short record-based summaries
+(not quoted museum narrative), and direct source URLs:
+
+- Scan `20260811121459`: [RISD record 73.148](https://risdmuseum.org/art-design/collection/love-triumphs-over-death-cupid-and-skulls-73148), matched to the official illustrated checklist, physical page 23 of `327266.pdf`.
+- Scan `20260820133334`: [RISD record 59.050](https://risdmuseum.org/art-design/collection/portrait-hadrian-59050), matched to official photograph `UZ3LXvjG` and physical page 73 of `312237.pdf`.
+
+All other museum fields remain unknown, as do both verified objects' departments.
+No new raster or mesh was produced or imported. All thumbnail hashes above remain
+unchanged; museum identity does not certify scan quality or redistribution rights.
+Provider: RISD Museum primary records; generation: none; cost: USD 0.
+
+## Four live scans — #154/#157 owner acceptance, 2026-09-28
+
+Existing Proton-derived 120k GLBs copied byte-for-byte; embedded source textures retained. No generation, repair or new spend ($0). Owner accepted the current scan defects for now and requested integration into the retained Viewer. This is visual acceptance for present use, not a new rights determination.
+
+| Scan | Runtime SHA-256 | Local source |
+| --- | --- | --- |
+| 20260811121459 | `86c2c80bc05489b12bec1a03216d8765c66baaf3f8f89cf1f018004cba152193` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260811121459/candidate-120k-rerun/proton-scan-20260811121459.glb` |
+| 20260811122415 | `da7480355f1c384ed8588e44cd2f1bf9c666d03c2bd7a9017f958f3d5ee08a41` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260811122415/candidate-120k/proton-scan-20260811122415.glb` |
+| 20260811123051 | `faaece8dd2b1b25f6d2a7d96671db37ea810ede3bdc5441099f18f96ffc50d74` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260811123051/candidate-120k/proton-scan-20260811123051.glb` |
+| 20260820133334 | `94e634a0554b6925fe26be4bbe5b3df2e53a19088883e733f4f9bcffed626d9e` | `/home/reidsurmeier/risd-godot-ingestion/proton/20260820133334/prototype/proton-scan-20260820133334.glb` |
+
+Godot 4.7.2 extracts each embedded JPEG beside its GLB during import (no texture edits):
+
+| Extracted texture | SHA-256 |
+| --- | --- |
+| `proton-scan-20260811121459_20260811121459.jpg` | `6780ce0ec57bebe97b5b30a0d72e4d5f00fbf596f39205e39dac458b889311c1` |
+| `proton-scan-20260811122415_20260811122415.jpg` | `11ce6c3272d41248fbe51b4a0d347a575fd3d1ec2842470577fe246104af4725` |
+| `proton-scan-20260811123051_20260811123051.jpg` | `07f3925095dee7f29c7480758075255fa6689a3e038e2bbffa2cfd6087c25e48` |
+| `proton-scan-20260820133334_20260820133334.jpg` | `ac0a8420ff16e964554d45fbebd2801b262dc7c942f971303ccfa8d5ab58cc88` |
+
+## Independent chat/friends windows (#192)
+
+Existing setup raster `panel-2x.png` (SHA256 `d6cdb4c2c3ff042ea3380868184d297ea608f733bd377723cc71fd792f5b99d5`) reused with runtime AtlasTexture crops; source pixels unchanged. Logical source rectangles: setup `(0,0,1050,1320)`, chat `(15,1320,665,315)`, friends `(700,1320,330,315)`; multiply by2 for source pixels. UI corner grips are native Godot controls. Provider none, count0, USD0; no generated assets or scan changes.

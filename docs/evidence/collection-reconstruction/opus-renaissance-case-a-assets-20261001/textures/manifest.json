@@ -1,0 +1,372 @@
+{
+ "inventory": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/opus-renaissance-case-inventory-20261001",
+ "official": {
+  "cleric": {
+   "file": "textures/portrait-cleric-45042-zoom-0.jpg",
+   "sha256": "0e7b7e4c9b9e5e57b231282d478435d27c4198b32bd1571971f728202ea0d77f",
+   "size": [
+    1324,
+    1971
+   ],
+   "copied_unchanged": true
+  },
+  "woman_front": {
+   "file": "textures/portrait-woman-34861-zoom-0.jpg",
+   "sha256": "7b4066ab077a2a341f3ec20b1641274b9828fce86694ab3f73890dad345e4e9f",
+   "size": [
+    1324,
+    1793
+   ],
+   "copied_unchanged": true
+  },
+  "woman_rear": {
+   "file": "textures/portrait-woman-34861-zoom-1.jpg",
+   "sha256": "13ac925a3bd0614eedd8081f73c19b8159211346bb903f90405c79b8ed784d19",
+   "size": [
+    1324,
+    1791
+   ],
+   "copied_unchanged": true
+  },
+  "diptych_front": {
+   "file": "textures/diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-0.jpg",
+   "sha256": "02d0818d5601d89583eb79f24d81dc9ca1c78b2910754d7159d5f8a50d629817",
+   "size": [
+    1324,
+    1126
+   ],
+   "copied_unchanged": true
+  },
+  "diptych_rear": {
+   "file": "textures/diptych-scenes-nativity-crucifixion-and-last-judgement-22201-zoom-1.jpg",
+   "sha256": "34070e1bf44648ba414128981ca5b52a7424ea722344bc051d4ea0d96db76325",
+   "size": [
+    1324,
+    1200
+   ],
+   "copied_unchanged": true
+  },
+  "bookcover_flat": {
+   "file": "textures/book-cover-34016-zoom-0.jpg",
+   "sha256": "c7955feb2ad1f512f54ecacdc9f2a22db569073366c7792bc3aaa8b802945e14",
+   "size": [
+    1324,
+    1000
+   ],
+   "copied_unchanged": true
+  },
+  "bookcover_spine": {
+   "file": "textures/book-cover-34016-zoom-1.jpg",
+   "sha256": "e856d8c3530569d9f2057372f3176a4068cc070bfb39c78a8894c46b85125479",
+   "size": [
+    1324,
+    1324
+   ],
+   "copied_unchanged": true
+  },
+  "albarello_front": {
+   "file": "textures/drug-jar-albarello-35713-zoom-0.jpg",
+   "sha256": "4830f1451568dfb4ddfcb60ef4c0b11f0375f08e665bc8ba084273641c0e44e1",
+   "size": [
+    1324,
+    1765
+   ],
+   "copied_unchanged": true
+  },
+  "albarello_rear": {
+   "file": "textures/drug-jar-albarello-35713-zoom-1.jpg",
+   "sha256": "5aa2923a59b6aadd9a064930f4811a5bba23943b02d819b142129dacb93f61dd",
+   "size": [
+    1324,
+    1765
+   ],
+   "copied_unchanged": true
+  }
+ },
+ "straightened": {
+  "emblem-left-page": {
+   "file": "textures/emblem-left-page.png",
+   "sha256": "6ac5a0991e5587e187171f19e6e176913f162dd83d29c11daaf383cde97bece9",
+   "source": "frames/IMG_6383-046.40.png",
+   "source_sha256": "9a682a36b90622770de26567bb205966c17684b2519da71464066365fa546463",
+   "quad_px": [
+    [
+     135,
+     880
+    ],
+    [
+     328,
+     978
+    ],
+    [
+     255,
+     1250
+    ],
+    [
+     5,
+     1160
+    ]
+   ],
+   "size": [
+    294,
+    394
+   ],
+   "corners": "picked by eye",
+   "pixels": "source pixels resampled once, bicubic; no generation"
+  },
+  "emblem-right-page": {
+   "file": "textures/emblem-right-page.png",
+   "sha256": "f585cf3645765ae8c20ad3c5ed139f8e4bd1ae1ad0da3b7d75e785de653842ab",
+   "source": "frames/IMG_6383-046.40.png",
+   "source_sha256": "9a682a36b90622770de26567bb205966c17684b2519da71464066365fa546463",
+   "quad_px": [
+    [
+     328,
+     978
+    ],
+    [
+     452,
+     888
+    ],
+    [
+     415,
+     1180
+    ],
+    [
+     255,
+     1250
+    ]
+   ],
+   "size": [
+    294,
+    394
+   ],
+   "corners": "picked by eye",
+   "pixels": "source pixels resampled once, bicubic; no generation"
+  },
+  "diptych-left-native": {
+   "file": "textures/diptych-left-native.png",
+   "sha256": "d97cd01e74b7347ca01ce5d0de42ca52440dfbbd4417cd01b4d395b3cf68ac70",
+   "source": "frames/IMG_6383-049.80.png",
+   "source_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+   "quad_px": [
+    [
+     215,
+     1268
+    ],
+    [
+     376,
+     1285
+    ],
+    [
+     270,
+     1695
+    ],
+    [
+     38,
+     1660
+    ]
+   ],
+   "size": [
+    266,
+    482
+   ],
+   "corners": "picked by eye",
+   "pixels": "source pixels resampled once, bicubic; no generation"
+  },
+  "diptych-right-native": {
+   "file": "textures/diptych-right-native.png",
+   "sha256": "2fb9859e27f184bc3d931727b14ce097e9429c23edae1c2379760b0c50b6f2d8",
+   "source": "frames/IMG_6383-049.80.png",
+   "source_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+   "quad_px": [
+    [
+     376,
+     1285
+    ],
+    [
+     560,
+     1300
+    ],
+    [
+     515,
+     1740
+    ],
+    [
+     270,
+     1695
+    ]
+   ],
+   "size": [
+    266,
+    482
+   ],
+   "corners": "picked by eye",
+   "pixels": "source pixels resampled once, bicubic; no generation"
+  },
+  "bookcover-board": {
+   "file": "textures/bookcover-board.png",
+   "sha256": "01a3cf3f4b70ba41b87a58620ea5f0fe2c13a0a0a6b111f99ef5f05bb1c9ca00",
+   "source": "book-cover-34016-zoom-0.jpg",
+   "source_sha256": "c7955feb2ad1f512f54ecacdc9f2a22db569073366c7792bc3aaa8b802945e14",
+   "quad_px": [
+    [
+     420,
+     455
+    ],
+    [
+     628,
+     203
+    ],
+    [
+     1203,
+     492
+    ],
+    [
+     1015,
+     775
+    ]
+   ],
+   "size": [
+    258,
+    420
+   ],
+   "corners": "picked by eye",
+   "pixels": "source pixels resampled once, bicubic; no generation"
+  },
+  "cleric-frame-film": {
+   "file": "textures/cleric-frame-film.png",
+   "sha256": "ea01b8110a167d4379da5e73c353e0c4a7b9fb6e3e3b2191614a76601abca84d",
+   "source": "frames/IMG_6383-049.80.png",
+   "source_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+   "outer_quad_px": [
+    [
+     342,
+     598
+    ],
+    [
+     758,
+     595
+    ],
+    [
+     730,
+     1098
+    ],
+    [
+     377,
+     1078
+    ]
+   ],
+   "sight_quad_px": [
+    [
+     435,
+     679
+    ],
+    [
+     672,
+     679
+    ],
+    [
+     659,
+     1007
+    ],
+    [
+     450,
+     1002
+    ]
+   ],
+   "size": [
+    468,
+    644
+   ],
+   "band_px": [
+    88,
+    100
+   ],
+   "corners": "picked by eye",
+   "pixels": "the four frame bands of the film, each resampled once onto the helper's band; the opening is neutral grey; no generation"
+  }
+ },
+ "muse_reference": {
+  "cleric-frame-native-49.80": {
+   "file": "muse-reference/cleric-frame-native-49.80.png",
+   "sha256": "c874c5ae9ef015247f08f224e3770e2fa4b6c370397c5b0cff5153d39684bda2",
+   "source": "frames/IMG_6383-049.80.png",
+   "source_sha256": "22de0c120b3ccc8f0080510c6a33f973f7860d92f7235d74a2b50dbf605be908",
+   "crop_box_px": [
+    300,
+    550,
+    800,
+    1150
+   ],
+   "pixels": "unchanged crop"
+  },
+  "cleric-frame-native-41.20": {
+   "file": "muse-reference/cleric-frame-native-41.20.png",
+   "sha256": "6712a51db6fd7b8fe64b6245ad9fa260d18624a63aef53c56979c44ea407559b",
+   "source": "frames/IMG_6383-041.20.png",
+   "source_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+   "crop_box_px": [
+    340,
+    715,
+    620,
+    1045
+   ],
+   "pixels": "unchanged crop"
+  },
+  "woman-frame-native-46.40": {
+   "file": "muse-reference/woman-frame-native-46.40.png",
+   "sha256": "1e622a6d31dbf4d588506486e3e9f3782adaeed589793f363b650337b7099a53",
+   "source": "frames/IMG_6383-046.40.png",
+   "source_sha256": "9a682a36b90622770de26567bb205966c17684b2519da71464066365fa546463",
+   "crop_box_px": [
+    0,
+    0,
+    700,
+    800
+   ],
+   "pixels": "unchanged crop"
+  },
+  "woman-frame-native-41.20": {
+   "file": "muse-reference/woman-frame-native-41.20.png",
+   "sha256": "c4a2ac625a6882999307a251ccaaaa0ec4e3f7a666bf6aa48e5b22522ed42769",
+   "source": "frames/IMG_6383-041.20.png",
+   "source_sha256": "9224328e2ba3885a9f99623138b7566ffe76ad602bed5b2b83391744b7e5ccd8",
+   "crop_box_px": [
+    680,
+    665,
+    985,
+    1060
+   ],
+   "pixels": "unchanged crop"
+  },
+  "cleric-frame-native-49.80-straightened": {
+   "file": "muse-reference/cleric-frame-native-49.80-straightened.png",
+   "sha256": "871b6adff6ee552ddf45bd77835cbe2e96f1ac34a4c286ec32c949773d7d8303",
+   "source": "frames/IMG_6383-049.80.png",
+   "quad_px": [
+    [
+     342,
+     598
+    ],
+    [
+     758,
+     595
+    ],
+    [
+     730,
+     1098
+    ],
+    [
+     377,
+     1078
+    ]
+   ],
+   "size": [
+    508,
+    660
+   ],
+   "note": "planar perspective fit of a stepped moulding; band widths are provisional"
+  }
+ }
+}

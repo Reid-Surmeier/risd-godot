@@ -27,24 +27,54 @@ func _drag(from: Vector2, step: Vector2, steps: int, what: String) -> void:
 		Input.parse_input_event(ev)
 		await process_frame
 	await _button(pos, MOUSE_BUTTON_LEFT, false)
-	_log.append({"t_ms": _ms(), "event": "drag", "what": what, "from": [from.x, from.y], "to": [pos.x, pos.y],
-			"relative_total": [step.x * steps, step.y * steps], "steps": steps})
+	_log.append(
+		{
+			"t_ms": _ms(),
+			"event": "drag",
+			"what": what,
+			"from": [from.x, from.y],
+			"to": [pos.x, pos.y],
+			"relative_total": [step.x * steps, step.y * steps],
+			"steps": steps
+		}
+	)
 
 
 func _state(shell: Control, label: String) -> Dictionary:
 	var s: Dictionary = Shell.state(shell).value
 	var tabs := []
 	for t in s.tabs:
-		tabs.append({"key": t.key, "page_visible": t.page_visible, "frozen": t.frozen, "tenant": t.tenant, "rect": _rect(t.rect)})
-	var entry := {"t_ms": _ms(), "event": "state", "label": label, "count": s.count, "active": s.active, "tabs": tabs,
-			"window": [shell.size.x, shell.size.y]}
+		tabs.append(
+			{
+				"key": t.key,
+				"page_visible": t.page_visible,
+				"frozen": t.frozen,
+				"tenant": t.tenant,
+				"rect": _rect(t.rect)
+			}
+		)
+	var entry := {
+		"t_ms": _ms(),
+		"event": "state",
+		"label": label,
+		"count": s.count,
+		"active": s.active,
+		"tabs": tabs,
+		"window": [shell.size.x, shell.size.y]
+	}
 	_log.append(entry)
 	return entry
 
 
 func _vp(shell: Control, label: String) -> Dictionary:
 	var r: Dictionary = Shell.tenant_state(shell, "video_player")
-	var entry := {"t_ms": _ms(), "event": "player", "label": label, "ok": r.ok, "code": r.error.code if not r.ok else ""}
+	var entry := {
+		"t_ms": _ms(),
+		"event": "player",
+		"label": label,
+		"ok": r.ok,
+		"code": r.error.code if not r.ok else ""
+	}
 	if r.ok:
 		var v: Dictionary = r.value
 		var tiles := []
@@ -53,18 +83,47 @@ func _vp(shell: Control, label: String) -> Dictionary:
 		var controls := {}
 		for n in v.controls:
 			controls[n] = _rect(v.controls[n])
-		entry.merge({"ticks": v.ticks, "size": [v.size.x, v.size.y],
-				"viewer": {"position": [v.viewer.position.x, v.viewer.position.y], "scale": v.viewer.scale, "rect": _rect(v.viewer.rect)},
-				"information": {"position": [v.information.position.x, v.information.position.y], "rect": _rect(v.information.rect)},
+		entry.merge(
+			{
+				"ticks": v.ticks,
+				"size": [v.size.x, v.size.y],
+				"viewer":
+				{
+					"position": [v.viewer.position.x, v.viewer.position.y],
+					"scale": v.viewer.scale,
+					"rect": _rect(v.viewer.rect)
+				},
+				"information":
+				{
+					"position": [v.information.position.x, v.information.position.y],
+					"rect": _rect(v.information.rect)
+				},
 				"arrangement": v.arrangement,
-				"selected_video": v.selected_video, "video_id": v.video_id, "title": v.title, "playing": v.playing,
-				"paused": v.paused, "hidden_paused": v.hidden_paused, "muted": v.muted, "volume": v.volume,
-				"fullscreen": v.fullscreen, "stream_position": v.stream_position, "stream_length": v.stream_length,
-				"saved": v.saved, "video_rect": _rect(v.video_rect), "thumbnail_count": v.thumbnail_count,
-				"linked_video_count": v.linked_video_count, "tiles": tiles, "controls": controls,
-				"generated_motion_controls": v.generated_motion_controls, "motion_play_count": v.motion_play_count,
-				"drag_intent_count": v.drag_intent_count, "dragging_viewer": v.dragging_viewer,
-				"interaction_count": v.interaction_count, "last_action": v.last_action})
+				"selected_video": v.selected_video,
+				"video_id": v.video_id,
+				"title": v.title,
+				"playing": v.playing,
+				"paused": v.paused,
+				"hidden_paused": v.hidden_paused,
+				"muted": v.muted,
+				"volume": v.volume,
+				"fullscreen": v.fullscreen,
+				"stream_position": v.stream_position,
+				"stream_length": v.stream_length,
+				"saved": v.saved,
+				"video_rect": _rect(v.video_rect),
+				"thumbnail_count": v.thumbnail_count,
+				"linked_video_count": v.linked_video_count,
+				"tiles": tiles,
+				"controls": controls,
+				"generated_motion_controls": v.generated_motion_controls,
+				"motion_play_count": v.motion_play_count,
+				"drag_intent_count": v.drag_intent_count,
+				"dragging_viewer": v.dragging_viewer,
+				"interaction_count": v.interaction_count,
+				"last_action": v.last_action
+			}
+		)
 	_log.append(entry)
 	return entry
 
@@ -167,13 +226,23 @@ func _initialize() -> void:
 	await _frames(3)
 	var m := _vp(shell, "viewer-moved")
 	await _shot(out_dir, "09-viewer-moved.png")
-	await _drag(_c(m.controls.title_bar), Vector2(300, 200), 6, "drag the title bar past the page's bottom-right corner")
+	await _drag(
+		_c(m.controls.title_bar),
+		Vector2(300, 200),
+		6,
+		"drag the title bar past the page's bottom-right corner"
+	)
 	await _frames(3)
 	_vp(shell, "viewer-clamped")
 
 	# 9b. #63: the Information window drags by its own title bar; the Fly Through window stays
 	var cl := _vp(shell, "viewer-clamped-probe")
-	await _drag(_c(cl.controls.info_title_bar), Vector2(-12, 6), 5, "drag the information window by its title bar")
+	await _drag(
+		_c(cl.controls.info_title_bar),
+		Vector2(-12, 6),
+		5,
+		"drag the information window by its title bar"
+	)
 	await _frames(3)
 	_vp(shell, "information-moved")
 

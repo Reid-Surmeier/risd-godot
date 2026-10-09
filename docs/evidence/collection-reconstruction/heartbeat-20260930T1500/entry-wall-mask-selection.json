@@ -1,0 +1,6 @@
+{
+  "image": "IMG_6380/000206.jpg",
+  "image_sha256": "13e7bd6c619da3d25951cd5658cc10e715304df3dc062c3213fd3952054bad8a",
+  "pose_ceiling": 540,
+  "reason": "Source pixels reviewed before this alternative fit: artwork, jambs and display structures occupy y450..540; nearest visible wood floor begins below y600. Ceiling540 retains 60px clearance above visible floor. Original450 trial preserved; error/inlier/parity/source-exclusion gates unchanged. This changes camera fitting support and must be compared as a separate diagnostic, not substituted for the original trial."
+}

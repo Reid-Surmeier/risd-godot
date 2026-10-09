@@ -1,0 +1,271 @@
+Godot Engine v4.7.2.stable.official.ed1daf0bf - https://godotengine.org
+
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Started Project initialization (5 steps)[39m[0m
+[   0% ] [90m[1mfirst_scan_filesystem[22m | Scanning file structure...[39m[0m
+[  16% ] [90m[1mfirst_scan_filesystem[22m | Loading global class names...[39m[0m
+[  33% ] [90m[1mfirst_scan_filesystem[22m | Verifying GDExtensions...[39m[0m
+[  50% ] [90m[1mfirst_scan_filesystem[22m | Creating autoload scripts...[39m[0m
+[  66% ] [90m[1mfirst_scan_filesystem[22m | Initializing plugins...[39m[0m
+[  83% ] [90m[1mfirst_scan_filesystem[22m | Starting file scan...[39m[0m
+[92m[ DONE ][39m [1mfirst_scan_filesystem[22m
+[0m
+[   0% ] [90m[1m_update_scan_actions[22m | Started Scanning actions... (81 steps)[39m[0m
+[   0% ] [90m[1m_update_scan_actions[22m | architecture-asset.png[39m[0m
+[   1% ] [90m[1m_update_scan_actions[22m | bertin-hall-wall.png[39m[0m
+[   2% ] [90m[1m_update_scan_actions[22m | bertin-in-room.png[39m[0m
+[   3% ] [90m[1m_update_scan_actions[22m | bookcase-asset.png[39m[0m
+[   4% ] [90m[1m_update_scan_actions[22m | bookcase-detail.png[39m[0m
+[   6% ] [90m[1m_update_scan_actions[22m | bookcase-oblique.png[39m[0m
+[   7% ] [90m[1m_update_scan_actions[22m | bust-asset.png[39m[0m
+[   8% ] [90m[1m_update_scan_actions[22m | bust-detail.png[39m[0m
+[   9% ] [90m[1m_update_scan_actions[22m | bust-front-uv.png[39m[0m
+[  10% ] [90m[1m_update_scan_actions[22m | bust-rear-uv.png[39m[0m
+[  12% ] [90m[1m_update_scan_actions[22m | bust-side-uv.png[39m[0m
+[  13% ] [90m[1m_update_scan_actions[22m | corot-in-room.png[39m[0m
+[  14% ] [90m[1m_update_scan_actions[22m | courbet-in-room.png[39m[0m
+[  15% ] [90m[1m_update_scan_actions[22m | door-sconce-detail.png[39m[0m
+[  17% ] [90m[1m_update_scan_actions[22m | entrance-chair-detail.png[39m[0m
+[  18% ] [90m[1m_update_scan_actions[22m | european-door-detail.png[39m[0m
+[  19% ] [90m[1m_update_scan_actions[22m | european-door-reverse.png[39m[0m
+[  20% ] [90m[1m_update_scan_actions[22m | fetti-in-room.png[39m[0m
+[  21% ] [90m[1m_update_scan_actions[22m | gallery-far-door.png[39m[0m
+[  23% ] [90m[1m_update_scan_actions[22m | gallery-piers.png[39m[0m
+[  24% ] [90m[1m_update_scan_actions[22m | gallery-wide.png[39m[0m
+[  25% ] [90m[1m_update_scan_actions[22m | gallery.png[39m[0m
+[  26% ] [90m[1m_update_scan_actions[22m | gold-service-asset.png[39m[0m
+[  28% ] [90m[1m_update_scan_actions[22m | gold-service-detail.png[39m[0m
+[  29% ] [90m[1m_update_scan_actions[22m | goltzius-in-room.png[39m[0m
+[  30% ] [90m[1m_update_scan_actions[22m | grey-door-corner.png[39m[0m
+[  31% ] [90m[1m_update_scan_actions[22m | grey-gallery-wide.png[39m[0m
+[  32% ] [90m[1m_update_scan_actions[22m | grey-purple-reverse.png[39m[0m
+[  34% ] [90m[1m_update_scan_actions[22m | grey-walk.png[39m[0m
+[  35% ] [90m[1m_update_scan_actions[22m | hall-grey-join.png[39m[0m
+[  36% ] [90m[1m_update_scan_actions[22m | hall-portal-join.png[39m[0m
+[  37% ] [90m[1m_update_scan_actions[22m | hall-portal-walk.png[39m[0m
+[  39% ] [90m[1m_update_scan_actions[22m | hall-source-camera.png[39m[0m
+[  40% ] [90m[1m_update_scan_actions[22m | hall-walk.png[39m[0m
+[  41% ] [90m[1m_update_scan_actions[22m | hall-west-paintings.png[39m[0m
+[  42% ] [90m[1m_update_scan_actions[22m | hall-wide-arch.png[39m[0m
+[  43% ] [90m[1m_update_scan_actions[22m | hall-wide-far.png[39m[0m
+[  45% ] [90m[1m_update_scan_actions[22m | ionic-capital-front.png[39m[0m
+[  46% ] [90m[1m_update_scan_actions[22m | ionic-capital-oblique.png[39m[0m
+[  47% ] [90m[1m_update_scan_actions[22m | loop-overview.png[39m[0m
+[  48% ] [90m[1m_update_scan_actions[22m | medieval-apostle-left.png[39m[0m
+[  50% ] [90m[1m_update_scan_actions[22m | medieval-apostle-right.png[39m[0m
+[  51% ] [90m[1m_update_scan_actions[22m | medieval-cases-east.png[39m[0m
+[  52% ] [90m[1m_update_scan_actions[22m | medieval-cases-portal.png[39m[0m
+[  53% ] [90m[1m_update_scan_actions[22m | medieval-frame-front.png[39m[0m
+[  54% ] [90m[1m_update_scan_actions[22m | medieval-frame-oblique.png[39m[0m
+[  56% ] [90m[1m_update_scan_actions[22m | medieval-grille-front.png[39m[0m
+[  57% ] [90m[1m_update_scan_actions[22m | medieval-grille-oblique.png[39m[0m
+[  58% ] [90m[1m_update_scan_actions[22m | medieval-north-panel-wide.png[39m[0m
+[  59% ] [90m[1m_update_scan_actions[22m | medieval-panel-bartolo.png[39m[0m
+[  60% ] [90m[1m_update_scan_actions[22m | medieval-panel-magdalene.png[39m[0m
+[  62% ] [90m[1m_update_scan_actions[22m | medieval-panel-peter.png[39m[0m
+[  63% ] [90m[1m_update_scan_actions[22m | medieval-panel-virgin.png[39m[0m
+[  64% ] [90m[1m_update_scan_actions[22m | medieval-portal-wall-wide.png[39m[0m
+[  65% ] [90m[1m_update_scan_actions[22m | medieval-stair-door-detail.png[39m[0m
+[  67% ] [90m[1m_update_scan_actions[22m | medieval-stair-wall-wide.png[39m[0m
+[  68% ] [90m[1m_update_scan_actions[22m | medieval-walk.png[39m[0m
+[  69% ] [90m[1m_update_scan_actions[22m | medieval-wide.png[39m[0m
+[  70% ] [90m[1m_update_scan_actions[22m | mirror-detail.png[39m[0m
+[  71% ] [90m[1m_update_scan_actions[22m | perugino-in-room.png[39m[0m
+[  73% ] [90m[1m_update_scan_actions[22m | perugino-walking.png[39m[0m
+[  74% ] [90m[1m_update_scan_actions[22m | pink-service-asset.png[39m[0m
+[  75% ] [90m[1m_update_scan_actions[22m | pink-service-detail.png[39m[0m
+[  76% ] [90m[1m_update_scan_actions[22m | portal-angle.png[39m[0m
+[  78% ] [90m[1m_update_scan_actions[22m | portal-front.png[39m[0m
+[  79% ] [90m[1m_update_scan_actions[22m | purple-grey-wide.png[39m[0m
+[  80% ] [90m[1m_update_scan_actions[22m | purple-wall-detail.png[39m[0m
+[  81% ] [90m[1m_update_scan_actions[22m | renaissance-door-corner.png[39m[0m
+[  82% ] [90m[1m_update_scan_actions[22m | renaissance-door-wall.png[39m[0m
+[  84% ] [90m[1m_update_scan_actions[22m | renaissance-walk.png[39m[0m
+[  85% ] [90m[1m_update_scan_actions[22m | renaissance-wide.png[39m[0m
+[  86% ] [90m[1m_update_scan_actions[22m | room.png[39m[0m
+[  87% ] [90m[1m_update_scan_actions[22m | settee-detail.png[39m[0m
+[  89% ] [90m[1m_update_scan_actions[22m | tracery-angle.png[39m[0m
+[  90% ] [90m[1m_update_scan_actions[22m | tracery-front.png[39m[0m
+[  91% ] [90m[1m_update_scan_actions[22m | wallpaper-asset.png[39m[0m
+[  92% ] [90m[1m_update_scan_actions[22m | wide-gallery-entry.png[39m[0m
+[  93% ] [90m[1m_update_scan_actions[22m | wide-gold-pedestal.png[39m[0m
+[  95% ] [90m[1m_update_scan_actions[22m | wide-purple-entry.png[39m[0m
+[  96% ] [90m[1m_update_scan_actions[22m | wide-settee-portrait.png[39m[0m
+[  97% ] [90m[1m_update_scan_actions[22m | wide-source-camera.png[39m[0m
+[92m[ DONE ][39m [1m_update_scan_actions[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (81 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   1% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   2% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   3% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   4% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   6% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   7% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   8% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   9% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  10% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  12% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  13% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  14% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  15% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  17% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  18% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  19% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  20% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  21% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  23% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  24% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  25% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  26% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  28% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  29% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  30% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  31% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  32% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  34% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  35% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  36% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  37% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  39% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  40% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  41% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  42% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  43% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  45% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  46% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  47% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  48% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  50% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  51% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  52% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  53% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  54% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  56% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  57% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  58% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  59% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  60% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  62% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  63% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  64% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  65% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  67% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  68% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  69% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  70% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  71% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  73% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  74% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  75% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  76% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  78% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  79% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  80% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  81% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  82% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  84% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  85% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  86% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  87% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  89% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  90% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  91% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  92% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  93% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  95% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  96% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[  97% ] [90m[1mreimport[22m | Preparing files to reimport...[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing pre-reimport operations...[39m[0m
+[   0% ] [90m[1mreimport[22m | perugino-walking.png[39m[0m
+[   1% ] [90m[1mreimport[22m | perugino-in-room.png[39m[0m
+[   2% ] [90m[1mreimport[22m | mirror-detail.png[39m[0m
+[   3% ] [90m[1mreimport[22m | medieval-wide.png[39m[0m
+[   4% ] [90m[1mreimport[22m | medieval-walk.png[39m[0m
+[   6% ] [90m[1mreimport[22m | medieval-stair-wall-wide.png[39m[0m
+[   7% ] [90m[1mreimport[22m | medieval-stair-door-detail.png[39m[0m
+[   8% ] [90m[1mreimport[22m | medieval-portal-wall-wide.png[39m[0m
+[   9% ] [90m[1mreimport[22m | medieval-panel-virgin.png[39m[0m
+[  10% ] [90m[1mreimport[22m | medieval-panel-peter.png[39m[0m
+[  12% ] [90m[1mreimport[22m | medieval-panel-magdalene.png[39m[0m
+[  13% ] [90m[1mreimport[22m | medieval-panel-bartolo.png[39m[0m
+[  14% ] [90m[1mreimport[22m | medieval-north-panel-wide.png[39m[0m
+[  15% ] [90m[1mreimport[22m | medieval-grille-oblique.png[39m[0m
+[  17% ] [90m[1mreimport[22m | medieval-grille-front.png[39m[0m
+[  18% ] [90m[1mreimport[22m | medieval-frame-oblique.png[39m[0m
+[  19% ] [90m[1mreimport[22m | medieval-frame-front.png[39m[0m
+[  20% ] [90m[1mreimport[22m | medieval-cases-portal.png[39m[0m
+[  21% ] [90m[1mreimport[22m | medieval-cases-east.png[39m[0m
+[  23% ] [90m[1mreimport[22m | medieval-apostle-right.png[39m[0m
+[  24% ] [90m[1mreimport[22m | wide-source-camera.png[39m[0m
+[  25% ] [90m[1mreimport[22m | wide-settee-portrait.png[39m[0m
+[  26% ] [90m[1mreimport[22m | wide-purple-entry.png[39m[0m
+[  28% ] [90m[1mreimport[22m | wide-gold-pedestal.png[39m[0m
+[  29% ] [90m[1mreimport[22m | wide-gallery-entry.png[39m[0m
+[  30% ] [90m[1mreimport[22m | wallpaper-asset.png[39m[0m
+[  31% ] [90m[1mreimport[22m | tracery-front.png[39m[0m
+[  32% ] [90m[1mreimport[22m | tracery-angle.png[39m[0m
+[  34% ] [90m[1mreimport[22m | settee-detail.png[39m[0m
+[  35% ] [90m[1mreimport[22m | room.png[39m[0m
+[  36% ] [90m[1mreimport[22m | renaissance-wide.png[39m[0m
+[  37% ] [90m[1mreimport[22m | renaissance-walk.png[39m[0m
+[  39% ] [90m[1mreimport[22m | renaissance-door-wall.png[39m[0m
+[  40% ] [90m[1mreimport[22m | renaissance-door-corner.png[39m[0m
+[  41% ] [90m[1mreimport[22m | purple-wall-detail.png[39m[0m
+[  42% ] [90m[1mreimport[22m | purple-grey-wide.png[39m[0m
+[  43% ] [90m[1mreimport[22m | portal-front.png[39m[0m
+[  45% ] [90m[1mreimport[22m | portal-angle.png[39m[0m
+[  46% ] [90m[1mreimport[22m | pink-service-detail.png[39m[0m
+[  47% ] [90m[1mreimport[22m | pink-service-asset.png[39m[0m
+[  48% ] [90m[1mreimport[22m | gallery-piers.png[39m[0m
+[  50% ] [90m[1mreimport[22m | gallery-far-door.png[39m[0m
+[  51% ] [90m[1mreimport[22m | fetti-in-room.png[39m[0m
+[  52% ] [90m[1mreimport[22m | european-door-reverse.png[39m[0m
+[  53% ] [90m[1mreimport[22m | european-door-detail.png[39m[0m
+[  54% ] [90m[1mreimport[22m | entrance-chair-detail.png[39m[0m
+[  56% ] [90m[1mreimport[22m | door-sconce-detail.png[39m[0m
+[  57% ] [90m[1mreimport[22m | courbet-in-room.png[39m[0m
+[  58% ] [90m[1mreimport[22m | corot-in-room.png[39m[0m
+[  59% ] [90m[1mreimport[22m | bust-side-uv.png[39m[0m
+[  60% ] [90m[1mreimport[22m | bust-rear-uv.png[39m[0m
+[  62% ] [90m[1mreimport[22m | bust-front-uv.png[39m[0m
+[  63% ] [90m[1mreimport[22m | bust-detail.png[39m[0m
+[  64% ] [90m[1mreimport[22m | bust-asset.png[39m[0m
+[  65% ] [90m[1mreimport[22m | bookcase-oblique.png[39m[0m
+[  67% ] [90m[1mreimport[22m | bookcase-detail.png[39m[0m
+[  68% ] [90m[1mreimport[22m | bookcase-asset.png[39m[0m
+[  69% ] [90m[1mreimport[22m | bertin-in-room.png[39m[0m
+[  70% ] [90m[1mreimport[22m | bertin-hall-wall.png[39m[0m
+[  71% ] [90m[1mreimport[22m | architecture-asset.png[39m[0m
+[  73% ] [90m[1mreimport[22m | medieval-apostle-left.png[39m[0m
+[  74% ] [90m[1mreimport[22m | loop-overview.png[39m[0m
+[  75% ] [90m[1mreimport[22m | ionic-capital-oblique.png[39m[0m
+[  76% ] [90m[1mreimport[22m | ionic-capital-front.png[39m[0m
+[  78% ] [90m[1mreimport[22m | hall-wide-far.png[39m[0m
+[  79% ] [90m[1mreimport[22m | hall-wide-arch.png[39m[0m
+[  80% ] [90m[1mreimport[22m | hall-west-paintings.png[39m[0m
+[  81% ] [90m[1mreimport[22m | hall-walk.png[39m[0m
+[  82% ] [90m[1mreimport[22m | hall-source-camera.png[39m[0m
+[  84% ] [90m[1mreimport[22m | hall-portal-walk.png[39m[0m
+[  85% ] [90m[1mreimport[22m | hall-portal-join.png[39m[0m
+[  86% ] [90m[1mreimport[22m | hall-grey-join.png[39m[0m
+[  87% ] [90m[1mreimport[22m | grey-walk.png[39m[0m
+[  89% ] [90m[1mreimport[22m | grey-purple-reverse.png[39m[0m
+[  90% ] [90m[1mreimport[22m | grey-gallery-wide.png[39m[0m
+[  91% ] [90m[1mreimport[22m | grey-door-corner.png[39m[0m
+[  92% ] [90m[1mreimport[22m | goltzius-in-room.png[39m[0m
+[  93% ] [90m[1mreimport[22m | gold-service-detail.png[39m[0m
+[  95% ] [90m[1mreimport[22m | gold-service-asset.png[39m[0m
+[  96% ] [90m[1mreimport[22m | gallery.png[39m[0m
+[  97% ] [90m[1mreimport[22m | gallery-wide.png[39m[0m
+[  98% ] [90m[1mreimport[22m | Finalizing Asset Import...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mreimport[22m | Started (Re)Importing Assets (81 steps)[39m[0m
+[   0% ] [90m[1mreimport[22m | Executing post-reimport operations...[39m[0m
+[92m[ DONE ][39m [1mreimport[22m
+[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Started Loading editor (5 steps)[39m[0m
+[   0% ] [90m[1mloading_editor_layout[22m | Loading editor layout...[39m[0m
+[  16% ] [90m[1mloading_editor_layout[22m | Loading docks...[39m[0m
+[92m[ DONE ][39m [1mloading_editor_layout[22m
+[0m

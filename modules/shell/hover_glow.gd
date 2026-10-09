@@ -1,13 +1,18 @@
 ## Prototype (owner's references: the kiiikiii.kr hover glow, the nodate.club two-state cursor).
-## A hovered button or tab gives off soft white light: the control's drawn pixels (every PNG piece it is
-## built from, at the size and stretch it is drawn with) are gathered into one silhouette, blurred REACH_PX
-## screen pixels out into the scene and faded in over FADE_IN, out over FADE_OUT. The light is computed on
-## first hover and kept until the control resizes. The arrow cursor switches to its hover state over it.
+## A hovered button or tab gives off soft white light: the control's
+## drawn pixels (every PNG piece it is
+## built from, at the size and stretch it is drawn with) are gathered into
+## one silhouette, blurred REACH_PX
+## screen pixels out into the scene and faded in over FADE_IN, out over
+## FADE_OUT. The light is computed on
+## first hover and kept until the control resizes. The arrow cursor
+## switches to its hover state over it.
 ## White only (owner's call): on white paper the light has nothing to brighten, by design.
 extends RefCounted
 
 const REACH_PX := 90.0  # how far the light spreads past the edge, in screen pixels
-const DOWNSAMPLE := 4  # the blur runs on a quarter-size silhouette; the light is scaled back up smoothly
+# the blur runs on a quarter-size silhouette; the light is scaled back up smoothly
+const DOWNSAMPLE := 4
 const GAIN := 3.2  # extreme (owner's variation): full white well past the edge before it falls off
 const INNER := 0.0  # none on the control itself: only the area around it lights up
 const FADE_IN := 0.22
@@ -17,8 +22,10 @@ const ARROW_HOVER := "res://assets/cursor/arrow-hover.png"
 const CURSOR_PX := 32
 
 
-## The owner-supplied cursor pair, when present: each scaled down by a whole factor to at most CURSOR_PX
-## tall (pixel art stays crisp), its hotspot at the arrow's tip (the top-left-most solid pixel). Without
+## The owner-supplied cursor pair, when present: each scaled down by a
+## whole factor to at most CURSOR_PX
+## tall (pixel art stays crisp), its hotspot at the arrow's tip (the
+## top-left-most solid pixel). Without
 ## the files the system arrow stays.
 static func use_cursor() -> void:
 	for pair in [[ARROW, Input.CURSOR_ARROW], [ARROW_HOVER, Input.CURSOR_POINTING_HAND]]:
@@ -82,13 +89,17 @@ static func attach(target: Control) -> void:
 		if to == 0.0:
 			t.tween_callback(func(): halo.visible = false)
 		halo.set_meta("tween", t)
-	target.mouse_entered.connect(func():
-		_light(target, halo)
-		fade.call(1.0, FADE_IN))
+	target.mouse_entered.connect(
+		func():
+			_light(target, halo)
+			fade.call(1.0, FADE_IN)
+	)
 	target.mouse_exited.connect(func(): fade.call(0.0, FADE_OUT))
-	target.hidden.connect(func():
-		halo.modulate.a = 0.0
-		halo.visible = false)
+	target.hidden.connect(
+		func():
+			halo.modulate.a = 0.0
+			halo.visible = false
+	)
 
 
 ## Build (or reuse) the light for the control's current size and scale.
@@ -143,30 +154,47 @@ static func _silhouette(target: Control, s: float) -> Image:
 		img.convert(Image.FORMAT_RGBA8)
 		var gs: float = piece.get_global_transform().get_scale().x
 		if mode == TextureRect.STRETCH_KEEP or mode == TextureRect.STRETCH_KEEP_CENTERED:
-			img.resize(maxi(1, roundi(img.get_width() * gs)), maxi(1, roundi(img.get_height() * gs)), Image.INTERPOLATE_BILINEAR)
+			img.resize(
+				maxi(1, roundi(img.get_width() * gs)),
+				maxi(1, roundi(img.get_height() * gs)),
+				Image.INTERPOLATE_BILINEAR
+			)
 			if mode == TextureRect.STRETCH_KEEP_CENTERED:
 				at += (span - img.get_size()) / 2
 			mask.blend_rect(img, Rect2i(Vector2i.ZERO, img.get_size().min(span)), at)
 		elif mode == TextureRect.STRETCH_TILE:
-			img.resize(maxi(1, roundi(img.get_width() * gs)), maxi(1, roundi(img.get_height() * gs)), Image.INTERPOLATE_BILINEAR)
+			img.resize(
+				maxi(1, roundi(img.get_width() * gs)),
+				maxi(1, roundi(img.get_height() * gs)),
+				Image.INTERPOLATE_BILINEAR
+			)
 			for y in range(0, span.y, img.get_height()):
 				for x in range(0, span.x, img.get_width()):
-					mask.blend_rect(img, Rect2i(Vector2i.ZERO, img.get_size().min(span - Vector2i(x, y))), at + Vector2i(x, y))
+					mask.blend_rect(
+						img,
+						Rect2i(Vector2i.ZERO, img.get_size().min(span - Vector2i(x, y))),
+						at + Vector2i(x, y)
+					)
 		else:
 			img.resize(span.x, span.y, Image.INTERPOLATE_BILINEAR)
 			mask.blend_rect(img, Rect2i(Vector2i.ZERO, span), at)
 		drew = true
 	if not drew:  # nothing drawn (a bare flat button): its rect stands in
-		mask.fill_rect(Rect2i(Vector2i.ONE * int(REACH_PX), Vector2i((target.size * s).ceil())), Color.WHITE)
+		mask.fill_rect(
+			Rect2i(Vector2i.ONE * int(REACH_PX), Vector2i((target.size * s).ceil())), Color.WHITE
+		)
 	return mask
 
 
-## White light: the silhouette's alpha blurred (three box passes each way, near a gaussian) and brightened;
+## White light: the silhouette's alpha blurred (three box passes each way,
+## near a gaussian) and brightened;
 ## cut out where the control draws (INNER of it left there), so the control keeps its own look.
 static func _glow(mask: Image) -> Image:
 	var full := mask.get_size()
 	var small := mask.duplicate() as Image
-	small.resize(maxi(1, full.x / DOWNSAMPLE), maxi(1, full.y / DOWNSAMPLE), Image.INTERPOLATE_BILINEAR)
+	small.resize(
+		maxi(1, full.x / DOWNSAMPLE), maxi(1, full.y / DOWNSAMPLE), Image.INTERPOLATE_BILINEAR
+	)
 	var w := small.get_width()
 	var h := small.get_height()
 	var a := PackedFloat32Array()
@@ -191,7 +219,9 @@ static func _glow(mask: Image) -> Image:
 
 
 ## One sliding-window box blur along rows (horizontal) or columns, edges clamped.
-static func _box(src: PackedFloat32Array, w: int, h: int, r: int, horizontal: bool) -> PackedFloat32Array:
+static func _box(
+	src: PackedFloat32Array, w: int, h: int, r: int, horizontal: bool
+) -> PackedFloat32Array:
 	var out := PackedFloat32Array()
 	out.resize(w * h)
 	var n := w if horizontal else h

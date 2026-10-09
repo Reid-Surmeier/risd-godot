@@ -1,0 +1,8 @@
+{
+  "utc": "2026-10-01T16:10:08.329030+00:00",
+  "reason": "ANGLE gl-egl software GPU process continuously busy beyond four minutes; CDP Network.enable timed out in independent ten-second read; keyboard route never reached. Terminate only this test browser before a SwiftShader diagnostic.",
+  "browser_pid": 3035128,
+  "gpu_process_pid": 3035166,
+  "protocol_read_exit": 1,
+  "working_browser_verified": false
+}

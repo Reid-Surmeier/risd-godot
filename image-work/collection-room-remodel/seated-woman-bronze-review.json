@@ -1,0 +1,13 @@
+{
+  "source": "https://risdmuseum.org/art-design/collection/seated-woman-67089",
+  "provider": "openrouter",
+  "model": "meta/muse-image",
+  "run_id": "run-aa2645a69d7e5d2d83b1f306",
+  "cost_usd": "0.010000",
+  "native_sha256": "1de65113068b8523bf9f5b5ccdf231f47c93eaf481b9b0938d8bc14523983c9d",
+  "visual_review": "Inspected native output beside official photos. Quiet warm ochre bronze patina, no figure or background. Suitable for material trial; native sculpture appearance still requires review.",
+  "subjective_fidelity_accepted": false,
+  "seamless_edges_verified": false,
+  "geometry_or_rear_verified": false,
+  "paid_retry": false
+}

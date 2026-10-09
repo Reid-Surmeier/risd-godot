@@ -1,0 +1,91 @@
+{
+  "_tag": "Planned",
+  "run": {
+    "state": "planned",
+    "request": {
+      "schemaVersion": "3",
+      "applicationId": "app-8d208c40eb26",
+      "objectiveId": "muse-23bdfb99e581ba9a748c",
+      "objective": "Reference 1 is the sole authority for the rear anatomy; reference 2 gives only the already generated front style and palette. The references describe for RISD Museum Bust of Madame Récamier, accession 37.201. Produce ONE complete REAR view of this exact single object, facing away exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Show the real rear hairstyle, bun, neck and shoulder/back shape from the official rear photograph. Do not turn the sculpture toward camera. Keep the rear complete and the base intact.\n",
+      "procedureId": "muse-23bdfb99e581ba9a748c",
+      "mode": "muse-image",
+      "provider": "openrouter",
+      "model": "meta/muse-image",
+      "sourceInputs": [
+        {
+          "applicationPath": "recamier-rear-recipe.json",
+          "sha256": "23bdfb99e581ba9a748c833d9f9094d859dda19b6cb495cd615491e875189513"
+        },
+        {
+          "applicationPath": "recamier-rear-plan.json",
+          "sha256": "efb29041bb58f410d531527a03d9a8c9048d076d17645fa39e44572d71201878"
+        },
+        {
+          "applicationPath": "recamier-rear-prompt.txt",
+          "sha256": "45c90cb1eacb6a6df0a50a7c793e412826595c6388f826b8f61d1cdec2fce5fb"
+        }
+      ],
+      "museParameters": {
+        "size": "1440x1760"
+      },
+      "adapterProtocolVersion": "1",
+      "requestedCount": 1,
+      "estimatedMaximumCostUsd": "0.01",
+      "budgetCeilingUsd": "0.01",
+      "maximumCorrectionRuns": 0,
+      "artifactRoot": "artifacts/image-generation",
+      "outputRoot": "generated",
+      "references": [
+        {
+          "slot": "reference-000",
+          "applicationPath": "inventory-references/recamier-rear-selected-0.png",
+          "sha256": "e54f01350f63c0cb7e99aadb593f1989824bda7a489cc90e5a091c92b5c3ed7a",
+          "byteLength": 2115998,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/0/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1324,
+            "height": 1324
+          }
+        },
+        {
+          "slot": "reference-001",
+          "applicationPath": "inventory-references/recamier-rear-selected-1.png",
+          "sha256": "1cf625135659f3a16c0fac91a476564967f900c1e54e3a4675b80ebdb32ac01a",
+          "byteLength": 807274,
+          "kind": "image",
+          "mediaType": "image/png",
+          "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+          "payloadDestination": "/input_references/1/image_url/url",
+          "inspectedMedia": {
+            "kind": "image",
+            "mediaType": "image/png",
+            "width": 1440,
+            "height": 1760
+          }
+        }
+      ],
+      "tool": {
+        "release": "v0.3.0",
+        "commit": "8683520ce90e1df15ba5be0344141d2e01e013ea",
+        "artifactSha256": "e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075",
+        "procedureVersion": "1",
+        "runSchemaVersion": "3",
+        "adapterProtocolVersion": "1"
+      }
+    },
+    "canonicalRequest": "{\"adapterProtocolVersion\":\"1\",\"applicationId\":\"app-8d208c40eb26\",\"artifactRoot\":\"artifacts/image-generation\",\"budgetCeilingUsd\":\"0.01\",\"estimatedMaximumCostUsd\":\"0.01\",\"maximumCorrectionRuns\":0,\"mode\":\"muse-image\",\"model\":\"meta/muse-image\",\"museParameters\":{\"size\":\"1440x1760\"},\"objective\":\"Reference 1 is the sole authority for the rear anatomy; reference 2 gives only the already generated front style and palette. The references describe for RISD Museum Bust of Madame Récamier, accession 37.201. Produce ONE complete REAR view of this exact single object, facing away exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Show the real rear hairstyle, bun, neck and shoulder/back shape from the official rear photograph. Do not turn the sculpture toward camera. Keep the rear complete and the base intact.\\n\",\"objectiveId\":\"muse-23bdfb99e581ba9a748c\",\"outputRoot\":\"generated\",\"procedureId\":\"muse-23bdfb99e581ba9a748c\",\"provider\":\"openrouter\",\"references\":[{\"applicationPath\":\"inventory-references/recamier-rear-selected-0.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":2115998,\"inspectedMedia\":{\"height\":1324,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1324},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/0/image_url/url\",\"sha256\":\"e54f01350f63c0cb7e99aadb593f1989824bda7a489cc90e5a091c92b5c3ed7a\",\"slot\":\"reference-000\"},{\"applicationPath\":\"inventory-references/recamier-rear-selected-1.png\",\"authorityReason\":\"Ordered input from the hash-locked saved Muse recipe\",\"byteLength\":807274,\"inspectedMedia\":{\"height\":1760,\"kind\":\"image\",\"mediaType\":\"image/png\",\"width\":1440},\"kind\":\"image\",\"mediaType\":\"image/png\",\"payloadDestination\":\"/input_references/1/image_url/url\",\"sha256\":\"1cf625135659f3a16c0fac91a476564967f900c1e54e3a4675b80ebdb32ac01a\",\"slot\":\"reference-001\"}],\"requestedCount\":1,\"schemaVersion\":\"3\",\"sourceInputs\":[{\"applicationPath\":\"recamier-rear-recipe.json\",\"sha256\":\"23bdfb99e581ba9a748c833d9f9094d859dda19b6cb495cd615491e875189513\"},{\"applicationPath\":\"recamier-rear-plan.json\",\"sha256\":\"efb29041bb58f410d531527a03d9a8c9048d076d17645fa39e44572d71201878\"},{\"applicationPath\":\"recamier-rear-prompt.txt\",\"sha256\":\"45c90cb1eacb6a6df0a50a7c793e412826595c6388f826b8f61d1cdec2fce5fb\"}],\"tool\":{\"adapterProtocolVersion\":\"1\",\"artifactSha256\":\"e6d0a4befe3533e90a257d927c449f035dcdd7fc0e8824d1f432854d279b8075\",\"commit\":\"8683520ce90e1df15ba5be0344141d2e01e013ea\",\"procedureVersion\":\"1\",\"release\":\"v0.3.0\",\"runSchemaVersion\":\"3\"}}",
+    "requestSha256": "a3be59560920138107654d3cb5d79fa27016b791367ccf54612b5de0666feed6"
+  },
+  "normalView": {
+    "objective": "Reference 1 is the sole authority for the rear anatomy; reference 2 gives only the already generated front style and palette. The references describe for RISD Museum Bust of Madame Récamier, accession 37.201. Produce ONE complete REAR view of this exact single object, facing away exactly as in reference 1, isolated on flat pure magenta #FF00FF. Transform the photographic object into a clean low polygon game asset with large flat planar facets, readable restrained colour texture, soft baked shading and controlled carved/ceramic relief. Keep its exact silhouette, real pose, proportions, colour motifs, feet, hands, handles, base, limbs, spouts, tails, leaf and flower details. Do not replace the real decoration with generic motifs. Preserve every visible component of this object. Keep generous magenta margins and no cast shadow beyond the silhouette. No other objects, wall, floor, platform, text, grid or label. One complete view only, no sheet. Source sides guide separately authored 3D depth; hidden geometry remains provisional. Show the real rear hairstyle, bun, neck and shoulder/back shape from the official rear photograph. Do not turn the sculpture toward camera. Keep the rear complete and the base intact.\n",
+    "evidence": "2 authoritative references matched the recorded path, kind, hash, media properties, and provider payload destination.",
+    "nextAction": "Advance this exact immutable Planned Run to reservation only when execution is requested.",
+    "spendRisk": "Planning made no provider request, created no attempt, and spent $0. A later advance may spend up to the locked ceiling.",
+    "humanDecision": "No human decision remains before reservation; subjective final visual approval remains after execution."
+  }
+}

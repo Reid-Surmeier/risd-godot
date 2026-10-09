@@ -1,35 +1,42 @@
-## The project's main scene: loads the game, puts it underneath, and shows every tab once so its
-## first real click is instant (the Shell creates a Tab's Tenant on its first show).
+## The project's main scene: loads the game underneath, then uncovers the settled Collection.
+## Other Tabs retain the Shell's lazy first-show creation.
 ##
 ## On the Web the page draws the loading screen (web/loading_shell.html, in a Web Worker so it keeps
 ## moving while this thread is busy building tabs) and has already downloaded the game pack into
-## /tmp/game.pck; this scene mounts it, loads and warms the game, reports progress to the page
+## /tmp/game.pck; this scene mounts it, loads the launch page, reports progress to the page
 ## (window.loaderSetProgress) and says when it is done (window.loaderDone). The boot pack holds
 ## only this scene.
 ##
 ## On desktop there is no page, so this scene draws the same loading screen itself: the four
 ## noise-driven dots and the bar in a SubViewport slightly smaller than the window (a subtle pixel
-## reduction), tape_screen.gdshader for a light colour bleed and edge halo; at the end the dots drift
+## reduction), tape_screen.gdshader for a light colour bleed and edge
+## halo; at the end the dots drift
 ## slowly outward and fade with the white.
 extends Control
 
 const MAIN_SCENE := "res://modules/shell/demo.tscn"
 const TapeShader := preload("res://modules/shell/tape_screen.gdshader")
-const COLORS := [Color(0.98, 0.92, 0.58), Color(0.99, 0.65, 0.63), Color(0.67, 0.79, 0.96), Color(0.83, 0.93, 0.63)]
+const COLORS := [
+	Color(0.98, 0.92, 0.58),
+	Color(0.99, 0.65, 0.63),
+	Color(0.67, 0.79, 0.96),
+	Color(0.83, 0.93, 0.63)
+]
 const WHITE := Color(0.996, 0.996, 0.996)
 const EXIT_SECONDS := 1.8
 const GAME_PACK := "/tmp/game.pck"  # written by web/loading_shell.html (engine.preloadFile)
-const SHELL_INTERFACE := "res://modules/shell/interface.gd"  # loaded after the pack is mounted: not in the boot pack
+# loaded after the pack is mounted: not in the boot pack
+const SHELL_INTERFACE := "res://modules/shell/interface.gd"
 const MIN_SECONDS := 4.0  # the bar fills at a steady pace, never faster than empty-to-full in this
-                          # long, so a quick load still reads as loading (same pace as the HTML page)
+# long, so a quick load still reads as loading (same pace as the HTML page)
 
 @export var pixel_reduction := 1.25  # the tape is the window divided by this (same in the page)
 
 var drawing := not OS.has_feature("web")  # on the Web the page draws the loading screen
 var clock := 0.0
-var progress := 0.0       # 0..1 shown by the bar (eases toward target)
+var progress := 0.0  # 0..1 shown by the bar (eases toward target)
 var target := 0.0
-var exit := -1.0          # < 0 while loading, then 0..1
+var exit := -1.0  # < 0 while loading, then 0..1
 var exit_clock := 0.0
 var stage_rect := Rect2()
 var tape: SubViewport
@@ -39,7 +46,7 @@ var ring: ImageTexture  # one dot's soft ring, white with the falloff in alpha
 var noise := FastNoiseLite.new()
 var loading_path := ""
 var game: Node  # loaded and under the loading screen; the exit waits for the bar to be full
-var warm := false  # every tab has been shown once
+var warm := false  # the launch page has settled and drawn
 
 
 func _ready() -> void:
@@ -47,7 +54,8 @@ func _ready() -> void:
 	noise.frequency = 1.0
 	ring = _bake_ring()
 	_mark("godot-ready")
-	var start_progress := 0.85 if OS.has_feature("web") else 0.0  # the page's downloads are the first 85%
+	# the page's downloads are the first 85%
+	var start_progress := 0.85 if OS.has_feature("web") else 0.0
 	progress = start_progress
 	target = start_progress
 	if drawing:
@@ -89,7 +97,12 @@ func _build_screen() -> void:
 ## For modules/shell/playtest/perf_web.py: a named moment of the load, and the bar's value.
 func _mark(name: String) -> void:
 	if OS.has_feature("web"):
-		JavaScriptBridge.eval("(window.loadPerf = window.loadPerf || []).push({name: '%s', t: performance.now()})" % name)
+		JavaScriptBridge.eval(
+			(
+				"(window.loadPerf = window.loadPerf || []).push({name: '%s', t: performance.now()})"
+				% name
+			)
+		)
 
 
 func _fit_tape() -> void:
@@ -130,7 +143,8 @@ func _noise01(x: float) -> float:
 func _draw_stage() -> void:
 	var h := stage_rect.size.y
 	var fade := 1.0 - smoothstep(0.15, 0.85, maxf(exit, 0.0))
-	var spread := 1.0 + 2.2 * (1.0 - pow(1.0 - maxf(exit, 0.0), 2.0))  # ease-out: the orbit slowly widens
+	# ease-out: the orbit slowly widens
+	var spread := 1.0 + 2.2 * (1.0 - pow(1.0 - maxf(exit, 0.0), 2.0))
 	var dot_alpha := 1.0 - smoothstep(0.2, 1.0, maxf(exit, 0.0))
 	stage.draw_rect(stage_rect, Color(WHITE, fade))
 	var center := Vector2(0.0, 0.064)
@@ -152,7 +166,9 @@ func _draw_stage() -> void:
 	var fill := track.duplicate() as StyleBoxFlat
 	fill.bg_color = Color(0.885, 0.885, 0.885, fade)
 	fill.set_border_width_all(0)
-	stage.draw_style_box(fill, Rect2(bar.position, Vector2(bar.size.x * lerpf(0.04, 1.0, progress), bar.size.y)))
+	stage.draw_style_box(
+		fill, Rect2(bar.position, Vector2(bar.size.x * lerpf(0.04, 1.0, progress), bar.size.y))
+	)
 
 
 ## One soft ring, the HTML loader's profile: strongest at 0.0096 of the height, paler in the
@@ -207,13 +223,14 @@ func _poll_load() -> void:
 		push_error("boot_loader: loading %s failed (%d)" % [MAIN_SCENE, status])
 
 
-## Show every tab once under the loading screen, then return to the launch tab: the Shell creates a
-## Tab's Tenant (and the renderer compiles its shaders) on its first show, which froze the first
-## click on Sketchbook for 1.8 s and on the 3D Viewer for 1.1 s (perf_web.py, 2026-09-23).
+## Wait for the launch Collection to settle and draw, then uncover it. Tenant factories
+## and first shader compilation run synchronously: warming another Tab would stall the
+## visible Collection and selecting it would change the Page. Leave those Tabs lazy (#281).
 func _warm_up() -> void:
 	var Shell: Script = load(SHELL_INTERFACE)
 	var shell: Control = game.get_node_or_null("Desktop/Content/Shell")
-	if shell == null or DisplayServer.get_name() == "headless":  # headless draws nothing: nothing to warm
+	# headless draws nothing: nothing to warm
+	if shell == null or DisplayServer.get_name() == "headless":
 		warm = true
 		_set_target(1.0)
 		return
@@ -225,25 +242,14 @@ func _warm_up() -> void:
 		if s.active >= 0 and not s.switching and not s.opening:
 			launch = s.active
 			break
+	if launch < 0:
+		push_error("boot_loader: launch tab did not settle")
+		return
 	_mark("launch-settled")
-	var order := []
-	for i in 6:
-		if i != launch:
-			order.append(i)
-	order.append(launch)
-	for n in order.size():
-		_mark("tab-%d-start" % order[n])
-		if Shell.select_tab(shell, order[n]).ok:
-			_mark("tab-%d-selected" % order[n])
-			for _i in 120:  # its cross-fade, then two frames drawn with it on screen
-				await get_tree().process_frame
-				if not Shell.state(shell).value.switching:
-					break
-			await get_tree().process_frame
-			await get_tree().process_frame
-		_mark("tab-%d-drawn" % order[n])
-		_set_target(lerpf(0.9, 1.0, float(n + 1) / order.size()))
-	_mark("tabs-warm")
+	await get_tree().process_frame
+	await get_tree().process_frame
+	_mark("tabs-deferred")  # no other Tenant was created or drawn under the loader
+	_set_target(1.0)
 	warm = true
 
 

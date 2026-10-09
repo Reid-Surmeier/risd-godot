@@ -1,0 +1,60 @@
+{
+  "training": [
+    "IMG_6380_exit6fps/000013.jpg",
+    "IMG_6380_exit6fps/000019.jpg"
+  ],
+  "reserved": [
+    "IMG_6380_exit6fps/000021.jpg",
+    "IMG_6380_exit6fps/000025.jpg"
+  ],
+  "allow_registered_reserved": true,
+  "images": {
+    "IMG_6380_exit6fps/000013.jpg": "exit-floor-native-v2/000001.jpg",
+    "IMG_6380_exit6fps/000019.jpg": "exit-floor-native-v2/000002.jpg",
+    "IMG_6380_exit6fps/000021.jpg": "exit-floor-native-v2/000003.jpg",
+    "IMG_6380_exit6fps/000025.jpg": "exit-floor-native-v2/000004.jpg"
+  },
+  "floor_polygons_upright": {
+    "IMG_6380_exit6fps/000013.jpg": [
+      [
+        50,
+        820
+      ],
+      [
+        430,
+        745
+      ],
+      [
+        650,
+        1180
+      ],
+      [
+        600,
+        1279
+      ],
+      [
+        20,
+        1279
+      ]
+    ],
+    "IMG_6380_exit6fps/000019.jpg": [
+      [
+        150,
+        920
+      ],
+      [
+        560,
+        890
+      ],
+      [
+        700,
+        1279
+      ],
+      [
+        120,
+        1279
+      ]
+    ]
+  },
+  "reason": "Previously empty near-floor sparse masks reused at native resolution. All source matches frozen before reserved correspondence lookup; reserved cameras globally fitted, not independent poses. No collision acceptance."
+}

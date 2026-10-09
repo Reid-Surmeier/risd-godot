@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/lion-panel-official.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-49b57942e799e34216bc2687/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "4db83425d72b5a349276c11644efb5720f111740b7ba408af2f7e8584257a3c8"
+    }
+  ],
+  "changesRequested": "Reconstruct only the complete ancient glazed-brick lion panel from reference1 as a restrained low-polygon museum game asset, orthographic front view. Preserve this exact left-facing lion, open mouth, head position, mane, four legs and curling tail; all pale repaired and eroded patches across the body and background MUST remain in their source positions. Preserve horizontal staggered brick courses, turquoise blue background and narrow worn ochre top/bottom bands. Do not repair cracks, invent intact ornament, reverse the lion, add another lion, add a frame or erase pale missing glaze. Keep the complete rectangular panel, landscape aspect ratio 228.6:104.1. Small broad facets, muted natural colours; no shiny highlights or dramatic light. Pure solid magenta#FF00FF background outside the panel with a clear margin on all sides. Do not include a wall, pedestal, label, shadow or perspective. This is a source-preserving shape/style study, not a new artwork.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-49b57942e799e34216bc2687",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-49b57942e799e34216bc2687"
+}

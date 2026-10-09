@@ -1,0 +1,20 @@
+{
+  "attempts": [
+    {
+      "id": "seated-woman-bronze-001",
+      "prompt": "seated-woman-bronze-prompt.txt",
+      "promptSha256": "311d283f49b5c11b1591fc3c74ed3be3a3e3f11ff4b00f6374c33f3154ce06db",
+      "size": "1024x1024",
+      "inputs": [
+        {
+          "path": "inventory-references/seated-woman-bronze-official-0.png",
+          "sha256": "1c8d26657a0b90c6f0d8f76462bd0b41f1cef9ab017b85ad1b97164f8825514c"
+        },
+        {
+          "path": "inventory-references/seated-woman-bronze-official-1.png",
+          "sha256": "e70288ff84378fa2453341528fbc4634aed1c4a3d25662e0b2de9d1564ef05d7"
+        }
+      ]
+    }
+  ]
+}

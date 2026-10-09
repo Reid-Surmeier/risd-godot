@@ -1,0 +1,25 @@
+{
+  "status": "proposed by a worker; not executed; no request made",
+  "attempts": [
+    {
+      "id": "cleric-frame-001",
+      "prompt": "muse-reference/cleric-frame-prompt.proposed.txt",
+      "promptSha256": "f7fe6dbcd0fc9e5d4ccbdcb0d44c805ff189ccf4fc5ccc651d300d25af6ef8ae",
+      "size": "1280x1760",
+      "inputs": [
+        {
+          "path": "muse-reference/cleric-frame-native-49.80-straightened.png",
+          "sha256": "871b6adff6ee552ddf45bd77835cbe2e96f1ac34a4c286ec32c949773d7d8303"
+        },
+        {
+          "path": "muse-reference/cleric-frame-native-49.80.png",
+          "sha256": "c874c5ae9ef015247f08f224e3770e2fa4b6c370397c5b0cff5153d39684bda2"
+        },
+        {
+          "path": "muse-reference/cleric-frame-native-41.20.png",
+          "sha256": "6712a51db6fd7b8fe64b6245ad9fa260d18624a63aef53c56979c44ea407559b"
+        }
+      ]
+    }
+  ]
+}

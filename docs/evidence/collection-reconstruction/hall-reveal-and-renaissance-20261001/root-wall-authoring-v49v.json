@@ -1,0 +1,22 @@
+{
+  "utc": "2026-10-01T20:40:00.091651+00:00",
+  "project": "main-build-extension-v49v",
+  "native_views_root_inspected": 6,
+  "architecture_exit": 0,
+  "source_worker_output_hashes_verified": 43,
+  "wall_helper_runtime_sha256": "82e4077cf646c5dc37543fadfe9f5ce5fc6529b5db36e259d8800449be2f751d",
+  "worker_helper_unchanged": true,
+  "prepared_preload_path_flattened": true,
+  "unbaked": true,
+  "room_metres_accepted": false,
+  "visual_fidelity_accepted": false,
+  "independent_install_review": "pending",
+  "images": {
+    "textiles-south-wide.png": "d51c5eb15ccb1bf2bc2523e7cfdb1c5affc45e1eda452bb3dfa812d424b4e805",
+    "madonna-west-front.png": "a5178e62636d2cc3de24764d6a0aeb236d74acbcb2375bb6c1aee27e89211c11",
+    "velvet-front.png": "ec37613dad5657241977e5854813e13c6538d2f6f6a149ad14072272feb2b90c",
+    "renaissance-south-west-wide.png": "f77c62f6a0cd977b7ba64801dadc38a43dd0915fa2c75193234036a83d009506",
+    "textiles-platform.png": "dcb691ec36f7cd37a37b6a23932a3d9c581cb18da214da43ea13383425958518",
+    "madonna-west-quarter.png": "53db503942dd4d405b0a7484c76c8447a5178f5684b3964a777b0b4f518240da"
+  }
+}

@@ -378,6 +378,14 @@ const loadingScreen = (function () {
 			const missingMsg = 'Error\nThe following features required to run Godot projects on the Web are missing:\n';
 			displayFailureNotice(missingMsg + missing.join('\n'));
 		}
+	} else if (document.querySelector('meta[name="risd-standalone-preview"]')) {
+		// Isolated previews have one pack and no boot-loader scene to signal completion.
+		engine.startGame({onProgress: (current, total) => {
+			if (total > 0) loadingScreen.setProgress(0.95 * current / total);
+		}}).then(() => {
+			loadingScreen.setProgress(1);
+			window.loaderDone();
+		}, displayFailureNotice);
 	} else {
 		// The downloads are 85% of the bar; the Godot loading scene does the last 15%.
 		const progressTimer = setInterval(() => loadingScreen.setProgress(0.85 * downloadProgress()), 100);

@@ -1,0 +1,10 @@
+{
+  "baseline": "125927da",
+  "candidate_runtime": "36cb27af",
+  "gdtoolkit": "4.5.0",
+  "baseline_findings": 1273,
+  "current_tracked_findings": 1273,
+  "same_source_findings": true,
+  "introduced": [],
+  "removed": []
+}

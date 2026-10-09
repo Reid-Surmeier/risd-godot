@@ -54,3 +54,8 @@ Focused browser acceptance: `GAME_URL=<export URL> PLAYWRIGHT_MODULE=<playwright
 The owner-selected original gold frame surrounds every Cover Flow artwork, including the enlarged view, with each artwork's aspect ratio preserved. The exact archived mountain/church reference is the seventh entry and initial selection. The new palette is the byte-identical #126 version 7 assembly; the pencil and eraser activate the existing drawing tools. Paint wells and mixing trays follow the new artwork's placement. The saved-art query remains compatible but cannot display the obsolete card window.
 
 The focused browser journey now seeds two saved collection records before launch and verifies that data survives while the card panel stays hidden. It also checks the selected source assets and palette tool clicks. The source assets and hashes are recorded in PROVENANCE.md.
+
+
+## Proportional windows (#193)
+
+All seven desktop windows have corner grips that scale their complete contents uniformly, including drawing controls and the framed painting. Adjusted sizes survive Page fitting, clamped to available space. Private input and shader checks live in `docs/evidence/window-effects-193/`; the frozen historical layout fixtures are unchanged.

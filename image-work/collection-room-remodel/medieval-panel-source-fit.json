@@ -1,0 +1,125 @@
+{
+  "anchor_accession": "22.047",
+  "anchor_size_m": [
+    0.54,
+    0.387
+  ],
+  "method": "Hand-annotated planar original panel; inverse homography. No point cloud product. Corner/display coordinates assume the same wall plane and are not a calibrated floor reconstruction.",
+  "rows": [
+    {
+      "seconds": "85.75",
+      "role": "fit",
+      "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-panel-native-v1/panel-85.75.png",
+      "source_sha256": "9c6d554871fa85e3a660e64312a9057bee256510da1d99d8aadd591b970e5aed",
+      "peter_corners_px": [
+        [
+          552,
+          783
+        ],
+        [
+          738,
+          779
+        ],
+        [
+          733,
+          917
+        ],
+        [
+          553,
+          910
+        ]
+      ],
+      "magdalene_centre_px": [
+        398,
+        843
+      ],
+      "peter_to_magdalene_horizontal_m": 0.8045262289047241,
+      "corner_px": [
+        258,
+        900
+      ],
+      "projection_edge_px": [
+        899,
+        900
+      ],
+      "peter_centre_from_west_corner_m": 1.3880018186569214,
+      "projection_edge_from_corner_m": 2.081343948841095
+    },
+    {
+      "seconds": "86.75",
+      "role": "cross-check",
+      "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-panel-native-v1/panel-86.75.png",
+      "source_sha256": "3cb569a3843b8b66810d599a80dd6f0d6f30db916d3386ed692cd57c3a193472",
+      "peter_corners_px": [
+        [
+          562,
+          776
+        ],
+        [
+          718,
+          775
+        ],
+        [
+          717,
+          891
+        ],
+        [
+          565,
+          882
+        ]
+      ],
+      "magdalene_centre_px": [
+        430,
+        830
+      ],
+      "peter_to_magdalene_horizontal_m": 0.8302638721466065,
+      "corner_px": [
+        300,
+        880
+      ],
+      "projection_edge_px": [
+        862,
+        880
+      ],
+      "peter_centre_from_west_corner_m": 1.509209532737732,
+      "projection_edge_from_corner_m": 2.2119765877723694
+    },
+    {
+      "seconds": "87.25",
+      "role": "held-out relative-spacing check",
+      "source": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-wall-native-v1/medieval-87.25.png",
+      "source_sha256": "ba37db1ba77a55f972192257bb66e2634b07c3110ef63f6d27a713ba6a6345dc",
+      "peter_corners_px": [
+        [
+          295,
+          788
+        ],
+        [
+          442,
+          791
+        ],
+        [
+          441,
+          895
+        ],
+        [
+          296,
+          888
+        ]
+      ],
+      "magdalene_centre_px": [
+        146,
+        836
+      ],
+      "peter_to_magdalene_horizontal_m": 0.8708723378181458
+    }
+  ],
+  "accepted": false,
+  "authored_peter_centre_m": [
+    2.0,
+    1.55,
+    28.3
+  ],
+  "authored_west_wall_x_m": 0.55,
+  "uncertainty": "Roughly10-20px edge/centre uncertainty plus nonplanar mounts; taking-image border may include support. Held-out87.25 is blurred. Frame and room heights unverified."
+}

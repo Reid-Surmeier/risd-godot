@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/tmp/claude-1000/-home-reidsurmeier-risd-godot/75d82bf6-c10c-4fcc-a308-21db4b46de3a/scratchpad/muse/plate-elephant/references/catalogue.png"
+  ],
+  "result": [
+    {
+      "path": "/tmp/claude-1000/-home-reidsurmeier-risd-godot/75d82bf6-c10c-4fcc-a308-21db4b46de3a/scratchpad/muse/plate-elephant/artifacts/image-generation/runs/run-3aba0e3b8c75ccd6326d7371/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "1a7838759d20b3f63c1c850277a6b4e881a74b1c22e99898b67aaca0c6661d4f"
+    }
+  ],
+  "changesRequested": "Reference 1 is the official RISD Museum photograph of Plate with Elephant, accession 2016.102.2. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted glazed porcelain texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep every handle, foot, lid, spout, rim and limb visible. Remove the photograph's grey studio backdrop, table surface and cast shadow entirely. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-3aba0e3b8c75ccd6326d7371",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/tmp/claude-1000/-home-reidsurmeier-risd-godot/75d82bf6-c10c-4fcc-a308-21db4b46de3a/scratchpad/muse/plate-elephant/artifacts/image-generation/runs/run-3aba0e3b8c75ccd6326d7371"
+}

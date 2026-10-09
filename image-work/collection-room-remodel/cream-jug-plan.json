@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "cream-jug-001",
+      "prompt": "cream-jug-prompt.txt",
+      "promptSha256": "7f411047ac147dcc610b635022554942e49e92c288696061e511ec037c7c310b",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/cream-jug-catalogue.png",
+          "sha256": "f96bdf22fdf2f90669dfde3f268123415c015d00256d502bc7eb0432a79ab4c5"
+        }
+      ]
+    }
+  ]
+}

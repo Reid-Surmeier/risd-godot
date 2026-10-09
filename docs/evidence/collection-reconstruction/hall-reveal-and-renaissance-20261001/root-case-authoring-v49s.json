@@ -1,0 +1,17 @@
+{
+  "date": "2026-10-01T20:13:00Z",
+  "candidate": "main-build-extension-v49s",
+  "lighting": "unbaked authoring only",
+  "root_visual_inspection": "all six native exports; authentic photos present in both cases; triptych case wall gap reduced; source placement and fidelity unaccepted",
+  "objects": 11,
+  "case_count": 2,
+  "files": {
+    "east-case-authoring-v49s/case-a-front.png": "6b5516fd75df9184ac93c50984b8e93ed04e3729f4beb5cced25f246b94fa28a",
+    "east-case-authoring-v49s/case-a-quarter.png": "715c716b4c8364b6144c2f9f0fea9f73d16e3af5dd53601a7382a5831aeda553",
+    "east-case-authoring-v49s/case-b-front.png": "1ec47500e725d62fdfe610c5853c877be1c5c86225302c07177daac98ad4156a",
+    "east-case-authoring-v49s/case-b-quarter.png": "2be800410719957f5774b12c706048fa1fb6ee6f272d3327b72800f023ad13a6",
+    "east-case-authoring-v49s/east-wall-room.png": "0ba770b25e2d514c1cbfbafa0880b72fc2516bbe7597b3146298e3aaa089ea04",
+    "east-case-authoring-v49s/triptych-wall-fit.png": "8ad389720735b8277ee2b1725f4ada604ff5e22ebd588cc062fbe4d0135fb444"
+  },
+  "full_app": "not yet integrated or accepted"
+}

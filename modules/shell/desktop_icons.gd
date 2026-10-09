@@ -7,20 +7,24 @@ extends Control
 signal opened(key: String)
 
 const ROOT := "res://modules/shell/assets/desktop_icons/"
-const ICONS: Array[String] = ["downloads", "documents", "websurfer2", "nextrooms", "wastebin", "screensavers", "do_not_open"]
-const SIDE := "left"  # "left" or "right"; windows overlap the column
+const ICONS: Array[String] = [
+	"downloads", "documents", "websurfer2", "nextrooms", "wastebin", "screensavers", "do_not_open"
+]
+const SIDE := "left"  # "left" or "right"
 const MARGIN := 14.0  # page px from the page's edge and top
-const INSET := 72.0  # page px the Tenant gives up on the icons' side: its windows then overlap the column by ~20 px
+const INSET := 115.0  # widest icon and baked caption (87 px), plus both 14 px margins
 const PITCH := 150.0  # page px between icon tops at most; shrinks to fit a short page
 const SELECTED := Color(0.62, 0.66, 1.0)  # the classic selected-icon blue, as a tint
-const QUIET := preload("res://modules/shell/desktop_icon.gdshader")  # lighter grey, slightly see-through; a selected icon is drawn in full
+# lighter grey, slightly see-through; a selected icon is drawn in full
+const QUIET := preload("res://modules/shell/desktop_icon.gdshader")
 
 var _selected: TextureRect
 var _flash: Tween
 
 
 ## Put the column inside `tenant`, under its windows: descend through plain containers that fill the
-## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that holds the windows, then sit just
+## page or hold its backdrop (the Sketchbook's and 3D Viewer's `desktop`) to the node that
+## holds the windows, then sit just
 ## above any full-page backdrop there (the paper, the ground), below everything else.
 static func insert(tenant: Control) -> Control:
 	var holder := window_holder(tenant)
@@ -44,7 +48,11 @@ static func window_holder(tenant: Control) -> Control:
 	while descended:
 		descended = false
 		for c in holder.get_children():
-			if c.get_class() == "Control" and c.visible and (_full(c, tenant) or (c.get_index() == 0 and _backdrop_in(c, tenant) >= 0)):
+			if (
+				c.get_class() == "Control"
+				and c.visible
+				and (_full(c, tenant) or (c.get_index() == 0 and _backdrop_in(c, tenant) >= 0))
+			):
 				holder = c
 				descended = true
 				break
@@ -56,7 +64,8 @@ static func is_backdrop(c: Node, tenant: Control) -> bool:
 	return (c is ColorRect or c is TextureRect) and _full(c, tenant)
 
 
-## The index of the last full-page ColorRect/TextureRect among `holder`'s children (the paper, the ground), or -1.
+## The index of the last full-page ColorRect/TextureRect among `holder`'s children
+## (the paper, the ground), or -1.
 static func _backdrop_in(holder: Node, tenant: Control) -> int:
 	var at := -1
 	for i in holder.get_child_count():
@@ -66,14 +75,28 @@ static func _backdrop_in(holder: Node, tenant: Control) -> int:
 	return at
 
 
-static func _full(c: Control, tenant: Control) -> bool:  # anchored to fill, or already laid out filling
-	var anchored := c.anchor_left == 0.0 and c.anchor_top == 0.0 and c.anchor_right == 1.0 and c.anchor_bottom == 1.0
-	return anchored or (tenant.size.x > 0.0 and c.size.distance_to(tenant.size) < 2.0 and c.position.length() < 2.0)
+# anchored to fill, or already laid out filling
+static func _full(c: Control, tenant: Control) -> bool:
+	var anchored := (
+		c.anchor_left == 0.0
+		and c.anchor_top == 0.0
+		and c.anchor_right == 1.0
+		and c.anchor_bottom == 1.0
+	)
+	return (
+		anchored
+		or (
+			tenant.size.x > 0.0
+			and c.size.distance_to(tenant.size) < 2.0
+			and c.position.length() < 2.0
+		)
+	)
 
 
 func _ready() -> void:
 	name = "DesktopIcons"
-	size = Vector2.ZERO  # nothing to click: a Tenant that picks the child under the pointer never finds the layer
+	# nothing to click: a Tenant that picks the child under the pointer never finds the layer
+	size = Vector2.ZERO
 	mouse_filter = Control.MOUSE_FILTER_IGNORE
 	for key in ICONS:
 		var icon := TextureRect.new()
@@ -90,10 +113,12 @@ func _ready() -> void:
 
 
 func _fit() -> void:
-	var k := get_global_transform().get_scale().x  # a Tenant that scales its desktop (3D Viewer, Sketchbook)
+	# a Tenant that scales its desktop (3D Viewer, Sketchbook)
+	var k := get_global_transform().get_scale().x
 	if k <= 0.0:
 		return
-	# the column is placed in Page pixels, out in the strip the Tenant gave up (this layer does not clip)
+	# the column is placed in Page pixels, out in the strip the Tenant
+	# gave up (this layer does not clip)
 	var page := _page()
 	if page == null:
 		return
@@ -120,7 +145,9 @@ func _page() -> Control:  # the Shell's Page this column's Tenant sits on
 
 
 func _on_icon_input(event: InputEvent, icon: TextureRect) -> void:
-	if not (event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT):
+	if not (
+		event is InputEventMouseButton and event.pressed and event.button_index == MOUSE_BUTTON_LEFT
+	):
 		return
 	_select(icon)
 	if event.double_click:
@@ -144,6 +171,11 @@ func _select(icon: TextureRect) -> void:
 
 
 func _input(event: InputEvent) -> void:  # a click anywhere off the icons clears the selection
-	if _selected != null and is_visible_in_tree() and event is InputEventMouseButton and event.pressed \
-			and not _selected.get_global_rect().has_point(get_global_mouse_position()):
+	if (
+		_selected != null
+		and is_visible_in_tree()
+		and event is InputEventMouseButton
+		and event.pressed
+		and not _selected.get_global_rect().has_point(get_global_mouse_position())
+	):
 		_select(null)

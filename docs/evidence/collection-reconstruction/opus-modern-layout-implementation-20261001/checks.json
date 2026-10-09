@@ -1,0 +1,339 @@
+{
+  "built": {
+    "bench": [
+      [
+        18.8999996185303,
+        31.8999996185303,
+        2.2,
+        0.8
+      ]
+    ],
+    "case": {
+      "position": [
+        19.3999996185303,
+        0.0,
+        34.8400001525879
+      ],
+      "yaw": 3.14159274101257
+    },
+    "paintings": {
+      "1995.043": {
+        "outer_m": [
+          3.12223219871521,
+          2.4642322063446
+        ],
+        "position": [
+          19.5,
+          1.64999997615814,
+          28.9799995422363
+        ],
+        "wall": "north",
+        "yaw": 0.0
+      },
+      "43.255": {
+        "outer_m": [
+          0.946552932262421,
+          0.819552958011627
+        ],
+        "position": [
+          21.8700008392334,
+          1.64999997615814,
+          31.8500003814697
+        ],
+        "wall": "east",
+        "yaw": -1.57079637050629
+      },
+      "48.248": {
+        "outer_m": [
+          0.880846917629242,
+          0.623846888542175
+        ],
+        "position": [
+          16.2299995422363,
+          1.64999997615814,
+          32.4000015258789
+        ],
+        "wall": "west",
+        "yaw": 1.57079637050629
+      },
+      "57.037": {
+        "outer_m": [
+          0.755575895309448,
+          0.910575926303864
+        ],
+        "position": [
+          21.8700008392334,
+          1.64999997615814,
+          30.2000007629395
+        ],
+        "wall": "east",
+        "yaw": -1.57079637050629
+      },
+      "70.058": {
+        "outer_m": [
+          0.630013585090637,
+          0.719483017921448
+        ],
+        "position": [
+          16.2299995422363,
+          1.64999997615814,
+          33.75
+        ],
+        "wall": "west",
+        "yaw": 1.57079637050629
+      }
+    },
+    "tracks": [
+      [
+        19.0499992370605,
+        30.3999996185303,
+        5.0,
+        0.025000000372529
+      ],
+      [
+        19.0499992370605,
+        31.8999996185303,
+        5.0,
+        0.025000000372529
+      ],
+      [
+        19.0499992370605,
+        33.4000015258789,
+        5.0,
+        0.025000000372529
+      ]
+    ],
+    "walls": [
+      [
+        "west",
+        16.1499996185303,
+        29.0499992370605,
+        0.119999997317791,
+        0.300000011920929
+      ],
+      [
+        "west",
+        16.1499996185303,
+        32.9000015258789,
+        0.119999997317791,
+        4.0
+      ],
+      [
+        "east",
+        21.9500007629395,
+        31.1000003814697,
+        0.119999997317791,
+        4.40000009536743
+      ],
+      [
+        "east",
+        21.9500007629395,
+        34.75,
+        0.119999997317791,
+        0.300000011920929
+      ],
+      [
+        "north",
+        19.0499992370605,
+        28.8999996185303,
+        5.80000019073486,
+        0.119999997317791
+      ],
+      [
+        "south",
+        19.0499992370605,
+        34.9000015258789,
+        5.80000019073486,
+        0.119999997317791
+      ]
+    ],
+    "windows": [
+      [
+        17.5,
+        1.98000001907349,
+        34.8240013122559
+      ],
+      [
+        20.7999992370605,
+        1.98000001907349,
+        34.8240013122559
+      ]
+    ]
+  },
+  "failures": [],
+  "geometry": {
+    "adjoining": {
+      "bounds": [
+        21.95,
+        23.55,
+        33.3,
+        34.6
+      ],
+      "label": "modern adjoining gallery threshold study limit",
+      "openings": {
+        "west": [
+          33.3,
+          34.6
+        ]
+      }
+    },
+    "metric_accepted": false,
+    "modern": {
+      "boards_across": true,
+      "bounds": [
+        16.15,
+        21.95,
+        28.9,
+        34.9
+      ],
+      "height": 3.5,
+      "label": "modern painting gallery",
+      "openings": {
+        "east": [
+          33.3,
+          34.6
+        ],
+        "west": [
+          29.2,
+          30.9
+        ]
+      }
+    }
+  },
+  "godot": "4.7.2-stable (official)",
+  "gpu_used": false,
+  "native_review_and_bake": "not run here: remodel_review.gd and remodel_bake.gd need a renderer; root owns them",
+  "passed": true,
+  "portal_trials": {
+    "landing_guard_blocked": true,
+    "landing_guard_blocked_camera": true,
+    "landing_to_modern": true,
+    "landing_to_modern_camera": true,
+    "landing_white_back": true,
+    "landing_white_back_camera": true,
+    "landing_white_out": true,
+    "landing_white_out_camera": true,
+    "modern_bench_blocked": true,
+    "modern_bench_blocked_camera": true,
+    "modern_far_opening_back": true,
+    "modern_far_opening_back_camera": true,
+    "modern_far_opening_out": true,
+    "modern_far_opening_out_camera": true,
+    "modern_to_landing": true,
+    "modern_to_landing_camera": true
+  },
+  "project": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/main-build-extension-v49c/",
+  "renderer": "headless dummy; camera-clear flags from the walk are recorded, not judged",
+  "trial_samples": [
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        17.6667041778564,
+        0.000840315711684525,
+        30.0500049591064
+      ],
+      "started_without_reset": false,
+      "trial": "landing_to_modern"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 0,
+      "on_floor": true,
+      "position": [
+        14.5208501815796,
+        0.000835630868095905,
+        30.0500030517578
+      ],
+      "started_without_reset": true,
+      "trial": "modern_to_landing"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        14.8999948501587,
+        0.000837156432680786,
+        36.7207946777344
+      ],
+      "started_without_reset": false,
+      "trial": "landing_white_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 3,
+      "on_floor": true,
+      "position": [
+        14.8999977111816,
+        0.00083356536924839,
+        34.7208709716797
+      ],
+      "started_without_reset": true,
+      "trial": "landing_white_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        22.770788192749,
+        0.000873885583132505,
+        33.9500160217285
+      ],
+      "started_without_reset": false,
+      "trial": "modern_far_opening_out"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": false,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        21.0207748413086,
+        0.000926752982195467,
+        33.950008392334
+      ],
+      "started_without_reset": true,
+      "trial": "modern_far_opening_back"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 1,
+      "on_floor": true,
+      "position": [
+        18.8999996185303,
+        -0.000732642190996557,
+        32.5227165222168
+      ],
+      "started_without_reset": false,
+      "trial": "modern_bench_blocked"
+    },
+    {
+      "camera_clear": true,
+      "casing_contact": true,
+      "hidden_casings": 5,
+      "on_floor": true,
+      "position": [
+        13.7893581390381,
+        -0.000450485968030989,
+        33.6814727783203
+      ],
+      "started_without_reset": false,
+      "trial": "landing_guard_blocked"
+    }
+  ],
+  "wall_spans": {
+    "modern painting gallery:east": 2,
+    "modern painting gallery:north": 1,
+    "modern painting gallery:south": 1,
+    "modern painting gallery:west": 2
+  }
+}

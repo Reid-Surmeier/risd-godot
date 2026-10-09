@@ -1,0 +1,6 @@
+{
+  "original_queries": 69,
+  "training_views": 475,
+  "heldout_training_aliases": [],
+  "pass_no_identical_heldout_sources": true
+}

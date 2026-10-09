@@ -1,0 +1,669 @@
+{
+ "doors": [
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -27.75
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 4,
+   "from": "Grand Gallery",
+   "idle_after": false,
+   "left_m": 0.15,
+   "longest_step_m": 0.02,
+   "seconds": 2.7,
+   "to": "grey French gallery",
+   "walk_clip": true,
+   "walked_m": 2.35
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -25.6
+   ],
+   "ended_in": "Grand Gallery",
+   "footsteps": 3,
+   "from": "grey French gallery",
+   "idle_after": true,
+   "left_m": 0.2,
+   "longest_step_m": 0.02,
+   "seconds": 3.8,
+   "to": "Grand Gallery",
+   "walk_clip": true,
+   "walked_m": 2.0
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    1.9
+   ],
+   "ended_in": "dark medieval room",
+   "footsteps": 6,
+   "from": "Grand Gallery",
+   "idle_after": true,
+   "left_m": 0.2,
+   "longest_step_m": 0.02,
+   "seconds": 3.5,
+   "to": "dark medieval room",
+   "walk_clip": true,
+   "walked_m": 2.8
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -0.97
+   ],
+   "ended_in": "Grand Gallery",
+   "footsteps": 5,
+   "from": "dark medieval room",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 2.3,
+   "to": "Grand Gallery",
+   "walk_clip": true,
+   "walked_m": 3.07
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -26.37
+   ],
+   "ended_in": "Rockefeller reveal threshold",
+   "footsteps": 3,
+   "from": "Rockefeller",
+   "idle_after": true,
+   "left_m": 0.21,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "adjacent gallery",
+   "walk_clip": true,
+   "walked_m": 1.59
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -27.83
+   ],
+   "ended_in": "Rockefeller",
+   "footsteps": 9,
+   "from": "adjacent gallery",
+   "idle_after": true,
+   "left_m": 0.13,
+   "longest_step_m": 0.02,
+   "seconds": 6.0,
+   "to": "Rockefeller",
+   "walk_clip": true,
+   "walked_m": 1.79
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -2.88,
+    -28.28
+   ],
+   "ended_in": "purple elevator-5 connector",
+   "footsteps": 3,
+   "from": "Rockefeller",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "purple elevator-5 connector",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -4.82,
+    -28.28
+   ],
+   "ended_in": "Rockefeller",
+   "footsteps": 5,
+   "from": "purple elevator-5 connector",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "Rockefeller",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    0.97
+   ],
+   "ended_in": "light Renaissance room",
+   "footsteps": 3,
+   "from": "adjacent gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "light Renaissance room",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -0.97
+   ],
+   "ended_in": "adjacent gallery",
+   "footsteps": 5,
+   "from": "light Renaissance room",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "adjacent gallery",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -4.03,
+    3.66
+   ],
+   "ended_in": "dark medieval room",
+   "footsteps": 3,
+   "from": "light Renaissance room",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "dark medieval room",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -5.97,
+    3.66
+   ],
+   "ended_in": "light Renaissance room",
+   "footsteps": 5,
+   "from": "dark medieval room",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "light Renaissance room",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    5.97,
+    3.66
+   ],
+   "ended_in": "lion stair landing",
+   "footsteps": 3,
+   "from": "dark medieval room",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "lion stair landing",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    4.03,
+    3.66
+   ],
+   "ended_in": "dark medieval room",
+   "footsteps": 5,
+   "from": "lion stair landing",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "dark medieval room",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    6.3,
+    -0.97
+   ],
+   "ended_in": "modern painting gallery",
+   "footsteps": 3,
+   "from": "lion stair landing",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "modern painting gallery",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    6.3,
+    0.97
+   ],
+   "ended_in": "lion stair landing",
+   "footsteps": 5,
+   "from": "modern painting gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "lion stair landing",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    11.29,
+    2.4
+   ],
+   "ended_in": "white sculpture gallery threshold study limit",
+   "footsteps": 3,
+   "from": "lion stair landing",
+   "idle_after": true,
+   "left_m": 0.21,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "white sculpture gallery threshold study limit",
+   "walk_clip": true,
+   "walked_m": 1.59
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    9.91,
+    2.4
+   ],
+   "ended_in": "lion stair landing",
+   "footsteps": 3,
+   "from": "white sculpture gallery threshold study limit",
+   "idle_after": true,
+   "left_m": 0.21,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "lion stair landing",
+   "walk_clip": true,
+   "walked_m": 1.59
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -0.99,
+    -28.28
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 3,
+   "from": "purple elevator-5 connector",
+   "idle_after": true,
+   "left_m": 0.19,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "grey French gallery",
+   "walk_clip": true,
+   "walked_m": 1.61
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -2.41,
+    -28.28
+   ],
+   "ended_in": "purple elevator-5 connector",
+   "footsteps": 3,
+   "from": "grey French gallery",
+   "idle_after": true,
+   "left_m": 0.19,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "purple elevator-5 connector",
+   "walk_clip": true,
+   "walked_m": 1.61
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    6.21,
+    -30.06
+   ],
+   "ended_in": "marble stair hall",
+   "footsteps": 3,
+   "from": "grey French gallery",
+   "idle_after": true,
+   "left_m": 0.19,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "marble stair hall",
+   "walk_clip": true,
+   "walked_m": 1.61
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    4.79,
+    -30.06
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 3,
+   "from": "marble stair hall",
+   "idle_after": true,
+   "left_m": 0.19,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "grey French gallery",
+   "walk_clip": true,
+   "walked_m": 1.61
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -34.03
+   ],
+   "ended_in": "Skylight Gallery",
+   "footsteps": 3,
+   "from": "grey French gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "Skylight Gallery",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -32.09
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 5,
+   "from": "Skylight Gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "grey French gallery",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    10.2,
+    -6.51
+   ],
+   "ended_in": "modern adjoining gallery threshold study limit",
+   "footsteps": 3,
+   "from": "modern painting gallery",
+   "idle_after": true,
+   "left_m": 0.19,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "modern adjoining gallery threshold study limit",
+   "walk_clip": true,
+   "walked_m": 1.61
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    10.2,
+    -5.09
+   ],
+   "ended_in": "modern painting gallery",
+   "footsteps": 3,
+   "from": "modern adjoining gallery threshold study limit",
+   "idle_after": true,
+   "left_m": 0.19,
+   "longest_step_m": 0.02,
+   "seconds": 1.4,
+   "to": "modern painting gallery",
+   "walk_clip": true,
+   "walked_m": 1.61
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -27.83
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 3,
+   "from": "Grand Gallery reveal threshold",
+   "idle_after": true,
+   "left_m": 0.13,
+   "longest_step_m": 0.02,
+   "seconds": 2.4,
+   "to": "grey French gallery",
+   "walk_clip": true,
+   "walked_m": 1.67
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -26.37
+   ],
+   "ended_in": "Grand Gallery reveal threshold",
+   "footsteps": 3,
+   "from": "grey French gallery",
+   "idle_after": true,
+   "left_m": 0.21,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "Grand Gallery reveal threshold",
+   "walk_clip": true,
+   "walked_m": 1.59
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -25.6
+   ],
+   "ended_in": "Grand Gallery",
+   "footsteps": 3,
+   "from": "Grand Gallery reveal threshold",
+   "idle_after": true,
+   "left_m": 0.2,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "Grand Gallery",
+   "walk_clip": true,
+   "walked_m": 1.6
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -27.27
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 3,
+   "from": "Grand Gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "Grand Gallery reveal threshold",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -27.83
+   ],
+   "ended_in": "Rockefeller",
+   "footsteps": 3,
+   "from": "Rockefeller reveal threshold",
+   "idle_after": true,
+   "left_m": 0.13,
+   "longest_step_m": 0.02,
+   "seconds": 2.4,
+   "to": "Rockefeller",
+   "walk_clip": true,
+   "walked_m": 1.67
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -26.37
+   ],
+   "ended_in": "Rockefeller reveal threshold",
+   "footsteps": 3,
+   "from": "Rockefeller",
+   "idle_after": true,
+   "left_m": 0.21,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "Rockefeller reveal threshold",
+   "walk_clip": true,
+   "walked_m": 1.59
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -25.33
+   ],
+   "ended_in": "adjacent gallery",
+   "footsteps": 3,
+   "from": "Rockefeller reveal threshold",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "adjacent gallery",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    -8.05,
+    -27.27
+   ],
+   "ended_in": "Rockefeller",
+   "footsteps": 5,
+   "from": "adjacent gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "Rockefeller reveal threshold",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -34.59
+   ],
+   "ended_in": "Skylight Gallery",
+   "footsteps": 3,
+   "from": "Skylight Gallery reveal threshold",
+   "idle_after": true,
+   "left_m": 0.17,
+   "longest_step_m": 0.02,
+   "seconds": 2.4,
+   "to": "Skylight Gallery",
+   "walk_clip": true,
+   "walked_m": 1.63
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -33.17
+   ],
+   "ended_in": "Skylight Gallery reveal threshold",
+   "footsteps": 3,
+   "from": "Skylight Gallery",
+   "idle_after": true,
+   "left_m": 0.21,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "Skylight Gallery reveal threshold",
+   "walk_clip": true,
+   "walked_m": 1.59
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -32.09
+   ],
+   "ended_in": "grey French gallery",
+   "footsteps": 3,
+   "from": "Skylight Gallery reveal threshold",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 1.3,
+   "to": "grey French gallery",
+   "walk_clip": true,
+   "walked_m": 1.87
+  },
+  {
+   "arrived": true,
+   "ended_at": [
+    0.0,
+    -34.03
+   ],
+   "ended_in": "Skylight Gallery",
+   "footsteps": 5,
+   "from": "grey French gallery",
+   "idle_after": false,
+   "left_m": 0.07,
+   "longest_step_m": 0.02,
+   "seconds": 3.3,
+   "to": "Skylight Gallery reveal threshold",
+   "walk_clip": true,
+   "walked_m": 1.87
+  }
+ ],
+ "failures": [],
+ "objects": [],
+ "rooms": [],
+ "state": {
+  "attached": true,
+  "blocks": 71,
+  "cutaway_bodies": 165,
+  "objects": 154,
+  "rooms": 15,
+  "space": "far"
+ },
+ "summary": {
+  "doors": 38,
+  "failures": 0,
+  "objects": 0,
+  "rooms": 0,
+  "views": 0
+ },
+ "views": []
+}

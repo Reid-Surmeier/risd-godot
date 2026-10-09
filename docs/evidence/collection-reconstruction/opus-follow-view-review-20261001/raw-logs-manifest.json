@@ -1,0 +1,11 @@
+{
+  "logs": {
+    "v50m/native-bars-v50m.log": "0e646a6681919d90cf614e09ea9be8df9c8dee05358164be221f8b13abc37e43",
+    "v50m/native-review-v50m.log": "278be4f32a3b2de2439afd2937054d672c8eeb2df20c2a7632637056d1fb4303",
+    "v50m/native-plinth-v50m.log": "4ff9dbb9b13f24f9bafb0e7cf8ee41c6a06034bc7675aec16243eba660e4a500",
+    "v50n/native-review-views.log": "f46de212914c221770e804e82107f738d01bb357fb3525271e4cf8285fe5e6a4",
+    "v50n/native-review-plinth.log": "eca189b9340d615cb99005c10fc80550d07786665514f0b7eff218ea3a4b1092"
+  },
+  "archive_sha256": "fe6ae91610601812c3c6e6c18c7d09129fe3a18a1bcf9ad8f6acc90e8f057049",
+  "note": "Exact independent raw logs archived; originals left unchanged locally."
+}

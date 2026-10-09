@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-0407c3e01dc83fbd21d2",
+  "summary": "Reference 1 is the official front of RISD bookcase 2017.74.9; reference 2 is the official oblique view. These are the sole authority for the bookcase's design and proportions. Reference 3 is the latest modeled Main Hall: use its clean low polygon game asset finish and restrained photographic texture detail, not its layout or objects.\nGenerate ONE complete straight-on orthographic front view of this exact bookcase alone, isolated on flat pure magenta #FF00FF. Keep the full feet and pierced top rail with generous magenta margin. Transform the photographic material and edges into a clean modeled low polygon game asset with large planar facets, readable soft wood grain and baked soft shading. Keep three shelf columns, three shelf levels, six drawer fronts, four different oval figure panels, fluted gold dividers, stepped projecting middle cabinet and all four visible feet. Preserve the distinct panel designs; do not replace them with generic decoration. Keep empty shelves as in the official photo, no ceramics, no painting, no wall, no floor, no text. No cast shadow outside the silhouette, no perspective tilt, no new ornaments. One front view only; no contact sheet. This image supplies UV textures for a separately authored 3D bookcase with real recessed shelves, projecting cabinets and low polygon legs.\n",
+  "procedureId": "muse-0407c3e01dc83fbd21d2",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "references/bookcase-front.png",
+      "sha256": "03ad70ccdaefc8312dfd058be573e9552e8c49785dc79f21fa5bfa260b2f2009",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "references/bookcase-oblique.png",
+      "sha256": "d66f5b0a5d887fb05268bc1d6531a18f64ffebb2deae0b6890e056e0ba537711",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "references/main-hall-style.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "bookcase-recipe.json",
+      "sha256": "0407c3e01dc83fbd21d22f635018534391247d7ae06fc702dc0950dd852ca814"
+    },
+    {
+      "applicationPath": "bookcase-plan.json",
+      "sha256": "8eccd2b3044fa15c24cdf2d0272092aa473b8432c6fb8002f9ee749444924004"
+    },
+    {
+      "applicationPath": "bookcase-prompt.txt",
+      "sha256": "adf8afaea68e4195e56d6eea75ccf142eabc630fd71e3b8bd8f9b64ef2ea3fd5"
+    }
+  ]
+}

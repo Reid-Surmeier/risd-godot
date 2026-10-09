@@ -1,0 +1,49 @@
+map $http_x_forwarded_host $homework_origin_host {
+    default $http_x_forwarded_host;
+    "" $http_host;
+}
+limit_req_zone $server_name zone=homework_portraits:1m rate=1r/s;
+
+server {
+    listen 80;
+    listen 127.0.0.1:8129;
+    server_name homework.reidsurmeier.wtf;
+    root /srv/sites/homework.reidsurmeier.wtf/current/webcam-booth/build/web;
+    index index.html;
+    client_max_body_size 2m;
+    gzip_static on;
+    gzip_vary on;
+    add_header X-Content-Type-Options nosniff always;
+    add_header Cache-Control "public, max-age=0, must-revalidate";
+
+    # The existing engine, tracking and API routes also serve the Week 3 prefix.
+    rewrite ^/week-3/(.+)$ /$1 last;
+    location = / {
+        root /srv/sites/homework.reidsurmeier.wtf/homepage/current;
+        try_files /index.html =404;
+    }
+    location = /week-3 { absolute_redirect off; return 301 /week-3/; }
+    # Week 4 is static files beside the homepage: a page, an image and a large Blender file.
+    location = /week-4 { absolute_redirect off; return 301 /week-4/; }
+    location /week-4/ { root /srv/sites/homework.reidsurmeier.wtf/homepage/current; try_files $uri $uri/index.html =404; }
+    location = /week-3/ { try_files /index.html =404; }
+
+    location ~ ^/api/portrait(?:/status)?$ {
+        limit_req zone=homework_portraits burst=2 nodelay;
+        limit_req_status 429;
+        proxy_pass http://127.0.0.1:8130;
+        proxy_set_header Host $host;
+        proxy_set_header X-Forwarded-Host $homework_origin_host;
+        proxy_read_timeout 125s;
+        proxy_request_buffering off;
+        proxy_buffering off;
+        proxy_hide_header Cache-Control;
+        add_header Cache-Control no-store always;
+    }
+    location ~ \.wasm$ {
+        types { application/wasm wasm; }
+        try_files $uri =404;
+    }
+    location ~ (^|/)\. { deny all; }
+    location / { try_files $uri $uri/ =404; }
+}

@@ -1,0 +1,16 @@
+{
+  "attempts": [
+    {
+      "id": "bear-jug-001",
+      "prompt": "bear-jug-prompt.txt",
+      "promptSha256": "417b89fa335dbe614d9dcec319d9cec2d31c472fd5d2655b629e7ec59e68f57a",
+      "size": "1440x1760",
+      "inputs": [
+        {
+          "path": "inventory-references/bear-jug-catalogue.png",
+          "sha256": "ef39d6db5ebc387cf37b6873b3e6739db02e8e2db1bdedf6af2f81a2a50ac37c"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,197 @@
+{
+  "works": [
+    {
+      "accession": "42.190",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/children-tuileries-gardens-42190",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/42.190.html.gz",
+      "saved_page_sha256": "fed87452fe1ce8d76670ebefcd8b00c9f49248ef66d497d3cb3a2b5c20ba0743",
+      "fields": {
+        "title": "Children in the Tuileries Gardens",
+        "maker": "Édouard Manet (French, 1832-1883)",
+        "date": "ca. 1861-1862",
+        "medium": "Oil on canvas",
+        "dimensions": "37.8 x 46 cm (14 7/8 x 18 1/8 inches)",
+        "credit": "Museum Appropriation Fund"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "2007.68",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/portrait-edouard-manet-200768",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/2007.68.html.gz",
+      "saved_page_sha256": "ee3a7b11db64c9e2bcc0ed59d29fcb78ea98600989448faefd8be708b7e82480",
+      "fields": {
+        "title": "Portrait of Édouard Manet",
+        "maker": "Carolus-Duran (Charles-Auguste-Émile Durand) (French, 1838-1917)",
+        "date": "1876",
+        "medium": "Oil on canvas",
+        "dimensions": "63.5 x 45.4 cm (25 x 17 7/8 inches)",
+        "credit": "Purchased with the Frederick Lippitt Bequest"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "57.236",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/seine-near-its-estuary-honfleur-57236",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/57.236.html.gz",
+      "saved_page_sha256": "1452bc172eb18e39bbdc8b23744e4a20e34cd11301906ee27ed1b35594a32cd0",
+      "fields": {
+        "title": "The Seine Near its Estuary, Honfleur",
+        "maker": "Claude Monet (French, 1840-1926)",
+        "date": "ca. 1868",
+        "medium": "Oil on canvas",
+        "dimensions": "48.1 x 73.7 cm (18 15/16 x 29 inches)",
+        "credit": "Bequest of George Pierce Metcalf"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "59.027",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/repose-le-repos-59027",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/59.027.html.gz",
+      "saved_page_sha256": "f8b2daff301529e505d7ad4017e43743f2b174ae0f52f293634f2c5ab0d38e6f",
+      "fields": {
+        "title": "Repose (Le Repos)",
+        "maker": "Édouard Manet (French, 1832-1883)",
+        "date": "ca. 1871",
+        "medium": "Oil on canvas",
+        "dimensions": "150.2 x 114 cm (59 1/8 x 44 7/8 inches)",
+        "credit": "Bequest of Mrs. Edith Stuyvesant Vanderbilt Gerry"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "23.072",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/la-savoisienne-23072",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/23.072.html.gz",
+      "saved_page_sha256": "ecf9d47a15fd149dcaea6bb0452b98ce3b368e33fdc64bb3e75680baa90203ac",
+      "fields": {
+        "title": "La Savoisienne",
+        "maker": "Edgar Degas (French, 1834-1917)",
+        "date": "ca. 1860",
+        "medium": "Oil on canvas",
+        "dimensions": "62.9 x 46.4 cm (24 3/4 x 18 1/4 inches)",
+        "credit": "Museum Appropriation Fund"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "72.096",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/field-and-mill-osny-72096",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/72.096.html.gz",
+      "saved_page_sha256": "d76adcc1094e40053eefe1453cea3584d549cfa4871e00b97f9e913157e7e5df",
+      "fields": {
+        "title": "Field and Mill at Osny",
+        "maker": "Camille Pissarro (French, 1830-1903)",
+        "date": "1884",
+        "medium": "Oil on canvas",
+        "dimensions": "54.3 x 65.6 cm (21 3/8 x 25 13/16 inches)",
+        "credit": "Gift of Mrs. Houghton P. Metcalf in memory of her husband, Houghton P. Metcalf"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "1999.3",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/busagny-farm-osny-19993",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/1999.3.html.gz",
+      "saved_page_sha256": "51b3881f91600756f7d04e9d1e7eae6cf20a0fe7b121c936813c9bfe8e9eb4eb",
+      "fields": {
+        "title": "Busagny Farm, Osny",
+        "maker": "Paul Gauguin (French, 1848-1903)",
+        "date": "1883",
+        "medium": "Oil on canvas",
+        "dimensions": "64.8 x 54.6 cm (25 1/2 x 21 1/2 inches)",
+        "credit": "Helen M. Danforth Acquisition Fund in honor of Houghton P. Metcalf, Jr."
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "33.053",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/chestnut-trees-and-farm-jas-de-bouffan-33053",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/33.053.html.gz",
+      "saved_page_sha256": "0685ee03b99da2a422724c2b8d02633b219a51b75985004937544b4227ee7678",
+      "fields": {
+        "title": "Chestnut Trees and Farm at Jas de Bouffan",
+        "maker": "Paul Cézanne (French, 1839-1906)",
+        "date": "ca. 1886",
+        "medium": "Oil on canvas",
+        "dimensions": "65.4 x 81 cm (25 3/4 x 31 7/8 inches)",
+        "credit": "Museum Appropriation Fund"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "2021.101",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/iris-pitcher-2021101",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/2021.101.html.gz",
+      "saved_page_sha256": "f63c2b8f5aa91d27500703d9cde8e1f22614349c219c64c609f0df716c140249",
+      "fields": {
+        "title": "Iris in a Pitcher; Iris in a Vase",
+        "maker": "Marie Bracquemond (French, 1841-1916)",
+        "date": "ca. 1886",
+        "medium": "Oil on panel",
+        "dimensions": "33 x 23.5 cm (13 x 9 1/4 inches)",
+        "credit": "Helen M. Danforth Acquisition Fund"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "2010.57",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/child-red-apron-201057",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/2010.57.html.gz",
+      "saved_page_sha256": "2cde78abcc5845a9ae0d7c2a6e121dd226134ef0ad77a346b4a2df643cb83557",
+      "fields": {
+        "title": "Child in a Red Apron",
+        "maker": "Berthe Morisot (French, 1841-1895)",
+        "date": "1886",
+        "medium": "Oil on canvas",
+        "dimensions": "60 x 49.9 cm (23 5/8 x 19 5/8 inches)",
+        "credit": "Helen M. Danforth Acquisition Fund"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "35.770",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/view-auvers-sur-oise-35770",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/35.770.html.gz",
+      "saved_page_sha256": "2c251bcaab88a7404dec0c14efcd8c7e76944512a010592a9b807cdd11c3098f",
+      "fields": {
+        "title": "View of Auvers-sur-Oise",
+        "maker": "Vincent van Gogh (Dutch, 1853–1890, b. in Zundert, Netherlands)",
+        "date": "1890",
+        "medium": "Oil on canvas",
+        "dimensions": "34 x 42.1 cm (13 3/8 x 16 9/16 inches)",
+        "credit": "Given in memory of Miss Dorothy Sturges by a Friend"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    },
+    {
+      "accession": "60.095",
+      "catalogue_url": "https://risdmuseum.org/art-design/collection/simone-blue-bonnet-60095",
+      "saved_page": "docs/evidence/impressionist-images/catalogue-pages/60.095.html.gz",
+      "saved_page_sha256": "3846c197ae68452e2dbf92018532455520705530201a7954e1c082d976087e78",
+      "fields": {
+        "title": "Simone in a Blue Bonnet",
+        "maker": "Mary Cassatt (American, 1844-1926)",
+        "date": "ca. 1903",
+        "medium": "Oil on canvas",
+        "dimensions": "61 x 52.1 cm (24 x 20 1/2 inches)",
+        "credit": "Gift of Mrs. Murray S. Danforth"
+      },
+      "read_date": "2026-10-08",
+      "full_printed_fields_match": true
+    }
+  ],
+  "failures": []
+}

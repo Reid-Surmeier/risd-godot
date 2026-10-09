@@ -1,0 +1,12 @@
+{
+  "utc": "2026-10-01T20:03:46.734360+00:00",
+  "freeze": "frozen-root-sha256-v50r.json",
+  "tests": 16,
+  "failures": [],
+  "maximum_step_m": 0.0400009155273438,
+  "real_root_keys_delivered_and_released": true,
+  "same_08m_limit": true,
+  "negative_old_p_failures": 10,
+  "independent_review": "pending",
+  "existing_F2_F3_camera_field_limits_remain_open": true
+}

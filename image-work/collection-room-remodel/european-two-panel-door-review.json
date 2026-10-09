@@ -1,0 +1,31 @@
+{
+  "provider": "OpenRouter",
+  "model": "meta/muse-image",
+  "count": 1,
+  "cost_usd": "0.010000",
+  "run_id": "run-d6f87926e37f8ad942651a4e",
+  "native_sha256": "cdef0be96028f04b58069c294796f6cabeb7ba43c001fd3175617814b68036ed",
+  "accepted": false,
+  "source": "IMG_6386.MOV102.75/104.75s",
+  "visual_review": "Native Muse has correct tall upper and short lower moulded panels but invents a narrow horizontal middle panel. Deterministic Assembly selects only the two large panel regions; invented middle and generated knob excluded. Native geometry supplies rails/stiles, recessed fields, real thickness, hinges/open swing and simple knob. Exact colour/depth/dimensions and swing angle unaccepted.",
+  "assembly_regions_px": [
+    [
+      450,
+      154,
+      994,
+      1016
+    ],
+    [
+      451,
+      1220,
+      994,
+      1550
+    ]
+  ],
+  "assembly_sha256": {
+    "european-two-panel-door-0.png": "6afc7ed275c56bbb31f06ee9eef0b3a283142188160f504164b9f26d2928bd51",
+    "european-two-panel-door-1.png": "30b3def59dc5dabd293f8ff2c3d6cd961c3540635e0ff6d71524f0d70288a342"
+  },
+  "cumulative_map_actual_usd": "0.70",
+  "cumulative_map_conservative_usd": "0.71"
+}

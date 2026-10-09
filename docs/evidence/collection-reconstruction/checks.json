@@ -1,0 +1,42 @@
+{
+  "hardware": "RTX 4070 SUPER 12282 MiB",
+  "pycolmap": "4.2.1 CUDA wheel",
+  "caspar": "not compiled into wheel; probe failed explicitly",
+  "preview_renderer": "Mesa llvmpipe; not a GPU gameplay benchmark",
+  "logs": {
+    "reconstruction-v1.log": [
+      "I20260929 13:47:21.270462 128765828916928 sift.cc:758] Creating SIFT GPU feature extractor",
+      "I20260929 13:47:32.109203 128765904451264 timer.cc:90] Elapsed time: 0.181 [minutes]",
+      "I20260929 13:47:32.141874 128765820524224 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0",
+      "I20260929 13:47:32.142538 128765820524224 sift.cc:1679] Creating SIFT GPU feature matcher",
+      "I20260929 13:47:45.621964 128765904451264 timer.cc:90] Elapsed time: 0.225 [minutes]",
+      "I20260929 13:47:45.677198 128765862487744 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0",
+      "I20260929 13:47:45.677787 128765862487744 sift.cc:1679] Creating SIFT GPU feature matcher",
+      "I20260929 13:47:46.393329 128765854095040 timer.cc:90] Elapsed time: 0.012 [minutes]",
+      "I20260929 13:47:46.493961 128768290649920 timer.cc:90] Elapsed time: 0.001 [minutes]",
+      "W20260929 13:47:46.675242 128768290649920 bundle_adjustment_ceres.cc:162] Requested to use GPU for bundle adjustment, but Ceres was compiled without CUDA support. Falling back to CPU-based dense solvers.",
+      "W20260929 13:47:46.675342 128768290649920 bundle_adjustment_ceres.cc:181] Requested to use GPU for bundle adjustment, but Ceres was compiled without cuDSS support. Falling back to CPU-based sparse solvers.",
+      "I20260929 13:49:37.391612 128768290649920 timer.cc:90] Elapsed time: 1.848 [minutes]"
+    ],
+    "exhaustive-v3.log": [
+      "I20260929 13:52:43.834977 129217840703168 feature_matching_utils.cc:79] Bind FeatureMatcherWorker to GPU device 0",
+      "I20260929 13:52:43.837007 129217840703168 sift.cc:1679] Creating SIFT GPU feature matcher",
+      "I20260929 13:53:34.140368 129217849095872 timer.cc:90] Elapsed time: 0.841 [minutes]"
+    ],
+    "dense-v1.log": [
+      "I20260929 13:57:06.458590 131922026469184 timer.cc:90] Elapsed time: 0.009 [minutes]",
+      "I20260929 13:59:15.131408 131919719036608 timer.cc:90] Elapsed time: 2.145 [minutes]",
+      "I20260929 13:59:15.273397 131922026469184 timer.cc:90] Elapsed time: 0.001 [minutes]",
+      "I20260929 13:59:15.960089 131922026469184 fusion.cc:337] Number of fused points: 79562",
+      "I20260929 13:59:15.960097 131922026469184 timer.cc:90] Elapsed time: 0.013 [minutes]"
+    ],
+    "fusion-v1.log": [
+      "I20260929 14:00:31.836837 128871264896832 timer.cc:90] Elapsed time: 0.002 [minutes]",
+      "I20260929 14:00:32.669301 128871264896832 fusion.cc:337] Number of fused points: 79558",
+      "I20260929 14:00:32.669311 128871264896832 timer.cc:90] Elapsed time: 0.016 [minutes]"
+    ],
+    "repository-check-after-import.log": [
+      "checks passed"
+    ]
+  }
+}

@@ -1,0 +1,16 @@
+Traceback (most recent call last):
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/heartbeat-20260930T1630/check_native.py", line 71, in <module>
+    runpy.run_path('modules/shell/prototype/collection_reconstruction/native_floor_tracks.py',run_name='__main__')
+    ~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "<frozen runpy>", line 294, in run_path
+  File "<frozen runpy>", line 98, in _run_module_code
+  File "<frozen runpy>", line 88, in _run_code
+  File "modules/shell/prototype/collection_reconstruction/native_floor_tracks.py", line 69, in <module>
+    pycolmap.extract_features(database, images, camera_mode=pycolmap.CameraMode.PER_FOLDER,
+    ~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        extraction_options=extraction, device=pycolmap.Device.cuda)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/docs/evidence/collection-reconstruction/heartbeat-20260930T1630/check_native.py", line 66, in stop_before_cuda
+    assert state['cameras'][row['image']].todict()==row['camera']
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+AssertionError

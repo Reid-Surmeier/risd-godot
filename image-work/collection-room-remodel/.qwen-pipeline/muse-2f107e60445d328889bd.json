@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-2f107e60445d328889bd",
+  "summary": "Reference 1 is the official RISD Museum photograph of Brown Bear Jug and Cover, accession 2017.74.22.ab. It is the sole design authority. Generate ONE complete front view of this exact object alone, facing the same direction as the reference, isolated on flat pure magenta #FF00FF with generous margins. Transform the photographed object into a clean low polygon game model: large flat planar facets, restrained readable painted ceramic texture and baked soft shading. Preserve its exact pose, silhouette, extremities, base, handles and ornament placement, and the distinct reference colours. Keep all limbs, feet, tails, hats, spouts and handles visible. Do not add any other object, prop, platform, floor, shadow beyond its silhouette, label or text. Do not rotate the subject relative to this reference. One view only, no sheet. This supplies UV colours for separately authored low polygon volume geometry; hidden profiles are guided by catalogue dimensions and remain provisional.\n",
+  "procedureId": "muse-2f107e60445d328889bd",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/bear-jug-pair-catalogue.png",
+      "sha256": "5312d6bdf44f32db548b0c0826b452cb75f7d59dbbb01b9555714a408e20b5bc",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "bear-jug-pair-recipe.json",
+      "sha256": "2f107e60445d328889bdfaf5da517c24f63eb6dfcaab1af64cf3f15826f511b3"
+    },
+    {
+      "applicationPath": "bear-jug-pair-plan.json",
+      "sha256": "324d8974dbf6fdedcf5aa0456452f684dde941852e443df90a53a0db0328fe16"
+    },
+    {
+      "applicationPath": "bear-jug-pair-prompt.txt",
+      "sha256": "fe5d20be3ee65c48a3d909e07d917245277cf105c4c0bcf7c016c30548177cd7"
+    }
+  ]
+}

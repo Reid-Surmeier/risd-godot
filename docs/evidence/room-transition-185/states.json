@@ -1,0 +1,56 @@
+[
+	{
+		"camera": "(0.0, 11.35166, 9.832656)",
+		"cover_alpha": 0.0,
+		"fov": 23.0,
+		"mask": 23,
+		"pose": "back-before",
+		"space": "gallery",
+		"z": -0.0199999995529652
+	},
+	{
+		"camera": "(0.0, 11.35166, 9.872656)",
+		"cover_alpha": 0.0,
+		"fov": 23.0,
+		"mask": 15,
+		"pose": "back-after",
+		"space": "arch",
+		"z": 0.0199999995529652
+	},
+	{
+		"camera": "(0.0, 11.35166, 11.85266)",
+		"cover_alpha": 0.0,
+		"fov": 23.0,
+		"mask": 15,
+		"pose": "back-passage",
+		"space": "arch",
+		"z": 2.0
+	},
+	{
+		"camera": "(0.0, 11.35166, -9.872656)",
+		"cover_alpha": 0.0,
+		"fov": 23.0,
+		"mask": 15,
+		"pose": "toward-before",
+		"space": "gallery",
+		"z": -0.0199999995529652
+	},
+	{
+		"camera": "(0.0, 11.35166, -9.832656)",
+		"cover_alpha": 0.0,
+		"fov": 23.0,
+		"mask": 23,
+		"pose": "toward-after",
+		"space": "arch",
+		"z": 0.0199999995529652
+	},
+	{
+		"camera": "(0.0, 11.35166, -7.852656)",
+		"cover_alpha": 0.0,
+		"fov": 23.0,
+		"mask": 23,
+		"pose": "toward-passage",
+		"space": "arch",
+		"z": 2.0
+	}
+]

@@ -42,7 +42,8 @@ func _ready() -> void:
 
 func _build_asset() -> void:
 	var shader := Shader.new()
-	shader.code = """
+	shader.code = (
+		"""
 shader_type canvas_item;
 render_mode unshaded;
 uniform float scroll_progress = 0.0;
@@ -55,24 +56,47 @@ void fragment() {
 	vec2 source_size = 1.0 / TEXTURE_PIXEL_SIZE;
 	vec2 pixel = UV * source_size;
 	vec2 sample_pixel = pixel;
-	if (press_offset > 0.0 && pixel.x >= pressed_rect.x && pixel.x < pressed_rect.x + pressed_rect.z && pixel.y >= pressed_rect.y && pixel.y < pressed_rect.y + pressed_rect.w) {
-		sample_pixel.y = clamp(pixel.y - press_offset, pressed_rect.y, pressed_rect.y + pressed_rect.w - 1.0);
+	if (press_offset > 0.0 && pixel.x >= pressed_rect.x && pixel.x < """ +
+		"""pressed_rect.x + pressed_rect.z && pixel.y >= pressed_rect.y && pixel.y < """ +
+		"""pressed_rect.y + pressed_rect.w) {
+		sample_pixel.y = clamp(pixel.y - press_offset, pressed_rect.y, """ +
+		"""pressed_rect.y + pressed_rect.w - 1.0);
 	}
-	if (scroll_progress > 0.0001 && pixel.x >= content_rect.x && pixel.x < content_rect.x + content_rect.z && pixel.y >= content_rect.y && pixel.y < content_rect.y + content_rect.w) {
+	if (scroll_progress > 0.0001 && pixel.x >= content_rect.x && pixel.x < """ +
+		"""content_rect.x + content_rect.z && pixel.y >= content_rect.y && pixel.y < """ +
+		"""content_rect.y + content_rect.w) {
 		float shifted_y = pixel.y + scroll_progress * content_scroll;
-		sample_pixel = shifted_y < content_rect.y + content_rect.w ? vec2(pixel.x, shifted_y) : vec2(1400.0, 700.0);
+		sample_pixel = shifted_y < content_rect.y + content_rect.w ? vec2(pixel.x, """ +
+		"""shifted_y) : vec2(1400.0, 700.0);
 	}
-	if (scroll_progress > 0.0001 && pixel.x >= scroll_rect.x && pixel.x < scroll_rect.x + scroll_rect.z && pixel.y >= scroll_rect.y && pixel.y < scroll_rect.y + scroll_rect.w) {
+	if (scroll_progress > 0.0001 && pixel.x >= scroll_rect.x && pixel.x < """ +
+		"""scroll_rect.x + scroll_rect.z && pixel.y >= scroll_rect.y && pixel.y < """ +
+		"""scroll_rect.y + scroll_rect.w) {
 		float thumb_height = 710.0;
 		float new_top = scroll_rect.y + scroll_progress * (scroll_rect.w - thumb_height);
-		sample_pixel.y = pixel.y >= new_top && pixel.y < new_top + thumb_height ? scroll_rect.y + pixel.y - new_top : 1100.0;
+		sample_pixel.y = pixel.y >= new_top && pixel.y < new_top + thumb_height ? """ +
+		"""scroll_rect.y + pixel.y - new_top : 1100.0;
 	}
 	COLOR = texture(TEXTURE, sample_pixel / source_size);
 }
 """
+	)
 	window_material.shader = shader
-	window_material.set_shader_parameter("content_rect", Vector4(CONTENT_RECT.position.x, CONTENT_RECT.position.y, CONTENT_RECT.size.x, CONTENT_RECT.size.y))
-	window_material.set_shader_parameter("scroll_rect", Vector4(SCROLL_RECT.position.x, SCROLL_RECT.position.y, SCROLL_RECT.size.x, SCROLL_RECT.size.y))
+	window_material.set_shader_parameter(
+		"content_rect",
+		Vector4(
+			CONTENT_RECT.position.x,
+			CONTENT_RECT.position.y,
+			CONTENT_RECT.size.x,
+			CONTENT_RECT.size.y
+		)
+	)
+	window_material.set_shader_parameter(
+		"scroll_rect",
+		Vector4(
+			SCROLL_RECT.position.x, SCROLL_RECT.position.y, SCROLL_RECT.size.x, SCROLL_RECT.size.y
+		)
+	)
 	window_material.set_shader_parameter("content_scroll", MAX_CONTENT_SCROLL)
 	image = TextureRect.new()
 	image.texture = preload("res://modules/playground_page/assets/websurfer-window.webp")
@@ -125,7 +149,9 @@ func _layout_input() -> void:
 
 
 func _press_button(rect: Rect2) -> void:
-	window_material.set_shader_parameter("pressed_rect", Vector4(rect.position.x, rect.position.y, rect.size.x, rect.size.y))
+	window_material.set_shader_parameter(
+		"pressed_rect", Vector4(rect.position.x, rect.position.y, rect.size.x, rect.size.y)
+	)
 	window_material.set_shader_parameter("press_offset", 3.0)
 
 
@@ -169,7 +195,9 @@ func _on_resize_input(event: InputEvent) -> void:
 		var dy: float = delta.y / VISIBLE_SIZE.y
 		var scale_delta: float = dx if absf(dx) > absf(dy) else dy
 		var page: Control = get_parent() as Control
-		var max_scale: float = minf((page.size.x - position.x) / VISIBLE_SIZE.x, (page.size.y - position.y) / VISIBLE_SIZE.y)
+		var max_scale: float = minf(
+			(page.size.x - position.x) / VISIBLE_SIZE.x, (page.size.y - position.y) / VISIBLE_SIZE.y
+		)
 		var next_scale: float = clampf(resize_start_scale + scale_delta, 0.25, max_scale)
 		size = VISIBLE_SIZE * next_scale
 		accept_event()

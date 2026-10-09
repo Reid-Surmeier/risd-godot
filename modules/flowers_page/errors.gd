@@ -2,7 +2,8 @@
 class_name FlowersPageErrors
 extends RefCounted
 
-## The window picture (assets/title.png, PROVENANCE in MODULE.md) is not in the project (detail: its path).
+## The window picture (assets/title.png, PROVENANCE in MODULE.md) is not in
+## the project (detail: its path).
 const ASSET_MISSING := "flowers_page.asset_missing"
 
 

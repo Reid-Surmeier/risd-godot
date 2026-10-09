@@ -1,0 +1,87 @@
+{
+  "baseline": "e6de6a21426c7bc13a5e263c9aa8ae026f087eba",
+  "files": [
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "before_sha256": "3447c409f8b0e2c0b588719ad52b0b6937b481d56fdea642390da343347c6b54",
+      "after_sha256": "c6067b089a3fa81df28f19c21a04fe4607ba6bc3f310f1be12d08da31e3d82af",
+      "effectful_sequence": [
+        "var saved_body := ColorRect.new()\n",
+        "var saved_scroll := ScrollContainer.new()\n",
+        "var saved_query := LineEdit.new()\n",
+        "var artwork_detail := Label.new()\n",
+        "var filter_count := Label.new()\n"
+      ],
+      "private_initializer_dependencies": [],
+      "pure_crossing_values": [
+        "var saved_ids: Array = []",
+        "var storage_status := \"loading\"",
+        "var refresh_generation := 0",
+        "var show_websurfer := false",
+        "var show_gallery := false",
+        "var show_sketchbook := false",
+        "var show_fengshui := false",
+        "var interactive_windows: Array[Control] = []"
+      ]
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "before_sha256": "db4865402d5d63b8b046bfbd82f179f148f44ab6f64ed47ea6d0259c0d1b1e39",
+      "after_sha256": "e130c4a8f105e0b1c878e3535f162c4400752781f5e3f0fa74fd547fdc0ab38c",
+      "effectful_sequence": [],
+      "private_initializer_dependencies": [],
+      "pure_crossing_values": [
+        "var stage_rect := Rect2()",
+        "var pointer_buttons := {}",
+        "var touches := {}"
+      ]
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "before_sha256": "7f4a84576e8eb97581a732154d2c5efdef35a04e06fefa45f4a70630d41d3a06",
+      "after_sha256": "89715438ba9131406d80c858c85cc5fc66388c0f79a200f68393b7699972606d",
+      "effectful_sequence": [
+        "var desktop := Control.new()\n",
+        "var reference_panel := PanelContainer.new()\n",
+        "var reference_list := HBoxContainer.new()\n",
+        "var viewer_host := Control.new()\n"
+      ],
+      "private_initializer_dependencies": [],
+      "pure_crossing_values": [
+        "var saved_ids: Array = []",
+        "var selected_reference := \"\"",
+        "var storage_status := \"loading\"",
+        "var refresh_generation := 0",
+        "var anri_prototype := true"
+      ]
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "before_sha256": "d8620cdf6279b7a8ce05d31b3d99e57208c4b45449f87d7aead1eb657675ff63",
+      "after_sha256": "72a25ac493dceaddc5ceed9c4cb3a3020c75c731e22cb392feece325796542a3",
+      "effectful_sequence": [
+        "var freehand := Freehand.new()\n"
+      ],
+      "private_initializer_dependencies": [],
+      "pure_crossing_values": [
+        "var perf_rebuild_us := 0  # accumulated since last perf read",
+        "var perf_draw_us := 0",
+        "var perf_draws := 0"
+      ]
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "before_sha256": "3696a19cda61ebe6c3192fc5ab8f41aea83c34ab3c96345ca165b2250a41bcff",
+      "after_sha256": "2f475a13d376ca05455a43ca88b4b3c81d7dbb7a8f069992a06414350a995077",
+      "effectful_sequence": [],
+      "private_initializer_dependencies": [
+        "brush_color -> _drag_pigment"
+      ],
+      "pure_crossing_values": [
+        "var hovering := false",
+        "var brush_active := false",
+        "var anri_mode := false"
+      ]
+    }
+  ]
+}

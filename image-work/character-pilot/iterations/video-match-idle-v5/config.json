@@ -1,0 +1,24 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Earlier idle: inherited head turn",
+      "sha256": "536fb839572228d485fc27027a58506944f8285fcfef72f2f8a421e9d73214d9"
+    },
+    {
+      "source": "video-match/authored-walk-v5/footplant-candidate.glb",
+      "label": "Forward idle + jaw and arm repairs",
+      "sha256": "8eb7fff2ed7ce8b07417c7fa3300a050a610f11a999484e50f3ecfff5b87fc84"
+    }
+  ],
+  "clip": "idle",
+  "angle": 45,
+  "cycles": 1,
+  "effects": false,
+  "controller_speed_m_s": 0,
+  "contacts": [],
+  "width": 960,
+  "height": 640,
+  "camera_distance": 10.5,
+  "import_fps": 240
+}

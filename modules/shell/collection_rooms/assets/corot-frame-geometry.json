@@ -1,0 +1,67 @@
+{
+  "canvas_m": [
+    0.46,
+    0.319
+  ],
+  "margins_px": [
+    116,
+    150,
+    162,
+    198
+  ],
+  "opening_aspect": 1.471264367816092,
+  "catalogue_aspect": 1.4420062695924765,
+  "profile": "native Muse bands; 9cm inferred depth; aspect corrected by existing nine-slice geometry",
+  "source_fit": {
+    "source": "/tmp/collection-corot-frame-complete-native.png",
+    "sha256": "8c55c5b37636848d7ee3acd36ee5adf4258d30bf37d0559184e3c45c5fcfc45e",
+    "inner_xy": [
+      [
+        135,
+        756
+      ],
+      [
+        594,
+        776
+      ],
+      [
+        577,
+        1028
+      ],
+      [
+        146,
+        1052
+      ]
+    ],
+    "outer_xy": [
+      [
+        51,
+        680
+      ],
+      [
+        665,
+        706
+      ],
+      [
+        640,
+        1114
+      ],
+      [
+        88,
+        1125
+      ]
+    ],
+    "canvas_m": [
+      0.46,
+      0.319
+    ],
+    "target_margins_m": [
+      0.06059955805540085,
+      0.0787837952375412,
+      0.08480457305908201,
+      0.1035277304649353
+    ],
+    "accepted": false,
+    "note": "Manual planar approximation of a stepped frame; Courbet left ornament partly clipped. Camera distortion/nonplanar ornament prevent exact metric acceptance."
+  }
+}

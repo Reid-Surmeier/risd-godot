@@ -1,0 +1,85 @@
+{
+ "url": "http://127.0.0.1:18936/2ae0c878.html",
+ "method": "page audio output teed to MediaRecorder; onsets above -30 dBFS, 250 ms apart",
+ "stages": [
+  {
+   "stage": "idle",
+   "key": null,
+   "seconds": 3.29,
+   "peak_dbfs": -270.3,
+   "step_onsets": 0,
+   "gaps_s": []
+  },
+  {
+   "stage": "walk-right",
+   "key": "KeyD",
+   "seconds": 3.38,
+   "peak_dbfs": -12.1,
+   "step_onsets": 7,
+   "gaps_s": [
+    0.41,
+    0.7,
+    0.47,
+    0.41,
+    0.42,
+    0.42
+   ]
+  },
+  {
+   "stage": "stop",
+   "key": null,
+   "seconds": 2.28,
+   "peak_dbfs": -270.3,
+   "step_onsets": 0,
+   "gaps_s": []
+  },
+  {
+   "stage": "walk-left",
+   "key": "KeyA",
+   "seconds": 3.41,
+   "peak_dbfs": -11.7,
+   "step_onsets": 8,
+   "gaps_s": [
+    0.44,
+    0.42,
+    0.44,
+    0.42,
+    0.44,
+    0.4,
+    0.46
+   ]
+  },
+  {
+   "stage": "walk-away",
+   "key": "KeyW",
+   "seconds": 2.69,
+   "peak_dbfs": -12.1,
+   "step_onsets": 5,
+   "gaps_s": [
+    0.46,
+    0.42,
+    0.44,
+    0.4
+   ]
+  },
+  {
+   "stage": "idle-after",
+   "key": null,
+   "seconds": 2.33,
+   "peak_dbfs": -270.3,
+   "step_onsets": 0,
+   "gaps_s": []
+  },
+  {
+   "stage": "hidden-tab",
+   "key": "KeyD",
+   "seconds": 3.3,
+   "peak_dbfs": -270.3,
+   "step_onsets": 0,
+   "gaps_s": []
+  }
+ ],
+ "page_errors": [
+  "Failed to load resource: the server responded with a status of 404 (File not found)"
+ ]
+}

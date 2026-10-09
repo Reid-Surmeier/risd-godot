@@ -1,0 +1,32 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-283d250bd1326d65f1cf",
+  "summary": "Generate one complete orthographic front view of only the exact picture frame in reference1, for RISD Braque Still Life48.248. Preserve its very narrow outer gold moulding, broad flat cream-coloured middle band, thin inner gold lip, straight rectangular corners and simple undecorated profile. Remove the painting, wall, shadow, label and perspective; the interior opening must be pure solid white, and the surrounding background pure magenta#FF00FF. Low polygon museum game texture with subtle broad facets and restrained natural gold and ivory colours, consistent with the saved Main Hall frames. Do not add ornamental carvings, beads, acanthus, crests, floral details, extra rails or new decorative patterns. Show the complete frame with margins. The real museum painting is kept separate and inserted deterministically into native geometry.\n",
+  "procedureId": "muse-283d250bd1326d65f1cf",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/braque-frame-video-native.png",
+      "sha256": "1a1ab61845118eed8c78a462b9bb40d7d7678f080a30aa95b6b10b8387125747",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "braque-frame-recipe.json",
+      "sha256": "283d250bd1326d65f1cfe05e46152cd97da90d573829c22f79c8e7e8e8aadb41"
+    },
+    {
+      "applicationPath": "braque-frame-plan.json",
+      "sha256": "92037d18f66b79ea70484c53bdd808eda0e406398a53784c8ae806ddb6057e1d"
+    },
+    {
+      "applicationPath": "braque-frame-prompt.txt",
+      "sha256": "b397716998d8663ec388c48a359cdd6145c3bc2c67dfd138fbfa764981a98f5a"
+    }
+  ]
+}

@@ -1,0 +1,34 @@
+2026-09-30 16:23:49,232 - BlenderMCPServer - INFO - BlenderMCP server starting up
+2026-09-30 16:23:49,233 - BlenderMCPServer - INFO - Blender addon on disk is current (protocol 7).
+2026-09-30 16:23:49,234 - blender-mcp-telemetry - WARNING - Telemetry disabled via environment variable
+2026-09-30 16:23:49,235 - BlenderMCPServer - INFO - Connected to Blender at localhost:9876
+2026-09-30 16:23:49,235 - BlenderMCPServer - INFO - Created new persistent connection to Blender
+2026-09-30 16:23:49,235 - BlenderMCPServer - INFO - Sending command: get_addon_info with params: None
+2026-09-30 16:23:49,235 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:49,239 - BlenderMCPServer - INFO - Received complete response (394 bytes)
+2026-09-30 16:23:49,239 - BlenderMCPServer - INFO - Received 394 bytes of data
+2026-09-30 16:23:49,239 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:49,239 - BlenderMCPServer - INFO - Blender addon up to date (protocol 7, addon [1, 7], Blender 4.3.2)
+2026-09-30 16:23:49,239 - BlenderMCPServer - INFO - Successfully connected to Blender on startup
+2026-09-30 16:23:49,243 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-09-30 16:23:49,243 - BlenderMCPServer - INFO - Sending command: get_addon_info with params: None
+2026-09-30 16:23:49,243 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:49,290 - BlenderMCPServer - INFO - Received complete response (394 bytes)
+2026-09-30 16:23:49,291 - BlenderMCPServer - INFO - Received 394 bytes of data
+2026-09-30 16:23:49,291 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:49,291 - BlenderMCPServer - INFO - Blender addon up to date (protocol 7, addon [1, 7], Blender 4.3.2)
+2026-09-30 16:23:49,291 - BlenderMCPServer - INFO - Sending command: get_telemetry_consent with params: None
+2026-09-30 16:23:49,291 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:49,342 - BlenderMCPServer - INFO - Received complete response (51 bytes)
+2026-09-30 16:23:49,342 - BlenderMCPServer - INFO - Received 51 bytes of data
+2026-09-30 16:23:49,342 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:49,344 - mcp.server.lowlevel.server - INFO - Processing request of type ListToolsRequest
+2026-09-30 16:23:49,347 - mcp.server.lowlevel.server - INFO - Processing request of type CallToolRequest
+2026-09-30 16:23:49,348 - BlenderMCPServer - INFO - Sending command: execute_code with params: {'code': "import subprocess, json\npath='/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/normalize_idle.py'\nlog='/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/normalize-native.log'\ncommand=['/home/reidsurmeier/.local/opt/blender-4.3.2/blender','--background','--factory-startup','--threads','1','--python-exit-code','1','--python',path]\nprocess=subprocess.Popen(command,cwd='/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype',stdout=open(log,'w'),stderr=subprocess.STDOUT,start_new_session=True)\nprint('TARGET_BAKE_SCHEDULED='+json.dumps({'native_pid':process.pid,'saved_stage':path,'log':log}))\n"}
+2026-09-30 16:23:49,348 - BlenderMCPServer - INFO - Command sent, waiting for response...
+2026-09-30 16:23:49,393 - BlenderMCPServer - INFO - Received complete response (386 bytes)
+2026-09-30 16:23:49,394 - BlenderMCPServer - INFO - Received 386 bytes of data
+2026-09-30 16:23:49,394 - BlenderMCPServer - INFO - Response parsed, status: success
+2026-09-30 16:23:49,396 - BlenderMCPServer - INFO - Disconnecting from Blender on shutdown
+2026-09-30 16:23:49,396 - BlenderMCPServer - INFO - BlenderMCP server shut down
+{"timestamp": "2026-09-30T20:23:49.395855+00:00", "successfully_scheduled": true, "transport": "actual MCP stdio", "server": "BlenderMCP", "protocol": "2025-11-25", "addon_protocol": 7, "blender": "4.3.2", "saved_stage": "normalize_idle.py", "native_launch": {"native_pid": 651359, "saved_stage": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/normalize_idle.py", "log": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/normalize-native.log"}, "telemetry_consent": false, "paid_calls": 0, "completion_file": "target-idle-normalization.json", "completion_not_inferred_from_scheduling": true}

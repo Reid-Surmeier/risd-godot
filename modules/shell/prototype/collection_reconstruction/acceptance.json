@@ -1,0 +1,4 @@
+{
+ "about": "Measured, reviewed values the room code may mark accepted. Key: <subject>.<flag>, as architecture_check.gd prints it. Each record: value (what was measured, with its unit and error), measured_from (frames, catalogue record or survey), evidence (a file in this repository), reviewed_by, commit (the commit reviewed). Set the flag true in the room code in the same change.",
+ "records": {}
+}

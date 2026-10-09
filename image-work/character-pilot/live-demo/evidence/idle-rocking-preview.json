@@ -1,0 +1,25 @@
+{
+  "before": {
+    "hip_y": 0.015458335876464946,
+    "head_y": 0.01592308044433599
+  },
+  "after": {
+    "hip_y": 0.007746353149413965,
+    "head_y": 0.008224105834961914
+  },
+  "ratios": {
+    "hip_y": 0.5011117115916505,
+    "head_y": 0.5164896242100765
+  },
+  "status": "approved current idle; original capture from round4, unchanged in rounds5/6",
+  "target_build_stamp": "dbe77dfe4d0f",
+  "trace_sha256": "afcf17785ff89688ea01500dc784dc5a3b364412dceb484ad8af6451d1692c5d",
+  "comparison_labels": {
+    "before": "Untouched imported source idle",
+    "after": "Owner-requested half idle motion, same mesh/material/camera"
+  },
+  "candidate_build": "dbe77dfe4d0f",
+  "scene_sha256": "688cf0669220b0e43c0f8667479d5cc0a3a532b29c28c8d9bbe394a5b62f4533",
+  "unchanged_idle_proof": "Idle code unchanged since round4, retained by independent round5/6 approvals; only landing depth changed in round6.",
+  "captured_build_stamp": "3d9fb0309b55"
+}

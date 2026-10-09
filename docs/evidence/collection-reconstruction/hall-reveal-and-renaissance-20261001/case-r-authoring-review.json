@@ -1,0 +1,10 @@
+{
+  "candidate": "main-build-extension-v49r",
+  "unbaked": true,
+  "architecture_counts": "two cases, eleven unique asset nodes; flags false; cutaway owner east wall",
+  "failed_visual_check": "Case B artwork textures empty because call used root asset directory instead of textures subdirectory. Root inspected image and fixed proposal call, no accepted render/bake for r",
+  "case_a_usable_provisional": true,
+  "case_a_export_issue": "raw Image.load resource warning; root now reuses imported ResourceLoader path with existing raw-study fallback, geometry unchanged",
+  "triptych_flush_case_source_fit": true,
+  "next": "fresh corrected candidate from installation proposal; owning root files remain held for active movement review"
+}

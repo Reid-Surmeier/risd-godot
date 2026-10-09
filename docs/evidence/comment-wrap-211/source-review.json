@@ -1,0 +1,19 @@
+{
+  "baseline": "5c721015",
+  "runtime": "9864f723",
+  "files": 42,
+  "wrapped_comments": 166,
+  "normalized_tree_pass": 42,
+  "code_line_pass": 42,
+  "comment_word_and_type_pass": 42,
+  "native_parse_pass": 42,
+  "standards_findings": 0,
+  "spec_implementation_findings": 0,
+  "ponytail_findings": 0,
+  "reviewers": [
+    "standards211",
+    "spec211",
+    "ponytail211"
+  ],
+  "composed_proof": "18window-input/33state full-app PASSerrors[]; exact proof supersedes initial AC4 evidence gap"
+}

@@ -1,0 +1,96 @@
+## Private #167 form-only feedback loop; not a saved-room or visual release gate.
+extends SceneTree
+
+
+func _initialize() -> void:
+	call_deferred("capture")
+
+
+func capture() -> void:
+	var args := OS.get_cmdline_user_args()
+	assert(args.size() >= 1, "Supply an output directory; optionally --textured")
+	var bench := "--bench" in args
+	var output: String = args[0]
+	DirAccess.make_dir_recursive_absolute(output)
+	var walk = load("res://modules/shell/prototype/gallery_walk4/walk4.gd").new()
+	root.add_child(walk)
+	walk.set_process(false)
+	walk._set_lighting(false)
+	var stage := Node3D.new()
+	root.add_child(stage)
+	var selected := 0
+	for source in walk._vp.find_children("*", "MeshInstance3D", true, false):
+		if not source.is_visible_in_tree() or not source.material_override is ShaderMaterial:
+			continue
+		var texture = source.material_override.get_shader_parameter("albedo")
+		if bench:
+			var bounds: AABB = source.global_transform * source.mesh.get_aabb()
+			if (
+				bounds.position.y < -0.001
+				or bounds.end.y > 0.45
+				or bounds.position.z < walk.BENCHES[1] - 1.51
+				or bounds.end.z > walk.BENCHES[0] + 1.51
+				or bounds.size.x > 1.0
+			):
+				continue
+		else:
+			if not texture or not texture.resource_path.ends_with("/stone.png"):
+				continue
+		var copy := MeshInstance3D.new()
+		copy.mesh = source.mesh
+		copy.transform = source.global_transform
+		var material := StandardMaterial3D.new()
+		material.albedo_color = Color("#c7bca6")
+		if "--textured" in args:
+			material.albedo_texture = texture
+			material.albedo_color = (
+				source.material_override.get_shader_parameter("tint") if bench else Color.WHITE
+			)
+			material.vertex_color_use_as_albedo = not bench
+		material.texture_filter = BaseMaterial3D.TEXTURE_FILTER_LINEAR_WITH_MIPMAPS_ANISOTROPIC
+		material.roughness = 1.0
+		material.specular_mode = BaseMaterial3D.SPECULAR_DISABLED
+		copy.material_override = material
+		stage.add_child(copy)
+		selected += 1
+	assert(selected > 0, "No meshes selected for probe")
+	print("PROBE_MESHES ", selected)
+	# Keep the source viewport alive but inactive until shutdown; freeing its
+	# just-created lightmap before the first draw triggers a renderer warning.
+	walk.hide()
+	walk._vp.render_target_update_mode = SubViewport.UPDATE_DISABLED
+	var world := WorldEnvironment.new()
+	world.environment = Environment.new()
+	world.environment.background_mode = Environment.BG_COLOR
+	world.environment.background_color = Color("#343c42")
+	world.environment.ambient_light_source = Environment.AMBIENT_SOURCE_COLOR
+	world.environment.ambient_light_color = Color.WHITE
+	world.environment.ambient_light_energy = 0.15
+	stage.add_child(world)
+	var light := DirectionalLight3D.new()
+	light.rotation_degrees = Vector3(-35, -25, 0)
+	light.light_energy = 1.0
+	stage.add_child(light)
+	var camera := Camera3D.new()
+	stage.add_child(camera)
+	for size in [720, 1600]:
+		root.size = Vector2i(size, size)
+		for view in [9, 10]:
+			camera.position = Vector3(0, 2.1, 6.5) if view == 9 else Vector3(2.2, 1.8, 4.1)
+			camera.fov = 54 if view == 9 else 48
+			camera.look_at(Vector3(0, 2.1, 1.6) if view == 9 else Vector3(0.95, 1.8, 1.6))
+			if bench:
+				camera.position = (
+					Vector3(2.5, 2.2, walk.BENCHES[0] + 2.7)
+					if view == 9
+					else Vector3(0.75, 0.8, walk.BENCHES[0] + 1.7)
+				)
+				camera.fov = 48
+				camera.look_at(Vector3(0, 0.24, walk.BENCHES[0] + (0.7 if view == 10 else 0)))
+			for frame in 4:
+				await process_frame
+			await RenderingServer.frame_post_draw
+			var path := output.path_join("%d-view-%d.png" % [size, view])
+			assert(root.get_texture().get_image().save_png(path) == OK)
+			print("PORTAL_SCULPTURE_PROBE ", path)
+	quit()

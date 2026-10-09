@@ -1,0 +1,30 @@
+{
+  "pale": {
+    "source": "modules/shell/prototype/gallery_walk4/frames/W7.png",
+    "source_sha256": "b0c05b8a151f3a6c221b3b2e1c893b64e87a510681c38981393758a7b3403424",
+    "path": "modules/shell/assets/impressionist/frame-W7-pale.png",
+    "chroma": 0.08,
+    "lift": 0.16,
+    "pixels": [
+      1361,
+      966
+    ],
+    "provider": "Local colour derivative of the existing repository Muse W7 frame; no new AI generation",
+    "cost_usd": 0,
+    "sha256": "b562dcd34288df7238627d0634c9d0ae72825baf5aae5b8550dd07a405d6e8b4"
+  },
+  "rose": {
+    "source": "modules/shell/prototype/gallery_walk4/frames/W7.png",
+    "source_sha256": "b0c05b8a151f3a6c221b3b2e1c893b64e87a510681c38981393758a7b3403424",
+    "path": "modules/shell/assets/impressionist/frame-W7-rose.png",
+    "chroma": 0.08,
+    "lift": 0.02,
+    "pixels": [
+      1361,
+      966
+    ],
+    "provider": "Local colour derivative of the existing repository Muse W7 frame; no new AI generation",
+    "cost_usd": 0,
+    "sha256": "5a6f6b9a3fb48d1f60bd03324d1f4f631858141b782da9ae0399cadf1f49f54d"
+  }
+}

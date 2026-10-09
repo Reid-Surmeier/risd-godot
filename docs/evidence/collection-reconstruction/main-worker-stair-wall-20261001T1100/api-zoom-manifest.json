@@ -1,0 +1,38 @@
+[
+  {
+    "object": "apostle-41045",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/zuhuw9Ju/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-fragments-api-v1/apostle-41045-zoom-0.jpg",
+    "sha256": "1c475632edc86ab20843040572bc808e9d945d69e867dba403d79c85b7108b01"
+  },
+  {
+    "object": "apostle-41045",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/MhnMJPX0/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-fragments-api-v1/apostle-41045-zoom-1.jpg",
+    "sha256": "ca94cbe0b00e62a4af5b6308c7b6e896f8e9797c5a83dea580734236f6fe58cf"
+  },
+  {
+    "object": "apostle-41045",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/VeBiwljt/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-fragments-api-v1/apostle-41045-zoom-2.jpg",
+    "sha256": "6abdfc5d863be3499b0ecf838fd9d0fc0f37c8daa2b13218ff3002f0648c1549"
+  },
+  {
+    "object": "apostle-41046",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/DHU20bNx/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-fragments-api-v1/apostle-41046-zoom-0.jpg",
+    "sha256": "5647a0a24aabf7e5daad2d56f3cc0d31c819f56f208f430c5d2fbee01389f09f"
+  },
+  {
+    "object": "apostle-41046",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/gproduHY/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-fragments-api-v1/apostle-41046-zoom-1.jpg",
+    "sha256": "ac631854155bc8e98f0f1ee548d9fc96f8825a0df8e8d66915c9578e057f9e93"
+  },
+  {
+    "object": "apostle-41046",
+    "url": "https://risdmuseum.cdn.picturepark.com/v/tEWsjJAN/",
+    "file": "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/medieval-fragments-api-v1/apostle-41046-zoom-2.jpg",
+    "sha256": "752532fa01f769ebaacaf7989935bd63ea2b9a00cfa4c2656b6c5ea47eb443b9"
+  }
+]

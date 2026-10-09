@@ -1,0 +1,18 @@
+{
+  "forward_idle": true,
+  "stable_head": true,
+  "jaw_mask": "jaw-mask.json",
+  "symmetric_arms": true,
+  "authored_legs": true,
+  "preserve_reference_seam": true,
+  "source_units_to_m": 0.0004695,
+  "controller_speed_mps": 1.05,
+  "reference_fit": "source rotations with neutral limb-axis calibration; target-specific grounding, not identical game geometry; dense native import floor check required",
+  "period_seconds": 0.4666666666666667,
+  "source_curves": "dash-reference-curves.json",
+  "swing_lift_m": 0.06,
+  "anatomical_axes": true,
+  "bake_fps": 240,
+  "arm_weight_mask": "arm-weight-mask.json",
+  "cadence_source": "YouTube 1016.200/.433/.667 dust events; full14/30 seconds, .40-.533 uncertainty"
+}

@@ -1,0 +1,36 @@
+{
+ "geometry_sha256": "7e0c504d5bf167f5ef1a99859ac7440b737af78840519e558103aacd6ec40b6b",
+ "same_as_v48b": true,
+ "D1_landing_openings": {
+  "west": [
+   29.2,
+   30.9
+  ],
+  "east": [
+   29.2,
+   30.9
+  ],
+  "south": [
+   13.9,
+   15.9
+  ]
+ },
+ "D2_tracery_centre_z": 31.765,
+ "D2_stair_centre_z": 30.049999999999997,
+ "D2_axis_offset_m": 1.715,
+ "D3_connector_to_sw_corner_m": 3.0,
+ "D3_connector_to_nw_corner_m": 3.0,
+ "D3_european_gallery_length_m": 28.5,
+ "D4_east_wall": {
+  "north_remainder_m": 1.1,
+  "south_remainder_m": 3.3,
+  "apostle_b_to_se_corner_m": 2.7,
+  "after_D2_b_to_se_corner_m": 0.985
+ },
+ "coverage": {
+  "videos": 10,
+  "survey_frames": 2485,
+  "root_sha256_match_manifest": true,
+  "root_frame_count_off_by_one": []
+ }
+}

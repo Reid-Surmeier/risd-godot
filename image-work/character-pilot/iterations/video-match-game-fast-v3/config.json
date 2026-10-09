@@ -1,0 +1,27 @@
+{
+  "models": [
+    {
+      "source": "video-match/authored-fast-v3/footplant-candidate.glb",
+      "label": "GameCube fast-cadence .4s reference trial",
+      "sha256": "4b666380f16660319094a942eefa5c07456e0d04e2abfed081d357a3bd3bba08"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 4,
+  "effects": true,
+  "controller_speed_m_s": 1.05,
+  "contacts": [
+    {
+      "time": 0,
+      "foot": "Left"
+    },
+    {
+      "time": 0.2,
+      "foot": "Right"
+    }
+  ],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17
+}

@@ -1,0 +1,91 @@
+{
+  "frame": "IMG_6343 147.0 s, SDR, auto-rotated extraction 960x1707",
+  "ruler": "Le Repos 59.027 catalogue canvas width 1.140m height 1.502m",
+  "source": "https://risdmuseum.org/art-design/collection/repose-le-repos-59027",
+  "canvas_pixel_corners": [
+    [
+      516,
+      588
+    ],
+    [
+      633,
+      588
+    ],
+    [
+      628,
+      751
+    ],
+    [
+      511,
+      748
+    ]
+  ],
+  "homography": [
+    [
+      0.010889400823468212,
+      0.00034029377573338473,
+      -5.819023565040828
+    ],
+    [
+      0.000263852528363284,
+      -0.010290248606168277,
+      7.562277315420234
+    ],
+    [
+      0.00017566745350673315,
+      1.0882509293191677e-05,
+      1.0
+    ]
+  ],
+  "wall_points": {
+    "west_ceiling": [
+      -3.4193191528320312,
+      2.8510847091674805
+    ],
+    "east_ceiling": [
+      2.873018503189087,
+      2.8558826446533203
+    ],
+    "west_floor": [
+      -3.2421791553497314,
+      -0.7889998555183411
+    ],
+    "east_floor": [
+      2.975966215133667,
+      -0.882878303527832
+    ],
+    "door_left_head": [
+      -2.8278090953826904,
+      1.6395379304885864
+    ],
+    "door_right_head": [
+      -1.791540503501892,
+      1.627671241760254
+    ],
+    "door_left_sill": [
+      -2.6835896968841553,
+      -0.5639953017234802
+    ],
+    "door_right_sill": [
+      -1.6408894062042236,
+      -0.5884255170822144
+    ],
+    "skirting_top": [
+      -0.1612362563610077,
+      -0.5398144125938416
+    ],
+    "ceiling_over_canvas": [
+      0.5354609489440918,
+      2.8814356327056885
+    ]
+  },
+  "width_m": 6.255241394042969,
+  "height_m": 3.689422845840454,
+  "uncertainty_m": {
+    "width": 0.6,
+    "height": 0.35,
+    "door_width": 0.15,
+    "door_height": 0.15
+  },
+  "warning": "Manual corner picks; camera distortion and partly obscured floor; plane origin at lower left of the Manet canvas. Not a survey acceptance."
+}

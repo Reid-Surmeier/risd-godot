@@ -1,0 +1,125 @@
+{
+  "selection": {
+    "point_ids": [
+      13116,
+      14320,
+      14976
+    ],
+    "training": [
+      "IMG_6380/000244.jpg",
+      "IMG_6380/000505.jpg"
+    ],
+    "reserved": [
+      "IMG_6380/000245.jpg",
+      "IMG_6380/000508.jpg",
+      "IMG_6380/000509.jpg"
+    ],
+    "reason": "Frozen before reserved feature/projection lookup. Source-reviewed threshold wood feature13116, left casing-floor feature14320 and right wood-floor boundary14976 provide a wider near-floor footprint across two visits. Baseboard features14564/14807 and purple toe14979 excluded: contact height uncertain. Sources are repeated passes within one video; not independent captures. IMG6384 features42721/43475/43482/43520 rejected as plinth/baseboard points rather than separated wood-floor observations.",
+    "source_images_sha256": {
+      "IMG_6380/000244.jpg": "81dc3d6cca2ec13687f0d040f5401f5bca78248b4348d98477e31afbff8f9fef",
+      "IMG_6380/000505.jpg": "57a9d4c90cdbbe43455c31945bf74192249aa10e0749b7659afada48e35ed917"
+    }
+  },
+  "selection_sha256": "ab3a397558274b853ca5ce485732b292666eea5d28f4d98b77c6577865e41713",
+  "source_sha256": {
+    "points3D.bin": "f8b6effb46969957470a6c0e9bd2d914d5513f49a396529e7e6453ee22565392",
+    "frames.bin": "1b0f830e1520072a005312b9925342e4c67663fad7ccfd0d0fa5dd5c8e249a02",
+    "images.bin": "780aec044039a7a1b6b9b4a7408df970fae26cc70e313d6573d8ca2bb1d2d78e",
+    "rigs.bin": "e24d140869bc0e26f36132b69c9dd3647443b92e1ee0bc1cc087a49c4b18502b",
+    "cameras.bin": "3daebaaf62b9561d11d9004203079344cebff9b6b3b36ea789b971a0997a0f1c"
+  },
+  "points_world": [
+    [
+      0.5104068350167823,
+      1.8966418767084996,
+      1.3093899349334268
+    ],
+    [
+      0.5049289651074833,
+      1.7557373795876396,
+      1.4105371911287181
+    ],
+    [
+      0.48432215774946674,
+      2.4732792211686463,
+      1.6809159201389898
+    ]
+  ],
+  "ray_angles_degrees": [
+    6.964885275851175,
+    8.490753087607171,
+    11.307062007557077
+  ],
+  "views": [
+    {
+      "image": "IMG_6380/000244.jpg",
+      "errors_px": {
+        "13116": 1.3217824703523484,
+        "14320": 0.5861786427762039,
+        "14976": 0.25464771670472586
+      },
+      "missing_ids": [],
+      "diagnostic_pass": true
+    },
+    {
+      "image": "IMG_6380/000505.jpg",
+      "errors_px": {
+        "13116": 1.0919849306325276,
+        "14320": 0.4747672664346665,
+        "14976": 0.1864108536824956
+      },
+      "missing_ids": [],
+      "diagnostic_pass": true
+    },
+    {
+      "image": "IMG_6380/000245.jpg",
+      "errors_px": {
+        "13116": 1.160687083015429,
+        "14320": 2.7009543088530372
+      },
+      "missing_ids": [
+        14976
+      ],
+      "diagnostic_pass": false
+    },
+    {
+      "image": "IMG_6380/000508.jpg",
+      "errors_px": {
+        "13116": 1.552435852596507
+      },
+      "missing_ids": [
+        14320,
+        14976
+      ],
+      "diagnostic_pass": false
+    },
+    {
+      "image": "IMG_6380/000509.jpg",
+      "errors_px": {
+        "13116": 3.6791804919435283
+      },
+      "missing_ids": [
+        14320,
+        14976
+      ],
+      "diagnostic_pass": false
+    }
+  ],
+  "candidate_normal_world": [
+    -0.9980841277748121,
+    -0.0054399548220510135,
+    -0.06163181626016343
+  ],
+  "edges_world_units": [
+    0.17353631263646674,
+    0.7670694831826924,
+    0.6864565500431575
+  ],
+  "minimum_altitude_world_units": 0.14455980308335079,
+  "pick_sensitivity_camera_pixel_radius": 2,
+  "normal_change_p95_degrees": 13.78854733342416,
+  "threshold_px": 8,
+  "navigation_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Reserved observations excluded from point triangulation, but cameras are globally fitted using cached tracks. Negative IDs are frozen manual contacts, not sparse track identities. Same-video correlated diagnostic, not independent validation. Three points define a candidate plane, not physical planarity, metric scale, floor extent or collision approval."
+}

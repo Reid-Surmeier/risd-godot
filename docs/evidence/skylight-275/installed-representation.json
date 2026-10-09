@@ -1,0 +1,26 @@
+{
+  "built": 177,
+  "declared": 177,
+  "failures": [
+    "37.114 is declared as mesh but no place_mesh() put it there",
+    "20.254 is declared as mesh but no place_mesh() put it there",
+    "59.131 is declared as mesh but no place_mesh() put it there"
+  ],
+  "unregistered": [
+    "15.108",
+    "1992.051",
+    "2014.110",
+    "21.398",
+    "30.011",
+    "40.002",
+    "52.002",
+    "59.128",
+    "european-east-figure-turkish-man",
+    "european-east-figure-turkish-woman",
+    "european-east-pineapple-teapot",
+    "european-east-small-dish",
+    "european-east-small-metal-0",
+    "european-east-small-metal-1",
+    "european-east-small-metal-2"
+  ]
+}

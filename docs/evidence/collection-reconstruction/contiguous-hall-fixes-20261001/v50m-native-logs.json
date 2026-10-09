@@ -1,0 +1,58 @@
+[
+  {
+    "source": "/tmp/collection-v50m-copy.log",
+    "source_sha256": "fce829370e3726e9d0bba2006f39f48980822d1184c71ea500716744d32802bc",
+    "archive": "raw-logs/collection-v50m-copy.log.gz",
+    "archive_sha256": "e4faa8f1d233c72e459c3c74b3a2efe761c16b8e3da193c3b09b9855cf29301c",
+    "errors": 0,
+    "script_errors": 0
+  },
+  {
+    "source": "/tmp/collection-v50m-follow-capture.log",
+    "source_sha256": "3d623ad942b861fe97b199706033348a1eb8d8f9c1be75cd33d13faef1548b38",
+    "archive": "raw-logs/collection-v50m-follow-capture.log.gz",
+    "archive_sha256": "8968ee3673737e966070fdb88318f79505eb7c029300d230c7ff119595db94ee",
+    "errors": 0,
+    "script_errors": 0
+  },
+  {
+    "source": "/tmp/collection-v50m-initial-import.log",
+    "source_sha256": "84de1cb3104e4f40ad9a57628289145c830634f0d6e408e843e7811e84f6b00f",
+    "archive": "raw-logs/collection-v50m-initial-import.log.gz",
+    "archive_sha256": "ccbff20e80989b70bdad08cd7880235ae0c18dd21650631e2fc518c7405874c7",
+    "errors": 0,
+    "script_errors": 0
+  },
+  {
+    "source": "/tmp/collection-v50m-keyboard-check.log",
+    "source_sha256": "4f704fa4d18431f311f9f96eed446bb5867be53caf2f5380f364df0e4ad1fd24",
+    "archive": "raw-logs/collection-v50m-keyboard-check.log.gz",
+    "archive_sha256": "e1c85a08ffaa212e44a0cf2b6c1d6b7e70dc8ea6e83e4a5e089a1511250d0d47",
+    "errors": 1,
+    "script_errors": 0
+  },
+  {
+    "source": "/tmp/collection-v50m-main-build-check.log",
+    "source_sha256": "3c45e69b2152f9ac5f460a2fcc70a563f9193689171fd88bad8ee00a477d5fce",
+    "archive": "raw-logs/collection-v50m-main-build-check.log.gz",
+    "archive_sha256": "822587313e6811ae7472d261f540830ba2b7c9b0fd435cb055d7715ca42265f0",
+    "errors": 0,
+    "script_errors": 0
+  },
+  {
+    "source": "/tmp/collection-v50m-native-capture.log",
+    "source_sha256": "352837890a0179817090f3f44e07988c7f43aabf44b3ff69991a947b06a90ab0",
+    "archive": "raw-logs/collection-v50m-native-capture.log.gz",
+    "archive_sha256": "10f40d95beefedd2d76a144e3766b3af15cc88e246bd282c85902b9e878136ff",
+    "errors": 0,
+    "script_errors": 0
+  },
+  {
+    "source": "/tmp/collection-v50m-repo-check.log",
+    "source_sha256": "9d66306d7c750cff6efa4f1a496cc4ba938584aba34cbbe9d8fe9adeeccc467e",
+    "archive": "raw-logs/collection-v50m-repo-check.log.gz",
+    "archive_sha256": "93b47651a812d908d931e51dc1785d2ec216e36baea5135edddf01b38d6911f5",
+    "errors": 0,
+    "script_errors": 0
+  }
+]

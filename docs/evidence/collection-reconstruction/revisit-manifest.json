@@ -1,0 +1,90 @@
+[
+  {
+    "clip": "IMG_6384",
+    "failed_time": 22.5,
+    "start": 19.5,
+    "fps": 6,
+    "frames": 37,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6384",
+    "failed_time": 57.5,
+    "start": 54.5,
+    "fps": 6,
+    "frames": 36,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6384",
+    "failed_time": 72.5,
+    "start": 69.5,
+    "fps": 6,
+    "frames": 36,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6384",
+    "failed_time": 87.5,
+    "start": 84.5,
+    "fps": 6,
+    "frames": 37,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6385",
+    "failed_time": 27.5,
+    "start": 24.5,
+    "fps": 6,
+    "frames": 36,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6386",
+    "failed_time": 37.5,
+    "start": 34.5,
+    "fps": 6,
+    "frames": 36,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6386",
+    "failed_time": 47.5,
+    "start": 44.5,
+    "fps": 6,
+    "frames": 37,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6386",
+    "failed_time": 52.5,
+    "start": 49.5,
+    "fps": 6,
+    "frames": 37,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6386",
+    "failed_time": 57.5,
+    "start": 54.5,
+    "fps": 6,
+    "frames": 37,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6386",
+    "failed_time": 67.5,
+    "start": 64.5,
+    "fps": 6,
+    "frames": 36,
+    "use": "reference review only; held-out model remains frozen"
+  },
+  {
+    "clip": "IMG_6386",
+    "failed_time": 87.5,
+    "start": 84.5,
+    "fps": 6,
+    "frames": 36,
+    "use": "reference review only; held-out model remains frozen"
+  }
+]

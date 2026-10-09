@@ -1,0 +1,36 @@
+{
+  "camera": {
+    "depression_degrees": 45.0,
+    "distance_m": 17.0,
+    "vertical_fov_degrees": 20,
+    "viewport_pixels": [
+      886,
+      664
+    ]
+  },
+  "clip": "walk",
+  "cost_usd": 0,
+  "effects": {
+    "calls": 0,
+    "contacts_per_loop": 0,
+    "cycles": 1,
+    "idle_added_calls": 0,
+    "idle_control": false,
+    "kind": "native Animation method keys trigger contact-timed mesh dust puffs",
+    "native_method_track_tested": false,
+    "suppressed_outgoing_walk_keys_in_idle": 0
+  },
+  "fps": 30,
+  "frames_per_cycle": 24,
+  "models": [
+    {
+      "bones": 24,
+      "contact_events": [],
+      "label": "GameCube walk .8s reference trial",
+      "maximum_blend_root_lift_m": 0,
+      "minimum_sole_y_m": -0.0000204277039301815,
+      "unclamped_minimum_sole_y_m": -0.0000204277039301815
+    }
+  ],
+  "seconds": 0.800000011920929
+}

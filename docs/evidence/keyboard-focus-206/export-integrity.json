@@ -1,0 +1,30 @@
+{
+  "runtime": "63a1d94d",
+  "base": "https://windows-wsl.taile06c45.ts.net/risd-focus-current-01a0f078/",
+  "files": [
+    {
+      "file": "63a1d94d.html",
+      "status": 200,
+      "sha256": "9f81c9b29c80f254a7d85eea8948d9c7ee9c82d30501d853a32ad6c6fb2bfd9a",
+      "match": true
+    },
+    {
+      "file": "63a1d94d.pck.gz",
+      "status": 200,
+      "sha256": "a909ea127516de975405c5a8fa90070c31da98ca399ff229d9880c167bd4407b",
+      "match": true
+    },
+    {
+      "file": "63a1d94d.game.pck.gz",
+      "status": 200,
+      "sha256": "35256e45bcd7836fca2f87104158aa2804cc4fe3fc77bd9b7ef3170fd08934db",
+      "match": true
+    },
+    {
+      "file": "63a1d94d.wasm.gz",
+      "status": 200,
+      "sha256": "21869ae105804b3a4d82ba9f5ebdf6beb60cea8029ad969b24d8a1d679006822",
+      "match": true
+    }
+  ]
+}

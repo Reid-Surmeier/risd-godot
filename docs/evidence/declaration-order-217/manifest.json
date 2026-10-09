@@ -1,0 +1,75 @@
+{
+  "baseline": "6fe79b3a",
+  "files": [
+    {
+      "file": "modules/atlas/atlas_window.gd",
+      "before_sha256": "22209b3727273c2d73c0489ec754f23d3c59fd9a1d3507e70a9db9056a199540",
+      "after_sha256": "13052389db82ba6a97cb9861f7c87fcd914887392e747a8a27d53efe7b459a84"
+    },
+    {
+      "file": "modules/playground_page/playground_page.gd",
+      "before_sha256": "a85e38cbef0d7c8d3e0846d1df8ead8a23f5eca152190cf79c9a3bac812f60cc",
+      "after_sha256": "3447c409f8b0e2c0b588719ad52b0b6937b481d56fdea642390da343347c6b54"
+    },
+    {
+      "file": "modules/sculpture_viewer/viewer.gd",
+      "before_sha256": "c6ebe1de54fdcf23417eebcb8ba2cd681c3dcf13b7965a13f6fd5b0f69e8e9be",
+      "after_sha256": "37968a1edd92c19e22dd301a55bab6f5ce293f69f5d0e7e9b2180e9f188c51bc"
+    },
+    {
+      "file": "modules/shell/crt_display.gd",
+      "before_sha256": "c6d69fcb580208e52e07ecb04377d871352d150ce90875d2c69000c99b4c30ce",
+      "after_sha256": "db4865402d5d63b8b046bfbd82f179f148f44ab6f64ed47ea6d0259c0d1b1e39"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/painting_asset.gd",
+      "before_sha256": "0f31f09ee2e6d80f7c372ef500f76357c4a739536e328b4fdeb733c7f67a8742",
+      "after_sha256": "455241689ea71396183f30a8656e87f7052ac4d9bab22b8c93f9eb537eec2e82"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/render_diagnostics.gd",
+      "before_sha256": "4fd59cd142e7f4bbc0e1254aed2cd137ff56f673f91863679a67ee1e0fafcaa6",
+      "after_sha256": "b33239f0210272c9e8786327d2bd108c98f1be5251f0a27d7bd5387bd471a399"
+    },
+    {
+      "file": "modules/shell/prototype/gallery_walk4/walk4.gd",
+      "before_sha256": "0c65c09fd8c7ad7956c0c11a78f173dc5363cd61aec52cf972953aeb2498b09f",
+      "after_sha256": "2a0f975f8829c16647e11fb7b7e361425de49a011f74bf525f997d1259fc58bc"
+    },
+    {
+      "file": "modules/shell/shell.gd",
+      "before_sha256": "2df559723ceb405e1271a59f82828323bb65c520e0f799a176dc4c92f97f7b40",
+      "after_sha256": "a95355f9645ad6b60731a01b563ef7f1b0959154cb00af8fa57dc583f7505a77"
+    },
+    {
+      "file": "modules/shell/window_shadows.gd",
+      "before_sha256": "80cadd9c2966bd261e3ee568a957da229fe1ac7abefb42104179863a99142d2f",
+      "after_sha256": "5339ebd25f8993006a518663e90b4858e77a044810a283c6e3fa9a350058423b"
+    },
+    {
+      "file": "modules/sketchbook/desktop.gd",
+      "before_sha256": "65dd341b4f02d412ce33e949c84a133ad5f992f916c249e90b6d4a0ff79b4e66",
+      "after_sha256": "7f4a84576e8eb97581a732154d2c5efdef35a04e06fefa45f4a70630d41d3a06"
+    },
+    {
+      "file": "modules/sketchbook/drawing_surface.gd",
+      "before_sha256": "497756bf2d89ef46222ebccbf7fad563aab14d0007f4b4089c2db7d54673a69c",
+      "after_sha256": "d8620cdf6279b7a8ce05d31b3d99e57208c4b45449f87d7aead1eb657675ff63"
+    },
+    {
+      "file": "modules/sketchbook/paintbox.gd",
+      "before_sha256": "bba5ca06699b22062c18baec2938a4916d317250de046ec2bef8c9ba70f7ce81",
+      "after_sha256": "3696a19cda61ebe6c3192fc5ab8f41aea83c34ab3c96345ca165b2250a41bcff"
+    },
+    {
+      "file": "modules/sketchbook/sketchbook_window.gd",
+      "before_sha256": "3e2723557cd2fa6722bfa80bb3d7f0ebe2c7ac698e89ca7ef4b5dd117f8937dc",
+      "after_sha256": "c0c6dd2b93971e4c315cf72a851e60ae76f0883af4915e28365b8a33adf54c8b"
+    },
+    {
+      "file": "modules/tab_strip/tab_strip.gd",
+      "before_sha256": "509b8e42b200f91fa8ee9e2d2fe94185d8b18687b2378859ae0aee5915c242c1",
+      "after_sha256": "b7bf13baa050f5327ffc35d6f90fc1323c79547518b1f30a03339f64f470d323"
+    }
+  ]
+}

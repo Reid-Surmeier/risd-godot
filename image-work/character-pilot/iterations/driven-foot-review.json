@@ -1,0 +1,29 @@
+{
+  "models": [
+    {
+      "source": "video-match/canonical-run/footplant-candidate.glb",
+      "label": "RUN source cycle-neutral foot basis"
+    },
+    {
+      "source": "video-match/canonical-run-standing/footplant-candidate.glb",
+      "label": "RUN standing WAIT foot basis trial"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 0,
+  "contacts": [],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17,
+  "import_fps": 240,
+  "dust_color": [
+    0.96,
+    0.97,
+    1
+  ],
+  "dust_radius": 0.065,
+  "dust_forward_offset": -0.1
+}

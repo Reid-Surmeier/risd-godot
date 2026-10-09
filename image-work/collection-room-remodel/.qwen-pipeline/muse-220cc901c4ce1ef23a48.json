@@ -1,0 +1,48 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-220cc901c4ce1ef23a48",
+  "summary": "Generate ONE complete front orthographic low polygon gilded frame matching the real frame around RISD Courbet Jura Landscape43.571 in the reference views. Preserve its broad dense carved acanthus/foliate outer band with projecting corner and centre leaf ornaments, narrow raised rectangular inner gold fillet, aged warm gold and restrained relief shadows in the existing museum game style. All four sides/corners complete. Perfectly blank white rectangular opening with canvas width73.3 height59.7cm. Flat magenta #FF00FF outside silhouette; no painting, labels, walls, people, shadows outside frame, perspective or invented extra ornaments. One frame only.\n",
+  "procedureId": "muse-220cc901c4ce1ef23a48",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "inventory-references/courbet-frame-selected-0.png",
+      "sha256": "04bc31f051f4bc5090c7fb1a56a8fc2851efb50551e55b95517984716817fed6",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "inventory-references/courbet-frame-selected-1.png",
+      "sha256": "a0a1f0dc135f200b64cb327072202c0b8097efd5bfe0436f3ab8d2de93f3113a",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    },
+    {
+      "path": "inventory-references/courbet-frame-selected-2.png",
+      "sha256": "5741f95fd0f5a1df3a23bea659374dcb955a9cf599c17f8a02ec18bff0cd04fe",
+      "slot": "reference-002",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/2/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "courbet-frame-recipe.json",
+      "sha256": "220cc901c4ce1ef23a4869a54f1f64e497c6afcd94d5cb4f4beb02825fec6e82"
+    },
+    {
+      "applicationPath": "courbet-frame-plan.json",
+      "sha256": "cc677cf900a4e26d65a771e47a7ebcdb94d3a23867699a5afffe8a770b071c82"
+    },
+    {
+      "applicationPath": "courbet-frame-prompt.txt",
+      "sha256": "e9afea54da1b7f502e2086ca2894d18e0b9ce80aa15999116e8e17631c7bd551"
+    }
+  ]
+}

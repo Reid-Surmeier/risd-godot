@@ -9,7 +9,12 @@ const CONTENT_RECT := Rect2(560, 258, 525, 415)
 const RINGS_RECT := Rect2(400, 194, 155, 616)
 const RAIL_RECT := Rect2(24, 194, 288, 615)
 const BLANK_PIXEL := Vector2(1070, 690)
-const ORIGINAL_ENTRY := "DEAR DIARY !! I LOOOVE THIS THING HAHAHAHAHAHAHA!! i decorated my room and and and my ROOMIE IS JUST SO CUTE !!!!!!!!!!\n\ni dont think my dad knew how much i would use this thing but nextrooms with my friends is like hanging with them 24/7 lol"
+const ORIGINAL_ENTRY := (
+	"DEAR DIARY !! I LOOOVE THIS THING HAHAHAHAHAHAHA!! i decorated my room and " +
+	"and and my ROOMIE IS JUST SO CUTE !!!!!!!!!!\n\ni dont think my dad knew how " +
+	"much i would use this thing but nextrooms with my friends is like hanging " +
+	"with them 24/7 lol"
+)
 const ICON_RECT := Rect2(7, 5, 43, 43)
 const CLOSE_RECT := Rect2(1090, 3, 42, 45)
 const PREVIOUS_RECT := Rect2(672, 730, 68, 82)
@@ -74,7 +79,9 @@ func _build_editor() -> void:
 
 
 func _style_editor(target: TextEdit) -> void:
-	var font: FontFile = preload("res://modules/playground_page/assets/fonts/PixelMplus12-Regular.ttf").duplicate()
+	var font: FontFile = (
+		preload("res://modules/playground_page/assets/fonts/PixelMplus12-Regular.ttf").duplicate()
+	)
 	font.antialiasing = TextServer.FONT_ANTIALIASING_NONE
 	target.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
 	target.scroll_fit_content_height = true
@@ -271,7 +278,9 @@ func _layout_buttons() -> void:
 
 
 func _press(rect: Rect2) -> void:
-	journal_material.set_shader_parameter("press_rect", Vector4(rect.position.x, rect.position.y, rect.size.x, rect.size.y))
+	journal_material.set_shader_parameter(
+		"press_rect", Vector4(rect.position.x, rect.position.y, rect.size.x, rect.size.y)
+	)
 	journal_material.set_shader_parameter("press_offset", 3.0)
 
 
@@ -325,11 +334,13 @@ func _turn_to(target: int, _direction: float, target_diary: int = -1) -> void:
 	_apply_state()
 	_turn = create_tween()
 	_turn.tween_method(_set_turn_progress, 0.0, 1.0, 0.52)
-	_turn.tween_callback(func() -> void:
-		turn.visible = false
-		face_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
-		turning = false
-		_apply_state())
+	_turn.tween_callback(
+		func() -> void:
+			turn.visible = false
+			face_viewport.render_target_update_mode = SubViewport.UPDATE_DISABLED
+			turning = false
+			_apply_state()
+	)
 
 
 func _set_turn_progress(value: float) -> void:
@@ -356,7 +367,9 @@ func _apply_state() -> void:
 	journal_material.set_shader_parameter("page_index", page_index)
 	journal_material.set_shader_parameter("diary_index", diary_index)
 	var tab: Rect2 = TABS[diary_index]
-	journal_material.set_shader_parameter("selected_rect", Vector4(tab.position.x, tab.position.y, tab.size.x, tab.size.y))
+	journal_material.set_shader_parameter(
+		"selected_rect", Vector4(tab.position.x, tab.position.y, tab.size.x, tab.size.y)
+	)
 	editor.editable = not turning
 	get_node("Previous").disabled = page_index == 0 or turning
 	get_node("Next").disabled = page_index == 2 or turning
@@ -378,9 +391,16 @@ func _load_page_text() -> void:
 
 
 func qa_state() -> Dictionary:
-	return {"page": page_index + 1, "diary": diary_index, "entry": selected_entry,
-		"text": editor.text, "turning": turning, "visible": visible,
-		"rail_scroll": rail.scroll_vertical, "caret_color": editor.get_theme_color("caret_color")}
+	return {
+		"page": page_index + 1,
+		"diary": diary_index,
+		"entry": selected_entry,
+		"text": editor.text,
+		"turning": turning,
+		"visible": visible,
+		"rail_scroll": rail.scroll_vertical,
+		"caret_color": editor.get_theme_color("caret_color")
+	}
 
 
 func title_button_at(local_point: Vector2) -> bool:

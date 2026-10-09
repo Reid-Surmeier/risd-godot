@@ -1,0 +1,32 @@
+{
+  "models": [
+    {
+      "source": "video-match/canonical-run/footplant-candidate.glb",
+      "label": "Source joint-ratio candidate; visually long arms",
+      "sha256": "fceb9b9fd19accd7bb3c4b6d43dacd64d07c4f94ab61b57bebc755e4c83a4527"
+    },
+    {
+      "source": "video-match/fitted-run/footplant-candidate.glb",
+      "label": "Shorter arm silhouette candidate; same source RUN",
+      "sha256": "853671f9c83c266cfca84a9b900d9dbb61d4c881d7d90ce110807068ba663e11"
+    }
+  ],
+  "clip": "walk",
+  "angle": 25,
+  "cycles": 2,
+  "effects": false,
+  "controller_speed_m_s": 0,
+  "contacts": [],
+  "width": 886,
+  "height": 664,
+  "camera_distance": 17,
+  "import_fps": 240,
+  "dust_color": [
+    0.96,
+    0.97,
+    1
+  ],
+  "dust_radius": 0.065,
+  "dust_forward_offset": -0.1,
+  "camera_yaw": 90
+}

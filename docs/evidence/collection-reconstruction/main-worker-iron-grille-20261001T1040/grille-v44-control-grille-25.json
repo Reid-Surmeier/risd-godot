@@ -1,0 +1,581 @@
+[
+  {
+    "id": "1550686",
+    "collection": "",
+    "credit": "Museum Works of Art Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1712",
+    "datingYearTo": "1712",
+    "description": "<p>Nouveau Livre de Serrurerie (New Book of Locksmithing)<br>Oeuvre du Sieur D. Marot...</p>\n",
+    "dimensions": "26.7 x 19.1 cm (10 1/2 x 7 1/2 inches) (plate)",
+    "edition": "",
+    "inscription": "Lettered in image: \"Grille Forriche\"; \"Porte En Paneaux\"",
+    "makers": [
+      {
+        "name": "Daniel Marot",
+        "risdAffiliation": null,
+        "years": "ca. 1663-1752",
+        "nationality": [
+          "French"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "etching",
+      "engraving"
+    ],
+    "mediumTechnique": "etching, engraving",
+    "objectNumber": "46.465.50",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Daniel Marot",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1422441"
+    ],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "etching",
+      "engraving"
+    ],
+    "title": "Nouveau Livre de Serrurerie (New Book of Locksmithing)",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/nouveau-livre-de-serrurerie-new-book-locksmithing-4646550"
+  },
+  {
+    "id": "1555831",
+    "collection": "",
+    "credit": "Richard Brown Baker Fund for Contemporary British Art",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2004",
+    "datingYearTo": "2004",
+    "description": "<p>Ventilation Grills (Punching through the Clouds)</p>\n",
+    "dimensions": "24.4 x 49.5 cm (9 5/8 x 19 1/2 inches) (each)",
+    "edition": "3/3",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Martin Boyce",
+        "risdAffiliation": null,
+        "years": "b. 1967 in Glasgow, Scotland",
+        "nationality": [
+          "Scottish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "mediumTechnique": "brass",
+    "objectNumber": "2006.5.1a",
+    "onView": false,
+    "place": "Place Made: Western",
+    "primaryMaker": "Martin Boyce",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1555846",
+      "https://risdmuseum.org/api/v1/collection?id=1555826",
+      "https://risdmuseum.org/api/v1/collection?id=1555836",
+      "https://risdmuseum.org/api/v1/collection?id=1555841"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "title": "Ventilation Grills (Punching through the Clouds)",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/ventilation-grills-punching-through-clouds-200651a"
+  },
+  {
+    "id": "1318541",
+    "collection": "",
+    "credit": "Gift of Lenox, Incorporated",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1886",
+    "datingYearTo": "1886",
+    "description": "<p>Design for a Gate</p>\n",
+    "dimensions": "38.1 x 31.1 cm (15 x 12 1/4 inches)",
+    "edition": "",
+    "inscription": "Gate has letters \"A N B\" (or FNB?) within design. Two ink stamps on paper, one in purple in upper right \"TO BE RETURNED TO / Franklin D Janes, / ARCHITECT ARTIST / 57 STATE STREET / ALBANY, N.Y.\". Another ink stamp, oval in blue, in lower right corner, \"GORHAM MFG. CO / NEW YORK / MAR 2 1885\". \"See Template\" in pencil above drawing. Ink \"2: 10 1/2\"\" indicates measurement across top of gate, \"2: 4\"\" at side, and \"1/4 Scale\" at bottm. In ink at bottom margin, \"gate. gol? Brass / grille Oxd \" / FNB Copper\".",
+    "makers": [
+      {
+        "name": "Gorham Manufacturing Company",
+        "risdAffiliation": null,
+        "years": "1831-present",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "pencil",
+      "ink",
+      "and watercolor on tracing paper"
+    ],
+    "mediumTechnique": "graphite, watercolor, tracing paper, ink",
+    "objectNumber": "2005.118.45.1137",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Gorham Manufacturing Company",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "pencil",
+      "ink",
+      "and watercolor on tracing paper"
+    ],
+    "title": "Design for a Gate",
+    "type": [
+      "Architectural and Design Works on Paper"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/design-gate-2005118451137"
+  },
+  {
+    "id": "1337886",
+    "collection": "",
+    "credit": "Museum Appropriation Fund",
+    "culture": "Italian",
+    "dating": "",
+    "datingYearFrom": "1650",
+    "datingYearTo": "1700",
+    "description": "<p>Grill</p>\n",
+    "dimensions": "38.7 x 38.7 cm (15 1/4 x 15 1/4 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "bronze",
+      "parcel gilding"
+    ],
+    "mediumTechnique": "bronze, parcel gilding",
+    "objectNumber": "27.184",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker, Italian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "bronze",
+      "parcel gilding"
+    ],
+    "title": "Grill",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/grill-27184"
+  },
+  {
+    "id": "1526721",
+    "collection": "",
+    "credit": "Helen M. Danforth Acquisition Fund",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2004",
+    "datingYearTo": "2004",
+    "description": "<p>Double Grill I</p>\n",
+    "dimensions": "24.3 x 29.5 cm (9 9/16 x 11 5/8 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Maria Elena Gonzalez",
+        "risdAffiliation": null,
+        "years": "b. 1957",
+        "nationality": [
+          "Cuban"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Sealing wax on C.M. Fabriano paper",
+      "embossing on parchment paper"
+    ],
+    "mediumTechnique": "embossing, wax",
+    "objectNumber": "2006.44",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Maria Elena Gonzalez",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "paper"
+    ],
+    "technique": [
+      "Sealing wax on C.M. Fabriano paper",
+      "embossing on parchment paper"
+    ],
+    "title": "Double Grill I",
+    "type": [
+      "Drawings and Watercolors"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/double-grill-i-200644"
+  },
+  {
+    "id": "1555826",
+    "collection": "",
+    "credit": "Richard Brown Baker Fund for Contemporary British Art",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2004",
+    "datingYearTo": "2004",
+    "description": "<p>Ventilation Grills (Punching through the Clouds)</p>\n",
+    "dimensions": "24.4 x 49.5 cm (9 5/8 x 19 1/2 inches) (each)",
+    "edition": "3/3",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Martin Boyce",
+        "risdAffiliation": null,
+        "years": "b. 1967 in Glasgow, Scotland",
+        "nationality": [
+          "Scottish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "mediumTechnique": "brass",
+    "objectNumber": "2006.5.1d",
+    "onView": false,
+    "place": "Place Made: Western",
+    "primaryMaker": "Martin Boyce",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1555831",
+      "https://risdmuseum.org/api/v1/collection?id=1555836",
+      "https://risdmuseum.org/api/v1/collection?id=1555841",
+      "https://risdmuseum.org/api/v1/collection?id=1555846"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "title": "Ventilation Grills (Punching through the Clouds)",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/ventilation-grills-punching-through-clouds-200651d"
+  },
+  {
+    "id": "1555836",
+    "collection": "",
+    "credit": "Richard Brown Baker Fund for Contemporary British Art",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2004",
+    "datingYearTo": "2004",
+    "description": "<p>Ventilation Grills (Punching through the Clouds)</p>\n",
+    "dimensions": "24.4 x 49.5 cm (9 5/8 x 19 1/2 inches) (each)",
+    "edition": "3/3",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Martin Boyce",
+        "risdAffiliation": null,
+        "years": "b. 1967 in Glasgow, Scotland",
+        "nationality": [
+          "Scottish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "mediumTechnique": "brass",
+    "objectNumber": "2006.5.1b",
+    "onView": false,
+    "place": "Place Made: Western",
+    "primaryMaker": "Martin Boyce",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1555831",
+      "https://risdmuseum.org/api/v1/collection?id=1555846",
+      "https://risdmuseum.org/api/v1/collection?id=1555826",
+      "https://risdmuseum.org/api/v1/collection?id=1555841"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "title": "Ventilation Grills (Punching through the Clouds)",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/ventilation-grills-punching-through-clouds-200651b"
+  },
+  {
+    "id": "1555841",
+    "collection": "",
+    "credit": "Richard Brown Baker Fund for Contemporary British Art",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2004",
+    "datingYearTo": "2004",
+    "description": "<p>Ventilation Grills (Punching through the Clouds)</p>\n",
+    "dimensions": "24.4 x 49.5 cm (9 5/8 x 19 1/2 inches) (each)",
+    "edition": "3/3",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Martin Boyce",
+        "risdAffiliation": null,
+        "years": "b. 1967 in Glasgow, Scotland",
+        "nationality": [
+          "Scottish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "mediumTechnique": "brass",
+    "objectNumber": "2006.5.1c",
+    "onView": false,
+    "place": "Place Made: Western",
+    "primaryMaker": "Martin Boyce",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1555831",
+      "https://risdmuseum.org/api/v1/collection?id=1555836",
+      "https://risdmuseum.org/api/v1/collection?id=1555846",
+      "https://risdmuseum.org/api/v1/collection?id=1555826"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Ventilation grills",
+      "acid-etched and laser-cut brass"
+    ],
+    "title": "Ventilation Grills (Punching through the Clouds)",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/ventilation-grills-punching-through-clouds-200651c"
+  },
+  {
+    "id": "1555846",
+    "collection": "",
+    "credit": "Richard Brown Baker Fund for Contemporary British Art",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "2004",
+    "datingYearTo": "2004",
+    "description": "<p>Ventilation Grills (Punching through the Clouds)</p>\n",
+    "dimensions": "24.4 x 49.5 cm (9 5/8 x 19 1/2 inches) (each)",
+    "edition": "3/3",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Martin Boyce",
+        "risdAffiliation": null,
+        "years": "b. 1967 in Glasgow, Scotland",
+        "nationality": [
+          "Scottish"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "brass",
+      "acid-etched",
+      "laser-cut; four parts"
+    ],
+    "mediumTechnique": "brass",
+    "objectNumber": "2006.5.1a-d",
+    "onView": false,
+    "place": "Place Made: Western",
+    "primaryMaker": "Martin Boyce",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [
+      "https://risdmuseum.org/api/v1/collection?id=1555826",
+      "https://risdmuseum.org/api/v1/collection?id=1555831",
+      "https://risdmuseum.org/api/v1/collection?id=1555836",
+      "https://risdmuseum.org/api/v1/collection?id=1555841"
+    ],
+    "state": "",
+    "support": [],
+    "technique": [
+      "brass",
+      "acid-etched",
+      "laser-cut; four parts"
+    ],
+    "title": "Ventilation Grills (Punching through the Clouds)",
+    "type": [
+      "Sculpture"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/ventilation-grills-punching-through-clouds-200651a-d"
+  },
+  {
+    "id": "1584231",
+    "collection": "",
+    "credit": "Gift of Mrs. J. J. Bodell in memory of Joseph J. Bodell",
+    "culture": "",
+    "dating": "",
+    "datingYearFrom": "1913",
+    "datingYearTo": "1913",
+    "description": "<p>The Grill</p>\n",
+    "dimensions": "26.4 x 20 cm (10 3/8 x 7 7/8 inches) (plate)",
+    "edition": "",
+    "inscription": "Original--Recto:Signed in pencil under platemark:Ernest D. Roth/1913Verso:in pencil in LL:The Grill...?/artist signed proof etching/by/Ernest D. Roth/52.275In Plate--In LLcorner:E. D. Roth/1913\nMarks: Stamped in brown ink on verso:RISD/MUSEUM/OF ART + PROVIDENCE/RHODE ISLAND inscribed in circle.",
+    "makers": [
+      {
+        "name": "Ernest David Roth",
+        "risdAffiliation": null,
+        "years": "1879-1964",
+        "nationality": [
+          "American"
+        ],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "etching"
+    ],
+    "mediumTechnique": "etching",
+    "objectNumber": "52.275",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Ernest David Roth",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [
+      "Medium weight cream laid paper"
+    ],
+    "technique": [
+      "etching"
+    ],
+    "title": "The Grill",
+    "type": [
+      "Prints"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/grill-52275"
+  },
+  {
+    "id": "1206081",
+    "collection": "",
+    "credit": "Gift of Mrs. Murray S. Danforth",
+    "culture": "Italian",
+    "dating": "",
+    "datingYearFrom": "1695",
+    "datingYearTo": "1745",
+    "description": "<p>Clock Grille</p>\n",
+    "dimensions": "37.2 x 23.5 cm (14 5/8 x 9 1/4 inches)",
+    "edition": "",
+    "inscription": "",
+    "makers": [
+      {
+        "name": "Unknown",
+        "risdAffiliation": null,
+        "years": "",
+        "nationality": [],
+        "nationalityModifiers": null,
+        "role": null,
+        "attribution_type": null
+      }
+    ],
+    "medium": [
+      "Bronze,gilt"
+    ],
+    "mediumTechnique": "bronze, gilding",
+    "objectNumber": "53.085",
+    "onView": false,
+    "place": "",
+    "primaryMaker": "Unknown Maker, Italian",
+    "publicDomain": false,
+    "recentAcquisition": false,
+    "referenceNumber": "",
+    "relatedObjects": [],
+    "state": "",
+    "support": [],
+    "technique": [
+      "Bronze,gilt"
+    ],
+    "title": "Clock Grille",
+    "type": [
+      "Metalwork"
+    ],
+    "url": "https://risdmuseum.org/art-design/collection/clock-grille-53085"
+  }
+]

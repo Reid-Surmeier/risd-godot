@@ -1,0 +1,30 @@
+{
+  "picks": {
+    "IMG_6380/000202.jpg": [
+      [
+        503,
+        375
+      ]
+    ],
+    "IMG_6380/000204.jpg": [
+      [
+        278,
+        100
+      ]
+    ],
+    "IMG_6380/000203.jpg": [
+      [
+        420,
+        204
+      ]
+    ]
+  },
+  "training": [
+    "IMG_6380/000202.jpg",
+    "IMG_6380/000204.jpg"
+  ],
+  "reserved": "IMG_6380/000203.jpg",
+  "labels": [
+    "grand-white-outer-mitre-left"
+  ]
+}

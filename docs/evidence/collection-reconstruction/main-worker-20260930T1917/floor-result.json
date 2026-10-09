@@ -1,0 +1,120 @@
+{
+  "rows": [
+    {
+      "image": "IMG_6384/000206.jpg",
+      "tentative_candidates": 1,
+      "excluded_upper_query_features": 0,
+      "floor_matches": 1,
+      "unique_source_points": 1,
+      "independent_capture": true,
+      "all_floor_ids_even": true,
+      "floor_accepted": false,
+      "controls": [
+        {
+          "offset_provisional_m": 0.0,
+          "errors_px": [
+            324.76564121684544
+          ],
+          "p50_p90_px": [
+            324.76564121684544,
+            324.76564121684544
+          ],
+          "fraction_below8px": 0.0
+        },
+        {
+          "offset_provisional_m": -0.1,
+          "errors_px": [
+            309.7236249453795
+          ],
+          "p50_p90_px": [
+            309.7236249453795,
+            309.7236249453795
+          ],
+          "fraction_below8px": 0.0
+        },
+        {
+          "offset_provisional_m": 0.1,
+          "errors_px": [
+            340.3978595169787
+          ],
+          "p50_p90_px": [
+            340.3978595169787,
+            340.3978595169787
+          ],
+          "fraction_below8px": 0.0
+        }
+      ]
+    },
+    {
+      "image": "IMG_6384/000207.jpg",
+      "tentative_candidates": 0,
+      "excluded_upper_query_features": 0,
+      "floor_matches": 0,
+      "unique_source_points": 0,
+      "independent_capture": true,
+      "all_floor_ids_even": true,
+      "floor_accepted": false,
+      "controls": []
+    },
+    {
+      "image": "IMG_6384/000209.jpg",
+      "tentative_candidates": 3,
+      "excluded_upper_query_features": 1,
+      "floor_matches": 2,
+      "unique_source_points": 2,
+      "independent_capture": true,
+      "all_floor_ids_even": true,
+      "floor_accepted": false,
+      "controls": [
+        {
+          "offset_provisional_m": 0.0,
+          "errors_px": [
+            448.2922139457143,
+            367.1180709325073
+          ],
+          "p50_p90_px": [
+            407.7051424391108,
+            440.1747996443936
+          ],
+          "fraction_below8px": 0.0
+        },
+        {
+          "offset_provisional_m": -0.1,
+          "errors_px": [
+            450.1383821728044,
+            384.94331516541337
+          ],
+          "p50_p90_px": [
+            417.54084866910887,
+            443.6188754720653
+          ],
+          "fraction_below8px": 0.0
+        },
+        {
+          "offset_provisional_m": 0.1,
+          "errors_px": [
+            446.98537401962517,
+            349.8223007372841
+          ],
+          "p50_p90_px": [
+            398.4038373784546,
+            437.26906669139106
+          ],
+          "fraction_below8px": 0.0
+        }
+      ]
+    }
+  ],
+  "inputs_sha256": {
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/room-route-walk-v4/geometry.json": "084765aee6be2264fc3bf7a4332229edaa2c209108708180ba5e6efa54f70016",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/capture-validation.json": "7a0e8d6028593487a02a8703308895ce015f94f976a4844496ec8d059962c145",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/points3D.bin": "1f7206ea1873df1d126e4bad5b3306112384dd253737f84f52bb6c6b0da15a16",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/frames.bin": "a81ae341d30588dccfa50607e62dbcec1dda0cb37c7e9222759859ad8f015f3a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/images.bin": "dbe038f78f7b6d3f100a913ba6e067b5576d00cb4c2f2df85b0ae022f7b4dbba",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/rigs.bin": "39eec21ded9800b8551c793bbf7a429040d103f926e5415e9ba757d2b56abc7a",
+    "/home/reidsurmeier/risd-godot-ingestion/collection-expansion/sfm-capture-split-v1/sparse/0/cameras.bin": "d502f26a76dc4da54c5a1cfdfa11ea053f6a896b8d79d89713f4c9d472f18d92"
+  },
+  "physical_floor_accepted": false,
+  "cost_usd": 0,
+  "caveat": "Floor fitted to odd source-only wood points; even floor IDs never enter query pose. All lower-query floor correspondences retained; upper query features excluded wholesale to prevent reuse of pose-fit pixels. Repeated wood can mismatch. Plane controls are fixed +/-10 provisional cm, not refits. Insufficient coverage or large residuals do not authorize a flat collision floor. Source scale remains provisional."
+}

@@ -1,0 +1,24 @@
+{
+  "source": [
+    "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/inventory-references/shepherd-catalogue.png"
+  ],
+  "result": [
+    {
+      "path": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-b8cf3951c428e152d5d6cfd1/materialized/image-01.webp",
+      "mediaType": "image/webp",
+      "sha256": "6a95162e15524a6ea25ac55a7f3cd15b2946621036d1e7afb7d2c8501b716410"
+    }
+  ],
+  "changesRequested": "Reference 1 is the official RISD photograph of porcelain Figure of a Shepherd, accession 2017.74.23. It is the sole authority for the design and pose. Generate ONE complete straight-on front view of this same small porcelain figurine isolated on flat pure magenta #FF00FF, full base, hat, hands and feet visible with generous magenta margin. Transform the photographic object into a clean low polygon game sculpture with large planar facets, readable restrained baked shading and softly painted ceramic colours. Preserve the pale green coat, black hat in raised right hand, white shirt, blue waist sash, cream trousers and brown floral base. Keep real pose and proportions; do not redesign the figure or add a staff. No wall, pedestal, floor, label or text. No cast shadow beyond silhouette. Single front view only, for UV mapping onto separately authored low polygon volume geometry.\n",
+  "checks": {
+    "outcome": "human_decision_required",
+    "evidence": "The image and provider receipt are saved. Visual fidelity and approval remain unverified.",
+    "visualReview": "unverified"
+  },
+  "cost": "0.010000",
+  "runId": "run-b8cf3951c428e152d5d6cfd1",
+  "spendState": "unknown",
+  "retryState": "never-resubmit",
+  "nextAction": "Inspect the saved image beside its source. Record visual review in the application.",
+  "fullRecord": "/home/reidsurmeier/orca/workspaces/risd-godot/collection-reconstruction/image-work/collection-room-remodel/artifacts/image-generation/runs/run-b8cf3951c428e152d5d6cfd1"
+}

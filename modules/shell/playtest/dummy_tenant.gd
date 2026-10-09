@@ -26,4 +26,8 @@ func _unhandled_input(_event: InputEvent) -> void:
 
 
 func state() -> Dictionary:
-	return {"ok": true, "value": {"key": key, "ticks": ticks, "inputs": inputs, "size": size}, "error": null}
+	return {
+		"ok": true,
+		"value": {"key": key, "ticks": ticks, "inputs": inputs, "size": size},
+		"error": null
+	}

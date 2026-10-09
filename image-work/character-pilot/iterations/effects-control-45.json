@@ -1,0 +1,27 @@
+{
+  "models": [
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Control: same walk, no dust"
+    },
+    {
+      "source": "motion-diagnosis/footplant-candidate.glb",
+      "label": "Contact dust: actual method keys"
+    }
+  ],
+  "clip": "walk",
+  "angle": 45,
+  "cycles": 3,
+  "effects": true,
+  "contacts": [
+    {
+      "time": 0.26666666666666666,
+      "foot": "Left"
+    },
+    {
+      "time": 0.8,
+      "foot": "Right"
+    }
+  ],
+  "controller_speed_m_s": 0.52
+}

@@ -1,0 +1,40 @@
+{
+  "schemaVersion": "1",
+  "id": "muse-1c6014a3db0ff164f012",
+  "summary": "Create a clean modeling turnaround sheet of the same exact horned chibi character in reference1, controlled by its face, proportions, clothing, horns and shoes. Reference2 is the original screenshot crop. Three distinct full-body orthographic views on one white canvas, left to right: FRONT, CHARACTER RIGHT PROFILE, BACK. Every view in a strict T-pose with arms exactly horizontal at shoulder height, hands empty, separated feet, same top-of-horns and sole baselines and identical height. Maintain the simple painted low-poly early Animal Crossing appearance. Preserve front cap and shirt markings and blue shoes. Design a simple consistent unseen backside: shirt pattern continues naturally but NO FRONT BELT BUCKLE ON BACK, rear face blank, cap pattern continuous. Keep dark horns consistent in side and back views. No realistic anatomy, lighting shadows, scenery, HUD, held tool or added details. Generous gaps between the three views. Do not overlap hands or characters. The side view shows only one coherent character profile with arms extended perpendicular to the image plane. Tiny clear view captions are allowed underneath, never over the model. This sheet is a proposed coherent design for inspection, not recovered unseen source detail.\n",
+  "procedureId": "muse-1c6014a3db0ff164f012",
+  "requestedCount": 1,
+  "budgetCeilingUsd": "0.01",
+  "references": [
+    {
+      "path": "image-work/character-pilot/front.png",
+      "sha256": "ca71b989a123c59f302221cf994d8e7ee11aa3d65bf44d2f0babecfc5a1ae56f",
+      "slot": "reference-000",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/0/image_url/url"
+    },
+    {
+      "path": "image-work/character-pilot/character-crop.png",
+      "sha256": "54552e7926b6f8127bbb5492135dbfe5497c719eb60766b471146581bcb7a252",
+      "slot": "reference-001",
+      "kind": "image",
+      "authorityReason": "Ordered input from the hash-locked saved Muse recipe",
+      "payloadDestination": "/input_references/1/image_url/url"
+    }
+  ],
+  "sourceInputs": [
+    {
+      "applicationPath": "image-work/character-pilot/turnaround-recipe.json",
+      "sha256": "1c6014a3db0ff164f012baa8b4281f7f26cd1f88f606d48fbec490707322b7d5"
+    },
+    {
+      "applicationPath": "image-work/character-pilot/turnaround-preflight.json",
+      "sha256": "bd5fba605a7ea4512947207639e35f9ad78456376f8dd7d41c73a9af6e1b69a5"
+    },
+    {
+      "applicationPath": "image-work/character-pilot/turnaround-prompt.txt",
+      "sha256": "77bf533e565a073003b2bcd6b2813a512be7faf22b848dea625e9bf7c4e8491b"
+    }
+  ]
+}

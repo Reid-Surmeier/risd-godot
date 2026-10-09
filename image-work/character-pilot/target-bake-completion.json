@@ -1,0 +1,69 @@
+{
+  "success": true,
+  "route": "actual stdio MCP execute_blender_code launched pinned native headless process",
+  "blender": "4.3.2",
+  "background": true,
+  "device": "CPU",
+  "input": "rig-output-rigged_character_glb.glb",
+  "input_sha256": "fd081e46243f152cedbb2218d891fe120735e0b8fc01a98df8da4d0e1397d63c",
+  "input_bytes": 5573992,
+  "input_triangles": 7719,
+  "input_joints": 24,
+  "input_clip_names": [
+    "Armature|clip0|baselayer"
+  ],
+  "uv_unchanged_in_memory": true,
+  "rest_skeleton_unchanged": true,
+  "clip_transfer_checks": [
+    {
+      "file": "rig-output-animations-0-animation_glb.glb",
+      "bones_and_parents_match": true,
+      "max_rest_matrix_difference": 0.0,
+      "max_world_difference": 0.0,
+      "added_action": "idle"
+    },
+    {
+      "file": "rig-output-basic_animations-walking_armature_glb.glb",
+      "bones_and_parents_match": true,
+      "max_rest_matrix_difference": 0.0,
+      "max_world_difference": 0.0,
+      "added_action": "walk"
+    },
+    {
+      "file": "rig-output-basic_animations-running_armature_glb.glb",
+      "bones_and_parents_match": true,
+      "max_rest_matrix_difference": 0.0,
+      "max_world_difference": 0.0,
+      "added_action": "run"
+    }
+  ],
+  "derived_material_roughness": 1.0,
+  "derived_material_metallic": 0.0,
+  "raw_idle_scale_not_normalized_here": true,
+  "derived_emission_removed": true,
+  "derived_specular_ior_level": 0.0,
+  "source_shape_height": 1.8980630299975267,
+  "bounds_exclude_non_skinned_helper": true,
+  "output": "target-baked.glb",
+  "output_sha256": "1098ec57c311f2a12186b44f2cd6ffd798f45352d020285dcf0e0a65dca305ff",
+  "output_bytes": 884452,
+  "output_triangles": 7719,
+  "output_meshes": 1,
+  "output_joints": 24,
+  "output_clip_names": [
+    "Armature|clip0|baselayer",
+    "idle",
+    "run",
+    "walk"
+  ],
+  "image_size": [
+    512,
+    512
+  ],
+  "rgb_min": 0.0,
+  "rgb_max": 0.7960785031318665,
+  "embedded_images": 1,
+  "paid_calls": 0,
+  "cost_usd": 0,
+  "godot_tested": false
+}

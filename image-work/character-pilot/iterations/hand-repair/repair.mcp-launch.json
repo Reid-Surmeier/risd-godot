@@ -1,0 +1,19 @@
+{
+  "timestamp": "2026-10-01T01:37:51.971449+00:00",
+  "successfully_scheduled": true,
+  "transport": "actual MCP stdio",
+  "server": "BlenderMCP",
+  "protocol": "2025-11-25",
+  "addon_protocol": 7,
+  "blender": "4.3.2",
+  "saved_stage": "repair.py",
+  "native_launch": {
+    "native_pid": 431290,
+    "saved_stage": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/hand-repair/repair.py",
+    "log": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/hand-repair/repair.native.log"
+  },
+  "telemetry_consent": true,
+  "paid_calls": 0,
+  "completion_file": "/home/reidsurmeier/orca/workspaces/risd-godot/character-asset-prototype/image-work/character-pilot/iterations/hand-repair/repair.json",
+  "completion_not_inferred_from_scheduling": true
+}

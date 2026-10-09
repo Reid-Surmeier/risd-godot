@@ -1,0 +1,16 @@
+{
+  "generation": "none; actual Chrome Puppeteer capture",
+  "serving": "ffmpeg -map 0 -c copy; no re-encoding; finite cues",
+  "files": [
+    {
+      "role": "raw",
+      "file": "docs/evidence/line-formatting-210/browser-integrated/visitor-motion.webm",
+      "sha256": "138c473ff8ceb813377b85b566f3ce70f76e2fa163bbf72e234308592410e80e"
+    },
+    {
+      "role": "private-serving-remux",
+      "file": "build/review-ba6b3c05-pictures/visitor-motion-review.webm",
+      "sha256": "50c57318d5f7aa1b1d47116405873737f065ecc9f5989882427e90ceea757f79"
+    }
+  ]
+}

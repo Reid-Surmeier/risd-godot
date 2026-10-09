@@ -6,7 +6,7 @@ import sys
 import tempfile
 
 source = Path(__file__).with_name('run.py')
-for variant, existing_plugin in ((name, plugin) for name in ("room", "white") for plugin in (False, True)):
+for variant, existing_plugin, saved in ((name, plugin, saved) for name in ("room", "white") for plugin in (False, True) for saved in (False, True)):
     with tempfile.TemporaryDirectory() as temporary:
         root = Path(temporary)
         runner = root / 'modules/shell/prototype/gallery_walk4/bake/run.py'
@@ -27,11 +27,17 @@ for variant, existing_plugin in ((name, plugin) for name in ("room", "white") fo
                          'root=Path(sys.argv[sys.argv.index("--path")+1])\n'
                          'for p in (root/"modules/shell/prototype/gallery_walk4/baked").iterdir():\n'
                          '    p.write_bytes(b"unfinished bake")\n'
+                         + ('print("BAKE_OK users=137") if "--editor" in sys.argv else None\n' if saved else '') +
                          'sys.exit(2 if "--editor" in sys.argv else 0)\n')
         godot.chmod(0o755)
         result = subprocess.run([sys.executable, str(runner)] + (["--white"] if variant == "white" else []),
                                 env={**os.environ, 'PATH': str(root) + os.pathsep + os.environ['PATH']},
                                 capture_output=True, timeout=10)
-        assert result.returncode != 0, 'failed bake reported success'
-        assert all(path.read_bytes() == content for path, content in before.items()), 'failed bake changed working assets/settings'
-print('BAKE_RECOVERY editor failure and preflight refusal preserve working files')
+        assert project.read_bytes() == before[project], 'project settings not restored'
+        if saved and not existing_plugin:
+            assert result.returncode == 0, 'saved bake discarded after editor shutdown failure'
+            assert all(path.read_bytes() == b'unfinished bake' for path in baked.iterdir()), 'completed outputs not retained'
+        else:
+            assert result.returncode != 0, 'failed bake reported success'
+            assert all(path.read_bytes() == content for path, content in before.items()), 'failed bake changed working assets/settings'
+print('BAKE_RECOVERY failed/preflight runs restore files; saved runs survive editor shutdown failure')
