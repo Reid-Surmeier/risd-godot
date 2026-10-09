@@ -40,6 +40,24 @@ Texture imports are committed for the oak mip chain and the lightmap's required
 2D-array format. No screen-space noise, snapping or texture warping was added.
 Native bake took 18.22 seconds on this host's software Vulkan renderer.
 
+**The Hall's light (8 Oct, #266).** The owner, playing the build: "you don't have spotlights on
+objects warm glow. the main room baked lighting is so bad." The Hall is now lit as the added
+rooms are (`docs/playtest/room-builder-guide.md`, Light); the numbers are the constants at the
+top of `prepare.gd`.
+
+1. A warm spot (`SPOT_COLOR`, the rooms') on every painting, hung 2.0 m above its middle and
+   1.4 m out from the wall, aimed 0.2 m below the middle, its cone fitted to the framed work
+   plus 0.9 m of wall, fading from its middle to nothing at its rim, and dead 1.2 m past the
+   work so it never reaches the floor at the wall's foot (the orange strip along the skirting).
+2. The five ceiling fills, the daylight and the environment are at about 0.7 of the light of
+   #258 (0.40, 0.25, 0.12; they were 0.55, 0.35, 0.18): the wall between works is quieter
+   than the wall beside one, and the floor keeps nine tenths of its brightness.
+3. Canvases and frames are still drawn at their own colours, not through the lightmap. What
+   they take from their spot is the rooms' `WORK_TINT` at `WORK_LEVEL`: a warm lift of a
+   tenth. They are out of the bake's rays (`GI_MODE_DISABLED`, no shadow), as a flat work is
+   in the rooms: the wall behind a frame was unlit and the lightmap's 12 cm texels bled that
+   dark out as a smudge on each side of the frame. The bake has 48 lightmap users, not 137.
+
 **The bake runs on the GPU (8 Oct).** Vulkan inside WSL is lavapipe, a CPU renderer; with a
 spot on every painting the bake took 8 to 50 minutes there. `run.py` now bakes in the Windows
 build of the same Godot (`WIN_GODOT`, opened in place over `\\wsl.localhost`) when it is present
