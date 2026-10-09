@@ -17,6 +17,33 @@ Galleries A and B themselves are on the correct side of the correct neighbours, 
 
 Three panels: as built, as filmed (doors and walls from frames, lengths left as built), and the museum's map redrawn at one scale. Top of the picture is plan -z, 26 px per metre, the scale and orientation of the orchestrator's `plan-as-built.png`. Redraw with `python3 docs/evidence/impressionist-plan/plan.py`.
 
+## Re-opened, 9 October: are these rooms on the Grand Gallery's garden side at all?
+
+The lead put the as-built plan beside the museum's map and the owner chose "Wrong place entirely — The Impressionist galleries are not along the Grand Gallery's garden side at all". He has not yet said where they are. I re-opened floor, wing and side from the footage and the museum's own pages. **The footage and the museum's material both put them on Floor 5, in the three "European" rooms between the Grand Gallery and the Radeke Garden.** I could not find a reading of the evidence that puts them anywhere else, so this contradicts the owner's choice and needs his answer.
+
+![The filmed walk on the museum's map](walk-on-map.png)
+
+![The landing, the floor directory and a window](doors-3-landing-and-floor.jpg)
+
+1. **Floor.** No step is crossed. `IMG_6343` goes from the grey gallery across the stair hall's marble floor (84–88 s), through the door beside the stair (88–89.75 s), through A, B and the modern room, and out through fire doors onto a marble landing (262.5 s), all on the level. The route passes the foot of the marble stair (up to 6) and the arch of a service stair (down) and uses neither. VERIFIED from frames.
+2. **The museum's own sign, in the owner's footage.** The wall directory beside the lion stair (`IMG_6387` 28.1 s) reads "5 / ON THIS FLOOR / European: Medieval, Renaissa…, Impression…, Grand Gal… / Ancient Gree… / Decorative Ar… / American: Pendleton H…". The right-hand ends of the lines are out of frame. VERIFIED: the museum lists Impressionist on Floor 5 under European, with the Grand Gallery.
+3. **The museum's Floor 5 page** (`risdmuseum.org/visitor-guide/floor-5`) lists three gallery groups on the floor: Ancient Greek & Roman, European, 18th & 19th-Century American. Under European it features Berthe Morisot's *Child in a Red Apron*, which hangs in room B (205–207 s). Floor 4/3 (`/visitor-guide/floor-43`) lists Modern & Contemporary, New Media, Prints, Drawings & Photographs, Decorative Arts & Design and Special Exhibitions; Floor 6 (`/visitor-guide/floor-6`) lists Egyptian, Asian, Contemporary, Costume & Textiles, Decorative Arts and American. Neither lists European or Impressionist. `/visitor-guide/floor-4` does not exist (404).
+4. **The chain of doors closes round the Grand Gallery.** Every link is a frame, all on one level:
+   - Grand Gallery's end door ↔ grey gallery (`IMG_6343` 0–3 s)
+   - grey gallery ↔ marble stair hall, through the columns (49–57, 83 s)
+   - stair hall ↔ A (88–92 s)
+   - A ↔ B ↔ modern room (152.25, 215.5, 224.5 s; `IMG_6387` 69.5 s)
+   - modern room ↔ lion stair landing (`IMG_6343` 262.5 s; `IMG_6387` 46.0 s)
+   - landing ↔ medieval room (`IMG_6387` 13.0 s; `IMG_6344` 2.5–6 s, filmed 108 s after `IMG_6343` ends)
+   - medieval room ↔ Grand Gallery's other end, through the stone portal (`IMG_6344` 16–23 s)
+
+   Three rooms in a row that join the two ends of the Grand Gallery must run alongside it.
+5. **Which side.** In the grey gallery the camera turns right from the Grand Gallery door past the lift connector to the stair hall (0–8 s), and in the stair hall it turns right into A (86.5–88.25 s). On the map that is the garden side. The long gallery of `IMG_6384`–`6386` is on the other side, reached past the lift. The landing's four neighbours also match the map's north-east corner one for one: stair, Greek and Roman sculpture, medieval room, and the third room of the garden strip.
+6. **Windows.** A, B and the modern room have their windows on one wall. Outside, at floor level: planting, a round white ornament and a red-brick wing with white sash windows (127.75, 217.5 s). That is a garden court, not a street.
+7. **The modern painting gallery** is the third of the map's three garden-side rooms. Its name strip reads approximately "JEAN DI BONA GALLERY".
+
+**What could explain the owner's choice (INFERRED, not known).** The as-built picture and the museum's map are a quarter turn apart. On the as-built picture the Impressionist rooms are to the right of the Grand Gallery; on the map, read without turning it, the right of the Grand Gallery is the medieval end and the garden is at the top. `walk-on-map.png` draws his own walk on the map the way the museum prints it, so he can point at the step that is wrong.
+
 ## What I watched
 
 | Clip | How much | What it gives |
@@ -117,7 +144,7 @@ So the map has no passage off the stair hall's garden side leading to these room
 
 ## Public information
 
-The museum's own Floor 5 map, above. My own searches did not find it (`risdmuseum.org/visit/museum-map` returned HTTP 403, two web searches returned no plan); the lead pointed me to the copy the project already held. Nothing here rests on memory of the building.
+The museum's own Floor 5 map, above, and its visitor-guide pages for floors 5, 4/3 and 6, read on 9 October. My first searches did not find the map (`risdmuseum.org/visit/museum-map` returned HTTP 403, two web searches returned no plan); the lead pointed me to the copy the project already held. Nothing here rests on memory of the building.
 
 ## Proposal
 
@@ -155,4 +182,4 @@ Before doing Part 2, measure the Grand Gallery once more against catalogue canva
 3. How long the short passage is against the map, which draws none: 2.0 ± 0.4 m by footage.
 4. Whether the owner means the door and passages, the stretched rooms, or both.
 
-**One question for the owner:** "The map makes the two Impressionist rooms nearly square, about 7 m each, and the Grand Gallery about 20 m long; we built them about 9.6 m and 26 m. Is it the stretched rooms you mean, the entrance from the stair hall, or both?"
+**One question for the owner (9 October):** show him `walk-on-map.png` and ask: "This is your walk in IMG_6343 drawn on the museum's own Floor 5 map: grey gallery, marble stair, the door beside it, the Manet room, the Gauguin room, the modern room, out to the lion stair. Which step is in the wrong place, and where should the Manet room be?"
