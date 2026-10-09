@@ -16,11 +16,15 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 
 ### 1. Startup takes almost fifty seconds before the owner can play.
 
-**VERIFIED · POLISH · KNOWN slow-load class, current measurement.** A fresh browser load reaches `window.loadPerf`'s `game-shown` at **48.64 s**; downloads finish at 2.25 s, engine starts at 4.18 s, launch settles at 46.65 s. Steps: (1) open the pinned build in fresh GPU Chrome; (2) wait for the Collection game to appear. This is a wait, not a persistent black screen. The first Hall → medieval doorway subsequently works: its largest game draw/process gap is **0.229 s**, with no round-5 quarter-minute freeze. [Picture and timing](../../../evidence/review-round-6/01-load-48-seconds.jpg). Raw marks: `build/review-round-6/initial.json`; continuous doorway capture and samples: `01-hall-first-door/`, `01-first-door.json`.
+**VERIFIED · POLISH · KNOWN slow-load class, current measurement.** A fresh browser load reaches `window.loadPerf`'s `game-shown` at **48.64 s**; downloads finish at 2.25 s, engine starts at 4.18 s, launch settles at 46.65 s. Steps: (1) open the pinned build in fresh GPU Chrome; (2) wait for the Collection game to appear. This is a wait, not a persistent black screen. The first Hall → medieval doorway subsequently works: its largest game draw/process gap is **0.242 s**, with no round-5 quarter-minute freeze. [Picture and timing](../../../evidence/review-round-6/01-load-48-seconds.jpg). Raw marks: `build/review-round-6/initial.json`; continuous doorway capture and samples: `01-hall-first-door/`, `01-first-door.json`.
+
+### 2. A floor surface covers the visitor on the Skylight lower floor.
+
+**VERIFIED · POLISH · NEW.** A broad herringbone floor surface crosses the foreground above the lower boards; near the landing it hides the visitor's body, leaving only the top of the hat. Steps: (1) in Skylight, click the yellow *Pile* and wait until its caption opens; (2) Escape back to the default walking view; (3) walk toward the upper landing from the lower floor, near (0, -35.84). [Before and after](../../../evidence/review-round-6/07-skylight-floor-covers-visitor.jpg). The three stair flights are usable; walking round to them recovers the view. **INFERRED:** the herringbone surface belongs to another room; the Skylight's lower boards and upper black landing have different finishes. No game code changed to investigate it.
 
 ## The rest, one line each
 
-2. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the upper landing still reads as a cool black rectangle; descend the three flights, turn to the wall with lift “4”, and look left of the lift; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg). It is outside the required loop and is not counted as an inaccessible loop room.
+3. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the upper landing still reads as a cool black rectangle; descend the three flights, turn to the wall with lift “4”, and look left of the lift; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg). It is outside the required loop and is not counted as an inaccessible loop room.
 
 ## Eight owner claims
 
@@ -41,7 +45,7 @@ Initial load: **48.64 s to `game-shown`**. Hall → medieval, medieval ↔ Renai
 
 | First crossing | Longest game draw/process gap | Longest browser frame gap |
 | --- | ---: | ---: |
-| Hall → medieval | 228.7 ms | 239.1 ms |
+| Hall → medieval | 241.8 ms | 239.1 ms |
 | Medieval → Renaissance | 42.5 ms | 38.3 ms |
 | Renaissance → European | 39.2 ms | 38.0 ms |
 | European → Rockefeller | 55.2 ms | 55.4 ms |
