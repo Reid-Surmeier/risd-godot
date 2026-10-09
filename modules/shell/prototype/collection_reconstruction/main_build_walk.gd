@@ -2153,6 +2153,9 @@ func _update_camera(k: float) -> void:
 		var clear: bool = part.shown and not (rule is bool or (part.side != "" and rule[part.side]))
 		var box: AABB = part.box
 		if clear and _pos.y < box.position.y - .15:
+			# The follow lens rides level with a deck over a lower visitor: up against one, the
+			# deck's unlit edge filled the top third of the picture with black.
+			clear = not box.grow(.8).has_point(eye)
 			for offset in [-.45,0.0,.45]:
 				for height in subject_heights:
 					if box.intersects_segment(eye,_pos+across*offset+Vector3.UP*height) != null:
