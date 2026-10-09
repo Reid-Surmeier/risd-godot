@@ -141,6 +141,9 @@ func build_platform() -> void:
 	cover.scale.z = .1
 	tag(cover, "indian-cover", ["37.009", "Cover", "Unknown Maker, Indian", "ca. 1700-1800", "Painted, mordant-printed and resist-dyed cotton", "Length 133.4 cm"], "textile-37.009.jpg")
 	cover.reparent(panel)
+	# The panel stands against the east wall and goes with it: left behind when that wall was
+	# cut away, it showed its unlit back as a black slab.
+	panel.reparent(room.wall_body(ROOM, "east", panel.position))
 	room.label_stand(at(15.2, 1.1, .14), -PI / 2).reparent(deck)
 	# Commode: a real mesh (#263) at catalogue size on the deck, its front to the room. It carries its own
 	# marble top, mounts and legs; the box, the slab and the front photograph are no longer built.
