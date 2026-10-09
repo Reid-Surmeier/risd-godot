@@ -418,52 +418,47 @@ func inner_walls() -> void:
 	base.reparent(chimney)
 	service_niche(plaster)
 	# IMG_6381 1.25..3.0s, 71.0s: the wall under the half-landing's edge, exit doorway in its middle.
-	# #277,6343 84–91s: open passage under the stair, not a closed lift-like double door.
-	var middle := (zn + zs) / 2
-	var opening := [middle - .55, middle + .55]
-	for span in [[zn, opening[0]], [opening[1], zs]]:
-		var pier := wall("east:landing", Vector3(xe, (half - .25) / 2, (span[0] + span[1]) / 2), Vector3(.12, half - .25, span[1] - span[0]), plaster)
-		var foot: MeshInstance3D = room.solid(Vector3(xe - .07, .09, (span[0] + span[1]) / 2), Vector3(.02, .18, span[1] - span[0]), skirting)
-		foot.reparent(pier)
-	var head := 2.47
-	var exit := wall("east:landing:header", Vector3(xe, (head + half - .25) / 2, middle), Vector3(.12, half - .25 - head, 1.10), plaster)
-	exit.set_meta("source_casing_width", .16)
-	room.door_casing(exit, "east", xe, opening, head, .16)
+	# 6343 84.5..86.5s: the visitor faces this door and turns away from it. It leads to a corridor
+	# the game does not build (the museum's Floor 5 map), so its leaves stand shut.
+	var exit := wall("east:landing", Vector3(xe, (half - .25) / 2, (zn + zs) / 2), Vector3(.12, half - .25, zs - zn), plaster)
 	var white: Material = room.look(Color("eeeae2"))
-	# The existing sign sits on the landing fascia above the taller opened casing.
-	var sign_y := half - .125
-	var sign: MeshInstance3D = room.solid(Vector3(xe - .09, sign_y, middle), Vector3(.05, .19, .36), room.look(Color("273a2d")))
+	var middle := (zn + zs) / 2
+	var door := Batch.new()
+	for side in [-1, 1]:
+		door.box(Vector3(xe - .075, 1.08, middle + side * .26), Vector3(.03, 2.16, .5))
+		door.box(Vector3(xe - .085, 1.14, middle + side * .60), Vector3(.05, 2.28, .14))
+	door.box(Vector3(xe - .085, 2.28, middle), Vector3(.05, .14, 1.34))
+	door.into(exit, white, "ExitDoorClosed").set_meta("marble_hall_provisional", "closed leaves: the filmed doorway stood open onto a corridor the game does not build")
+	var sign: MeshInstance3D = room.solid(Vector3(xe - .09, 2.55, middle), Vector3(.05, .19, .36), room.look(Color("273a2d")))
 	sign.reparent(exit)
 	var lettering := Label3D.new()
 	lettering.text = "EXIT"
 	lettering.font_size = 48
 	lettering.pixel_size = .0024
 	lettering.modulate = Color("70f89e")
-	lettering.position = Vector3(xe - .12, sign_y, middle)
+	lettering.position = Vector3(xe - .12, 2.55, middle)
 	lettering.rotation.y = -PI / 2
 	room.add_child(lettering)
 	lettering.reparent(sign)
-	# IMG_6380 49.0/70.0/71.0s: grey wall behind the columns, a cased doorway to a further gallery
-	# (leaves folded in its reveal) and a fire alarm pull left of it. Closed leaves here.
-	var south: Node3D = room.wall_body(LABEL, "south", Vector3(x0 + 1.4, 1.3, z1))
-	var panel: MeshInstance3D = room.solid(Vector3((x0 + xf) / 2, SOFFIT / 2, z1 - .066), Vector3(xf - x0 - .06, SOFFIT, .006), grey)
-	panel.reparent(south)
-	var passage := Batch.new()
-	var centre := x0 + .45 + .93
-	for side in [-1, 1]:
-		passage.box(Vector3(centre + side * .44, 1.3, z1 - .085), Vector3(.86, 2.6, .03))
-		passage.box(Vector3(centre + side * .955, 1.36, z1 - .095), Vector3(.15, 2.72, .05))
-	passage.box(Vector3(centre, 2.68, z1 - .095), Vector3(2.06, .15, .05))
-	passage.into(south, white, "PassageDoorClosed").set_meta("marble_hall_provisional", "closed leaves: the gallery beyond was only glimpsed")
+	var foot: MeshInstance3D = room.solid(Vector3(xe - .07, .09, middle), Vector3(.02, .18, zs - zn), skirting)
+	foot.reparent(exit)
+	# 6343 88.25s, IMG_6380 49.0/70.0/71.0s: grey wall behind the columns, the open cased doorway to
+	# the Impressionist galleries and a fire alarm pull left of it. The plan's south opening
+	# (prepare_remodel.py) makes the doorway and its casing; this paints the wall around it grey.
+	var door_span: Array = room._plan_rooms.filter(func(area): return area.label == LABEL)[0].openings.south
+	var head := 2.6
+	for piece in [[x0 + .03, door_span[0], 0.0, SOFFIT], [door_span[1], xf - .03, 0.0, SOFFIT], [door_span[0], door_span[1], head, SOFFIT]]:
+		var at := Vector3((piece[0] + piece[1]) / 2, (piece[2] + piece[3]) / 2, z1 - .066)
+		var panel: MeshInstance3D = room.solid(at, Vector3(piece[1] - piece[0], piece[3] - piece[2], .006), grey)
+		panel.reparent(room.wall_body(LABEL, "south:header" if piece[2] > 0 else "south", at))
+	var centre: float = (door_span[0] + door_span[1]) / 2
 	var vent: MeshInstance3D = room.solid(Vector3(centre, 3.15, z1 - .075), Vector3(1.3, .24, .02), room.look(Color("5c5b58")))
-	vent.reparent(south)
-	var pull: MeshInstance3D = room.solid(Vector3(xf - .32, 1.2, z1 - .08), Vector3(.11, .14, .04), room.look(Color("a8322c")))
-	pull.reparent(south)
+	vent.reparent(room.wall_body(LABEL, "south:header", vent.position))
+	var pull: MeshInstance3D = room.solid(Vector3(xf - .27, 1.2, z1 - .08), Vector3(.11, .14, .04), room.look(Color("a8322c")))
+	pull.reparent(room.wall_body(LABEL, "south", pull.position))
 	# The flights and the room behind the exit wall are not floor.
 	block(Vector3((xe - STRAIGHT * TREAD - .3 + xe) / 2, 1.0, (z0 + zn) / 2), Vector3(STRAIGHT * TREAD + .3, 2.0, FLIGHT))
-	# Keep both flights blocked, leaving only the filmed ground-floor passage free.
-	for span in [[z0, opening[0]], [opening[1], z1]]:
-		block(Vector3((xe + x1) / 2, 1.0, (span[0] + span[1]) / 2), Vector3(FLIGHT, 2.0, span[1] - span[0]))
+	block(Vector3((xe + x1) / 2, 1.0, (z0 + z1) / 2), Vector3(FLIGHT, 2.0, z1 - z0))
 
 
 ## IMG_6343 87 s / IMG_6380 35.5, 70.5 s: an actual hollow arch, olive walls and stairs down.

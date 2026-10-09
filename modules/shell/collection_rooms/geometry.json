@@ -317,24 +317,24 @@
       "color": "81735c",
       "vertices": [
         [
-          19.45,
-          0,
-          -2.86
-        ],
-        [
-          21.45,
-          0,
-          -2.86
-        ],
-        [
-          21.45,
+          11.35,
           0,
           1.04
         ],
         [
-          19.45,
+          13.55,
           0,
           1.04
+        ],
+        [
+          13.55,
+          0,
+          3.04
+        ],
+        [
+          11.35,
+          0,
+          3.04
         ]
       ]
     },
@@ -361,32 +361,6 @@
           10.55,
           0,
           12.7
-        ]
-      ]
-    },
-    {
-      "label": "Impressionist passage return",
-      "color": "81735c",
-      "vertices": [
-        [
-          14.75,
-          0,
-          1.04
-        ],
-        [
-          21.45,
-          0,
-          1.04
-        ],
-        [
-          21.45,
-          0,
-          3.04
-        ],
-        [
-          14.75,
-          0,
-          3.04
         ]
       ]
     },
@@ -1964,114 +1938,58 @@
       true
     ],
     [
-      "impressionist_stair_inner_out",
+      "impressionist_stair_passage_out",
       [
-        16.85,
+        12.43,
         0.25,
-        -1.96
+        0.3
       ],
       [
-        19.05,
+        12.43,
         0,
-        -1.96
+        1.7
       ],
       false
     ],
     [
-      "impressionist_stair_inner_back",
+      "impressionist_stair_passage_back",
       [
-        19.05,
+        12.43,
         0.25,
-        -1.96
+        1.7
       ],
       [
-        16.85,
+        12.43,
         0,
-        -1.96
+        0.3
       ],
       false
     ],
     [
-      "impressionist_stair_outer_out",
+      "impressionist_passage_A_out",
       [
-        19.05,
+        12.45,
         0.25,
-        -1.96
+        2.3
       ],
       [
-        20.45,
-        0,
-        -1.96
-      ],
-      false
-    ],
-    [
-      "impressionist_stair_outer_back",
-      [
-        20.45,
-        0.25,
-        -1.96
-      ],
-      [
-        19.05,
-        0,
-        -1.96
-      ],
-      false
-    ],
-    [
-      "impressionist_passage_return_out",
-      [
-        20.45,
-        0.25,
-        0.4
-      ],
-      [
-        20.45,
-        0,
-        1.8
-      ],
-      false
-    ],
-    [
-      "impressionist_passage_return_back",
-      [
-        20.45,
-        0.25,
-        1.8
-      ],
-      [
-        20.45,
-        0,
-        0.4
-      ],
-      false
-    ],
-    [
-      "impressionist_return_A_out",
-      [
-        15.75,
-        0.25,
-        2.25
-      ],
-      [
-        15.75,
+        12.45,
         0,
         3.85
       ],
       false
     ],
     [
-      "impressionist_return_A_back",
+      "impressionist_passage_A_back",
       [
-        15.75,
+        12.45,
         0.25,
         3.85
       ],
       [
-        15.75,
+        12.45,
         0,
-        2.25
+        2.3
       ],
       false
     ],
@@ -2106,154 +2024,154 @@
     [
       "impressionist_route_00_out",
       [
-        20.45,
+        12.43,
         0.25,
-        -1.96
+        -1.2
       ],
       [
-        20.45,
+        12.43,
         0,
-        0.4
+        0.3
       ],
       false
     ],
     [
       "impressionist_route_00_back",
       [
-        20.45,
+        12.43,
         0.25,
-        0.4
+        0.3
       ],
       [
-        20.45,
+        12.43,
         0,
-        -1.96
+        -1.2
       ],
       false
     ],
     [
       "impressionist_route_01_out",
       [
-        20.45,
+        12.43,
         0.25,
-        0.4
+        0.3
       ],
       [
-        20.45,
+        12.43,
         0,
-        2.04
+        1.6
       ],
       false
     ],
     [
       "impressionist_route_01_back",
       [
-        20.45,
+        12.43,
         0.25,
-        2.04
+        1.6
       ],
       [
-        20.45,
+        12.43,
         0,
-        0.4
+        0.3
       ],
       false
     ],
     [
       "impressionist_route_02_out",
       [
-        20.45,
+        12.43,
         0.25,
-        2.04
+        1.6
       ],
       [
-        18.25,
+        12.45,
         0,
-        2.04
+        2.6
       ],
       false
     ],
     [
       "impressionist_route_02_back",
       [
-        18.25,
+        12.45,
         0.25,
-        2.04
+        2.6
       ],
       [
-        20.45,
+        12.43,
         0,
-        2.04
+        1.6
       ],
       false
     ],
     [
       "impressionist_route_03_out",
       [
-        18.25,
+        12.45,
         0.25,
-        2.04
+        2.6
       ],
       [
-        15.75,
+        12.45,
         0,
-        2.04
+        3.85
       ],
       false
     ],
     [
       "impressionist_route_03_back",
       [
-        15.75,
+        12.45,
         0.25,
-        2.04
+        3.85
       ],
       [
-        18.25,
+        12.45,
         0,
-        2.04
+        2.6
       ],
       false
     ],
     [
       "impressionist_route_04_out",
       [
-        15.75,
+        12.45,
         0.25,
-        2.04
+        3.85
       ],
       [
-        15.75,
+        13.6,
         0,
-        3.85
+        6.2
       ],
       false
     ],
     [
       "impressionist_route_04_back",
       [
-        15.75,
+        13.6,
         0.25,
-        3.85
+        6.2
       ],
       [
-        15.75,
+        12.45,
         0,
-        2.04
+        3.85
       ],
       false
     ],
     [
       "impressionist_route_05_out",
       [
-        15.75,
+        13.6,
         0.25,
-        3.85
+        6.2
       ],
       [
         14.85,
         0,
-        6.2
+        9.2
       ],
       false
     ],
@@ -2262,12 +2180,12 @@
       [
         14.85,
         0.25,
-        6.2
+        9.2
       ],
       [
-        15.75,
+        13.6,
         0,
-        3.85
+        6.2
       ],
       false
     ],
@@ -2276,40 +2194,40 @@
       [
         14.85,
         0.25,
-        6.2
-      ],
-      [
-        14.85,
-        0,
-        9.2
-      ],
-      false
-    ],
-    [
-      "impressionist_route_06_back",
-      [
-        14.85,
-        0.25,
-        9.2
-      ],
-      [
-        14.85,
-        0,
-        6.2
-      ],
-      false
-    ],
-    [
-      "impressionist_route_07_out",
-      [
-        14.85,
-        0.25,
         9.2
       ],
       [
         15.75,
         0,
         11.85
+      ],
+      false
+    ],
+    [
+      "impressionist_route_06_back",
+      [
+        15.75,
+        0.25,
+        11.85
+      ],
+      [
+        14.85,
+        0,
+        9.2
+      ],
+      false
+    ],
+    [
+      "impressionist_route_07_out",
+      [
+        15.75,
+        0.25,
+        11.85
+      ],
+      [
+        15.75,
+        0,
+        13.55
       ],
       false
     ],
@@ -2318,12 +2236,12 @@
       [
         15.75,
         0.25,
-        11.85
+        13.55
       ],
       [
-        14.85,
+        15.75,
         0,
-        9.2
+        11.85
       ],
       false
     ],
@@ -2332,40 +2250,40 @@
       [
         15.75,
         0.25,
-        11.85
-      ],
-      [
-        15.75,
-        0,
-        13.55
-      ],
-      false
-    ],
-    [
-      "impressionist_route_08_back",
-      [
-        15.75,
-        0.25,
-        13.55
-      ],
-      [
-        15.75,
-        0,
-        11.85
-      ],
-      false
-    ],
-    [
-      "impressionist_route_09_out",
-      [
-        15.75,
-        0.25,
         13.55
       ],
       [
         13.25,
         0,
         15.7
+      ],
+      false
+    ],
+    [
+      "impressionist_route_08_back",
+      [
+        13.25,
+        0.25,
+        15.7
+      ],
+      [
+        15.75,
+        0,
+        13.55
+      ],
+      false
+    ],
+    [
+      "impressionist_route_09_out",
+      [
+        13.25,
+        0.25,
+        15.7
+      ],
+      [
+        13.25,
+        0,
+        18.7
       ],
       false
     ],
@@ -2374,12 +2292,12 @@
       [
         13.25,
         0.25,
-        15.7
+        18.7
       ],
       [
-        15.75,
+        13.25,
         0,
-        13.55
+        15.7
       ],
       false
     ],
@@ -2388,12 +2306,12 @@
       [
         13.25,
         0.25,
-        15.7
+        18.7
       ],
       [
         13.25,
         0,
-        18.7
+        20.65
       ],
       false
     ],
@@ -2402,12 +2320,12 @@
       [
         13.25,
         0.25,
-        18.7
+        20.65
       ],
       [
         13.25,
         0,
-        15.7
+        18.7
       ],
       false
     ],
@@ -2416,40 +2334,40 @@
       [
         13.25,
         0.25,
-        18.7
-      ],
-      [
-        13.25,
-        0,
-        20.65
-      ],
-      false
-    ],
-    [
-      "impressionist_route_11_back",
-      [
-        13.25,
-        0.25,
-        20.65
-      ],
-      [
-        13.25,
-        0,
-        18.7
-      ],
-      false
-    ],
-    [
-      "impressionist_route_12_out",
-      [
-        13.25,
-        0.25,
         20.65
       ],
       [
         15.75,
         0,
         21.45
+      ],
+      false
+    ],
+    [
+      "impressionist_route_11_back",
+      [
+        15.75,
+        0.25,
+        21.45
+      ],
+      [
+        13.25,
+        0,
+        20.65
+      ],
+      false
+    ],
+    [
+      "impressionist_route_12_out",
+      [
+        15.75,
+        0.25,
+        21.45
+      ],
+      [
+        15.75,
+        0,
+        23.25
       ],
       false
     ],
@@ -2458,34 +2376,6 @@
       [
         15.75,
         0.25,
-        21.45
-      ],
-      [
-        13.25,
-        0,
-        20.65
-      ],
-      false
-    ],
-    [
-      "impressionist_route_13_out",
-      [
-        15.75,
-        0.25,
-        21.45
-      ],
-      [
-        15.75,
-        0,
-        23.25
-      ],
-      false
-    ],
-    [
-      "impressionist_route_13_back",
-      [
-        15.75,
-        0.25,
         23.25
       ],
       [
@@ -2494,6 +2384,20 @@
         21.45
       ],
       false
+    ],
+    [
+      "marble_exit_blocked",
+      [
+        16.85,
+        0.25,
+        -1.96
+      ],
+      [
+        19.05,
+        0,
+        -1.96
+      ],
+      true
     ],
     [
       "grey_skylight_out",
@@ -3218,16 +3122,16 @@
       ],
       "clear_heights": {
         "west": 3.12,
-        "east": 2.47
+        "south": 2.6
       },
       "openings": {
         "west": [
           -4.96,
           1.04
         ],
-        "east": [
-          -2.51,
-          -1.41
+        "south": [
+          11.55,
+          13.31
         ]
       },
       "height": 8.0,
@@ -3320,25 +3224,25 @@
     {
       "label": "Impressionist passage",
       "bounds": [
-        19.45,
-        21.45,
-        -2.86,
-        1.04
+        11.35,
+        13.55,
+        1.04,
+        3.04
       ],
       "height": 3.2,
       "boards_across": true,
       "openings": {
-        "west": [
-          -2.51,
-          -1.41
+        "north": [
+          11.55,
+          13.31
         ],
         "south": [
-          19.75,
-          21.15
+          11.75,
+          13.15
         ]
       },
       "clear_heights": {
-        "west": 2.47,
+        "north": 2.6,
         "south": 2.74
       }
     },
@@ -3354,8 +3258,8 @@
       "boards_across": true,
       "openings": {
         "north": [
-          15.1,
-          16.4
+          11.75,
+          13.15
         ],
         "south": [
           15.2,
@@ -3365,31 +3269,6 @@
       "clear_heights": {
         "north": 2.74,
         "south": 2.47
-      }
-    },
-    {
-      "label": "Impressionist passage return",
-      "bounds": [
-        14.75,
-        21.45,
-        1.04,
-        3.04
-      ],
-      "height": 3.2,
-      "boards_across": true,
-      "openings": {
-        "north": [
-          19.75,
-          21.15
-        ],
-        "south": [
-          15.1,
-          16.4
-        ]
-      },
-      "clear_heights": {
-        "north": 2.74,
-        "south": 2.74
       }
     },
     {
@@ -3663,10 +3542,10 @@
     "medieval_wall_width_m": 10.0
   },
   "impressionist_fit": {
-    "source": "IMG_6343 84..228s; docs/evidence/impressionist-277/NOTES.md",
+    "source": "IMG_6343 83..229s, IMG_6380 49/70s, IMG_6387 68..70s; docs/evidence/impressionist-plan/NOTES.md",
     "fixed_stair_door": [
-      17.85,
-      -1.96
+      12.43,
+      1.04
     ],
     "fixed_modern_door": [
       15.75,
@@ -3677,16 +3556,20 @@
       9.6,
       8.8
     ],
-    "longitudinal_residual_m": 3.86,
+    "longitudinal_residual_m": 0.86,
     "fitted_depths_m": [
-      5.0,
+      2.0,
       9.66,
       9.6
     ],
-    "passage_elbow_inferred": true,
-    "passage_return_m": 4.7,
+    "passage_elbow_inferred": false,
     "windows_side": "east",
     "first_draft_mirror_corrected": true,
+    "map_depths_m": [
+      6.8,
+      7.6
+    ],
+    "depths_too_long": true,
     "metric_accepted": false,
     "lighting_owned_by": "#274",
     "missing_works": "WORKS-NEEDED.md"
@@ -3705,31 +3588,27 @@
   },
   "impressionist_route_waypoints": [
     [
-      20.45,
-      -1.96
+      12.43,
+      -1.2
     ],
     [
-      20.45,
-      0.4
+      12.43,
+      0.3
     ],
     [
-      20.45,
-      2.04
+      12.43,
+      1.6
     ],
     [
-      18.25,
-      2.04
+      12.45,
+      2.6
     ],
     [
-      15.75,
-      2.04
-    ],
-    [
-      15.75,
+      12.45,
       3.85
     ],
     [
-      14.85,
+      13.6,
       6.2
     ],
     [
