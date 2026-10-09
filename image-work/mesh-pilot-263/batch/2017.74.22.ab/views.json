@@ -10,8 +10,19 @@
    "source_px": null,
    "alt": ""
   },
-  "back": "no photograph: Muse turns it from the front",
-  "side": "no photograph: Muse turns it from the front",
-  "threequarter": "no photograph: Muse turns it from the front"
- }
+  "right": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/right.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "threequarter": {
+   "file": "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/threequarter.jpg",
+   "px_wide": 1324,
+   "source_px": null,
+   "alt": ""
+  },
+  "back": "no photograph: Muse turns it from the front"
+ },
+ "note": "photograph 1 shows the pair together and is not used; photograph 5 is the front"
 }

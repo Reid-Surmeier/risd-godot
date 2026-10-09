@@ -1,0 +1,42 @@
+{
+ "clay-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/front.jpg"
+  ],
+  "run": "run-821a3adf3719aca10ef2bd3d"
+ },
+ "clay-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/right.jpg",
+   "batch/2017.74.22.ab/clay-front.png"
+  ],
+  "run": "run-8595380d16827b9573f96fc3"
+ },
+ "clay-back": {
+  "from": "inferred by Muse from the clay front, the clay right side and the museum's part-turned photograph",
+  "references": [
+   "batch/2017.74.22.ab/clay-front.png",
+   "batch/2017.74.22.ab/clay-right.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/all-4.jpg"
+  ],
+  "run": "run-3a0971de45e81d8d6ab829f6"
+ },
+ "flat-front": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.22.ab/clay-front.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/front.jpg"
+  ],
+  "run": "run-675370b33f212765883703c4"
+ },
+ "flat-right": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.22.ab/clay-right.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.22.ab/right.jpg"
+  ],
+  "run": "run-2305f9b901fe2b0f596abdf9"
+ }
+}

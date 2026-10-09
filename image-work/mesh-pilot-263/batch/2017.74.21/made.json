@@ -49,5 +49,13 @@
    "batch/2017.74.21/flat-front.png"
   ],
   "run": "run-550d887a9f35cb58a08aacf5"
+ },
+ "flat-side": {
+  "from": "photograph of this direction",
+  "references": [
+   "batch/2017.74.21/clay-side.png",
+   "~/risd-godot-ingestion/catalogue-masters/2017.74.21/side.jpg"
+  ],
+  "run": "run-2b4919da1c53707789ac6c8e"
  }
 }
