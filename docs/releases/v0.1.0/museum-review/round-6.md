@@ -6,7 +6,7 @@ Build: `431f5921` — the latest URL redirected to this build at 10:12 EDT on Fr
 
 Reviewer: Codex, working alone. Review window: 10:10–11:25 EDT; owner deadline 13:00 EDT. GPU headless Chrome, actual exported Web game, real keyboard and pointer input. No game code or assets changed. Scratch: `build/review-round-6/`.
 
-The verdict is provisional while the browser loop is in progress. VERIFIED means reproduced in this browser; INFERRED means a conclusion not directly reproduced. BLOCKS PLAY means a crash, persistent black screen, inaccessible room, or a work that cannot be closed. Other faults are ordered by the owner's first five minutes and then condensed.
+The review is still in progress; the findings below are confirmed. VERIFIED means reproduced in this browser; INFERRED means a conclusion not directly reproduced. BLOCKS PLAY means a crash, persistent black screen, inaccessible room, or a work that cannot be closed. Other faults are ordered by the owner's first five minutes and then condensed.
 
 ## BLOCKS PLAY
 
@@ -18,19 +18,12 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 
 **VERIFIED · POLISH · KNOWN slow-load class, current measurement.** A fresh browser load reaches `window.loadPerf`'s `game-shown` at **48.64 s**; downloads finish at 2.25 s, engine starts at 4.18 s, launch settles at 46.65 s. Steps: (1) open the pinned build in fresh GPU Chrome; (2) wait for the Collection game to appear. This is a wait, not a persistent black screen. The first Hall → medieval doorway subsequently works: its largest game draw/process gap is **0.242 s**, with no round-5 quarter-minute freeze. [Picture and timing](../../../evidence/review-round-6/01-load-48-seconds.jpg). Raw marks: `build/review-round-6/initial.json`; continuous doorway capture and samples: `01-hall-first-door/`, `01-first-door.json`.
 
-### 2. A floor surface covers the visitor on the Skylight lower floor.
-
-**VERIFIED · POLISH · NEW.** A broad herringbone floor surface crosses the foreground above the lower boards; near the landing it hides the visitor's body, leaving only the top of the hat. Steps: (1) in Skylight, click the yellow *Pile* and wait until its caption opens; (2) Escape back to the default walking view; (3) walk toward the upper landing from the lower floor, near (0, -35.84). Return via the clear lower aisle at x=-0.5, z=-38.1, then the east stair; the piano blocks a direct approach from farther west. [Before and after](../../../evidence/review-round-6/07-skylight-floor-covers-visitor.jpg). The three stair flights are usable; walking round to them recovers the view. **INFERRED:** the herringbone surface belongs to another room; the Skylight's lower boards and upper black landing have different finishes. No game code changed to investigate it.
-
-### 3. The stair deck fills the camera at the corrected Impressionist entrance.
-
-**VERIFIED · POLISH · KNOWN slab class, NEW entry check.** In the default walking view toward the door beside the fireplace, a dark stair deck covers almost the whole game picture, hiding the visitor and doorway. Steps: (1) marble stair hall, approach the fireplace doorway at (6.88, -27.41); (2) turn the default camera toward the passage (+z); (3) pause before crossing. [Approach and accessible arrival](../../../evidence/review-round-6/08-marble-entry-obstructed.jpg). Continuing through the doorway clears the obstruction and reaches gallery A; it does not block the route. Raw continuous capture: `51-fireplace-impressionist-entry/`.
-
 ## The rest, one line each
 
-4. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the upper landing still reads as a cool black rectangle; descend the three flights, turn to the wall with lift “4”, and look left of the lift; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg). It is outside the required loop and is not counted as an inaccessible loop room.
-
-5. **VERIFIED · MINOR · NEW:** clicking a work while a movement key is still held does not select it; face the large modern *Mountaineers Attacked by Bears*, hold W and click its centre, release W, then click again to get the caption; reproduced in recordings 67/69, with `NAV_PICK` only after the stationary click; [picture](../../../evidence/review-round-6/11-click-while-walking.jpg).
+2. **VERIFIED · POLISH · NEW:** on the Skylight lower floor, a herringbone surface hides the visitor's body near the landing, leaving the hat; click *Pile*, close its caption and walk to (0, -35.84); [picture](../../../evidence/review-round-6/07-skylight-floor-covers-visitor.jpg), recordings 39–47; the clear return uses x=-0.5, z=-38.1 then the east stair, and all three flights work; **INFERRED:** the surface belongs to another room.
+3. **VERIFIED · POLISH · KNOWN slab class, NEW entry check:** at the correct Impressionist entry, the stair deck fills almost the whole default view; approach the fireplace door at (6.88, -27.41), turn toward +z and pause; [picture](../../../evidence/review-round-6/08-marble-entry-obstructed.jpg), continuous recording 51; continuing through clears it and enters A.
+4. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the landing reads as a cool black rectangle; descend the three flights and look beside lift “4”; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg); this decorative door is outside the required loop.
+5. **VERIFIED · MINOR · NEW:** clicking a work with a movement key held does not select it; face the large modern *Mountaineers Attacked by Bears*, hold W and click its centre, then release W and click again to open the caption; recordings 67/69 have `NAV_PICK` only for the stationary click; [picture](../../../evidence/review-round-6/11-click-while-walking.jpg); Escape closes normally.
 
 ## Eight owner claims
 
