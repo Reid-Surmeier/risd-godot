@@ -2134,8 +2134,18 @@ func _update_camera(k: float) -> void:
 		# doorway's centre line the sight line clips the wall beside the opening, and taking
 		# that wall away took the room's whole side with it (round 5, the deep reveals).
 		var foot := Rect2(wall.box.position.x, wall.box.position.z, wall.box.size.x, wall.box.size.z)
+		# That holds for a wall beside the opening, not for a deck over it: the stair hall's upper
+		# landing lies over the doorway beside the chimneypiece, and kept as "the doorway's own
+		# wall" it filled the dollhouse picture and hid the visitor under it (round 6). A slab
+		# wider than a wall is thick, with its underside above the visitor's head, is judged by
+		# the sight line like any other wall. A header is the opening's own and stays.
+		var deck_over: bool = (
+			(wall.box as AABB).position.y > _pos.y + 1.85
+			and minf(foot.size.x, foot.size.y) > 1.0
+			and not str(wall.body.get_meta("room_wall", "")).ends_with(":header")
+		)
 		var in_its_doorway: bool = (
-			wall.room >= 0 and doorway and foot.grow(1.2).has_point(Vector2(_pos.x, _pos.z))
+			wall.room >= 0 and doorway and not deck_over and foot.grow(1.2).has_point(Vector2(_pos.x, _pos.z))
 		)
 		if clear and wall.layers & shown and not low and not holds and not in_its_doorway:
 			for subject in subjects:
