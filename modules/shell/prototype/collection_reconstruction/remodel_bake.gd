@@ -20,7 +20,7 @@ const GROUP_M:=2.4 # works within this width of one wall share a spot
 const FILL_TRIM:={"Rockefeller":1.5,"grey French gallery":2.0,"adjacent gallery":2.8,"light Renaissance room":2.5,
 	"dark medieval room":1.3,"modern painting gallery":3.0,"marble stair hall":.85,
 	"Skylight Gallery":3.0,"Impressionist gallery A":2.5,"Impressionist gallery B":1.8,
-	"Impressionist passage":1.5,"Impressionist passage return":1.5,
+	"Impressionist passage":1.5,
 	"purple elevator-5 connector":4.8,"modern adjoining gallery threshold study limit":5.6,
 	"Grand Gallery reveal threshold":2.3,"Rockefeller reveal threshold":1.0,"Skylight Gallery reveal threshold":3.0,
 	"white sculpture gallery threshold study limit":1.4}
