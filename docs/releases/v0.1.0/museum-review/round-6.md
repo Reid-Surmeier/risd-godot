@@ -26,14 +26,14 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 | 2. Warm pools at every work, including the Hall | In progress | Warm pools visible in Hall, medieval and Renaissance views; not yet judged for every room. |
 | 3. Warm medieval room | **YES · VERIFIED** | Warm floor, amber pools around wall works and door sills in the medieval walkthrough; dark wall colour remains. Picture to follow with the lighting comparison. |
 | 4. Soft warm haze and inviting doorway sill | **YES at the first two crossings · VERIFIED** | [Continuous Hall crossing](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg); full loop pending. |
-| 5. Walk 1.9 m/s, run 4.5 m/s | In progress | Actual browser movement measurement pending. |
+| 5. Walk 1.9 m/s, run 4.5 m/s | **YES · VERIFIED** | [Walk and run](../../../evidence/review-round-6/03-walk-run-speed.jpg). Sustained browser probe velocity is 1.900 and 4.500 m/s in recordings 10, 13 and 14; the gait changes in motion. |
 | 6. Turn to face camera on arrival | **YES at Renaissance arrival · VERIFIED** | [Arrival picture](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg). Release the crossing key, let arrival finish; the visitor turns to the lens. |
 | 7. Impressionist entry beside fireplace and re-hung B | In progress | To be walked, not inferred from the plan. |
 | 8. Small-room follow camera outside visitor's head | In progress | Follow view still to test. |
 
 ## Coverage and timing
 
-Initial load and per-door frame timing are being captured. Untested areas will be named explicitly at handoff.
+Initial load: **48.64 s to `game-shown`**. Hall → medieval, medieval ↔ Renaissance and Renaissance ↔ European have been walked and continuously captured at 11.9–15.9 fps; no permanent black screen, crash or unclosable work so far. Two medieval works (59.131, 69.196) and two Renaissance works (21.398, 58.196) have opened readable captions and closed. The latter's zoom page shows the correct photograph and caption and closes. The European room checks and remaining loop are in progress.
 
 ## What the harness should learn
 
