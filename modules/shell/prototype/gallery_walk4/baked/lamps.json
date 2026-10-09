@@ -1,7 +1,7 @@
 [
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.4,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -16,7 +16,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.4,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -31,7 +31,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.4,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -46,7 +46,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.4,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -61,7 +61,7 @@
 	},
 	{
 		"color": "#ffe1b2",
-		"energy": 0.55,
+		"energy": 0.4,
 		"kind": "fill",
 		"position": [
 			0.0,
@@ -75,353 +75,353 @@
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			4.83,
+			-3.6,
+			3.73,
 			-2.231
 		],
 		"target": [
 			-5.0,
-			1.73,
+			1.53,
 			-2.231
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			5.0,
+			-3.6,
+			3.9,
 			-4.361
-		],
-		"target": [
-			-5.0,
-			1.9,
-			-4.361
-		]
-	},
-	{
-		"color": "#ffd391",
-		"energy": 6.8,
-		"kind": "painting",
-		"position": [
-			-2.8,
-			4.88,
-			-6.504
-		],
-		"target": [
-			-5.0,
-			1.78,
-			-6.504
-		]
-	},
-	{
-		"color": "#ffd391",
-		"energy": 6.8,
-		"kind": "painting",
-		"position": [
-			-2.8,
-			4.8,
-			-8.557
 		],
 		"target": [
 			-5.0,
 			1.7,
+			-4.361
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.78,
+			-6.504
+		],
+		"target": [
+			-5.0,
+			1.58,
+			-6.504
+		]
+	},
+	{
+		"color": "#ffb870",
+		"energy": 32.0,
+		"kind": "painting",
+		"position": [
+			-3.6,
+			3.7,
+			-8.557
+		],
+		"target": [
+			-5.0,
+			1.5,
 			-8.557
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			4.82,
+			-3.6,
+			3.72,
 			-10.744
 		],
 		"target": [
 			-5.0,
-			1.72,
+			1.52,
 			-10.744
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			5.575,
+			-3.6,
+			4.475,
 			-13.29
 		],
 		"target": [
 			-5.0,
-			2.475,
+			2.275,
 			-13.29
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			4.81,
+			-3.6,
+			3.71,
 			-16.095
 		],
 		"target": [
 			-5.0,
-			1.71,
+			1.51,
 			-16.095
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			5.02,
+			-3.6,
+			3.92,
 			-18.636
 		],
 		"target": [
 			-5.0,
-			1.92,
+			1.72,
 			-18.636
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			4.83,
+			-3.6,
+			3.73,
 			-21.025
 		],
 		"target": [
 			-5.0,
-			1.73,
+			1.53,
 			-21.025
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			-2.8,
-			4.83,
+			-3.6,
+			3.73,
 			-23.741
 		],
 		"target": [
 			-5.0,
-			1.73,
+			1.53,
 			-23.741
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.86,
+			3.6,
+			3.76,
 			-23.06
 		],
 		"target": [
 			5.0,
-			1.76,
+			1.56,
 			-23.06
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.82,
+			3.6,
+			3.72,
 			-20.575
 		],
 		"target": [
 			5.0,
-			1.72,
+			1.52,
 			-20.575
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.84,
+			3.6,
+			3.74,
 			-18.365
 		],
 		"target": [
 			5.0,
-			1.74,
+			1.54,
 			-18.365
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.81,
+			3.6,
+			3.71,
 			-16.014
 		],
 		"target": [
 			5.0,
-			1.71,
+			1.51,
 			-16.014
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			5.107,
+			3.6,
+			4.007,
 			-13.091
 		],
 		"target": [
 			5.0,
-			2.007,
+			1.807,
 			-13.091
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.79,
+			3.6,
+			3.69,
 			-10.256
 		],
 		"target": [
 			5.0,
-			1.69,
+			1.49,
 			-10.256
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.82,
+			3.6,
+			3.72,
 			-7.719
 		],
 		"target": [
 			5.0,
-			1.72,
+			1.52,
 			-7.719
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.98,
+			3.6,
+			3.88,
 			-5.295
 		],
 		"target": [
 			5.0,
-			1.88,
+			1.68,
 			-5.295
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
-			2.8,
-			4.79,
+			3.6,
+			3.69,
 			-2.89
 		],
 		"target": [
 			5.0,
-			1.69,
+			1.49,
 			-2.89
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
 			3.115,
-			5.16,
-			-2.2
+			4.06,
+			-1.4
 		],
 		"target": [
 			3.115,
-			2.06,
+			1.86,
 			0.0
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
 			-3.115,
-			5.179,
-			-2.2
+			4.079,
+			-1.4
 		],
 		"target": [
 			-3.115,
-			2.079,
+			1.879,
 			0.0
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
 			-3.115,
-			5.17,
-			-24.1
+			4.07,
+			-24.9
 		],
 		"target": [
 			-3.115,
-			2.07,
+			1.87,
 			-26.3
 		]
 	},
 	{
-		"color": "#ffd391",
-		"energy": 6.8,
+		"color": "#ffb870",
+		"energy": 32.0,
 		"kind": "painting",
 		"position": [
 			3.115,
-			5.17,
-			-24.1
+			4.07,
+			-24.9
 		],
 		"target": [
 			3.115,
-			2.07,
+			1.87,
 			-26.3
 		]
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.25,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -436,7 +436,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.25,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -451,7 +451,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.25,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -466,7 +466,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.25,
 		"kind": "skylight",
 		"position": [
 			0.0,
@@ -481,7 +481,7 @@
 	},
 	{
 		"color": "#eff5ff",
-		"energy": 0.35,
+		"energy": 0.25,
 		"kind": "skylight",
 		"position": [
 			0.0,

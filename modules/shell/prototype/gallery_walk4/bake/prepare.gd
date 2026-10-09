@@ -2,6 +2,25 @@
 extends SceneTree
 
 const DIR := "res://modules/shell/prototype/gallery_walk4/"
+## The Hall's light, lit by the same hand as the added rooms (remodel_bake.gd, #274): a warm
+## spot on each painting, its cone fitted to the work, a fill low enough that the wall between
+## works is quieter than the wall beside one, and the works drawn with the warmth of their spot.
+const FILL_ENERGY := 0.40  # each of the five ceiling fills
+const DAYLIGHT_ENERGY := 0.25
+const ENVIRONMENT_ENERGY := 0.12
+const SPOT_COLOR := "ffb870"  # the rooms' SPOT_COLOR, about 3000 K on screen
+const SPOT_ENERGY := 32.0  # the rooms give 3.6 a metre (13.7 here) on pale walls; this wall is dark
+const SPOT_MARGIN := 0.9  # the cone covers the framed work and this much wall round it
+const SPOT_SIZE := 0.1
+const SPOT_DROP := 2.0  # a spot hangs this far above its work's middle (it was 3.1) and
+const SPOT_AIM := 0.2  # it is aimed this far below the middle, so the pool lies round the work, not over it
+const SPOT_OUT := 1.4  # this far out from the wall (was 2.2): the rooms' lean, 0.7 m out a metre up
+const SPOT_EDGE := 0.7  # under 1 the pool fades from its middle to nothing at its rim, with no drawn edge
+const SPOT_REACH := 1.2  # a spot dies this far past its work, as the rooms' do: before it reaches the floor
+## A painting and its frame are drawn at their own colours, not through the lightmap; what they
+## take from their spot is this: the rooms' WORK_TINT, lifted. A warm lift, not a colour cast.
+const WORK_TINT := "fff0dc"
+const WORK_LEVEL := 1.1
 
 
 func _initialize() -> void:
@@ -155,6 +174,15 @@ func _prepare() -> void:
 		# Preserve artwork/painted frame colours; they still occlude the surrounding light.
 		if material.albedo_texture and not "/textures/" in material.albedo_texture.resource_path:
 			material.shading_mode = BaseMaterial3D.SHADING_MODE_UNSHADED
+			var path: String = material.albedo_texture.resource_path
+			if "/canvas/" in path or "/frames/" in path:
+				var lamp := Color(WORK_TINT) * WORK_LEVEL
+				material.albedo_color = Color(
+					material.albedo_color.r * lamp.r,
+					material.albedo_color.g * lamp.g,
+					material.albedo_color.b * lamp.b,
+					material.albedo_color.a
+				)
 		if source.layers == 32 and not cornice_mesh:
 			material.albedo_color = Color("#e2dccd")
 		var instance := MeshInstance3D.new()
@@ -191,6 +219,14 @@ func _prepare() -> void:
 			# invisible light blocker over the modeled recess's rear wall.
 			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
 			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
+		if material.albedo_texture and (
+			"/canvas/" in material.albedo_texture.resource_path
+			or "/frames/" in material.albedo_texture.resource_path
+		):
+			# As a flat work in the added rooms: out of the bake's rays. The wall behind a frame
+			# would be unlit, and the lightmap's 12 cm texels bled that dark out beside the frame.
+			instance.gi_mode = GeometryInstance3D.GI_MODE_DISABLED
+			instance.cast_shadow = GeometryInstance3D.SHADOW_CASTING_SETTING_OFF
 		if (
 			material.albedo_texture
 			and material.albedo_texture.resource_path.ends_with("/skylight-grid-168.svg")
@@ -205,14 +241,14 @@ func _prepare() -> void:
 	# #258: the light the owner approved on 26-30 Sep (the bake of dbfe2393): broad warm fill,
 	# a soft warm pool on each work, daylight across the Hall. The dark New Horizons light of
 	# #238 (b40d0091) was turned down by the owner on 7 Oct; its values are in that commit.
-	var lamps := []  # written to baked/lamps.json; nothing reads it yet
+	var lamps := []  # written to baked/lamps.json, which the playtest's light pass reads
 	var bays := [-3.0, -8.0, -13.0, -18.0, -23.0]
 	for z in bays:
 		var light := OmniLight3D.new()
 		light.position = Vector3(0, 5.7, z)
 		light.omni_range = 13.0
 		light.omni_attenuation = 0.65
-		light.light_energy = 0.55
+		light.light_energy = FILL_ENERGY
 		light.light_color = Color("#ffe1b2")
 		light.light_size = 2.5
 		light.light_bake_mode = Light3D.BAKE_STATIC
@@ -225,15 +261,20 @@ func _prepare() -> void:
 		var spot := SpotLight3D.new()
 		room.add_child(spot)
 		spot.owner = room
-		spot.position = painting.center + painting.normal * 2.2 + Vector3.UP * 3.1
-		var aim: Vector3 = painting.center
+		spot.position = painting.center + painting.normal * SPOT_OUT + Vector3.UP * SPOT_DROP
+		var aim: Vector3 = painting.center + Vector3.DOWN * SPOT_AIM
 		spot.look_at(aim, Vector3.UP)
-		spot.spot_range = 7.0
-		spot.spot_angle = 25.0
-		spot.spot_angle_attenuation = 1.5
-		spot.light_color = Color("#ffd391")
-		spot.light_energy = 6.8
-		spot.light_size = 0.35
+		spot.spot_range = spot.position.distance_to(aim) + SPOT_REACH
+		var outer: Vector2 = painting.outer
+		spot.spot_angle = clampf(
+			rad_to_deg(atan((maxf(outer.x, outer.y) / 2.0 + SPOT_MARGIN) / spot.position.distance_to(aim))),
+			18.0,
+			34.0
+		)
+		spot.spot_angle_attenuation = SPOT_EDGE
+		spot.light_color = Color(SPOT_COLOR)
+		spot.light_energy = SPOT_ENERGY
+		spot.light_size = SPOT_SIZE
 		spot.light_bake_mode = Light3D.BAKE_STATIC
 		spot.shadow_enabled = true
 		lamps.append(_lamp(spot, aim, "painting"))
@@ -241,7 +282,7 @@ func _prepare() -> void:
 	# across the gallery, avoiding a hard far-lunette shadow
 	daylight.rotation_degrees = Vector3(-60, -75, 0)
 	daylight.light_color = Color("#eff5ff")
-	daylight.light_energy = 0.35
+	daylight.light_energy = DAYLIGHT_ENERGY
 	daylight.light_angular_distance = 6.0
 	daylight.light_bake_mode = Light3D.BAKE_STATIC
 	daylight.shadow_enabled = true
@@ -319,7 +360,7 @@ func _prepare() -> void:
 				probe.owner = room
 	lm.environment_mode = LightmapGI.ENVIRONMENT_MODE_CUSTOM_COLOR
 	lm.environment_custom_color = Color("#dfd6c7")
-	lm.environment_custom_energy = 0.18
+	lm.environment_custom_energy = ENVIRONMENT_ENERGY
 	room.add_child(lm)
 	lm.owner = room
 	var file := FileAccess.open(DIR + "baked/lamps.json", FileAccess.WRITE)
