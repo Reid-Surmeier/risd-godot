@@ -30,6 +30,8 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 
 4. **VERIFIED · POLISH · KNOWN doorway class, NEW lower-floor check:** the lower Skylight door under the upper landing still reads as a cool black rectangle; descend the three flights, turn to the wall with lift “4”, and look left of the lift; [picture](../../../evidence/review-round-6/06-lower-skylight-dark-door.jpg). It is outside the required loop and is not counted as an inaccessible loop room.
 
+5. **VERIFIED · MINOR · NEW:** clicking a work while a movement key is still held does not select it; face the large modern *Mountaineers Attacked by Bears*, hold W and click its centre, release W, then click again to get the caption; reproduced in recordings 67/69, with `NAV_PICK` only after the stationary click; [picture](../../../evidence/review-round-6/11-click-while-walking.jpg).
+
 ## Eight owner claims
 
 | Owner claim | Result so far | Browser evidence |
