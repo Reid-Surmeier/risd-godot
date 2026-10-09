@@ -91,8 +91,9 @@ func build_windows(label: String, centers: Array, height: float) -> void:
 func window(label: String, along: float, wall: Node3D) -> void:
 	var white: Material = room.trim_paint()
 	var lining: Material = room.look(Color("e1dfd8"))
-	var glass: Material = room.look(Color("b3c5c7"))
-	var shade: Material = room.look(Color("d1cbbde6"))
+	# The pane is daylight and keeps its own brightness, as the modern gallery's does: the
+	# recess gets no baked light, and a shaded pane behind a translucent shade drew flat black.
+	var glass: Material = room.look(Color("f3f4ef"), "", true)
 	var node := Node3D.new()
 	node.set_meta("impressionist_window", label)
 	room.add_child(node)
@@ -104,19 +105,11 @@ func window(label: String, along: float, wall: Node3D) -> void:
 		local_box(node, Vector3(side * .765, 1.825, -.095), Vector3(.07, 2.55, .19), lining)
 	local_box(node, Vector3(0, 3.065, -.095), Vector3(1.60, .07, .19), lining)
 	local_box(node, Vector3(0, .555, .025), Vector3(1.80, .07, .29), white)
-	# 149/151/218: the solar shade's hem is at the sill. The broad lower field
-	# is daylight through the fabric, not four exposed, divided glass panes.
-	for x in [-.71, .71]:
-		local_box(node, Vector3(x, 1.28, -.125), Vector3(.04, 1.36, .05), white)
-	for y in [.61, 1.95]:
-		local_box(node, Vector3(0, y, -.125), Vector3(1.46, .055, .05), white)
-	var fabric := MeshInstance3D.new()
-	var sheet := QuadMesh.new()
-	sheet.size = Vector2(1.46, 2.43)
-	fabric.mesh = sheet
-	fabric.material_override = shade
-	fabric.position = Vector3(0, 1.825, -.075)
-	node.add_child(fabric)
+	# White slatted blinds over the whole opening, the modern gallery's slat and pitch.
+	var slats = load("res://marble_hall_additions.gd").Batch.new()
+	for j in 36:
+		slats.box(Vector3(0, .66 + j * .066, -.075), Vector3(1.46, .025, .022))
+	slats.into(node, room.look(Color("dddcd4")), "WindowBlind", true)
 	local_box(node, Vector3(0, .61, -.065), Vector3(1.49, .025, .024), lining)
 	var roller := MeshInstance3D.new()
 	var tube := CylinderMesh.new()
