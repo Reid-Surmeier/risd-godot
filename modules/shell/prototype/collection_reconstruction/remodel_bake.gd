@@ -10,13 +10,19 @@ const FILL_M2:=25.0
 const SPILL:=.03 # of its spots' energy a room's fill gives up: they light the floor too
 const FILL_BAY:=5.0 # metres between fills, the Hall's bay
 const GROUP_M:=2.4 # works within this width of one wall share a spot
-## What the rule leaves over, measured: the fill a room needs for its floor to read as the
-## Hall's (143 of 255, give or take ten) depends on its furniture and how low its spots aim, so
-## after a bake the light pass's floor number sets the room's trim here. A room not listed is 1.
-const FILL_TRIM:={"Rockefeller":.75,"grey French gallery":.5,"adjacent gallery":.82,"light Renaissance room":.95,
-	"dark medieval room":1.3,"modern painting gallery":.86,"marble stair hall":.85,
+## What the rule leaves over, measured. A room's spots and the oak they bounce off are warm, and
+## in a room dense with works the fill above is left at a quarter, so its walls read peach from
+## end to end and no pool stands out (the European gallery, 8 Oct: wall between works 111,90,67).
+## The trim brings the faintly warm fill back until the wall between pools reads as its paint and
+## the floor sits near the Hall's (144 of 255; 130 to 155 here), with the wall beside a work still
+## clearly over the wall away from it (1.4 times in the European gallery). Set from the light pass after a bake; a room not
+## listed is 1. The dark medieval room's is the owner-judged one: leave it.
+const FILL_TRIM:={"Rockefeller":1.5,"grey French gallery":2.0,"adjacent gallery":2.8,"light Renaissance room":2.5,
+	"dark medieval room":1.3,"modern painting gallery":3.0,"marble stair hall":.85,
+	"Skylight Gallery":3.0,"Impressionist gallery A":2.5,"Impressionist gallery B":1.8,
+	"Impressionist passage":1.5,"Impressionist passage return":1.5,
 	"purple elevator-5 connector":4.8,"modern adjoining gallery threshold study limit":5.6,
-	"Grand Gallery reveal threshold":2.3,"Rockefeller reveal threshold":1.5,
+	"Grand Gallery reveal threshold":2.3,"Rockefeller reveal threshold":1.0,"Skylight Gallery reveal threshold":3.0,
 	"white sculpture gallery threshold study limit":1.4}
 ## The owner, 8 Oct, playing the build: "you don't have spotlights on objects warm glow", "the
 ## lighting should be warm in the medieval room". So the spot on each work is the picture: warm

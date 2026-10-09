@@ -20,7 +20,7 @@ const RenaissanceWall := preload("res://renaissance_wall_assets.gd")
 ## eye takes the trim for white. These are greys in the trim's hue with a slight cool-green
 ## cast, as the footage has beside its skirting (IMG_6343 78 and 252 s; IMG_6383 62.5 s;
 ## IMG_6386 67.5 s; IMG_6380 223.5 s). A bluer paint reads mauve beside the cream trim.
-const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"dfe3dd","Rockefeller":"d8e7e2",
+const WALL_PAINT:={"":"dfe3dd","light Renaissance room":"cdd3c9","adjacent gallery":"cddddb","Rockefeller":"d8e7e2",
 	"modern painting gallery":"e0e6e4","lion stair landing":"c8cbc7","grey French gallery":"e2e3da","Skylight Gallery":"d2d6ce",
 	"marble stair hall":"dedcd4","dark medieval room":"5a5d6a"}
 const MEDIEVAL_MOUNT:="636675" # the panels' mount boards: the dark medieval room's wall paint, a tenth lighter
