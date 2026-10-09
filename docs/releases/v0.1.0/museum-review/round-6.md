@@ -24,7 +24,7 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 | --- | --- | --- |
 | 1. Warm umber beyond rooms; blinds; medieval slab removed | In progress | First Hall doorway is umber; remaining doors and Impressionist windows still to check. |
 | 2. Warm pools at every work, including the Hall | In progress | Warm pools visible in Hall, medieval and Renaissance views; not yet judged for every room. |
-| 3. Warm medieval room | **YES · VERIFIED** | Warm floor, amber pools around wall works and door sills in the medieval walkthrough; dark wall colour remains. Picture to follow with the lighting comparison. |
+| 3. Warm medieval room | **YES · VERIFIED** | [Medieval and subsequent rooms](../../../evidence/review-round-6/04-room-lighting-in-motion.jpg). Warm floor, amber pools around wall works and door sills in the medieval walkthrough; dark wall colour remains. |
 | 4. Soft warm haze and inviting doorway sill | **YES at the first two crossings · VERIFIED** | [Continuous Hall crossing](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg); full loop pending. |
 | 5. Walk 1.9 m/s, run 4.5 m/s | **YES · VERIFIED** | [Walk and run](../../../evidence/review-round-6/03-walk-run-speed.jpg). Sustained browser probe velocity is 1.900 and 4.500 m/s in recordings 10, 13 and 14; the gait changes in motion. |
 | 6. Turn to face camera on arrival | **YES at Renaissance arrival · VERIFIED** | [Arrival picture](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg). Release the crossing key, let arrival finish; the visitor turns to the lens. |
@@ -33,7 +33,16 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 
 ## Coverage and timing
 
-Initial load: **48.64 s to `game-shown`**. Hall → medieval, medieval ↔ Renaissance and Renaissance ↔ European have been walked and continuously captured at 11.9–15.9 fps; no permanent black screen, crash or unclosable work so far. Two medieval works (59.131, 69.196) and two Renaissance works (21.398, 58.196) have opened readable captions and closed. The latter's zoom page shows the correct photograph and caption and closes. The European room checks and remaining loop are in progress.
+Initial load: **48.64 s to `game-shown`**. Hall → medieval, medieval ↔ Renaissance, Renaissance ↔ European and European → Rockefeller have been walked and continuously captured at 11.9–19.1 fps; no permanent black screen, crash or unclosable work so far. Two medieval works (59.131, 69.196), two Renaissance works (21.398, 58.196) and two European works (44.674, 53.349) have opened readable captions and closed. The latter Renaissance work's zoom page shows the correct photograph and caption and closes. The remaining loop is in progress.
+
+| First crossing | Longest game draw/process gap | Longest browser frame gap |
+| --- | ---: | ---: |
+| Hall → medieval | 228.7 ms | 239.1 ms |
+| Medieval → Renaissance | 42.5 ms | 38.3 ms |
+| Renaissance → European | 39.2 ms | 38.0 ms |
+| European → Rockefeller | 55.2 ms | 55.4 ms |
+
+These measurements include the approach and opening; they are maxima from this GPU browser, not promises for the owner's device. Captures are looked at as contact sheets. The earlier, unsuccessful attempts to walk through case furniture are retained in scratch and are not counted as doorway crossings.
 
 ## What the harness should learn
 
