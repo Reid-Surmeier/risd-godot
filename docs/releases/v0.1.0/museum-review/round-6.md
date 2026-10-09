@@ -4,7 +4,7 @@ Build: `431f5921` — the latest URL redirected to this build at 10:12 EDT on Fr
 
 # Independent museum playtest, round 6
 
-Reviewer: Codex, working alone. Review window: 10:10–11:25 EDT; owner deadline 13:00 EDT. GPU headless Chrome, actual exported Web game, real keyboard and pointer input. No game code or assets changed. Scratch: `build/review-round-6/`.
+Reviewer: Codex, working alone. Review: 10:10–11:23 EDT (75-minute cap at 11:25); owner deadline 13:00 EDT. GPU headless Chrome, actual exported Web game, real keyboard and pointer input. No game code or assets changed. Scratch: `build/review-round-6/`.
 
 The complete requested loop is playable on this GPU browser, with no confirmed BLOCKS PLAY. **NOT DONE refers to the remaining visual/interaction faults, not an inability to walk the loop.** VERIFIED means reproduced in this browser; INFERRED means a conclusion not directly reproduced. BLOCKS PLAY means a crash, persistent black screen, inaccessible room, or a work that cannot be closed. Other faults are ordered by the owner's first five minutes and then condensed.
 
@@ -52,7 +52,7 @@ The complete requested loop is playable on this GPU browser, with no confirmed B
 | Connector | No registered work |
 | Grey French | 23.005 *The Hand of God*; 73.120 *Landscape* |
 | Skylight | 2000.17 *Pile*; 2026.3 *Foreign Sign* |
-| Marble stair hall | 83.152 *Fireplace Surround*; known chandelier limit prevents a second read |
+| Marble stair hall | 83.152 *Fireplace Surround*; second chandelier caption not obtained from the tested floor views (known census limit) |
 | Impressionist passage | No work |
 | Impressionist A | 41.012 *Still Life with Apples*; 59.027 *Repose (Le Repos)* |
 | Impressionist B | 2010.57 *Child in a Red Apron*; 60.095 *Simone in a Blue Bonnet* |
@@ -83,19 +83,19 @@ Initial load: **48.64 s to `game-shown`**. Room timing follows.
 | Lion landing ↔ medieval | 49.0 ms | 30.4 ms |
 | Hall ↔ grey, extra return | 52.8 ms | 36.7 ms |
 
-These are maxima from recorded doorway windows across the tested walk/sprint legs, including approach and opening; they are from this GPU browser, not promises for the owner's device. The isolated connector → grey sprint gap (0.302 s) is the largest measured browser frame in those windows. The later walk back to Renaissance had a 138.6 ms browser gap somewhere in its longer multi-room route; it is not assigned to a door without an exact window. Captures are looked at as contact sheets. The earlier, unsuccessful attempts to walk through case furniture are retained in scratch and are not counted as doorway crossings.
+These are maxima from recorded doorway windows across the tested walk/sprint legs, including approach and opening; they are from this GPU browser, not promises for the owner's device. The isolated connector → grey sprint gap (0.302 s) is the largest measured browser frame in those windows. The later walk back to Renaissance had a 138.6 ms browser gap somewhere in its longer multi-room route; it is not assigned to a door without an exact window. Raw doorway windows and capture inventory are `build/review-round-6/doorway-timing.json` and `capture-inventory.json`; captures were inspected as contact sheets. The earlier, unsuccessful attempts to walk through case furniture are retained in scratch and are not counted as doorway crossings.
 
 Browser console: no JavaScript exception or Godot SCRIPT ERROR; one non-game failed resource, `favicon.ico` (404), and invalid-UID fallback warnings. The Web build remains responsive.
 
 ## Repository verification
 
-**VERIFIED: checks passed**, after importing this worktree's missing Godot cache. Ran the commands from `scripts/check.sh`, with only its working directory and `/tmp` log destinations redirected into `build/review-round-6/check-repo.sh` to obey the scratch rule. `check-after-import.log` ends with `checks passed`: representation check **201 built / 201 declared, zero failures**, and placed-mesh check **zero failures**. These are representation counts, not the full 177-work browser census. Seven generic European props are reported as unregistered by that check. Native exit still prints an ObjectDB leak warning; no native SCRIPT ERROR or ERROR remains in the passing log. The first failed check is retained as `check-before-import.log`; its missing imported files were a local-cache issue, not a reproduced Web fault. `git diff --check` and the evidence/link audit pass. Fourteen JPEGs, each below 300 KB; [source and hashes](../../../evidence/review-round-6/PROVENANCE.md); scratch below 1 GB. 74 recordings hold 25,454 frames over about 26 minutes of captured interaction, including unsuccessful navigation attempts retained for audit.
+**VERIFIED: checks passed**, after importing this worktree's missing Godot cache. Ran the commands from `scripts/check.sh`, with only its working directory and `/tmp` log destinations redirected into `build/review-round-6/check-repo.sh` to obey the scratch rule. `check-after-import.log` ends with `checks passed`: representation check **201 built / 201 declared, zero failures**, and placed-mesh check **zero failures**. These are representation counts, not the full 177-work browser census. Seven generic European props are reported as unregistered by that check. Native exit still prints an ObjectDB leak warning; no native SCRIPT ERROR or ERROR remains in the passing log. The first failed check is retained as `check-before-import.log`; its missing imported files were a local-cache issue, not a reproduced Web fault. `git diff --check` and the evidence/link audit pass. Fourteen JPEGs, each below 300 KB; [source and hashes](../../../evidence/review-round-6/PROVENANCE.md); scratch below 1 GB. 76 recordings hold 26,147 frames over about 27 minutes of captured interaction, including unsuccessful navigation attempts retained for audit.
 
 ## Deadline triage and remaining limits
 
 **No confirmed fault meets the Round 6 exception for a fix before 13:00.** There are five reproduced faults, not ten; their priority for later work is: startup wait, Skylight floor covering the visitor, stair deck hiding the corrected entrance, lower decorative black door, ignored click while walking. The first four are POLISH and the last MINOR. No code or asset fix was made.
 
-Not tested: the owner's device/network; deliberate network throttling; all 177 works; every camera mode in every room; every possible diagonal/door-cheek angle; listening to audio; the upper marble stair destinations and off-loop stub galleries. The two works per room rule is fulfilled in the ten rooms with at least two inspectable works (20 reads), plus the fireplace and lion (22 total). Connector and Impressionist passage have no works; lion has one; marble's second object is the known non-clickable chandelier. No full 24-minute engine census was rerun. The native representation and placed-mesh checks above were run; no full room/object playtest census was run.
+Not tested: the owner's device/network; deliberate network throttling; all 177 works; every camera mode in every room; every possible diagonal/door-cheek angle; listening to audio; the upper marble stair destinations and off-loop stub galleries. The two works per room rule is fulfilled in the ten rooms with at least two inspectable works (20 reads), plus the fireplace and lion (22 total). Connector and Impressionist passage have no works; lion has one; marble's second object is the chandelier. Its prior census says non-clickable; this round it stayed above the tested floor views, including four angles and Original/follow, so I could not obtain its caption (recordings 82–83). I did not test an upper-landing selection. No full 24-minute engine census was rerun. The native representation and placed-mesh checks above were run; no full room/object playtest census was run.
 
 ## What the harness should learn
 
