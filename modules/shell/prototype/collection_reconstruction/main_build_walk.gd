@@ -187,6 +187,8 @@ var _warm_cam: Camera3D
 var _wipe_warm := 0  # frames the wipe has been drawn at launch
 var _build_longest := 0
 var _wipe_routed := false  # the change began on a clicked route, which keeps its own destination
+var _arrived := -1  # the action a launch or a room change ended in: once it stands the visitor turns to the lens
+var _to_a_work := -1  # the action that is a walk up to a work, which ends facing the work
 
 
 # The launch reads only the plan (#281). The room scene itself, half the launch's work, is
@@ -1180,6 +1182,7 @@ func _approach(p: Dictionary) -> void:
 	var stand: Vector3 = view.stand
 	_route_to(stand)
 	var mine := _action
+	_to_a_work = mine
 	while _target != null or not _path.is_empty():
 		await get_tree().process_frame
 		if _action != mine or not _open.is_empty():
@@ -1644,7 +1647,21 @@ func _process(delta: float) -> void:
 		_held = kept
 		_wipe_step(delta)
 	else:
+		var entering := _entrance_active
 		super(delta)
+		if entering and not _entrance_active and _target == null:
+			_arrived = _action  # the launch walk-in ended by itself
+	# Arrived, and nothing asked of it since: once it stands, the visitor turns to face the
+	# lens, as a villager does when a scene opens. Its own turning rule eases it round. A key,
+	# a click or an open page first and it is left as it is; a route carried through the
+	# doorway is walked to its end. The follow view's lens is behind the visitor by definition.
+	if _arrived >= 0 and _wipe_t < 0.0:
+		if _arrived != _action or view_mode == 2 or not _open.is_empty() or _screen_direction() != Vector3.ZERO:
+			_arrived = -1
+		elif _target == null and _path.is_empty() and _velocity.length() < 0.01:
+			_arrived = -1
+			var to := _cam.global_position - _pos
+			_motion_heading = Vector3(to.x, 0, to.z).normalized()
 	if _rooms == null and _rooms_path != "" and _wipe_t < 0.0 and not _entrance_waiting:
 		# The Hall is on screen. The rooms begin a moment later and go on whenever the visitor
 		# stands still; a doorway reached first finishes them in the wipe's black (_wipe_step).
@@ -2759,6 +2776,8 @@ func _wipe_step(delta: float) -> void:
 	(_wipe.material as ShaderMaterial).set_shader_parameter("reach", size / (0.5 * size.length()))
 	if _wipe_t >= open_at + WIPE_OPEN:
 		_wipe_end()
+		if _action != _to_a_work:
+			_arrived = _action
 
 
 # The arrival picture should show the room. If the wall the view faces is too far off to be
