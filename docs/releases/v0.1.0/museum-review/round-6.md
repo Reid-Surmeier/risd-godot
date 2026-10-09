@@ -20,7 +20,16 @@ None confirmed yet; the complete loop and work closing checks are in progress.
 
 ## Eight owner claims
 
-Each claim will be judged YES / PARTLY / NO from continuous browser play and accompanied by a picture.
+| Owner claim | Result so far | Browser evidence |
+| --- | --- | --- |
+| 1. Warm umber beyond rooms; blinds; medieval slab removed | In progress | First Hall doorway is umber; remaining doors and Impressionist windows still to check. |
+| 2. Warm pools at every work, including the Hall | In progress | Warm pools visible in Hall, medieval and Renaissance views; not yet judged for every room. |
+| 3. Warm medieval room | **YES · VERIFIED** | Warm floor, amber pools around wall works and door sills in the medieval walkthrough; dark wall colour remains. Picture to follow with the lighting comparison. |
+| 4. Soft warm haze and inviting doorway sill | **YES at the first two crossings · VERIFIED** | [Continuous Hall crossing](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg); full loop pending. |
+| 5. Walk 1.9 m/s, run 4.5 m/s | In progress | Actual browser movement measurement pending. |
+| 6. Turn to face camera on arrival | **YES at Renaissance arrival · VERIFIED** | [Arrival picture](../../../evidence/review-round-6/02-warm-haze-and-arrival.jpg). Release the crossing key, let arrival finish; the visitor turns to the lens. |
+| 7. Impressionist entry beside fireplace and re-hung B | In progress | To be walked, not inferred from the plan. |
+| 8. Small-room follow camera outside visitor's head | In progress | Follow view still to test. |
 
 ## Coverage and timing
 
