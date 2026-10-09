@@ -1,3 +1,110 @@
+# Update, 8 Oct night: the other rooms under the warm rule (`feat/room-lighting-274b`)
+
+This section is the current one. The section under it ("Update, 8 Oct evening") describes the
+rule and the medieval room and still holds; its list of unjudged rooms is superseded here.
+
+## What was wrong, looking at the live build's views (`cef5a26e`, 130 views)
+
+1. In every room with a dense hang the fill had been left at a quarter of its base (the
+   `SPILL` floor) and then trimmed down again for the afternoon's near-white rule: 0.2 to 0.35
+   a lamp against spots of 6 to 9. The walls were lit by the spots and by bounce off the oak,
+   both orange, so a pale grey-green wall read peach from end to end and the pools had nothing
+   to stand out from. European gallery, wall away from works: 111,90,67.
+2. The Skylight Gallery's landing, treads and reveal floor are painted `25272a`. Under the
+   room's lamps that read 5 to 24 of 255: a hole where the visitor stands.
+3. The Impressionist galleries' walls between pools read 48 and 72: grey and dim.
+
+## What changed (three bakes, each on the RTX: 42 s, 39 s, 39 s)
+
+| Room | `FILL_TRIM` before | after | Paint |
+| --- | --- | --- | --- |
+| European (adjacent) gallery | 0.82 | 2.8 | wall `dfe3dd` to `cddddb`, a step cooler, so that under the warm light it still reads grey-green |
+| Skylight Gallery | 1 | 3.0 | landing, treads, nosings `25272a` to `3d3f43` (`TREAD` in `skylight_additions.gd`) |
+| Skylight Gallery reveal threshold | 1 | 3.0 | its floor, the same |
+| Impressionist gallery A | 1 | 2.5 | |
+| Impressionist gallery B | 1 | 1.8 | |
+| Impressionist passage, passage return | 1 | 1.5 | |
+| Rockefeller | 0.75 | 1.5 | |
+| Rockefeller reveal threshold | 1.5 | 1.0 | its floor rose with the European gallery's fill beside it |
+| grey French gallery | 0.5 | 2.0 | |
+| light Renaissance room | 0.95 | 2.5 | |
+| modern painting gallery | 0.86 | 3.0 | |
+
+No lamp's aim, colour or strength changed; no constant of the rule changed; the dark medieval
+room's numbers are untouched (its readings moved by one count: 99 to 100 on the floor).
+
+## The light pass, before (`cef5a26e`, live) and after (this branch), 0 to 255
+
+| Room | | Floor | Wall beside works | Wall away from works | Skirting | Works |
+| --- | --- | --- | --- | --- | --- | --- |
+| Rockefeller | before | 180,126,69 (134) | 142,111,79 (116) | - | - | 119 |
+|  | after | 198,142,80 (150) | 148,118,86 (122) | - | - | 121 |
+| adjacent gallery | before | 152,103,53 (109) | 196,153,105 (159) | 111,90,67 (93) | 148,119,88 (122) | 130 |
+|  | after | 198,144,81 (151) | 204,176,134 (179) | 140,129,106 (129) | 180,153,123 (157) | 132 |
+| light Renaissance room | before | 151,102,52 (109) | 189,147,100 (153) | - | 133,102,74 (107) | 100 |
+|  | after | 194,139,76 (146) | 200,164,118 (168) | - | 163,132,101 (136) | 101 |
+| dark medieval room | before | 126,95,59 (99) | 92,73,59 (76) | 37,35,37 (36) | 96,73,54 (77) | 108 |
+|  | after | 127,96,60 (100) | 92,73,60 (76) | 38,35,37 (36) | 97,73,55 (77) | 108 |
+| lion stair landing | before | 149,131,110 (134) | 150,131,109 (133) | 114,106,94 (107) | 115,105,90 (106) | 128 |
+|  | after | 150,132,110 (134) | 150,131,110 (134) | 122,114,100 (115) | 118,107,92 (108) | 128 |
+| purple elevator-5 connector | before | 181,130,72 (136) | - | 82,70,67 (72) | 69,57,55 (59) | - |
+|  | after | 191,138,76 (145) | - | 84,71,69 (74) | 70,58,57 (60) | - |
+| grey French gallery | before | 153,111,66 (117) | 102,83,63 (85) | - | 145,115,88 (120) | 106 |
+|  | after | 186,138,84 (145) | 120,101,79 (103) | - | 171,141,112 (146) | 111 |
+| marble stair hall | before | 130,114,97 (116) | - | 50,47,44 (48) | 126,111,94 (113) | 83 |
+|  | after | 134,118,100 (120) | - | 51,48,44 (49) | 133,117,99 (119) | 85 |
+| Skylight Gallery | before | 83,74,66 (75) | 183,155,134 (159) | 135,126,121 (127) | 113,108,100 (108) | 165 |
+|  | after | 99,89,81 (90) | 201,174,155 (178) | 162,152,147 (154) | 130,127,119 (127) | 174 |
+| modern painting gallery | before | 129,86,42 (92) | 175,139,98 (144) | - | 146,111,81 (116) | 106 |
+|  | after | 182,129,70 (136) | 204,171,132 (175) | - | 192,157,125 (162) | 107 |
+| white sculpture gallery threshold study limit | before | 138,107,66 (111) | - | 123,115,100 (115) | 122,107,91 (109) | - |
+|  | after | 138,107,66 (111) | - | 124,115,100 (116) | 122,107,91 (109) | - |
+| Impressionist gallery B | before | 143,99,51 (105) | 170,131,94 (137) | 81,70,60 (72) | 124,102,80 (105) | 126 |
+|  | after | 178,126,67 (133) | 185,147,110 (152) | 102,89,76 (91) | 150,125,102 (129) | 127 |
+| Impressionist passage | before | 125,90,48 (94) | - | 88,79,68 (80) | 85,75,64 (76) | - |
+|  | after | 147,107,58 (112) | - | 105,93,80 (94) | 100,88,74 (90) | - |
+| Impressionist gallery A | before | 134,92,47 (98) | 167,128,91 (134) | 54,46,39 (48) | 119,95,74 (99) | 95 |
+|  | after | 186,133,73 (140) | 189,151,115 (157) | 75,65,55 (67) | 155,129,104 (133) | 95 |
+| Impressionist passage return | before | 128,93,50 (97) | - | 101,91,77 (92) | 110,96,80 (98) | - |
+|  | after | 156,114,63 (119) | - | 122,108,92 (110) | 131,114,95 (116) | - |
+| Grand Gallery reveal threshold | before | 159,118,66 (123) | - | 132,119,104 (121) | 133,115,96 (118) | - |
+|  | after | 178,133,74 (138) | - | 142,127,111 (129) | 146,126,105 (128) | - |
+| Rockefeller reveal threshold | before | 155,113,60 (118) | - | 153,128,103 (131) | 142,114,88 (118) | - |
+|  | after | 184,136,75 (142) | - | 173,146,117 (150) | 164,136,105 (140) | - |
+| Skylight Gallery reveal threshold | before | 36,30,26 (31) | - | 156,135,115 (138) | 137,119,102 (121) | - |
+|  | after | 68,61,55 (62) | - | 202,180,156 (183) | 166,148,129 (150) | - |
+
+Wall beside works over wall away from works: European gallery 1.71 to 1.39 (the wall away rose
+from 93 to 129 and turned from peach to grey-green, so the pool now differs in colour as well
+as level); Impressionist A 2.8 to 2.3; Impressionist B 1.9 to 1.7; Skylight Gallery 1.25 to 1.16.
+
+Sheets, before on top, the same five cameras: `7-` to `19-…-before-after.jpg` in this folder.
+
+## Looked at and left alone
+
+- Lion stair landing: the lion has a strong pool, walls and floor read 108 to 134. Nothing to fix.
+- Marble stair hall: walls cream, floor 120, the fireplace in its pool. Its "wall away from
+  works" of 48 is six samples that land on the dark cut-wall slabs, which are another branch's.
+- Dark medieval room: judged by the owner's words on the earlier branch; not touched.
+- Purple connector, white sculpture stub, Grand Gallery reveal threshold: read 111 to 145 on the
+  floor; left.
+
+## Not solved
+
+1. Rockefeller's walls still read olive-brown (148,118,86 beside works) where the paint is a
+   pale blue-green. Its works stand in cases in the middle of the room, so no spot lights a
+   wall, and the fill points down: at trim 3.0 the floor bleached (176) while the wall only
+   reached 133. It needs light aimed at the walls, which the rule does not have; a trim cannot
+   do it. Floor now 150.
+2. The grey French gallery's walls read warm cream (120,101,79), the paint being a warm white.
+   Pools are visible on every picture; whether that is too peach is the owner's call.
+3. Skylight Gallery: treads read about 40, but risers in shadow and the balusters' ironwork are
+   still under 25 (14 to 20% of the stair in three views), and the piano is black, as it is.
+4. Black window panes in the Impressionist galleries and the cut-wall faces: another branch.
+5. Ceilings were not judged. The Web export was not run.
+
+---
+
 # Update, 8 Oct evening: the warm rule, and what the day's bake trouble was
 
 Everything below this heading supersedes the lamp colours, levels and bake times in the

@@ -163,9 +163,20 @@ surface a player sees at black.
    never by matching the footage's raw pixels: its white balance is the camera's. The floor's
    honey is in the oak's own tone (`OAK_TONE`).
 5. **Daylight** only where the footage has a window: the `DAYLIGHT` list.
-6. **What is measured, not derived.** How much a room's spots light its floor depends on its
-   furniture and its walls, so after a bake the light pass's numbers set that room's entry in
-   `FILL_TRIM`. A new room starts at 1; bake, read, trim, bake again.
+6. **What is measured, not derived.** How much a room's spots light its floor and walls depends
+   on its furniture and how dense its hang is, so after a bake the light pass's numbers set that
+   room's entry in `FILL_TRIM`. A new room starts at 1; bake, read, trim, bake again. Aim: floor
+   130 to 155 of 255 (the Hall's is 144), the wall beside a work clearly over the wall away
+   from it (1.4 to 2.3 times in the galleries; 1.2 in the Skylight Gallery, a white room under
+   laylights), and the wall away from works still its paint's colour. A dense hang needs a
+   trim of 2 to 3: its spots and the oak's bounce are orange, and with the fill left at a
+   quarter the whole wall goes peach and the pools vanish into it. If the wall still reads
+   orange at a floor of 150, cool that room's paint a step in `WALL_PAINT` (the European
+   gallery's is `cddddb` for that reason) rather than raising the fill further.
+7. **Nothing a visitor walks on is painted black.** Under these lamps a paint of `25272a` reads
+   5 of 255. The Skylight Gallery's landing, treads and reveal floor are `3d3f43` (`TREAD` in
+   `skylight_additions.gd`): still the footage's dark stair: the landing reads 60 on screen and the
+   treads about 40; risers in shadow and the balusters' iron stay under 25.
 
 **The bake runs on the GPU.** `scripts/rebuild_rooms.sh` bakes in the Windows build of Godot
 on the host's NVIDIA driver (about 20 s for 139 lamps); check that it prints "bake on the

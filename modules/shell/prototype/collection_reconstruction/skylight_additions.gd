@@ -20,6 +20,7 @@ const WORKS := [
 ]
 const YAW := {"north": 0.0, "south": PI, "west": PI / 2, "east": -PI / 2}
 const LOWER := -2.55
+const TREAD := "3d3f43" # landing, treads and the reveal floor (#274)
 const RAIL := .90
 # Blank labels: local horizontal offset from the canvas centre, then height
 # above the lower oak floor. Canvas-plane checks in NOTES.md / label-check.json.
@@ -112,6 +113,9 @@ func _levels(room, b: Array, grey: Material, white: Material) -> void:
 	var plan: Dictionary = JSON.parse_string(FileAccess.get_file_as_string("res://geometry.json")).skylight_walk
 	var landing: Array = plan.landing
 	var iron: Material = room.look(Color("25272a"))
+	# #274: what the visitor walks on is the footage's black lifted to charcoal, so that under the
+	# room's lamps the landing and treads read as a dark stair and not as a hole (5 of 255 at 25272a).
+	var tread: Material = room.look(Color(TREAD))
 	# Replace only this room's flat visual boards. Collision already comes from
 	# its lower floor / landing / ramp patches; the neighbouring reveal stays level.
 	var oak: ShaderMaterial
@@ -189,7 +193,7 @@ func _levels(room, b: Array, grey: Material, white: Material) -> void:
 			continue
 		var a: Array = patch.vertices[0]
 		var c: Array = patch.vertices[2]
-		var slab: MeshInstance3D = room.solid(Vector3((a[0] + c[0]) / 2, a[1] - .09, (a[2] + c[2]) / 2), Vector3(absf(c[0] - a[0]), .18, absf(c[2] - a[2])), iron)
+		var slab: MeshInstance3D = room.solid(Vector3((a[0] + c[0]) / 2, a[1] - .09, (a[2] + c[2]) / 2), Vector3(absf(c[0] - a[0]), .18, absf(c[2] - a[2])), tread)
 		slab.set_meta("skylight_landing", patch.label)
 	for f in flights.size():
 		var flight: Array = flights[f]
@@ -204,13 +208,13 @@ func _levels(room, b: Array, grey: Material, white: Material) -> void:
 				# IMG_6379 72 / 79.5 / 132s: the first step curls around the cage newel.
 				outline = _rounded_rectangle(Vector2(p.x - size.x / 2 - .10, p.z - size.z / 2), Vector2(size.x + .10, size.z + .15), .14)
 			_prism(st, outline, p.y - .09, p.y + .09)
-			var step: MeshInstance3D = _mesh(room, st, iron, "skylight_stair_tread")
+			var step: MeshInstance3D = _mesh(room, st, tread, "skylight_stair_tread")
 			step.set_meta("skylight_stair_tread", true)
 			var nose := _surface()
 			var start: Vector3 = p - flight[1] * (going / 2) - flight[2] * (flight[4] / 2)
 			start.y = p.y + .082
 			_tube(nose, PackedVector3Array([start, start + flight[2] * flight[4]]), .012, 8)
-			_mesh(room, nose, iron, "skylight_step_nosing")
+			_mesh(room, nose, tread, "skylight_step_nosing")
 			# Pale vertical riser / stringer outside the black walking surface.
 			var edge: Vector3 = p + flight[2] * (flight[4] / 2 + .005) - Vector3.UP * .12
 			room.solid(edge, Vector3(going + .018, .24, .045) if flight[1].x != 0 else Vector3(.045, .24, going + .018), white)
@@ -544,7 +548,7 @@ func _entry_floor(room) -> void:
 			var reach: AABB = child.mesh.get_aabb()
 			if reach.position.y > -.01 and reach.end.y < .02 and reach.position.x >= b[0] - .01 and reach.end.x <= b[1] + .01 and reach.position.z >= b[2] - .01 and reach.end.z <= b[3] + .01:
 				child.free()
-	var floor: MeshInstance3D = room.solid(Vector3((b[0] + b[1]) / 2, -.017, (b[2] + b[3]) / 2), Vector3(b[1] - b[0], .04, b[3] - b[2]), room.look(Color("25272a")))
+	var floor: MeshInstance3D = room.solid(Vector3((b[0] + b[1]) / 2, -.017, (b[2] + b[3]) / 2), Vector3(b[1] - b[0], .04, b[3] - b[2]), room.look(Color(TREAD)))
 	floor.set_meta("skylight_landing", REVEAL)
 
 
